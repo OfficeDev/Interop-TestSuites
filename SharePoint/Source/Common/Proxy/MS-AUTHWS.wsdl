@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="username" type="s:string" />
+            <s:element minOccurs="0" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="LoginResult" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginResult">
+        <s:sequence>
+          <s:element minOccurs="0" name="CookieName" type="s:string" />
+          <s:element name="ErrorCode" type="tns:LoginErrorCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeoutSeconds" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LoginErrorCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoError" />
+          <s:enumeration value="NotInFormsAuthenticationMode" />
+          <s:enumeration value="PasswordNotMatch" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Mode">
+        <s:complexType />
+      </s:element>
+      <s:element name="ModeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="ModeResult" type="tns:AuthenticationMode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AuthenticationMode">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Windows" />
+          <s:enumeration value="Passport" />
+          <s:enumeration value="Forms" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModeSoapIn">
+    <wsdl:part name="parameters" element="tns:Mode" />
+  </wsdl:message>
+  <wsdl:message name="ModeSoapOut">
+    <wsdl:part name="parameters" element="tns:ModeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenticationSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Mode">
+      <wsdl:input message="tns:ModeSoapIn" />
+      <wsdl:output message="tns:ModeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticationSoap" type="tns:AuthenticationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mode">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/Mode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenticationSoap12" type="tns:AuthenticationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mode">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/Mode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

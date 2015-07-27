@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The TargetServiceUrl property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/sharedaccess.asmx" />
+    <!-- The SiteCollectionName property specifies the name of the site collection which is used by the test suite. -->
+    <Property name="SiteCollectionName" value="MS-SHDACCWS_SiteCollection"/>
+    <!-- The FileIdOfLock property specifies the file ID of a file uploaded to the SharePoint site, which is applied with an exclusive lock. The value should be a valid GUID value of the file "MSSHDACCWS_LockedTestData.txt" if the setup script is used to configure the test suite client and the SUT. This GUID value is automatically updated by the setup scripts."-->
+    <Property name="FileIdOfLock" value="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" />
+    <!-- The FileIdOfCoAuthoring property specifies the file ID of a file uploaded to the SharePoint site, which is applied with a coauthoring request.The value should be a valid GUID value of the file "MSSHDACCWS_CoStatusTestData.txt" if the setup script is used to configure the test suite client and the SUT. This GUID value is automatically updated by the setup scripts."-->
+    <Property name="FileIdOfCoAuthoring" value="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" />
+    <!-- The FileIdOfNormal property specifies the file ID of a file uploaded to the SharePoint site without any other locks or coauthoring status. The value should be a valid GUID value of the file "MSSHDACCWS_TestData.txt" if the setup script is used to configure the test suite client and the SUT. This GUID value is automatically updated by the setup scripts."-->
+    <Property name="FileIdOfNormal" value="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" />
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The ServiceTimeOut property specifies the wait time (in minutes) that the synchronous XML Web service request waits for the MS-SHDACCWS web service to respond.-->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

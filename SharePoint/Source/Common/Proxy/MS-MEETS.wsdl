@@ -1,0 +1,704 @@
+﻿<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                    xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/meetings/"
+                    xmlns:s="http://www.w3.org/2001/XMLSchema"
+                    xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                    xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                    targetNamespace="http://schemas.microsoft.com/sharepoint/soap/meetings/"
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" 
+              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+              xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/meetings/"
+              xmlns:s="http://www.w3.org/2001/XMLSchema"
+              xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+              xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+              targetNamespace="http://schemas.microsoft.com/sharepoint/soap/meetings/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:simpleType name="CaseInsensitiveTrueFalse">
+        <s:restriction base="s:string">
+          <s:pattern value="[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CaseInsensitiveTrueFalseOrEmpty">
+        <s:restriction base="s:string">
+          <s:pattern value="([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])?"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="UnsignedIntOrEmpty">
+        <s:union memberTypes="s:int tns:Empty"/>
+      </s:simpleType>
+      <s:simpleType name="Empty">
+        <s:restriction base="s:string">
+          <s:maxLength value="0"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="CreateWorkspace">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="templateName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lcid" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="timeZoneInformation" type="tns:TimeZoneInf" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TimeZoneInf">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="bias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="standardDate" type="tns:SysTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="standardBias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="daylightDate" type="tns:SysTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="daylightBias" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SysTime">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="year" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="month" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="dayOfWeek" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="day" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="hour" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="minute" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="second" type="s:unsignedShort" />
+          <s:element minOccurs="1" maxOccurs="1" name="milliseconds" type="s:unsignedShort" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateWorkspaceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="CreateWorkspaceResult" minOccurs="0">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="CreateWorkspace"
+                    type="tns:CreateWorkspace" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CreateWorkspace">
+        <s:attribute name="Url" type="s:string" />
+      </s:complexType>
+      <s:element name="DeleteWorkspace">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteWorkspaceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMeetingWorkspaces">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recurring" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeetingWorkspacesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMeetingWorkspacesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="MeetingWorkspaces" minOccurs="0">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="unbounded" name="Workspace" type="tns:Workspace" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Workspace">
+        <s:attribute name="Url" type="s:string" />
+        <s:attribute name="Title" type="s:string" />
+      </s:complexType>
+      <s:element name="SetWorkspaceTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetWorkspaceTitleResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddMeetingFromICal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="organizerEmail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="icalText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMeetingFromICalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMeetingFromICalResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="AddMeetingFromICal" type="tns:AddMeetingFromICal" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddMeetingFromICal">
+        <s:complexContent>
+          <s:extension base="tns:AddMeeting">
+            <s:sequence>
+              <s:element name="AttendeeUpdateStatus" type="tns:AttendeeUpdateStatus" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AddMeeting">
+        <s:attribute name="Url" type="s:string" />
+        <s:attribute name="HostTitle" type="s:string" />
+        <s:attribute name="UniquePermissions" type="s:boolean" />
+        <s:attribute name="MeetingCount" type="s:int" />
+        <s:attribute name="AnonymousAccess" type="s:boolean" />
+        <s:attribute name="AllowAuthenticatedUsers" type="s:boolean" />
+      </s:complexType>
+      <s:complexType name="AttendeeUpdateStatus">
+        <s:attribute name="Code" type="s:int" />
+        <s:attribute name="Detail" type="s:string" />
+        <s:attribute name="ManageUserPage" type="s:string" />
+      </s:complexType>
+      <s:element name="AddMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="organizerEmail" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequence" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="utcDateStamp" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="utcDateStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="utcDateEnd" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="nonGregorian" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMeetingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddMeetingResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="AddMeeting" type="tns:AddMeeting" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeetingFromICal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="icalText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ignoreAttendees" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeetingFromICalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateMeetingFromICalResult" minOccurs="0">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="UpdateMeetingFromICal">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="AttendeeUpdateStatus" type="tns:AttendeeUpdateStatus"/>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequence" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="utcDateStamp" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="utcDateStart" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="utcDateEnd" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="nonGregorian" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMeetingResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RemoveMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recurrenceId" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequence" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="utcDateStamp" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelMeeting" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveMeetingResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetAttendeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="attendeeEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="recurrenceId" type="s:unsignedInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sequence" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="utcDateTimeOrganizerCriticalChange" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="utcDateTimeAttendeeCriticalChange" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="response" type="tns:AttendeeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AttendeeResponse">
+        <s:restriction base="s:string">
+          <s:enumeration value="responseAccepted" />
+          <s:enumeration value="responseTentative" />
+          <s:enumeration value="responseDeclined" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SetAttendeeResponseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMeetingsInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestFlags" type="s:unsignedInt" />
+            <s:element minOccurs="0" maxOccurs="1" name="lcid" type="s:unsignedInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMeetingsInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMeetingsInformationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="MeetingsInformation">
+                    <s:complexType mixed="true">
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="AllowCreate" type="tns:CaseInsensitiveTrueFalse" />
+                        <s:element name="ListTemplateLanguages" minOccurs="0">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="LCID" type="s:string" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="ListTemplates" minOccurs="0">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element minOccurs="0" maxOccurs="unbounded" name="Template" type="tns:Template" />
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element minOccurs="0" maxOccurs="1" name="WorkspaceStatus" type="tns:WorkspaceStatus" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Template">
+        <s:attribute name="Name" type="s:string" />
+        <s:attribute name="Title" type="s:string" />
+        <s:attribute name="Id" type="s:int" />
+        <s:attribute name="Description" type="s:string" />
+        <s:attribute name="ImageUrl" type="s:string" />
+      </s:complexType>
+      <s:complexType name="WorkspaceStatus">
+        <s:attribute name="UniquePermissions" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
+        <s:attribute name="MeetingCount" type="tns:UnsignedIntOrEmpty" />
+        <s:attribute name="AnonymousAccess" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
+        <s:attribute name="AllowAuthenticatedUsers" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
+      </s:complexType>
+      <s:element name="RestoreMeeting">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreMeetingResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <!--The detail element's schema which defined in section 2.2.3.1 does not include in full wsdl, merge it here. -->
+    <s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/">
+    <s:element name="detail">
+      <s:complexType>
+        <s:sequence>
+          <s:element name="errorstring" type="s:string" minOccurs="1" maxOccurs="1"/>
+          <s:element name="errorcode" type="s:string" minOccurs="0" maxOccurs="1"/>
+        </s:sequence>
+      </s:complexType>
+    </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateWorkspaceSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWorkspace" />
+  </wsdl:message>
+  <wsdl:message name="CreateWorkspaceSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWorkspaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWorkspaceSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteWorkspace" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWorkspaceSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteWorkspaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMeetingWorkspacesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMeetingWorkspaces" />
+  </wsdl:message>
+  <wsdl:message name="GetMeetingWorkspacesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMeetingWorkspacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetWorkspaceTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:SetWorkspaceTitle" />
+  </wsdl:message>
+  <wsdl:message name="SetWorkspaceTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:SetWorkspaceTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMeetingFromICalSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMeetingFromICal" />
+  </wsdl:message>
+  <wsdl:message name="AddMeetingFromICalSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMeetingFromICalResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMeeting" />
+  </wsdl:message>
+  <wsdl:message name="AddMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingFromICalSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMeetingFromICal" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingFromICalSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMeetingFromICalResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMeeting" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveMeeting" />
+  </wsdl:message>
+  <wsdl:message name="RemoveMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveMeetingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAttendeeResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:SetAttendeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetAttendeeResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:SetAttendeeResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMeetingsInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMeetingsInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetMeetingsInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMeetingsInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreMeetingSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreMeeting" />
+  </wsdl:message>
+  <wsdl:message name="RestoreMeetingSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreMeetingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MeetingsSoap">
+    <wsdl:operation name="CreateWorkspace">
+      <wsdl:input message="tns:CreateWorkspaceSoapIn" />
+      <wsdl:output message="tns:CreateWorkspaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkspace">
+      <wsdl:input message="tns:DeleteWorkspaceSoapIn" />
+      <wsdl:output message="tns:DeleteWorkspaceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingWorkspaces">
+      <wsdl:input message="tns:GetMeetingWorkspacesSoapIn" />
+      <wsdl:output message="tns:GetMeetingWorkspacesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetWorkspaceTitle">
+      <wsdl:input message="tns:SetWorkspaceTitleSoapIn" />
+      <wsdl:output message="tns:SetWorkspaceTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMeetingFromICal">
+      <wsdl:input message="tns:AddMeetingFromICalSoapIn" />
+      <wsdl:output message="tns:AddMeetingFromICalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMeeting">
+      <wsdl:input message="tns:AddMeetingSoapIn" />
+      <wsdl:output message="tns:AddMeetingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeetingFromICal">
+      <wsdl:input message="tns:UpdateMeetingFromICalSoapIn" />
+      <wsdl:output message="tns:UpdateMeetingFromICalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <wsdl:input message="tns:UpdateMeetingSoapIn" />
+      <wsdl:output message="tns:UpdateMeetingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMeeting">
+      <wsdl:input message="tns:RemoveMeetingSoapIn" />
+      <wsdl:output message="tns:RemoveMeetingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAttendeeResponse">
+      <wsdl:input message="tns:SetAttendeeResponseSoapIn" />
+      <wsdl:output message="tns:SetAttendeeResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingsInformation">
+      <wsdl:input message="tns:GetMeetingsInformationSoapIn" />
+      <wsdl:output message="tns:GetMeetingsInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreMeeting">
+      <wsdl:input message="tns:RestoreMeetingSoapIn" />
+      <wsdl:output message="tns:RestoreMeetingSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MeetingsSoap" type="tns:MeetingsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateWorkspace">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/CreateWorkspace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkspace">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/DeleteWorkspace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingWorkspaces">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWorkspaceTitle">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/SetWorkspaceTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMeetingFromICal">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeetingFromICal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMeeting">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeetingFromICal">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMeeting">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAttendeeResponse">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingsInformation">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreMeeting">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/RestoreMeeting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeetingsSoap12" type="tns:MeetingsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateWorkspace">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/CreateWorkspace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkspace">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/DeleteWorkspace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingWorkspaces">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetWorkspaceTitle">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/SetWorkspaceTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMeetingFromICal">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeetingFromICal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMeeting">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeetingFromICal">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMeeting">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveMeeting">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAttendeeResponse">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMeetingsInformation">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreMeeting">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/meetings/RestoreMeeting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

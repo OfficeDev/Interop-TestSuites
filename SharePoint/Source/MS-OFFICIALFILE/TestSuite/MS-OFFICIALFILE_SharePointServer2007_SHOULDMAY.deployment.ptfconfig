@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set the value of the property MS-OFFICIALFILE_Supported to true to indicate that the SUT supports the MS-OFFICIALFILE protocol. Otherwise set the value to false. -->
+    <Property name="MS-OFFICIALFILE_Supported" value="true" />
+    <!-- Set R301Enabled to true to indicate that the SharePoint server 2007 supported SOAP over HTTPS for securing communication with protocol clients supported. R301Enabled to false to disable this requirement. -->
+    <Property name="R301Enabled" value="true" />
+    <!-- Set R3702Enabled to true to indicate that the SharePoint server 2007  does not include RoutingWeb element. <4> Section 2.2.4.4:. R3702Enabled to false to disable this requirement. -->
+    <Property name="R3702Enabled" value="true" />
+    
+    <!-- Set R1031Enabled to true to indicate that the SharePoint 2007 server include RoutingWeb element. R1031Enabled to false to disable this requirement. -->
+    <Property name="R1031Enabled" value="false"/>
+    <!-- Set R353Enabled to true to indicate that the SharePoint 2007 server provide this method [GetFinalRoutingDestinationFolderUrl]. . R353Enabled to false to disable this requirement. -->
+    <Property name="R353Enabled" value="false"/>
+    <!-- Set R354Enabled to true to indicate that the SharePoint 2007 server provide this method [GetHoldsInfo]. . R354Enabled to false to disable this requirement. -->
+    <Property name="R354Enabled" value="false"/>   
+    
+    <!-- Set R268Enabled to true to indicate that the SharePoint 2007 server returns "Microsoft.Office.Server" as the ServerType and "Microsoft.Office.OfficialFileSoap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.. R268Enabled to false to disable this requirement. -->
+    <Property name="R268Enabled" value="true"/>
+    <!-- Set R269Enabled to true to indicate that the SharePoint 2007 server returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R269Enabled to false to disable this requirement. -->
+    <Property name="R269Enabled" value="false"/>
+    <!-- Set R357Enabled to true to indicate that the SharePoint 2007 server returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R357Enabled to true to enable this requirement. -->
+    <Property name="R357Enabled" value="false"/> 
+    
+    <!-- Set R1045Enabled to true to indicate that the SharePoint 2007 server does not include the CustomProcessingResult element. R1045Enabled to true to enable this requirement. -->
+    <Property name="R1045Enabled" value="true"/>
+
+    <!-- Set R1046Enabled to true to indicate that the SharePoint 2007 server does not set the CustomProcessingResult element if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. [<11> Section 3.1.4.6:] The CustomProcessingResult element is not set if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. ] R1046Enabled to true to enable this requirement. -->
+    <Property name="R1046Enabled" value="false"/>
+    
+    <!-- Set R1047Enabled to true to indicate that the SharePoint 2007 server does not include the CustomProcessingResult element. <12> Section 3.1.4.6:. R1047Enabled to true to enable this requirement. -->
+    <Property name="R1047Enabled" value="true"/>
+
+    <!-- Set R1066Enabled to true to indicate that the SharePoint 2007 server set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. <13> Section 3.1.4.6:. R1066Enabled to true to enable this requirement. -->
+    <Property name="R1066Enabled" value="true"/>
+    <!-- Set R1067Enabled to false to indicate that the SharePoint 2007 server doesn't set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. Set R1067Enabled to true to enable this requirement. -->
+    <Property name="R1067Enabled" value="false"/>
+
+    <!-- Set R1049Enabled to true to indicate that the SharePoint 2007 server  does not include the CustomProcessingResult element. <14> Section 3.1.4.6:. R1049Enabled to true to enable this requirement. -->
+    <Property name="R1049Enabled" value="true"/>
+    <!-- Set R215001Enabled to true to indicate that the SharePoint 2007 server include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Success. R215001Enabled to true to enable this requirement. -->
+    <Property name="R215001Enabled" value="false"/>
+    <!-- Set R1050Enabled to true to indicate that the SharePoint 2007 server  does not include the CustomProcessingResult element. <15> Section 3.1.4.6:. R1050Enabled to true to enable this requirement. -->
+    <Property name="R1050Enabled" value="true"/>
+    <!-- Set R362Enabled to true to indicate that the SharePoint 2007 server GetRecordingRouting is not deprecated and can be called. Set R362Enabled to false to disable this requirement. -->
+    <Property name="R362Enabled" value="true"/>
+    <!-- Set R364Enabled to true to indicate that the SharePoint 2007 server  GetRecordingRoutingCollection is not deprecated and can be called. Set R364Enabled to true to enable this requirement. -->
+    <Property name="R364Enabled" value="true"/>
+
+    <!-- Set R203Enabled to false to indicate that the SharePoint 2007 server does not response Moreinformation code when there is no applicable rule. Set R203Enabled to true to enable this requirement. -->
+    <Property name="R203Enabled" value="false"/>
+    <!-- Set R204Enabled to false to indicate that the SharePoint 2007 server does not response ResultUrl when there is no applicable rule. Set R204Enabled to true to enable this requirement. -->
+    <Property name="R204Enabled" value="false"/>
+    <!-- Set R2081Enabled to false to indicate that the SharePoint 2007 server does not response Moreinformation code when the required properties are not present. Set R2081Enabled to true to enable this requirement. -->
+    <Property name="R2081Enabled" value="false"/>
+    <!-- Set R2082Enabled to false to indicate that the SharePoint 2007 server does not response ResultUrl when the required properties are not present. Set R2082Enabled to true to enable this requirement. -->
+    <Property name="R2082Enabled" value="false"/>
+    <!-- Set R201Enabled to false to indicate that the SharePoint 2007 server cannot be configured to disable the record routing. Set R201Enabled to true to enable this requirement. -->
+    <Property name="R201Enabled" value="false"/>
+  </Properties>
+</TestSite>

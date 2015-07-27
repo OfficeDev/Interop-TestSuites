@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+      <!--The NormalUserEssdn property is a string that contains the distinguished name (DN) of the user specified in the NormalUserName property. On the Windows platform, the value of the NormalUserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+      <Property name="NormalUserEssdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXCRPCTestUser01" />
+      <!--The NormalUserName property specifies a username which can be used by a client to access the mailbox. -->
+      <Property name="NormalUserName" value="MSOXCRPC_TestUser01" />
+      <!--The NormalUserPassword property specifies the password for the user specified in the NormalUserName property. The property value is case-sensitive. -->
+      <Property name="NormalUserPassword" value="Password01!" />
+      <!--The AdminUserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have the required permissions to perform administrative tasks. -->
+      <Property name="AdminUserName" value="MSOXCRPC_TestUser" />
+      <!--The AdminUserPassword property specifies the password for the user specified in the AdminUserName property. The property value is case-sensitive. -->
+      <Property name="AdminUserPassword" value="Password01!" />
+      <!--The AdminUserEssdn property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. On the Windows platform, the value of the AdminUserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+      <Property name="AdminUserEssdn" value="/o=CONTOSO/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXCRPC_TestUser" />
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+      <!--The WriteStreamCount property is an integer that indicates the count of the RopWriteStream request buffers sent to the server. This property value should be larger than 160 in order to make the payload exceed 32 KB in size. -->
+      <Property name="WriteStreamCount" value="200"/>
+      <!--The MaxWaitTime property is an integer that indicates the maximum wait time (in seconds) to complete the EcDoAsyncWaitEx method. -->
+      <Property name="MaxWaitTime" value="1200" />
+      <!--The ReceiveTimeout property is an integer that indicates the maximum number of milliseconds to wait until a push notification is received. -->
+      <Property name="ReceiveTimeout" value="60000"/>
+      <!--The NotificationPort property is a short integer that indicates a port number used by the notification callback address. Note that the port number should be different than the one in the MS-OXCNOTIF test suite, if the plan is to run both MS-OXCNOTIF and MS-OXCRPC test suites together. -->
+      <Property name="NotificationPort" value="8888"/>
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

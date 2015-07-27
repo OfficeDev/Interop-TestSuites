@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The SiteCollectionName property specifies the name of the site collection used by this test suite. -->
+    <Property name="SiteCollectionName" value="MSofficialfile_SiteCollection"/>
+
+    <!-- The EnableContentOrganizerRecordsCenterSite property specifies a fully qualified URL of a site. The site should satisfy the following conditions:
+          1) The site type is Records Center.
+          2) The Content Organizer feature is enabled.
+          3) The Document Parsing feature is disabled. 
+          4) Use AppendUniqueSuffix to resolve conflicts.-->
+    <Property name="EnableContentOrganizerRecordsCenterSite" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/RecordsCenterEnableRouting"/>
+
+    <!-- The DisableContentOrganizerRecordsCenterSite property specifies the fully qualified URL of a site. The site should satisfy the following conditions:
+          1) The site type is Records Center.
+          2) The Content Organizer feature is disabled. -->
+    <Property name="DisableContentOrganizerRecordsCenterSite" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/RecordsCenterDisableRouting"/>
+
+    <!-- The EnableContentOrganizerDocumentsCenterSite property specifies the fully qualified URL of a site. The site should satisfy the following conditions:
+          1) The site type is Documents Center.
+          2) The Content Organizer feature is enabled.
+          3) The Document Parsing feature is enabled. 
+          4) Use SharePointVersion to resolve conflicts.-->
+    <Property name="EnableContentOrganizerDocumentsCenterSite" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/DocumentsCenterEnableRouting"/>
+
+    <!-- The EnableRoutingFeatureRecordsCenterServiceUrl property specifies the fully qualified URL of the service on the Records Center site. The Content Organizer feature is enabled on the site. -->
+    <Property name="EnableRoutingFeatureRecordsCenterServiceUrl" value="[EnableContentOrganizerRecordsCenterSite]/_vti_bin/officialfile.asmx"/>
+
+    <!-- The DisableRoutingFeatureRecordsCenterServiceUrl property specifies the fully qualified URL of the service on the Records Center site. The Content Organizer feature is disabled on the site. -->
+    <Property name="DisableRoutingFeatureRecordsCenterServiceUrl" value="[DisableContentOrganizerRecordsCenterSite]/_vti_bin/officialfile.asmx"/>
+
+    <!-- The EnableRoutingFeatureDocumentsCenterServiceUrl property specifies the fully qualified URL of the service on the documents center site. The Content Organizer feature is enabled on the site. -->
+    <Property name="EnableRoutingFeatureDocumentsCenterServiceUrl" value="[EnableContentOrganizerDocumentsCenterSite]/_vti_bin/officialfile.asmx"/>
+    
+    <!-- The DefaultLibraryUrl property specifies the fully qualified default library URL in the Records Center site. The Content Organizer feature is disabled on the site. -->
+    <Property name="DefaultLibraryUrl" value="[DisableContentOrganizerRecordsCenterSite]/[DefaultLibraryName]"/>
+
+    <!-- The DocumentLibraryUrlOfAppendUniqueSuffix property specifies the fully qualified document library URL in the Records Center site. The Content Organizer feature is enabled on the site. This document library should satisfy the following conditions:
+        1) The destination location for the document type rule routing.
+        2) Append a unique suffix to the end of duplicate filenames when files are being submitted to the document library. -->
+    <Property name="DocumentLibraryUrlOfAppendUniqueSuffix" value="[EnableContentOrganizerRecordsCenterSite]/[DocumentLibraryName]"/>
+
+    <!-- The NoEnforceLibraryUrl property specifies the fully qualified document library URL in the Records Center site. The Content Organizer feature is enabled on the site. This document library should satisfy the following condition:
+        1) No rule routing at the destination location for this library. -->
+    <Property name="NoEnforceLibraryUrl" value="[EnableContentOrganizerRecordsCenterSite]/NoEnforceLibrary"/>
+
+    <!-- The DocumentSetUrl property specifies the fully qualified document set URL in the Records Center site. The Content Organizer feature is enabled on the site. -->
+    <Property name="DocumentSetUrl" value="[EnableContentOrganizerRecordsCenterSite]/DocumentSetLocation/DocumentSet"/>
+
+    <!-- The DocumentLibraryUrlOfSharePointVersion property specifies the fully qualified document library URL in the documents center site. The Content Organizer feature is enabled on the site. This document library should satisfy the following conditions:
+        1) The destination location for the document type rule routing.
+        2) Use SharePoint Versioning for the duplicate filenames when submissions. -->
+    <Property name="DocumentLibraryUrlOfSharePointVersion" value="[EnableContentOrganizerDocumentsCenterSite]/[DocumentLibraryName]"/>
+
+    <!-- The DocumentLibraryName property specifies the name of the storage location where routing content and parsing of file metadata are enabled. This storage location is created in the sites specified in the EnableContentOrganizerRecordsCenterSite and EnableContentOrganizerDocumentsCenterSite properties. -->
+    <Property name="DocumentLibraryName" value="DocumentRuleLocation" />
+
+    <!-- The DefaultLibraryName property specifies the name of the storage location for the submission based on the rules in the repository. This storage location is created in the sites specified in the EnableContentOrganizerRecordsCenterSite, DisableContentOrganizerRecordsCenterSite and EnableContentOrganizerDocumentsCenterSite properties. -->
+    <Property name="DefaultLibraryName" value="Drop Off Library" />
+    
+    <!-- The HoldName property specifies the hold name that is created in the site specified in the EnableContentOrganizerRecordsCenterSite property. -->
+    <Property name="HoldName" value="holds1"/>
+
+    <!-- The HoldUrl property specifies the hold URL that is created in the site specified in the EnableContentOrganizerRecordsCenterSite property. -->
+    <Property name="HoldUrl" value="http://sut03/sites/MSOFFICIALFILE_SiteCollection/RecordsCenterEnableRouting/Lists/Holds/DispForm.aspx?ID=1"/>
+
+    <!-- The HoldId property specifies the hold ID that is created in the site specified in the EnableContentOrganizerRecordsCenterSite property. -->
+    <Property name="HoldId" value="1"/>
+
+    <!-- The HoldSearchQuery property specifies the hold search query that is created in the site specified in the EnableContentOrganizerRecordsCenterSite property. -->
+    <Property name="HoldSearchQuery" value="sut03"/>
+
+    <!-- The HoldSearchContextUrl property specifies the URL of the site where the search query associated with the legal hold was performed. This site is created in the site specified in the EnableContentOrganizerRecordsCenterSite property. In Microsoft products, you have to set the URL of the site where the search query is performed. -->
+    <Property name="HoldSearchContextUrl" value="http://sut03"/>
+    <!-- The SupportedContentTypeName property specifies the content type configured for the routing rule. -->
+    <Property name="SupportedContentTypeName" value="Document"/>
+    <!-- The NotSupportedContentTypeName property specifies the content type not configured for the routing rule. -->
+    <Property name="NotSupportedContentTypeName" value="Picture"/>
+    <!-- The NoRecordsCenterSubmittersPermissionUserName property specifies a username for which the user should only have the Read permission. -->
+    <Property name="NoRecordsCenterSubmittersPermissionUserName" value="MSOFFICIALFILE_Read"/>
+    <!-- The NoRecordsCenterSubmittersPermissionPassword property specifies the password for the user specified in the NoRecordsCenterSubmittersPermissionUserName property. The property value is case-sensitive. -->
+    <Property name="NoRecordsCenterSubmittersPermissionPassword" value="Password01!"/>
+    <!-- SUT section ends. -->
+  </Properties>
+  
+</TestSite>

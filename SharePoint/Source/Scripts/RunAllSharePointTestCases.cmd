@@ -1,0 +1,7 @@
+@echo off
+pushd %~dp0
+
+"%VS120COMNTOOLS%..\IDE\mstest" /testcontainer:..\MS-ADMINS\TestSuite\bin\Debug\MS-ADMINS_TestSuite.dll /testcontainer:..\MS-AUTHWS\TestSuite\bin\Debug\MS-AUTHWS_TestSuite.dll /testcontainer:..\MS-COPYS\TestSuite\bin\Debug\MS-COPYS_TestSuite.dll /testcontainer:..\MS-CPSWS\TestSuite\bin\Debug\MS-CPSWS_TestSuite.dll /testcontainer:..\MS-DWSS\TestSuite\bin\Debug\MS-DWSS_TestSuite.dll /testcontainer:..\MS-LISTSWS\TestSuite\bin\Debug\MS-LISTSWS_TestSuite.dll /testcontainer:..\MS-MEETS\TestSuite\bin\Debug\MS-MEETS_TestSuite.dll /testcontainer:..\MS-OFFICIALFILE\TestSuite\bin\Debug\MS-OFFICIALFILE_TestSuite.dll /testcontainer:..\MS-OUTSPS\TestSuite\bin\Debug\MS-OUTSPS_TestSuite.dll /testcontainer:..\MS-SHDACCWS\TestSuite\bin\Debug\MS-SHDACCWS_TestSuite.dll /testcontainer:..\MS-SITESS\TestSuite\bin\Debug\MS-SITESS_TestSuite.dll /testcontainer:..\MS-VERSS\TestSuite\bin\Debug\MS-VERSS_TestSuite.dll /testcontainer:..\MS-VIEWSS\TestSuite\bin\Debug\MS-VIEWSS_TestSuite.dll /testcontainer:..\MS-WDVMODUU\TestSuite\bin\Debug\MS-WDVMODUU_TestSuite.dll /testcontainer:..\MS-WEBSS\TestSuite\bin\Debug\MS-WEBSS_TestSuite.dll /testcontainer:..\MS-WSSREST\TestSuite\bin\Debug\MS-WSSREST_TestSuite.dll /testcontainer:..\MS-WWSP\TestSuite\bin\Debug\MS-WWSP_TestSuite.dll /runconfig:..\SharePointServerProtocolTestSuites.testsettings
+
+popd
+pause

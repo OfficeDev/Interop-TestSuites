@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The ReaderRoleUser property specifies the name for a user who can login to the server with the Reader role. The user corresponding to the username should have read-only permissions to view items, personalize Web Parts, use alerts, and be able to create a top-level Web site by using self-service site creation. -->
+    <Property name="ReaderRoleUser" value="MSDWSS_ReaderRole" />
+    <!-- The ReaderRoleUserPassword property specifies the password for the user specified in the ReaderRoleUser property. The property value is case-sensitive. -->
+    <Property name="ReaderRoleUserPassword" value="Password01!" />
+    <!-- The NoneRoleUser property specifies the name for a user who can login to the server with the None role. The None role is created by a user, and is not a typical role. -->
+    <Property name="NoneRoleUser" value="MSDWSS_NoneRole" />
+    <!-- The NoneRoleUserPassword property specifies the password for the user specified in the NoneRoleUser property. The property value is case-sensitive. -->
+    <Property name="NoneRoleUserPassword" value="Password01!" />
+    <!-- The RegisteredUsersEmail property specifies an email address of the administrator. -->
+    <Property name="RegisteredUsersEmail" value="administrator@contoso.com" />
+    <!-- The TestDWSSWebSite property sepecifies a site which does not inherit permissions from the parent site. -->
+    <Property name="TestDWSSWebSite" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/MSDWSS_Site/_vti_bin/dws.asmx" />
+    <!-- The InheritPermissionSite property specifies a site that inherits permissions from the parent site. -->
+    <Property name="InheritPermissionSite" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/MSDWSS_InheritPermissionSite/_vti_bin/dws.asmx" />
+    <!-- The TestDWSSSuffix property specifies a suffix for the MS-DWSS web service. -->
+    <Property name="TestDWSSSuffix" value="/_vti_bin/dws.asmx" />
+    <!-- The LISTSSuffix property specifies a suffix for the MS-LISTSWS web service. -->
+    <Property name="LISTSSuffix" value="/_vti_bin/lists.asmx" />
+    <!-- The SiteCollectionName property specifies the name of the site collection which is used by this test suite. -->
+    <Property name="SiteCollectionName" value="MSDWSS_SiteCollection" />
+    <!-- The SiteCollectionWithoutSubSite property specifies a site that does not contain any subsites. -->
+    <Property name="SiteCollectionWithoutSubSite" value="[TransportType]://[SutComputerName]/sites/MSDWSS_SiteCollection_DocumentWorkspace/_vti_bin/dws.asmx" />
+    <!-- The ValidTitle property specifies a site title name. -->
+    <Property name="ValidTitle" value="MSDWSS_TestTitle" />
+    <!-- The ValidDocumentLibraryName property specifies the name of the document library used by the MS-DWSS test suite on the site. -->
+    <Property name="ValidDocumentLibraryName" value="MSDWSS_DocumentLibrary" />
+    <!-- The ValidFolderName property specifies the name of the folder created in the document library used by the MS-DWSS test suite. -->
+    <Property name="ValidFolderName" value="MSDWSS_TestFolder" />
+    <!-- The DocumentsName property specifies the document name which will be uploaded to the site specified in the TestDWSSWebSite property. -->
+    <Property name="DocumentsName" value="MSDWSS_TestData" />
+    <!-- The ValidFolderUrl property specifies a valid relative folder URL. -->
+    <Property name="ValidFolderUrl" value="[ValidDocumentLibraryName]/[ValidFolderName]" />
+    <!-- The ValidDocumentUrl property specifies a valid document URL. -->
+    <Property name="ValidDocumentUrl" value="[ValidDocumentLibraryName]/[ValidFolderName]/[DocumentsName].txt" />
+    <!-- The SiteCollection property specifies a site collection URL that has the suffix "_vti_bin/dws.asmx". -->
+    <Property name="SiteCollection" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/dws.asmx" />
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The NonExistentDWSSWebSiteUrl property specifies a non-existent service. -->
+    <Property name="NonExistentDWSSWebSiteUrl" value="[TransportType]://[SutComputerName]/NonExistentDWSSWebSiteUrl/_vti_bin/dws.asmx" />
+    <!-- The NewFolderUrl property specifies a folder that will be created. -->
+    <Property name="NewFolderUrl" value="[ValidDocumentLibraryName]/NewFolder" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

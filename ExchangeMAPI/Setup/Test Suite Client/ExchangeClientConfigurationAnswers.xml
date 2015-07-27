@@ -1,0 +1,129 @@
+<!-- This file provides configuration values to the setup configuration script in case the script runs in unattended mode. 
+     Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. -->
+<Properties>
+    <!-- The isSutConfigured property specifies whether the SUT is configured before running the client setup script. 
+         The supported values are:
+         "Y", the SUT is configured before running the client setup script;
+         "N", the SUT is not configured; -->
+    <Property name="isSutConfigured" value="Y" />
+    <!-- The runOnNonRecommendedOS property specifies whether to run the client setup script when the operating system is not the recommended version. 
+         The supported values are:
+         "1", run the client setup script when the operating system is not the recommended version;
+         "2", exit the client setup script; -->
+    <Property name="runOnNonRecommendedOS" value="1" />
+    <!-- The runWithoutRequiredAppInstalled property specifies whether to continue running the client setup script without installing the required application(s). 
+         The supported values are:
+         "1", continue running the client setup script;
+         "2", exit and install the required application(s); -->
+    <Property name="runWithoutRequiredAppInstalled" value="1" />
+    <!-- The sutComputerName property specifies the name of the first SUT (system under test). -->
+    <Property name="sutComputerName" value="SUT01" />
+    <!-- The sut2ComputerName property specifies the name of the second SUT. Keep the value blank if the second SUT is not used. -->
+    <Property name="sut2ComputerName" value="SUT02" />
+    <!-- The runWhenConnectingToSUTFailed property specifies whether to continue running the client setup script when the connection to the remote SUT server fails with the following error message : 
+	     The WinRM client cannot process the request because the server name cannot be resolved.  
+         The supported values are:
+         "1", continue running the client setup script;
+         "2", exit the client setup script; -->
+    <Property name="runWhenConnectingToSUTFailed" value="1" />  
+    <!-- The useCurrentUser property specifies whether to use current logon domain user. The user must have the required permissions to perform administrative tasks.
+         The supported values are:
+         "Y", use current logon domain user;
+         "N", not use current logon domain user; -->
+    <Property name="useCurrentUser" value="Y" />
+    <!-- The dnsDomain property specifies the domain name. -->
+    <Property name="dnsDomain" value="contoso.com" />
+    <!-- The userName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have the required permissions to perform administrative tasks. -->
+    <Property name="userName" value="administrator" />
+    <!-- The password property specifies the password for the user specified in the userName property. The value of the property is case-sensitive. -->
+    <Property name="password" value="Password01!" />
+    <!-- The sutVersion property specifies the version of the first or the second SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product.
+         The supported values are:
+         "1", (Microsoft Exchange Server 2007 Service Pack 3 (SP3));
+         "2", (Microsoft Exchange Server 2010 Service Pack 3 (SP3));
+         "3", (Microsoft Exchange Server 2013 Service Pack 1 (SP1)). -->
+    <Property Name="sutVersion" Value="2" />
+    <!-- The runWhenExchangeVersionDifferent property specifies whether to continue running the client setup script when the Exchange server version on sutComputerName and sut2ComputerName are different.
+         The supported values are:
+         "1", continue running the client setup script, will use Exchange server version on sutComputerName for common ptfconfig file;
+         "2", exit the client setup script; -->
+    <Property name="runWhenExchangeVersionDifferent" value="1" />
+    <!-- The Administrator property is a string that contains the distinguished name (DN) of the user specified in the userName property. On the Windows platform, the value of the Administrator property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+    <Property name="Administrator" value="d/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=Administrator" />
+    <!-- The RpcAuthenticationLevel property specifies the authentication level for creating an RPC binding. For more information on setting the property value, refer to section 2.2.1.1.8 in [MS-RPCE].
+         The supported values are:
+         "0", (RPC_C_AUTHN_LEVEL_DEFAULT), same as RPC_C_AUTHN_LEVEL_CONNECT;
+         "1", (RPC_C_AUTHN_LEVEL_NONE), no authentication, only Exchange Server 2013 supports RPC_C_AUTHN_LEVEL_NONE;
+         "2", (RPC_C_AUTHN_LEVEL_CONNECT), authenticates the credentials of the client and server;
+         "3", (RPC_C_AUTHN_LEVEL_CALL), same as RPC_C_AUTHN_LEVEL_PKT;
+         "4", (RPC_C_AUTHN_LEVEL_PKT), same as RPC_C_AUTHN_LEVEL_CONNECT but also prevents replay attacks;
+         "5", (RPC_C_AUTHN_LEVEL_PKT_INTEGRITY), same as RPC_C_AUTHN_LEVEL_PKT but also verifies that none of the data transferred between the client and server has been modified;
+         "6", (RPC_C_AUTHN_LEVEL_PKT_PRIVACY), same as RPC_C_AUTHN_LEVEL_PKT_INTEGRITY but also ensures that the data transferred can only be seen unencrypted by the client and the server.
+         If the value of this property is set to 1, then the value of the authenticationService property must be set to 0. -->
+    <Property name="authenticationLevel" value="6"/>
+    <!-- The authenticationService property specifies authentication services by identifying the security package that provides the service.
+         The supported values are:
+         "0", (RPC_C_AUTHN_NONE), no authentication, only Exchange Server 2013 supports RPC_C_AUTHN_NONE;
+         "9", (RPC_C_AUTHN_GSS_NEGOTIATE), to use the Microsoft Negotiate security support provider (SSP);
+         "10", (RPC_C_AUTHN_WINNT), to use the Microsoft NT LAN Manager (NTLM) SSP;
+         "16", (RPC_C_AUTHN_GSS_KERBEROS), to use the Microsoft Kerberos SSP.
+         If the value of the authenticationService property is set to 0, then the value of the authenticationLevel property must be set to 1. -->
+    <Property name="authenticationService" value="9"/>
+    <!-- The transportSeq property specifies the protocol sequence for transport. For more information on the ncacn_ip_tcp and ncacn_http protocol sequences, refer to section 2.1 in [MS-OXCRPC]. For more information on the mapi_http protocol sequence, refer to [MS-OXCMAPIHTTP].
+         The supported values are:
+         "1", ncacn_http, to use RPC over HTTP as transport;
+         "2", ncacn_ip_tcp, to use RPC over TCP as transport, Exchange Server 2013 does not support RPC over TCP; 
+         "3", mapi_http, to use MAPIHTTP as transport, MAPIHTTP is supported in Exchange Server 2013 SP1.
+         If the value of this property is set to "mapi_http", the value of the useAutodiscover property must be set to true. -->
+    <Property name="transportSeq" value="2"/>
+    <!-- The rpchUseSsl property specifies whether to use RPC over HTTP with SSL. The test suite only uses this property when the transportSeq property is set as "ncacn_http".
+         The supported values are:
+         "1", true, to use RPC over HTTP with SSL;
+         "2", false, to use RPC over HTTP without SSL. -->
+    <Property name="rpchUseSsl" value="2"/>
+    <!-- The rpchAuthScheme property specifies that the authentication scheme is used in the HTTP authentication for RPC over HTTP. This property takes effect only when the transportSeq property is set as "ncacn_http".
+         The supported values are:
+         "1", Basic, to use Basic authentication scheme;
+         "2", NTLM, to use Windows authentication scheme. -->
+    <Property name="rpchAuthScheme" value="2"/>
+    <!-- The compressRpcRequest property specifies whether compression should be enabled in the RPC request sent by the client. For more information, refer to the RPC operations "EcDoConnectEx" and "EcDoRpcExt2" in [MS-OXCRPC].
+         The supported values are:
+         "1", true, to enable compression in the RPC request;
+         "2", false, to disable compression in the RPC request. -->
+    <Property name="compressRpcRequest" value="2"/>
+    <!-- The xorRpcRequest property specifies whether an RPC request sent by the client needs obfuscation. For more information, refer to the RPC operations "EcDoConnectEx" and "EcDoRpcExt2" in [MS-OXCRPC].
+         The supported values are:
+         "1", true, RPC request sent by the client needs obfuscation;
+         "2", false, RPC request sent by the client does not need obfuscation. -->
+    <Property name="xorRpcRequest" value="2"/>
+    <!-- The setUuid property determines whether to set the PTF_OBJECT_UUID(0x80) field of the RPC header pfc_flags. For more information about pfc_flags, refer to DCE RPC C706 section 12.6.3.1 Declarations.
+         The supported values are:
+         "1", true, to set the field;
+         "2", false, to not set the field. -->
+    <Property name ="setUuid" value ="2"/>
+    <!-- The useAutodiscover property specifies whether to use the Autodiscover service. The value of property useAutodiscover must be set to true when the value of transportSeq property is set to "mapi_http".
+         The supported values are:
+         "1", true, to use the Autodiscover service;
+         "2", false, to not use the Autodiscover service. -->
+    <Property name="useAutodiscover" value="2" />
+    <!-- The RpcForceShutdownAssociation property specifies whether to set the RPC_C_OPT_DONT_LINGER option on the binding handle.
+         The supported values are:
+         "1", true, to shut down the TCP connection after the last binding handle is freed;
+         "2", false, to reuse the existing TCP connection. -->
+    <Property name="RpcForceShutdownAssociation" value="1" />
+    <!-- The IPv4 property specifies the IPv4 addresses which is used to connect to the Exchange server, if there are multiple IPv4 addresses for the client. -->
+    <Property name="IPv4" value="192.168.1.2" />
+    <!-- The IPv6 property specifies the IPv6 addresses which is use to connect to the Exchange server, if there are multiple IPv6 addresses for the client. -->
+    <Property name="IPv6" value="2008::fe" />
+    <!-- The runWhenMSOXNSPIAmbiguousNameisEmpty property specifies whether to continue running the client setup script when the values of the properties MSOXNSPIUser1 and MSOXNSPIUser2 in the MS-OXNSPI_TestSuite.deployment.ptfconfig file do not have the same prefix.
+         The supported values are:
+         "1", continue running the client setup script, which will set an empty value for the property AmbiguousName. In this case, MS-OXNSPI test cases may fail;
+         "2", exit the client setup script; -->
+    <Property name="runWhenMSOXNSPIAmbiguousNameisEmpty" value="1" />
+    <!-- The runWhenMSOXCMAPIHTTPAmbiguousNameisEmpty property specifies whether to continue running the client setup script when the values of the properties MSOXCMAPIHTTPAdminUser and MSOXCMAPIHTTPGeneralUser in the MS-OXCMAPIHTTP_TestSuite.deployment.ptfconfig file do not have the same prefix.
+         The supported values are:
+         "1", continue running the client setup script, which will set an empty value for the property AmbiguousName. In this case, MS-OXCMAPIHTTP test cases may fail;
+         "2", exit the client setup script; -->
+    <Property name="runWhenMSOXCMAPIHTTPAmbiguousNameisEmpty" value="1" />
+</Properties>
+

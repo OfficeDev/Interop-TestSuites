@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ValidateCert"
+    targetNamespace="ValidateCert" elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+  <xs:element name="ValidateCert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Status" type="xs:unsignedByte"/>
+        <xs:element name="Certificate" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Status" type="xs:unsignedByte" minOccurs="0"
+                  maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<PropertyConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+  <!-- This file support one way to customize the record repository properties which are required properties when configuring the routing rule.
+      Due to the design of test cases, there are at least two RecordsRepositoryProperty element.
+  -->
+  <RecordsRepositoryProperties xmlns="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/">
+    <RecordsRepositoryProperty>
+      <Name>Name</Name>
+      <DisplayName>Name</DisplayName>
+      <Other>00</Other>
+      <Type>Text</Type>
+      <Value>test</Value>
+    </RecordsRepositoryProperty>
+    <RecordsRepositoryProperty>
+      <Name>Title</Name>
+      <DisplayName>Title</DisplayName>
+      <Other>11</Other>
+      <Type>Text</Type>
+      <Value>test file</Value>
+    </RecordsRepositoryProperty>
+  </RecordsRepositoryProperties>
+</PropertyConfig>

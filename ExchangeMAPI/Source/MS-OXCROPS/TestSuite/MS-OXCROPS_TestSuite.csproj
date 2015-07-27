@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECF655AE-3252-479F-ADA9-C48CF976F378}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCROPS</RootNamespace>
+    <AssemblyName>MS-OXCROPS_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-OXCROPS_TestSuite.deployment.ptfconfig">
+    </None>
+    <None Include="MS-OXCROPS_TestSuite.ptfconfig" />
+    <None Include="MS-OXCROPS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCROPS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCROPS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S10_FastTransferROPs.cs" />
+    <Compile Include="S11_IncrementalChangeSynchronizationROPs.cs" />
+    <Compile Include="S12_NotificationROPs.cs" />
+    <Compile Include="S01_LogonROPs.cs" />
+    <Compile Include="S02_FolderROPs.cs" />
+    <Compile Include="S03_TableROPs.cs" />
+    <Compile Include="S04_MessageROPs.cs" />
+    <Compile Include="S05_TransportROPs.cs" />
+    <Compile Include="S06_PropertyROPs.cs" />
+    <Compile Include="S07_StreamROPs.cs" />
+    <Compile Include="S08_PermissionROPs.cs" />
+    <Compile Include="S09_RuleROPs.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-OXCROPS_Adapter.csproj">
+      <Project>{914DB27C-F359-44C7-AB79-9AE5E1343044}</Project>
+      <Name>MS-OXCROPS_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-OXCROPS_RequirementSpecification.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

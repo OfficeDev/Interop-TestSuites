@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R5Enabled to true to additionally SOAP over HTTPS to help secure communication with protocol clients is supported. R5Enabled to false to disable this requirement. -->
+    <Property name="R5Enabled" value="true" />
+    <!--Set R1041Enabled to true to return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRIis supported. R1041Enabled to false to disable this requirement. -->
+    <Property name="R1041Enabled" value="false" />
+    <!--Set R1043Enabled to true to return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRI is supported. R1043Enabled to false to disable this requirement. -->
+    <Property name="R1043Enabled" value="false" />
+    <!--Set R1044Enabled to true to return an ErrorCode of "Unknown" when a destination location  is a malformed IRI is supported. R1044Enabled to false to disable this requirement. -->
+    <Property name="R1044Enabled" value="true" />
+    <!--Set R148Enabled to true to equal to the value of source location for CopyIntoItem operation is supported. R148Enabled to false to disable this requirement. -->
+    <Property name="R148Enabled" value="true" />
+    <!--Set R149Enabled to true to equal to the value of source location for CopyIntoItemLocation operation is supported. R149Enabled to false to disable this requirement. -->
+    <Property name="R149Enabled" value="true" />
+    <!--Set R124Enabled to true to ContentTypeId field type map to the Text field type is supported. R124Enabled to false to disable this requirement. -->
+    <Property name="R124Enabled" value="false" />
+    <!--Set R125Enabled to true to ContentTypeId field type map to error field type is supported. R125Enabled to false to disable this requirement. -->
+    <Property name="R125Enabled" value="false" />
+    <!--Set R126Enabled to true to ContentTypeId field type map to Text field type is supported. R126Enabled to false to disable this requirement. -->
+    <Property name="R126Enabled" value="true" />
+    <!--Set R230Enabled to true to copy the CopyItems operation ID field is not supported. R230Enabled to false to disable this requirement. -->
+    <Property name="R230Enabled" value="false" />
+    <!--Set R232Enabled to true to copy the CopyItems operation ID field is not supported. R232Enabled to false to disable this requirement. -->
+    <Property name="R232Enabled" value="false" />
+    <!--Set R1048Enabled to true to support returning a SOAP fault if the URL parameter of GetItem operation is an invalid URL format string. R1048Enabled to false to disable this requirement. -->
+    <Property name="R1048Enabled" value="true" />
+  </Properties>
+</TestSite>

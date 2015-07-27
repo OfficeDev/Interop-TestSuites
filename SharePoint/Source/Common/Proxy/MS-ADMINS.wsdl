@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" 
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+                  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:s1="http://microsoft.com/wsdl/types/" 
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+                  targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" 
+              xmlns:s="http://www.w3.org/2001/XMLSchema" 
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+                  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:s1="http://microsoft.com/wsdl/types/" 
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+                  targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="CreateSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lcid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebTemplate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerLogin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OwnerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PortalUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PortalName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateSiteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="Url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSiteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLanguages">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLanguagesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Languages">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element maxOccurs="unbounded" name="LCID" type="s:int" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshConfigCache">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="VirtualServerId" type="s1:guid" />
+            <s:element name="AdminGroupChanged" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RefreshConfigCacheResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+    <s:schema targetNamespace="http://schemas.microsoft.com/sharepoint/soap">
+       <s:complexType name="SOAPFaultDetails">
+          <s:sequence>
+             <s:element name="errorstring" type="s:string"/>
+             <s:element name="errorcode" type="s:string" minOccurs="0"/>
+          </s:sequence>
+       </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateSite" />
+  </wsdl:message>
+  <wsdl:message name="CreateSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSite" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RefreshConfigCacheSoapIn">
+    <wsdl:part name="parameters" element="tns:RefreshConfigCache" />
+  </wsdl:message>
+  <wsdl:message name="RefreshConfigCacheSoapOut">
+    <wsdl:part name="parameters" element="tns:RefreshConfigCacheResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AdminSoap">
+    <wsdl:operation name="CreateSite">
+      <wsdl:input message="tns:CreateSiteSoapIn" />
+      <wsdl:output message="tns:CreateSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSite">
+      <wsdl:input message="tns:DeleteSiteSoapIn" />
+      <wsdl:output message="tns:DeleteSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <wsdl:input message="tns:GetLanguagesSoapIn" />
+      <wsdl:output message="tns:GetLanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshConfigCache">
+      <wsdl:input message="tns:RefreshConfigCacheSoapIn" />
+      <wsdl:output message="tns:RefreshConfigCacheSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdminSoap" type="tns:AdminSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateSite">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CreateSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSite">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshConfigCache">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdminSoap12" type="tns:AdminSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateSite">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CreateSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSite">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshConfigCache">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

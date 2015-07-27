@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UsersItem">
+    <xs:complexType>
+      <xs:attribute name="Name" type="xs:string" use="required"/>
+      <xs:attribute name="Email" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DocumentsItem">
+    <xs:complexType>
+      <xs:attribute name="Name" type="xs:string" />
+      <xs:attribute name="ID" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

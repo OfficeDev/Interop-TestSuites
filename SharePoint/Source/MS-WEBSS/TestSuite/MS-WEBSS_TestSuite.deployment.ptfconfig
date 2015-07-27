@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The TargetServiceUrl property specifies the URL of the meeting web service endpoint. -->
+    <Property name="TargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName][EntryUrl]"/>
+    <!-- The SiteCollectionName property specifies the relative URL of the site that the test code will run on. This site must not be a meeting workspace site. The property value can be null which means that the root site is used in this test suite. -->
+    <Property name="SiteCollectionName" value="MSWEBSS_SiteCollection"/>
+    <!-- The EntryUrl property specifies the relative URL of the meeting web service endpoint. -->
+    <Property name="EntryUrl" value="/_vti_bin/webs.asmx"/>
+    <!-- The SiteCollectionUrl property specifies the URL of the WEBSS site collection. -->
+    <Property name="SiteCollectionUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- Properties about the test environment and user authorization. -->
+    <!-- The SubSiteUrl property specifies the URL of a web site which is deployed on the SharePoint server and includes all test documents. -->
+    <Property name="SubSiteUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[webSiteName]"/>
+    <!-- The webSiteName property specifies the name of a web site which is deployed on the SharePoint server and includes all test documents. -->
+    <Property name="webSiteName" value="MSWEBSS_Site"/>
+
+    <!-- Properties about the test site. -->
+    <!-- The CreateContentType_ValidateContentType specifies a valid content type identifier of a content type on the context site. -->
+    <Property name="CreateContentType_ValidateContentType" value="0x0101"/>
+    <!-- The TestSiteTitle property specifies the title of the test site. -->
+    <Property name="TestSiteTitle" value="MSWEBSS_SiteTitle"/>
+    <!-- The TestSiteDescription property specifies the description of the test site. -->
+    <Property name="TestSiteDescription" value="MSWEBSS_SiteDescription"/>
+    <!-- The TestSiteLanguage property specifies the language code identifier (LCID) of the language used by the site. -->
+    <Property name="TestSiteLanguage" value="1033"/>
+    <!-- End of properties about the test site. -->
+
+    <!-- Properties about the test document file. -->
+    <!-- The FoldName property specifies the folder name of a document library that will be created on the test site. -->
+    <Property name="FoldName" value="MSWEBSS_DocumentLibrary"/>
+    <!-- The DocName property specifies the name of the document that will be created on the test site. -->
+    <Property name="DocName" value="MSWEBSS_TestData.docx"/>
+    <!-- End of properties about the test document file. -->
+
+    <!-- Properties about SOAP operations. -->
+    <!-- The CssFile_Valid property specifies a valid cascading style sheet (CSS) for the context site. -->
+    <Property name="CssFile_Valid" value="core.css"/>
+    <!-- The GetCustomizedPageStatus_ValidFileUrl property specifies a valid URL of a page or file on the SharePoint server. -->
+    <Property name="GetCustomizedPageStatus_ValidFileUrl" value ="[SubSiteUrl]/default.aspx"/>
+    <!-- The GetObjectIdFromUrl_ListUrl property specifies a valid URL of a list on the SharePoint server. -->
+    <Property name="GetObjectIdFromUrl_ListUrl" value="[SubSiteUrl]/SitePages/Forms/AllPages.aspx"/>
+    <!-- The GetObjectIdFromUrl_ListItemUrl property specifies a valid URL of a list item on the SharePoint server. -->
+    <Property name="GetObjectIdFromUrl_ListItemUrl" value="[SubSiteUrl]/SitePages/Home.aspx"/>
+    <!-- The GetObjectIdFromUrl_NoListRelatedUrl property specifies a URL which does not represent a list or list item. -->
+    <Property name="GetObjectIdFromUrl_NoListRelatedUrl" value="[SubSiteUrl]/default.aspx"/>
+    <!-- The RevertFileContentStream_ValidFileUrl property specifies a URL of a page in the context site. -->
+    <Property name="RevertFileContentStream_ValidFileUrl" value ="[SubSiteUrl]/default.aspx"/>
+    <!-- The UpdateColumns_Type property specifies the type of a valid field definition to be added to the context site. -->
+    <Property name="UpdateColumns_Type" value="Text"/>
+    <!-- The WebUrlFromPageUrl_PageUrl property specifies a URL of a web page on the site. -->
+    <Property name ="WebUrlFromPageUrl_PageUrl" value ="[SubSiteUrl]/Shared%20Documents/Forms/AllItems.aspx" />
+    <!-- End of properties about SOAP operations. -->
+    
+    <!-- The ServiceTimeOut property specifies the number of minutes to wait for the response of the MS-WEBSS web service. -->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

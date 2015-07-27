@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!--The GhostedPublicFolder property specifies the display name of a public folder on the second SUT. -->
+    <Property name="GhostedPublicFolder" value="MSOXCFOLD_PublicFolderGhosted" />
+    <!--The MailEnabledPublicFolder property specifies the display name of an existing public folder which is mail-enabled, on the first SUT. -->
+    <Property name="MailEnabledPublicFolder" value="MSOXCFOLD_PublicFolderMailEnabled" />
+    <!--The CommonUser property specifies a username which can be used by a client to access the mailbox. -->
+    <Property name="CommonUser" value="MSOXCFOLD_TestUser01" />
+    <!--The CommonUserPassword property specifies the password for the user specified in the CommonUser property. The property value is case-sensitive. -->
+    <Property name="CommonUserPassword" value="Password01!" />
+    <!--The CommonUserEssdn property is a string that contains the distinguished name (DN) of the user specified in the CommonUser property. On the Windows platform, the value of the CommonUserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+    <Property name="CommonUserEssdn" value="/o=CONTOSO/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=474585efb00e4f3499ac2e22f62af480-MSOXCFOLD_TestUs" />
+    <!--The AdminUserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have the required permissions to perform administrative tasks, and have "Owner" permission level to the public folder. -->
+    <Property name="AdminUserName" value="MSOXCFOLD_TestUser02" />
+    <!--THe AdminUserPassword property specifies the password for the user specified in the AdminUserName property. The value of the property is case-sensitive. -->
+    <Property name="AdminUserPassword" value="Password01!" />
+    <!--The AdminUserEssdn property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. On the Windows platform, the value of the AdminUserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+    <Property name="AdminUserEssdn" value="/o=CONTOSO/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXCFOLD_TestUser02" />
+    <!-- SUT section ends. -->
+  </Properties>
+</TestSite>

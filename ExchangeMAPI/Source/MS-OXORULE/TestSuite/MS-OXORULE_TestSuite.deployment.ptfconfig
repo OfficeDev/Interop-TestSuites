@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+      <!-- The User1Name property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have "Owner" permission level to the public folders. -->
+      <Property name="User1Name" value="MSOXORULE_TestUser01" />
+      <!-- The User1Password property specifies the password for the user specified in the User1Name property. The property value is case-sensitive. -->
+      <Property name="User1Password" value="Password01!" />
+      <!-- The User2Name property specifies a username which can be used by a client to access the mailbox. -->
+      <Property name="User2Name" value="MSOXORULE_TestUser02" />
+      <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
+      <Property name="User2Password" value="Password01!" />
+      <!-- The User1ESSDN property is a string that contains the distinguished name (DN) of the user specified in the User1Name property. 
+    On the Windows platform, the value of the User1ESSDN property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+      <Property name="User1ESSDN" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXORULE_TestUser01" />
+      <!-- The User2ESSDN property is a string that contains the distinguished name (DN) of the user specified in the User2Name property. 
+    On the Windows platform, the value of the User2ESSDN property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+      <Property name="User2ESSDN" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXORULE_TestUser02" />   
+     <!-- SUT section ends. -->
+
+     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+      <!-- The PropertySizeLimit property specifies the maximum size (in bytes) of a property value to be returned. -->
+      <Property name="PropertySizeLimit" value="100"/>
+      <!-- The WaitForTheRuleToTakeEffect property specifies the number of milliseconds to wait for a rule to take effect. -->
+      <Property name="WaitForTheRuleToTakeEffect" value="3000"/>
+      <!-- The WaitForSetOOFComplete property specifies the number of milliseconds to wait until the Out of Office (OOF) state is active. -->
+      <Property name="WaitForSetOOFComplete" value="5000"/>
+      <!-- The GetMessageRepeatTime property specifies the retry count for the client to retrieve a message. If the client is still unable to retrieve the expected message by the maximum retry count, the operation is considered as failed. -->
+      <Property name="GetMessageRepeatTime" value="60"/>
+     <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+                  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:s="http://www.w3.org/2001/XMLSchema" 
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+                  targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" 
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" xmlns="http://schemas.microsoft.com/sharepoint/soap/">
+      <s:include schemaLocation="MS-WSSCAML.xsd"/>
+      <s:element name="GetView">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="listName" type="s:string" minOccurs="1" maxOccurs="1"/>
+            <s:element name="viewName" type="s:string" minOccurs="0" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetViewResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:BriefViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViewHtml">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="listName" type="s:string" minOccurs="1" maxOccurs="1"/>
+            <s:element name="viewName" type="s:string" minOccurs="0" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViewHtmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetViewHtmlResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="core:ViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteView">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="listName" type="s:string" minOccurs="1" maxOccurs="1"/>
+            <s:element name="viewName" type="s:string" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteViewResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="AddView">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="listName" type="s:string" minOccurs="0" maxOccurs="1"/>
+            <s:element name="viewName" type="s:string" minOccurs="0" maxOccurs="1"/>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFields" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="FieldRef" type="core:FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="query">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Query" type="core:CamlQueryRoot" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimit" type="core:RowLimitDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element name="type" type="s:string" minOccurs="0" maxOccurs="1"/>
+            <s:element name="makeViewDefault" type="s:boolean" minOccurs="1" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddViewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="AddViewResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:BriefViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViewCollection">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="listName" type="s:string" minOccurs="1" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetViewCollectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetViewCollectionResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Views" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="View" minOccurs="0" maxOccurs="unbounded">
+                          <s:complexType>
+                            <s:attributeGroup ref="tns:ViewAttributeGroup"/>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateView">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewProperties">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:UpdateViewPropertiesDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="query">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Query" type="core:CamlQueryRoot" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFields" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="FieldRef" type="core:FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="aggregations">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Aggregations" type="core:AggregationsDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="formats">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Formats" type="core:ViewFormatDefinitions" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimit" type="core:RowLimitDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateViewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateViewResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:BriefViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateViewHtml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewProperties">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:UpdateViewPropertiesDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="toolbar">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Toolbar" type="core:ToolbarDefinition" minOccurs="0" maxOccurs="1" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewHeader" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewBody">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewBody" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFooter">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFooter" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewEmpty">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewEmpty" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimitExceeded">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimitExceeded" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="query">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Query" type="core:CamlQueryRoot" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFields" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="FieldRef" type="core:FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="aggregations">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Aggregations" type="core:AggregationsDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="formats">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Formats" type="core:ViewFormatDefinitions" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimit" type="core:RowLimitDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateViewHtmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateViewHtmlResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="core:ViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateViewHtml2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="listName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="viewProperties">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="tns:UpdateViewPropertiesDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="toolbar">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Toolbar" type="core:ToolbarDefinition" minOccurs="0" maxOccurs="1" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewHeader">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewHeader" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewBody">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewBody" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFooter">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFooter" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewEmpty">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewEmpty" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimitExceeded">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimitExceeded" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+                      </s:sequence>
+                      <s:anyAttribute processContents="skip" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="query">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Query" type="core:CamlQueryRoot" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="viewFields">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ViewFields" minOccurs="0" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="FieldRef" type="core:FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="aggregations">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Aggregations" type="core:AggregationsDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="formats">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Formats" type="core:ViewFormatDefinitions" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="rowLimit">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="RowLimit" type="core:RowLimitDefinition" minOccurs="0" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="openApplicationExtension" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateViewHtml2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateViewHtml2Result" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="View" type="core:ViewDefinition" minOccurs="1" maxOccurs="1"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <!--Add element name="detail" for SOAPFaultDetails Start-->
+      <s:element name="detail">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="errorstring" />
+            <s:element ref="errorcode" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Detail">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="errorstring" />
+            <s:element ref="errorcode" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>      
+      <s:element name="errorstring" type="s:string" />
+      <s:element name="errorcode" type="s:string" />
+      <!--Add element name="detail" for SOAPFaultDetails End-->
+      <!--Add attribute mixed="true" by TDI 37919 -->
+      <s:complexType name="BriefViewDefinition" mixed="true">
+        <!--Add attribute mixed="true" by TDI 37919 -->
+        <s:sequence>
+          <s:element name="Query" type="core:CamlQueryRoot" minOccurs="1" maxOccurs="1" />
+          <s:element name="ViewFields" minOccurs="1" maxOccurs="1">
+            <s:complexType>
+              <s:sequence>
+                <s:element name="FieldRef" type="core:FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="ViewData" minOccurs="0" maxOccurs="1">
+            <s:complexType>
+              <s:sequence>
+                <s:element name="FieldRef" type="core:FieldRefDefinitionViewData" minOccurs="3" maxOccurs="5" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="CalendarViewStyles" type="core:CalendarViewStylesDefinition" minOccurs="0" maxOccurs="1" />
+          <s:element name="RowLimit" type="core:RowLimitDefinition" minOccurs="0" maxOccurs="1" />
+          <s:element name="Formats" type="core:ViewFormatDefinitions" minOccurs="0" maxOccurs="1"  />
+          <s:element name="Aggregations" type="core:AggregationsDefinition" minOccurs="0" maxOccurs="1"  />
+          <s:element name="ViewStyle" type="core:ViewStyleReference" minOccurs="0" maxOccurs="1" />
+          <s:element name="OpenApplicationExtension" type="s:string" minOccurs="0" maxOccurs="1"  />
+        </s:sequence>
+        <s:attributeGroup ref="tns:ViewAttributeGroup"/>
+      </s:complexType>
+      <s:complexType name="UpdateViewPropertiesDefinition">
+        <s:attributeGroup ref="tns:UpdateViewAttributeGroup"/>
+      </s:complexType>
+      <s:attributeGroup name="ViewAttributeGroup">
+        <s:attribute name="AggregateView" type="core:TRUEFALSE"  default="FALSE"/>
+        <s:attribute name="BaseViewID" type="s:int" />
+        <s:attribute name="CssStyleSheet" type="s:string" />
+        <s:attribute name="DefaultView" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="DisplayName" type="s:string" />
+        <s:attribute name="FailIfEmpty" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="FileDialog" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="FPModified" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="Hidden" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="List" type="core:UniqueIdentifierWithoutBraces" />
+        <s:attribute name="Name" type="core:UniqueIdentifierWithBraces" />
+        <s:attribute name="ContentTypeID" type="core:ContentTypeId" />
+        <s:attribute name="OrderedView" type="core:TRUEFALSE" />
+        <s:attribute name="DefaultViewForContentType" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="IncludeRootFolder" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="PageType" type="s:string" />
+        <s:attribute name="Path" type="core:RelativeFilePath" />
+        <s:attribute name="Personal" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="ReadOnly" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="RecurrenceRowset" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="RequiresClientIntegration" type="core:TRUEFALSE" default="FALSE"/>
+        <s:attribute name="RowLimit" type="s:int" />
+        <s:attribute name="ShowHeaderUI" type="core:TRUEFALSE"  default="FALSE" />
+        <s:attribute name="Type" type="core:ViewType" default="HTML"/>
+        <s:attribute name="Url" type="core:RelativeUrl"/>
+        <s:attribute name="WebPartOrder" type="s:int" />
+        <s:attribute name="WebPartZoneID" type="s:string" />
+        <s:attribute name="FreeForm" type="core:TRUEFALSE" />
+        <s:attribute name="ImageUrl" type="s:string" />
+        <s:attribute name="SetupPath" type="core:RelativeFilePath" />
+        <s:attribute name="ToolbarTemplate" type="s:string" />
+        <s:attribute name="MobileView" type="core:TRUEFALSE" default="FALSE"/>
+        <s:attribute name="MobileDefaultView" type="core:TRUEFALSE" />
+        <s:attribute name="MobileUrl" type="core:RelativeUrl" />
+        <s:attribute name="Level" type="core:ViewPageLevel" default="1" />
+        <s:attribute name="FrameState" type="s:string" default="Normal" />
+        <s:attribute name="IsIncluded" type="core:TRUEFALSE" default="TRUE" />
+        <s:attribute name="IncludeVersions" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="HackLockWeb" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="ModerationType" type="core:ViewModerationType" default="" />
+        <s:attribute name="Scope" type="core:ViewScope" default="" />
+        <s:attribute name="Threaded" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="TabularView" type="core:FALSE_Case_Insensitive_Else_Anything" default="TRUE" />
+      </s:attributeGroup>
+      <s:attributeGroup name="UpdateViewAttributeGroup">
+        <s:attribute name="DefaultView" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="DisplayName" type="s:string" />
+        <s:attribute name="FPModified" type="core:TRUEFALSE" default="FALSE" />
+        <s:attribute name="Scope" type="core:ViewScope" default="" />
+      </s:attributeGroup>
+    </s:schema>
+  </wsdl:types>
+  
+  <wsdl:message name="GetViewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetView" />
+  </wsdl:message>
+  <wsdl:message name="GetViewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetViewHtmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetViewHtml" />
+  </wsdl:message>
+  <wsdl:message name="GetViewHtmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetViewHtmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteViewSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteView" />
+  </wsdl:message>
+  <wsdl:message name="DeleteViewSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddViewSoapIn">
+    <wsdl:part name="parameters" element="tns:AddView" />
+  </wsdl:message>
+  <wsdl:message name="AddViewSoapOut">
+    <wsdl:part name="parameters" element="tns:AddViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetViewCollectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetViewCollection" />
+  </wsdl:message>
+  <wsdl:message name="GetViewCollectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetViewCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateView" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewHtmlSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateViewHtml" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewHtmlSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateViewHtmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewHtml2SoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateViewHtml2" />
+  </wsdl:message>
+  <wsdl:message name="UpdateViewHtml2SoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateViewHtml2Response" />
+  </wsdl:message>
+  <wsdl:portType name="ViewsSoap">
+    <wsdl:operation name="GetView">
+      <wsdl:input message="tns:GetViewSoapIn" />
+      <wsdl:output message="tns:GetViewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewHtml">
+      <wsdl:input message="tns:GetViewHtmlSoapIn" />
+      <wsdl:output message="tns:GetViewHtmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteView">
+      <wsdl:input message="tns:DeleteViewSoapIn" />
+      <wsdl:output message="tns:DeleteViewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddView">
+      <wsdl:input message="tns:AddViewSoapIn" />
+      <wsdl:output message="tns:AddViewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetViewCollection">
+      <wsdl:input message="tns:GetViewCollectionSoapIn" />
+      <wsdl:output message="tns:GetViewCollectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateView">
+      <wsdl:input message="tns:UpdateViewSoapIn" />
+      <wsdl:output message="tns:UpdateViewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml">
+      <wsdl:input message="tns:UpdateViewHtmlSoapIn" />
+      <wsdl:output message="tns:UpdateViewHtmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml2">
+      <wsdl:input message="tns:UpdateViewHtml2SoapIn" />
+      <wsdl:output message="tns:UpdateViewHtml2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ViewsSoap" type="tns:ViewsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetView">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewHtml">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetViewHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteView">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddView">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/AddView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewCollection">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetViewCollection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateView">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml2">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ViewsSoap12" type="tns:ViewsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetView">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetView" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewHtml">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetViewHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteView">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteView" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddView">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/AddView" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetViewCollection">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetViewCollection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateView">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateView" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateViewHtml2">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

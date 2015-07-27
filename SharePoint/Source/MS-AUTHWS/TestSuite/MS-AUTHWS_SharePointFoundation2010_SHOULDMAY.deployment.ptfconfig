@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R126Enabled to true to verify that the default value of the CookieName is "FedAuth" in operation "Login" response. Set R126Enabled to false to disable this requirement. -->
+    <Property name="R126Enabled" value="true" />
+    <!-- Set R127Enabled to true to verify that the default value of the CookieName is ".ASPXAUTH" in operation "Login" response. Set R127Enabled to false to disable this requirement. -->
+    <Property name="R127Enabled" value="false" />
+    <!-- Set R115Enabled to true to enable these requirements since these requirements are partially blocked verifying on MOSS 2010 SP2. -->
+    <Property name="R115Enabled" value="false" />
+    <!-- Set R132Enabled to false to disable these requirements verifying on current server version Windows Server 2008 and Windows Server 2012, retains this requirement for the future test when the server version supports the Passport. -->
+    <Property name="R132Enabled" value="false" />
+    <!-- Set R121Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. Set R121Enabled to false to disable this requirement. -->
+    <Property name="R121Enabled" value="true" />
+  </Properties>
+</TestSite>

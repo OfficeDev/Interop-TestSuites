@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The HTTPTargetServiceUrl property specifies the URL of the Administration web service endpoint when the transport type is HTTP. -->
+    <Property name="HTTPTargetServiceUrl" value="HTTP://[SUTComputerName]:[AdminHTTPPortNumber][EntryUrl]"/>
+    <!-- The HTTPSTargetServiceUrl property specifies the URL of the Administration web service endpoint when the transport type is HTTPS. -->
+    <Property name="HTTPSTargetServiceUrl" value="HTTPS://[SUTComputerName]:[AdminHTTPSPortNumber][EntryUrl]"/>
+    <!-- The UrlWithHTTPPortNumber property specifies the URL which includes an HTTP port number. -->
+    <Property name="UrlWithHTTPPortNumber" value="HTTP://[SUTComputerName]:[HTTPPortNumber]/sites/"/>
+    <!-- The UrlWithHTTPSPortNumber property specifies the URL which includes an HTTPS port number. -->
+    <Property name="UrlWithHTTPSPortNumber" value="HTTPS://[SUTComputerName]:[HTTPSPortNumber]/sites/"/>
+    <!-- The UrlWithAdminHTTPPort property specifies the URL which includes an HTTP port number in the Administration web service. -->
+    <Property name="UrlWithAdminHTTPPort" value="HTTP://[SUTComputerName]:[AdminHTTPPortNumber]/sites/"/>
+    <!-- The UrlWithAdminHTTPSPort property specifies the URL which includes an HTTPS port number in the Administration web service. -->
+    <Property name="UrlWithAdminHTTPSPort" value="HTTPS://[SUTComputerName]:[AdminHTTPSPortNumber]/sites/"/>
+    <!-- The UrlWithOutPort property specifies the URL which does not have a port number. -->
+    <Property name="UrlWithOutPort" value="[TransportType]://[SUTComputerName]/sites/"/>   
+    <!-- The EntryUrl property specifies the relative URL of the Administration web service endpoint. -->
+    <Property name="EntryUrl" value="/_vti_adm/admin.asmx"/>
+    <!-- The AdminHTTPPortNumber property specifies the HTTP port number used by the Administration web service on the protocol server. -->
+    <Property name="AdminHTTPPortNumber" value="24601"/>
+    <!-- The AdminHTTPSPortNumber property specifies the HTTPS port number used by the Administration web service on the protocol server. -->
+    <Property name="AdminHTTPSPortNumber" value="9443"/>
+    <!-- The HTTPPortNumber property specifies the HTTP port number used by the default SharePoint site. -->
+    <Property name="HTTPPortNumber" value="80"/>
+    <!-- The HTTPSPortNumber property specifies the HTTPS port number used by the default SharePoint site. -->
+    <Property name="HTTPSPortNumber" value="443"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The ServiceTimeOut property specifies the number of minutes to wait for the response of the MS-ADMINS web service. -->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- The OwnerLogin property specifies the valid user name of the site collection owner. -->
+    <Property name="OwnerLogin" value="[Domain]\[UserName]" />
+    <!-- The CustomizedTemplate property specifies a web template which originally existed on the server. -->
+    <Property name="CustomizedTemplate" value="STS#0" />
+    <!-- The NotInstalledLCID property specifies the language code identifier (LCID) of the language that is not installed on the server. -->
+    <Property name="NotInstalledLCID" value="1036" />
+    <!-- The InvalidPortNumber property specifies an invalid port number which is used by the Central Administration site and the default SharePoint site. -->
+    <Property name="InvalidPortNumber" value="90" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

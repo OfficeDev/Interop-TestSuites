@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32B5552C-901A-44E5-A782-9DEA8FB63393}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCSTOR</RootNamespace>
+    <AssemblyName>MS-OXCSTOR_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\MS-OXCROPSClient\RopOutputBuffer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helper\Enum.cs" />
+    <Compile Include="IMS-OXCSTORAdapter.cs" />
+    <Compile Include="MS-OXCSTORAdapter.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\Structures\BaseCommand.cs" />
+    <Compile Include="Helper\Structures\EndCommand.cs" />
+    <Compile Include="Helper\Structures\GlobCnt.cs" />
+    <Compile Include="Helper\Structures\Globset.cs" />
+    <Compile Include="Helper\Structures\IDSETWithReplGuid.cs" />
+    <Compile Include="Helper\Structures\PopCommand.cs" />
+    <Compile Include="Helper\Structures\PushCommand.cs" />
+    <Compile Include="Helper\Structures\RangeCommand.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXCSTORSUTControlAdapter.cs" />
+    <Compile Include="Helper\ConstValues.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\AddExchangeSnapIn.ps1" />
+    <None Include="SUTControlAdapter\Implementation\DisableMailbox.ps1" />
+    <None Include="SUTControlAdapter\Implementation\InServer-DisableMailbox.ps1" />
+    <None Include="SUTControlAdapter\Implementation\InServer-EnableMailbox.ps1" />
+    <None Include="SUTControlAdapter\Implementation\EnableMailbox.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\GetUserDN.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

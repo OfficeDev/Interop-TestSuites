@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E369E795-30A6-427F-9F9E-F5EEFD9CD9F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_LISTSWS</RootNamespace>
+    <AssemblyName>MS-LISTSWS_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_OperationOnList.cs" />
+    <Compile Include="S02_OperationOnContentType.cs" />
+    <Compile Include="S03_OperationOnListItem.cs" />
+    <Compile Include="S04_OperationOnAttachment.cs" />
+    <Compile Include="S05_OperationOnFiles.cs" />
+    <Compile Include="TestSuiteHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-LISTSWS_RequirementSpecification.xml" />
+    <Content Include="Resources\Attachment.txt" />
+    <Content Include="Resources\Message.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-LISTSWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-LISTSWS_TestSuite.ptfconfig" />
+    <None Include="MS-LISTSWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-LISTSWS_Adapter.csproj">
+      <Project>{0A3F6A45-15DE-4DCC-8EBF-E77867BC6C66}</Project>
+      <Name>MS-LISTSWS_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

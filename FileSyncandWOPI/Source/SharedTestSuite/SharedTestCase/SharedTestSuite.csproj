@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{680F0D8B-38FB-4749-AB29-0FB54A1F890A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.SharedTestSuite</RootNamespace>
+    <AssemblyName>SharedTestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="S15_CreateFile.cs" />
+    <Compile Include="SharedTestSuiteBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_Cell.cs" />
+    <Compile Include="S02_Coauth.cs" />
+    <Compile Include="S03_SchemaLock.cs" />
+    <Compile Include="S04_ExclusiveLock.cs" />
+    <Compile Include="S05_WhoAmI.cs" />
+    <Compile Include="S06_ServerTime.cs" />
+    <Compile Include="S07_EditorsTable.cs" />
+    <Compile Include="S08_GetDocMetaInfo.cs" />
+    <Compile Include="S09_GetVersions.cs" />
+    <Compile Include="S10_MultipleSubRequests.cs" />
+    <Compile Include="S11_QueryAccess.cs" />
+    <Compile Include="S12_QueryChanges.cs" />
+    <Compile Include="S13_PutChanges.cs" />
+    <Compile Include="S14_AllocateExtendedGuidRange.cs" />
+    <Compile Include="StatusManager.cs" />
+    <Compile Include="SharedTestSuiteHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedAdapter\SharedAdapter.csproj">
+      <Project>{46573EAE-E1E9-4768-B8B8-536DC678CCAE}</Project>
+      <Name>SharedAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

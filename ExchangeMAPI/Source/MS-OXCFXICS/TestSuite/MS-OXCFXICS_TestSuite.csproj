@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A67F9C27-3E32-4FBE-8EBA-8DE199352EC6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCFXICS</RootNamespace>
+    <AssemblyName>MS-OXCFXICS_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Microsoft.SpecExplorer.Runtime" />
+    <Reference Include="Microsoft.Xrt.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-OXCFXICS_RequirementSpecification.xml">
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-OXCFXICS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig">
+    </None>
+    <None Include="MS-OXCFXICS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig">
+    </None>
+    <None Include="MS-OXCFXICS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig">
+    </None>
+    <None Include="MS-OXCFXICS_TestSuite.deployment.ptfconfig">
+    </None>
+    <None Include="MS-OXCFXICS_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_SyncFastTransferCopyFolder_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferFolder_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferGhostedFolder_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferInvalidParameter_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferMoveFlag_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferPermissions_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferReplica_TestSuite.cs" />
+    <Compile Include="S01_SyncFastTransferUnusedFlag_TestSuite.cs" />
+    <Compile Include="S02_SyncFastTransferMessageProperties_TestSuite.cs" />
+    <Compile Include="S02_SyncFastTransferMessageWithErrorParameter_TestSuite.cs" />
+    <Compile Include="S02_SyncFastTransferMessageWithLargeProperty_TestSuite.cs" />
+    <Compile Include="S02_SyncFastTransferMessage_TestSuite.cs" />
+    <Compile Include="S03_SyncFastTransferAttachmentLevel_TestSuite.cs" />
+    <Compile Include="S03_SyncFastTransferAttachment_TestSuite.cs" />
+    <Compile Include="S04_SyncFastTransferServerClientServerUsecpid_TestSuite.cs" />
+    <Compile Include="S04_SyncFastTransferServerClientServer_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyChange_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyDeleteCheck_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyDelete_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyImportErrorCode_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyInvalid_TestSuite.cs" />
+    <Compile Include="S05_SyncICSHierarchyStreamSplit_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentAllMessage_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsDeletionCheck_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsDeletion_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsFAIWithIgnoreSpecifiedOnFAI_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsFAI_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsFolderChangeNum_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsFolderChange_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsInvalid_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsMoveFAI_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsMove_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsNormal_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsPartialItem_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsReadState_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsRTF_TestSuite.cs" />
+    <Compile Include="S06_SyncICSContentsUpdateReadStateFail_TestSuite.cs" />
+    <Compile Include="S06_SyncICSReadStatus_TestSuite.cs" />
+    <Compile Include="S07_SyncICSStateDownload_TestSuite.cs" />
+    <Compile Include="S07_SyncICSStateUpload_TestSuite.cs" />
+    <Compile Include="S08_SyncICSFolderConflict_TestSuite.cs" />
+    <Compile Include="S09_SyncICSMessageConflict_TestSuite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-OXCFXICS_Adapter.csproj">
+      <Project>{8E76CE3A-5827-4AC3-82FB-6B691B51359F}</Project>
+      <Name>MS-OXCFXICS_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

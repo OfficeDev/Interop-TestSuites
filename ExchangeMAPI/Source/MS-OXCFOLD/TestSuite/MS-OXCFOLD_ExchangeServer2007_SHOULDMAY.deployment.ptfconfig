@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R22001Enabled to true to verify that for ROP RopOpenFolder the implementation ignores the invalid bits in the OpenSoftDeleted field in the ROP request for this operation and always opens an existing folder, as specified in section 2.2.1.1.1. Set R22001Enabled to false to disable this requirement. -->
+    <Property name="R22001Enabled" value="false" />
+    <!-- Set R22003Enabled to true to verify that for ROP RopOpenFolder the implementation does not ignore the invalid bits in the OpenSoftDeleted field in the ROP request, as specified in section 2.2.1.1.1. Set R22003Enabled to false to disable this requirement. -->
+    <Property name="R22003Enabled" value="true" />
+    <!-- Set R22004Enabled to true to verify that for ROP RopOpenFolder the implementation does provide access to soft-deleted folders, as specified in section 2.2.1.8. Set R22004Enabled to false to disable this requirement. -->
+    <Property name="R22004Enabled" value="true" />
+    <!-- Set R25001Enabled to true to verify that for ROP RopOpenFolder the implementation sets zero value to HasRules field of the ROP response, if rules (4) are associated with the folder, as specified in section 2.2.1.1.2. Set R25001Enabled to false to disable this requirement. -->
+    <Property name="R25001Enabled" value="true" />
+    <!-- Set R25002Enabled to true to verify that for ROP RopOpenFolder the implementation sets nonzero value to HasRules field of the ROP response, if rules (4) are associated with the folder, as specified in section 2.2.1.1.2. Set R25002Enabled to false to disable this requirement. -->
+    <Property name="R25002Enabled" value="false" />
+    <!-- Set R60001Enabled to true to verify that for ROP RopCreateFolder the implementation sets zero value to IsExistingFolder field of the ROP response, if the client named folder already exist, as specified in section 2.2.1.2.1. Set R60001Enabled to false to disable this requirement. -->
+    <Property name="R60001Enabled" value="false" />
+    <!-- Set R60002Enabled to true to verify that for ROP RopCreateFolder the implementation sets nonzero value to IsExistingFolder field of the ROP response, if the client named folder already exist, as specified in section 2.2.1.2.1. Set R60002Enabled to false to disable this requirement. -->
+    <Property name="R60002Enabled" value="true" />
+    <!-- Set R19702002Enabled to true to verify that for ROP RopCopyFolder the implementation does support this operation, as specified in section 2.2.1.8. Set R19702002Enabled to false to disable this requirement. -->
+    <Property name="R19702002Enabled" value="true" />
+    <!-- Set R97501002Enabled to true to verify that for ROP RopEmptyFolder the implementation does support this operation, as specified in section 2.2.1.9. Set R97501002Enabled to false to disable this requirement. -->
+    <Property name="R97501002Enabled" value="true" />
+    <!-- Set R98301002Enabled to true to verify that for ROP RopHardDeleteMessagesAndSubfolders the implementation does support this operation, as specified in section 2.2.1.10. Set R98301002Enabled to false to disable this requirement. -->
+    <Property name="R98301002Enabled" value="true" />
+    <!-- Set R46201001Enabled to true to verify that for ROP RopOpenFolder the implementation does not fail the ROP, if the specified folder has been hard deleted, as specified in section 3.2.5.1. Set R46201001Enabled to false to disable this requirement. -->
+    <Property name="R46201001Enabled" value="true" />
+    <!-- Set R46201002Enabled to true to verify that for ROP RopOpenFolder the implementation does fail the ROP, if the specified folder has been hard deleted, as specified in section 3.2.5.1. Set R46201002Enabled to false to disable this requirement. -->
+    <Property name="R46201002Enabled" value="false" />
+    <!-- Set R106601Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecAccessdenied in the ReturnValue of the ROP response, if the client does not have permissions to create the folder, as specified in section 3.2.5.2. Set R106601Enabled to false to disable this requirement. -->
+    <Property name="R106601Enabled" value="false" />
+    <!-- Set R106602Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecNoCreateSubfolderRight in the ReturnValue of the ROP response, if the client does not have permissions to create the folder, as specified in section 3.2.5.2. Set R106602Enabled to false to disable this requirement. -->
+    <Property name="R106602Enabled" value="false" />
+    <!-- Set R49601Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecNotSupported in the ReturnValue of the ROP response, if the client attempts to create a search folder (2) on a public folders store, as specified in section 3.2.5.2. Set R49601Enabled to false to disable this requirement. -->
+    <Property name="R49601Enabled" value="true" />
+    <!-- Set R116001Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the operation with ecInvalidParam in the ReturnValue of the ROP response, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116001Enabled to false to disable this requirement. -->
+    <Property name="R116001Enabled" value="false" />
+    <!-- Set R116002Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the operation, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116002Enabled to false to disable this requirement. -->
+    <Property name="R116002Enabled" value="true" />
+    <!-- Set R314001Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does not fail the operation, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314001Enabled to false to disable this requirement. -->
+    <Property name="R314001Enabled" value="true" />
+    <!-- Set R314002Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does fail the operation with ecNotSupported in the ReturnValue of the ROP response, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314002Enabled to false to disable this requirement. -->
+    <Property name="R314002Enabled" value="false" />
+    <!-- Set R330001Enabled to true to verify that for ROP RopGetContentsTable the implementation does not fail the operation, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.14. Set R330001Enabled to false to disable this requirement. -->
+    <Property name="R330001Enabled" value="true" />
+    <!-- Set R330002Enabled to true to verify that for ROP RopGetContentsTable the implementation does fail the operation with ecInvalidParam in the ReturnValue of the ROP response, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.14. Set R330002Enabled to false to disable this requirement. -->
+    <Property name="R330002Enabled" value="false" />
+    <!-- Set R54301Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not stop the initial population of the search folder (2), if the STOP_SEARCH bit is set in the SearchFlags field, as specified in section 3.2.5.4. Set R54301Enabled to false to disable this requirement.-->
+    <Property name="R54301Enabled" value="true"/>
+    <!-- Set R1073Enabled to true to verify that for ROP RopCreateFolder the implementation sets ecNotFound in the ReturnValue of the ROP response, if the client calls on a Folder object that is a soft-deleted folder, as specified in section 3.2.5.2. Set R1073Enabled to false to disable this requirement.-->
+    <Property name="R1073Enabled" value="false"/>
+    <!-- Set R814Enabled to true to verify that for ROP RopDeleteFolder the implementation soft-deletes the specified folder, if the client does not set the bit DELETE_HARD_DELETE in the ROP request. Set R814Enabled to false to disable this requirement.-->
+    <Property name="R814Enabled" value="true"/>
+    <!-- Set R806Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does list only the soft-deleted folders, if the client sets the SoftDeletes bit to the DeleteFolderFlags field, as specified in section 2.2.1.3.1.  Set R806Enabled to false to disable this requirement.-->
+    <Property name="R806Enabled" value="true"/>
+    <!-- Set R503Enabled to true to verify that for ROP RopDeleteFolder the implementation does return a ecAccessDenied in the ReturnValue of the ROP response, if the client does not have permissions to delete a folder, as specified in section 3.2.5.3. Set R503Enabled to false to disable this requirement.-->
+    <Property name="R503Enabled" value="true"/>
+    <!-- Set R1114Enabled to true to verify that for ROP RopMoveFolder the implementation sets nonzero value to PartialCompletion field of the ROP response, if the server fails to move any folder, message, or subfolder, as specified in section 3.2.5.7. Set R1114Enabled to false to disable this requirement.-->
+    <Property name="R1114Enabled" value="false"/>
+    <!-- Set R1131Enabled to true to verify that for ROP RopEmptyFolder the implementation sets nonzero value to PartialCompletion field of the ROP response, if the server fails to delete any message or subfolder, as specified in section 3.2.5.9. Set R1131Enabled to false to disable this requirement.-->
+    <Property name="R1131Enabled" value="false"/>
+    <!-- Set R1246Enabled to true to verify that for ROP RopMoveCopyMessages the implementation does fail the RopMoveCopyMessages ROP when the destination folder is a search folder (2), as specified in section 2.2.1.6. Set R1246Enabled to false to disable this requirement.-->
+    <Property name="R1246Enabled" value="true"/>
+    <!-- Set R2721Enabled to true to verify that for ROP RopHardDeleteMessagesAndSubfolders the implementation sets nonzero value to PartialCompletion field of the ROP response, if the server fails RopHardDeleteMessagesAndSubfolders for a subset of targets, as specified in section 2.2.1.10.2. Set R2721Enabled to false to disable this requirement.-->
+    <Property name="R2721Enabled" value="false"/>
+    <!-- Set R586Enabled to true to verify that for ROP RopMoveCopyMessage the implementation sets nonzero value to PartialCompletion field of the ROP response, if the server fails to move or copy any message, as specified in section 3.2.5.6. Set R586Enabled to false to disable this requirement.-->
+    <Property name="R586Enabled" value="false"/>
+    <!-- Set R408Enabled to true to verify that for ROP RopDeleteFolder the implementation sets nonzero value to PartialCompletion field of the ROP response, if there are any subfolders or messages that could not be deleted and, consequently, that the folder was not deleted. Set R408Enabled to false to disable this requirement.-->
+    <Property name="R408Enabled" value="false"/>
+    <!-- Set R123401Enabled to true to verify that for ROP RopDeleteFolder the implementation does fail the ROP with an ecInvalidParam error if the client set an invalid bit in the DeleteFolderFlags field of the ROP request buffer, as specified in section 3.2.5.3. Set R123401Enabled to false to disable this requirement.-->
+    <Property name="R123401Enabled" value="true"/>
+    <!-- Set R123402Enabled to true to verify that for ROP RopDeleteFolder the implementation does ignore any invalid bits [0x02, 0x08, 0x20, 0x40, and 0x80] that are set in the DeleteFolderFlags field of the ROP request buffer, as specified in section 3.2.5.3. Set R123402Enabled to false to disable this requirement.-->
+    <Property name="R123402Enabled" value="false"/>
+    <!-- Set R124901Enabled to true to verify that for ROP RopEmptyFolder the implementation does return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer, if the client attempts to empty a search folder, as specified in section 3.2.5.9. Set R124901Enabled to false to disable this requirement.-->
+    <Property name="R124901Enabled" value="true"/>
+    <!-- Set R124201Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder (2) itself. Set R124201Enabled to false to disable this requirement.-->
+    <Property name="R124201Enabled" value="false"/>
+    <!-- Set R124202Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope. Set R124202Enabled to false to disable this requirement.-->
+    <Property name="R124202Enabled" value="true"/>
+    <!-- Set R124801Enabled to true to verify that for ROP RopEmptyFolder the implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. Set R124801Enabled to false to disable this requirement.-->
+    <Property name="R124801Enabled" value="true"/>
+    <!-- Set R124802Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. Set R124802Enabled to false to disable this requirement.-->
+    <Property name="R124802Enabled" value="false"/>
+    <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
+    <Property name="R1340Enabled" value="false"/>
+    <!-- Set R1017Enabled to true to verify that for ROP RopGetContentsTable the implementation if this bit [SoftDeletes] is set, the contents table lists only the messages that are soft deleted. Set R1017Enabled to false to disable this requirement.-->
+    <Property name="R1017Enabled" value="true"/>
+    <!-- Set R99999Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R99999Enabled to false to disable this requirement.-->
+    <Property name="R99999Enabled" value="true"/>
+  </Properties>
+</TestSite>

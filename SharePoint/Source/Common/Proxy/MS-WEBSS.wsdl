@@ -1,0 +1,3172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:s="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  targetNamespace="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                 
+xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
+  <!--Modify add / in namespace="http://schemas.microsoft.com/sharepoint/soap" to success create SchemaValidation.cs-->
+  <!--<s:import namespace="http://schemas.microsoft.com/sharepoint/soap/" schemaLocation="wsswire.xsd"/>-->
+
+  <wsdl:types>
+    <s:schema xmlns="http://schemas.microsoft.com/sharepoint/soap/"
+              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+              xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+              xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+              xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/"
+              xmlns:s="http://www.w3.org/2001/XMLSchema"
+              xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+              xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+              xmlns:core="http://schemas.microsoft.com/sharepoint/"
+              elementFormDefault="qualified"
+              targetNamespace="http://schemas.microsoft.com/sharepoint/soap/">
+      <!--<s:schema elementFormDefault="qualified" 
+              xmlns:core="http://schemas.microsoft.com/sharepoint/soap/"
+              xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/"
+              targetNamespace="http://schemas.microsoft.com/sharepoint/soap/">-->
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:simpleType name="FALSEONLY">
+        <s:restriction base="s:string">
+          <s:enumeration value="FALSE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ONEONLY">
+        <s:restriction base="s:string">
+          <s:enumeration value="1" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TRUEONLY">
+        <s:restriction base="s:string">
+          <s:enumeration value="TRUE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WebDefinition">
+        <s:attribute name="Title" type="s:string" use="required" />
+        <s:attribute name="Url" type="s:string" use="required" />
+        <s:attribute name="Description" type="s:string" />
+        <s:attribute name="Language" type="s:string" />
+        <s:attribute name="Theme" type="s:string" />
+        <s:attribute name="FarmId" type="core:UniqueIdentifierWithBraces" />
+        <s:attribute name="Id" type="core:UniqueIdentifierWithBraces" />
+        <s:attribute name="ExcludeFromOfflineClient" type="core:TRUEFALSE" />
+        <s:attribute name="CellStorageWebServiceEnabled" type="core:TRUEFALSE" />
+        <s:attribute name="AlternateUrls" type="s:string" />
+      </s:complexType>
+      <s:element name="GetWebCollection">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetWebCollectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetWebCollectionResult" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Webs">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Web" type="tns:WebDefinition" minOccurs="0" maxOccurs="unbounded">
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeb">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="webUrl" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetWebResult" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Web" type="tns:WebDefinition"/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetListTemplates">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetListTemplatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetListTemplatesResult" minOccurs="1">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="ListTemplates" type="core:ListTemplateDefinitions" minOccurs="1" >
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetAllSubWebCollection">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetAllSubWebCollectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetAllSubWebCollectionResult" minOccurs="1" maxOccurs="1" >
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="Webs">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Web" type="tns:WebDefinition" minOccurs="1" maxOccurs="unbounded" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="WebUrlFromPageUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="pageUrl" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebUrlFromPageUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="WebUrlFromPageUrlResult" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetObjectIdFromUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="objectUrl" type="s:string" minOccurs="1" maxOccurs="1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetObjectIdFromUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetObjectIdFromUrlResult" minOccurs="1" maxOccurs="1">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="ObjectId" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:attribute name="ListId" type="core:UniqueIdentifierWithBracesOrEmpty" />
+                      <s:attribute name="ListServerTemplate">
+                        <s:simpleType>
+                          <s:restriction base="s:int">
+                            <s:enumeration value="0"/>
+                            <s:enumeration value="100"/>
+                            <s:enumeration value="101"/>
+                            <s:enumeration value="102"/>
+                            <s:enumeration value="103"/>
+                            <s:enumeration value="104"/>
+                            <s:enumeration value="105"/>
+                            <s:enumeration value="106"/>
+                            <s:enumeration value="107"/>
+                            <s:enumeration value="108"/>
+                            <s:enumeration value="109"/>
+                            <s:enumeration value="110"/>
+                            <s:enumeration value="111"/>
+                            <s:enumeration value="112"/>
+                            <s:enumeration value="113"/>
+                            <s:enumeration value="114"/>
+                            <s:enumeration value="115"/>
+                            <s:enumeration value="116"/>
+                            <s:enumeration value="117"/>
+                            <s:enumeration value="118"/>
+                            <s:enumeration value="119"/>
+                            <s:enumeration value="120"/>
+                            <s:enumeration value="121"/>
+                            <s:enumeration value="122"/>
+                            <s:enumeration value="123"/>
+                            <s:enumeration value="130"/>
+                            <s:enumeration value="140"/>
+                            <s:enumeration value="150"/>
+                            <s:enumeration value="200"/>
+                            <s:enumeration value="201"/>
+                            <s:enumeration value="202"/>
+                            <s:enumeration value="204"/>
+                            <s:enumeration value="207"/>
+                            <s:enumeration value="210"/>
+                            <s:enumeration value="211"/>
+                            <s:enumeration value="212"/>
+                            <s:enumeration value="301"/>
+                            <s:enumeration value="302"/>
+                            <s:enumeration value="303"/>
+                            <s:enumeration value="402"/>
+                            <s:enumeration value="403"/>
+                            <s:enumeration value="404"/>
+                            <s:enumeration value="405"/>
+                            <s:enumeration value="420"/>
+                            <s:enumeration value="421"/>
+                            <s:enumeration value="499"/>
+                            <s:enumeration value="851"/>
+                            <s:enumeration value="1100"/>
+                            <s:enumeration value="1200"/>
+                            <s:enumeration value="1220"/>
+                            <s:enumeration value="1221"/>
+                          </s:restriction>
+                        </s:simpleType>
+                      </s:attribute>
+                      <s:attribute name="ListBaseType">
+                        <s:simpleType>
+                          <s:restriction base="s:int">
+                            <s:enumeration value="0"/>
+                            <s:enumeration value="1"/>
+                            <s:enumeration value="2"/>
+                            <s:enumeration value="3"/>
+                            <s:enumeration value="4"/>
+                            <s:enumeration value="5"/>
+                          </s:restriction>
+                        </s:simpleType>
+                      </s:attribute>
+                      <s:attribute name="ListItem" type="core:TRUEFALSE" />
+                      <s:attribute name="ListItemId" type="s:string" />
+                      <s:attribute name="File" type="core:TRUEFALSE" />
+                      <s:attribute name="Folder" type="core:TRUEFALSE" />
+                      <s:attribute name="AlternateUrls" type="s:string" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetContentTypes">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetContentTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetContentTypesResult" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ContentTypes" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="ContentType" minOccurs="0" maxOccurs="unbounded">
+                          <s:complexType>
+                            <s:sequence />
+                            <s:attribute name="Name" type="s:string" use="required" />
+                            <s:attribute name="ID" type="core:ContentTypeId" use="required" />
+                            <s:attribute name="Description" type="s:string" use="required" />
+                            <s:attribute name="Group" type="s:string" use="required" />
+                            <s:attribute name="NewDocumentControl" type="s:string" use="required" />
+                            <s:attribute name="Scope" type="s:string" use="required" />
+                            <s:attribute name="Version" type="s:int" use="required" />
+                            <s:attribute name="RequireClientRenderingOnNew" type="core:TRUEFALSE" use="required" />
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetContentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetContentTypeResult" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ContentType" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Folder" minOccurs="0" maxOccurs="1">
+                          <s:complexType>
+                            <s:sequence />
+                            <s:attribute name="TargetName" type="s:string" use="required" />
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="Fields" type="core:FieldDefinitions" minOccurs="1" maxOccurs="1" />
+                        <s:element name="DocumentTemplate" minOccurs="0" maxOccurs="1">
+                          <s:complexType>
+                            <s:sequence />
+                            <s:attribute name="TargetName" type="s:string" use="required" />
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="XmlDocuments" type="core:XmlDocumentDefinitionCollection" minOccurs="0" maxOccurs="1" />
+                      </s:sequence>
+                      <s:attribute name="ID" type="core:ContentTypeId" use="required" />
+                      <s:attribute name="Name" type="s:string" use="optional" />
+                      <s:attribute name="Group" type="s:string" use="optional" />
+                      <s:attribute name="Description" type="s:string" use="optional" />
+                      <s:attribute name="Hidden" type="TRUEONLY" use="optional" />
+                      <s:attribute name="NewDocumentControl" type="s:string" use="optional" />
+                      <s:attribute name="RequireClientRenderingOnNew" type="FALSEONLY" use="optional" />
+                      <s:attribute name="Sealed" type="TRUEONLY" use="optional" />
+                      <s:attribute name="ReadOnly" type="TRUEONLY" use="optional" />
+                      <s:attribute name="Locs" type="ONEONLY" use="optional" />
+                      <s:attribute name="FeatureId" type="s:string" use="optional" />
+                      <s:attribute name="TargetName" type="s:string" use="optional" />
+                      <s:attribute name="Version" type="s:int" use="required" />
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <!--Modify add AddOrUpdateFieldDefinition-->
+      <s:complexType name="AddOrUpdateFieldDefinition">
+        <s:attribute name="Aggregation" type="s:string" />
+        <s:attribute name="DisplayName" type="s:string" />
+        <s:attribute name="Hidden" type="core:TRUE_Case_Sensitive_Else_Anything" />
+        <s:attribute name="ID" type="core:UniqueIdentifierWithOrWithoutBraces" />
+        <s:attribute name="Name" type="s:string" />
+        <s:attribute name="Node" type="s:string" />
+        <s:attribute name="PIAttribute" type="s:string" />
+        <s:attribute name="PITarget" type="s:string" />
+        <s:attribute name="PrimaryPIAttribute" type="s:string" />
+        <s:attribute name="PrimaryPITarget" type="s:string" />
+        <s:attribute name="ReadOnly" type="core:TRUE_Case_Sensitive_Else_Anything" />
+        <s:anyAttribute namespace="##other" processContents="lax" />
+      </s:complexType>
+
+      <!--Modify add DeleteFieldDefinition-->
+      <s:complexType name="DeleteFieldDefinition">
+        <s:attribute name="ID" type="core:UniqueIdentifierWithOrWithoutBraces" />
+        <s:attribute name="Name" type="s:string" />
+        <s:anyAttribute namespace="##other" processContents="lax" />
+      </s:complexType>
+
+      <s:complexType name="AddOrUpdateFieldsDefinition">
+        <s:sequence>
+          <s:element name="Fields">
+            <s:complexType>
+              <s:sequence>
+                <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element name="Field" type="tns:AddOrUpdateFieldDefinition" />
+                    </s:sequence>
+                    <s:attribute name="ID" type="s:string" use="required" />
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContentTypePropertyDefinition">
+        <s:sequence />
+        <s:attribute name="Description" type="s:string" use="optional" />
+        <s:attribute name="DocumentTemplate" type="s:string" use="optional" />
+        <s:attribute name="Group" type="s:string" use="optional" />
+        <s:attribute name="Title" type="s:string" use="optional" />
+        <s:attribute name="NewDocumentControl" type="s:string" use="optional" />
+        <s:attribute name="RequireClientRenderingOnNew" type="s:string" use="optional" />
+      </s:complexType>
+      <s:complexType name="DeleteFieldsDefinition">
+        <s:sequence>
+          <s:element name="Fields">
+            <s:complexType>
+              <s:sequence>
+                <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                  <s:complexType>
+                    <s:sequence>
+                      <s:element name="Field" type="tns:DeleteFieldDefinition" minOccurs="0" />
+                    </s:sequence>
+                    <s:attribute name="ID" type="s:string" use="required" />
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FieldReferenceDefinitionCT">
+        <s:attribute name="Aggregation" type="s:string"/>
+        <s:attribute name="Customization" type="s:string"/>
+        <s:attribute name="DisplayName" type="s:string"/>
+        <s:attribute name="Format" type="s:string"/>
+        <s:attribute name="Hidden" type="core:TRUEFALSE"/>
+        <s:attribute name="ID" type="core:UniqueIdentifierWithOrWithoutBraces" use="required"/>
+        <s:attribute name="Name" type="s:string" use="required"/>
+        <s:attribute name="Node" type="s:string"/>
+        <s:attribute name="PIAttribute" type="s:string"/>
+        <s:attribute name="PITarget" type="s:string"/>
+        <s:attribute name="PrimaryPIAttribute" type="s:string"/>
+        <s:attribute name="PrimaryPITarget" type="s:string"/>
+        <s:attribute name="ReadOnly" type="core:TRUEFALSE"/>
+        <s:attribute name="Required" type="core:TRUEFALSE"/>
+        <s:attribute name="ShowInEditForm" type="core:TRUEFALSE"/>
+        <s:attribute name="ShowInNewForm" type="core:TRUEFALSE"/>
+      </s:complexType>
+      <s:element name="CreateContentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="displayName" type="s:string" minOccurs="1"/>
+            <s:element name="parentType" type="core:ContentTypeId" minOccurs="1"/>
+            <s:element name="newFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/>
+            <s:element name="contentTypeProperties" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="CreateContentTypeResult" type="core:ContentTypeId" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/>
+            <s:element name="contentTypeProperties" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element name="newFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/>
+            <s:element name="updateFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/>
+            <s:element name="deleteFields" type="DeleteFieldsDefinition" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateContentTypeResult" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Results" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                              <s:element name="FieldRef" type="FieldReferenceDefinitionCT" minOccurs="0" maxOccurs="1"/>
+                              <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                            </s:sequence>
+                            <s:attribute name="ID" type="s:string" use="required"/>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="ListProperties" minOccurs="1" maxOccurs="1">
+                          <s:complexType>
+                            <s:sequence />
+                            <s:attribute name="Description" type="s:string" use="optional" />
+                            <!--Modify delete space in type="core: UniqueIdentifierWithOrWithoutBraces"-->
+                            <s:attribute name="FeatureId" type="core:UniqueIdentifierWithOrWithoutBraces" use="optional" />
+
+                            <s:attribute name="Group" type="s:string" use="optional" />
+                            <s:attribute name="Hidden" type="TRUEONLY" use="optional" />
+                            <s:attribute name="ID" type="core:ContentTypeId" use="required" />
+                            <s:attribute name="Locs" type="ONEONLY" use="optional" />
+                            <s:attribute name="Name" type="s:string" use="optional" />
+                            <s:attribute name="NewDocumentControl" type="s:string" use="optional" />
+                            <s:attribute name="ReadOnly" type="TRUEONLY" use="optional" />
+                            <s:attribute name="RequireClientRenderingOnNew" type="FALSEONLY" use="optional" />
+                            <s:attribute name="Sealed" type="TRUEONLY" use="optional" />
+                            <s:attribute name="Version" type="s:long" use="required" />
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="DeleteContentTypeResult" minOccurs="1">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="Success">
+                    <s:complexType/>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentTypeXmlDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1" maxOccurs="1"/>
+            <s:element name="newDocument" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:any processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContentTypeXmlDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateContentTypeXmlDocumentResult" minOccurs="1" maxOccurs="1">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="Success" minOccurs="0" maxOccurs="1">
+                    <s:complexType />
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="RemoveContentTypeXmlDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/>
+            <s:element name="documentUri" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveContentTypeXmlDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="RemoveContentTypeXmlDocumentResult" minOccurs="0">
+
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Success" minOccurs="1" maxOccurs="1">
+                    <s:complexType />
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="GetColumns">
+        <s:complexType/>
+      </s:element>
+
+      <s:element name="GetColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetColumnsResult" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Fields">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Field" minOccurs="0" maxOccurs="unbounded" type="core:FieldDefinition">
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateColumns">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="newFields" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+
+                  <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Field" minOccurs="1" maxOccurs="1" type="core:FieldDefinition">
+                        </s:element>
+                      </s:sequence>
+                      <s:attribute name="ID" type="s:string" use="required"/>
+                    </s:complexType>
+                  </s:element>
+
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element name="updateFields" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+
+                  <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Field" minOccurs="1" maxOccurs="1" type="core:FieldDefinition">
+                        </s:element>
+                      </s:sequence>
+                      <s:attribute name="ID" type="s:string" use="required"/>
+                    </s:complexType>
+                  </s:element>
+
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element name="deleteFields" minOccurs="0">
+              <s:complexType>
+                <s:sequence>
+                  <!-- Move <s:element name="Fields" minOccurs="0">
+              <s:complexType>
+                <s:sequence> -->
+                  <s:element name="Method" minOccurs="0" maxOccurs="unbounded">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Field" minOccurs="1" maxOccurs="1" type="core:FieldDefinition">
+                        </s:element>
+                      </s:sequence>
+                      <s:attribute name="ID" type="s:string" use="required"/>
+                    </s:complexType>
+                  </s:element>
+                  <!-- Move</s:sequence>
+              </s:complexType>
+            </s:element>-->
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateColumnsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="UpdateColumnsResult" minOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="Results">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="NewFields">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="Method" minOccurs="0" maxOccurs="unbounded" >
+                                <!--Modify  move <s:attribute name="ID" type="s:string" use="required"/> in complexType -->
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                                    <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                                    <s:element name="Field" minOccurs="0" maxOccurs="1" type="core:FieldDefinition"/>
+                                  </s:sequence>
+                                  <s:attribute name="ID" use="required" type="s:string"/>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="UpdateFields">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="Method" minOccurs="0" maxOccurs="unbounded" >
+                                <!--Modify  move <s:attribute name="ID" type="s:string" use="required"/> -->
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                                    <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                                    <s:element name="Field" minOccurs="0" maxOccurs="1" type="core:FieldDefinition"/>
+                                  </s:sequence>
+                                  <s:attribute name="ID" use="required" type="s:string"/>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="DeleteFields">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="Method" minOccurs="0" maxOccurs="unbounded" >
+                                <!--Modify  move <s:attribute name="ID" type="s:string" use="required"/> -->
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                                    <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                                    <s:element name="Field" minOccurs="0" maxOccurs="1" type="core:FieldDefinition"/>
+                                  </s:sequence>
+                                  <s:attribute name="ID" use="required" type="s:string"/>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="Method" minOccurs="0" maxOccurs="unbounded" >
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                  <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                  <s:element name="Field" minOccurs="0" maxOccurs="1" type="core:FieldDefinition"/>
+                </s:sequence>
+                <s:attribute name="ID" type="s:string" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="Method" minOccurs="0" maxOccurs="unbounded" >
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="ErrorCode" type="s:string" minOccurs="1" maxOccurs="1"/>
+                  <s:element name="ErrorText" type="s:string" minOccurs="0" maxOccurs="1"/>
+                  <s:element name="Field" minOccurs="0" maxOccurs="1" type="core:FieldDefinition"/>
+                </s:sequence>
+                <s:attribute name="ID" type="s:string" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomizedPageStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="fileUrl" type="s:string" minOccurs="1" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomizedPageStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetCustomizedPageStatusResult" type="tns:CustomizedPageStatus"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="CustomizedPageStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="None"/>
+          <s:enumeration value="Uncustomized"/>
+          <s:enumeration value="Customized"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RevertFileContentStream">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="fileUrl" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevertFileContentStreamResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="RevertAllFileContentStreams">
+        <s:complexType/>
+      </s:element>
+      <s:element name="RevertAllFileContentStreamsResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="CustomizeCss">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="cssFile" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomizeCssResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="RevertCss">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="cssFile" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RevertCssResponse">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetActivatedFeatures">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetActivatedFeaturesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetActivatedFeaturesResult" type="s:string" minOccurs="1" maxOccurs="1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="detail">
+      <s:complexType>
+        <s:sequence>
+          <s:element name="errorstring" type="s:string"/>
+          <s:element name="errorcode" type="s:string" minOccurs="0"/>
+        </s:sequence>
+      </s:complexType>
+      </s:element>
+    </s:schema>
+
+    <xs:schema targetNamespace="http://schemas.microsoft.com/sharepoint/"
+               xmlns="http://schemas.microsoft.com/sharepoint/"
+               xmlns:mstns="http://schemas.microsoft.com/sharepoint/"
+               elementFormDefault="qualified"
+               xmlns:s="http://www.w3.org/2001/XMLSchema"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               version="1.0" attributeFormDefault="unqualified">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <!-- this part is added from MS-WSSCAP -->
+      <xs:complexType name="ViewMethodDefinition">
+        <xs:sequence>
+          <xs:element name="Filter" type="ViewFilterDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="ViewFilterDefinition">
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="Value" type="xs:string" />
+      </xs:complexType>
+      <!-- end of part from MS-WSSCAP -->
+      <!-- this part is added from MS-WSSFO2 -->
+      <xs:simpleType name="FALSE_Case_Insensitive_Else_Anything">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[Ff][Aa][Ll][Ss][Ee]|.*" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="FieldInternalType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[iI][nN][tT][eE][gG][eE][rR]|[tT][eE][xX][tT]|[nN][oO][tT][eE]|[dD][aA][tT][eE][tT][iI][mM][eE]|[cC][oO][uU][nN][tT][eE][rR]|[cC][hH][oO][iI][cC][eE]|[lL][oO][oO][kK][uU][pP]|[bB][oO][oO][lL][eE][aA][nN]|[nN][uU][mM][bB][eE][rR]|[cC][uU][rR][rR][eE][nN][cC][yY]|[uU][rR][lL]|[cC][oO][mM][pP][uU][tT][eE][dD]|[tT][hH][rR][eE][aA][dD][iI][nN][gG]|[gG][uU][iI][dD]|[mM][uU][lL][tT][iI][cC][hH][oO][iI][cC][eE]|[gG][rR][iI][dD][cC][hH][oO][iI][cC][eE]|[cC][aA][lL][cC][uU][lL][aA][tT][eE][dD]|[fF][iI][lL][eE]|[aA][tT][tT][aA][cC][hH][mM][eE][nN][tT][sS]|[uU][sS][eE][rR]|[rR][eE][cC][uU][rR][rR][eE][nN][cC][eE]|[cC][rR][oO][sS][sS][pP][rR][oO][jJ][eE][cC][tT][lL][iI][nN][kK]|[mM][oO][dD][sS][tT][aA][tT]|[eE][rR][rR][oO][rR]|[cC][oO][nN][tT][eE][nN][tT][tT][yY][pP][eE][iI][dD]|[pP][aA][gG][eE][sS][eE][pP][aA][rR][aA][tT][oO][rR]|[tT][hH][rR][eE][aA][dD][iI][nN][dD][eE][xX]|[wW][oO][rR][kK][fF][lL][oO][wW][sS][tT][aA][tT][uU][sS]|[aA][lL][lL][dD][aA][yY][eE][vV][eE][nN][tT]|[wW][oO][rR][kK][fF][lL][oO][wW][eE][vV][eE][nN][tT][tT][yY][pP][eE]" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="FieldAggregationAttribute">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="average" />
+          <xs:enumeration value="count" />
+          <xs:enumeration value="first" />
+          <xs:enumeration value="last" />
+          <xs:enumeration value="max" />
+          <xs:enumeration value="merge" />
+          <xs:enumeration value="min" />
+          <xs:enumeration value="plaintext" />
+          <xs:enumeration value="signature" />
+          <xs:enumeration value="sum" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="FieldRefType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Recurrence" />
+          <xs:enumeration value="EventType" />
+          <xs:enumeration value="UID" />
+          <xs:enumeration value="RecurrenceId" />
+          <xs:enumeration value="EventCancel" />
+          <xs:enumeration value="StartDate" />
+          <xs:enumeration value="EndDate" />
+          <xs:enumeration value="RecurData" />
+          <xs:enumeration value="Duration" />
+          <xs:enumeration value="TimeZone" />
+          <xs:enumeration value="XMLTZone" />
+          <xs:enumeration value="CPLink" />
+          <xs:enumeration value="LinkURL" />
+          <xs:enumeration value="MasterSeriesItemID" />
+          <xs:enumeration value="AllDayEvent" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="FieldRichTextMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Compatible"/>
+          <xs:enumeration value="FullHtml"/>
+          <xs:enumeration value="HtmlAsXml"/>
+          <xs:enumeration value="ThemeHtml"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IMEMode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="inactive" />
+          <xs:enumeration value="auto" />
+          <xs:enumeration value="active" />
+          <xs:enumeration value="disabled" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="IntPositive">
+        <xs:restriction base="xs:int">
+          <xs:minInclusive value="1" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="JoinType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="INNER" />
+          <xs:enumeration value="LEFT OUTER" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TextDirection">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ltr" />
+          <xs:enumeration value="rtl" />
+          <xs:enumeration value="none" />
+          <xs:enumeration value="None" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TRUE_If_Present">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:simpleType name="TRUEFALSE">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="TRUE_Case_Sensitive_Else_Anything">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="TRUE|.*" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UniqueIdentifierWithBracesUppercase">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{?[0-9A-F]{8}\-?[0-9A-F]{4}\-?[0-9A-F]{4}\-?[0-9A-F]{4}\-?[0-9A-F]{12}\}?"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="UniqueIdentifierWithOrWithoutBraces">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{?[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}?"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RelationshipDeleteBehaviorAttribute">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Cascade" />
+          <xs:enumeration value="Restrict" />
+          <xs:enumeration value="None" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CHOICEDEFINITION" mixed="true">
+        <xs:attribute name="JumpTo" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="CHOICEDEFINITIONS">
+        <xs:sequence>
+          <xs:element name="CHOICE" type="CHOICEDEFINITION" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FieldDefinition" mixed="true">
+        <xs:all>
+          <xs:element name="CHOICES" type="CHOICEDEFINITIONS" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Customization" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="1" maxOccurs="1" namespace="##any" processContents="skip" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Default" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DefaultFormula" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DisplayBidiPattern" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DisplayPattern" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="FieldRefs" minOccurs="0" maxOccurs="1">
+            <xs:complexType mixed="true">
+              <xs:sequence>
+                <xs:element name="FieldRef" type="FieldRefDefinitionField" minOccurs="0" maxOccurs="unbounded" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Formula" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="FormulaDisplayNames" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="MAPPINGS" type="MAPPINGDEFINITIONS" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ParserRefs" type="FieldParserRefs" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Validation" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+        <xs:attribute name="Aggregation" type="FieldAggregationAttribute" default="first"/>
+        <xs:attribute name="aggregation" type="xs:string" />
+        <xs:attribute name="AllowDeletion" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="AllowHyperlink" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="AllowMultiVote" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="AppendOnly" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="AuthoringInfo" type="xs:string" default=""/>
+        <xs:attribute name="BaseRenderingType" type="FieldInternalType" />
+        <xs:attribute name="BaseType" type="FieldInternalType" default="Text" />
+        <xs:attribute name="Calculated" type="xs:string" />
+        <xs:attribute name="CalType" type="xs:int" />
+        <xs:attribute name="CalendarType" type="xs:int" />
+        <xs:attribute name="CAMLRendering" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="CanToggleHidden" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="CountRelated" type="TRUE_If_Present" default="FALSE" />
+        <xs:attribute name="ClassInfo" type="xs:string" default="" />
+        <xs:attribute name="ColName" type="xs:string" />
+        <xs:attribute name="ColName2" type="xs:string" />
+        <xs:attribute name="Commas" type="TRUEFALSE" />
+        <xs:attribute name="Customization" type="xs:string" />
+        <xs:attribute name="Decimals" type="xs:int" default="-1"/>
+        <xs:attribute name="DefaultListField" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DefaultURLDesc" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+        <xs:attribute name="Direction" type="TextDirection" default="none" />
+        <xs:attribute name="Dir" type="xs:string" />
+        <xs:attribute name="DisplaceOnUpgrade" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DisplayImage" type="xs:string" />
+        <xs:attribute name="DisplayName" type="xs:string" />
+        <xs:attribute name="DisplayNameSrcField" type="xs:string" />
+        <xs:attribute name="DisplaySize" type="xs:int" />
+        <xs:attribute name="Div" type="xs:string" default="1.0" />
+        <xs:attribute name="EnableLookup" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="EnforceUniqueValues" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ExceptionImage" type="xs:string" />
+        <xs:attribute name="FieldRef" type="xs:string" />
+        <xs:attribute name="FillInChoice" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Filterable" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="FilterableNoRecurrence" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ForcedDisplay" type="xs:string" />
+        <xs:attribute name="ForcePromoteDemote" type="TRUE_If_Present" />
+        <xs:attribute name="Format" type="xs:string" />
+        <xs:attribute name="FromBaseType" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="GridEndNum" type="xs:int" />
+        <xs:attribute name="GridNATxt" type="xs:string" default="" />
+        <xs:attribute name="GridStartNum" type="IntPositive" />
+        <xs:attribute name="GridTxtRng1" type="xs:string" default="" />
+        <xs:attribute name="GridTxtRng2" type="xs:string" default="" />
+        <xs:attribute name="GridTxtRng3" type="xs:string" default="" />
+        <xs:attribute name="Group" type="xs:string" />
+        <xs:attribute name="HeaderImage" type="xs:string" />
+        <xs:attribute name="Height" type="xs:int" />
+        <xs:attribute name="Hidden" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" />
+        <xs:attribute name="Id" type="xs:string" />
+        <xs:attribute name="IMEMode" type="IMEMode" />
+        <xs:attribute name="Indexed" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ImnHeader" type="xs:string" />
+        <xs:attribute name="IsolateStyles" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="IsRelationship" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="JoinColName" type="xs:string" default="tp_ID" />
+        <xs:attribute name="JoinRowOrdinal" type="xs:int" fixed="0" />
+        <xs:attribute name="JoinType" type="JoinType" default="LEFT OUTER" />
+        <xs:attribute name="JumpTo" type="xs:string" />
+        <xs:attribute name="JumpToFillinChoice" type="xs:string" />
+        <xs:attribute name="JumpToNo" type="xs:string" />
+        <xs:attribute name="JumpToYes" type="xs:string" />
+        <xs:attribute name="LCID" type="xs:int" />
+        <xs:attribute name="LinkToItem" type="TRUE_Case_Sensitive_Else_Anything" />
+        <xs:attribute name="LinkToItemAllowed" type="xs:string" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:attribute name="ListItemMenu" type="TRUE_Case_Sensitive_Else_Anything" />
+        <xs:attribute name="ListItemMenuAllowed" type="xs:string" />
+        <xs:attribute name="Max" type="xs:float" />
+        <xs:attribute name="MaxLength" type="xs:int" />
+        <xs:attribute name="maxLength" type="xs:string" />
+        <xs:attribute name="Min" type="xs:string" />
+        <xs:attribute name="Mult" type="xs:string" />
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="NegativeFormat" type="xs:string" />
+        <xs:attribute name="node" type="xs:string" />
+        <xs:attribute name="Node" type="xs:string" />
+        <xs:attribute name="NoEditFormBreak" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="NumLines" type="xs:string" default="6" />
+        <xs:attribute name="Percentage" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="PIAttribute" type="xs:string" />
+        <xs:attribute name="PITarget" type="xs:string" />
+        <xs:attribute name="PrependId" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Presence" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="PreviousName" type="xs:string" />
+        <xs:attribute name="PrimaryKey" type="TRUEFALSE" />
+        <xs:attribute name="PrimaryPIAttribute" type="xs:string" />
+        <xs:attribute name="PrimaryPITarget" type="xs:string" />
+        <xs:attribute name="ReadOnly" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ReadOnlyEnforced" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RelationshipDeleteBehavior" type="RelationshipDeleteBehaviorAttribute" default="None" />
+        <xs:attribute name="RenderXMLUsingPattern" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Required" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RestrictedMode" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="ResultType" type="FieldInternalType" />
+        <xs:attribute name="ResyncOnChange" type="TRUEFALSE" default="FALSE"/>
+        <xs:attribute name="RichText" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RichTextMode" type="FieldRichTextMode" default="Compatible" />
+        <xs:attribute name="RowOrdinal" type="xs:int" default="0" />
+        <xs:attribute name="RowOrdinal2" type="xs:int" default="0" />
+        <xs:attribute name="Sealed" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="SeparateLine" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="SetAs" type="xs:string" />
+        <xs:attribute name="ShowAddressBookButton" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ShowField" type="xs:string" />
+        <xs:attribute name="ShowInDisplayForm" type="TRUEFALSE" />
+        <xs:attribute name="ShowInEditForm" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="ShowInFileDialog" type="TRUEFALSE" />
+        <xs:attribute name="ShowInFileDlg" type="TRUEFALSE" />
+        <xs:attribute name="ShowInListSettings" type="TRUEFALSE" />
+        <xs:attribute name="ShowInNewForm" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="ShowInVersionHistory" type="TRUEFALSE" />
+        <xs:attribute name="ShowInViewForms" type="TRUEFALSE" />
+        <xs:attribute name="Sortable" type="TRUEFALSE" />
+        <xs:attribute name="SourceID" type="xs:string" />
+        <xs:attribute name="StaticName" type="xs:string" />
+        <xs:attribute name="StorageTZ" type="xs:string" />
+        <xs:attribute name="StripWS" type="xs:string" />
+        <xs:attribute name="SuppressNameDisplay" type="TRUEFALSE" />
+        <xs:attribute name="TextOnly" type="TRUEFALSE" />
+        <xs:attribute name="Title" type="xs:string" />
+        <xs:attribute name="TitleField" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Type" type="xs:string" use="required" />
+        <xs:attribute name="UniqueId" type="xs:string" />
+        <xs:attribute name="UnlimitedLengthInDocumentLibrary" type="TRUEFALSE" />
+        <xs:attribute name="URLEncode" type="TRUEFALSE" />
+        <xs:attribute name="URLEncodeAsURL" type="TRUEFALSE" />
+        <xs:attribute name="UserSelectionMode" type="xs:string" />
+        <xs:attribute name="UserSelectionScope" type="xs:int" />
+        <xs:attribute name="Version" type="xs:int" default="0" />
+        <xs:attribute name="Viewable" type="FALSE_Case_Insensitive_Else_Anything" />
+        <xs:attribute name="WebId" type="UniqueIdentifierWithoutBraces" />
+        <xs:attribute name="Width" type="xs:int" />
+        <xs:attribute name="WikiLinking" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="WorkflowStatusURL" type="xs:string" use="optional" />
+        <xs:attribute name="XName" type="xs:string" />
+        <xs:attribute name="OverwriteInChildScopes" type="xs:string" use="optional" />
+        <xs:anyAttribute namespace="##other" processContents="lax" />
+      </xs:complexType>
+      <xs:complexType name="FieldDefinitionDatabase">
+        <xs:sequence>
+          <xs:element name="Index" type="IndexDefinitionTP" minOccurs="0" maxOccurs="unbounded" />
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="FieldRef" type="FieldRefDefinitionTP" />
+            <xs:element name="Field" type="FieldDefinitionTP" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FieldDefinitionDatabaseWithVersion" mixed="true">
+        <xs:all>
+          <xs:element name="tp_Fields" type="FieldDefinitionDatabase" minOccurs="1" maxOccurs="1"/>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="FieldDefinitionTP">
+        <xs:complexContent>
+          <xs:extension base="FieldDefinition">
+            <!--<xs:attribute name="Type" type="xs:string" use="optional" />-->
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FieldParserRef">
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="ProgId" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="FieldParserRefs">
+        <xs:sequence>
+          <xs:element name="ParserRef" type="FieldParserRef" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FieldRefDefinitionField" mixed="true" >
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Format" type="xs:string" use="optional" />
+        <xs:attribute name="ShowField" type="xs:string" use="optional" />
+        <xs:attribute name="RefType" type="FieldRefType" use="optional" />
+        <xs:attribute name="CreateURL" type="xs:string" use="optional" />
+        <xs:attribute name="Key" type="xs:string" use="optional" />
+        <xs:attribute name="DisplayName" type="xs:string" use="optional" />
+      </xs:complexType>
+      <xs:complexType name="FieldRefDefinitionIndex">
+        <xs:attribute name="ID" type="UniqueIdentifierWithBracesUppercase" use="required" />
+      </xs:complexType>
+      <xs:complexType name="FieldRefDefinitionTP">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="ColName" type="xs:string" use="optional" />
+        <xs:attribute name="ColName2" type="xs:string" use="optional" />
+        <xs:attribute name="RowOrdinal" type="xs:int" default="0" use="optional" />
+        <xs:attribute name="RowOrdinal2" type="xs:int" default="0" use="optional" />
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="SourceID" type="xs:string" use="optional" />
+        <xs:attribute name="StaticName" type="xs:string" use="optional" />
+      </xs:complexType>
+      <xs:complexType name="IndexDefinitionTP">
+        <xs:sequence>
+          <xs:element name="FieldRef" type="FieldRefDefinitionIndex" minOccurs="2" maxOccurs="2" />
+        </xs:sequence>
+        <xs:attribute name="ID" type="UniqueIdentifierWithBracesUppercase" use="required" />
+      </xs:complexType>
+      <xs:complexType name="MAPPINGDEFINITION">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="Value" type="xs:string" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+      <xs:complexType name="MAPPINGDEFINITIONS">
+        <xs:sequence>
+          <xs:element name="MAPPING" type="MAPPINGDEFINITION" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+      <!-- end of part from MS-WSSFO2 -->
+      <xs:simpleType name="AggregationsType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[Aa][Vv][Gg]|[Cc][Oo][Uu][Nn][Tt]|[Mm][Aa][Xx]|[Mm][Ii][Nn]|[Ss][Tt][Dd][Ee][Vv]|[Ss][Uu][Mm]|[Vv][Aa][Rr]" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="AggregationsValue">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="On|.*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="AssemblyClass">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="AssemblyStrongName">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ContentTypeId">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="0x([0-9A-Fa-f][1-9A-Fa-f]|[1-9A-Fa-f][0-9A-Fa-f]|00[0-9A-Fa-f]{32})*" />
+          <xs:minLength value="2"/>
+          <xs:maxLength value="1026"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="FormType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DisplayForm" />
+          <xs:enumeration value="EditForm" />
+          <xs:enumeration value="NewForm" />
+          <xs:enumeration value="NewFormDialog" />
+          <xs:enumeration value="SolutionForm" />
+          <xs:enumeration value="" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="IntNonNegative">
+        <xs:restriction base="xs:int">
+          <xs:minInclusive value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ListTemplateBaseType">
+        <xs:restriction base="xs:int">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="3" />
+          <xs:enumeration value="4" />
+          <xs:enumeration value="5" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ListTemplateCategoryType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Libraries" />
+          <xs:enumeration value="Communications" />
+          <xs:enumeration value="Tracking" />
+          <xs:enumeration value="Custom Lists" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="RelativeFilePath">
+        <xs:restriction base="xs:string" >
+          <xs:minLength value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="RelativeUrl">
+        <xs:restriction base="xs:string" >
+          <xs:maxLength value="255" />
+          <xs:minLength value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="String255Chars">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="255" />
+          <xs:minLength value="0" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ToolbarPosition">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="After" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ToolbarType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Standard" />
+          <xs:enumeration value="FreeForm" />
+          <xs:enumeration value="RelatedTasks" />
+          <xs:enumeration value="Freeform" />
+          <xs:enumeration value="None" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="truefalse_Only_Lowercase">
+        <xs:restriction base="xs:boolean">
+          <xs:pattern value="true|false"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="TRUE_Case_Insensitive_Else_Anything">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[Tt][Rr][Uu][Ee]|.*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="TRUE_NegOne_Else_Anything">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(TRUE)|(\-1)|.*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="UniqueIdentifierWithBraces">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <!--Modify add UniqueIdentifierWithBracesOrEmpty-->
+      <xs:simpleType name="UniqueIdentifierWithBracesOrEmpty">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}|"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="UniqueIdentifierWithOrWithoutBracesWithOrWithoutDashes">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="\{?[0-9a-fA-F]{8}\-?[0-9a-fA-F]{4}\-?[0-9a-fA-F]{4}\-?[0-9a-fA-F]{4}\-?[0-9a-fA-F]{12}\}?"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="UniqueIdentifierWithoutBraces">
+        <xs:restriction base="UniqueIdentifierWithoutBracesOrEmpty">
+          <xs:minLength value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="UniqueIdentifierWithoutBracesOrEmpty">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}|"/>
+          <xs:minLength value="0"/>
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ViewModerationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Moderator" />
+          <xs:enumeration value="Contributor" />
+          <xs:enumeration value="HideUnapproved" />
+          <xs:enumeration value="" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ViewPageLevel">
+        <xs:restriction base="xs:int">
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+          <xs:enumeration value="255" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ViewScope">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Recursive" />
+          <xs:enumeration value="RecursiveAll" />
+          <xs:enumeration value="FilesOnly" />
+          <xs:enumeration value="" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="ViewType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="HTML" />
+          <xs:enumeration value="GRID" />
+          <xs:enumeration value="CALENDAR" />
+          <xs:enumeration value="RECURRENCE" />
+          <xs:enumeration value="CHART" />
+          <xs:enumeration value="GANTT" />
+          <xs:enumeration value="TABLE" />
+          <xs:enumeration value="" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="AggregationsDefinition">
+        <xs:sequence>
+          <xs:element name="FieldRef" type="FieldRefDefinitionAggregation" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="Value" type="AggregationsValue" use="optional"/>
+      </xs:complexType>
+
+      <xs:complexType name="CalendarViewStyleDefinition" mixed="true">
+        <xs:all>
+          <xs:element name="AccessKey" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ImageName" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ImageWidth" type="xs:int" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ImageHeight" type="xs:int" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+        <xs:attribute name="Title" type="xs:string" />
+        <xs:attribute name="Type" type="xs:string" />
+        <xs:attribute name="Template" type="xs:string" />
+        <xs:attribute name="Sequence" type="xs:int" />
+        <xs:attribute name="Default" type="TRUEFALSE" default="FALSE"/>
+      </xs:complexType>
+
+      <xs:complexType name="CalendarViewStylesDefinition" mixed="true">
+        <xs:sequence>
+          <xs:element name="CalendarViewStyle" type="CalendarViewStyleDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="CamlQueryRoot">
+        <xs:all>
+          <xs:element name="Where" type="LogicalJoinDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="OrderBy" type="OrderByDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="GroupBy" type="GroupByDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="WithIndex" type="LogicalWithIndexDefinition" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeDatabase">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="ContentTypeRef" type="ContentTypeReference" />
+            <xs:element name="ContentType" type="ContentTypeDefinitionTP" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeDefinition">
+        <xs:all>
+          <xs:element name="Fields" type="FieldRefDefinitionCTs" minOccurs="0" maxOccurs="1" />
+          <xs:element name="FieldRefs" type="FieldRefDefinitionCTs" minOccurs="0" maxOccurs="1" />
+          <xs:element name="XmlDocuments" type="XmlDocumentDefinitionCollection" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Folder" type="FolderReference" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DocumentTemplate" type="ContentTypeDocumentTemplateDefinition" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+        <xs:attribute name="ID" type="ContentTypeId" use="required" />
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="Group" type="xs:string" use="optional" />
+        <xs:attribute name="ReadOnly" type="TRUE_NegOne_Else_Anything" use="optional" default="FALSE"/>
+        <xs:attribute name="Hidden" type="TRUE_NegOne_Else_Anything" use="optional" default="FALSE"/>
+        <xs:attribute name="Description" type="xs:string" use="optional" />
+        <xs:attribute name="Sealed" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="V2ListTemplateName" type="xs:string" use="optional"/>
+        <xs:attribute name="Version" type="IntNonNegative" use="optional" default="0" />
+        <xs:attribute name="FeatureId" type="UniqueIdentifierWithBraces" use="optional" />
+        <xs:attribute name="Edited" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="ProgId" type="xs:string" use="optional" />
+        <xs:attribute name="RequireClientRenderingOnNew" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="TRUE" />
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeDefinitionTP">
+        <xs:complexContent>
+          <xs:extension base="ContentTypeDefinition">
+            <!-- Modify <xs:attribute name="Name" type="xs:string" use="optional" />-->
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeReference">
+        <xs:all>
+          <xs:element name="Folder" type="FolderReference" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DocumentTemplate" type="ContentTypeDocumentTemplateDefinition" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+        <xs:attribute name="ID" type="ContentTypeId" use="required" />
+        <xs:attribute name="Edited" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeReferences">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="ContentTypeRef" type="ContentTypeReference" />
+            <xs:element name="ContentType" type="ContentTypeDefinition" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ContentTypeDocumentTemplateDefinition">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="TargetName" type="RelativeUrl" use="required"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+
+      <xs:complexType name="ExtendedLogicalJoinDefinition">
+        <xs:sequence>
+          <xs:choice minOccurs="2" maxOccurs="2">
+            <xs:element name="And" type="ExtendedLogicalJoinDefinition" />
+            <xs:element name="BeginsWith" type="LogicalTestDefinition" />
+            <xs:element name="Contains" type="LogicalTestDefinition" />
+            <xs:element name="DateRangesOverlap" type="LogicalTestDefinitionDateRange" />
+            <xs:element name="Eq" type="LogicalTestDefinition" />
+            <xs:element name="Geq" type="LogicalTestDefinition" />
+            <xs:element name="Gt" type="LogicalTestDefinition" />
+            <xs:element name="In" type="LogicalTestInValuesDefinition" />
+            <xs:element name="Includes" type="LogicalTestDefinition" />
+            <xs:element name="IsNull" type="LogicalNullDefinition" />
+            <xs:element name="IsNotNull" type="LogicalNullDefinition" />
+            <xs:element name="Leq" type="LogicalTestDefinition" />
+            <xs:element name="Lt" type="LogicalTestDefinition" />
+            <xs:element name="Membership" type="MembershipDefinition" />
+            <xs:element name="Neq" type="LogicalTestDefinition" />
+            <xs:element name="NotIncludes" type="LogicalTestDefinition" />
+            <xs:element name="Or" type="ExtendedLogicalJoinDefinition" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="FieldDefinitionCTRemove">
+        <xs:complexContent>
+          <xs:extension base="FieldDefinition"/>
+        </xs:complexContent>
+      </xs:complexType>
+
+      <xs:complexType name="FieldDefinitions">
+        <xs:sequence>
+          <xs:element name="Field" type="FieldDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionAggregation">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Type" type="AggregationsType" use="required"/>
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionCT">
+        <xs:all>
+          <xs:element name="Default" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Required" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="Hidden" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="Customization" type="xs:string" use="optional" />
+        <xs:attribute name="ShowInNewForm" type="FALSE_Case_Insensitive_Else_Anything" use="optional" default="TRUE" />
+        <xs:attribute name="ShowInEditForm" type="FALSE_Case_Insensitive_Else_Anything" use="optional" default="TRUE" />
+        <xs:attribute name="DisplayName" type="xs:string" use="optional" />
+        <xs:attribute name="ReadOnly" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="PITarget" type="xs:string" use="optional" />
+        <xs:attribute name="PrimaryPITarget" type="xs:string" use="optional" />
+        <xs:attribute name="PIAttribute" type="xs:string" use="optional" />
+        <xs:attribute name="PrimaryPIAttribute" type="xs:string" use="optional" />
+        <xs:attribute name="Aggregation" type="xs:string" use="optional" />
+        <xs:attribute name="Node" type="xs:string" use="optional" />
+        <xs:attribute name="Format" type="xs:string" use="optional" />
+        <xs:attribute name="NumLines" type="xs:string" default="6" />
+        <xs:attribute name="Sealed" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="Sortable" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="TRUE" />
+        <xs:attribute name="FromBaseType" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="Filterable" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="TRUE" />
+        <xs:attribute name="FilterableNoRecurrence" type="TRUE_Case_Sensitive_Else_Anything" use="optional" default="FALSE" />
+        <xs:attribute name="ShowInDisplayForm" use="optional" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ShowInFileDlg" type="FALSE_Case_Insensitive_Else_Anything" use="optional" default="TRUE" />
+        <xs:attribute name="ShowInListSettings" use="optional" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Description" type="xs:string" use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionCTs" mixed="true" >
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="FieldRef" type="FieldRefDefinitionCT" />
+            <xs:element name="Field" type="FieldDefinitionCTRemove" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionGroupBy">
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="Ascending" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionOrderBy">
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Name" type="xs:string" use="optional" />
+        <xs:attribute name="Ascending" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionQueryDate">
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Name" type="xs:string" use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionQueryNull">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionQueryTest">
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="optional" />
+        <xs:attribute name="Name" type="xs:string" use="optional" />
+        <xs:attribute name="LookupId" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE" />
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionView">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="Explicit" type="TRUE_If_Present" use="optional" default="FALSE"/>
+      </xs:complexType>
+
+      <xs:complexType name="FieldRefDefinitionViewData">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="Type" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="FolderReference">
+        <xs:sequence />
+        <xs:attribute name="TargetName" type="RelativeUrl" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="FormatDefDefinition">
+        <xs:simpleContent>
+          <xs:extension base="xs:string">
+            <xs:attribute name="Type" type="xs:string" use="required" />
+            <xs:attribute name="Value" type="xs:string" use="required" />
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+
+      <xs:complexType name="FormatDefinition">
+        <xs:sequence>
+          <xs:element name="FormatDef" type="FormatDefDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="Name" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="FormDefinition">
+        <xs:all>
+          <xs:element name="ListFormOpening" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ListFormButtons" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ListFormBody" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ListFormClosing" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+        <xs:attribute name="Path" type="RelativeFilePath" />
+        <xs:attribute name="SetupPath" type="RelativeFilePath" />
+        <xs:attribute name="Url" type="RelativeUrl" />
+        <xs:attribute name="Type" type="FormType" />
+        <xs:attribute name="UseLegacyForm" type="TRUEFALSE" default="FALSE"/>
+        <xs:attribute name="Template" type="xs:string" />
+        <xs:attribute name="WebPartZoneID" type="xs:string" />
+        <xs:attribute name="FormID" type="xs:int" default="0"  />
+        <xs:attribute name="Name" type="UniqueIdentifierWithBraces" />
+        <xs:attribute name="ToolbarTemplate" type="xs:string" />
+        <xs:attribute name="Default" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="MobileUrl" type="RelativeUrl" />
+      </xs:complexType>
+
+      <xs:complexType name="FormDefinitions">
+        <xs:sequence>
+          <xs:element name="Form" type="FormDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="GroupByDefinition">
+        <xs:sequence>
+          <xs:element name="FieldRef" type="FieldRefDefinitionGroupBy" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="Collapse" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE"/>
+        <xs:attribute name="GroupLimit" type="IntNonNegative" use="optional" default="100"/>
+      </xs:complexType>
+
+      <xs:complexType name="ListDefinition">
+        <xs:all>
+          <xs:element name="MetaData" type="ListMetaDataDefinition" minOccurs="1" maxOccurs="1" form="qualified" />
+        </xs:all>
+        <xs:attribute name="AllowDeletion" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="AllowEveryoneViewItems" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="AllowMultiVote" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="AlwaysIncludeContent" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="BaseType" type="xs:int" use="required" />
+        <xs:attribute name="CacheSchema" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Catalog" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DefaultItemOpen" type="xs:int" default="0" />
+        <xs:attribute name="Description" type="xs:string" use="required" />
+        <xs:attribute name="Direction" type="xs:int" use="required" />
+        <xs:attribute name="DisableAttachments" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DisableDeployingList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DisableDeployWithDependentList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DisallowContentTypes" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DontSaveInTemplate" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DraftVersionVisibility" type="xs:int" default="0" />
+        <xs:attribute name="EmailAssignTo" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="EnableContentTypes" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="EnableMinorVersions" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="EnableThumbnails" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="EventSinkAssembly" type="AssemblyStrongName" />
+        <xs:attribute name="EventSinkClass" type="AssemblyClass" />
+        <xs:attribute name="EventSinkData" type="String255Chars" />
+        <xs:attribute name="FeatureId" type="UniqueIdentifierWithBraces" />
+        <xs:attribute name="FolderCreation" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="ForceCheckout" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="HiddenList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="MajorVersionLimit" type="IntNonNegative" />
+        <xs:attribute name="MajorWithMinorVersionsLimit" type="IntNonNegative" />
+        <xs:attribute name="ModerationType" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="MultipleMtgDataList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="MustSaveRootFiles" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="OrderedList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="PrivateList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="PublicList" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RestrictedTemplate" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RootWebOnly" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ServerTemplate" type="xs:int" />
+        <xs:attribute name="SuppressNameDisplay" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ThumbnailSize" type="xs:int" default="0" />
+        <xs:attribute name="Title" type="xs:string" use="required" />
+        <xs:attribute name="Url" type="RelativeUrl" />
+        <xs:attribute name="Version" type="xs:int" />
+        <xs:attribute name="VersioningEnabled" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="WebImageHeight" type="xs:int" default="0" />
+        <xs:attribute name="WebImageWidth" type="xs:int" default="0" />
+      </xs:complexType>
+
+      <xs:complexType name="ListFormSet">
+        <xs:sequence>
+          <xs:element name="Form" type="FormDefinition" minOccurs="0" maxOccurs="4" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ListMetaDataDefault">
+        <xs:sequence>
+          <xs:element name="Forms" type="ListFormSet" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ListMetaDataDefinition">
+        <xs:all>
+          <xs:element name="ContentTypes" type="ContentTypeReferences" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Default" type="ListMetaDataDefault" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DefaultDescription" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="DocumentLibraryTemplate" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Fields" type="FieldDefinitions" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Forms" type="ListFormSet" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Security" type="ListSecurity" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Toolbar" type="ToolbarDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Validation" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Views" type="ViewDefinitions" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ListSecurity">
+        <xs:all>
+          <xs:element name="ReadSecurity" type="xs:int" minOccurs="0" maxOccurs="1" />
+          <xs:element name="WriteSecurity" type="xs:int" minOccurs="0" maxOccurs="1" />
+          <xs:element name="SchemaSecurity" type="xs:int" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ListTemplateDefinition" mixed="true">
+        <xs:attribute name="Unique" type="TRUEFALSE" />
+        <xs:attribute name="Type" type="xs:int" />
+        <xs:attribute name="SecurityBits" type="xs:string" />
+        <xs:attribute name="RootWebOnly" type="TRUEFALSE" />
+        <xs:attribute name="Catalog" type="TRUEFALSE" />
+        <xs:attribute name="Default" type="TRUEFALSE" />
+        <xs:attribute name="DisplayName" type="xs:string" />
+        <xs:attribute name="Description" type="xs:string" />
+        <xs:attribute name="DocumentTemplate" type="xs:int" />
+        <xs:attribute name="DontSaveInTemplate" type="TRUEFALSE" />
+        <xs:attribute name="AllowDeletion" type="TRUEFALSE" />
+        <xs:attribute name="DisableAttachments" type="TRUEFALSE" />
+        <xs:attribute name="EnableModeration" type="TrueFalseMixed" />
+        <xs:attribute name="Hidden" type="TRUEFALSE" />
+        <xs:attribute name="HiddenList" type="TRUEFALSE" />
+        <xs:attribute name="Image" type="RelativeUrl" />
+        <xs:attribute name="MustSaveRootFiles" type="TRUEFALSE" />
+        <xs:attribute name="Name" type="xs:string" />
+        <xs:attribute name="OnQuickLaunch" type="TRUEFALSE" />
+        <xs:attribute name="CacheSchema" type="TRUEFALSE" />
+        <xs:attribute name="NoCrawl" type="TRUEFALSE" />
+        <xs:attribute name="Followable" type="TRUEFALSE" />
+        <xs:attribute name="RestrictUserUpdates" type="TRUEFALSE" />
+        <xs:attribute name="AllowEveryoneViewItems" type="TRUEFALSE" />
+        <xs:attribute name="AlwaysIncludeContent" type="TRUEFALSE" />
+        <xs:attribute name="Path" type="xs:string" />
+        <xs:attribute name="SyncType" type="xs:string" />
+        <xs:attribute name="SetupPath" type="RelativeFilePath" />
+        <xs:attribute name="BaseType" type="ListTemplateBaseType" />
+        <xs:attribute name="EditPage" type="xs:string" />
+        <xs:attribute name="FeatureId" type="UniqueIdentifierWithOrWithoutBracesWithOrWithoutDashes" />
+        <xs:attribute name="FolderCreation" type="TRUEFALSE" />
+        <!-- MultipleTypes will be removed at the next RI from wssdev branch -->
+        <xs:attribute name="MultipleTypes" type="TRUEFALSE" />
+        <xs:attribute name="DisallowContentTypes" type="TRUEFALSE" />
+        <xs:attribute name="NewPage" type="xs:string" />
+        <xs:attribute name="Sequence" type="xs:long" />
+        <xs:attribute name="VersioningEnabled" type="TRUEFALSE" />
+        <xs:attribute name="Category" type="ListTemplateCategoryType" />
+        <xs:attribute name="UseRootFolderForNavigation" type="TRUEFALSE" />
+        <xs:attribute name="DocumentAsEnclosure" type="TRUEFALSE" />
+        <xs:attribute name="EnablePeopleSelector" type="TRUEFALSE" />
+        <xs:attribute name="EnableResourceSelector" type="TRUEFALSE" />
+      </xs:complexType>
+
+
+      <xs:complexType name="ListTemplateDefinitions" mixed="true">
+        <xs:sequence>
+          <xs:element name="ListTemplate" type="ListTemplateDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="TrueFalseMixed">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="True" />
+          <xs:enumeration value="False" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="LogicalJoinDefinition">
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element name="And" type="ExtendedLogicalJoinDefinition" />
+          <xs:element name="BeginsWith" type="LogicalTestDefinition" />
+          <xs:element name="Contains" type="LogicalTestDefinition" />
+          <xs:element name="DateRangesOverlap" type="LogicalTestDefinitionDateRange" />
+          <xs:element name="Eq" type="LogicalTestDefinition" />
+          <xs:element name="Geq" type="LogicalTestDefinition" />
+          <xs:element name="Gt" type="LogicalTestDefinition" />
+          <xs:element name="In" type="LogicalTestInValuesDefinition" />
+          <xs:element name="Includes" type="LogicalTestDefinition" />
+          <xs:element name="IsNotNull" type="LogicalNullDefinition" />
+          <xs:element name="IsNull" type="LogicalNullDefinition" />
+          <xs:element name="Leq" type="LogicalTestDefinition" />
+          <xs:element name="Lt" type="LogicalTestDefinition" />
+          <xs:element name="Membership" type="MembershipDefinition" />
+          <xs:element name="Neq" type="LogicalTestDefinition" />
+          <xs:element name="NotIncludes" type="LogicalTestDefinition" />
+          <xs:element name="Or" type="ExtendedLogicalJoinDefinition" />
+        </xs:choice>
+      </xs:complexType>
+
+      <xs:complexType name="LogicalNullDefinition">
+        <xs:all>
+          <xs:element name="FieldRef" type="FieldRefDefinitionQueryNull" minOccurs="1" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="LogicalTestDefinition">
+        <xs:all>
+          <xs:element name="FieldRef" type="FieldRefDefinitionQueryTest" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Value" type="ValueDefinition" minOccurs="1" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="LogicalTestDefinitionDateRange">
+        <xs:sequence>
+          <xs:element name="FieldRef" type="FieldRefDefinitionQueryDate" minOccurs="2"  maxOccurs="3" />
+          <xs:element name="Value" type="ValueDefinitionDateRange" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="MembershipDefinition">
+        <xs:complexContent>
+          <xs:extension base="LogicalNullDefinition">
+            <xs:attribute name="Type" type="xs:string" use="optional" />
+            <xs:attribute name="ID" type="xs:integer" use="optional" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+
+      <xs:complexType name="OrderByDefinition">
+        <xs:sequence>
+          <xs:element name="FieldRef" type="FieldRefDefinitionOrderBy" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="Override" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE"/>
+      </xs:complexType>
+
+      <xs:complexType name="RowLimitDefinition">
+        <xs:simpleContent>
+          <xs:extension base="xs:int">
+            <xs:attribute name="Paged" type="TRUE_Case_Insensitive_Else_Anything" use="optional" default="FALSE"/>
+          </xs:extension>
+        </xs:simpleContent>
+      </xs:complexType>
+
+      <xs:complexType name="ToolbarDefinition">
+        <xs:sequence>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+        </xs:sequence>
+        <xs:attribute name="Position" type="ToolbarPosition" />
+        <xs:attribute name="Type" type="ToolbarType" />
+        <xs:anyAttribute processContents="skip" />
+      </xs:complexType>
+
+      <xs:complexType name="ValueDefinition" mixed="true">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:any namespace="##any" processContents="skip" />
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Type" type="xs:string" use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="ValueDefinitionDateRange" mixed="true">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element name="Month">
+              <xs:complexType />
+            </xs:element>
+            <xs:element name="Now">
+              <xs:complexType />
+            </xs:element>
+            <xs:element name="Today">
+              <xs:complexType />
+            </xs:element>
+            <xs:element name="Week">
+              <xs:complexType />
+            </xs:element>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="Type" type="xs:string" use="optional" />
+        <xs:attribute name="IncludeTimeValue" type="TRUEFALSE" use="optional" />
+        <xs:attribute name="StorageTZ" type="TRUEFALSE" use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="ViewDefinition">
+        <xs:group ref="ViewDefinitionChildElementGroup"/>
+        <xs:attribute name="AggregateView" type="TRUEFALSE"  default="FALSE"/>
+        <xs:attribute name="BaseViewID" type="xs:int" />
+        <xs:attribute name="CssStyleSheet" type="xs:string" />
+        <xs:attribute name="DefaultView" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="DisplayName" type="xs:string" />
+        <xs:attribute name="FailIfEmpty" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="FileDialog" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="FPModified" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="Hidden" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="List" type="UniqueIdentifierWithoutBraces" />
+        <xs:attribute name="Name" type="UniqueIdentifierWithBraces" />
+        <xs:attribute name="ContentTypeID" type="ContentTypeId" />
+        <xs:attribute name="OrderedView" type="TRUEFALSE" />
+        <xs:attribute name="DefaultViewForContentType" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="IncludeRootFolder" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="PageType" type="xs:string" />
+        <xs:attribute name="Path" type="RelativeFilePath" />
+        <xs:attribute name="Personal" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ReadOnly" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RecurrenceRowset" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="RequiresClientIntegration" type="TRUEFALSE" default="FALSE"/>
+        <xs:attribute name="RowLimit" type="xs:int" />
+        <xs:attribute name="ShowHeaderUI" type="TRUEFALSE"  default="FALSE" />
+        <xs:attribute name="Type" type="ViewType" default="HTML"/>
+        <xs:attribute name="Url" type="RelativeUrl" />
+        <xs:attribute name="WebPartOrder" type="xs:int" />
+        <xs:attribute name="WebPartZoneID" type="xs:string" />
+        <xs:attribute name="FreeForm" type="TRUEFALSE" />
+        <xs:attribute name="ImageUrl" type="xs:string" />
+        <xs:attribute name="SetupPath" type="RelativeFilePath" />
+        <xs:attribute name="ToolbarTemplate" type="xs:string" />
+        <xs:attribute name="MobileView" type="TRUEFALSE" default="FALSE"/>
+        <xs:attribute name="MobileDefaultView" type="TRUEFALSE" />
+        <xs:attribute name="MobileUrl" type="RelativeUrl" />
+        <xs:attribute name="Level" type="ViewPageLevel" default="1" />
+        <xs:attribute name="FrameState" type="xs:string" default="Normal" />
+        <xs:attribute name="IsIncluded" type="TRUEFALSE" default="TRUE" />
+        <xs:attribute name="IncludeVersions" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="HackLockWeb" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="ModerationType" type="ViewModerationType" default="" />
+        <xs:attribute name="Scope" type="ViewScope" default="" />
+        <xs:attribute name="Threaded" type="TRUEFALSE" default="FALSE" />
+        <xs:attribute name="TabularView" type="FALSE_Case_Insensitive_Else_Anything" default="TRUE" />
+      </xs:complexType>
+
+      <xs:group name="ViewDefinitionChildElementGroup">
+        <xs:all>
+          <xs:element name="PagedRowset" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Toolbar" type="ToolbarDefinition"  minOccurs="0" maxOccurs="1" />
+          <xs:element name="Query" type="CamlQueryRoot" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ViewFields" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FieldRef" type="FieldRefDefinitionView" minOccurs="0" maxOccurs="unbounded" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="GroupByHeader" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="GroupByFooter" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ViewHeader" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ViewBody" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ViewFooter" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="RowLimitExceeded" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ViewEmpty" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PagedRecurrenceRowset" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PagedClientCallbackRowset" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Aggregations" type="AggregationsDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="OpenApplicationExtension" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="RowLimit" type="RowLimitDefinition" minOccurs="0" maxOccurs="1" default="2147483647" />
+          <xs:element name="MobileItemLimit " type="RowLimitDefinition" minOccurs="0" maxOccurs="1" default="2147483647" />
+          <xs:element name="ViewStyle" type="ViewStyleReference" minOccurs="0" maxOccurs="1" />
+          <xs:element name="CalendarSettings" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="CalendarViewStyles" type="CalendarViewStylesDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ViewBidiHeader" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Script" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ViewData" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FieldRef" type="FieldRefDefinitionViewData" minOccurs="3" maxOccurs="5" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Formats" type="ViewFormatDefinitions" minOccurs="0" maxOccurs="1" />
+          <xs:element name="InlineEdit" type="TRUE_If_Present" minOccurs="0" maxOccurs="1" />
+          <!--Modify-->
+          <xs:element name="ProjectedFields" type="ProjectedFieldsDefinitionType" minOccurs="0" maxOccurs="1" />
+          <!--Modify-->
+          <xs:element name="Joins" type="ListJoinsDefinitionType" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Method" type="ViewMethodDefinition" minOccurs="0" maxOccurs="1" />
+          <xs:element name="ParameterBindings" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Xsl" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+          <!--Modify-->
+          <xs:element name="XslLink">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip" />
+              </xs:sequence>
+              <xs:anyAttribute processContents="skip" />
+            </xs:complexType>
+          </xs:element>
+        </xs:all>
+      </xs:group>
+
+      <xs:complexType name="ViewDefinitions">
+        <xs:sequence>
+          <xs:element name="View" type="ViewDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ViewFormatDefinitions">
+        <xs:sequence>
+          <xs:element name="FormatDef" type="FormatDefDefinition" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="Format" type="FormatDefinition"  minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="ViewStyleReference">
+        <xs:attribute name="ID" type="xs:int"  use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="XmlDocumentDefinition" mixed="true">
+        <xs:complexContent>
+          <xs:restriction base="xs:anyType">
+            <xs:sequence>
+              <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+            </xs:sequence>
+            <xs:attribute name="NamespaceURI" type="xs:string" use="required" />
+          </xs:restriction>
+        </xs:complexContent>
+      </xs:complexType>
+
+      <xs:complexType name="XmlDocumentDefinitionCollection">
+        <xs:sequence>
+          <xs:element name="XmlDocument" type="XmlDocumentDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+      <!--Modify-->
+      <xs:element name="customXsn" >
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="xsnLocation" type="xs:string" />
+            <xs:element name="cached" type="xs:boolean" />
+            <xs:element name="openByDefault" type="xs:boolean" />
+            <xs:element name="xsnScope" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:complexType name="policy">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Description" type="xs:string" minOccurs="0" />
+          <xs:element name="Statement" type="xs:string" minOccurs="0" />
+          <xs:element name="PolicyItems" minOccurs="0" >
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PolicyItem" type="policyItem" minOccurs="0" maxOccurs="unbounded" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="UniqueIdentifierWithoutBracesOrEmpty" use="required" />
+        <xs:attribute name="local" type="xs:boolean" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicyDirtyBag">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="skip" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="PolicyFeatureOperation">
+        <xs:attribute name="op" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="policyItem">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Statement" type="xs:string" minOccurs="0" />
+          <xs:element name="Description" type="xs:string" minOccurs="0" />
+          <xs:element name="CustomData" type="customData" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="featureId" type="xs:string" use="required" />
+        <xs:attribute name="BlockPreview" type="xs:boolean" />
+        <xs:attribute name="UniqueId" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="customData">
+        <xs:sequence>
+          <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="barcode">
+        <xs:sequence>
+          <xs:element name="event" type="PolicyEventDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="label">
+        <xs:sequence>
+          <xs:element name="properties" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="width" type="xs:decimal" minOccurs="0" />
+                <xs:element name="height" type="xs:decimal" minOccurs="0" />
+                <xs:element name="justification" type="xs:string" minOccurs="0" />
+                <xs:element name="fontstyle" type="xs:string" minOccurs="0" />
+                <xs:element name="font" type="xs:string" minOccurs="0" />
+                <xs:element name="fontsize" type="xs:int" minOccurs="0" />
+                <xs:element name="lock" type="xs:boolean" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="event" type="PolicyEventDefinition" minOccurs="0" maxOccurs="unbounded" />
+          <xs:element name="segment" type="PolicySegmentDefinition" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="audit">
+        <xs:all>
+          <xs:element name="Update" minOccurs="0" />
+          <xs:element name="View" minOccurs="0" />
+          <xs:element name="CheckInOut" minOccurs="0" />
+          <xs:element name="MoveCopy" minOccurs="0" />
+          <xs:element name="DeleteRestore" minOccurs="0" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="PolicyEventDefinition">
+        <xs:attribute name="type" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicySegmentDefinition">
+        <xs:attribute name="type" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicyFormulaDefinition">
+        <xs:sequence>
+          <xs:element name="number" type="xs:int" />
+          <xs:element name="property" type="xs:string" />
+          <xs:element name="propertyId" type="xs:string" />
+          <xs:element name="period" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicyActionDefinition">
+        <xs:attribute name="type" type="xs:string" />
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="destnExplanation" type="xs:string" />
+        <xs:attribute name="destnName" type="xs:string" />
+        <xs:attribute name="destnUrl" type="xs:string" />
+        <xs:attribute name="destnId" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="ReceiverDefinitions">
+        <xs:sequence>
+          <xs:element name="Receiver" type="ReceiverDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="ListTemplateId" type="xs:int" />
+        <xs:attribute name="ListUrl" type="xs:string" />
+        <xs:attribute name="ListTemplateOwner" type="xs:string" />
+        <xs:attribute name="Scope" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="ReceiverDefinition">
+        <xs:all>
+          <xs:element name="Name" type="String255Chars" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Synchronization" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Type" type="xs:integer" minOccurs="1" maxOccurs="1" />
+          <xs:element name="SequenceNumber" type="xs:integer" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Assembly" type="AssemblyStrongName" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Class" type="AssemblyClass" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Data" type="String255Chars" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ValueDefinitionCollection">
+        <xs:sequence>
+          <xs:element name="Value" type="ValueDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="LogicalTestInValuesDefinition">
+        <xs:all>
+          <xs:element name="FieldRef" type="FieldRefDefinitionQueryTest" minOccurs="1" maxOccurs="1" />
+          <xs:element name="Values" type="ValueDefinitionCollection" minOccurs="1" maxOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ProjectedFieldsDefinitionType">
+        <xs:all>
+          <!--Modify-->
+          <xs:element name="Field" type="ProjectedFieldDefinitionType" minOccurs="1"  />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ProjectedFieldDefinitionType">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="ShowField" type="xs:string" use="required" />
+        <xs:attribute name="Type" type="xs:string" use="required" fixed="Lookup" />
+        <xs:attribute name="List" type="xs:string" />
+        <xs:attribute name="FieldRef" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="ListJoinsDefinitionType">
+        <xs:all>
+          <!--Modify-->
+          <xs:element name="Join" type="ListJoinDefinitionType" minOccurs="1" />
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ListJoinDefinitionType">
+        <xs:choice>
+          <xs:element name="Eq" type="ListJoinConditionDefinitionType" />
+        </xs:choice>
+        <xs:attribute name="Type" type="ListJoinJoinType" default="LEFT" />
+        <xs:attribute name="ListAlias" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="ListJoinConditionDefinitionType">
+        <xs:all>
+          <xs:element name="FieldRef" type="ListJoinConditionSourceFieldDefinitionType" />
+          <!--Modify-->
+          <!--<xs:element name="FieldRef" type="ListJoinConditionTargetFieldDefinitionType" />-->
+        </xs:all>
+      </xs:complexType>
+
+      <xs:complexType name="ListJoinConditionSourceFieldDefinitionType">
+        <xs:attribute name="Name" type="xs:string" use="required" />
+        <xs:attribute name="RefType" type="xs:string" use="required" fixed="Id" />
+        <xs:attribute name="List" type="xs:string" />
+      </xs:complexType>
+
+      <xs:complexType name="ListJoinConditionTargetFieldDefinitionType">
+        <xs:attribute name="Name" type="xs:string" use="required" fixed="Id" />
+        <xs:attribute name="List" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:simpleType name="ListJoinJoinType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="LEFT" />
+          <xs:enumeration value="INNER" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="LogicalWithIndexDefinition">
+        <xs:choice minOccurs="1" maxOccurs="1">
+          <xs:element name="And" type="ExtendedLogicalJoinDefinitionWithIndex" />
+          <xs:element name="Eq" type="LogicalTestDefinition" />
+        </xs:choice>
+        <xs:attribute name="ID" type="UniqueIdentifierWithOrWithoutBraces" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="ExtendedLogicalJoinDefinitionWithIndex">
+        <xs:choice>
+          <xs:sequence>
+            <xs:element name="Eq" />
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element name="Geq" />
+              <xs:element name="Gt" />
+              <xs:element name="Eq" />
+              <xs:element name="In" />
+              <xs:element name="Leq" />
+              <xs:element name="Lt" />
+            </xs:choice>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="1">
+              <xs:element name="Geq" />
+              <xs:element name="Gt" />
+              <xs:element name="In" />
+              <xs:element name="Leq" />
+              <xs:element name="Lt" />
+            </xs:choice>
+            <xs:element name="Eq" />
+          </xs:sequence>
+        </xs:choice>
+      </xs:complexType>
+
+      <xs:complexType name="FormTemplateDefinitions" mixed="true">
+        <xs:sequence>
+          <xs:element name="Display" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Edit" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="New" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="FormUrlDefinitions">
+        <xs:sequence>
+          <xs:element name="Display" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="Edit" type="xs:string" minOccurs="0" maxOccurs="1" />
+          <xs:element name="New" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="NamespaceDefinition" mixed="true">
+        <xs:attribute name="prefix" type="xs:string" use="required" />
+        <xs:attribute name="value" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="NamespaceDefinitions" mixed="true">
+        <xs:sequence>
+          <xs:element name="Namespace" type="NamespaceDefinition" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Schedules">
+        <xs:sequence>
+          <xs:element name="Schedule" type="PolicyScheduleDefinition" minOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="nextStageId" type="xs:int" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicyScheduleDefinition">
+        <xs:sequence>
+          <xs:element name="stages">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="data" type="PolicyDataDefinition" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string" use="required" />
+      </xs:complexType>
+
+      <xs:complexType name="PolicyDataDefinition">
+        <xs:sequence>
+          <xs:element name="formula" type="PolicyFormulaDefinition" />
+          <xs:element name="action" type="PolicyActionDefinition" />
+        </xs:sequence>
+        <xs:attribute name="stageId" type="xs:int" use="required" />
+        <xs:attribute name="recur" type="xs:boolean" use="optional" />
+        <xs:attribute name="offset" type="xs:int" use="optional" />
+        <xs:attribute name="unit" type="xs:string" use="optional" />
+        <xs:attribute name="stageDeleted" type="xs:boolean" use="optional" />
+      </xs:complexType>
+
+    </xs:schema>
+
+  </wsdl:types>
+  <wsdl:message name="GetWebCollectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWebCollection" />
+  </wsdl:message>
+  <wsdl:message name="GetWebCollectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWebSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeb" />
+  </wsdl:message>
+  <wsdl:message name="GetWebSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWebResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListTemplatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListTemplates" />
+  </wsdl:message>
+  <wsdl:message name="GetListTemplatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListTemplatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSubWebCollectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSubWebCollection" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSubWebCollectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSubWebCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebUrlFromPageUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:WebUrlFromPageUrl" />
+  </wsdl:message>
+  <wsdl:message name="WebUrlFromPageUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:WebUrlFromPageUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectIdFromUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetObjectIdFromUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetObjectIdFromUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetObjectIdFromUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContentType" />
+  </wsdl:message>
+  <wsdl:message name="GetContentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateContentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateContentType" />
+  </wsdl:message>
+  <wsdl:message name="CreateContentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateContentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContentType" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContentType" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTypeXmlDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContentTypeXmlDocument" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContentTypeXmlDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContentTypeXmlDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveContentTypeXmlDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveContentTypeXmlDocument" />
+  </wsdl:message>
+  <wsdl:message name="RemoveContentTypeXmlDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveContentTypeXmlDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetColumns" />
+  </wsdl:message>
+  <wsdl:message name="GetColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateColumnsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateColumns" />
+  </wsdl:message>
+  <wsdl:message name="UpdateColumnsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateColumnsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomizedPageStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomizedPageStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomizedPageStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomizedPageStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevertFileContentStreamSoapIn">
+    <wsdl:part name="parameters" element="tns:RevertFileContentStream" />
+  </wsdl:message>
+  <wsdl:message name="RevertFileContentStreamSoapOut">
+    <wsdl:part name="parameters" element="tns:RevertFileContentStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevertAllFileContentStreamsSoapIn">
+    <wsdl:part name="parameters" element="tns:RevertAllFileContentStreams" />
+  </wsdl:message>
+  <wsdl:message name="RevertAllFileContentStreamsSoapOut">
+    <wsdl:part name="parameters" element="tns:RevertAllFileContentStreamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomizeCssSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomizeCss" />
+  </wsdl:message>
+  <wsdl:message name="CustomizeCssSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomizeCssResponse" />
+  </wsdl:message>
+  <wsdl:message name="RevertCssSoapIn">
+    <wsdl:part name="parameters" element="tns:RevertCss" />
+  </wsdl:message>
+  <wsdl:message name="RevertCssSoapOut">
+    <wsdl:part name="parameters" element="tns:RevertCssResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActivatedFeaturesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActivatedFeatures" />
+  </wsdl:message>
+  <wsdl:message name="GetActivatedFeaturesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActivatedFeaturesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebsSoap">
+    <wsdl:operation name="GetWebCollection">
+      <wsdl:input message="tns:GetWebCollectionSoapIn" />
+      <wsdl:output message="tns:GetWebCollectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWeb">
+      <wsdl:input message="tns:GetWebSoapIn" />
+      <wsdl:output message="tns:GetWebSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListTemplates">
+      <wsdl:input message="tns:GetListTemplatesSoapIn" />
+      <wsdl:output message="tns:GetListTemplatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSubWebCollection">
+      <wsdl:input message="tns:GetAllSubWebCollectionSoapIn" />
+      <wsdl:output message="tns:GetAllSubWebCollectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebUrlFromPageUrl">
+      <wsdl:input message="tns:WebUrlFromPageUrlSoapIn" />
+      <wsdl:output message="tns:WebUrlFromPageUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectIdFromUrl">
+      <wsdl:input message="tns:GetObjectIdFromUrlSoapIn" />
+      <wsdl:output message="tns:GetObjectIdFromUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTypes">
+      <wsdl:input message="tns:GetContentTypesSoapIn" />
+      <wsdl:output message="tns:GetContentTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentType">
+      <wsdl:input message="tns:GetContentTypeSoapIn" />
+      <wsdl:output message="tns:GetContentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContentType">
+      <wsdl:input message="tns:CreateContentTypeSoapIn" />
+      <wsdl:output message="tns:CreateContentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentType">
+      <wsdl:input message="tns:UpdateContentTypeSoapIn" />
+      <wsdl:output message="tns:UpdateContentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContentType">
+      <wsdl:input message="tns:DeleteContentTypeSoapIn" />
+      <wsdl:output message="tns:DeleteContentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTypeXmlDocument">
+      <wsdl:input message="tns:UpdateContentTypeXmlDocumentSoapIn" />
+      <wsdl:output message="tns:UpdateContentTypeXmlDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveContentTypeXmlDocument">
+      <wsdl:input message="tns:RemoveContentTypeXmlDocumentSoapIn" />
+      <wsdl:output message="tns:RemoveContentTypeXmlDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetColumns">
+      <wsdl:input message="tns:GetColumnsSoapIn" />
+      <wsdl:output message="tns:GetColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColumns">
+      <wsdl:input message="tns:UpdateColumnsSoapIn" />
+      <wsdl:output message="tns:UpdateColumnsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomizedPageStatus">
+      <wsdl:input message="tns:GetCustomizedPageStatusSoapIn" />
+      <wsdl:output message="tns:GetCustomizedPageStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevertFileContentStream">
+      <wsdl:input message="tns:RevertFileContentStreamSoapIn" />
+      <wsdl:output message="tns:RevertFileContentStreamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevertAllFileContentStreams">
+      <wsdl:input message="tns:RevertAllFileContentStreamsSoapIn" />
+      <wsdl:output message="tns:RevertAllFileContentStreamsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomizeCss">
+      <wsdl:input message="tns:CustomizeCssSoapIn" />
+      <wsdl:output message="tns:CustomizeCssSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RevertCss">
+      <wsdl:input message="tns:RevertCssSoapIn" />
+      <wsdl:output message="tns:RevertCssSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActivatedFeatures">
+      <wsdl:input message="tns:GetActivatedFeaturesSoapIn" />
+      <wsdl:output message="tns:GetActivatedFeaturesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebsSoap" type="tns:WebsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWebCollection">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetWebCollection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeb">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTemplates">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetListTemplates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSubWebCollection">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetAllSubWebCollection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUrlFromPageUrl">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectIdFromUrl">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetObjectIdFromUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTypes">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetContentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentType">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetContentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContentType">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CreateContentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentType">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateContentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContentType">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteContentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTypeXmlDocument">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveContentTypeXmlDocument">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumns">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColumns">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateColumns" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomizedPageStatus">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetCustomizedPageStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertFileContentStream">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertAllFileContentStreams">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertAllFileContentStreams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomizeCss">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CustomizeCss" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertCss">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertCss" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivatedFeatures">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebsSoap12" type="tns:WebsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetWebCollection">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetWebCollection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWeb">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetWeb" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTemplates">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetListTemplates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSubWebCollection">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetAllSubWebCollection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUrlFromPageUrl">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetObjectIdFromUrl">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetObjectIdFromUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentTypes">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetContentTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentType">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetContentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContentType">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CreateContentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentType">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateContentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContentType">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/DeleteContentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContentTypeXmlDocument">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveContentTypeXmlDocument">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetColumns">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateColumns">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/UpdateColumns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomizedPageStatus">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetCustomizedPageStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertFileContentStream">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertAllFileContentStreams">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertAllFileContentStreams" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomizeCss">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CustomizeCss" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevertCss">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/RevertCss" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActivatedFeatures">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,3727 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol servers MUST support SOAP over HTTP.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol servers SHOULD additionally support SOAP over HTTPS for securing communication with clients.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-WWSP_R5.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] section 4[, or [SOAP1.2/1] section 5].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [[SOAP1.1] section 4, or] [SOAP1.2/1] section 5.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616] section 10 or using SOAP faults as specified in [SOAP1.1] section 4.4, or [SOAP1.2/1] section 5.4, SOAP Fault.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] This section contains common definitions that are used by this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R369</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R370</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] This specification defines and references various XML namespaces using the mechanisms specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R371</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Although this specification associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R372</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "soap" is used for namespace URI: http://schemas.xmlsoap.org/wsdl/soap/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R373</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "tns" is used for namespace URI: http://schemas.microsoft.com/sharepoint/soap/workflow/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R374</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "s1" is used for namespace URI:
+http://microsoft.com/wsdl/types/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R375</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "s" is used for namespace URI:
+http://www.w3.org/2001/XMLSchema</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R376</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "soap12" is used for namespace URI: http://schemas.xmlsoap.org/wsdl/soap12/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R377</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] None perfix is used for namespace URI:
+http://schemas.microsoft.com/sharepoint/soap/workflow/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R378</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "wsdl" is used for namespace URI:
+http://schemas.xmlsoap.org/wsdl/</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R379</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "xsi" is used for namespace URI: http://www.w3.org/2001/XMLSchema-instance</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R380</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "xsd" is used for namespace URI:
+http://www.w3.org/2001/XMLSchema</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R381</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "dt" is used for namespace URI:
+uuid:C2F41010-65B3-11d1-A29F-00AA00C14882</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R382</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "rs" is used for namespace URI:
+urn:schemas-microsoft-com:rowset</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R383</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Perfix "z" is used for namespace URI:
+#RowsetSchema</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R28</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] This specification does not define any common WSDL message definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the set of common XML schema element definitions defined by this specification.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] XML schema element definitions that are specific to a particular operation are described with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] TemplateData specifies a set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] ToDoData specifies a set of workflow tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] The TemplateData element specifies a set of workflow associations for a protocol client as follows:</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData][The TemplateData schema is:] &lt;s:element name="TemplateData" &gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="Web" minOccurs="1" maxOccurs="1" &gt;
+        &lt;s:complexType&gt;
+          &lt;s:attribute name="Title" type="s:string" use="required" /&gt;
+          &lt;s:attribute name="Url" type="s:string" use="required" /&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+      &lt;s:element name="List" minOccurs="1" maxOccurs="1" &gt;
+        &lt;s:complexType&gt;
+          &lt;s:attribute name="Title" type="s:string" use="required" /&gt;
+          &lt;s:attribute name="Url" type="s:string" use="required" /&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+      &lt;s:element name="WorkflowTemplates" &gt;
+        &lt;s:complexType&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="WorkflowTemplate" minOccurs="0" maxOccurs="unbounded"&gt;
+              &lt;s:complexType&gt;
+                &lt;s:sequence&gt;
+                  &lt;s:element name="WorkflowTemplateIdSet" minOccurs="1" maxOccurs="1"&gt;
+                    &lt;s:complexType&gt;
+                      &lt;s:attribute name="TemplateId" type="s1:guid" use="required" /&gt;
+                      &lt;s:attribute name="BaseId" type="s1:guid" use="required" /&gt;
+                    &lt;/s:complexType&gt;
+                  &lt;/s:element&gt;
+                  &lt;s:element name="AssociationData" minOccurs="0" maxOccurs="1" &gt;
+                    &lt;s:complexType&gt;
+                      &lt;s:sequence&gt;
+                        &lt;s:any/&gt;
+                      &lt;/s:sequence&gt;
+                    &lt;/s:complexType&gt;
+                  &lt;/s:element&gt;
+                  &lt;s:element name="Metadata" minOccurs="1" maxOccurs="1"&gt;
+                    &lt;s:complexType&gt;
+                      
+                        &lt;s:all&gt;
+                          &lt;s:element name="InitiationCategories" minOccurs="0" maxOccurs="1"&gt;
+                            &lt;s:complexType&gt;
+                              &lt;s:sequence&gt;
+                                &lt;s:any/&gt;
+                              &lt;/s:sequence&gt;
+                            &lt;/s:complexType&gt;
+                          &lt;/s:element&gt;
+                          &lt;s:element name="Instantiation_FormURN" minOccurs="0" maxOccurs="1"&gt;
+                            &lt;s:complexType&gt;
+                              &lt;s:sequence&gt;
+                                &lt;s:any/&gt;
+                              &lt;/s:sequence&gt;
+                            &lt;/s:complexType&gt;
+                          &lt;/s:element&gt;
+                          &lt;s:element name="Instantiation_FormURI" minOccurs="0" maxOccurs="1"&gt;
+                            &lt;s:complexType&gt;
+                              &lt;s:sequence&gt;
+                                &lt;s:any/&gt;
+                              &lt;/s:sequence&gt;
+                            &lt;/s:complexType&gt;
+                          &lt;/s:element&gt;
+                          &lt;s:element name="AssignmentStagesName" minOccurs="0" maxOccurs="1"&gt;
+                            &lt;s:complexType&gt;
+                              &lt;s:sequence&gt;
+                                &lt;s:any/&gt;
+                              &lt;/s:sequence&gt;
+                            &lt;/s:complexType&gt;
+                          &lt;/s:element&gt;
+                          &lt;s:element name="SigClientSettings" minOccurs="0" maxOccurs="1"&gt;
+                            &lt;s:complexType&gt;
+                              &lt;s:sequence&gt;
+                                &lt;s:any/&gt;
+                              &lt;/s:sequence&gt;
+                            &lt;/s:complexType&gt;
+                          &lt;/s:element&gt;
+                        &lt;/s:all&gt;
+                      
+                    &lt;/s:complexType&gt;
+                  &lt;/s:element&gt;
+                &lt;/s:sequence&gt;
+                &lt;s:attribute name="Name" type="s:string" use="required" /&gt;
+                &lt;s:attribute name="Description" type="s:string" use="required" /&gt;
+                &lt;s:attribute name="InstantiationUrl" type="s:string" /&gt;
+              &lt;/s:complexType&gt;
+            &lt;/s:element&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R384</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] Web.Title: The title of the site (2) for this set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R385</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] Web.Url: A site URL for this set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R386</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] List.Title: The title of the list for this set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R387</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] List.Url: A list URL for this set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R388</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate: A workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R389</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.WorkflowTemplateIdSet.TemplateId: A GUID identifying this workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R390</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.WorkflowTemplateIdSet.BaseId: A GUID identifying the workflow template upon which this workflow association is based.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R391</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Name: The name of this workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R392</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Description: The description of this workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R393</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.InstantiationUrl: The absolute URL of a Web page that can create a new workflow instance of this workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R394</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.AssociationData: Customized settings for this workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R395</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] This element[WorkflowTemplates.WorkflowTemplate.AssociationData] MUST contain no attributes.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R396</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] This element[WorkflowTemplates.WorkflowTemplate.AssociationData] SHOULD contain child elements or inner text.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-WWSP_R397.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R398</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories: A string used to enable or disable creation of a new workflow instance.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R399</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.Instantiation_FormURN: A string reference to a form displayed during creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R400</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.Instantiation_FormURI: A string reference to a URL for a form displayed during creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R401</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] This[WorkflowTemplates.WorkflowTemplate.Metadata.Instantiation_FormURI] SHOULD be used as an alternate reference when Instantiation_FormURN is not supplied or as determined by the protocol server.&lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-WWSP_R421.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R404</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.AssignmentStagesName: A string used for suggesting workflow tasks in the form referenced by either Instantiation_FormURN or Instantiation_FormURI.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R405</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.SigClientSettings: A string used for suggesting workflow tasks in the form referenced by either Instantiation_FormURN or Instantiation_FormURI.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ToDoData] The ToDoData element specifies a set of workflow tasks for a protocol client as follows:</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ToDoData][The ToDoData schema is:]  &lt;s:element name="ToDoData" &gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="xml" type="rs:data" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R406</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ToDoData] xml: A set of Rowsets as specified in [MS-PRSTFR] section 2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] The client side of this protocol is simply a pass-through.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] That is, no additional timers or other state is required on the client side of this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] Calls made by the higher-layer protocol or application are passed directly to the transport, and the results returned by the transport are passed directly back to the higher-layer protocol or application.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In WorkflowSoap Server Details] The protocol server has a set of documents, installed workflow templates defined by vendors, and workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In WorkflowSoap Server Details] The protocol client, given a document URL, can query the protocol server for information about a workflow association, workflow, workflow task, or any other data related to the document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In WorkflowSoap Server Details] The protocol client can then start new workflows with a known document URL and workflow association or modify known workflow tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In WorkflowSoap Server Details] The protocol itself is stateless: messages can be sent in any order as long as the data required for such message is already known.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In WorkflowSoap Server Details] The protocol server is expected to maintain any state or data related to any underlying objects, such as documents or workflows separate from this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] This section describes a conceptual model of possible data organization that an implementation maintains to participate in this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] The described organization is provided to facilitate the explanation of how the protocol behaves.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] This document does not mandate that implementations adhere to this model as long as their external behavior is consistent with that described in this document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R69</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The following table summarizes the list of WSDL operations as defined by this specification:</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation AlterToDo modifies a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R407</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] ClaimReleaseTask
+ claims (1) or releases a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R408</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetTemplatesForItem
+ obtains a set of workflow associations that can be started on a new or existing document in a specified list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R409</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetToDosForItem obtains a set of workflow tasks for an existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R410</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetWorkflowDataForItem obtains an aggregated set of workflows, workflow associations, and workflow tasks for an existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R411</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetWorkflowTaskData retrieves data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R412</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] StartWorkflow
+ instantiates a new workflow for an existing document and a workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] This operation is used to modify the values of Fields on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo][The AlterToDo schema is:] &lt;wsdl:operation name="AlterToDo"&gt;
+    &lt;wsdl:input message="AlterToDoSoapIn" /&gt;
+    &lt;wsdl:output message="AlterToDoSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] The protocol client sends an AlterToDoSoapIn request message, and the protocol server responds with an AlterToDoSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] AlterToDoSoapIn
+ specifies the request to modify the values of Fields on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] AlterToDoSoapOut
+ specifies the response to a request to modify the values of Fields on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapIn] This[AlterToDoSoapIn] is the message that requests the AlterToDo SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R413</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapIn] The SOAP body contains an AlterToDo element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapOut] This[AlterToDoSoapOut] is the message that responds to the AlterToDo SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoSoapOut] The SOAP body contains an AlterToDoResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R414</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] AlterToDo specifies the request to modify the values of Fields on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R415</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] AlterToDoResponse
+ contains the response to a request to modify the values of Fields on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] This element[AlterToDo] is sent with AlterToDoSoapIn and specifies the workflow task to be modified, as well as the fields and values to be modified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo][The schema of the AlterToDo is:] &lt;s:element name="AlterToDo"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1" /&gt;
+      &lt;s:element name="todoId" type="s:int" minOccurs="1" maxOccurs="1" /&gt;
+      &lt;s:element name="todoListId" type="s1:guid" minOccurs="1" maxOccurs="1" /&gt;
+      &lt;s:element name="taskData" minOccurs="0" maxOccurs="1" &gt;
+        &lt;s:complexType&gt;
+          &lt;s:sequence&gt;
+            &lt;s:any/&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] item: A URL to a document on this site (2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] The server MUST ignore this[item] value unless the site (2) of the SOAP request URL does not contain a list with the specified todoListId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WWSP_R97.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] Set the different string as the item value, server reply same if the site (2) of the SOAP request URL contains a list with the specified todoListId.</ns1:Description>
+		<ns1:Derived>MS-WWSP_R96:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] If the SOAP request URL does not contain such a list, this field MUST be the site URL of the specified todoListId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R416</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] todoId: A list item identifier identifying a workflow task to be modified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R417</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] todoListId: A list identifier of the workflow task to be modified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R418</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] taskData: Contains a set of elements representing field names and values to be altered on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] This element is sent with AlterToDoSoapOut and specifies whether the AlterToDo operation was successful.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse][The schema of the AlterToDoResponse is:] &lt;s:element name="AlterToDoResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="AlterToDoResult" minOccurs="1" maxOccurs="1" &gt;
+        &lt;s:complexType mixed="true"&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="fSuccess" type="s:int" minOccurs="1" maxOccurs="1" /&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] AlterToDoResult.fSuccess: If the operation[AlterToDo] was successful, this[AlterToDoResult.fSuccess] MUST be set to 1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] Otherwise[if the AlterToDo operation was failed], this[AlterToDoResult.fSuccess] MUST be set to zero.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] The success of this operation is determined by the protocol server</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] The success of this operation[AlterToDo] MUST NOT substitute for a SOAP fault [or HTTP Status Code] in the case of a protocol server fault.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDoResponse] The success of this operation[AlterToDo] MUST NOT substitute for [a SOAP fault or] HTTP Status Code in the case of a protocol server fault.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] This operation[ClaimReleaseTask] claims (1) or releases a claim (1) on workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask][The schema of the ClaimReleaseTask is:] &lt;wsdl:operation name="ClaimReleaseTask"&gt;
+    &lt;wsdl:input message="ClaimReleaseTaskSoapIn" /&gt;
+    &lt;wsdl:output message="ClaimReleaseTaskSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] The protocol client sends a ClaimReleaseTaskSoapIn request message, and the protocol server responds with a ClaimReleaseTaskSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] ClaimReleaseTaskSoapIn specifies the request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R116</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] ClaimReleaseTaskSoapOut
+ specifies the response to a request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapIn] This message requests the ClaimReleaseTask SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R118</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapIn] The SOAP body contains a ClaimReleaseTask element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R120</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapOut] This message responds to the ClaimReleaseTask SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R122</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskSoapOut] The SOAP body contains a ClaimReleaseTaskResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R124</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] ClaimReleaseTask specifies the request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] ClaimReleaseTaskResponse contains the response to a request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] This element is sent with ClaimReleaseTaskSoapIn and specifies the workflow task on which to operate, and whether the operation is to claim or to release a claim.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask][The schema of the ClaimReleaseTask is:] &lt;s:element name="ClaimReleaseTask"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="taskId" type="s:int" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="listId" type="s1:guid" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="fClaim" type="s:boolean" minOccurs="1" maxOccurs="1"&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] item: The URL of a document on this site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R130</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] The server MUST ignore this value[item] unless the site of the SOAP request URL does not contain a list with the specified listId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WWSP_R131.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] Set the different string as the item value, server reply same if the site (2) of the SOAP request URL  contains a list with the specified ListId.</ns1:Description>
+		<ns1:Derived>MS-WWSP_R130:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R132</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] If such a list[a list with the specified listId] is contained, this field MUST be set to the site URL of the specified listId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] taskId: The list item identifier for a specified workflow task that is to be claimed or released from a claim.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] listId: The list identifier for a specified workflow task that is to be claimed or released from a claim.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] fClaim: A Boolean that specifies whether the operation is a claim or a release.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] This[fClaim] MUST be set to TRUE if the operation is a claim</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTask] fClaim MUST be set to FALSE if the operation is to release a claim.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R138</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] This element[ClaimReleaseTaskResponse] is sent with ClaimReleaseTaskSoapOut.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R139</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] It describes the workflow task that was claimed or released after a ClaimReleaseTask operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse][The schema of the ClaimReleaseTaskResponse is:] &lt;s:element name="ClaimReleaseTaskResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="ClaimReleaseTaskResult" minOccurs="1"&gt;
+        &lt;s:complexType mixed="true"&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="TaskData" minOccurs="1" maxOccurs="1"&gt;
+              &lt;s:complexType&gt;
+                &lt;s:sequence&gt;
+                  &lt;s:attribute name="AssignedTo" type="s:string" use="required"&gt;
+                  &lt;s:attribute name="TaskGroup" type="s:string" use="required"&gt;
+                  &lt;s:attribute name="ItemId" type="s:int" use="required"&gt;
+                  &lt;s:attribute name="ListId" type="s1:guid" use="required"&gt;
+                &lt;/s:sequence&gt;
+              &lt;/s:complexType&gt;
+            &lt;/s:element&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.AssignedTo: The user to whom this workflow task is now assigned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] This[ClaimReleaseTaskResult.TaskData.AssignedTo] MUST be the user authenticated in section 1.5 if this operation is a claim and the protocol server requires authentication.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.TaskGroup: The group (2) to whom this workflow task is now assigned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.ItemId: A list item identifier of a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.ListId: The list identifier of the workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] This operation obtains a set of workflow associations for a new or existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R149</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem][The schema of the GetTemplatesForItem is:] &lt;wsdl:operation name="GetTemplatesForItem"&gt;
+    &lt;wsdl:input message="GetTemplatesForItemSoapIn" /&gt;
+    &lt;wsdl:output message="GetTemplatesForItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] The protocol client sends a GetTemplatesForItemSoapIn request message, and the protocol server responds with a GetTemplatesForItemSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R151</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetTemplatesForItemSoapIn specifies the request for a set of workflow associations for a new or existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R153</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetTemplatesForItemSoapOut specifies the response to a request for a set of workflow associations for a new or existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapIn] This message is sent to request the GetTemplatesForItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R156</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapIn] The SOAP body contains a GetTemplatesForItem element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapOut] This message is the response to the GetTemplatesFromItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R158</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemSoapOut] The SOAP body contains a GetTemplatesForItemResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R161</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetTemplatesForItem
+ specifies the request for a set of workflow associations for a new or existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetTemplatesForItemResponse
+ contains the response to a request for a set of workflow associations for a new or existing document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] This element[GetTemplatesForItem] is sent with a GetTemplatesForItemSoapIn message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R165</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem][The schema of the GetTemplatesForItem is:] &lt;s:element name="GetTemplatesForItem"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1"/&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] item: A document URL or a list URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] If this parameter[GetTemplatesForItem] ends with a slash (/), it[item] MUST be a valid list URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItem] Otherwise[GetTemplatesForItem doesn't end with a slash (/)], it[item] MUST be a valid document URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemResponse] This element is sent with a GetTemplatesForItemSoapOut message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R171</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemResponse][The schema of the GetTemplatesForItemResponse is :] &lt;s:element name="GetTemplatesForItemResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="GetTemplatesForItemResult" minOccurs="0"&gt;
+        &lt;s:complexType mixed="true"&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="TemplateData" type="s1:TemplateData" minOccurs="1" maxOccurs="1"/&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetTemplatesForItemResponse] GetTemplatesForItemResult: Contains a TemplateData element as specified in section 2.2.3.1 that specifies a set of workflow associations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem] This operation obtains a set of workflow tasks for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem][The schema of the GetToDosForItem is:] &lt;wsdl:operation name="GetToDosForItem"&gt;
+    &lt;wsdl:input message="GetToDosForItemSoapIn" /&gt;
+    &lt;wsdl:output message="GetToDosForItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R176</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem] The protocol client sends a GetToDosForItemSoapIn request message, and the protocol server responds with a GetToDosForItemSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R177</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetToDosForItemSoapIn
+ specifies the request for a set of workflow tasks for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetToDosForItemSoapOut specifies the response to a request for a set of workflow tasks for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapIn] This message requests the GetToDosForItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapIn] The SOAP body contains a GetToDosForItem element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapOut] This message is the response to the GetToDosForItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemSoapOut] The SOAP body contains a GetToDosForItemResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetToDosForItem
+ specifies the request for a set of workflow tasks for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetToDosForItemResponse
+ contains the response to a request for a set of workflow tasks for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem] This element[GetToDosForItem] is sent with a GetToDosForItem message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem][The schema of the GetToDosForItem is:] &lt;s:element name="GetToDosForItem"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItem] item: The URL of a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R192</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemResponse] This element[GetToDosForItemResponse] is the response to a GetToDosForItem message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemResponse][The schema of the GetToDosForItemResponse is:] &lt;s:element name="GetToDosForItemResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="GetToDosForItemResult" minOccurs="0"&gt;
+        &lt;s:complexType mixed="true"&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="ToDoData" type="s1:ToDoData" minOccurs="1" maxOccurs="1"/&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R194</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetToDosForItemResponse] GetToDosForItemResult: Contains a ToDoData element as specified in section 2.2.3.2 containing data about a set of workflow tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R195</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem] This operation[GetWorkflowDataForItem] queries a set of workflow associations, workflow tasks, and workflows for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem] This operation[GetWorkflowDataForItem] retrieves some of the same data that GetToDosForItem and GetTemplatesForItem retrieve, as well as additional data.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem][The schema of the GetWorkflowDataForItem is:] &lt;wsdl:operation name="GetWorkflowDataForItem"&gt;
+    &lt;wsdl:input message="GetWorkflowDataForItemSoapIn" /&gt;
+    &lt;wsdl:output message="GetWorkflowDataForItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem] The protocol client sends a GetWorkflowDataForItemSoapIn request message, and the protocol server responds with a GetWorkflowDataForItemSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetWorkflowDataForItemSoapIn specifies the request to query a set of workflow associations, workflow tasks, and workflows for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetWorkflowDataForItemSoapOut
+ specifies the response to a request to query a set of workflow associations, workflow tasks, and workflows for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapIn] This message requests the GetWorkflowDataForItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapIn] The SOAP body contains a GetWorkflowDataForItem element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapOut] This message is the response to the GetWorkflowDataForItem SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemSoapOut] The SOAP body contains a GetWorkflowDataForItemResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R208</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetWorkflowDataForItem
+ specifies the request to query a set of workflow associations, workflow tasks, and workflows for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetWorkflowDataForItemResponse
+ contains the response to a request to query a set of workflow associations, workflow tasks, and workflows for a document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem] This element[GetWorkflowDataForItem] is sent with a GetWorkflowDataForItem message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem][The schema of the GetWorkflowDataForItem is:] &lt;s:element name="GetWorkflowDataForItem"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1"/&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItem] item: A document URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R215</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] This element[GetWorkflowDataForItemResponse] is the response to a GetWorkflowDataForItem message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse][The schema of the GetWorkflowDataForItemResponse is:] &lt;s:element name="GetWorkflowDataForItemResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="GetWorkflowDataForItemResult" minOccurs="1" maxOccurs="1"&gt;
+        &lt;s:complexType&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element name="WorkflowData" minOccurs="1" maxOccurs="1"&gt;
+              &lt;s:complexType&gt;
+                &lt;s:sequence&gt;
+                  &lt;s:element name="ToDoData" type="s1:ToDoData" minOccurs="1" maxOccurs="1" /&gt;
+                  &lt;s:element name="TemplateData" type="s1:TemplateData" minOccurs="1" maxOccurs="1" /&gt;
+                  &lt;s:element name="ActiveWorkflowsData" minOccurs="1" maxOccurs="1" &gt;
+                    &lt;s:complexType&gt;
+                      &lt;s:sequence&gt;
+                        &lt;s:element name="Workflows" minOccurs="1" maxOccurs="1" &gt;
+                          &lt;s:complexType&gt;
+                            &lt;s:sequence&gt;
+                              &lt;s:element name="Workflow" minOccurs="0" maxOccurs="unbounded"&gt;
+                                &lt;s:complexType&gt;
+                                  &lt;s:attribute name="StatusPageUrl" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Id" type="s1:guid" use="required" /&gt;
+                                  &lt;s:attribute name="TemplateId" type="s1:guid" use="required" /&gt;
+                                  &lt;s:attribute name="ListId" type="s1:guid" use="required"/&gt;
+                                  &lt;s:attribute name="SiteId" type="s1:guid" use="required" /&gt;
+                                  &lt;s:attribute name="WebId" type="s1:guid" use="required"/&gt;
+                                  &lt;s:attribute name="ItemId" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="ItemGUID" type="s1:guid" use="required"/&gt;
+                                  &lt;s:attribute name="TaskListId" type="s1:guid" use="required"/&gt;
+                                  &lt;s:attribute name="AdminTaskListId" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Author" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="Modified" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Created" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="StatusVersion" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="Status1" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="Status2" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status3" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status4" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status5" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status6" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status7" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status8" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status9" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Status10" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="TextStatus1" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="TextStatus2" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="TextStatus3" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="TextStatus4" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="TextStatus5" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="Modifications" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="ActivityDetails" type="s:string" use="required" /&gt;
+                                  &lt;s:attribute name="InstanceData" type="s:string" use="required"/&gt;
+                                  &lt;s:attribute name="InstanceDataSize" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="InternalState" type="s:int" use="required"/&gt;
+                                  &lt;s:attribute name="ProcessingId" type="s:string" use="required"/&gt;
+                                &lt;/s:complexType&gt;
+                              &lt;/s:element&gt;
+                            &lt;/s:sequence&gt;
+                          &lt;/s:complexType&gt;
+                        &lt;/s:element&gt;
+                      &lt;/s:sequence&gt;
+                    &lt;/s:complexType&gt;
+                  &lt;/s:element&gt;
+                  &lt;s:element name="DefaultWorkflows" minOccurs="1" maxOccurs="1" &gt;
+                    &lt;s:complexType&gt;
+                      &lt;s:sequence&gt;
+                        &lt;s:element name="DefaultWorkflow" minOccurs="0" maxOccurs="1" &gt;
+                          &lt;s:complexType&gt;
+                            &lt;s:attribute name="Event" type="s:string" use="required"/&gt;
+                            &lt;s:attribute name="TemplateId" type="s1:guid" use="required"/&gt;
+                          &lt;/s:complexType&gt;
+                        &lt;/s:element&gt;
+                      &lt;/s:sequence&gt;
+                    &lt;/s:complexType&gt;
+                  &lt;/s:element&gt;
+                &lt;/s:sequence&gt;
+              &lt;/s:complexType&gt;
+            &lt;/s:element&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ToDoData: Specifies a set of workflow tasks as defined in section 2.2.3.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.TemplateData: Specifies a set of workflow associations as defined in section 2.2.3.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData: A set of workflows running on the document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.StatusPageUrl: The URL of a Web page that can show the status of a workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] This URL[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.StatusPageUrl] MUST be both a fully qualified URL and an absolute URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData. Workflows.Workflow.Id: A workflow identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData. Workflows.Workflow.TemplateId: A GUID identifying the workflow association of a workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R225</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] This[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData. Workflows.Workflow.TemplateId] MUST be the workflow association of the workflow specified by Workflow.Id.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R226</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData. Workflows.Workflow.ListId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R227</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData. Workflows.Workflow.ListId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R228</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.SiteId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R229</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.SiteId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R230</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.WebId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R231</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.WebId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R232</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ItemId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R233</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ItemId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R234</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ItemGUID: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R235</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ItemGUID].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R236</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TaskListId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R237</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TaskListId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R238</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.AdminTaskListId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.AdminTaskListId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Author: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Author].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R242</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Modified: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R243</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Modified].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Created: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Created].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.StatusVersion: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.StatusVersion].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status1: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status2: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R251</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R252</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status3: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R253</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status3].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R254</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status4: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R255</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status4].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R256</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status5: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R257</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status5].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R258</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status6: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R259</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status6].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R260</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status7: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R261</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status7].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status8: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R263</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status8].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R264</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status9: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R265</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status9].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R266</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status10: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R267</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Status10].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R268</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus1: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R269</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R270</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus2: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R271</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R272</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus3: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R273</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus3].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R274</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus4: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R275</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus4].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R276</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus5: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R277</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.TextStatus5].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R278</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Modifications: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R279</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.Modifications].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R280</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ActivityDetails: &lt;4&gt;.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-WWSP_R365, MS-WWSP_R422.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R281</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ActivityDetails].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R419</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.CorrelationId: &lt;5&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-WWSP_R423, MS-WWSP_R424.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R420</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R282</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.InstanceData: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R283</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.InstanceData].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R284</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.InstanceDataSize: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R285</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this value[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.InstanceDataSize].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R287</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ProcessingId: Unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R288</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID[GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ProcessingId].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R289</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.DefaultWorkflows.DefaultWorkflow: Specifies the default workflow association defined by the server to start when a document is checked in.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R290</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.DefaultWorkflows.DefaultWorkflow.Event: MUST be set to "OnCheckInMajor".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R291</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.DefaultWorkflows.DefaultWorkflow.TemplateId: A workflow association identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_LOCKED is 0x00000001, means a front-end Web server has locked the workflow for processing. No other front-end Web server can process the workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_RUNNING is 0x00000002, means a front-end Web server is processing the workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_COMPLETED is 0x00000004, means the workflow has completely processed. No further processing can be done.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1006</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_CANCELEDis 0x00000008, means the workflow was canceled by a user. No further processing can be done.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1007</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_FAULTING is 0x00000040, means the workflow has encountered a faulting error.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1008</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_TERMINATED is 0x00000080, means the workflow was terminated before being completely processed. No further processing can be done.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1009</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_SUSPENDED is 0x00000100, means the workflow was suspended. The workflow can resume running.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1010</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_HASNEWEVENTS is 0x00000400, means the workflow has events that need to be processed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the WFS_NOTSTARTED is 0x00000800, means the workflow has not yet started running.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1112</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] The value of the 
+WFS_HASWAKEUPTIME
+ id 0x00001000, means a work item has been created to resume processing the workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R292</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] This operation retrieves data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R294</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData][The schema of the GetWorkflowTaskData is: ] &lt;wsdl:operation name="GetWorkflowTaskData"&gt;
+    &lt;wsdl:input message="GetWorkflowTaskDataSoapIn" /&gt;
+    &lt;wsdl:output message="GetWorkflowTaskDataSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R295</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] The protocol client sends a GetWorkflowTaskDataSoapIn request message, and the protocol server responds with a GetWorkflowTaskDataSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R296</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R297</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetWorkflowTaskDataSoapIn
+ specifies the request to retrieve data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R298</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] GetWorkflowTaskDataSoapOut
+ specifies the response to a request to retrieve data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R299</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapIn] This message requests the GetWorkflowTaskData SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R300</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R301</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapIn] The SOAP body contains a GetWorkflowTaskData element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R302</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapOut] This message is the response to the GetWorkflowTaskData SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R303</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R304</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataSoapOut] The SOAP body contains a GetWorkflowTaskDataResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R305</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R306</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetWorkflowTaskData specifies the request to retrieve data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R307</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetWorkflowTaskDataResponse contains the response to a request to retrieve data about a single workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R308</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] This element[GetWorkflowTaskData] is sent with a GetWorkflowTaskData message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R310</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] &lt;s:element name="GetWorkflowTaskData"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="taskId" type="s:int"/&gt;
+      &lt;s:element name="listId" type="s1:guid"/&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R311</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] item: The URL of a document on this site (2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R312</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] The server MUST ignore this value[item] unless the site (2) of the SOAP request URL does not contain a list with the specified listId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WWSP_R313</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R313</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] 
+Set the different string as the item value, server reply same if the site (2) of the SOAP request URL contains a list with the specified ListId.</ns1:Description>
+		<ns1:Derived>MS-WWSP_R312:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R314</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] If it does[If the site (2) of the SOAP request URL does contain a list with the specified listId], item MUST be the site URL of the specified listId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R316</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] taskId: An integer identifying a workflow task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R317</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskData] listId: A list identifier that MUST identify the list of the workflow task specified by taskId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R318</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataResponse] This element[GetWorkflowTaskDataResponse] is the response to a GetWorkflowTaskData message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R320</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataResponse][The schema of the GetWorkflowTaskDataResponse is:] &lt;s:element name="GetWorkflowTaskDataResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="GetWorkflowTaskDataResult" &gt;
+        &lt;s:sequence&gt;
+          &lt;xs:any minOccurs="0" maxOccurs="unbounded" /&gt;
+        &lt;/s:sequence&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R321</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataResponse] GetWorkflowTaskDataResult: GetWorkflowTaskDataResult element contains an array of z:row elements, where the z is equal to #RowsetSchema in the ActiveX Data Objects (ADO) XML Persistence format (see [MS-PRSTFR]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R322</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataResponse] Each z:row element describes a single list item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R323</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowTaskDataResponse] The names of the attributes of this element[GetWorkflowTaskDataResult: GetWorkflowTaskDataResult] correspond to the names of fields in the list. (For more details, see [MS-WSSFO3].)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R324</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] This operation[StartWorkflow] starts a new workflow, generating a workflow from a workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R326</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow][The schema of the StartWorkflow is:] &lt;wsdl:operation name="StartWorkflow"&gt;
+    &lt;wsdl:input message="StartWorkflowSoapIn" /&gt;
+    &lt;wsdl:output message="StartWorkflowSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R327</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] The protocol client sends a StartWorkflowSoapIn request message, and the protocol server responds with a StartWorkflowSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R328</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R329</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] StartWorkflowSoapIn specifies the request to start a new workflow, generating a workflow from a workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R330</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] StartWorkflowSoapOut
+ specifies the response to a request to start a new workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapIn] This message requests the StartWorkflow SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R332</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapIn] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapIn] The SOAP body contains a StartWorkflow element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R334</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapOut] This message is the response to the StartWorkflow SOAP operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R335</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapOut] The SOAP action value of the message is defined as follows:
+http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R336</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowSoapOut] The SOAP body contains a StartWorkflowResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R337</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table summarizes the XML schema element definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R338</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] StartWorkflow specifies the request to start a new workflow, generating a workflow from a workflow association.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R339</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] StartWorkflowResponse contains the response to a request to start a new workflow.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R340</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] This element[StartWorkflow] is sent with a StartWorkflow message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R342</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow][The schema of the StartWorkflow is:] &lt;s:element name="StartWorkflow"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;s:element name="templateId" type="s1:guid"/&gt;
+      &lt;s:element name="workflowParameters" minOccurs="0"&gt;
+        &lt;s:complexType mixed="true"&gt;
+          &lt;s:sequence&gt;
+            &lt;s:any/&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
+    &lt;/s:sequence&gt;
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R343</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] item: A document URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R344</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] This field[item] MUST be both a fully qualified URL and an absolute URL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R345</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] templateId: A GUID that identifies a workflow association that can be started for the document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R346</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] This[templateId] can be retrieved from the TemplateId attribute of a WorkflowTemplateIdSet element as specified in section 2.2.3.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R347</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] workflowParameters: XML to be used by the workflow upon creation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R348</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] This element[workflowParameters] is considered vendor-extensible and is described in section 4.3.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R349</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowResponse] This element[StartWorkflowResponse] is the response to a StartWorkflow message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R352</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowResponse][The schema of the StartWorkflowResponse is:] 
+  &lt;s:element name="StartWorkflowResponse"&gt;
+  &lt;s:complexType&gt;
+    &lt;s:sequence&gt;
+      &lt;s:element name="StartWorkflowResult" minOccurs="1"/&gt;
+    &lt;/s:sequence&gt;	
+  &lt;/s:complexType&gt;
+&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R353</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowResponse] StartWorkflowResult: This element is unused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R354</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflowResponse] The protocol client MUST ignore this element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Protocol servers does additionally support SOAP over HTTPS for securing communication with clients.(Windows® SharePoint® Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WWSP_R4:i,MS-WWSP_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R397</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does [WorkflowTemplates.WorkflowTemplate.AssociationData]  contain child elements or inner text. (Windows® SharePoint® Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WWSP_R396:i,MS-WWSP_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R355</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 1.5: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, the protocol server endpoint URL is formed by appending "/_vti_bin/workflow.asmx" to the URL of the site, for example: http://www.contoso.com/PurchaseOrders/_vti_bin/workflow.asmx.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R356</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.3.1: The client looks for specific values in this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] to determine whether to enable creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R357</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "Word.Application", "Word.Application.12" or "SigClientRequired", then Word 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R358</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] contains "General", "Excel.Application", "Excel.Application.12" or "SigClientRequired", then Excel 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R359</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "InfoPath.Application", "InfoPath.Application.12" or "SigClientRequired", then InfoPath 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R360</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "PowerPoint.Application", or "PowerPoint.Application.12", then PowerPoint 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R361</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Outlook.Application", or "Outlook.Application.12", then Outlook 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R362</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Access.Application", or "Access.Application.12", then Access 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R363</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not  support this[Instantiation_FormURI] element. [In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.3.1:  Windows SharePoint Services 3.0 does not support this[Instantiation_FormURI] element.</ns1:Description>
+		<ns1:Derived>MS-WWSP_R1:i, MS-WWSP_R401:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R421</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[Instantiation_FormURI] element.(Microsoft® SharePoint® Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WWSP_R1:i, MS-WWSP_R401:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R365</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[ActivityDetails]. [In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 does not include this attribute[ActivityDetails].</ns1:Description>
+		<ns1:Derived>MS-WWSP_R280:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R422</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include his attribute[ActivityDetails].(Microsoft® SharePoint® Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WWSP_R280:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R423</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[CorrelationId]. [In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 and SharePoint Foundation 2010 do not include this attribute[CorrelationId].</ns1:Description>
+		<ns1:Derived>MS-WWSP_R419:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R424</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include his attribute[CorrelationId].(Microsoft® SharePoint® Foundation 2013 Preview follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WWSP_R419:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] The rowset namespace contain a set of attributes that are used to specify the data and its underlying attributes.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] The following XML schema defines a subset of rowset namespace which is relevant in this context:
+&lt;xs:schema xmlns="urn:schemas-microsoft-com:rowset" 
+            targetNamespace="urn:schemas-microsoft-com:rowset"
+            attributeFormDefault="unqualified"
+            elementFormDefault="qualified" 
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:attribute name="name" type="xs:string" /&gt;
+  &lt;xs:attribute name="number" type="xs:int" /&gt;
+  &lt;xs:attribute name="precision" type="xs:unsignedByte" /&gt;
+  &lt;xs:attribute name="scale" type="xs:unsignedByte" /&gt;
+  &lt;xs:attribute name="CommandTimeout" type="xs:int"/&gt;
+  &lt;xs:complexType name="data"&gt;
+    &lt;xs:sequence minOccurs="0" maxOccurs="unbounded"&gt;
+      &lt;xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any"
+              processContents="lax" /&gt;
+    &lt;/xs:sequence&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:schema&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] name: The name of the field in the underlying data model.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] number: The ordinal number of the field in the list of fields. It starts from 1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] precision: The precision of the data, wherever applicable.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] precision: Precision is the number of digits in a floating point number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] scale: The scale of the date, wherever applicable.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] scale: Scale is the number of digits to the right of the decimal point.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] CommandTimeout: The timeout value for this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-PRSTFR_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.4</ns1:Doc_Sect>
+		<ns1:Description>[The complexType of rowset namespace] data: The actual data which can contain any XML element conforming to the schema defined by XML-Data Schema inside of the same document.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+</ns1:ReqTable>

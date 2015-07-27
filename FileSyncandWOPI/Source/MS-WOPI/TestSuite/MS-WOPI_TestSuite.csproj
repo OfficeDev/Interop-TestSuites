@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45E55E79-A82F-439F-B377-940019226ACB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_WOPI</RootNamespace>
+    <AssemblyName>MS-WOPI_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S01_Cell.cs">
+      <Link>ReferenceSharedTestCase\S01_Cell.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S02_Coauth.cs">
+      <Link>ReferenceSharedTestCase\S02_Coauth.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S03_SchemaLock.cs">
+      <Link>ReferenceSharedTestCase\S03_SchemaLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S04_ExclusiveLock.cs">
+      <Link>ReferenceSharedTestCase\S04_ExclusiveLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S05_WhoAmI.cs">
+      <Link>ReferenceSharedTestCase\S05_WhoAmI.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S06_ServerTime.cs">
+      <Link>ReferenceSharedTestCase\S06_ServerTime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S07_EditorsTable.cs">
+      <Link>ReferenceSharedTestCase\S07_EditorsTable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S08_GetDocMetaInfo.cs">
+      <Link>ReferenceSharedTestCase\S08_GetDocMetaInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S09_GetVersions.cs">
+      <Link>ReferenceSharedTestCase\S09_GetVersions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S10_MultipleSubRequests.cs">
+      <Link>ReferenceSharedTestCase\S10_MultipleSubRequests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S11_QueryAccess.cs">
+      <Link>ReferenceSharedTestCase\S11_QueryAccess.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S12_QueryChanges.cs">
+      <Link>ReferenceSharedTestCase\S12_QueryChanges.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S13_PutChanges.cs">
+      <Link>ReferenceSharedTestCase\S13_PutChanges.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S14_AllocateExtendedGuidRange.cs">
+      <Link>ReferenceSharedTestCase\S14_AllocateExtendedGuidRange.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S15_CreateFile.cs">
+      <Link>ReferenceSharedTestCase\S15_CreateFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteBase.cs">
+      <Link>ReferenceSharedTestCase\SharedTestSuiteBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\StatusManager.cs">
+      <Link>ReferenceSharedTestCase\StatusManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteHelper.cs">
+      <Link>ReferenceSharedTestCase\SharedTestSuiteHelper.cs</Link>
+    </Compile>
+    <Compile Include="MS-WOPI_S01_Cell.cs" />
+    <Compile Include="MS-WOPI_S02_Coauth.cs" />
+    <Compile Include="MS-WOPI_S03_SchemaLock.cs" />
+    <Compile Include="MS-WOPI_S04_ExclusiveLock.cs" />
+    <Compile Include="MS-WOPI_S05_WhoAmI.cs" />
+    <Compile Include="MS-WOPI_S06_ServerTime.cs" />
+    <Compile Include="MS-WOPI_S07_EditorsTable.cs" />
+    <Compile Include="MS-WOPI_S08_GetDocMetaInfo.cs" />
+    <Compile Include="MS-WOPI_S09_GetVersions.cs" />
+    <Compile Include="MS-WOPI_S10_MultipleSubRequests.cs" />
+    <Compile Include="MS-WOPI_S11_QueryAccess.cs" />
+    <Compile Include="MS-WOPI_S12_QueryChanges.cs" />
+    <Compile Include="MS-WOPI_S13_PutChanges.cs" />
+    <Compile Include="MS-WOPI_S14_AllocateExtendedGuidRange.cs" />
+    <Compile Include="MS-WOPI_S15_CreateFile.cs" />
+    <Compile Include="MS-WOPI_S16_CellWithRelative.cs" />
+    <Compile Include="MS-WOPI_S17_FileLevelItems.cs" />
+    <Compile Include="MS-WOPI_S18_FolderLevelItems.cs" />
+    <Compile Include="MS-WOPI_S19_FileContentLevelItems.cs" />
+    <Compile Include="MS-WOPI_S20_FolderChildrenLevelItems.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSuiteHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="MS-WOPI_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WOPI_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WOPI_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WOPI_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WOPI_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-WOPI_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedTestSuite\SharedAdapter\SharedAdapter.csproj">
+      <Project>{46573EAE-E1E9-4768-B8B8-536DC678CCAE}</Project>
+      <Name>SharedAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-WOPI_Adapter.csproj">
+      <Project>{C311EC59-8DDE-4224-93C0-81BCCF1AD046}</Project>
+      <Name>MS-WOPI_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-WOPI_RequirementSpecification.xml" />
+  </ItemGroup>
+</Project>

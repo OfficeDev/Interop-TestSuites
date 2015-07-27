@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R77301Enabled to true to verify that the protocol server will provide a MAPPINGS element. Set R77301Enabled to false to disable this requirement. -->
+    <Property name="R77301Enabled" value="true" />
+    <!-- Set R31202Enabled to true to verify that UID is unique among all other recurring events. Set R31202Enabled to false to disable this requirement. -->
+    <Property name="R31202Enabled" value="true" />
+    <!-- Set R892Enabled to true to verify that the protocol server does additionally support SOAP over HTTPS for securing communication with clients. Set R892Enabled to false to disable this requirement. -->
+    <Property name="R892Enabled" value="true" />
+    <!-- Set R146Enabled to true to verify that Appointments has a duration value and an ending date and time. Set R146Enabled to false to disable this requirement. -->
+    <Property name="R146Enabled" value="true" />
+    <!-- Set R36002Enabled to true to verify that if a recurrence is deleted, all exceptions to that recurrence does be deleted. Set R36002Enabled to false to disable this requirement. -->
+    <Property name="R36002Enabled" value="true" />
+    <!-- Set R442Enabled to true to verify that if fRecurrence is TRUE, TimeZone contains an integer index into a list of time zones. Set R442Enabled to false to disable this requirement. -->
+    <Property name="R442Enabled" value="true" />
+    <!-- Set R1270Enabled to true to verify that protocol server set a number for TimeZone, but can leave TimeZone empty. Set R1270Enabled to false to disable this requirement. -->
+    <Property name="R1270Enabled" value="true" />
+    <!-- Set R445021Enabled to true to verify that protocol server triggers exception deletion when EndDate is updated. Set R445021Enabled to false to disable this requirement. -->
+    <Property name="R445021Enabled" value="true" />
+    <!-- Set R445022Enabled to true to verify that protocol server triggers exception deletion when EventDate is updated. Set R445022Enabled to false to disable this requirement. -->
+    <Property name="R445022Enabled" value="true" />
+    <!-- Set R445023Enabled to true to verify tht protocol server triggers exception deletion when RecurrenceData is updated. Set R445023Enabled to false to disable this requirement. -->
+    <Property name="R445023Enabled" value="true" />
+    <!-- Set R445024Enabled to true to verify that protocol server triggers exception deletion when XMLTZone is updated. Set R445024Enabled to false to disable this requirement. -->
+    <Property name="R445024Enabled" value="true" />
+    <!-- Set R106802Enabled to true to verify that the protocol server does support GetListItemChangesSinceToke. Set R106802Enabled to false to disable this requirement. -->
+    <Property name="R106802Enabled" value="true" />
+    <!-- Set R11420Enabled to true to verify that the protocol server does sort items by the ID field, in ascending order. Set R11420Enabled to false to disable this requirement. -->
+    <Property name="R11420Enabled" value="true" />
+    <!-- Set R8120Enabled to true to verify that any instance of a recurrence has zero or one total exceptions and deleted instances. Set R8120Enabled to false to disable this requirement. -->
+    <Property name="R8120Enabled" value="true" />
+    <!-- Set R12552Enabled to true to verify that the value of "12.0.0.4326" or greater indicates the server supports GetListItemChangesSinceToken. Set R12552Enabled to false to disable this requirement. -->
+    <Property name="R12552Enabled" value="true" />
+    <!-- Set R732Enabled to true to verify that the RootFolder attributev does appear at the beginning of the FileDirRef value. Set R732Enabled to false to disable this requirement. -->
+    <Property name="R732Enabled" value="true" />
+  </Properties>
+</TestSite>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R11026Enabled to true to verify that implementation command response includes no more than 300 Category child elements per Categories element. Set R11026Enabled to false to disable this requirement.-->
+    <Property name="R11026Enabled" value="true"/>
+    <!-- Set R11028Enabled to true to verify that the first day of the week for any recurrence according to the preconfigured options of the user creating the calendar item, if the FirstDayOfWeek element is not included in the client request. Set R11028Enabled to false to disable this requirement.-->
+    <Property name="R11028Enabled" value="true"/>
+  </Properties>
+</TestSite>

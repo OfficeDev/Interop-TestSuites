@@ -1,0 +1,3675 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R400</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol [MS-ASHTTP] assumes that authentication has been performed by the underlying protocols.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Messages are transported by using HTTP POST, as specified in [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R319</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Messages are transported by using HTTP OPTIONS, as specified in [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R401</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] These commands [messages] are sent via HTTP [or Hypertext Transfer Protocol over Secure Sockets Layer (HTTPS)].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R518</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] These commands [messages] are sent via [HTTP or] Hypertext Transfer Protocol over Secure Sockets Layer (HTTPS).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The query parameters in the request URI MAY be encoded with base64 encoding (see section 2.2.1.1.1.1) [or in plain text (see section 2.2.1.1.1.2)].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R509</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The query parameters in the request URI MAY be encoded [with base64 encoding (see section 2.2.1.1.1.1) or] in plain text (see section 2.2.1.1.1.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The body of the HTTP message contains the WBXML that is required by the command being communicated in the [HTTP] message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The commands [being communicated in the message] are specified in [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] The XML markup that constitutes the request body (section 2.2.1.1.3) or the response body (section 2.2.2.1.3) is transmitted between client and server by using Wireless Application Protocol (WAP) Binary XML (WBXML), as specified in [WBXML1.2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] The following are the two general types of messages:
+	HTTP POST
+	HTTP OPTIONS</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP POST Request] The client creates a request by using the HTTP POST command to initiate communications between the client and the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Format] Each command is sent from the client to the server as an HTTP POST containing command data.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Format] As specified by [RFC2616], the format is as follows.
+Request-line
+Request-headers
+CR/LF
+Request Body</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The request line consists of the method indicator, POST, followed by the URI, followed by the HTTP version, as follows.
+POST &lt;URI&gt; HTTP/1.1</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The absolute URI (as specified in [RFC2616] section 3.2.1) consists of a scheme indicator, the host name, and the path, followed by a query value that contains all the parameters and some of the request headers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The query value can be [either] plain text [or a byte sequence encoded with base64 encoding].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R426</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The query value can be [either plain text or ]a byte sequence encoded with base64 encoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R402</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The relative URI consists of the path and the query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R403</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] Either form [plain text or a byte sequence encoded with base64 encoding] can be used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] Using base64 encoding is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] For more details about base64 encoding, see [RFC2045].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The format of the path is either of the following:
+
+/Microsoft-Server-ActiveSync?&lt;text query value&gt;
+/Microsoft-Server-ActiveSync?&lt;base64-encoded query value&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The following examples are equivalent:
+POST /Microsoft-Server-ActiveSync?Cmd=Sync&amp;User=rmjones&amp;DeviceId=v140Device&amp;DeviceType=SmartPhone HTTP/1.1
+Content-Type: application/vnd.ms-sync.wbxml
+MS-ASProtocolVersion: 14.0
+User-Agent: ASOM
+Host: Contoso.com
+Accept-Language: en-us
+Content-Length: 868
+
+
+POST /Microsoft-Server-ActiveSync?jAAJBAp2MTQwRGV2aWNlAApTbWFydFBob25l HTTP/1.1
+Content-Type: application/vnd.ms-sync.wbxml
+User-Agent: ASOM
+Host: Contoso.com
+Content-Length: 866</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] For more details about query values encoded with base64 encoding, see section 2.2.1.1.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The following is an example of a URI query value encoded with base64 encoding: 
+
+/Microsoft-Server-ActiveSync?jAAJBAp2MTQwRGV2aWNlAApTbWFydFBob25l</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The sequence of bytes represents the URI request parameters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The following table provides the details of the sequence of bytes.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This [base64 encoded query value] byte sequence is divided into fields in the same order as the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Once the byte sequence is generated, it [base64 encoded query value] is encoded with base64 encoding prior to being appended to the request URI.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R23</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Protocol version (1 byte): An integer that specifies the version of the ActiveSync protocol that is being used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This [protocol version] value SHOULD&lt;1&gt; be 141.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This [protocol version] value MAY&lt;2&gt; be 140 [or 121].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R451</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This [protocol version] value MAY&lt;2&gt; be [140 or] 121.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Command code (1 byte): An integer that specifies the command (see table of command codes in section 2.2.1.1.1.1.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Locale (2 bytes): An integer that specifies the locale of the language that is used for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Locale integer values are specified in [MS-LCID].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Device ID length (1 byte): An integer that specifies the length of the Device ID field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This value [Device ID length] MUST be greater than 0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Device ID (variable): A string or a GUID that identifies the device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] For details [Device ID], see section 2.2.1.1.1.2.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The length of this [Device ID (variable)] field is specified by the Device ID length field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Policy key length (1 byte): An integer that specifies the length of the policy key.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The only valid values [policy key length] are 0 or 4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] A value [policy key length] of 0 indicates that the policy key field is absent.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Policy key (4 bytes, optional): An unsigned integer that indicates the state of policy settings on the client device, as specified in [MS-ASPROV] section 2.2.2.41.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] If the value of the Policy key length field is 0, this field [Policy key] is absent.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Device type length (1 byte): An integer that specifies the length of the Device type field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Device type (variable): A string that specifies the type of client device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R44</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] For details [about Device type], see section 2.2.1.1.1.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] The length of this field [Device type] is specified by the Device type length field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] Command parameters (variable): An array of Encoded Parameter structures as specified in section 2.2.1.1.1.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] This [Command parameters] field is only present if there are command-specific parameters associated with the command specified by the Command code field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R48</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Base64 Encoded Query Value] See section 2.2.1.1.1.1.3 for a list of command-specific parameters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] Tag (1 byte): An integer that identifies the parameter.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R50</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] See section 2.2.1.1.1.1.3 for a list of tags and their corresponding parameters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R51</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] Length (1 byte): An integer that specifies the length of the parameter value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] Valid values [the length of the parameter] are from 0 to 255 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] Value (variable): The value of the parameter.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R54</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Encoded Parameter] The size of this field [Value] is specified by the Length field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] The following table provides the numeric codes that correspond to the ActiveSync commands.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] The numeric code is used in the Command code field of the base64 encoded URI to specify the command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R57</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] For more details [about Common code], see [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] Sync [is] 0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R483</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Sync synchronizes changes in a folder between the client and the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] SendMail [is] 1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R484</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] SendMail sends mail to the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] This [SendMail] command is issued in the HTTP POST command's URI.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R427</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] This [SendMail] command does not contain an XML body.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] The [XML] body will instead contain the MIME message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] SmartForward [is] 2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R488</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] SmartForward forwards a Message object without retrieving the full Message object from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] SmartReply [is] 3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R489</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] SmartReply replies to a Message object without retrieving the full Message object from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] GetAttachment [is] 4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R490</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] GetAttachment retrieves an e-mail attachment from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] FolderSync [is] 9.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderSync synchronizes the folder hierarchy.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R428</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] But [command] FolderSync does not synchronize the items in the folders.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] FolderCreate [is] 10.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R493</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderCreate creates an e-mail, [calendar, or contacts folder] on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R429</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderCreate creates [an e-mail,] calendar[, or contacts folder] on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R430</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderCreate creates [an e-mail, calendar, or] contacts folder on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] FolderDelete [is] 11.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R496</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderDelete deletes a folder from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderUpdate moves a folder from one location to another on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R431</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] FolderUpdate is used to rename folders.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R69</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] MoveItems [is] 13.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R499</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] MoveItems moves items from one folder to another.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] GetItemEstimate [is] 14.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R500</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] GetItemEstimate gets an estimate of the number of items in a folder that is synchronized.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] MeetingResponse [is] 15.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R432</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] MeetingResponse [is] used to accept [, tentatively accept , or decline] a meeting request in the user's Inbox folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R433</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] MeetingResponse [is] used to [accept,] tentatively accept [, or decline a meeting request in the user's Inbox folder].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] MeetingResponse [is] used to [accept, tentatively accept, or] decline a meeting request in the user's Inbox folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R72</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] Search [is] 16.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Search finds [and retrieves] information about contacts and recipients in the Global Address List.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R434</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Search [finds and] retrieves information about contacts and recipients in the Global Address List.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] Setting [is] 17.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R503</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Setting supports getting and setting global properties, such as Out of Office (OOF) and device information.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] Ping [is] 18.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R504</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Ping requests that the server monitor specified folders for changes that would require the client to resynchronize.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R75</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] ItemOperations [is] 19.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R505</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] ItemOperations identifies the body of the request [or response] as containing a set of commands operating on items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R494</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] ItemOperations identifies the body of the [request or] response as containing a set of commands operating on items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] Provision [is] 20.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R506</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Provision gets the security policy settings set by the server administrator, such as the user's minimum password length requirement.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] ResolveRecipients [is] 21.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R507</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] ResolveRecipients resolves a list of supplied recipients and optionally fetches their S/MIME certificates so that clients can send encrypted messages.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [The numeric code of command] ValidateCert [is] 22.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R508</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] ValidateCert validates a certificate that has been received through an S/MIME mail.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] The following table lists the tag values [0, 1, 3, 4, 6, 7, 8] that correspond to the names of the command parameters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] For additional details about the AttachmentName, CollectionId, ItemId, LongId, and Occurrence command parameters, see section 2.2.1.1.1.2.5.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 0 [corresponds to parameter name] AttachmentName.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R510</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 1 [corresponds to parameter name] CollectionId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 3 [corresponds to parameter name] ItemId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 4 [corresponds to parameter name] LongId.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 6 [corresponds to parameter name] Occurrence.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 7 [corresponds to parameter name] Options.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Tag value of] 8 [corresponds to parameter name] User.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] The following table describes the Options and User command parameters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] Options [ is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R532</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] Options [ is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R533</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] Options [ is used by] SendMail.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R534</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] Options [ is used by] ItemOperations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R486</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] Options [is described as] A single-byte bitmask that specifies command options.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] See the table below for valid flags for this bitmask [a single-byte bitmask that specifies command options].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] User [is used by] Any command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R485</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [Parameter] User [is described as] A string that specifies the user ID in a format that can be logged in the Web server log.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] The following table specifies the valid bit flags [SaveInSent, AcceptMultiPart] for the Options parameter.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] SaveInSent [value is] 0x01,  [ the meaning is ] setting this flag [SaveInSent] to instruct the server to save the Message object in the user's Sent Items folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] SaveInSent [value is] 0x01, [it is ] valid for SendMail.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R524</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] SaveInSent [value is] 0x01, [it is ] valid for SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R525</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] SaveInSent [value is] 0x01, [it is ] valid for SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] AcceptMultiPart [value is] 0x02, [the meaning is] setting this flag [AcceptMultiPart] to instruct the server to return the requested item in multipart format.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] AcceptMultiPart [value is] 0x02, [it is] valid for ItemOperations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Command Parameters] [When flag] AcceptMultiPart [value is] 0x02, for more details, see section 2.2.1.1.2.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Plain Text Query Value] The Augmented Backus-Naur Form (ABNF) notation ([RFC5234]) is used to specify the format of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Plain Text Query Value] [The Augmented Backus-Naur Form (ABNF) notation is as follows:] plain-text-query        = command-spec '&amp;' user-spec '&amp;' device-id-spec '&amp;' device-type-spec *('&amp;' parameter-spec)
+
+command-spec            = "Cmd=" command-name
+user-spec               = "User=" user-name
+device-id-spec          = "DeviceId=" device-id
+device-type-spec        = "DeviceType=" device-type
+parameter-spec          = parameter-name "=" parameter-value
+
+command-name            = 1*ALPHA
+user-name               = 1*VCHAR
+device-id               = 1*32(ALPHA / DIGIT)
+device-type             = 1*VCHAR
+parameter-name          = 1*ALPHA
+parameter-value         = 1*VCHAR</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Command] The ActiveSync command to be executed is specified by the command-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Command] Valid values, represented by the command-name ABNF rule, are specified in the "Command" column of the table in section 2.2.1.1.1.1.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In User Name] The user ID of the user is specified by the user-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Device ID] The device ID is specified by the device-id-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R103</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Device ID] The value, represented by the device-id ABNF rule, is a string that specifies the device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Device ID] Each device MUST have a unique device ID string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Device ID] Each request from the device MUST include the same device ID string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] The device type is specified by the device-type-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] The value, represented by the device-type ABNF rule, is any string that specifies a device type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] "SP" specifies a SmartPhone.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R497</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] "PPC" specifies a PocketPC.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] Other client devices send unique strings for their specific device type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Device type] Each request from a client device MUST include the same device type string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R111</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] The following URI parameters, also called command parameters, are specific to the ActiveSync commands.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] They [URI parameters] are specified by the parameter-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] Valid values for the parameter name, represented by the parameter-name ABNF rule, are specified by the "Parameter" column in the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] Valid parameter values, represented by the parameter-value ABNF rule, are specified in the "Description" column.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] AttachmentName [is used by] GetAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R487</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] AttachmentName [is described as] A string that specifies the name of the attachment file to be retrieved.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R116</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] CollectionId [is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R526</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] CollectionId [is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R517</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] CollectionId [is described as] A string that specifies the server ID of the folder that contains the Message object to be forwarded [or replied to].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R435</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] CollectionId [is described as] A string that specifies the server ID of the folder that contains the Message object to be [forwarded or] replied to.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] ItemId [is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R527</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] ItemId [is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R511</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] ItemId [is described as] A string that specifies the server ID of the Message object to be forwarded [or replied to].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R436</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] ItemId [is described as] A string that specifies the server ID of the Message object to be [forwarded or] replied to.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R118</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] LongId [is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R528</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] LongId [is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R512</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] LongId [is described as] A string that references a result set that was returned in the Search command response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] Occurrence [is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R529</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] Occurrence [is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R513</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] Occurrence [is described as] A string that specifies the ID of a particular occurrence in a recurring meeting.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R120</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] SaveInSent [is used by] SmartForward.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R530</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] SaveInSent [is used by] SmartReply.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R531</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] SaveInSent [is used by] SendMail.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R492</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Parameter] SaveInSent [is described as] A character that specifies whether a copy of the Message object will be saved in the Sent Items folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] Set this parameter [SaveInSent] to T to instruct the server to save the Message object in the user's Sent Items folder [; otherwise, set the parameter [SaveInSent] to F].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R437</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] [Set this parameter [SaveInSent] to T to instruct the server to save the Message object in the user's Sent Items folder;] otherwise, set the parameter [SaveInSent] to F.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R122</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] The SaveInSent parameter is set to F by default.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Command-Specific URI Parameters] For more details about specific commands, see [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R124</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] The HTTP/1.1 protocol ([RFC2616]) defines several headers that can be sent from the client to the server on an HTTP POST request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] The headers follow the request line in the HTTP portion of a request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] The following headers are used in for ActiveSync synchronization protocol requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] Note that requests [ActiveSync synchronization protocol requests] are UTF-8 encoded.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The required Header] Authorization specifies that user credentials are sent by using HTTP basic authentication.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For details [about the required Header Authorization], see section 2.2.1.1.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R130</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The occurrence of header] Content-Type which specifies that the media type of the request body is WBXML, depends on the command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] Other types [except media type of the request body is WBXML] of content, such as [RFC2822], can also be specified, depending on the command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R132</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [about the header Content-Type], see section 2.2.1.1.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The optional header] MS-ASAcceptMultiPart specifies that the client wants items returned in multipart format.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [about optional header MS-ASAcceptMultiPart], see section 2.2.1.1.2.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] If using a base64 encoded query value, [the optional header] MS-ASProtocolVersion specifies the version of the ActiveSync protocol that the client supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R404</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] If using a plain text query value, [the required header] MS-ASProtocolVersion specifies the version of the ActiveSync protocol that the client supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [about the header MS-ASProtocolVersion], see section 2.2.1.1.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R405</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The optional header] User-Agent contains information about the client sending the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R406</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [about User-Agent] , see section 2.2.1.1.2.5.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The occurrence of header] X-MS-PolicyKey which specifies the policy key assigned by the server to the client, depends on the command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R138</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [the header X-MS-PolicyKey], see section 2.2.1.1.2.6.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R139</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization] User credentials are sent from the client to the server by using HTTP basic authentication, in which [HTTP basic authentication] the credentials are encoded with base64 encoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R140</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization] For user fakename and password x$pIAK9@p9!, the Authorization header would be as follows. Authorization: Basic ZmFrZXVzZXI6eCRwSUFLOUBwOSE=</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization] For details about HTTP basic authentication, see [RFC1945] section 11.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] The Content-Type header indicates the format of the data sent in the request body.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] When the request body for a command is in WBXML format, the Content-Type header value MUST be set to [either] "application/vnd.ms-sync.wbxml" [, or the shortened string "application/vnd.ms-sync"].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R438</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] When the request body for a command is in WBXML format, the Content-Type header value MUST be set to [either "application/vnd.ms-sync.wbxml", or] the shortened string "application/vnd.ms-sync".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] For the Autodiscover command ([MS-ASCMD] section 2.2.2.1), which specifies an XML request body format, the Content-Type header SHOULD be set to "text/xml" .</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R314</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] [For the Autodiscover command ([MS-ASCMD] section 2.2.2.1), which specifies an XML request body format, the Content-Type header] MAY&lt;3&gt; be set to "text/html".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R407</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] If the request has no body, the Content-Type header SHOULD NOT be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] The MS-ASAcceptMultiPart header is used to control the delivery of the content requested by the Fetch element ([MS-ASCMD] section 2.2.3.63.1) in an ItemOperations request ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R148</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header is optional for ItemOperations requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R439</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header SHOULD NOT be used for other command requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R149</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] Instead, the AcceptMultipart flag in the Options parameter SHOULD be used, as specified in section 2.2.1.1.1.1.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] If this [MS-ASAcceptMultiPart] header is present and the value is 'T', the client is requesting that the server return content in multipart format.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] If the [MS-ASAcceptMultiPart] header is not present [, or is present and set to 'F'], the client is requesting that the server return content in inline format.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R440</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] If the [MS-ASAcceptMultiPart] header [is not present, or] is present and set to 'F', the client is requesting that the server return content in inline format.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R156</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] For more details, see [MS-ASCMD] section 2.2.2.8.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion] The MS-ASProtocolVersion header indicates the protocol version that the client is using to format the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R408</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion] This [MS-ASProtocolVersion] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R409</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion] Instead, the Protocol version field of the base64 encoded query value SHOULD be set, as specified in section 2.2.1.1.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R158</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion] Valid values for this [MS-ASProtocolVersion] header are "14.1", "14.0", and "12.1".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R410</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent] The format of the User-Agent header is specified in [RFC2616] section 14.43.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R411</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent] This [User-Agent] header SHOULD be included in command requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-PolicyKey] The X-MS-PolicyKey header contains the client's current policy key, as specified in [MS-ASPROV] section 2.2.2.41.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-PolicyKey] This [X-MS-PolicyKey] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-PolicyKey] Instead, the Policy key field of the base64 encoded query value SHOULD be set, as specified in section 2.2.1.1.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] The request body contains data sent to the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] The request body [except the Autodiscover command], if any, is in WBXML.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R519</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] The request body of Autodiscover command, which is in XML.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R165</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] Three commands have no body in certain contexts: GetAttachment [, Sync, and Ping].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R498</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] Three commands have no body in certain contexts: [GetAttachment,] Sync [, and Ping].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R514</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] Three commands have no body in certain contexts: [GetAttachment, Sync, and] Ping.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Request Body] For more details about the request bodies of individual commands, see [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP POST Response] After receiving and interpreting a request, a server responds with an HTTP response that contains data returned from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] Each command response is sent from the server to the client as an HTTP POST response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] Note that these [HTTP POST] responses are UTF-8 encoded.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R170</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] As specified by [RFC2616], the format [of the command response] is the same as for the following requests.
+Status-line
+Response-headers
+CR/LF
+Message Body</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] The status line consists of the HTTP version and a status code.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] The following is an example of a response status line.
+
+HTTP/1.1 200 OK</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] The following table lists some common HTTP status codes [200 OK, 400 Bad Request, 401Unauthorized, 403 Forbidden, 404 Not Found, 451 Redirect, 500 Internal Server Error, 501 Not Implemented, 502 Proxy Error, 503 Service Unavailable, 507 Insufficient Disk Space].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 200 OK [is described as] the command succeeded.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R176</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 400 Bad Request [is described as] the request could not be understood by the server due to malformed syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R177</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 400 Bad Request [is described as] if the client repeats the request without modifications, then the same error [400 Bad Request] occurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 401 Unauthorized [is described as] the resource requires authorization [or authorization was refused].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R523</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 401 Unauthorized [is described as] the [resource requires authorization or] authorization was refused.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about how to troubleshoot this error [the resource requires authorization or authorization was refused], see section 3.1.5.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 403 Forbidden [is described as] the user is not enabled for ActiveSync synchronization.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about how to troubleshoot this error [the user is not enabled for ActiveSync synchronization], see section 3.1.5.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 404 Not Found [is described as] the specified URI could not be found [or the server is not a valid server with ActiveSync].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R441</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 404 Not Found [is described as] [the specified URI could not be found or] the server is not a valid server with ActiveSync.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 451 Redirect [is described as] the device is trying to connect to a server that cannot access the user's mailbox [, or there is a more efficient server to use to reach the user's mailbox].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R442</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 451 Redirect [is described as] [the device is trying to connect to a server that cannot access the user's mailbox, or]  there is a more efficient server to use to reach the user's mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 500 Internal Server Error [is described as] the server encountered an unexpected condition that prevented it from fulfilling the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about how to troubleshoot this error [the server encountered an unexpected condition that prevented it from fulfilling the request], see section 3.1.5.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 501 Not Implemented [is described as] the server does not support the functionality that is required to fulfill the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 501 Not Implemented [is described as] this status code SHOULD be returned by the server when the server does not recognize the request method [or is not able to support it for any resource].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R465.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R443</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 501 Not Implemented [is described as] this status code SHOULD be returned by the server when the server [does not recognize the request method or] is not able to support it for any resource.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] In the case of other malformed requests, the server returns status code 400.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 502 Proxy Error [is described as] the specified server could not be found.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 503 Service Unavailable [is described as] the service is unavailable.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about how to troubleshoot this error [the service is unavailable, see section 3.1.5.2.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R192</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 507 Insufficient Disk Space [is described as] the user's mailbox is full.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] This protocol [MS-ASHTTP] and [RFC2616] define several headers that can be sent from the server to the client in an HTTP POST response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R194</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] The headers follow the status line in the HTTP part of a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R195</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] The following table lists some common headers [Cache-Control,Content-Encoding,Content-Length,Content-Type,MS-Server-ActiveSync,X-MS-Location,X-MS-RP] that can be set by the server in response to client requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] Cache-Control Controls how the response is cached, [whose example value is] private.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] Content-Encoding [is] required when the content is compressed [; otherwise, this header [Content-Encoding] is not included].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R412</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [[Header] Content-Encoding [is] required when the content is compressed ;] otherwise, this header [Content-Encoding] is not included.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] Content-Encoding specifies the HTTP compression format that is used in the response, [whose example value is] gzip.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Required [header] Content-Length specifies the size of the response body in bytes, [whose example value is] 56.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Required [header] Content-Type specifies that the media-type of the response body is WBXML, [whose example value is] application/vnd.ms-sync.wbxml.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Other types of content, such as [RFC2822], can also be specified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] MS-Server-ActiveSync indicates the version of the ActiveSync server that was used to handle the request, [whose example value is] 8.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] X-MS-Location specifies the URL to use for future requests, [which is] used in conjunction with a 451 Redirect status code.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] X-MS-RP indicates to the client that the client has to perform a full resynchronization because of a server upgrade, [whose example value is] 12.1,14.0, 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Some of the headers in the response can be eliminated when the response is to an HTTP POST request and the response has HTTP status 200.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R212</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] When these two conditions [the response is to an HTTP POST request and the response has HTTP status 200] are met, only the following headers are necessary in the response: 
+Content-Length
+Content-Type, only required if Content-Length is greater than zero.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Cache-Control] The value of this header [Cache-Control] controls how the response is cached, as specified in [RFC2616] section 14.9.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Encoding] This [Content-Encoding] header is required if the response body is compressed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R215</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Encoding] Otherwise [if the response body is not compressed], it [Content-Encoding header] is omitted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R316</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Encoding] [This header is required if the response body is compressed. Otherwise, it is omitted] See [RFC2616] section 14.11.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R216</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Length] This [Content-Length] header is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Length] The format [of Content-Length header] is specified in [RFC2616] section 14.13.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R521</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Length] Content-Length    = "Content-Length" ":" 1*DIGIT</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] This [Content-Type] header is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] If the response body is WBXML, the value of this [Content-Type] header MUST be "application/vnd.ms-sync.wbxml".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] Otherwise [if the response body is not WBXML], an appropriate value SHOULD be used as specified in [RFC2616] section 14.17.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R522</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] Content-Type   = "Content-Type" ":" media-type</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Server-ActiveSync] This [MS-Server-ActiveSync] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Server-ActiveSync] It [MS-Server-ActiveSync header] contains an implementation-specific string indicating the version of the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Location] This [X-MS-Location] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Location] It [X-MS-Location header] is used when the HTTP status code is 451 to provide a URL to use for subsequent requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R225</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-RP] This [X-MS-RP] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R226</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-RP] Its [X-MS-RP header's] presence in a response indicates that a condition on the server (such as a server upgrade) requires the client to discard its local data and resynchronize.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R227</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-RP] The value of this [X-MS-RP] header indicates the protocol versions the server supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R228</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] The response body contains data returned from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R229</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] The response body [except the Autodiscover command], if any, is in WBXML.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R445</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] The [response body of] Autodiscover command, which is in XML.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R230</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] Three commands have no XML body in certain contexts: GetAttachment, [Sync, and Ping].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R482</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] Three commands have no XML body in certain contexts: [GetAttachment,] Sync [, and Ping].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R515</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] Three commands have no XML body in certain contexts: [GetAttachment, Sync, and] Ping.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R231</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Response Body] For more details about the response bodies of individual commands, see [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R232</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP OPTIONS Request] The HTTP OPTIONS command, which is specified by [RFC2616], is used to discover what protocol versions are supported, and which protocol commands are supported on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R233</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP OPTIONS Request] The client uses the HTTP OPTIONS command to determine whether the server supports the same versions of the protocol that the client supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R234</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Format] As specified by [RFC2616], the format is as follows.
+Request-line
+Request-headers</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R235</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The request line consists of the method indicator, OPTIONS, followed by the URI, followed by the HTTP version, as follows.
+OPTIONS &lt;URI&gt; HTTP/1.1</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R236</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The absolute URI consists of a scheme indicator, the host name, and the path.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R413</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The relative URI consists of the path.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R414</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] Either form [absolute URI or relative URI] can be used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R237</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Request Line] The format of the path is the following:
+
+/Microsoft-Server-ActiveSync</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R238</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP OPTIONS Response] After receiving an HTTP OPTIONS request, a server responds with an HTTP OPTIONS response that specifies the protocol versions it supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] Each response is sent from the server to the client as an HTTP OPTIONS response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] Note that these [sent from the server to the client as an HTTP OPTIONS] responses are UTF-8 encoded.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Response Format] As specified by [RFC2616], the format is the same as for the following requests:
+Status-line
+Response-headers</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R242</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] The status line for an HTTP OPTIONS response is identical to the status line for an HTTP POST response, specified in section 2.2.2.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R243</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] This protocol [MS-ASHTTP] defines headers that can be sent from the server to the client in an HTTP OPTIONS response in addition to headers defined in [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] The headers [MS-ASProtocolCommands,MS-ASProtocolVersions] follow the status line in the HTTP part of a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolCommands indicates the commands supported by the server, [whose example values are] Sync,SendMail,SmartForward,SmartReply,GetAttachment,GetHierarchy,CreateCollection,DeleteCollection,MoveCollection,FolderSync,FolderCreate,FolderDelete,FolderUpdate,MoveItems,GetItemEstimate,MeetingResponse,Search,Settings,Ping,ItemOperations,Provision,ResolveRecipients,ValidateCert.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolVersions indicates the protocol versions supported by the server [whose example values are] 12.1, 14.0, 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolCommands] The MS-ASProtocolCommands header contains a comma-delimited list of the ActiveSync commands supported by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] The MS-ASProtocolVersions header indicates the versions of the ActiveSync protocol supported by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] [HTTP OPTIONS Response] Values [MS-ASProtocolVersions] that correspond to the versions specified by [MS-ASCMD] are "12.1" "14.0", and "14.1".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server to determine the correct server URL to use for all subsequent commands.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R252</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] After determining the correct server URL, the client SHOULD send an HTTP OPTIONS command to the server, as specified in section 2.2.1.1.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R254</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] The client SHOULD&lt;4&gt; use the most recent version (the greatest numbered version) of the protocol that is supported by the client and server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R255</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Higher Layer Triggered Events] Synchronizing changes on the client requires the client to send a command to the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R256</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Sending a Command Request] Command requests MUST be formatted as specified in section 2.2.1 and sent via HTTP.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R258</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Sending a Command Request] Secure Sockets Layer (SSL) SHOULD be enabled between the client and the server whenever the Authorization header (section 2.2.1.1.2.1) is sent.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R260</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Sending a Command Request] The client SHOULD wait for a server response to the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R415</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Sending a Command Request] Clients that include the User-Agent HTTP header SHOULD NOT change the value of this [User-Agent HTTP] header between consecutive command requests, unless a major change to the client has occurred, such as an operating system upgrade.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R261</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Clients receive HTTP responses from the server only in response to HTTP requests sent by the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling a Successful Response] If the HTTP status code indicates that the request succeeded (its value is between 200 and 299, as specified in [RFC2616]), the response is interpreted as specified in [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R263</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling a Successful Response] If the server returns an X-MS-RP header in the response, the client MUST reinitialize its synchronization state as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R264</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling a Failed Response] Unless otherwise specified in the following sections, all HTTP status codes that do not indicate success is interpreted and handled as specified in [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R265</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error 401 [, 403, or 500].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R446</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error [401,] 403 [, or 500].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R447</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error [401, 403, or] 500.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R267</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server returns an X-MS-RP header in the response, the client MUST reinitialize its synchronization state as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R268</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the client is attempting to connect to the wrong server (that is, a server that cannot access the user's mailbox) [,or if there is a more efficient server to use to reach the user's mailbox,] then a 451 Redirect error is returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R448</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If [the client is attempting to connect to the wrong server (that is, a server that cannot access the user's mailbox),or if] there is a more efficient server to use to reach the user's mailbox, then a 451 Redirect error is returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R269</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The error returned by the wrong server resembles the following:
+OPTIONS /Microsoft-Server-ActiveSync
+Content-Type: application/vnd.ms-sync.wbxml
+MS-ASProtocolVersion: 14.0
+
+HTTP/1.1 451
+Date: Tue, 08 Dec 2009 19:43:24 GMT
+Server: Microsoft-IIS/7.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 2.0.50727
+X-MS-Location: https://mail.contoso.com/Microsoft-Server-ActiveSync
+Cache-Control: private
+Content-Length: 0</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R270</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If an X-MS-Location header is present in the response, all subsequent requests SHOULD use the URL specified within the X-MS-Location header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R272</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server does not provide an X-MS-Location header in its response to the client, then the full Autodiscover command process is followed, as specified in [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R273</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] One of the causes of HTTP error 503 is that more users than are allowed by the server's request queue limit have sent requests to a single server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R274</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The error returned by the server resembles the following.
+OPTIONS /Microsoft-Server-ActiveSync
+Content-Type: application/vnd.ms-sync.wbxml
+MS-ASProtocolVersion: 14.0
+
+HTTP/1.1 503 Service Unavailable
+Connection: close
+Date: Mon, 02 Mar 2009 23:51:51 GMT
+Server: Microsoft-IIS/7.0
+X-Powered-By: ASP.NET
+Content-Type: text/html</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R275</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If a Retry-After header ([RFC2616]) is present in the response, the client SHOULD&lt;5&gt; retry the request after waiting the number of seconds indicated by the Retry-After header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R276</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] Any such value [the number of seconds] represents an estimate of when the server is expected to be able to process the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R277</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If a Retry-Header is not present in the response, the client can retry the request after waiting a few seconds.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R278</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The time to wait between continuous requests that result in HTTP error 503 responses can be increased exponentially to a predetermined maximum.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R279</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] For more details about ASP.NET performance monitoring properties, see [MSDN-APM].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R280</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Server Details] The server only responds to client requests by returning HTTP responses as specified in section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R449</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Server Details] The server never initiates communication with the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R281</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The server can receive HTTP POST requests (section 2.2.1) [or HTTP OPTIONS requests (section 2.2.3)] from the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R450</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The server can receive [HTTP POST requests (section 2.2.1) or] HTTP OPTIONS requests (section 2.2.3) from the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R282</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The server SHOULD parse requests from clients as specified in section 2.2.1 and [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R283</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The server MUST conform to the protocol version specified by the MS-ASProtocolVersion header (section 2.2.1.1.2.4) in the client request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R284</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The server SHOULD format a response to the request as specified in section 2.2.2 with an appropriate HTTP status code as specified in section 2.2.2.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R476.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R285</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 451 error and knows the URL of the correct server, it SHOULD include an X-MS-Location header with the URL of the correct server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R287</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 503 error, it MAY&lt;6&gt; include a Retry-After header ([RFC2616]) in the response with an estimate of how many seconds will elapse before the server is expected to be able to process the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R289</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If the server requires the client to reinitialize its synchronization state, it SHOULD include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R478.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R416</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The server MAY&lt;7&gt; track the value of the User-Agent header for consecutive command requests from a specific device and block devices that change the value of this [User-Agent] header more than a configured limit within a configured timespan.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R417</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] Servers that do this tracking [track the value of the User-Agent header for consecutive command requests from a specific device and block devices that change the value of this [User-Agent] header more than a configured limit within a configured timespan] SHOULD use the algorithm specified in section 3.2.5.1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R418</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] Servers SHOULD limit changes to the User-Agent header value from a device to 2 changes within a 24-hour time period.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R419</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;8&gt; use different values for the number of changes or the time period.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R420</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] The server SHOULD block clients that exceed this limit for 14 hours.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R421</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;9&gt; block clients for a different amount of time.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R422</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] If the server blocks a client for changing its User-Agent header value, it [server] returns an error that depends on the value of the MS-ASProtocolVersion header (section 2.2.1.1.2.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R423</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] If the value of the MS-ASProtocolVersion header is 14.0 or 14.1, the server MUST return a Status element ([MS-ASCMD] section 2.2.3.162) with a value of DeviceIsBlockedForThisUser (129), as specified in [MS-ASCMD] section 2.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R424</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Change Tracking] If the value of the MS-ASProtocolVersion header is 12.1, the server must return an HTTP error 403.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R291</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The server response to the HTTP OPTIONS command request MUST contain the MS-ASProtocolCommands header set to a comma-delimited list of the supported ActiveSync commands, and a MS-ASProtocolVersions header set to a comma-delimited list of the supported ActiveSync protocol versions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R292</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The latest supported version of the protocol is 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R293</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] Older supported versions include 14.0 and 12.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R294</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] Not all commands and functionality described in the ActiveSync protocol documentation are supported by the older protocol versions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R295</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] See the Product Behavior section in each document to determine which commands and capabilities are not available in older protocol versions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R296</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] A protocol server can support multiple versions of this protocol [MS-ASHTTP].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R297</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] This specification [MS-ASHTTP] and any protocol specifications that cite it [MS-ASHTTP] as a dependency are applicable when the value of the MS-ASProtocolVersion header is set to 14.1, 14.0, or 12.1.&lt;10&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-ASHTTP_R298, MS-ASHTTP_R459, MS-ASHTTP_R460, MS-ASHTTP_R461.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R299</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R465</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does return 501 Not Implemented status code when implementation does not recognize the request method [or is not able to support it for any resource]. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R187:i,MS-ASHTTP_R299:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R476</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does format a response to the request as specified in section 2.2.2 with an appropriate HTTP status code as specified in section 2.2.2.1.1. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R284:i,MS-ASHTTP_R299:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R478</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the implementation requires the client to reinitialize its synchronization state, it does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R289:i,MS-ASHTTP_R299:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R300</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the Protocol version field to 141. (&lt;1&gt; Section 2.2.1.1.1.1: Exchange 2007 SP1 and the initial release version of Exchange 2010 do not set the Protocol version field to 141.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R27</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the Protocol version field to 121. (&lt;2&gt; Section 2.2.1.1.1.1: Exchange 2007 SP1 sets the Protocol version field to 121.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R28</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the Protocol version field to 140. (&lt;2&gt; Section 2.2.1.1.1.1: The initial release version of Exchange 2010 sets the Protocol version field to 140.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does accept a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command. (&lt;3&gt; Section 2.2.1.1.2.2: Exchange 2007 SP1 accepts a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R314:i,MS-ASHTTP_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R453</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 3.1.3:  Windows Communication Apps only support protocol versions 12.1 and 14.0.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R454</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 3.1.5.2.3:  Windows Communication Apps ignore the Retry-After header and instead retry after a set time.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R495</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 3.1.5.2.3: The set time increases exponentially when multiple 503 errors are received.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R288</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does sometimes include a Retry-After header with HTTP 503 error responses. (&lt;6&gt; Section 3.2.5.1: Exchange 2010 and Exchange 2013 sometimes include a Retry-After header with HTTP 503 error responses.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R520</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not sometimes include a Retry-After header with HTTP 503 error responses. (Exchange 2007 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R455</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to track changes to the User-Agent header, but does not do so by default. (&lt;7&gt; Section 3.2.5.1:  Exchange 2013 can be configured to track changes to the User-Agent header, but does not do so by default.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R416:i,MS-ASHTTP_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R456</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (&lt;8&gt; Section 3.2.5.1.1:  Exchange 2013 can be configured to use different values for the allowed number of changes and the time period.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R419:i,MS-ASHTTP_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R457</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;9&gt; Section 3.2.5.1.1:  Exchange 2013 can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R421:i,MS-ASHTTP_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R298</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 14.1 and 14.0. (&lt;10&gt; Section 3.2.5.2: Exchange 2007 SP1 does not return MS-ASProtocolVersions values of 14.1 and 14.0.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R458</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 14.1. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 does not return the MS-ASProtocolVersions value of 14.1.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R459</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 12.1. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R460</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 14.0. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R461</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 14.1. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+</ns1:ReqTable>

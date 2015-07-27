@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R541Enabled to true to verify that protocol server additionally supports SOAP over HTTPS for securing communication with clients as specified in section 2.1. Set R541Enabled to false to disable this requirement. -->
+    <Property name="R541Enabled" value="true"/>
+    <!-- Set R400Enabled to true to verify that for GetSiteTemplates operation, if the language specified by the LCID parameter is not installed, protocol server does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element, as specified in section 7. Set R400Enabled to false to disable this requirement. -->
+    <Property name="R400Enabled" value="true"/>
+    <!-- Set R1561Enabled to true to verify that for GetSiteTemplates operation, if the language specified by the LCID parameter is not installed, protocol server does return the SOAP fault with error code [0x81070209]. Set R1561Enabled to false to disable this requirement. -->
+    <Property name="R1561Enabled" value="false"/>
+    <!-- Set R332Enabled to true to verify that for getUpdateFormDigest operation, protocol server implementation of the security validation consists of two values separated by a comma, as specified in section 7. Set R332Enabled to false to disable this requirement. -->
+    <Property name="R332Enabled" value="true"/>
+    <!-- Set R368Enabled to true to verify that for getUpdateFormDigest operation, the second value of the security validation is a time stamp in Coordinated Universal Time (UTC) format, as specified in section 7. Set R368Enabled to false to disable this requirement. -->
+    <Property name="R368Enabled" value="true"/>
+    <!-- Set R328Enabled to true to verify that if the export operation is called successfully, protocol server creates a log file that contains the result of the export operation in the server location specified in the request message, as specified in section 7. Set R328Enabled to false to disable this requirement. -->
+    <Property name="R328Enabled" value="true"/>
+    <!-- Set R329Enabled to true to verify that if the export operation is called successfully, the log file which contains the result of the export operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R329Enabled to false to disable this requirement. -->
+    <Property name="R329Enabled" value="true"/>
+    <!-- Set R339Enabled to true to verify that if the import operation is called successfully, protocol server creates a log file that contains the result of the import operation in the server location specified in the request message, as specified in section 7. Set R339Enabled to false to disable this requirement. -->
+    <Property name="R339Enabled" value="true"/>
+    <!-- Set R340Enabled to true to verify that if the import operation is called successfully, the log file which contains the result of the import operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R340Enabled to false to disable this requirement. -->
+    <Property name="R340Enabled" value="true"/>
+    <!-- Set R5311Enabled to true to verify that Microsoft Windows SharePoint Services 3.0 and above support operation ExportWeb. Set R5311Enabled to false to disable requirements related with operation ExportWeb. -->
+    <Property name="R5311Enabled" value="true"/>
+    <!-- Set R5391Enabled to true to verify that Microsoft Windows SharePoint Services 3.0 and above support operation ImportWeb. Set R5391Enabled to false to disable requirements related with operation ImportWeb. -->
+    <Property name="R5391Enabled" value="true"/>
+    <!-- Set R5361Enabled to true to verify that Microsoft Windows SharePoint Services 3.0 and above support operation GetUpdatedFormDigest. Set R5361Enabled to false to disable requirements related with operation GetUpdatedFormDigest. -->
+    <Property name="R5361Enabled" value="true"/>
+    <!-- Set R5301Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation ExportSolution. Set R5301Enabled to false to disable requirements related with operation ExportSolution. -->
+    <Property name="R5301Enabled" value="true"/>
+    <!-- Set R5331Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation ExportWorkflowTemplate. Set R5331Enabled to false to disable requirements related with operation ExportWorkflowTemplate. -->
+    <Property name="R5331Enabled" value="true"/>
+    <!-- Set R5341Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation GetSite. Set R5341Enabled to false to disable requirements related with operation GetSite. -->
+    <Property name="R5341Enabled" value="true"/>
+    <!-- Set R5381Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation GetUpdatedFormDigestInformation. Set R5381Enabled to false to disable requirements related with operation GetUpdatedFormDigestInformation. -->
+    <Property name="R5381Enabled" value="true"/>
+    <!-- Set R3781Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation CreateWeb. Set R3781Enabled to false to disable requirements related with operation CreateWeb. -->
+    <Property name="R3781Enabled" value="true"/>
+    <!-- Set R3791Enabled to true to verify that Microsoft SharePoint Foundation 2010 and above support operation DeleteWeb. Set R3791Enabled to false to disable requirements related with operation DeleteWeb. -->
+    <Property name="R3791Enabled" value="true"/>
+    <!-- Set R7411Enabled to true to verify that ExportWeb operation does need ExportWebUrl to be case-sensitive as specified in section 3.1.4.2.2.1. Set R7411Enabled to false to disable this requirement. -->
+    <Property name="R7411Enabled" value="true"/>
+  </Properties>
+</TestSite>

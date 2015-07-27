@@ -1,0 +1,1 @@
+MS-SHDACCWS test data,this file is uploaded in SUT without any other locks or Co-Authoring status.

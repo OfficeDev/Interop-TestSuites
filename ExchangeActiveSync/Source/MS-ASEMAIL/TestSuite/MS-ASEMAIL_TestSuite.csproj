@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1126F9DF-7080-4C4C-9CD8-B35268633E08}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_ASEMAIL</RootNamespace>
+    <AssemblyName>MS-ASEMAIL_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_Email.cs" />
+    <Compile Include="S02_EmailVoiceAttachment.cs" />
+    <Compile Include="S03_EmailFlag.cs" />
+    <Compile Include="S04_MeetingRequest.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+    <Compile Include="TestSuiteHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-ASEMAIL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASEMAIL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASEMAIL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASEMAIL_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-ASEMAIL_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{7C4FF57A-6BE9-49E5-9FBE-850EFD984D09}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-ASEMAIL_Adapter.csproj">
+      <Project>{5DD39C45-535D-4D73-B507-DFAF07060164}</Project>
+      <Name>MS-ASEMAIL_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-ASEMAIL_RequirementSpecification.xml" />
+    <Content Include="Resources\secondTestVoice.mp3" />
+    <Content Include="Resources\testVoice.mp3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

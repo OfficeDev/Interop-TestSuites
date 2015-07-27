@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<xs:schema version='1.0'
+xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+  <xs:include schemaLocation='ADOXML-C2F41010-65B3-11d1-A29F-00AA00C14882.xsd'/>
+  <!-- optional or mandatory, applies to attribute -->
+  <xs:attribute name='required'>
+    <xs:simpleType >
+      <xs:restriction base='xs:string'>
+        <xs:enumeration value='yes'/>
+        <xs:enumeration value='no'/>
+        <!-- default -->
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <!-- open or closed model, applies to ElementType -->
+  <xs:attribute name='model'>
+    <xs:simpleType >
+      <xs:restriction base='xs:string'>
+        <xs:enumeration value='open'/>
+        <!-- default -->
+        <xs:enumeration value='closed'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <!-- order is one of, or sequential, or random -->
+  <xs:attribute name='order'>
+    <xs:simpleType >
+      <xs:restriction base='xs:string'>
+        <xs:enumeration value='one'/>
+        <xs:enumeration value='seq'/>
+        <!-- default for eltOnly -->
+        <xs:enumeration value='many'/>
+        <!-- default for mixed -->
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <!-- at least and at most number of occurrences -->
+  <xs:attributeGroup name='minmax'>
+    <xs:attribute name='minOccurs'>
+      <xs:simpleType >
+        <xs:restriction base='xs:string'>
+          <xs:enumeration value='0'/>
+          <xs:enumeration value='1'/>
+          <!-- default -->
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name='maxOccurs'>
+      <xs:simpleType >
+        <xs:restriction base='xs:string'>
+          <xs:enumeration value='1'/>
+          <!-- default -->
+          <xs:enumeration value='*'/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- root element of XDR schema -->
+  <xs:element name='Schema'>
+    <xs:complexType >
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:element ref='AttributeType'/>
+        <xs:element ref='ElementType'/>
+        <xs:element ref='description'/>
+        <xs:element ref='Field'/>
+        <xs:any namespace='##other'
+        processContents='skip'/>
+      </xs:choice>
+      <xs:attribute name='Name'
+      type='xs:string'/>
+      <xs:attribute name='id'
+      type='xs:ID'/>
+      <xs:anyAttribute namespace='##any'
+      processContents='skip'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ElementType introduces elements, and appears in Schema only -->
+  <xs:element name='ElementType'>
+    <xs:complexType >
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:element ref='AttributeType'/>
+        <xs:element ref='attribute'/>
+        <xs:element ref='element'/>
+        <xs:element ref='group'/>
+        <xs:element ref='datatype'/>
+        <xs:element ref='description'/>
+        <xs:element ref='extends'/>
+        <xs:any namespace='##other'
+        processContents='skip'/>
+      </xs:choice>
+      <xs:attribute name='name'
+      type='xs:ID'/>
+      <xs:attribute name='content'>
+        <xs:simpleType >
+          <xs:restriction base='xs:string'>
+            <xs:enumeration value='empty'/>
+            <xs:enumeration value='textOnly'/>
+            <xs:enumeration value='eltOnly'/>
+            <xs:enumeration value='mixed'/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute ref='model'/>
+      <xs:attribute ref='order'/>
+      <xs:attributeGroup ref='typeAttributes'/>
+      <xs:anyAttribute namespace='##other'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- AttributeType introduces attribute,
+and appears in Schema or ElementType -->
+  <xs:element name='AttributeType'>
+    <xs:complexType >
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:element ref='datatype'/>
+        <xs:element ref='description'/>
+        <xs:any namespace='##other'
+        processContents='skip'/>
+      </xs:choice>
+      <xs:attribute name='default'
+      type='xs:string'/>
+      <xs:attribute name='name'
+      type='xs:ID'/>
+      <xs:attribute ref='required'/>
+      <xs:attributeGroup ref='typeAttributes'/>
+      <xs:anyAttribute namespace='##other'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- attribute applies to ElementType and refers to known AttributeType -->
+  <xs:element name='attribute'>
+    <xs:complexType >
+      <xs:attribute name='type'
+      type='xs:NMTOKEN'/>
+      <xs:attribute name='default'
+      type='xs:string'/>
+      <xs:attribute ref='required'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- element appears inside of ElementType or group
+and refers to ElementType -->
+  <xs:element name='element'>
+    <xs:complexType >
+      <xs:attribute name='type'
+      type='xs:NMTOKEN'/>
+      <xs:attributeGroup ref='minmax'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- group appears inside of ElementTYpe
+(can be nested into another group)
+and organizes its elements -->
+  <xs:element name='group'>
+    <xs:complexType >
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:element ref='description'/>
+        <xs:element ref='element'/>
+        <xs:element ref='group'/>
+        <xs:any namespace='##other'
+                processContents='skip'/>
+      </xs:choice>
+      <xs:attribute ref='order'/>
+      <xs:attributeGroup ref='minmax'/>
+      <xs:anyAttribute namespace='##other'/>
+    </xs:complexType>
+  </xs:element>
+  <!-- description is arbitrary text with or without XML,
+and is intended for the human reader -->
+  <xs:element name='description'>
+    <xs:complexType mixed='true'>
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:any processContents='skip'
+        namespace='##any'/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <!-- refers to Data types, as defined in dt: namespace -->
+  <xs:element name='datatype'>
+    <xs:complexType mixed='true'>
+      <xs:attributeGroup ref='typeAttributes'/>
+      <xs:anyAttribute namespace='##other'/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name='extends'>
+    <xs:complexType >
+      <xs:attribute name='type'
+      type='xs:NMTOKEN'/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name='Field'>
+    <xs:complexType mixed='true'>
+      <xs:choice minOccurs='0'
+      maxOccurs='unbounded'>
+        <xs:any processContents='skip'
+        namespace='##any'/>
+      </xs:choice>
+      <xs:anyAttribute namespace='##any'
+      processContents='skip'/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

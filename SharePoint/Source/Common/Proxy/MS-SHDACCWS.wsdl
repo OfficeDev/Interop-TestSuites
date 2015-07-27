@@ -1,0 +1,65 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:simpleType name="UniqueIdentifierWithOrWithoutBraces">
+        <s:restriction base="s:string">
+          <s:pattern value="\{?[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}\}?"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="IsOnlyClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="core:UniqueIdentifierWithOrWithoutBraces" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsOnlyClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsOnlyClientResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsOnlyClientSoapIn">
+    <wsdl:part name="parameters" element="tns:IsOnlyClient" />
+  </wsdl:message>
+  <wsdl:message name="IsOnlyClientSoapOut">
+    <wsdl:part name="parameters" element="tns:IsOnlyClientResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SharedAccessSoap">
+    <wsdl:operation name="IsOnlyClient">
+      <wsdl:input message="tns:IsOnlyClientSoapIn" />
+      <wsdl:output message="tns:IsOnlyClientSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SharedAccessSoap" type="tns:SharedAccessSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsOnlyClient">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/IsOnlyClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SharedAccessSoap12" type="tns:SharedAccessSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsOnlyClient">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/IsOnlyClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

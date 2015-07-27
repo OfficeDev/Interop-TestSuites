@@ -1,0 +1,86 @@
+<!-- This file provides configuration values to the setup configuration script in case the script runs in unattended mode. 
+     Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. -->
+	<!-- Note: Property values are case-insensitive unless otherwise specified. -->
+<Properties>
+    <!-- The isSutConfigured property specifies whether the SUT is configured before running the client setup script. 
+		The supported values are:
+		"Y", the SUT is configured;
+		"N", the SUT is not configured. -->
+    <Property name="isSutConfigured" value="Y" />
+    <!-- The runOnNonRecommendedOS property specifies whether to run the client setup script when the operating system is not the recommended version. 
+		The supported values are:
+		"1", run the client setup script;
+		"2", exit the client setup script. -->
+    <Property name="runOnNonRecommendedOS" value="1" />
+    <!-- The runWithoutRequiredAppInstalled property specifies whether to continue running the client setup script without installing the required application(s). 
+		The supported values are:
+		"1", continue running the client setup script;
+		"2", exit and install the required application(s). -->
+    <Property name="runWithoutRequiredAppInstalled" value="1" />
+    <!-- The sutComputerName property specifies the name of the first SUT (system under test). -->
+    <Property name="sutComputerName" value="SUT01" />
+	 <!-- The sut2ComputerName property specifies the name of the second SUT. Keep this value blank if the second SUT is not used. -->
+    <Property name="sut2ComputerName" value="SUT02" />
+    <!-- The useCurrentUser property specifies whether to use the current logon domain user. This user is used to call protocol methods and remotely configure the SUT if the SUT control adapter is set to PowerShell mode. 
+		The user should be able to create users in Active Directory directory service, be a part of the local admin group on the server, and also be the SUT administrator.
+		The supported values are:
+		"Y", use current logon domain user;
+		"N", not use current logon domain user. -->
+    <Property name="useCurrentUser" value="N" />	
+    <!-- The dnsDomain property specifies the domain name. This property will be ignored if the value of the useCurrentUser property is set to "Y". -->
+    <Property name="dnsDomain" value="contoso.com" />
+	<!-- The userName property specifies a username which can be used by clients to access the SUT. This user should be an administrator on the SharePoint server and an administrator in the client machine. This property will be ignored if the value of the useCurrentUser property is set to "Y". -->
+	<Property name="userName" value="administrator" />
+	<!-- The password property specifies the password for the user specified in the userName property. The value of the property is case-sensitive. -->
+	<Property name="password" value="Password01!" />	
+	<!-- The transportType property specifies the transport type which is used to transfer the messages between the client and the SUT.
+        The supported values are:
+        "1", the transport type is HTTP;
+        "2", the transport type is HTTPS. -->
+	<Property name="transportType" value="1"/>
+    <!-- The soapVersion property specifies the SOAP version which is used to format the messages between the client and SUT.
+         The supported values are:
+         "1", the messages are formatted with SOAP 1.1;
+         "2", the messages are formatted with SOAP 1.2. -->
+    <Property name="soapVersion" value="1"/>
+	<!-- The notInstalledLCID property specifies the language code identifier (LCID) of the language which is not installed on the SUT. 
+	     For example, if the Chinese (Simplified) package is not installed on the server, the value is 2052. -->
+	<Property name="notInstalledLCID" value="2052"/>
+	
+	<!-- The following properties are only used if they are not retrieved automatically by the setup configuration script. -->
+	<!-- The sutVersion property specifies the version of the first or the second SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product.
+		The supported values are:
+		"1", (Windows SharePoint Services 3.0 SP3);
+		"2", (Microsoft Office SharePoint Server 2007 SP3);
+		"3", (Microsoft SharePoint Foundation 2010 SP2);
+		"4", (Microsoft SharePoint Server 2010 SP2);
+		"5", (Microsoft SharePoint Foundation 2013 SP3);
+		"6", (Microsoft SharePoint Server 2013 SP3). -->
+	<Property Name="sutVersion" Value="5" />
+	<!-- The defaultLCID property specifies the language code identifier (LCID) of the default language installed on the server. -->	
+	<Property name="defaultLCID" value="1033"/>
+	 <!-- The nonDefaultLCID property specifies the language code identifier (LCID) of the language package installed on the server. -->
+	<Property name="nonDefaultLCID" value="1033"/>
+	 <!-- The sharePointAdminPortForHTTP property specifies the HTTP port number used by the administration web service on the protocol server. -->
+    <Property name="sharePointAdminPortForHTTP" value="24601"/>
+    <!-- The sharePointAdminPortForHTTPS property specifies the HTTPS port number used by the administration web service on the protocol server. -->
+    <Property name="sharePointAdminPortForHTTPS" value="9443"/>
+    <!-- The sutWebSitePortForHTTP property specifies the HTTP port number used by the default SharePoint site. -->
+    <Property name="sutWebSitePortForHTTP" value="80"/>
+    <!-- The sutWebSitePortForHTTPS property specifies the HTTPS port number used by the default SharePoint site. -->
+    <Property name="sutWebSitePortForHTTPS" value="443"/>
+	<!-- The fileIdOfLock property specifies the file ID of a file uploaded to the SUT, to which an exclusive lock is applied. The ID must be a valid GUID. The value is the GUID of the "MSSHDACCWS_LockedTestData.txt" file if the setup script is used to configure the test client and SUT." -->
+    <Property name="fileIdOfLock" value="[GUID]" />
+    <!-- The fileIdOfLock property specifies the file ID of a file uploaded to the SUT, to which co-authoring is enabled. The ID must be a valid GUID. The value is the GUID of the "MSSHDACCWS_CoStatusTestData.txt" file if the setup script is used to configure the test client and SUT." -->
+    <Property name="fileIdOfCoAuthoring" value="[GUID]" />
+    <!-- The fileIdOfNormal property specifies the file ID of a file uploaded to the SUT that has no locks or co-authoring enabled. The ID must be a valid GUID. The value is the GUID of the "MSSHDACCWS_TestData.txt" file if the setup script is used to configure the test client and SUT." -->
+    <Property name="fileIdOfNormal" value="[GUID]" />
+	<!-- The userFQDN property specifies a user name in fully qualified domain name (FQDN) format. -->
+	<Property name="userFQDN" value="CN=Administrator,CN=Users,DC=contoso,DC=com" />
+	<!-- The holdId property specifies the ID of a hold. -->
+	<Property name="holdId" value="1" />
+	<!-- The holdUrl property specifies the URL of a hold. -->
+	<Property name="holdUrl" value="Lists/holds/dispform.aspx?id=1" />
+		
+</Properties>
+

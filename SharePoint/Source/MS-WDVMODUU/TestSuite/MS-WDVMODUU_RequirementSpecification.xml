@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] This section describes MODUU extensions transport requirements and syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Messages [in this protocol] are transported by using HTTP, as specified in [RFC2518] and [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] This section specifies the following deviations from [RFC2518] in the WebDAV server implementation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] XML element type declarations are given using the format defined in [XML10].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] A new XML element [&lt;!ELEMENT multistatus (repl?, response+, responsedescription?) &gt;] is added to the DAV:multistatus element collection, as defined in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] The syntax is specified in section 2.2.2.1 and section 2.2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] A new XML element [&lt;!ELEMENT propfind ((repl, allprop)  |  (allprop | propname | prop)) &gt;] is added to the PROPFIND element collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Types] Its syntax is specified in section 2.2.2.1 and section 2.2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In MODUU Extension Headers] The extension headers in this protocol conform to the form and behavior of other custom HTTP 1.1 headers, as specified in [RFC2616] section 4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In MODUU Extension Headers] They [The extension headers] are consistent with the WebDAV verbs and headers, as specified in [RFC2518] sections 8 and 9.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In MODUU Extension Headers] Definitions are specified using the Augmented Backus-Naur Form (ABNF) syntax specified in [RFC2616] section 2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] If returned, the X-Virus-Infected header MUST take the following form:
+X-Virus-Infected Header = "x-virus-infected" ":" Virus-Name
+Virus-Name = 1*TEXT</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] The X-Virus-Infected header usage is specified in section 3.1.4.1 and section 3.2.4.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] A WebDAV client SHOULD NOT include the Moss-Uid header in any HTTP 1.1 requests.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] If this header is included, it MUST contain a curly braced GUID string that represents the current user identifier on the WebDAV client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] This new header is specified as follows:
+Moss-Uid Header = "moss-uid" ":" Curly Braced GUID String</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] A WebDAV client SHOULD NOT include the Moss-Did header in any HTTP 1.1 requests.&lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] If this [Moss-Did] header is included, it MUST contain a curly braced GUID String.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R27</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] It [Moss-Did Header] is identical to the moss-uid header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] This new header [Moss-Did Header] is specified as follows:
+Moss-Did Header = "moss-did" ":" Curly Braced GUID String</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] A WebDAV client SHOULD NOT include the Moss-VerFrom header in any HTTP 1.1 requests.&lt;4&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R28</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] If this [Moss-VerFrom] header is included, it MUST contain a non-negative integer expressed in decimal notation with 11 or fewer digits.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] It [Moss-VerFrom Header] is used in a PUT request</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] [Moss-VerFrom Header] represents the version of the document being uploaded.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] This new header [Moss-VerFrom] is specified as follows:
+Moss-VerFrom Header = "moss-verfrom" ":" Ver-Number
+Ver-Number = 1*11DIGIT</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] A WebDAV client SHOULD NOT include the Moss-CBFile header in any HTTP 1.1 requests.&lt;5&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] If this header [Moss-CBFile] is included, it MUST contain the lower DWORD, as defined in [MS-DTYP], of the size of the file it is uploading, in bytes.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] This new header [Moss-CBFile] is specified as follows:
+Moss-CBFile Header = "moss-cbfile" ":" 1*DIGIT</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] A WebDAV client SHOULD NOT include the MS-Set-Repl-Uid header in any HTTP 1.1 requests.&lt;6&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] If this header is included, its value MUST be the value of the Repl-Uid site property returned by the WebDAV server in response to a PROPFIND request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] This new header is specified as follows:
+MS-Set-Repl-Uid Header = "MS-Set-repl-uid" ":" Repl-Uid
+Repl-Uid = "rid" ":" Curly Braced GUID String</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] A WebDAV client SHOULD NOT include the MS-BinDiff header in any HTTP 1.1 requests. &lt;7&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R48</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] If this [MS-BinDiff]header is included, it MUSTcontain the value "1.0".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] This new header [MS-BinDiff] is specified as follows:
+MS-BinDiff Header = "MS-BinDiff" ":" Version-Number
+Version-Number = "1.0"</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] A WebDAV client SHOULD NOT include the X-Office-Version header in any HTTP 1.1 requests.&lt;8&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R54</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] If this [X-Office-Version] header is included, it MUST contain a version number. This version number is the same as the WebDAV client version number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] This new header [X-Office-Version] is specified as follows:
+X-Office-Version Header = "X-Office-Version" ":" Version-Number
+Version-Number = "12" "." "0" "." 4DIGIT</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Header] The standard User-Agent header in all MODUU extension requests MAY include "SyncMan [version number]" as a comment.&lt;9&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Header] [The standard User-Agent header in all MODUU extension requests MAY include "SyncMan [version number]" as a comment.&lt;9&gt;]The version number SHOULD be the same as the Version-Number in the X-Office-Version Header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In MODUU Extensions Property] When the Repl:collblob and Repl:repl elements appear in a response to a WebDAV client request, the response MUST also include this schema alias.
+xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob Element] The Repl:collblob XML element MUST contain a UTC timestamp that conforms to the [ISO-8601] standard.
+&lt;!ELEMENT collblob (#PCDATA) &gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob Element] The Repl:collblob element MUST NOT appear except within the Repl:repl XML element collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob Element] The Repl:collblob element usage is specified in section 3.1.4.9 and section 3.2.4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:repl Element Collection] The Repl:repl XML element collection MUST contain a single Repl:collblob element, as specified in section 2.2.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:repl Element Collection] This [Repl:repl Element] collection appears in the request entity body of a PROPFIND request (section 2.2.2). &lt;!ELEMENT repl (collblob) &gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:repl Element Collection] [This Repl:repl Element collection appears] within the multistatus element collection (section 2.2.2). &lt;!ELEMENT repl (collblob) &gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:repl Element Collection] The Repl:repl element collection usage is specified in sections 3.1.4.9 and 3.2.4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R69</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] As specified in [RFC2518], WebDAV operates between a requester, or WebDAV client, and a responder, or WebDAV server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] This section specifies client and server behaviors with respect to MODUU extensions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] No new abstract data model is needed other than that described in the WebDAV protocol, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R72</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Timers] No new timers are required except those in WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] No initialization is required except that in WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] A WebDAV server returns the X-Virus-Infected header in response to an HTTP GET [or a PUT] request to indicate that the requested file is infected with a virus.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R75</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] A WebDAV server returns the X-Virus-Infected header in response to an HTTP [GET or a ]PUT request to indicate that the requested file is infected with a virus.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] If this [X-Virus-Infected ] header is returned by a WebDAV server in response to an HTTP PUT[ or a GET] request, the server MUST fail the request and respond with a message containing HTTP status code "409 CONFLICT".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] If this [X-Virus-Infected] header is returned by a WebDAV server in response to an HTTP [PUT or a] GET request, the server MUST fail the request and respond with a message containing HTTP status code "409 CONFLICT".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] [If X-Virus-Infected Header is returned] The server MUST NOT return the infected file to the client following a GET request "409 CONFLICT" error condition.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] The Moss-Uid header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R80.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Uid Header] [The reply of implementation does be the same whether Moss-Uid header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R79:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] The Moss-Did header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R82.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-Did Header] [The reply of implementation does be the same whether Moss-Did header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R81:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] The Moss-VerFrom header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R84.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-VerFrom Header] [The reply of implementation does be the same whether Moss-VerFrom header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R83:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] The Moss-CBFile header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R86.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In Moss-CBFile Header] [The reply of implementation does be the same whether Moss-CBFile header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R85:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] The MS-Set-Repl-Uid header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R88.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-Set-Repl-Uid Header] [The reply of implementation does be the same whether MS-Set-Repl-Uid header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R87:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] The MS-BinDiff header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R90.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] [The reply of implementation does be the same whether MS-BinDiff header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R89:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] The X-Office-Version header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R92.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-Office-Version Header] [The reply of implementation does be the same whether X-Office-Version header is included in the request or not.]</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R91:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] The existence of a Repl:collblob element in a PROPFIND request restricts the set of results returned by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, [it includes a response element for each resource in the multistatus element] that is a descendant of the Request-URI</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, [it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI] (limited by the Depth header specified in [RFC2518])</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource was last modified later than 5 minutes before the timestamp.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource is a descendant of a resource that has changed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp] In addition, the server includes the Repl:repl element collection in the response as specified.
+&lt;!ELEMENT multistatus (repl, response+, responsedescription?) &gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl]  [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, the server includes the Repl:repl element collection in the response.] The value of the repl:collblob element is the server time when it processed this request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Timer Events] No new timers are used beyond those in WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In Other Local Events] There are no new local events beyond WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] No new abstract data model is needed beyond WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R111</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Timers] No new timers are required beyond WebDAV, as specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] No additional initialization is required beyond that specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In X-Virus-Infected Header] There are no special prescriptions of client behavior for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] The client caches the most recent value of a Repl:collblob element returned by the server for use in subsequent requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] When the client does not have a cache of this [Repl:collblob element] value, it uses 1969-01-01T12:00:00Z.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R116</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Timer Events] No new timers are required beyond those specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Other Local Events] There are no new local events beyond those specified in [RFC2518].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 1.5:  Office 2007 SP1 system clients use MODUU extensions only against a Document Workspace site.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R118</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.1.2:  Office 2007 SP1 system clients include the Moss-Uid header in GET, PUT, OPTIONS, MOVE, DELETE, MKCOL and PROPFIND requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.1.3:  Office 2007 SP1 system clients include the Moss-Did header in PUT and MKCOL requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R120</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 2.2.1.4:  Office 2007 SP1 system clients include the Moss-VerFrom header in PUT requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;5&gt; Section 2.2.1.5:  Office 2007 SP1 system clients include the Moss-CBFile header in PUT requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R122</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;6&gt; Section 2.2.1.6:  Office 2007 SP1 system clients include the MS-Set-Repl-Uid header in PUT and MKCOL requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 2.2.1.7:  Office 2007 SP1 system clients include the MS-BinDiff header in GET requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R124</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;8&gt; Section 2.2.1.8:  Office 2007 SP1 system clients include the X-Office-Version header in GET, PUT, OPTIONS, MOVE, DELETE, MKCOL and PROPFIND requests, though Windows SharePoint Services 3.0 ignores it.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.1.9:  Office 2007 SP1 system clients include "SyncMan []" in the user-agent header.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>Implementation does ignore comments ["SyncMan[]"] of this value in the User-Agent Header. [In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.1.9: Servers running Windows SharePoint Services 3.0 ignore comments ["SyncMan[]"] of this value in the User-Agent Header. </ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R128.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does reply the same response whether "SyncMan []" is included in the User-Agent Header or not.[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.1.9:  Servers running Windows SharePoint Services 3.0 ignore comments ["SyncMan[]"] of this value in the User-Agent Header.</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R127:p</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+</ns1:ReqTable>

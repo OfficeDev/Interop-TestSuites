@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+      Copyright (c) 2014 Microsoft Corporation.  All rights reserved.
+      Use of this sample source code is subject to the terms of the Microsoft license
+      agreement under which you licensed this sample source code and is provided AS-IS.
+      If you did not accept the terms of the license agreement, you are not authorized
+      to use this sample source code.  For the terms of the license, please see the
+      license agreement between you and Microsoft.
+-->
+
+<!-- 
+Configuration for View display properties in CAML (Microsoft specific) and HTML.
+If this configuration file does not exist, all the 7 rendering elements here will not be sent by UpdateViewHtml and UpdateViewHtml2 methods in the test suite.
+Note: 
+The following ViewHtml tag is created only for this configuration XML file. 
+In this configuration example, the tags that are not in MS-VIEWSS or HTML are in CAML.
+ -->
+<ViewHtml>
+  <!-- 
+    Configure what to display for the tool bar of the view.
+    If there is no Toolbar element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about Toolbar.
+  -->
+  <Toolbar Type="Standard">
+    <IfEqual>
+      <Expr1>
+        <GetVar Name="SearchString" />
+      </Expr1>
+      <Expr2 />
+      <Then>
+        <HTML>
+          <![CDATA[
+            All records have been shown.
+          ]]>
+        </HTML>
+      </Then>
+    </IfEqual>
+  </Toolbar>
+
+  <!-- 
+    Configure what to display for the header of the view.
+    If there is no ViewHeader element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about ViewHeader.
+  -->
+  <ViewHeader>
+    <HTML>
+      <![CDATA[ <TABLE width="100%" cellspacing=0 cellpadding=0 border=0> 
+       <tr><th>ID</th><th>Title</th><th>Modified</th><th>Modified By</th></tr> ]]>
+    </HTML>
+  </ViewHeader>
+
+  <!--
+      Configure what to display for the body of the view.
+      Note that in this example configuration, the Fields here correspond to ViewFields0-3 in MS-VIEWSS_ServerTestSuite.deployment.ptfconfig.
+      If there is no ViewBody element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about ViewBody.
+  -->
+  <ViewBody>
+    <HTML>
+      <![CDATA[ <TR>]]>
+    </HTML>
+    <Fields>
+      <HTML>
+        <![CDATA[ <TD> ]]>
+      </HTML>
+      <Field name="ID" />
+      <HTML>
+        <![CDATA[ </TD> ]]>
+      </HTML>
+
+      <HTML>
+        <![CDATA[ <TD> ]]>
+      </HTML>
+      <Field name="Title" />
+      <HTML>
+        <![CDATA[ </TD> ]]>
+      </HTML>
+
+      <HTML>
+        <![CDATA[ <TD> ]]>
+      </HTML>
+      <Field name="Modified" />
+      <HTML>
+        <![CDATA[ </TD> ]]>
+      </HTML>
+
+      <HTML>
+        <![CDATA[ <TD> ]]>
+      </HTML>
+      <Field name="Modified By" />
+      <HTML>
+        <![CDATA[ </TD> ]]>
+      </HTML>
+    </Fields>
+    <HTML>
+      <![CDATA[ </TR>]]>
+    </HTML>
+  </ViewBody>
+
+  <!-- 
+      Configure what to display for the footer of the view.
+      If there is no ViewFooter element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about ViewFooter.
+  -->
+  <ViewFooter>
+    <HTML>
+      <![CDATA[ </TABLE> ]]>
+    </HTML>
+  </ViewFooter>
+
+  <!-- 
+      Configure what to display in the view, when there is no available items to display for the view.
+      If there is no ViewEmpty element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about ViewEmpty.
+  -->
+  <ViewEmpty>
+    <HTML>
+      <![CDATA[ <TABLE width="100%" cellspacing=0 cellpadding=0 border=0><tr><td> 
+          No records were found matching your query.
+          </td></tr></table>   
+      ]]>
+    </HTML>
+  </ViewEmpty>
+
+  <!-- 
+      Configure what to display in the view, when the data rows that needs to display exceeds the row limit in one page while the view is set not to display in multiple pages.
+      If there is no RowLimitExceeded element in this file, UpdateViewHtml and UpdateViewHtml2 methods in the test suite will 
+    send nothing about RowLimitExceeded. 
+  -->
+  <RowLimitExceeded>
+    <HTML>
+      <![CDATA[ <table cellpadding=0 cellspacing=0 border=0>
+      <tr><td> (More Data ...)
+    </td></tr></table> ]]>
+    </HTML>
+  </RowLimitExceeded>
+
+</ViewHtml>

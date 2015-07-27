@@ -1,0 +1,1191 @@
+// This is a Spec Explorer coordination script (Cord version 1.0).
+// Here is where you define configurations and machines describing the
+// exploration to be performed.
+using Microsoft.Protocols.TestSuites.MS_OXCPRPT;
+
+// The configuration defines the actions of the model, bounds, and switches.
+config Actions 
+{
+    action all IMS_OXCPRPTAdapter;
+
+    switch StepBound = 80000;
+    switch StateBound = 80000;
+    switch PathDepthBound = 80000;
+    switch TestClassBase = "ptf";
+    switch GeneratedTestPath = "..\\TestSuite";
+    switch GeneratedTestNamespace = "Microsoft.Protocols.TestSuites.MS_OXCPRPT";
+    switch TestCaseName = "MSOXCPRPT_$MachineName$";
+
+    switch ForExploration = true;
+    switch TestEnabled = false;
+}
+
+// All the six scenarios' descriptions are as follows. S01, S02, S03 and S04 are divided into several sub-scenarios, which are modeled as machines respectively.
+
+// S01: Query Data from an Object.
+// This scenario is divided into three sub-scenarios modeled with three machines respectively, which are S01_GetPropertyIdQueryNameGetList_Scenario, S01_GetSpecificTestUnicode_Scenario, and S01_GetSpecificGetAllGetNames_Scenario.
+
+// Parameter configuration for branch of scenario S01, which verifies the operations of RopQueryNamedProperties, RopGetPropertyIdsFromNames, and RopGetPropertiesList.
+config GetPropertyId_QueryName_GetList : Actions
+{
+    action void IMS_OXCPRPTAdapter.RopQueryNamedPropertiesMethod(
+        QueryFlags queryFlags, 
+        bool hasGuid,
+        out bool isKind0x01Return,
+        out bool isKind0x00Return,
+        out bool isnamedPropertyGuidReturn)
+    where
+    {.
+        Condition.IfThen(queryFlags == QueryFlags.NoIds, hasGuid);
+        Condition.IfThen(queryFlags == QueryFlags.NoStrings, !hasGuid);
+        Condition.IfThen(queryFlags == QueryFlags.OtherValue, !hasGuid);
+
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopGetPropertyIdsFromNamesMethod(
+        bool isTestOrder,
+        bool isCreateFlagSet,
+        bool isPropertyNameExisting,
+        SpecificPropertyName specialPropertyName,
+        out bool isCreatedEntryReturned,
+        out CPRPTErrorCode error)
+    where
+    {.
+        Condition.IfThen(isTestOrder, (isPropertyNameExisting && !isCreateFlagSet && specialPropertyName == SpecificPropertyName.NoConstraint));
+        Condition.IfThen(specialPropertyName != SpecificPropertyName.NoConstraint, (isCreateFlagSet && isPropertyNameExisting));
+        Condition.IsTrue(specialPropertyName != SpecificPropertyName.PS_MAPIAndKind0x01);
+    .};
+}
+
+// Scenario S01 definition for RopQueryNamedProperties, RopGetPropertyIdsFromNames, and RopGetPropertiesList.
+machine S01_GetPropertyIdQueryNameGetList_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+		    return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			CheckRequirementEnabled(12904, out _);
+			(
+				RopQueryNamedPropertiesMethod
+				|
+				RopGetPropertyIdsFromNamesMethod
+				|
+				RopGetPropertiesListMethod
+			);
+		)
+		|
+        return CheckMAPIHTTPTransportSupported(out false);
+	)
+}
+
+// Sliced model based on S01_GetPropertyIdQueryNameGetList_Scenario.
+machine S01_GetPropertyIdQueryNameGetList_SlicedModel() : Actions
+{
+    S01_GetPropertyIdQueryNameGetList_Scenario()
+    ||
+    (construct model program from GetPropertyId_QueryName_GetList where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S01 Test Suite Definition: Query Data from an Object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S01_GetPropertyIdQueryNameGetList_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S01_GetPropertyIdQueryNameGetList_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S01, which verifies the operation of RopGetPropertiesSpecificForWantUnicode.
+config GetSpecific_TestUnicode : Actions
+{
+
+ 	action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType, ServerObjectType.Message, ServerObjectType.Attachment);
+    .};
+}
+
+// Scenario S01 definition for RopGetPropertiesSpecificForWantUnicode.
+machine S01_GetSpecificTestUnicode_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			RopGetPropertiesSpecificForWantUnicode(_);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)
+}
+
+// Sliced model based on S01_GetSpecificTestUnicode_Scenario
+machine S01_GetSpecificTestUnicode_SlicedModel() : Actions
+{
+    S01_GetSpecificTestUnicode_Scenario()
+    ||
+    (construct model program from GetSpecific_TestUnicode where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S01 Test Suite Definition: Query Data from an Object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S01_GetSpecificTestUnicode_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S01_GetSpecificTestUnicode_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S01, which verifies the operations of RopGetPropertiesSpecificForTaggedProperties, RopGetPropertiesSpecificMethod, RopGetPropertiesAllMethod, and RopGetNamesFromPropertyIdsMethod.
+config GetSpecific_GetAll_GetNames : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+                                       ServerObjectType.Logon,
+                                       ServerObjectType.Folder,
+                                       ServerObjectType.Message,
+                                       ServerObjectType.Attachment);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopGetPropertiesSpecificMethod(
+    	bool isTestOrder,
+    	bool isPropertySizeLimitZero,
+    	bool isPropertyLagerThanLimit,
+        out bool isValueContainsNotEnoughMemory)
+    where
+    {.
+        Condition.IsTrue(isPropertySizeLimitZero != isPropertyLagerThanLimit);
+        Condition.IfThen(isTestOrder, (isPropertySizeLimitZero && !isPropertyLagerThanLimit));
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopGetPropertiesAllMethod(
+    	bool isPropertySizeLimitZero, 
+    	bool isPropertyLagerThanLimit, 
+    	bool isUnicode, 
+    	out bool isValueContainsNotEnoughMemory)
+    where
+    {.
+        Condition.IsTrue(isPropertySizeLimitZero != isPropertyLagerThanLimit);
+    .};
+}
+
+// Scenario S01 definition for RopGetPropertiesSpecificForTaggedProperties, RopGetPropertiesSpecificMethod, RopGetPropertiesAllMethod, and RopGetNamesFromPropertyIdsMethod.
+machine S01_GetSpecificGetAllGetNames_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			(
+				RopGetPropertiesSpecificForTaggedProperties;
+				|
+				CheckRequirementEnabled(86703, out _);
+				CheckRequirementEnabled(9070102, out _);
+				RopGetPropertiesSpecificMethod;
+				| 
+				CheckRequirementEnabled(86703, out _);
+				CheckRequirementEnabled(90707, out _);
+				RopGetPropertiesAllMethod;
+				|
+				RopGetNamesFromPropertyIdsMethod;
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)   
+}
+
+// Sliced model based on S01_GetSpecificGetAllGetNames_Scenario.
+machine S01_GetSpecificGetAllGetNames_SlicedModel() : Actions
+{
+    S01_GetSpecificGetAllGetNames_Scenario()
+    ||
+    (construct model program from GetSpecific_GetAll_GetNames where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S01 Test Suite Definition: Query Data from an Object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S01_GetSpecificGetAllGetNames_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S01_GetSpecificGetAllGetNames_SlicedModel)
+}
+
+// S02: Set Data for an object.
+// This scenario is modeled with the machine of S02_SetPropertyData_Scenario.
+
+// Parameter configuration for branch of scenario S02, which verifies the operations of RopSetPropertiesMethod, RopSetPropertiesNoReplicateMethod, RopSaveChangesMessageMethod, RopSaveChangesAttachmentMethod, RopDeletePropertiesMethod, and RopDeletePropertiesNoReplicateMethod.
+config SetPropertyData : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+                                       ServerObjectType.Logon,
+                                       ServerObjectType.Folder,
+                                       ServerObjectType.Message,
+                                       ServerObjectType.Attachment);
+    .};
+}
+
+// Scenario S02 definition for RopSetPropertiesMethod, RopSetPropertiesNoReplicateMethod, RopSaveChangesMessageMethod, RopSaveChangesAttachmentMethod, RopDeletePropertiesMethod, and RopDeletePropertiesNoReplicateMethod.
+machine S02_SetPropertyData_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			(RopSetPropertiesMethod | RopSetPropertiesNoReplicateMethod);
+			(
+				RopSaveChangesMessageMethod?;
+				|
+				(
+					RopSaveChangesAttachmentMethod;
+					RopSaveChangesMessageMethod;
+				)?;
+			);
+			(
+				CheckRequirementEnabled(49201, out _); 
+				RopDeletePropertiesMethod; 
+				| 
+				CheckRequirementEnabled(83609, out _); 
+				RopDeletePropertiesNoReplicateMethod;
+			);
+			(
+				RopSaveChangesMessageMethod?; 
+				|
+				(
+					RopSaveChangesAttachmentMethod;
+					RopSaveChangesMessageMethod;
+				)?;
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)       
+}
+
+// Sliced model based on S02_SetPropertyData_Scenario.
+machine S02_SetPropertyData_SlicedModel() : Actions
+{
+    S02_SetPropertyData_Scenario()
+    ||
+    (construct model program from SetPropertyData where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S02 Test Suite Definition: Setting data for an object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S02_SetPropertyData_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S02_SetPropertyData_SlicedModel
+}
+
+// S03: Query Data Larger than Will Fit in a Single ROP.
+// This scenario is divided into three sub-scenarios modeled with three machines respectively, which are
+// S03_SeekStream_Scenario, S03_SeekStreamForFolder_Scenario, and S03_GetDataWithStream_Scenario.
+
+// Parameter configuration for branch of scenario S03, which verifies the operations of RopOpenStreamWithDifferentPropertyType, RopOpenStreamMethod, RopSeekStreamMethod.
+config GetDataInStream: Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+        							   ServerObjectType.Folder,
+        							   ServerObjectType.Message,
+        							   ServerObjectType.Attachment);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopReadStreamWithLimitedSize(ushort byteCount, uint maxByteCount)
+    where
+    {.
+        Condition.In<ushort>(byteCount, 2, 0xBABE);
+        Condition.In<uint>(maxByteCount, 3);
+    .};
+}
+
+// Scenario S03 definition for RopOpenStreamWithDifferentPropertyType, RopOpenStreamMethod, and RopSeekStreamMethod.
+machine S03_SeekStream_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_,ObjectToOperate.FirstObject);
+			(
+				CheckRequirementEnabled(25505, out _);
+				CheckRequirementEnabled(2561, out _);
+				CheckRequirementEnabled(2563, out _);
+				RopOpenStreamWithDifferentPropertyType(ObjectToOperate.FirstObject,_,out _);
+				|
+				RopOpenStreamMethod(ObjectToOperate.FirstObject,OpenModeFlags.ReadWrite,true,out _, out _);
+				RopSeekStreamMethod;
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)       
+}
+
+// Sliced model based on S03_SeekStream_Scenario.
+machine S03_SeekStream_SlicedModel() : Actions
+{
+    S03_SeekStream_Scenario()
+    ||
+    (construct model program from GetDataInStream where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S03 Test Suite Definition: Querying data of stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S03_SeekStream_TestSuite(): Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S03_SeekStream_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S03, which verifies the operations of  RopOpenStreamWithDifferentPropertyType, and RopOpenStreamMethod 
+config GetDataInStreamForFolder: Actions
+{
+
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType, ServerObjectType.Folder);
+        Condition.In<ObjectToOperate>(objToOperate, ObjectToOperate.FifthObject);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopOpenStreamWithDifferentPropertyType(ObjectToOperate obj, PropertyTypeName propertyType, out CPRPTErrorCode error)
+    where
+    {.
+        Condition.In<PropertyTypeName>(propertyType, PropertyTypeName.PtypBinary, PropertyTypeName.PtypString);
+        Condition.In<ObjectToOperate>(obj, ObjectToOperate.FifthObject);
+    .};
+}
+
+// Scenario S03 definition forRopOpenStreamWithDifferentPropertyType.
+machine S03_SeekStreamForFolder_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			CheckRequirementEnabled(2561, out _);
+			CheckRequirementEnabled(2563, out _);
+			GetObject(_ , ObjectToOperate.FifthObject);
+			RopOpenStreamWithDifferentPropertyType(ObjectToOperate.FifthObject, _, out _);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S03_SeekStreamForFolder_Scenario.
+machine S03_SeekStreamForFolder_SlicedModel() : Actions
+{
+    S03_SeekStreamForFolder_Scenario()
+    ||
+    (construct model program from GetDataInStreamForFolder where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S03 Test Suite Definition: Querying data of stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S03_SeekStreamForFolder_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests" ,AllowUndeterminedCoverage = true for S03_SeekStreamForFolder_SlicedModel
+}
+
+// Scenario S01 definition for RopOpenStreamMethod, RopReadStreamWithLimitedSize, RopReadStreamMethod, and RopGetStreamSizeMethod.
+machine S03_GetDataWithStream_Scenario(): Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject, OpenModeFlags.ReadOnly, true, out _, out _);
+			(
+				RopReadStreamWithLimitedSize;
+				|
+				RopReadStreamMethod;
+				RopGetStreamSizeMethod;
+			);
+			RopReleaseMethod(ObjectToOperate.FirstObject, out _);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)     
+}
+
+// Sliced model based on S03_GetDataWithStream_Scenario.
+machine S03_GetDataWithStream_SlicedModel() : Actions
+{
+    S03_GetDataWithStream_Scenario()
+    ||
+    (construct model program from GetDataInStream where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S03 Test Suite Definition: Querying data of stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S03_GetDataWithStream_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S03_GetDataWithStream_SlicedModel
+}
+
+// S04: Set Data Larger than Will Fit in a Single RopSetProperties.
+// This scenario is divided into four sub-scenarios modeled with three machines respectively, which are
+// S04_SetDataWithStream_Scenario, S04_CopyToStreamsCloneStream_Scenario, S04_StreamForErrorCodeTable_Scenario and S04_LockUnlockStream_Scenario.
+
+// Parameter configuration for branch of scenario S04, which verifies the operations of RopOpenStreamMethod, RopSetStreamSizeMethod, RopWriteStreamMethod, RopCommitStreamMethod.
+config SetDataInStream : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+        							   ServerObjectType.Folder,
+        							   ServerObjectType.Message,
+        							   ServerObjectType.Attachment);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopWriteStreamMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
+    where
+    {.
+        Condition.IsTrue(!isExceedMax);
+    .};
+}
+
+// Scenario S04 definition for RopOpenStreamMethod, RopSetStreamSizeMethod, RopWriteStreamMethod, RopCommitStreamMethod.
+machine S04_SetDataWithStream_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_,ObjectToOperate.FirstObject);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject,OpenModeFlags.ReadWrite,true,out _, out _);
+			RopSetStreamSizeMethod?;
+			CheckRequirementEnabled(86706, out _);
+			CheckRequirementEnabled(55707, out _);
+			CheckRequirementEnabled(90102, out _);
+			RopWriteStreamMethod;
+			RopCommitStreamMethod;
+			RopReleaseMethod(ObjectToOperate.FirstObject, out _);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject,OpenModeFlags.ReadWrite,true,out _, out _);
+			CheckRequirementEnabled(752, out _);
+			RopWriteAndCommitStreamMethod?;
+			RopReleaseMethodNoVerify(ObjectToOperate.FirstObject);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)   
+}
+
+// Sliced model based on S04_SetDataWithStream_Scenario.
+machine S04_SetDataWithStream_SlicedModel() : Actions
+{
+    S04_SetDataWithStream_Scenario()
+    ||
+    (construct model program from SetDataInStream where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S04 Test Suite Definition: Setting data for stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S04_SetDataWithStream_TestSuite(): Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_SetDataWithStream_SlicedModel
+}
+
+// Scenario S04 definition for RopOpenStreamMethod, RopCopyToStreamMethod, and RopCloneStreamMethod.
+machine S04_CopyToStreamsCloneStream_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			GetObject(_, ObjectToOperate.SecondObject);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject, OpenModeFlags.ReadWrite,true,out _, out _);
+			RopOpenStreamMethod(ObjectToOperate.SecondObject, OpenModeFlags.ReadWrite,true,out _, out _);
+			CheckRequirementEnabled(867091, out _);
+			RopCopyToStreamMethod;
+			RopReleaseMethodNoVerify(ObjectToOperate.FirstObject);
+			RopReleaseMethodNoVerify(ObjectToOperate.SecondObject);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject, OpenModeFlags.ReadWrite,true,out _, out _);
+			CheckRequirementEnabled(753, out _);
+			RopCloneStreamMethod?;
+			RopReleaseMethodNoVerify(ObjectToOperate.FirstObject);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)  
+}
+
+// Sliced model based on S04_CopyToStreamsCloneStream_Scenario.
+machine S04_CopyToStreamsCloneStream_SlicedModel() : Actions
+{
+    S04_CopyToStreamsCloneStream_Scenario()
+    ||
+    (construct model program from SetDataInStream where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S04 Test Suite Definition: Setting data for stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S04_CopyToStreamsCloneStream_TestSuite(): Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_CopyToStreamsCloneStream_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S04, which verifies the operations of  RopOpenStreamMethod, RopReadStreamMethod, RopWriteStreamMethod, and RopCommitStreamMethod.
+config Stream_ForErrorCodeTable : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType, ServerObjectType.Message, ServerObjectType.Attachment);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopOpenStreamMethod(
+        ObjectToOperate objectToOperate, 
+        OpenModeFlags openFlag, 
+        bool isPropertyTagExist,
+        out bool isStreamSizeEqualToStream, 
+        out CPRPTErrorCode error)
+    where
+    {.
+        Condition.In<OpenModeFlags>(openFlag, OpenModeFlags.ReadOnly, OpenModeFlags.ReadWrite);
+        Condition.IfThen(!isPropertyTagExist, openFlag ==  OpenModeFlags.ReadOnly);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopWriteStreamMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
+    where
+    {.
+        Condition.IfThen(!isExceedMax, openFlag == OpenModeFlags.ReadOnly);
+    .};
+}
+
+// Scenario S04 definition for RopOpenStreamMethod, RopReadStreamMethod, RopWriteStreamMethod, and RopCommitStreamMethod.
+machine S04_StreamForErrorCodeTable_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			(
+				RopOpenStreamMethod(ObjectToOperate.FirstObject, OpenModeFlags.ReadOnly, false, out _, out _)
+				|
+				(
+					RopOpenStreamMethod(ObjectToOperate.FirstObject, _, true, out _, out _);
+					RopReadStreamMethod(true);
+					CheckRequirementEnabled(86706, out _);
+					CheckRequirementEnabled(55707, out _);
+					CheckRequirementEnabled(90102, out _);
+					RopWriteStreamMethod;
+					RopCommitStreamMethod;
+					RopReleaseMethod(ObjectToOperate.FirstObject,out _);
+				);
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S04_StreamForErrorCodeTable_Scenario.
+machine S04_StreamForErrorCodeTable_SlicedModel() : Actions
+{
+    S04_StreamForErrorCodeTable_Scenario()
+    ||
+    (construct model program from Stream_ForErrorCodeTable where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S04 Test Suite Definition: Setting data for stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S04_StreamForErrorCodeTable_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_StreamForErrorCodeTable_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S04, which verifies the operations of RopOpenStreamMethod, RopLockRegionStreamMethod, and RopUnlockRegionStreamMethod.
+config LockUnlockStream : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType, ServerObjectType.Message);
+    .};
+}
+
+// Scenario S04 definition for RopOpenStreamMethod, RopLockRegionStreamMethod, and RopUnlockRegionStreamMethod.
+machine S04_LockUnlockStream_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			RopOpenStreamMethod(ObjectToOperate.FirstObject,OpenModeFlags.ReadWrite,true,out _, out _);
+			CheckRequirementEnabled(750, out _);
+			CheckRequirementEnabled(751, out _);
+			(
+				RopLockRegionStreamMethod;
+				RopUnlockRegionStreamMethod?
+			)?;
+			RopReleaseMethod(ObjectToOperate.FirstObject, out _);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)      
+}
+
+// Sliced model based on S04_LockUnlockStream_Scenario.
+machine S04_LockUnlockStream_SlicedModel(): Actions
+{
+    S04_LockUnlockStream_Scenario()
+    ||
+    (construct model program from LockUnlockStream where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S04 Test Suite Definition: Setting data for stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S04_LockUnlockStream_TestSuite(): Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_LockUnlockStream_SlicedModel
+}
+
+// S05: Asynchronous Scenario.
+// This scenario is divided into four sub-scenarios modeled with eight machines respectively, which are
+// S05_RopCopyToSuccessSynchronously_Scenario, S05_RopCopyToFailSynchronously_Scenario, S05_RopCopyToWantAsynchronously_Scenario,
+// S05_RopCopyToForErrorCodeTable_Scenario, S05_RopCopyToForPublicFolder_Scenario, S05_RopCopyPropertiesSuccessSynchronously_Scenario,
+// S05_RopCopyPropertiesFailSynchronously_Scenario, and S05_RopCopyPropertiesWantAsynchronously_Scenario.
+
+// Parameter configuration for branch of scenario S05, which verifies the operations of RopCopyToMethod, RopSaveChangesMessageMethod, and RopSaveChangesAttachmentMethod.
+config S5_RopCopyTo : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType, 
+        							   ServerObjectType.Message,
+        							   ServerObjectType.Attachment,
+        							   ServerObjectType.Folder);
+    .};
+
+      action void IMS_OXCPRPTAdapter.RopCopyToMethod(
+        CopyFlags copyFlag, 
+        bool isWantAsynchronousZero,
+        bool isWantSubObjectsZero,
+        bool isDestinationExist,
+        out bool isPropertiesDeleted,
+        out bool isSubObjectCopied,
+        out bool isOverwriteDestination,
+        out bool isReturnedRopProgress,
+        out bool isChangedInDB,
+        out CPRPTErrorCode error)
+    where
+    {.
+        Condition.IfThen(!isWantAsynchronousZero, isDestinationExist);
+        Condition.IfThen(!isWantSubObjectsZero, isDestinationExist);
+    .};
+}
+
+// Scenario S05 definition for RopCopyToMethod, RopSaveChangesMessageMethod, and RopSaveChangesAttachmentMethod.
+machine S05_RopCopyToSuccessSynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+
+			// A successful response of RopCopyTo in synchronous sequence
+			(
+				(
+					GetObject(_, ObjectToOperate.FirstObject);
+					GetObject(_, ObjectToOperate.SecondObject);
+					CheckRequirementEnabled(86702, out _);
+					CheckRequirementEnabled(18402, out _);
+					CheckRequirementEnabled(86708, out _);
+					CheckRequirementEnabled(5070506, out _);
+					CheckRequirementEnabled(86707, out _);
+					RopCopyToMethod(_, true, true, true, out _, out _, out _, out _, out _, out _);
+				);
+				(
+					RopSaveChangesMessageMethod?;
+					|
+					(
+						RopSaveChangesAttachmentMethod;
+						RopSaveChangesMessageMethod;
+					)?;
+				);
+				|
+				(
+					GetObject(ServerObjectType.Message, ObjectToOperate.FirstObject);
+					GetObject(ServerObjectType.Message, ObjectToOperate.SecondObject);
+					CheckRequirementEnabled(86702, out _);
+					CheckRequirementEnabled(18402, out _);
+					CheckRequirementEnabled(86708, out _);
+					CheckRequirementEnabled(5070506, out _);
+					CheckRequirementEnabled(86707, out _);
+					RopCopyToMethod(CopyFlags.NoOverWrite, true, false, true, out _, out true, out _, out _, out _, out CPRPTErrorCode.None);
+				);
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)   
+}
+
+// Sliced model based on S05_RopCopyToSuccessSynchronously_Scenario.
+machine S05_RopCopyToSuccessSynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyToSuccessSynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyTo where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyToSuccessSynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyToSuccessSynchronously_SlicedModel)
+}
+
+// Scenario S05 definition for RopCopyToMethod.
+machine S05_RopCopyToFailSynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			GetObject(_, ObjectToOperate.SecondObject);    
+			CheckRequirementEnabled(86702, out _);
+			CheckRequirementEnabled(18402, out _);
+			CheckRequirementEnabled(86708, out _);
+			CheckRequirementEnabled(5070506, out _);
+			CheckRequirementEnabled(86707, out _);
+
+			// A failure response of RopCopyTo in synchronous sequence
+			RopCopyToMethod(CopyFlags.NoOverWrite, true, true, false, out _, out _, out _, out _, out _, out CPRPTErrorCode.NullDestinationObject);   	
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S05_RopCopyToFailSynchronously_Scenario.
+machine S05_RopCopyToFailSynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyToFailSynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyTo where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyToFailSynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyToFailSynchronously_SlicedModel)
+}
+
+// Scenario S05 definition for RopCopyToMethod.
+machine S05_RopCopyToWantAsynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(ServerObjectType.Folder, ObjectToOperate.FirstObject);
+			GetObject(ServerObjectType.Folder, ObjectToOperate.SecondObject);
+			CheckRequirementEnabled(86702, out _);
+			CheckRequirementEnabled(18402, out _);
+			CheckRequirementEnabled(86708, out _);
+			CheckRequirementEnabled(5070506, out _);
+			CheckRequirementEnabled(86707, out _);
+
+			// A successful response of RopCopyTo in asynchronous sequence
+			RopCopyToMethod(CopyFlags.Move, false, false, true, out _, out _, out _, out _, out _, out CPRPTErrorCode.None);
+			RopProgressMethod*;
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)    
+}
+
+// Sliced model based on S05_RopCopyToWantAsynchronously_Scenario.
+machine S05_RopCopyToWantAsynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyToWantAsynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyTo where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyToWantAsynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyToWantAsynchronously_SlicedModel)
+}
+
+// Parameter configuration for branch of scenario S05, which verifies the operation of RopCopyToMethodForErrorCodeTable.
+config S5_AynchronousOperations_RopCopyTo_ErrorCode : Actions
+{
+   action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+        							   ServerObjectType.Message,
+        							   ServerObjectType.Attachment,
+        							   ServerObjectType.Folder);
+    .};
+}
+
+// Scenario S05 definition for RopCopyToMethodForErrorCodeTable.
+machine S05_RopCopyToForErrorCodeTable_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			GetObject(_, ObjectToOperate.SecondObject);
+			RopCopyToMethodForErrorCodeTable;
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)  
+}
+
+// Sliced model based on S05_RopCopyToForErrorCodeTable_Scenario.
+machine S05_RopCopyToForErrorCodeTable_SlicedModel() : Actions
+{
+    S05_RopCopyToForErrorCodeTable_Scenario()
+    ||
+    (construct model program from S5_AynchronousOperations_RopCopyTo_ErrorCode where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyToForErrorCodeTable_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyToForErrorCodeTable_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S05, which verifies the operation of RopCopyToForPublicFolder.
+config S05_RopCopyToForPublicFolder : Actions
+{
+}
+
+// Scenario S05 definition for RopCopyToForPublicFolder.
+machine S05_RopCopyToForPublicFolder_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializePublicFolder();
+			RopCopyToForPublicFolder;
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)  
+}
+
+// Sliced model based on S05_RopCopyToForPublicFolder_Scenario.
+machine S05_RopCopyToForPublicFolder_SlicedModel() : Actions
+{
+    S05_RopCopyToForPublicFolder_Scenario()
+    ||
+    (construct model program from S05_RopCopyToForPublicFolder where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyToForPublicFolder_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyToForPublicFolder_SlicedModel
+}
+
+// Parameter configuration for branch of scenario S05, which verifies the operations of RopCopyPropertiesMethod, RopSaveChangesMessageMethod, and RopSaveChangesAttachmentMethod.
+config S5_RopCopyProperties : Actions
+{
+    action void IMS_OXCPRPTAdapter.GetObject(ServerObjectType objType, ObjectToOperate objToOperate)
+    where
+    {.
+        Condition.In<ServerObjectType>(objType,
+            						   ServerObjectType.Message,
+            						   ServerObjectType.Attachment,
+            						   ServerObjectType.Folder);
+    .};
+
+    action void IMS_OXCPRPTAdapter.RopCopyPropertiesMethod(
+        CopyFlags copyFlag,
+        bool isWantAsynchronousZero,
+        bool isDestinationExist,
+        out bool isPropertiesDeleted,
+        out bool isChangedInDB,
+        out bool isOverwriteDestination,
+        out bool isReturnedRopProgress,
+        out CPRPTErrorCode error)
+    where
+    {.
+        Condition.IfThen(!isWantAsynchronousZero, isDestinationExist);
+    .};
+}
+
+// Scenario S05 definition for RopCopyPropertiesMethod, RopSaveChangesMessageMethod, and RopSaveChangesAttachmentMethod.
+machine S05_RopCopyPropertiesSuccessSynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();   
+			GetObject(_, ObjectToOperate.FirstObject);
+			GetObject(_, ObjectToOperate.SecondObject);
+			CheckRequirementEnabled(86701, out _);
+			CheckRequirementEnabled(86502, out _);
+			CheckRequirementEnabled(86704, out _);
+			CheckRequirementEnabled(50101, out _);
+			CheckRequirementEnabled(86705, out _);
+			CheckRequirementEnabled(88001, out _); 
+			(
+				(
+					// A successful response of RopCopyTo in synchronous sequence
+					RopCopyPropertiesMethod(CopyFlags.None, true, true, out _, out _, out _, out _, out CPRPTErrorCode.None);
+					(
+					RopSaveChangesMessageMethod?;
+					|
+					(
+						RopSaveChangesAttachmentMethod;
+						RopSaveChangesMessageMethod;)?;
+					);
+				);
+				|        
+				// A successful response of RopCopyTo in synchronous sequence
+				RopCopyPropertiesMethod(CopyFlags.NoOverWrite, true, true, out _, out _, out _, out _, out CPRPTErrorCode.None);
+				|       
+				// A successful response of RopCopyTo in synchronous sequence
+				RopCopyPropertiesMethod(CopyFlags.NoOverWriteAndDestPropNull, true, true, out _, out _, out _, out _, out CPRPTErrorCode.None);
+				|        
+				RopCopyPropertiesMethod(CopyFlags.Move, true, true, out _, out _, out _, out _, out _);
+				|
+				RopCopyPropertiesMethod(CopyFlags.Other, true, true, out _, out _, out _, out _, out _);
+			);
+			
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S05_RopCopyPropertiesSuccessSynchronously_Scenario.
+machine S05_RopCopyPropertiesSuccessSynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyPropertiesSuccessSynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyProperties where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyPropertiesSuccessSynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyPropertiesSuccessSynchronously_SlicedModel)
+}
+
+// Scenario S05 definition for RopCopyPropertiesMethod.
+machine S05_RopCopyPropertiesFailSynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();    
+			// A failure response of RopCopyTo in synchronous sequence
+			(
+				// Test CPRPTErrorCode.NullDestinationObject      
+				(
+					GetObject(ServerObjectType.Message, ObjectToOperate.FirstObject);
+					GetObject(ServerObjectType.Message, ObjectToOperate.SecondObject);
+					CheckRequirementEnabled(86701, out _);
+					CheckRequirementEnabled(86502, out _);
+					CheckRequirementEnabled(86704, out _);
+					CheckRequirementEnabled(50101, out _);
+					CheckRequirementEnabled(86705, out _);
+					CheckRequirementEnabled(88001, out _);
+					RopCopyPropertiesMethod(CopyFlags.NoOverWrite, true, false, out _, out _, out _, out _, out CPRPTErrorCode.NullDestinationObject);
+				);
+				|
+				// Test CPRPTErrorCode.NotSupported error on Exchange: If the original object is a Folder object and the CopyFlags field has the Move flag set, the server SHOULD return a NotSupported error.
+				(
+					GetObject(ServerObjectType.Folder, ObjectToOperate.FirstObject);
+					GetObject(ServerObjectType.Folder, ObjectToOperate.SecondObject);
+					CheckRequirementEnabled(86701, out _);
+					CheckRequirementEnabled(86502, out _);
+					CheckRequirementEnabled(86704, out _);
+					CheckRequirementEnabled(50101, out _);
+					CheckRequirementEnabled(86705, out _);
+					CheckRequirementEnabled(88001, out _);
+					RopCopyPropertiesMethod(CopyFlags.Move, true, true, out _, out _, out _, out _, out CPRPTErrorCode.NotSupported);
+				)
+				|
+				// Test CPRPTErrorCode.InvalidParameter for combination of the Move flag and the NoOverwrite flag in the CopyFlags field.
+				(
+					GetObject(ServerObjectType.Message, ObjectToOperate.FirstObject);
+					GetObject(ServerObjectType.Message, ObjectToOperate.SecondObject);
+					CheckRequirementEnabled(86701, out _);
+					CheckRequirementEnabled(86502, out _);
+					CheckRequirementEnabled(86704, out _);
+					CheckRequirementEnabled(50101, out _);
+					CheckRequirementEnabled(86705, out _);
+					CheckRequirementEnabled(88001, out _);
+					RopCopyPropertiesMethod(CopyFlags.MoveAndNoOverWrite, true, true, out _, out _, out _, out _, out _);
+				)
+			);
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S05_RopCopyPropertiesFailSynchronously_Scenario.
+machine S05_RopCopyPropertiesFailSynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyPropertiesFailSynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyProperties where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyPropertiesFailSynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyPropertiesFailSynchronously_SlicedModel)
+}
+
+// Scenario S05 definition for RopCopyPropertiesMethod and RopProgressMethod.
+machine S05_RopCopyPropertiesWantAsynchronously_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+			GetObject(_, ObjectToOperate.FirstObject);
+			GetObject(_, ObjectToOperate.SecondObject);
+			CheckRequirementEnabled(86701, out _);
+			CheckRequirementEnabled(86502, out _);
+			CheckRequirementEnabled(86704, out _);
+			CheckRequirementEnabled(50101, out _);
+			CheckRequirementEnabled(86705, out _);
+			CheckRequirementEnabled(88001, out _);
+
+			// A successful response of RopCopyTo in asynchronous sequence
+			RopCopyPropertiesMethod(CopyFlags.NoOverWrite, false, true, out false, out _, out _, out _, out CPRPTErrorCode.None);
+			RopProgressMethod*;
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	)   
+}
+
+// Sliced model based on S05_RopCopyPropertiesWantAsynchronously_Scenario.
+machine S05_RopCopyPropertiesWantAsynchronously_SlicedModel() : Actions
+{
+    S05_RopCopyPropertiesWantAsynchronously_Scenario()
+    ||
+    (construct model program from S5_RopCopyProperties where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S05 Test Suite Definition: Asynchronous transition.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S05_RopCopyPropertiesWantAsynchronously_TestSuite() : Actions where TestEnabled = true
+{
+    construct accepting paths
+    where NonDeterministicPathRemoval = "RemoveNonAcceptingChoices" 
+    for (construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S05_RopCopyPropertiesWantAsynchronously_SlicedModel)
+}
+
+// S06: Test Common object Properties.
+// This scenario is modeled with the machine of S06_CommonObjectProperties_Scenario.
+
+// Parameter configuration for branch of scenario S06, which verifies the operation of GetCommonObjectProperties.
+config S6_CommonObjectProperties : Actions
+{
+    action void IMS_OXCPRPTAdapter.SetCommonObjectProperties(CommonObjectProperty commonProperty, out CPRPTErrorCode error)
+    where
+    {.
+        Condition.In<CommonObjectProperty>(commonProperty,
+        								   CommonObjectProperty.PidTagAccess,
+        								   CommonObjectProperty.PidTagAccessLevel,
+        								   CommonObjectProperty.PidTagObjectType,
+        								   CommonObjectProperty.PidTagRecordKey,
+        								   CommonObjectProperty.PidTagChangeKey,
+        								   CommonObjectProperty.PidTagCreationTime,
+        								   CommonObjectProperty.PidTagLastModifierName,
+        								   CommonObjectProperty.PidTagLastModificationTime,
+        								   CommonObjectProperty.PidTagSearchKey);
+    .};
+}
+
+// Scenario S06 definition for GetCommonObjectProperties.
+machine S06_CommonObjectProperties_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeMailBox();
+
+			//just use message object to test those common properties
+			GetObject(ServerObjectType.Message, ObjectToOperate.FirstObject);
+			GetCommonObjectProperties;
+		)
+		|
+		return CheckMAPIHTTPTransportSupported(out false);
+	) 
+}
+
+// Sliced model based on S06_CommonObjectProperties_Scenario.
+machine S06_CommonObjectProperties_SlicedModel() : Actions
+{
+    S06_CommonObjectProperties_Scenario()
+    ||
+    (construct model program from S6_CommonObjectProperties where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
+}
+
+// S06 Test Suite Definition: Common object properties.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S06_CommonObjectProperties_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S06_CommonObjectProperties_SlicedModel
+}

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{584275BB-9E04-457E-88B6-B31D0F428DFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum.cs" />
+    <Compile Include="Proxy\CustomerEventArgs.cs" />
+    <Compile Include="Proxy\MS-LISTSWS.cs" />
+    <Compile Include="Proxy\Proxy.cs" />
+    <Compile Include="Proxy\ResponseSchemaValidationInspector.cs" />
+    <Compile Include="Proxy\SchemaValidation.cs" />
+    <Compile Include="Proxy\ValidateUtil.cs" />
+    <Compile Include="Proxy\WcfClientFactory.cs" />
+    <Compile Include="PtfConfigLoadException.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlWriterInjector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Proxy\MS-ADMINS.wsdl" />
+    <None Include="Proxy\MS-AUTHWS.wsdl" />
+    <None Include="Proxy\MS-COPYS.wsdl" />
+    <None Include="Proxy\MS-CPSWS.wsdl" />
+    <None Include="Proxy\MS-DWSS.wsdl" />
+    <None Include="Proxy\MS-LISTSWS.wsdl" />
+    <None Include="Proxy\MS-MEETS.wsdl" />
+    <None Include="Proxy\MS-OFFICIALFILE.wsdl" />
+    <None Include="Proxy\MS-OUTSPS.wsdl" />
+    <None Include="Proxy\MS-SITESS.wsdl" />
+    <None Include="Proxy\MS-VERSS.wsdl" />
+    <None Include="Proxy\MS-VIEWSS.wsdl" />
+    <None Include="Proxy\MS-WEBSS.wsdl" />
+    <None Include="Proxy\MS-WSSCAML.xsd" />
+    <None Include="Proxy\MS-WSSREST.wsdl" />
+    <None Include="Proxy\MS-WWSP.wsdl" />
+    <None Include="Proxy\SOAP11.xsd" />
+    <None Include="Proxy\SOAP12.xsd" />
+    <None Include="Proxy\XML.xsd" />
+    <None Include="Script\Get-ConfigurationPropertyValue.ps1" />
+    <None Include="SharePointCommonConfiguration.deployment.ptfconfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

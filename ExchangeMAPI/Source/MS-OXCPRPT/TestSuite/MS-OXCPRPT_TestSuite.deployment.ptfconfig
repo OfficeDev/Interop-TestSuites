@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- Define the mailbox user name which can be used by a client to access the SUT. The user corresponding to the username should have "Owner" permission level to the public folders. -->
+    <Property name="UserName" value="MSOXCPRPT_TestUser" /> 
+    <!-- The password for the user specified in the UserName property. The property value is case-sensitive. -->
+    <Property name="Password" value="Password01!" />
+    <!-- The UserEssdn property is a string that contains the distinguished name (DN) of the user specified in the UserName property. On the Windows platform, the value of the UserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server.  -->
+    <Property name="UserEssdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/MSOXCPRPT_TestUser" />
+    <!-- The PublicFolderName property displays the name of the public folder. This value is also used in the SUT configuration script. If you modify this value, you must also change the value in the SUT configuration script. -->
+    <Property name="PublicFolderName" value="MSOXCPRPT_PublicFolder01" />
+    <!-- The LogonPropertyID0 property specifies the property ID of a property on the first logon object. The value can be set to 26141 for Exchange Server 2013, or 3585 for other Exchange versions. -->
+    <Property name="LogonPropertyID0" value ="26141"/>
+    <!-- The FolderPropertyID2 property specifies the property ID of a property on the third folder object. The value can be set to 16355 for Exchange Server 2013, or 16353 for other Exchange versions. -->
+    <Property name="FolderPropertyID2" value ="16355"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- Logon object ID, Type and Value-->
+    <!-- The LogonPropertyID1 property specifies the property ID of a property on the second logon object. The value of LogonPropertyID1 property is random but different from the value of LogonPropertyID0. -->
+    <Property name="LogonPropertyID1" value ="3456"/>
+    <!-- The LogonPropertyType0 property specifies the property type of a property on the first logon object. The LogonPropertyType0 property is of the property type PtypBoolean 0x000b(11). -->
+    <Property name="LogonPropertyType0" value ="11"/>
+    <!-- The LogonPropertyType1 property specifies the property type of a property on the second logon object. The LogonPropertyType1 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="LogonPropertyType1" value ="258"/>
+    <!-- The LogonPropertyValue0 property specifies the property value of a property on the first logon object. The value of LogonPropertyValue0 property must be set to "true" or "false". -->
+    <Property name="LogonPropertyValue0" value ="false"/>
+    <!-- The LogonPropertyValue1 property specifies the property value of a property on the second logon object. The value of LogonPropertyValue1 property must be a string. -->
+    <Property name="LogonPropertyValue1" value ="TestLogon1"/>
+
+    <!-- Folder object ID, Type and Value-->
+    <!-- The FolderPropertyID0 property specifies the property ID of a property on the first folder object. The value of FolderPropertyID0 property is random but different from the value of FolderPropertyID1. -->
+    <Property name="FolderPropertyID0" value ="1234"/>
+    <!-- The FolderPropertyID1 property specifies the property ID of a property on the second folder object. The value of FolderPropertyID1 property is random but different from the value of FolderPropertyID0. -->
+    <Property name="FolderPropertyID1" value ="3456"/>
+    <!-- The FolderPropertyType0 property specifies the property type of a property on the first folder object. The FolderPropertyType0 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="FolderPropertyType0" value ="258"/>
+    <!-- The FolderPropertyType1 property specifies the property type of a property on the second folder object. The FolderPropertyType1 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="FolderPropertyType1" value ="258"/>
+    <!-- The FolderPropertyValue0 property specifies the property value of a property on the first folder object. The value of FolderPropertyValue0 property must be a string. -->
+    <Property name="FolderPropertyValue0" value ="binaryValue"/>
+    <!-- The FolderPropertyValue1 property specifies the property value of a property on the second folder object. The value of FolderPropertyValue1 property must be a string-->
+    <Property name="FolderPropertyValue1" value ="test1"/>
+    <!-- The FolderPropertyType2 property specifies the property type of the custom property which is defined in FolderPropertyID2. -->
+    <Property name="FolderPropertyType2" value ="258"/>
+    <!-- The FolderPropertyValue2 property specifies the property value of the custom property which is defined in FolderPropertyID2. -->
+    <Property name="FolderPropertyValue2" value ="test3"/>
+
+    <!-- Message object ID, Type and Value-->
+    <!-- The MessagePropertyID0 property specifies the property ID of a property on the first message object. The value of MessagePropertyID0 property is random but different from the value of MessagePropertyID1. -->
+    <Property name="MessagePropertyID0" value ="1234"/>
+    <!-- The MessagePropertyID1 property specifies the property ID of a property on the second message object. The value of MessagePropertyID1 property is random but different from the value of MessagePropertyID0. -->
+    <Property name="MessagePropertyID1" value ="3456"/>
+    <!-- The MessagePropertyType0 property specifies the property type of a property on the first message object. The MessagePropertyType0 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="MessagePropertyType0" value ="258"/>
+    <!-- The MessagePropertyType1 property specifies the property type of a property on the second message object. The MessagePropertyType1 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="MessagePropertyType1" value ="258"/>
+    <!-- The MessagePropertyValue0 property specifies the property value of a property on the first message object. The value of MessagePropertyValue0 property must be a string. -->
+    <Property name="MessagePropertyValue0" value ="Administrator"/>
+    <!-- The MessagePropertyValue1 property specifies the property value of a property on the second message object. The value of MessagePropertyValue1 property must be a string. -->
+    <Property name="MessagePropertyValue1" value ="test1"/>
+
+    <!-- Attachment object ID, Type and Value-->
+    <!-- The AttachmentPropertyID0 property specifies the property ID of a property on the first attachment object. The value of AttachmentPropertyID0 property is random but different from the value of AttachmentPropertyID1. -->
+    <Property name="AttachmentPropertyID0" value ="1234"/>
+    <!-- The AttachmentPropertyID1 property specifies the property ID of a property on the second attachment object. The value of AttachmentPropertyID1 property is random but different from the value of AttachmentPropertyID0. -->
+    <Property name="AttachmentPropertyID1" value ="3456"/>
+    <!-- The AttachmentPropertyType0 property specifies the property type of a property on the first attachment object. The AttachmentPropertyType0 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="AttachmentPropertyType0" value ="258"/>
+    <!-- The AttachmentPropertyType1 property specifies the property type of a property on the second attachment object. The AttachmentPropertyType1 property is of the property type PtypBinary 0x0102(258). -->
+    <Property name="AttachmentPropertyType1" value ="258"/>
+    <!-- The AttachmentPropertyValue0 property specifies the property value of a property on the first attachment object. The value of AttachmentPropertyValue0 property must be a string. -->
+    <Property name="AttachmentPropertyValue0" value ="Administrator's Hello world! "/>
+    <!-- The AttachmentPropertyValue1 property specifies the property value of a property on the second attachment object. The value of AttachmentPropertyValue1 property must be a string. -->
+    <Property name="AttachmentPropertyValue1" value ="test1"/>
+    <!-- Test suite client section ends. -->    
+  </Properties>
+</TestSite>

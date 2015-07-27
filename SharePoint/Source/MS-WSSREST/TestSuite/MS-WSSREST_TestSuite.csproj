@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A1B4CBDE-CFF7-46B8-8428-7DB167A9690D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_WSSREST</RootNamespace>
+    <AssemblyName>MS-WSSREST_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_ManageListItem.cs" />
+    <Compile Include="S02_RetrieveCSDLDocument.cs" />
+    <Compile Include="S03_BatchRequests.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-WSSREST_Adapter.csproj">
+      <Project>{8F8F2AD1-47E2-45C7-B1E9-796741B4B6C3}</Project>
+      <Name>MS-WSSREST_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MS-WSSREST_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-WSSREST_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-WSSREST_TestSuite.ptfconfig" />
+    <None Include="MS-WSSREST_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+</Project>

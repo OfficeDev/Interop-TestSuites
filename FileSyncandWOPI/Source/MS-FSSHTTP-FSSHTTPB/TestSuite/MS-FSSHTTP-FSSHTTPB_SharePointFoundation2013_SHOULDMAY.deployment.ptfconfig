@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R93101Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the coauthoring sub-request is supported. Set R93101Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R93101Enabled_MS-FSSHTTP-FSSHTTPB" value="true" />
+    <!--Set R93102Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the schema lock sub-request is supported. Set R93102Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R93102Enabled_MS-FSSHTTP-FSSHTTPB" value="true" />
+    <!--Set R1106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not support the GetCoauthStatus. Set R1106Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R1106Enabled_MS-FSSHTTP-FSSHTTPB" value="false" />
+              
+    <!--Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return success when exit a coauthoring session when the user is not present. Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R1556Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return InvalidCoauthSession when the user is not present. Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R1107Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+
+    <!--Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support editors table operation. Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R9001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support GetDocMetaInfo operation. Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R9003Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R99099Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support AllocateExtendedGuidRange operation. Set R99099Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R99099Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2050Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does add a client to editors table when taking a coauthoring session. Set R2050Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2050Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2051Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does add a client to editors table when taking a schema lock. Set R2051Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2051Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+
+    <!--Set R10003Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support filters in the current test suite properly. Set R10003Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R10003Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1904Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does return InvalidCoauthSession when there is no shared lock. Set R1904Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1904Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R609Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does return CoauthStatus when the lock is ExclusiveLock. Set R1904Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R609Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R0004Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support GetVersions. Set R10004Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R10004Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support Editors table as compressed XML. Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2053Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+
+    <!--Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3104Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3105Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "InvalidCoauthSession" as specified in section 7. Set R3107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3108Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3108Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3108Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3109Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for release lock operation the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3109Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3109Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3111Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "LockRequestFail" as specified in section 7. Set R3111Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3111Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3113Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "LockRequestFail" as specified in section 7. Set R3113Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3113Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3115Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "Success" as specified in section 7. Set R3115Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3115Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3117Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "Success" as specified in section 7. Set R3117Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3117Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3118Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for schemaLock subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3118Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3118Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3119Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3119Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3119Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3121Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for schemaLock subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3121Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3121Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3122Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3122Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3122Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return the Response element when the URL is empty string. Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3009Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return the ErrorCode element when the RequestToken attribute of the corresponding Request element is an empty string. Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3011Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does return the CoauthStatus attribute as specified in section 7. Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3064Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3065Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return error code "InvalidArgument" as specified in section 7. Set R3065Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3065Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession when release the schema lock and the user is not present. Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
+    <Property name="R3128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server returns success when release the schema lock and the user is not present. Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3129Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R332Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns DependentRequestNotExecuted when the its dependent subRequest isn't executed. Set R332Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R332Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R325Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return InvalidRequestDependencyType when the sub-request dependency type that is not valid. Set R325Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R325Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R337Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return Success when its sub-request dependency type is OnSuccessOrNotSupported and the dependent subRequest is not supported. Set R337Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R337Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R2243Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return Success when its sub-request dependency type is OnNotSupported and the dependent sub-request is not supported. Set R2243Enabled_MS-FSSHTTP-FSSHTTPB to false to true enable this requirement. -->
+    <Property name="R2243Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3025Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns HighLevelExceptionThrown when any undefined error that occurs during the processing of the cell storage service request. Set R3025Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3025Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3070Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server doesn't return CoauthStatus attribute when client tries to join the coauthoring session and the sub-request falls back to an exclusive lock sub-request. Set R3070Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3070Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R474Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns CoauthStatus attribute if the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success". Set R474Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R474Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession. Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1903Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+
+    <!--Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that for exclusiveLock subRequest the server does not return an "InvalidArgument" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3071Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for exclusiveLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3072Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R6662Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for schemaLock subRequest the server does not return an "InvalidArgument" error code when the specified attributes[SchemaLockRequestType attribute] are not provided. Set R6662Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R6662Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that for schemaLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[SchemaLockRequestType attribute] are not provided. Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3074Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for coauth subRequest the server adds an additional authentication prefix for the UserLogin attribute as specified in section 7. Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+
+    <!--Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that for cell sub request when GetProps is set to true in Put Changes sub-request, the server does not return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3089Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that the CoalesceHResult attribute in cell sub response is not supported by server. Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R4001Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R4002Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that the CoalesceHResult attribute in cell sub response is not supported by server. Set R4002Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R4002Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R3006Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that duplicate attribute ErrorCode will not be returned when the URL is not specified by server. Set R3006Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3006Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    
+    <!--Set R3007Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for coauth/schemaLock/ServerTime/WhoAmI/EditorsTable subRequest the server does not return the Response element as specified in section 7. Set R3007Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R3007Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R3008Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that duplicate attribute ErrorCode will not be returned when the URL empty string by the server. Set R3008Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R3008Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R437Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Include Storage Manifest (1 bit) flag is supported by server. Set R437Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R437Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2150Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Include Storage Manifest (1 bit) flag is supported by server. Set R2150Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2150Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R438Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Include Cell Changes (1 bit) flag is supported by server. Set R438Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R438Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2151Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Include Cell Changes (1 bit) flag is supported by server. Set R2151Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2151Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R99108Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that Additional Flags in Put Changes request is supported by server. Set R99108Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R99108Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R21072Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Object Metadata declaration is supported by server. Set R21072Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R21072Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R213802Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Partition ID Filed is supported by server. Set R213802Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R213802Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R8204Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that the Root Node will be returned if there is only one object by server. Set R213802Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R8204Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  </Properties>
+</TestSite>

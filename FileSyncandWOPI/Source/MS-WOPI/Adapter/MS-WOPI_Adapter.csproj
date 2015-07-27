@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C311EC59-8DDE-4224-93C0-81BCCF1AD046}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_WOPI</RootNamespace>
+    <AssemblyName>MS-WOPI_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\DiscoveryProcessHelper.cs" />
+    <Compile Include="Helper\DiscoveryRequestListener.cs" />
+    <Compile Include="Helper\HeadersHelper.cs" />
+    <Compile Include="Helper\HelperBase.cs" />
+    <Compile Include="Helper\StringComparisonHelper.cs" />
+    <Compile Include="Helper\TokenAndRequestUrlHelper.cs" />
+    <Compile Include="Helper\WOPIResponseHelper.cs" />
+    <Compile Include="Helper\WOPISerializerHelper.cs" />
+    <Compile Include="IMS-WOPIAdapter.cs" />
+    <Compile Include="MS-WOPIAdapter.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS_WOPIManagedCodeSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-WOPIManagedCodeSUTControlAdapter.cs" />
+    <Compile Include="TypeDefinition\DiscoveryTypes.cs" />
+    <Compile Include="TypeDefinition\Enum.cs" />
+    <Compile Include="SUTControlAdapter\IMS-WOPISUTControlAdapter.cs" />
+    <Compile Include="TypeDefinition\JasonTypes.cs" />
+    <Compile Include="TypeDefinition\LogsRecorder.cs" />
+    <Compile Include="TypeDefinition\RSACryptoContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeDefinition\WOPIHttpResponse.cs" />
+    <Compile Include="TypeDefinition\WOPIResourceUrlCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
+    <None Include="SUTControlAdapter\Implementation\DeleteUploadedFilesOnSUT.ps1" />
+    <None Include="SUTControlAdapter\Implementation\RemoveWOPIDiscoveryRecord.ps1" />
+    <None Include="SUTControlAdapter\Implementation\TriggerWOPIDiscovery.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

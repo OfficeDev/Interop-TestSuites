@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+    
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The TargetServiceUrl property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/lists.asmx" />
+    <!-- The SiteCollectionName property specifies the name of the site collection. -->
+    <Property name="SiteCollectionName" value="MSOUTSPS_SiteCollection"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The ListFieldText property specifies the text-formatted field name which is always added into the initialization list through the CreateList method. -->
+    <Property name="ListFieldText" value="MSOUTSPSTest" />
+    <!-- The DelayBetweenAddItemAndUpdateItem property specifies the time interval (in seconds) between adding and updating an item. -->
+    <Property name="DelayBetweenAddItemAndUpdateItem" value="30" />
+    <!-- The ServiceTimeOut property specifies the wait time (in minutes) for the MS-LISTSWS web service to respond to the synchronous XML web service request. -->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- The MessageDataFileName property indicates the file name that stores the message data of a discussion board item. The message data must be Base64 [RFC4648] encoded and in MIME [RFC2045] format. -->
+    <Property name="MessageDataFileName" value="DiscussionItemMessage.txt" />
+    <!-- The TimeZoneIDOfPacificTime property specifies the integer-formatted index indicating the ID of the time zone (Pacific Standard Time) on the SUT. In Microsoft products, the property value is 13. -->
+    <Property name="TimeZoneIDOfPacificTime" value="13" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

@@ -1,0 +1,63 @@
+//-----------------------------------------------------------------------
+// Copyright (c) 2014 Microsoft Corporation. All rights reserved.
+// Use of this sample source code is subject to the terms of the Microsoft license 
+// agreement under which you licensed this sample source code and is provided AS-IS.
+// If you did not accept the terms of the license agreement, you are not authorized 
+// to use this sample source code. For the terms of the license, please see the 
+// license agreement between you and Microsoft.
+//-----------------------------------------------------------------------
+
+namespace Microsoft.Protocols.TestSuites.SharedAdapter
+{
+    using System.Collections.Generic;
+    using Microsoft.Protocols.TestTools;
+
+    /// <summary>
+    /// This class specifies the base class for file chunking.
+    /// </summary>
+    public abstract class AbstractChunking
+    {
+        /// <summary>
+        /// The file content that contains the data.
+        /// </summary>
+        private byte[] fileContent;
+
+        /// <summary>
+        /// Initializes a new instance of the AbstractChunking class.
+        /// </summary>
+        /// <param name="fileContent">The content of the file.</param>
+        protected AbstractChunking(byte[] fileContent)
+        {
+            this.fileContent = fileContent;
+        }
+
+        /// <summary>
+        /// Gets or sets the file content.
+        /// </summary>
+        protected byte[] FileContent
+        {
+            get
+            {
+                return this.fileContent;
+            }
+
+            set
+            {
+                this.fileContent = value;
+            }
+        }
+
+        /// <summary>
+        /// This method is used to chunk the file data.
+        /// </summary>
+        /// <returns>A list of IntermediateNodeObject.</returns>
+        public abstract List<IntermediateNodeObject> Chunking();
+
+        /// <summary>
+        /// This method is used to analyze the chunk.
+        /// </summary>
+        /// <param name="rootNode">Specify the root node object which is needed to be analyzed.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        public abstract void AnalyzeChunking(RootNodeObject rootNode, ITestSite site);
+    }
+}

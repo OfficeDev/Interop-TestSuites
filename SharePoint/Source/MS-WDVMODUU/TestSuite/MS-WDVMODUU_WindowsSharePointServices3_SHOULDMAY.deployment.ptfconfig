@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R128Enabled to true to verify that the reply of protocol server is the same whether "SyncMan []" is included in the User-Agent Header or not as specified in section 7. Set R128Enabled to false to disable this requirement. -->
+    <Property name="R128Enabled" value="true"/>
+  </Properties>
+</TestSite>

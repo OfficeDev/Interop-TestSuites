@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB</RootNamespace>
+    <AssemblyName>MS-FSSHTTP-FSSHTTPB_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-FSSHTTP-FSSHTTPB_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedTestSuite\SharedAdapter\SharedAdapter.csproj">
+      <Project>{46573EAE-E1E9-4768-B8B8-536DC678CCAE}</Project>
+      <Name>SharedAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S01_Cell.cs">
+      <Link>SharedTestCase\S01_Cell.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S02_Coauth.cs">
+      <Link>SharedTestCase\S02_Coauth.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S03_SchemaLock.cs">
+      <Link>SharedTestCase\S03_SchemaLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S04_ExclusiveLock.cs">
+      <Link>SharedTestCase\S04_ExclusiveLock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S05_WhoAmI.cs">
+      <Link>SharedTestCase\S05_WhoAmI.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S06_ServerTime.cs">
+      <Link>SharedTestCase\S06_ServerTime.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S07_EditorsTable.cs">
+      <Link>SharedTestCase\S07_EditorsTable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S08_GetDocMetaInfo.cs">
+      <Link>SharedTestCase\S08_GetDocMetaInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S09_GetVersions.cs">
+      <Link>SharedTestCase\S09_GetVersions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S10_MultipleSubRequests.cs">
+      <Link>SharedTestCase\S10_MultipleSubRequests.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S11_QueryAccess.cs">
+      <Link>SharedTestCase\S11_QueryAccess.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S12_QueryChanges.cs">
+      <Link>SharedTestCase\S12_QueryChanges.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S13_PutChanges.cs">
+      <Link>SharedTestCase\S13_PutChanges.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S14_AllocateExtendedGuidRange.cs">
+      <Link>SharedTestCase\S14_AllocateExtendedGuidRange.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S15_CreateFile.cs">
+      <Link>SharedTestCase\S15_CreateFile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteBase.cs">
+      <Link>SharedTestCase\SharedTestSuiteBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\StatusManager.cs">
+      <Link>SharedTestCase\StatusManager.cs</Link>
+    </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteHelper.cs">
+      <Link>SharedTestCase\SharedTestSuiteHelper.cs</Link>
+    </Compile>
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S01_Cell.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S02_Coauth.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S03_SchemaLock.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S04_ExclusiveLock.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S05_WhoAmI.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S06_ServerTime.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S07_EditorsTable.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S08_GetDocMetaInfo.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S09_GetVersions.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S10_MultipleSubRequests.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S11_QueryAccess.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S12_QueryChanges.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S13_PutChanges.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S14_AllocateExtendedGuidRange.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S15_CreateFile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SharedContextUtils.cs" />
+    <Compile Include="ConfigurationFileHelper.cs" />
+  </ItemGroup>
+</Project>

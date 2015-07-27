@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81994EC8-F433-4A61-9D6E-8444F772CEBC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXORULE</RootNamespace>
+    <AssemblyName>MS-OXORULE_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.Messages.Runtime" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\DataTypes\AddressBookEntryID.cs" />
+    <Compile Include="Helper\DataTypes\IActionData.cs" />
+    <Compile Include="Helper\DataTypes\IRestriction.cs" />
+    <Compile Include="Helper\DataTypes\MoveCopyActionDataOfExtendedRule.cs" />
+    <Compile Include="Helper\DataTypes\ReplyActionDataOfExtendedRule.cs" />
+    <Compile Include="Helper\DataTypes\ServerEID.cs" />
+    <Compile Include="Helper\Nspi\NspiInterop.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-OXORULESUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXWOOFSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-OXWOOFSUTControlAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helper\DataTypes\ActionBlock.cs" />
+    <Compile Include="Helper\DataTypes\AndRestriction.cs" />
+    <Compile Include="Helper\DataTypes\BitMaskRestriction.cs" />
+    <Compile Include="Helper\DataTypes\BounceActionData.cs" />
+    <Compile Include="Helper\DataTypes\CommentRestriction.cs" />
+    <Compile Include="Helper\DataTypes\ComparePropertiesRestriction.cs" />
+    <Compile Include="Helper\DataTypes\ContentRestriction.cs" />
+    <Compile Include="Helper\DataTypes\CountRestriction.cs" />
+    <Compile Include="Helper\DataTypes\DataTypes.cs" />
+    <Compile Include="Helper\DataTypes\DeferredActionData.cs" />
+    <Compile Include="Helper\DataTypes\DeleteMarkReadActionData.cs" />
+    <Compile Include="Helper\DataTypes\ExistRestriction.cs" />
+    <Compile Include="Helper\DataTypes\ExtendedRuleCondition.cs" />
+    <Compile Include="Helper\DataTypes\FolderEntryID.cs" />
+    <Compile Include="Helper\DataTypes\FolderID.cs" />
+    <Compile Include="Helper\DataTypes\ForwardDelegateActionData.cs" />
+    <Compile Include="Helper\DataTypes\MessageEntryID.cs" />
+    <Compile Include="Helper\DataTypes\MessageID.cs" />
+    <Compile Include="Helper\DataTypes\MoveCopyActionData.cs" />
+    <Compile Include="Helper\DataTypes\NamedPropertyInfo.cs" />
+    <Compile Include="Helper\DataTypes\NotRestriction.cs" />
+    <Compile Include="Helper\DataTypes\OrRestriction.cs" />
+    <Compile Include="Helper\DataTypes\PropertyRestriction.cs" />
+    <Compile Include="Helper\DataTypes\RecipientBlock.cs" />
+    <Compile Include="Helper\DataTypes\ReplyActionData.cs" />
+    <Compile Include="Helper\DataTypes\Restrictions.cs" />
+    <Compile Include="Helper\DataTypes\RuleAction.cs" />
+    <Compile Include="Helper\DataTypes\ExtendedRuleActions.cs" />
+    <Compile Include="Helper\DataTypes\RuleCondition.cs" />
+    <Compile Include="Helper\DataTypes\SizeRestriction.cs" />
+    <Compile Include="Helper\DataTypes\StoreObjectEntryID.cs" />
+    <Compile Include="Helper\DataTypes\SubObjectRestriction.cs" />
+    <Compile Include="Helper\DataTypes\TagActionData.cs" />
+    <Compile Include="IMS-OXORULEAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXORULESUTControlAdapter.cs" />
+    <Compile Include="Helper\Nspi\NspiDataType.cs" />
+    <Compile Include="Helper\Nspi\NspiHelper.cs" />
+    <Compile Include="Helper\Nspi\Parser.cs" />
+    <Compile Include="Helper\OofProxyClass\ProxyClass.cs" />
+    <Compile Include="MS-OXORULEAdapter.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\Constants.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

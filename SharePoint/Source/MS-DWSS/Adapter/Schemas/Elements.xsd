@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="SimpleTypes.xsd"/>
+  <xs:element name="Assignees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Member" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="ErrorTypes">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ServerFailure"/>
+      <xs:enumeration value="Failed"/>
+      <xs:enumeration value="NoAccess"/>
+      <xs:enumeration value="Conflict"/>
+      <xs:enumeration value="ItemNotFound"/>
+      <xs:enumeration value="MemberNotFound"/>
+      <xs:enumeration value="ListNotFound"/>
+      <xs:enumeration value="TooManyItems"/>
+      <xs:enumeration value="DocumentNotFound"/>
+      <xs:enumeration value="FolderNotFound"/>
+      <xs:enumeration value="WebContainsSubwebs"/>
+      <xs:enumeration value="ADMode"/>
+      <xs:enumeration value="AlreadyExists"/>
+      <xs:enumeration value="QuotaExceeded"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Error">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="ErrorTypes">
+          <xs:attribute name="ID">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="14"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="AccessUrl" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ID">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="DefaultUrl" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="List">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:choice>
+          <xs:element name="NoChanges" type="xs:string"/>
+          <xs:sequence>
+            <xs:sequence>
+              <xs:element ref="ID"/>
+              <xs:choice>
+                <xs:element ref="Error" minOccurs="0"/>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents='skip'/>
+                </xs:sequence>
+              </xs:choice>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:choice>
+      </xs:choice>
+      <xs:attribute name="Name" type="ListType" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Member">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="ID" type="xs:integer"/>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="LoginName" type="xs:string"/>
+        <xs:element name="Email" type="xs:string" minOccurs="0"/>
+        <xs:element name="IsDomainGroup" minOccurs="0">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="True" />
+              <xs:enumeration value="False" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Roles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:choice>
+          <xs:element ref="Error"/>
+          <xs:sequence>
+            <xs:element name="Role" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="Name" type="xs:string"
+                use="required"/>
+                <xs:attribute name="Type" type="RoleType"
+                use="required"/>
+                <xs:attribute name="Description" type="xs:string"
+                use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

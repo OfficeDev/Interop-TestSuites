@@ -1,0 +1,37 @@
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:attributeGroup name="typeAttributes">
+    <xs:attribute ref="type" />
+    <xs:attribute ref="values"/>
+    <xs:attribute ref="minLength"/>
+    <xs:attribute ref="maxLength"/>
+  </xs:attributeGroup>
+  <xs:attribute name="type">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="bin.hex"/>
+        <xs:enumeration value="boolean"/>
+        <xs:enumeration value="date"/>
+        <xs:enumeration value="datetime"/>
+        <xs:enumeration value="enumeration"/>
+        <xs:enumeration value="float"/>
+        <xs:enumeration value="i1"/>
+        <xs:enumeration value="i2"/>
+        <xs:enumeration value="i4"/>
+        <xs:enumeration value="i8"/>
+        <xs:enumeration value="int"/>
+        <xs:enumeration value="number"/>
+        <xs:enumeration value="r4"/>
+        <xs:enumeration value="string"/>
+        <xs:enumeration value="time"/>
+        <xs:enumeration value="Ui1"/>
+        <xs:enumeration value="ui1"/>
+        <xs:enumeration value="ui4"/>
+        <xs:enumeration value="ui8"/>
+        <xs:enumeration value="uuid"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+  <xs:attribute name="values" type="xs:string"/>
+  <xs:attribute name="minLength" type="xs:int"/>
+  <xs:attribute name="maxLength" type="xs:int"/>
+</xs:schema>

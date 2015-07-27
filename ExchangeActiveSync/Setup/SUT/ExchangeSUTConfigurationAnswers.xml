@@ -1,0 +1,21 @@
+<!-- This file provides configuration values to the Setup configuration script in case the script runs in Unattended mode. 
+     Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. --> 
+<!-- Machine will restart automatically after installing ADRMS role, script will be launched to continue the configuration at next logon. 
+     Make sure you either have auto-logon enabled or manually logon after the restart.-->
+<Properties>
+  <!--  The runOnNonRecommendedSUT property specifies whether to run the SUT setup script when the Exchange server is not the recommended version. 
+		The supported values are:
+		"1", run the SUT setup script;
+		"2", exit the SUT setup script.--> 
+  <Property name="runOnNonRecommendedSUT" value="1" /> 
+  <!-- The runOnDomainController property specifies whether to run the SUT setup script when the Exchange server is installed on a domain controller. 
+		The supported values are:
+		"1", run the SUT setup script;
+		"2", exit the SUT setup script.-->
+  <Property name="runOnDomainController" value="2" />
+  <!--  The runWithLongerMailboxNameChoice property specifies whether to continue running the SUT setup script when the length of mailbox user name exceeds the 20-character limit.
+		The supported values are:
+		"1", continue running the SUT setup script;
+		"2", exit the SUT setup script. --> 
+  <Property name="runWithLongerMailboxNameChoice" value="1" /> 
+</Properties>

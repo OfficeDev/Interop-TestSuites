@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{584275BB-9E04-457E-88B6-B31D0F428DFC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BufferReader.cs" />
+    <Compile Include="Enum.cs" />
+    <Compile Include="ExchangeMapiClient\AutoDiscover.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\DisconnectSuccessResponseBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\NotificationWaitRequestBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\NotificationWaitSuccessResponseBody.cs" />
+    <Compile Include="ExchangeMapiClient\OxcRpcErrorCode.cs" />
+    <Compile Include="ExchangeMapiClient\RpcAdapter.cs" />
+    <Compile Include="ExchangeMapiClient\MapiHttpAdapter.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ChunkedResponse.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ConnectRequestBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ConnectSuccessResponseBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\DisconnectRequestBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ExecuteFailedResponseBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ExecuteRequestBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\ExecuteSuccessResponseBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\IRequestBody.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\MailboxRequestBodyBase.cs" />
+    <Compile Include="ExchangeMapiClient\HttpMessages\MailboxResponseBodyBase.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopGetValidAttachments.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\GlobalIdentifier.cs" />
+    <Compile Include="ExchangeMapiClient\MapiContext.cs" />
+    <Compile Include="ExchangeMapiClient\Enum.cs" />
+    <Compile Include="ExchangeMapiClient\OxcropsClient.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferDestinationConfigure.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferDestinationPutBuffer.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferSourceCopyFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferSourceCopyMessages.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferSourceCopyProperties.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferSourceCopyTo.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopFastTransferSourceGetBuffer.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FastTransferROPs\RopTellVersion.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopCopyFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopCreateFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopDeleteFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopDeleteMessages.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopEmptyFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopGetContentsTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopGetHierarchyTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopGetSearchCriteria.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopHardDeleteMessages.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopHardDeleteMessagesAndSubfolders.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopMoveCopyMessages.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopMoveFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopOpenFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\FolderROPs\RopSetSearchCriteria.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IDeserializable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopGetLocalReplicaIds.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSetLocalReplicaMidsetDeleted.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationConfigure.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationGetTransferState.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationImportDeletes.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationImportHierarchyChange.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationImportMessageChange.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationImportMessageMove.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationImportReadStateChanges.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationOpenCollector.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationUploadStateStreamBegin.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationUploadStateStreamContinue.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\IncChangeSyncROPs\RopSynchronizationUploadStateStreamEnd.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\ISerializable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetOwningServers.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetPerUserGuid.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetPerUserLongTermIds.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetReceiveFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetReceiveFolderTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopGetStoreState.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopIdFromLongTermId.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopLogon.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopLongTermIdFromId.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopPublicFolderIsGhosted.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopReadPerUserInformation.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopSetReceiveFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\LogonROPs\RopWritePerUserInformation.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopCreateAttachment.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopCreateMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopDeleteAttachment.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopGetAttachmentTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopGetMessageStatus.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopModifyRecipients.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopOpenAttachment.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopOpenEmbeddedMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopOpenMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopReadRecipients.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopReloadCachedInformation.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopRemoveAllRecipients.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopSaveChangesAttachment.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopSaveChangesMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopSetMessageReadFlag.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopSetMessageStatus.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\MessageROPs\RopSetReadFlags.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\RopNotify.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\RopPending.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\RopRegisterNotification.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\OtherROPs\RopBackoff.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\OtherROPs\RopBufferTooSmall.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\OtherROPs\RopRelease.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\ParseException.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PermissionROPs\RopGetPermissionsTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PermissionROPs\RopModifyPermissions.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\Context.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\Node.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\Property.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\PropertyRow.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\PropertyRowSet.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\FlaggedPropertyValue.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\FlaggedPropertyValueWithType.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\PropertyValue.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\TaggedPropertyValue.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyInterpreter\TypedPropertyValue.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopCopyProperties.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopCopyTo.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopDeleteProperties.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopDeletePropertiesNoReplicate.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopGetNamesFromPropertyIds.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopGetPropertiesAll.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopGetPropertiesList.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopGetPropertiesSpecific.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopGetPropertyIdsFromNames.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopProgress.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopQueryNamedProperties.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopSetProperties.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\PropertyROPs\RopSetPropertiesNoReplicate.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\RopDeserializer.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\RuleROPs\RopGetRulesTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\RuleROPs\RopModifyRules.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\RuleROPs\RopUpdateDeferredActionMessages.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopCloneStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopCommitStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopCopyToStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopGetStreamSize.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopLockRegionStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopOpenStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopReadStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopSeekStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopSetStreamSize.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopUnlockRegionStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopWriteAndCommitStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\StreamROPs\RopWriteStream.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopAbort.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopCollapseRow.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopCreateBookmark.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopExpandRow.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopFindRow.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopFreeBookmark.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopGetCollapseState.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopGetStatus.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopQueryColumnsAll.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopQueryPosition.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopQueryRows.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopResetTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopRestrict.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSeekRow.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSeekRowBookmark.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSeekRowFractional.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSetCollapseState.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSetColumns.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TableROPs\RopSortTable.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopAbortSubmit.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopGetAddressTypes.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopGetTransportFolder.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopOptionsData.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopSetSpooler.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopSpoolerLockMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopSubmitMessage.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopTransportNewMail.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\TransportROPs\RopTransportSend.cs" />
+    <Compile Include="ExchangeMapiClient\NativeMethods.cs" />
+    <Compile Include="PtfConfigLoadException.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExchangeCommonConfiguration.deployment.ptfconfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

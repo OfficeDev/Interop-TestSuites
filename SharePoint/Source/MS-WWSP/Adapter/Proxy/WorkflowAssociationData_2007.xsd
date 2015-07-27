@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema 
+  targetNamespace="http://schemas.microsoft.com/office/infopath/2003/myXSD" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+   xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+   xmlns:aml="http://schemas.microsoft.com/aml/2001/core" 
+   xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" 
+   xmlns:o="urn:schemas-microsoft-com:office:office" 
+   xmlns:o12="http://schemas.microsoft.com/office/2004/7/core" 
+   xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:v="urn:schemas-
+      microsoft-com:vml" 
+   xmlns:w12="http://schemas.microsoft.com/office/word/2004/6/wordml" 
+   xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" 
+   xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" 
+   xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" 
+   xmlns:dfs="http://schemas.microsoft.com/office/
+      infopath/2003/dataFormSolution" 
+   xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/workflow/" 
+   xmlns:s1="http://microsoft.com/wsdl/types/" 
+   xmlns:z="#RowsetSchema"    
+   xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD" 
+   xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:element name="myFields">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="my:Reviewers" minOccurs="0"/>
+            <xsd:element ref="my:CC" minOccurs="0"/>
+            <xsd:element ref="my:DueDate" minOccurs="0"/>
+            <xsd:element ref="my:Description" minOccurs="0"/>
+            <xsd:element ref="my:Title" minOccurs="0"/>
+            <xsd:element ref="my:DefaultTaskType" minOccurs="0"/>
+            <xsd:element ref="my:CreateTasksInSerial" minOccurs="0"/>
+            <xsd:element ref="my:AllowDelegation" minOccurs="0"/>
+            <xsd:element ref="my:AllowChangeRequests" minOccurs="0"/>
+            <xsd:element ref="my:StopOnAnyReject" minOccurs="0"/>
+            <xsd:element ref="my:WantedTasks" minOccurs="0"/>
+            <xsd:element ref="my:SetMetadataOnSuccess" minOccurs="0"/>
+            <xsd:element ref="my:MetadataSuccessField" minOccurs="0"/>
+            <xsd:element ref="my:MetadataSuccessValue" minOccurs="0"/>
+            <xsd:element ref="my:ApproveWhenComplete" minOccurs="0"/>
+            <xsd:element ref="my:TimePerTaskVal" minOccurs="0"/>
+            <xsd:element ref="my:TimePerTaskType" minOccurs="0"/>
+            <xsd:element ref="my:Voting" minOccurs="0"/>
+            <xsd:element ref="my:MetadataTriggerField" minOccurs="0"/>
+            <xsd:element ref="my:MetadataTriggerValue" minOccurs="0"/>
+            <xsd:element ref="my:InitLock" minOccurs="0"/>
+            <xsd:element ref="my:MetadataStop" minOccurs="0"/>
+            <xsd:element ref="my:ItemChangeStop" minOccurs="0"/>
+            <xsd:element ref="my:GroupTasks" minOccurs="0"/>
+         </xsd:sequence>
+        <xsd:anyAttribute processContents="skip" />
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="Reviewers">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="my:Person" minOccurs="0"
+               maxOccurs="unbounded"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="Person">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="my:DisplayName" minOccurs="0"/>
+            <xsd:element ref="my:AccountId" minOccurs="0"/>
+            <xsd:element ref="my:AccountType" minOccurs="0"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="DisplayName" type="xsd:string"/>
+   <xsd:element name="AccountId" type="xsd:string"/>
+   <xsd:element name="AccountType" type="xsd:string"/>
+   <xsd:element name="CC">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element ref="my:Person" minOccurs="0" 
+               maxOccurs="unbounded"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="DueDate" nillable="true" type="xsd:date"/>
+   <xsd:element name="Description" type="xsd:string"/>
+   <xsd:element name="Title" type="xsd:string"/>
+   <xsd:element name="DefaultTaskType" nillable="true" type="xsd:integer"/>
+   <xsd:element name="CreateTasksInSerial" nillable="true" 
+      type="xsd:boolean"/>
+   <xsd:element name="AllowDelegation" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="AllowChangeRequests" nillable="true" 
+      type="xsd:boolean"/>
+   <xsd:element name="StopOnAnyReject" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="WantedTasks" nillable="true" type="xsd:integer"/>
+   <xsd:element name="SetMetadataOnSuccess" nillable="true" 
+      type="xsd:boolean"/>
+   <xsd:element name="MetadataSuccessField" type="xsd:string"/>
+   <xsd:element name="MetadataSuccessValue" type="xsd:string"/>
+   <xsd:element name="ApproveWhenComplete" nillable="true" 
+      type="xsd:boolean"/>
+   <xsd:element name="TimePerTaskVal" nillable="true" type="xsd:integer"/>
+   <xsd:element name="TimePerTaskType" nillable="true" type="xsd:integer"/>
+   <xsd:element name="Voting" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="MetadataTriggerField" type="xsd:string"/>
+   <xsd:element name="MetadataTriggerValue" type="xsd:string"/>
+   <xsd:element name="InitLock" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="MetadataStop" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="ItemChangeStop" nillable="true" type="xsd:boolean"/>
+   <xsd:element name="GroupTasks" nillable="true" type="xsd:boolean"/>
+</xsd:schema>

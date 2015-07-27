@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R418Enabled to true to verify that the implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1. Set R418Enabled to false to disable this requirement. -->
+    <Property name="R418Enabled" value="true" />
+    <!-- Set the value of the property MS-ASRM_Supported to true to indicate that the SUT supports the MS-ASRM protocol. Otherwise set the value to false. -->
+    <Property name="MS-ASRM_Supported" value="true"/>
+  </Properties>
+</TestSite>

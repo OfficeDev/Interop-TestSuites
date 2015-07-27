@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{46573EAE-E1E9-4768-B8B8-536DC678CCAE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.SharedAdapter</RootNamespace>
+    <AssemblyName>SharedAdapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbKnowledgeCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbResponseCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbSimpleObjectCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbTransportCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTPD\MsfsshttpdCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpCellSubRequestCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpCoauthCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpCommonCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpEditorsTableCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpExclusiveLockCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpGetDocMetaInfoCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpGetVersionsCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpSchemaLockCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpServerTimeCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpWhoAmICapture.cs" />
+    <Compile Include="CellStorages.cs" />
+    <Compile Include="DataStucture\Editor.cs" />
+    <Compile Include="DataStucture\EditorsTable.cs" />
+    <Compile Include="DataStucture\ErrorCodeType.cs" />
+    <Compile Include="Helper\DataElementUtils.cs" />
+    <Compile Include="Helper\EditorsTableUtils.cs" />
+    <Compile Include="Helper\MsfsshttpbSubRequestMapping.cs" />
+    <Compile Include="Helper\SequenceNumberGenerator.cs" />
+    <Compile Include="Helper\SubResponseValidationWrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\CellManifestDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\FragmentDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\ObjectDataBLOBDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\ObjectGroupDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\RevisionManifestDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\StorageIndexDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\StorageManifestDataElementData.cs" />
+    <Compile Include="Stack\FSSHTTPB\LittleEndianBitConverter.cs" />
+    <Compile Include="RequestMessageBodyWriter.cs" />
+    <Compile Include="Helper\FSSHTTPConverter.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\BinaryItem.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\CellID.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\DataElement.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\DataElementPackage.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\ExGuid.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\FileChunk.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\CellKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\ContentTagKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\WaterlineKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\FragmentKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\Knowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\SpecializedKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\SerialNumber.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\StreamObjectHeader.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\StringItem.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Compact64bitInt.cs" />
+    <Compile Include="Stack\FSSHTTPB\BitField.cs" />
+    <Compile Include="Stack\FSSHTTPB\Enum.cs" />
+    <Compile Include="Stack\FSSHTTPB\BaseType.cs" />
+    <Compile Include="Stack\FSSHTTPB\Exception\BasicObjectParseErrorException.cs" />
+    <Compile Include="Stack\FSSHTTPB\Exception\DataElementParseErrorException.cs" />
+    <Compile Include="Stack\FSSHTTPB\Exception\KnowledgeParseErrorException.cs" />
+    <Compile Include="Stack\FSSHTTPB\Exception\ResponseParseErrorException.cs" />
+    <Compile Include="Stack\FSSHTTPB\Exception\StreamObjectParserErrorException.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\AllocateExtendedGuidRangeCellSubRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\FsshttpbCellRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\FsshttpbCellSubRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\PutChangesCellSubRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\QueryAccessCellSubRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Request\QueryChangesCellSubRequest.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\AllocateExtendedGuidRangeSubResponseData.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\Error.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\FsshttpbResponse.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\FsshttpbSubResponse.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\PutChangesSubResponseData.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\QueryAccessSubResponseData.cs" />
+    <Compile Include="Stack\FSSHTTPB\Response\QueryChangesSubResponseData.cs" />
+    <Compile Include="Stack\FSSHTTPD\AbstractChunking.cs" />
+    <Compile Include="Stack\FSSHTTPD\ChunkingFactory.cs" />
+    <Compile Include="Stack\FSSHTTPD\NodeObject.cs" />
+    <Compile Include="Stack\FSSHTTPD\RDCAnalysisChunking.cs" />
+    <Compile Include="Stack\FSSHTTPD\RDCSignatureGenerator.cs" />
+    <Compile Include="Stack\FSSHTTPD\SimpleChunking.cs" />
+    <Compile Include="Stack\FSSHTTPD\ZipFilesChunking.cs" />
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="IMS-FSSHTTP-FSSHTTPBAdapter.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPBAdapter.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-FSSHTTP-FSSHTTPBManagedCodeSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-FSSHTTP-FSSHTTPBSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-FSSHTTP-FSSHTTPBManagedCodeSUTControlAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbDataElementCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbNodeObjectCapture.cs" />
+    <None Include="SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
+    <None Include="SUTControlAdapter\Implementation\CheckInFile.ps1" />
+    <None Include="SUTControlAdapter\Implementation\CheckOutFile.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SetMaxNumOfCoauthUsers.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SwitchCoauthoringFeature.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SwitchMajorVersioning.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

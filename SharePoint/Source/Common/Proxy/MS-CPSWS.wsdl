@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://schemas.microsoft.com/sharepoint/claims/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/sharepoint/claims/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/claims/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ClaimTypes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfString">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ClaimTypesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ClaimTypesResult" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClaimValueTypes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ClaimValueTypesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ClaimValueTypesResult" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EntityTypes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EntityTypesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="EntityTypesResult" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProviderSchemas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProviderSchemasResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ProviderSchemasResult" type="tns:ArrayOfSPProviderSchema" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfSPProviderSchema">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPProviderSchema" nillable="true" type="tns:SPProviderSchema" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPProviderSchema">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderSchema" type="tns:ArrayOfSPSchemaElement" />
+          <xs:element minOccurs="1" maxOccurs="1" name="SupportsHierarchy" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfSPSchemaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPSchemaElement" nillable="true" type="tns:SPSchemaElement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPSchemaElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Type" type="tns:SPSchemaElementType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SPSchemaElementType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None" />
+          <xs:enumeration value="TableViewOnly" />
+          <xs:enumeration value="DetailViewOnly" />
+          <xs:enumeration value="Both" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="HierarchyProviderSchema">
+        <xs:complexType />
+      </xs:element>
+      <xs:element name="HierarchyProviderSchemaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="HierarchyProviderSchemaResult" type="tns:SPProviderSchema" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetHierarchyAll">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="1" maxOccurs="1" name="numberOfLevels" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:simpleType name="SPPrincipalType">
+        <xs:list>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="None" />
+              <xs:enumeration value="User" />
+              <xs:enumeration value="DistributionList" />
+              <xs:enumeration value="SecurityGroup" />
+              <xs:enumeration value="SharePointGroup" />
+              <xs:enumeration value="All" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:list>
+      </xs:simpleType>
+      <xs:element name="GetHierarchyAllResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetHierarchyAllResult" type="tns:ArrayOfSPProviderHierarchyTree" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfSPProviderHierarchyTree">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPProviderHierarchyTree" nillable="true" type="tns:SPProviderHierarchyTree" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPProviderHierarchyTree">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:SPProviderHierarchyElement">
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="1" name="IsRoot" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="SPProviderHierarchyElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Nm" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="HierarchyNodeID" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="IsLeaf" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Children" type="tns:ArrayOfSPProviderHierarchyNode" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EntityData" type="tns:ArrayOfPickerEntity" />
+          <xs:element minOccurs="1" maxOccurs="1" name="Count" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfSPProviderHierarchyNode">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPProviderHierarchyNode" nillable="true" type="tns:SPProviderHierarchyNode" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPProviderHierarchyNode">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:SPProviderHierarchyElement" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfPickerEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PickerEntity" nillable="true" type="tns:PickerEntity" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PickerEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Key" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayText" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="IsResolved" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EntityType" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EntityGroupName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="HierarchyIdentifier" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EntityDataElements" type="tns:ArrayOfPair" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MultipleMatches" type="tns:ArrayOfAnyType" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderDisplayName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfPair">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Pair" nillable="true" type="tns:Pair" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Pair">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="First" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Second" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfAnyType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetHierarchy">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerName" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="hierarchyNodeID" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="numberOfLevels" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetHierarchyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetHierarchyResult" type="tns:SPProviderHierarchyTree" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchAll">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="searchPattern" type="xs:string" />
+            <xs:element minOccurs="1" maxOccurs="1" name="maxCount" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SearchAllResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SearchAllResult" type="tns:ArrayOfSPProviderHierarchyTree" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Search">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerSearchArguments" type="tns:ArrayOfSPProviderSearchArguments" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="searchPattern" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfSPProviderSearchArguments">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPProviderSearchArguments" nillable="true" type="tns:SPProviderSearchArguments" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SPProviderSearchArguments">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="ProviderName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="HierarchyNodeID" type="xs:string" />
+          <xs:element minOccurs="1" maxOccurs="1" name="MaxCount" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SearchResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:ArrayOfSPProviderHierarchyTree" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Resolve">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="resolveInput" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResolveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ResolveResult" type="tns:ArrayOfPickerEntity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResolveClaim">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="resolveInput" type="tns:SPClaim" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="SPClaim">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="ClaimType" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ValueType" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="1" name="OriginalIssuer" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResolveClaimResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ResolveClaimResult" type="tns:ArrayOfPickerEntity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResolveMultiple">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="resolveInput" type="tns:ArrayOfString" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResolveMultipleResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ResolveMultipleResult" type="tns:ArrayOfPickerEntity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ResolveMultipleClaim">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="providerNames" type="tns:ArrayOfString" />
+            <xs:element minOccurs="1" maxOccurs="1" name="principalType" type="tns:SPPrincipalType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="resolveInput" type="tns:ArrayOfSPClaim" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfSPClaim">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SPClaim" nillable="true" type="tns:SPClaim" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResolveMultipleClaimResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ResolveMultipleClaimResult" type="tns:ArrayOfPickerEntity" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IClaimProviderWebService_ClaimTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimTypes" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ClaimTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ClaimValueTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimValueTypes" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ClaimValueTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClaimValueTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_EntityTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:EntityTypes" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_EntityTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EntityTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ProviderSchemas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProviderSchemas" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ProviderSchemas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProviderSchemasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_HierarchyProviderSchema_InputMessage">
+    <wsdl:part name="parameters" element="tns:HierarchyProviderSchema" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_HierarchyProviderSchema_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HierarchyProviderSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_GetHierarchyAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyAll" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_GetHierarchyAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_GetHierarchy_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_GetHierarchy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_SearchAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAll" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_SearchAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_Resolve_InputMessage">
+    <wsdl:part name="parameters" element="tns:Resolve" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_Resolve_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveClaim" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveClaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveMultiple_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveMultiple" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveMultiple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveMultipleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveMultipleClaim_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveMultipleClaim" />
+  </wsdl:message>
+  <wsdl:message name="IClaimProviderWebService_ResolveMultipleClaim_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResolveMultipleClaimResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IClaimProviderWebService">
+    <wsdl:operation name="ClaimTypes">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimTypes" message="tns:IClaimProviderWebService_ClaimTypes_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimTypesResponse" message="tns:IClaimProviderWebService_ClaimTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaimValueTypes">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimValueTypes" message="tns:IClaimProviderWebService_ClaimValueTypes_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimValueTypesResponse" message="tns:IClaimProviderWebService_ClaimValueTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EntityTypes">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/EntityTypes" message="tns:IClaimProviderWebService_EntityTypes_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/EntityTypesResponse" message="tns:IClaimProviderWebService_EntityTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProviderSchemas">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ProviderSchemas" message="tns:IClaimProviderWebService_ProviderSchemas_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ProviderSchemasResponse" message="tns:IClaimProviderWebService_ProviderSchemas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HierarchyProviderSchema">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/HierarchyProviderSchema" message="tns:IClaimProviderWebService_HierarchyProviderSchema_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/HierarchyProviderSchemaResponse" message="tns:IClaimProviderWebService_HierarchyProviderSchema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchyAll">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHierarchyAll" message="tns:IClaimProviderWebService_GetHierarchyAll_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHierarchyAllResponse" message="tns:IClaimProviderWebService_GetHierarchyAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchy">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHierarchy" message="tns:IClaimProviderWebService_GetHierarchy_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHierarchyResponse" message="tns:IClaimProviderWebService_GetHierarchy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAll">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAll" message="tns:IClaimProviderWebService_SearchAll_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAllResponse" message="tns:IClaimProviderWebService_SearchAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Search" message="tns:IClaimProviderWebService_Search_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchResponse" message="tns:IClaimProviderWebService_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Resolve">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Resolve" message="tns:IClaimProviderWebService_Resolve_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveResponse" message="tns:IClaimProviderWebService_Resolve_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolveClaim">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveClaim" message="tns:IClaimProviderWebService_ResolveClaim_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveClaimResponse" message="tns:IClaimProviderWebService_ResolveClaim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolveMultiple">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveMultiple" message="tns:IClaimProviderWebService_ResolveMultiple_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveMultipleResponse" message="tns:IClaimProviderWebService_ResolveMultiple_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResolveMultipleClaim">
+      <wsdl:input wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveMultipleClaim" message="tns:IClaimProviderWebService_ResolveMultipleClaim_InputMessage" />
+      <wsdl:output wsam:Action="http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveMultipleClaimResponse" message="tns:IClaimProviderWebService_ResolveMultipleClaim_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

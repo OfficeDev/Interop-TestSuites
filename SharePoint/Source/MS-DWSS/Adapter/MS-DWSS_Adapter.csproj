@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{254DF310-5DF8-4078-B81F-F2C40CA0F644}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_DWSS</RootNamespace>
+    <AssemblyName>MS-DWSS_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MS-DWSS_Adapter.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Schemas\DwsRequestElements.cs">
+      <DependentUpon>DwsRequestElements.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\MS-DWSS.cs" />
+    <Compile Include="MS-DWSSAdapter.cs" />
+    <Compile Include="IMS-DWSSAdapter.cs" />
+    <Compile Include="Schemas\DwsResponseResult.cs">
+      <DependentUpon>DwsResponseResult.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SUTControlAdapter\IMS-DWSSSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-DWSSSUTControlAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schemas\ComplexTypes.xsd" />
+    <None Include="Schemas\ADOXML-C2F41010-65B3-11d1-A29F-00AA00C14882.xsd" />
+    <None Include="Schemas\DwsRequestElements.xsd" />
+    <None Include="Schemas\DwsResponseResult.xsd" />
+    <None Include="Schemas\Elements.xsd" />
+    <None Include="Schemas\ADOXML-BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882.xsd" />
+    <None Include="Schemas\SimpleTypes.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

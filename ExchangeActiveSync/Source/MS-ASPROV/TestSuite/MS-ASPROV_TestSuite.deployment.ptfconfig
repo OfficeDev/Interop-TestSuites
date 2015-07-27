@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The User1Name property specifies the name for a user who should have the required permissions to perform administrative tasks, the user should also be used to execute SUT control scripts. -->
+    <Property name="User1Name" value="MSASPROV_User01"/>
+    <!-- The User1Password property specifies the password for the user specified in the User1Name property. The value of the property is case-sensitive. -->
+    <Property name="User1Password" value="Password01!"/>
+    <!-- The User2Name property specifies the name for a user who should have a policy with setting unsignedByteOrEmpty and unsignedIntOrEmpty type elements to custom values. -->
+    <Property name="User2Name" value="MSASPROV_User02"/>
+    <!-- The User2Password property specifies the password for the user specified in the User2Name property. The value of the property is case-sensitive.. -->
+    <Property name="User2Password" value="Password01!"/>
+    <!-- The User3Name property specifies the name for a user who uses default policy. -->
+    <Property name="User3Name" value="MSASPROV_User03"/>
+    <!-- The User3Password property specifies the password for the user specified in the User3Name property. The value of the property is case-sensitive. -->
+    <Property name="User3Password" value="Password01!"/>
+    <!-- SUT section ends. -->
+  </Properties>
+</TestSite>

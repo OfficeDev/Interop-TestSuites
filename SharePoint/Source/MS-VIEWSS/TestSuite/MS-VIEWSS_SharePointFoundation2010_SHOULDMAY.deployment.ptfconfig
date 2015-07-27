@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R433Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. Set R433Enabled to false to disable this requirement. -->
+    <Property name="R433Enabled" value="true" />
+    <!-- Set R1507Enabled to true to verify that implementation does not restrict the number of rows present in the result set to the number of unique GroupBy tuples, when there aren't any computed fields in the ViewFields section and Collapse is true. Set R1507Enabled to false to disable this requirement. -->
+    <Property name="R1507Enabled" value="true" />
+    <!-- Set R8016Enabled to true to verify that implementation does support this method[UpdateViewHtml2]. Set R8016Enabled to false to disable this requirement. -->
+    <Property name="R8016Enabled" value="true" /> 
+  </Properties>
+</TestSite>

@@ -1,0 +1,24 @@
+LIBRARY	"MS-OXNSPI_Stub"
+
+EXPORTS
+    NspiBind                
+    NspiUnbind  
+	NspiGetSpecialTable             
+    NspiUpdateStat 
+	NspiQueryColumns 
+	NspiGetPropList 
+	NspiGetProps         
+    NspiQueryRows           
+    NspiSeekEntries         
+    NspiGetMatches          
+    NspiResortRestriction  
+	NspiCompareMIds  
+    NspiDNToMId                         
+    NspiModProps            
+    NspiModLinkAtt 
+	NspiResolveNames        
+    NspiResolveNamesW 
+    NspiGetTemplateInfo 
+	BindToServer
+    CreateIdentity
+    GetBindHandle

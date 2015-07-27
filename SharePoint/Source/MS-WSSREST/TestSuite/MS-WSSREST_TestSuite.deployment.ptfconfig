@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The TargetServiceUrl property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/ListData.svc" />
+    <!-- The SiteCollectionName property specifies the URL of the top-level site in the site collection on the SUT. -->
+    <Property name="SiteCollectionName" value="MSWSSREST_SiteCollection" />
+    <!-- The DocumentLibrariesPath property specifies path of the document libraries on the top-level site. -->
+    <Property name="DocumentLibrariesPath" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]" />
+    <!-- The ListwsServiceUrl property specifies the list service URL. -->
+    <Property name="ListwsServiceUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/lists.asmx" />
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The DoucmentLibraryListName property specifies the document library name. -->
+    <Property name="DoucmentLibraryListName" value="MSWSSREST_DocumentLibrary" />
+    <!-- The GeneralListName property specifies the general list name. -->
+    <Property name="GeneralListName" value="MSWSSREST_GenericList" />
+    <!-- The SurveyListName property specifies the survey list name. -->
+    <Property name="SurveyListName" value="MSWSSREST_Survey" />
+    <!-- The TaskListName property specifies the task list name. -->
+    <Property name="TaskListName" value="MSWSSREST_Tasks" />
+    <!-- The DiscussionBoardListName property specifies the discussion board list name. -->
+    <Property name="DiscussionBoardListName" value="MSWSSREST_DiscussionBoard" />
+    <!-- The CalendarListName property specifies the calendar list name. -->
+    <Property name="CalendarListName" value="MSWSSREST_Calendar" />
+    <!-- The WorkflowHistoryListName property specifies the workflow history list name. -->
+    <Property name="WorkflowHistoryListName" value="MSWSSREST_WorkflowHistoryList" />
+    <!-- The ChoiceFieldName property specifies the field name of Choice whose field type is Choice and entity data model property type is Navigation. -->
+    <Property name="ChoiceFieldName" value="MSWSSREST_ChoiceField" />
+    <!-- The MultiChoiceFieldName property specifies the field name of MultiChoice whose field type is MultiChoice and entity data model property type is Navigation. -->
+    <Property name="MultiChoiceFieldName" value="MSWSSREST_MultiChoiceField" />
+    <!-- The CounterFieldName property specifies the field name of Counter whose field type is Counter and entity data model property type is Int32. -->
+    <Property name="CounterFieldName" value="Id" />
+    <!-- The ContentTypeIdFieldName property specifies the field name of ContentTypeId whose field type is ContentTypeId and entity data model property type is String. -->
+    <Property name="ContentTypeIdFieldName" value="ContentTypeID" />
+    <!-- The TextFieldName property specifies the field name of Text whose field type is Text and entity data model property type is String. -->
+    <Property name="TextFieldName" value="Title" />
+    <!-- The DateTimeFieldName property specifies the field name of DateTime whose field type is DateTime and entity data model property type is DateTime. -->
+    <Property name="DateTimeFieldName" value="Modified" />
+    <!-- The UserFieldName property specifies the field name of User whose field type is User and entity data model property type is Navigation. -->
+    <Property name="UserFieldName" value="CreatedBy" />
+    <!-- The AttachmentsFieldName property specifies the field name of Attachments whose field type is Attachments and entity data model property type is Navigation. -->
+    <Property name="AttachmentsFieldName" value="Attachments" />
+    <!-- The LookupFieldName property specifies the field name of Lookup whose field type is Lookup and entity data model property type is Navigation. -->
+    <Property name="LookupFieldName" value="MSWSSREST_LookupField" />
+    <!-- The URLFieldName property specifies the field name of URL whose field type is URL and entity data model property type is String. -->
+    <Property name="URLFieldName" value="MSWSSREST_URLField" />
+    <!-- The WorkflowEventTypeFieldName property specifies the field name of WorkflowEventType whose field type is WorkflowEventType and entity data model property type is String. -->
+    <Property name="WorkflowEventTypeFieldName" value="MSWSSREST_WorkFlowEventTypeField" />
+    <!-- The BooleanFieldName property specifies the field name of Boolean whose field type is Boolean and entity data model property type is Boolean. -->
+    <Property name="BooleanFieldName" value="MSWSSREST_BooleanField" />
+    <!-- The IntegerFieldName property specifies the field name of Integer whose field type is Integer and entity data model property type is Int32. -->
+    <Property name="IntegerFieldName" value="MSWSSREST_IntegerField" />
+    <!-- The NumberFieldName property specifies the field name of Number whose field type is Number and entity data model property type is Double. -->
+    <Property name="NumberFieldName" value="MSWSSREST_NumberField" />
+    <!-- The CurrencyFieldName property specifies the field name of Currency whose field type is Currency and entity data model property type is Double. -->
+    <Property name="CurrencyFieldName" value="MSWSSREST_CurrencyField" />
+    <!-- The WorkflowStatusFieldName property specifies the field name of WorkflowStatus whose field type is WorkflowStatus and entity data model property type is Int32. -->
+    <Property name="WorkflowStatusFieldName" value="MSWSSREST_Workflow" />
+    <!-- The AllDayEventFieldName property specifies the field name of AllDayEvent whose field type is AllDayEvent and entity data model property type is Boolean. -->
+    <Property name="AllDayEventFieldName" value="AllDayEvent" />
+    <!-- The RecurrenceFieldName property specifies the field name of Recurrence whose field type is Recurrence and entity data model property type is Boolean. -->
+    <Property name="RecurrenceFieldName" value="Recurrence" />
+    <!-- The CrossProjectLinkFieldName property specifies the field name of CrossProjectLink whose field type is Choice and entity data model property type is Boolean. -->
+    <Property name="CrossProjectLinkFieldName" value="Workspace" />
+    <!-- The ModStatFieldName property specifies the field name of ModStat whose field type is ModStat and entity data model property type is String. -->
+    <Property name="ModStatFieldName" value="ApprovalStatus" />
+    <!-- The FileFieldName property specifies the field name of File whose field type is File and entity data model property type is String. -->
+    <Property name="FileFieldName" value="Name" />
+    <!-- The GridChoiceFieldName property specifies the field name of GridChoice whose field type is GridChoice and entity data model property type is String. -->
+    <Property name="GridChoiceFieldName" value="MSWSSREST_GridChoiceField" />
+    <!-- The PageSeparatorFieldName property specifies the field name of PageSeparator whose field type is PageSeparator and entity data model property type is String. -->
+    <Property name="PageSeparatorFieldName" value="MSWSSREST_PageSeparatorField" />
+    <!-- The NoteFieldName property specifies the field name of Note whose field type is Note and entity data model property type is String. -->
+    <Property name="NoteFieldName" value="Description" />
+    <!-- The ChoiceFieldOptions property specifies the options of Choice field. -->
+    <Property name="ChoiceFieldOptions" value="MSWSSREST_SingleChoiceOption1, MSWSSREST_SingleChoiceOption2" />
+    <!-- The MultiChoiceFieldOptions property specifies the options of MultiChoice field. -->
+    <Property name="MultiChoiceFieldOptions" value="MSWSSREST_MultiChoiceOption1, MSWSSREST_MultiChoiceOption2" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

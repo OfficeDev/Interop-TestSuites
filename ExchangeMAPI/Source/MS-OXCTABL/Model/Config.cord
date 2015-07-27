@@ -1,0 +1,2182 @@
+// This is a Spec Explorer coordination script (Cord version 1.0).
+// Here is where you define configurations and machines describing the
+// exploration to be performed.
+
+using Microsoft.Protocols.TestSuites.MS_OXCTABL;
+using Microsoft.Protocols.TestSuites.Common;
+
+// General configuration with the actions, bounds, and switches.
+config Actions
+{     
+    action all IMS_OXCTABLAdapter;
+            
+    switch StateBound = 1024000;
+    switch StepBound = 1024000;
+    switch PathDepthBound = 1024000;
+    switch TestClassBase="ptf"; 
+    switch quiescencetimeout = 2000000;
+    switch GeneratedTestPath = "..\\TestSuite";
+    switch GeneratedTestNamespace = "Microsoft.Protocols.TestSuites.MS_OXCTABL";
+    switch TestCaseName = "MSOXCTABL_$MachineName$";
+    
+    switch ForExploration = true;
+	switch TestEnabled = false;
+}
+
+// Constructs a machine from the model program. 
+// Since the model is not finite, this machine explodes
+// and exploration is stopped by a bound.
+machine OXCTABLModelProgramCoverage() : Actions
+{   
+    construct model program from Actions 
+}
+
+
+// Scenario S01 definition for testing the success for the RopSetColumns ROP
+machine S01_ColumnRops_SetColumnsSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);	
+	(	
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);  
+		)
+	)
+}
+
+// Sliced model based on S01_ColumnRops_SetColumnsSuccess_Scenario
+machine S01_ColumnRops_SetColumnsSuccess_SlicedModel(): Actions
+{
+    S01_ColumnRops_SetColumnsSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S01 Test Suite Definition: test the success for the RopSetColumns ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S01_ColumnRops_SetColumnsSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S01_ColumnRops_SetColumnsSuccess_SlicedModel       
+}
+
+// Scenario S01 definition for testing the ecInvalidParam error code for the RopSetColumns ROP
+machine S01_ColumnRops_SetColumnsecInvalidParam_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,true,false,false);
+		)
+	) 
+}
+
+// Sliced model based on S01_ColumnRops_SetColumnsecInvalidParam_Scenario
+machine S01_ColumnRops_SetColumnsecInvalidParam_SlicedModel(): Actions
+{
+    S01_ColumnRops_SetColumnsecInvalidParam_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S01 Test Suite Definition: test the ecInvalidParam error code for the RopSetColumns ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S01_ColumnRops_SetColumnsecInvalidParam_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S01_ColumnRops_SetColumnsecInvalidParam_SlicedModel        
+}
+
+// Scenario S01 definition for testing the ecNotSupported error code for the RopSetColumns ROP
+machine S01_ColumnRops_SetColumnsecNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.INVALID_TABLE);
+			RopSetColumns(1,false,false,false); 
+		)
+	)                      
+}
+
+// Sliced model based on S01_ColumnRops_SetColumnsecNotSupported_Scenario
+machine S01_ColumnRops_SetColumnsecNotSupported_SlicedModel(): Actions
+{
+    S01_ColumnRops_SetColumnsecNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S01 Test Suite Definition: test the ecNotSupported error code for the RopSetColumns ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S01_ColumnRops_SetColumnsecNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S01_ColumnRops_SetColumnsecNotSupported_SlicedModel        
+}
+
+// Scenario S01 definition for testing the success for the QueryColumnsAll ROP
+machine S01_ColumnRops_QueryColumnsAllSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable({TableType.CONTENT_TABLE,TableType.HIERARCHY_TABLE,TableType.RULES_TABLE});	
+			RopSetColumns(1,false,false,false);
+			RopQueryColumnsAll;
+		)
+	)                 
+}
+
+// Sliced model based on S01_ColumnRops_QueryColumnsAllSuccess_Scenario
+machine S01_ColumnRops_QueryColumnsAllSuccess_SlicedModel(): Actions
+{
+    S01_ColumnRops_QueryColumnsAllSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S01 Test Suite Definition: test the success for the QueryColumnsAll ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S01_ColumnRops_QueryColumnsAllSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S01_ColumnRops_QueryColumnsAllSuccess_SlicedModel      
+}
+
+// Scenario S01 definition for testing the ecNotSupported error code for the QueryColumnsAll ROP
+machine S01_ColumnRops_QueryColumnsAllecNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.INVALID_TABLE);
+			RopQueryColumnsAll; 
+        )
+	)
+}
+
+// Sliced model based on S01_ColumnRops_QueryColumnsAllecNotSupported_Scenario
+machine S01_ColumnRops_QueryColumnsAllecNotSupported_SlicedModel(): Actions
+{
+    S01_ColumnRops_QueryColumnsAllecNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S01 Test Suite Definition: test the ecNotSupported error code for the QueryColumnsAll ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S01_ColumnRops_QueryColumnsAllecNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S01_ColumnRops_QueryColumnsAllecNotSupported_SlicedModel       
+}
+
+// Scenario S02 definition for testing the ecNullObject error code for the QueryRows ROP
+machine S02_RowRops_QueryRowsecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(867, out _);
+			CheckRequirementEnabled(866, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true)
+          )
+	)
+}
+
+// Sliced model based on S02_RowRops_QueryRowsecNullObject_Scenario
+machine S02_RowRops_QueryRowsecNullObject_SlicedModel(): Actions
+{
+    S02_RowRops_QueryRowsecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test the ecNullObject error code for the QueryRows ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_QueryRowsecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_QueryRowsecNullObject_SlicedModel       
+}
+
+// Scenario S02 definition for testing the ecNotSupported error code for the QueryRows ROP
+machine S02_RowRops_QueryRowsecNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.INVALID_TABLE);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true) 
+        )
+	)
+}
+
+// Sliced model based on S02_RowRops_QueryRowsecNotSupported_Scenario
+machine S02_RowRops_QueryRowsecNotSupported_SlicedModel(): Actions
+{
+    S02_RowRops_QueryRowsecNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test the ecNotSupported error code for the QueryRows ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_QueryRowsecNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_QueryRowsecNotSupported_SlicedModel       
+}
+
+// Scenario S02 definition for testing success for the QueryRows ROP
+machine S02_RowRops_QueryRowsSuccess_Scenario() : Actions
+{
+		call CheckMAPIHTTPTransportSupported(out _);
+		(
+			return CheckMAPIHTTPTransportSupported(out false);
+			|
+			(
+				return CheckMAPIHTTPTransportSupported(out true);
+				InitializeTable(TableType.CONTENT_TABLE);
+				RopSetColumns(1,false,false,false);             
+				CheckRequirementEnabled(768, out _);
+				CheckRequirementEnabled(866, out _);
+				CheckRequirementEnabled(867, out _);
+				RopQueryRows(QueryRowsFlags.Advance,true);  
+				CheckRequirementEnabled(610, out _);   
+				RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false) 
+            )
+        )           
+}
+
+// Sliced model based on S02_RowRops_QueryRowsSuccess_Scenario
+machine S02_RowRops_QueryRowsSuccess_SlicedModel(): Actions
+{
+    S02_RowRops_QueryRowsSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the QueryRows ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_QueryRowsSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_QueryRowsSuccess_SlicedModel
+}
+
+// Scenario S02 definition for testing the ecNotSupported error code for the QueryPosition ROP
+machine S02_RowRops_QueryPositionNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.INVALID_TABLE);     
+			RopQueryPosition;
+		)
+	)
+}
+
+// Sliced model based on S02_RowRops_QueryPositionNotSupported_Scenario
+machine S02_RowRops_QueryPositionNotSupported_SlicedModel(): Actions
+{
+    S02_RowRops_QueryPositionNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test the ecNotSupported error code for the QueryPositioncNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_QueryPositioncNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_QueryPositionNotSupported_SlicedModel
+}
+
+// Scenario S02 definition for testing success for the QueryPosition ROP
+machine S02_RowRops_QueryPositionSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopSetColumns(1,false,false,false);
+					RopCreateBookmark;
+					(
+						(
+							RopSortTable(1, true,false,false,false,false, false,false);
+						)
+						|
+						(
+							RopRestrict(1,true,false, false) ;  
+						)
+					);
+					RopQueryPosition;
+					RopQueryPositionResponse(CursorPosition.BEGIN, true); 	
+				)
+			    |
+				(
+					InitializeTable(TableType.RULES_TABLE); 
+				    RopQueryPosition;
+				)             
+			)  
+		)
+	)
+}
+
+// Sliced model based on S02_RowRops_QueryPositionSuccess_Scenario
+machine S02_RowRops_QueryPositionSuccess_SlicedModel(): Actions
+{
+    S02_RowRops_QueryPositionSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the QueryPosition ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_QueryPositionSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_QueryPositionSuccess_SlicedModel        
+}
+
+// Scenario S02 definition for testing success for the SeekRow ROP
+machine S02_RowRops_SeekRowSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopSetColumns(1,false,false,false);
+					CheckRequirementEnabled(768, out _);
+					CheckRequirementEnabled(866, out _);
+					CheckRequirementEnabled(867, out _);
+					RopQueryRows(QueryRowsFlags.Advance,true);  
+					CheckRequirementEnabled(610, out _);   
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false);   
+					(
+						(
+							RopSeekRow(BookmarkType.BOOKMARK_BEGINNING, true, true, true);
+							RopSeekRowResponse(true, true,false,true);
+						)
+						|
+						( 
+							RopSeekRow(BookmarkType.BOOKMARK_BEGINNING, true, true, false);
+							RopSeekRowResponse(true,false,true,true);
+						)
+						|
+						( 
+							RopSeekRow(BookmarkType.BOOKMARK_END, false, true, false);
+							RopSeekRowResponse(true,false,true,true);
+						)
+					)                                 
+				)
+				|
+				(
+					InitializeTable({TableType.HIERARCHY_TABLE,TableType.RULES_TABLE});
+					RopSetColumns(1,false,false,false);
+					RopQueryRows(QueryRowsFlags.Advance, true);  
+					CheckRequirementEnabled(610, out _);   
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_END,true);   
+					RopSeekRow(BookmarkType.BOOKMARK_BEGINNING, true, true, true);
+					RopSeekRowResponse(true, true,false,true);
+				) 
+            )
+		)
+	) 
+}
+
+// Sliced model based on S02_RowRops_SeekRowSuccess_Scenario
+machine S02_RowRops_SeekRowSuccess_SlicedModel(): Actions
+{
+    S02_RowRops_SeekRowSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the SeekRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_SeekRowSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_SeekRowSuccess_SlicedModel      
+}
+
+// Scenario S02 definition for testing the ecNotSupported error code for the SeekRow ROP
+machine S02_RowRops_SeekRowNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.INVALID_TABLE);     
+			RopSeekRow(BookmarkType.BOOKMARK_BEGINNING, false, false, false); 
+         )
+	)
+}
+
+// Sliced model based on S02_RowRops_SeekRowNotSupported_Scenario
+machine S02_RowRops_SeekRowNotSupported_SlicedModel(): Actions
+{
+    S02_RowRops_SeekRowNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test the ecNotSupported error code for the SeekRowNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_SeekRowNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_SeekRowNotSupported_SlicedModel        
+}
+
+// Scenario S02 definition for testing success for the FindRow ROP
+machine S02_RowRops_FindRowSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(  
+				(
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopQueryPosition;
+					RopQueryPositionResponse(CursorPosition.BEGIN,true);   
+					RopSetColumns(1,false,false,false);      
+					RopCreateBookmark; 
+					CheckRequirementEnabled(768, out _);
+					CheckRequirementEnabled(866, out _);
+					CheckRequirementEnabled(867, out _);
+					RopQueryRows(QueryRowsFlags.Advance,true);  
+					CheckRequirementEnabled(610, out _);   
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.CREATEBOOKMARK,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false);      
+					CheckRequirementEnabled(827, out _);  
+					RopFindRow(FindRowFlags.Forwards, {BookmarkType.BOOKMARK_CUSTOM}, true);
+					CheckRequirementEnabled(608, out _);
+					RopFindRowResponse(FindRowFlags.Forwards, true, true, true, false,true) 
+				)
+				|
+				(
+					InitializeTable({TableType.HIERARCHY_TABLE});
+					RopQueryPosition;
+					RopQueryPositionResponse(CursorPosition.BEGIN,true); 
+					RopSetColumns(1,false,false,false);        
+					RopCreateBookmark; 
+					RopQueryRows(QueryRowsFlags.Advance,true);  
+					CheckRequirementEnabled(610, out _);  
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.CREATEBOOKMARK,true,true,true,true,BookmarkType.BOOKMARK_END,true);  
+					CheckRequirementEnabled(827, out _);
+					RopFindRow(FindRowFlags.Forwards, {BookmarkType.BOOKMARK_CUSTOM}, true);
+					CheckRequirementEnabled(608, out _);
+					RopFindRowResponse(FindRowFlags.Forwards, true, true, true, false,true)  
+				)
+				|
+				(
+					InitializeTable({TableType.RULES_TABLE});
+					RopQueryPosition;
+					RopQueryPositionResponse(CursorPosition.BEGIN,true); 
+					RopSetColumns(1,false,false,false);
+					RopQueryRows(QueryRowsFlags.Advance,true);  
+					CheckRequirementEnabled(610, out _);   
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_END,true);             
+					CheckRequirementEnabled(827, out _);
+					RopFindRow(FindRowFlags.Forwards, {BookmarkType.BOOKMARK_BEGINNING}, true);
+					CheckRequirementEnabled(608, out _);
+					RopFindRowResponse(FindRowFlags.Forwards,true,_,true,false,true)
+				) 
+			)
+		)
+	)                                               
+}
+
+// Sliced model based on S02_RowRops_FindRowSuccess_Scenario
+machine S02_RowRops_FindRowSuccess_SlicedModel(): Actions
+{
+    S02_RowRops_FindRowSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the FindRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_FindRowSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_FindRowSuccess_SlicedModel       
+}
+
+// Scenario S02 definition for testing success for the FindRow before a successful SetColumns
+machine S02_RowRops_FindRowBeforeSetColumns_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable({TableType.CONTENT_TABLE});
+			CheckRequirementEnabled(827, out _);
+			RopFindRow(FindRowFlags.Forwards, {BookmarkType.BOOKMARK_BEGINNING}, true);
+        )
+	)
+}
+
+// Sliced model based on S02_RowRops_FindRowBeforeSetColumns_Scenario
+machine S02_RowRops_FindRowBeforeSetColumns_SlicedModel(): Actions
+{
+    S02_RowRops_FindRowBeforeSetColumns_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the FindRow before a successful SetColumns
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_FindRowBeforeSetColumns_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for
+    S02_RowRops_FindRowBeforeSetColumns_SlicedModel
+}
+
+// Scenario S02 definition for testing for the FindRow ROP after the bookmark is invalid
+machine S02_RowRops_FindRowAfterInvalidBookmark_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(
+				InitializeTable(TableType.CONTENT_TABLE);  
+				RopSetColumns(1,false,false,false);     
+				RopCreateBookmark; 
+				(
+					(
+						RopResetTable;
+						RopSetColumns(1,false,false,false); 
+						CheckRequirementEnabled(902, out _);                    
+						CheckRequirementEnabled(903, out _);
+						CheckRequirementEnabled(827, out _);  
+						RopFindRow(FindRowFlags.Forwards, BookmarkType.BOOKMARK_CUSTOM, true);
+					)
+					|
+					(
+						RopSortTable(1, true, false,true, true, true, false,false);
+						CheckRequirementEnabled(898, out _);  
+						CheckRequirementEnabled(899, out _);
+						CheckRequirementEnabled(827, out _);     
+						RopFindRow(FindRowFlags.Forwards, BookmarkType.BOOKMARK_CUSTOM, true);
+					)
+					|
+					(
+						RopRestrict(1,true,false,false); 
+						call CheckRequirementEnabled(900, out _); 
+                        (
+							(
+								return CheckRequirementEnabled(900, out true);  
+								CheckRequirementEnabled(827, out _);    
+								RopFindRow(FindRowFlags.Forwards, BookmarkType.BOOKMARK_CUSTOM, true);
+							)
+                            |
+                            (							
+								return CheckRequirementEnabled(900, out false);
+							)
+                        )
+					)
+				)
+			)		
+		) 
+	)
+}
+
+// Sliced model based on S02_RowRops_FindRowAfterInvalidBookmark_Scenario
+machine S02_RowRops_FindRowAfterInvalidBookmark_SlicedModel(): Actions
+{
+    S02_RowRops_FindRowAfterInvalidBookmark_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test for the FindRow ROP after the bookmark is invalid
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_FindRowAfterInvalidBookmark_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "shorttests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_FindRowAfterInvalidBookmark_SlicedModel
+}
+
+// Scenario S02 definition for testing the ecNotSupported error code for the FindRowNotSupported ROP
+machine S02_RowRops_FindRowNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(
+                (
+					InitializeTable(TableType.ATTACHMENTS_TABLE);
+					CheckRequirementEnabled(827, out _);
+					RopFindRow(FindRowFlags.Backwards, BookmarkType.BOOKMARK_CURRENT, true);    
+				)
+				|  
+				( 
+					InitializeTable(TableType.INVALID_TABLE);
+					CheckRequirementEnabled(827, out _);
+					RopFindRow(FindRowFlags.Backwards, BookmarkType.BOOKMARK_CURRENT, true);    
+				) 
+			)
+		)                                                    
+    )
+}
+
+// Sliced model based on S02_RowRops_FindRowNotSupported_Scenario
+machine S02_RowRops_FindRowNotSupported_SlicedModel(): Actions
+{
+    S02_RowRops_FindRowNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test the ecNotSupported error code for the FindRowNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_FindRowNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_FindRowNotSupported_SlicedModel
+}
+
+// Scenario S02 definition for testing success for the PareQueryRowsAfterSetColumnst ROP
+machine S02_RowRops_ParseQueryRowsAfterSetColumns_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.Advance,true);
+			CheckRequirementEnabled(610, out _);
+			RopQueryRowsResponse(
+								QueryRowsFlags.Advance,
+								true, false, TableRopType.SETCOLUMNS, 
+								true, true, true, true,BookmarkType.BOOKMARK_CURRENT,false) ;
+			RopSetColumns(2,true,false,false);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true); 
+			RopQueryRowsResponse(QueryRowsFlags.NoAdvance,
+								true, _, TableRopType.SETCOLUMNS, 
+								false, false, false, false,BookmarkType.BOOKMARK_CURRENT,true);
+			RopSetColumns(3,false,false,false);
+			RopQueryRows(QueryRowsFlags.Advance,true); 
+			RopQueryRowsResponse(
+								QueryRowsFlags.Advance,
+								true, false, TableRopType.SETCOLUMNS, 
+								true, true,true,true,BookmarkType.BOOKMARK_END,true)
+		)
+    )          
+}
+
+// Sliced model based on S02_RowRops_ParseQueryRowsAfterSetColumns_Scenario
+machine S02_RowRops_ParseQueryRowsAfterSetColumns_SlicedModel(): Actions
+{
+    S02_RowRops_ParseQueryRowsAfterSetColumns_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the PareQueryRowsAfterSetColumnsrop
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_ParseQueryRowsAfterSetColumns_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_ParseQueryRowsAfterSetColumns_SlicedModel
+}
+
+// Scenario S02 definition for testing success for the PareQueryRowsAfterSortTable ROP
+machine S02_RowRops_ParseQueryRowsAfterSortTable_Scenario() : Actions
+{
+    call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopSortTable(1,true,false, false,_,_,false,false); 
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true);
+			CheckRequirementEnabled(443, out _);
+			RopQueryRowsResponse(
+								QueryRowsFlags.NoAdvance,
+								true, false, TableRopType.SORTTABLE, 
+								true, false, true, true,_,_) ;
+			RopSetColumns(2,false,false,false);
+			RopSortTable(2,false,true, false,true,false,true,false); 
+			RopQueryRows(QueryRowsFlags.Advance,true); 
+			RopQueryRowsResponse(
+								QueryRowsFlags.Advance,
+								true, false, TableRopType.SORTTABLE, 
+								true, true, false, true,_,_);
+			RopSortTable(3,true,true, false,true,true,false,false); 
+			RopQueryRows(QueryRowsFlags.Advance,true); 
+			RopQueryRowsResponse(
+								QueryRowsFlags.Advance,
+								true, false, TableRopType.SORTTABLE, 
+								true, true, true, true,BookmarkType.BOOKMARK_CURRENT,false)
+		)
+    )         
+}
+
+// Sliced model based on S02_RowRops_ParseQueryRowsAfterSortTable_Scenario
+machine S02_RowRops_ParseQueryRowsAfterSortTable_SlicedModel(): Actions
+{
+    S02_RowRops_ParseQueryRowsAfterSortTable_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the PareQueryRowsAfterSortTable
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_ParseQueryRowsAfterSortTable_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_ParseQueryRowsAfterSortTable_SlicedModel
+}
+
+// Scenario S02 definition for testing success for the PareQueryRowsAfterrestrict ROP
+machine S02_RowRops_ParseQueryRowsAfterRestrict_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopRestrict(1,true, false, false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true);
+			CheckRequirementEnabled(456, out _);
+			RopQueryRowsResponse(
+								QueryRowsFlags.NoAdvance,
+								true, false, TableRopType.RESTRICT, 
+								true, false, true, true,_,true) ;
+			RopSetColumns(2,false,false,false);
+			RopRestrict(2,false,true, false);
+			RopQueryRows(QueryRowsFlags.Advance,true); 
+			RopQueryRowsResponse(QueryRowsFlags.Advance,
+								true, false, TableRopType.RESTRICT, 
+								true, true, false, true,_,true);
+			RopRestrict(3,true, false, false);
+			RopQueryRows(QueryRowsFlags.Advance,true); 
+			RopQueryRowsResponse(QueryRowsFlags.Advance,
+								true, false, TableRopType.RESTRICT, 
+								true, true, true, true,_,true)
+		)
+    )          
+}
+
+// Sliced model based on S02_RowRops_ParseQueryRowsAfterRestrict_Scenario
+machine S02_RowRops_ParseQueryRowsAfterRestrict_SlicedModel(): Actions
+{
+    S02_RowRops_ParseQueryRowsAfterRestrict_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the PareQueryRows after restrict
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_ParseQueryRowsAfterRestrict_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_ParseQueryRowsAfterRestrict_SlicedModel
+}
+
+// Scenario S02 definition for testing for the ParseQueryRows after setColumns failed
+machine S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,true,false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true); 
+			RopQueryRowsResponse(QueryRowsFlags.NoAdvance,true,_,TableRopType.SETCOLUMNS,_,false,false,false,_,false);
+		)                                                   
+    )
+}
+
+// Sliced model based on S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_Scenario
+machine S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_SlicedModel(): Actions
+{
+    S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test for the ParseQueryRows after setColumns failed
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_SlicedModel
+}
+
+// Scenario S02 definition for testing success for the search at backward ROP
+machine S02_RowRops_Backward_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.HIERARCHY_TABLE);
+			RopSetColumns(1,false,false,false);
+			(
+				(               
+					RopQueryRows(QueryRowsFlags.Advance,false); 
+					CheckRequirementEnabled(896, out _);
+					CheckRequirementEnabled(897, out _);                     
+					RopQueryRowsResponse(QueryRowsFlags.Advance,false,true,TableRopType.SETCOLUMNS,true,false,false,false,_,true);
+					RopRestrict(1,true,false,false);
+					RopQueryRows(QueryRowsFlags.Advance,true);
+					CheckRequirementEnabled(456, out _);
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.RESTRICT,true,true,true,true,BookmarkType.BOOKMARK_END,true);
+					RopQueryRows(QueryRowsFlags.Advance,false);
+					RopQueryRowsResponse(QueryRowsFlags.Advance,false,false,TableRopType.RESTRICT,true,true,true,true,{BookmarkType.BOOKMARK_END,BookmarkType.BOOKMARK_BEGINNING},true);
+				)
+				|
+				(
+					CheckRequirementEnabled(827, out _);
+					RopFindRow(FindRowFlags.Backwards,{BookmarkType.BOOKMARK_END},true);
+					CheckRequirementEnabled(608, out _);
+					RopFindRowResponse(FindRowFlags.Backwards,true, true, true, false,true);
+				) 
+			)
+		)                                                     
+    )
+}
+
+// Sliced model based on S02_RowRops_Backward_Scenario
+machine S02_RowRops_Backward_SlicedModel(): Actions
+{
+    S02_RowRops_Backward_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test success for the search at backward ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_Backward_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S02_RowRops_Backward_SlicedModel
+}
+
+// Scenario S03 definition for testing success for the SeekRowBookMark ROP
+machine S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(	
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopSetColumns(1,false,false,false);
+					RopQueryPosition;
+					RopQueryPositionResponse(_,true);
+					RopCreateBookmark;
+					(	
+						(
+							CheckRequirementEnabled(872, out _);
+							CheckRequirementEnabled(761, out _);
+							RopSeekRowBookmark(true, true, true);
+							RopSeekRowBookmarkResponse(true, true, false, true, false)
+						)
+						|
+						(
+							CheckRequirementEnabled(872, out _);
+							CheckRequirementEnabled(761, out _);
+							RopSeekRowBookmark(false, true, false);
+							RopSeekRowBookmarkResponse(true, false, true, true, false) 
+						)
+						|
+						(	
+							CheckRequirementEnabled(872, out _);
+							CheckRequirementEnabled(761, out _);
+							RopSeekRowBookmark(true, true, false);
+							RopSeekRowBookmarkResponse(true, false, true, true, false) 
+						)
+					)
+				)
+				|
+				(	
+					InitializeTable(TableType.HIERARCHY_TABLE);
+					RopSetColumns(1,false,false,false);
+					RopCreateBookmark;
+					CheckRequirementEnabled(872, out _);
+					CheckRequirementEnabled(761, out _);
+					RopSeekRowBookmark(true, true, true);
+					RopSeekRowBookmarkResponse(true, true, false, true, false)                                      
+				) 
+			)
+		)
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario
+machine S03_BookmarkRops_SeekRowBookMarkSuccess_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test success for the SeekRowBookMark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowBookMarkSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowBookMarkSuccess_SlicedModel
+}
+
+// Scenario S03 definition for testing the ecNotSupported error code for the SeekRowBookMarkNotSupported ROP
+machine S03_BookmarkRops_SeekRowBookMarkNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(
+					InitializeTable(TableType.INVALID_TABLE);
+					RopSeekRowBookmark(true, true, true); 
+				)         
+				|	
+				(
+					InitializeTable(TableType.ATTACHMENTS_TABLE);
+					RopSeekRowBookmark(true, true, true); 
+                )
+			)
+		)								
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowBookMarkNotSupported_Scenario
+machine S03_BookmarkRops_SeekRowBookMarkNotSupported_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowBookMarkNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNotSupported error code for the SeekRowBookMarkNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowBookMarkNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowBookMarkNotSupported_SlicedModel
+}
+
+// Scenario S03 definition for testing the SeekRowBookmark ROP after the bookmark is invalid
+machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopCreateBookmark;  
+			(
+				(
+					RopResetTable;  
+					call CheckRequirementEnabled(909, out _);
+					(
+						(
+							return CheckRequirementEnabled(909, out false);
+						)
+						|
+						(
+							return CheckRequirementEnabled(909, out true);
+							CheckRequirementEnabled(872, out _);
+							CheckRequirementEnabled(761, out _); 
+							RopSeekRowBookmark(true, true, true);
+						)
+					)
+				)
+				|
+				(
+					RopSortTable(1, true, false,true, true, true, false,false);
+					CheckRequirementEnabled(904, out _);  
+					CheckRequirementEnabled(905, out _); 
+					CheckRequirementEnabled(872, out _);
+					CheckRequirementEnabled(761, out _);    
+					RopSeekRowBookmark(true, true, true);
+				)	
+				|
+				(
+					RopRestrict(1,true,false,false);   
+					call CheckRequirementEnabled(906, out _);
+					(
+						return CheckRequirementEnabled(906, out false);
+						|
+						(
+							return CheckRequirementEnabled(906, out true);
+							CheckRequirementEnabled(872, out _);
+							CheckRequirementEnabled(761, out _);      
+							RopSeekRowBookmark(true, true, true);
+						)
+					)  
+				) 
+			)
+		)                           
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario
+machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test for the SeekRowBookmark ROP after the bookmark is invalid
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_SlicedModel
+}
+
+// Scenario S03 definition for testing success for the SeekRowFractional ROP
+machine S03_BookmarkRops_SeekRowFractionalSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(	         
+					call CheckRequirementEnabled(910, out _);
+					(	
+						return CheckRequirementEnabled(910, out false);
+						|
+						(	
+							return CheckRequirementEnabled(910, out true);
+							InitializeTable(TableType.CONTENT_TABLE);
+							RopSetColumns(1,false,false,false);
+							CheckRequirementEnabled(768, out _);
+							CheckRequirementEnabled(866, out _);
+							CheckRequirementEnabled(867, out _);
+							RopQueryRows(QueryRowsFlags.Advance,true);  
+							CheckRequirementEnabled(610, out _);
+							RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false);   
+							(
+								(
+									RopSeekRowFractional(false,false);
+									RopSeekRowFractionalResponse(false,false,CursorPosition.CURRENT)
+								)
+								|
+								(
+									RopSeekRowFractional(true,false);
+									RopSeekRowFractionalResponse(true,false,CursorPosition.BEGIN)
+								)
+								|
+								(
+									RopSeekRowFractional(false,true);
+									RopSeekRowFractionalResponse(false,true,CursorPosition.END)
+								);
+							)
+						)
+					)
+				)
+				|
+				(    
+					call CheckRequirementEnabled(910, out _);
+					(
+						return CheckRequirementEnabled(910, out false);
+						|
+						(
+							return CheckRequirementEnabled(910, out true);
+							InitializeTable({TableType.HIERARCHY_TABLE,TableType.RULES_TABLE});
+							RopSetColumns(1,false,false,false);
+							RopQueryRows(QueryRowsFlags.Advance,true);  
+							CheckRequirementEnabled(610, out _);
+							RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_END,true);        
+							RopSeekRowFractional(false,false);
+							RopSeekRowFractionalResponse(false,false,CursorPosition.CURRENT)
+					    )
+				    )
+                )  
+			)
+		)                                             
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowFractionalSuccess_Scenario
+machine S03_BookmarkRops_SeekRowFractionalSuccess_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowFractionalSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test success for the SeekRowFractional ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowFractionalSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowFractionalSuccess_SlicedModel
+}
+
+// Scenario S03 definition for testing the ecNotSupported error code for the SeekRowFractionalNotSupported ROP
+machine S03_BookmarkRops_SeekRowFractionalNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			call CheckRequirementEnabled(910, out _);
+			(
+				return CheckRequirementEnabled(910, out false);
+				|
+				(	
+					return CheckRequirementEnabled(910, out true);
+					InitializeTable(TableType.INVALID_TABLE);   
+					RopSeekRowFractional(false,false); 
+				) 
+			)
+		)               
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowFractionalNotSupported_Scenario
+machine S03_BookmarkRops_SeekRowFractionalNotSupported_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowFractionalNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNotSupported error code for the SeekRowFractionalNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowFractionalNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowFractionalNotSupported_SlicedModel
+}
+
+// Scenario S03 definition for testing CreateBookmark ROP before RopSetColumns
+machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopCreateBookmark;
+			call CheckRequirementEnabled(872, out _);
+			(
+				return CheckRequirementEnabled(872, out false);
+				|
+				(
+					return CheckRequirementEnabled(872, out true);
+					CheckRequirementEnabled(761, out _);
+					RopSeekRowBookmark(true, true, true); 
+				)
+			) 
+		)                               
+    ) 
+}
+
+// Sliced model based on S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario
+machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel(): Actions
+{
+    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test for CreateBookmark ROP before RopSetColumns
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel
+}
+
+// Scenario S03 definition for testing the ecNotSupported error code for the CreateBookmarkNotSupported ROP
+machine S03_BookmarkRops_CreateBookmarkNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(
+					InitializeTable(TableType.ATTACHMENTS_TABLE);
+					RopCreateBookmark;
+				)
+				|  
+				(
+					InitializeTable(TableType.INVALID_TABLE);
+					RopCreateBookmark;
+                )
+			)
+		)         
+	)
+}
+
+// Sliced model based on S03_BookmarkRops_CreateBookmarkNotSupported_Scenario
+machine S03_BookmarkRops_CreateBookmarkNotSupported_SlicedModel(): Actions
+{
+    S03_BookmarkRops_CreateBookmarkNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNotSupported error code for the CreateBookmarkNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_CreateBookmarkNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_CreateBookmarkNotSupported_SlicedModel
+}
+
+// Scenario S03 definition for testing success Freebookmark ROP on hierarchy table object
+machine S03_BookmarkRops_Freebookmark_HierarchyTable_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.HIERARCHY_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopCreateBookmark;
+			CheckRequirementEnabled(549, out _);     
+			RopFreeBookmark;
+			CheckRequirementEnabled(872, out _);
+			CheckRequirementEnabled(761, out _);
+			RopSeekRowBookmark(true, true, true);
+		)
+	)	
+}
+
+// Sliced model based on S03_BookmarkRops_Freebookmark_HierarchyTable_Scenario
+machine S03_BookmarkRops_Freebookmark_HierarchyTable_SlicedModel(): Actions
+{
+    S03_BookmarkRops_Freebookmark_HierarchyTable_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test success for the Freebookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_Freebookmark_HierarchyTable_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_Freebookmark_HierarchyTable_SlicedModel
+}
+
+// Scenario S03 definition for testing success Freebookmark ROP on content table object
+machine S03_BookmarkRops_Freebookmark_ContentTable_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(		
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopSetColumns(1,false,false,false);
+					RopQueryPosition;
+					RopQueryPositionResponse(_,true);
+					RopCreateBookmark;
+					CheckRequirementEnabled(549, out _);   
+					RopFreeBookmark;    
+				)
+				|
+				(
+					InitializeTable(TableType.CONTENT_TABLE);
+					RopSetColumns(1,false,false,false);
+					RopQueryPosition;
+					RopQueryPositionResponse(_,true);
+					RopCreateBookmark;
+					(	 
+						(
+							RopResetTable; 
+							RopResetTableResponse(TableRopType.CREATEBOOKMARK,true);
+							CheckRequirementEnabled(549, out _);   
+							RopFreeBookmark;
+						)
+						|
+						(
+							RopSortTable(1, true, false,true, true, true, false,false);
+							CheckRequirementEnabled(549, out _);   
+							RopFreeBookmark;
+						)
+						|
+						(
+							RopRestrict(1,true,false,false);  
+							CheckRequirementEnabled(549, out _);   
+							RopFreeBookmark;
+                        )
+					)
+				) 
+			)
+		)                             
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_Freebookmark_ContentTable_Scenario
+machine S03_BookmarkRops_Freebookmark_ContentTable_SlicedModel(): Actions
+{
+    S03_BookmarkRops_Freebookmark_ContentTable_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test success for the Freebookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_Freebookmark_ContentTable_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_Freebookmark_ContentTable_SlicedModel
+}
+
+// Scenario S03 definition for testing the ecNotSupported error code for the FreebookmarkNotSupported ROP
+machine S03_BookmarkRops_FreebookmarkNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+            (
+				(
+					InitializeTable(TableType.ATTACHMENTS_TABLE); 
+					CheckRequirementEnabled(549, out _);         
+					RopFreeBookmark;
+				)
+				| 
+				(
+					InitializeTable(TableType.INVALID_TABLE);   
+					CheckRequirementEnabled(549, out _);       
+					RopFreeBookmark; 
+                )
+			)
+		)                             
+    )
+}
+
+// Sliced model based on S03_BookmarkRops_FreebookmarkNotSupported_Scenario
+machine S03_BookmarkRops_FreebookmarkNotSupported_SlicedModel(): Actions
+{
+    S03_BookmarkRops_FreebookmarkNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNotSupported error code for the FreebookmarkNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_FreebookmarkNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_FreebookmarkNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing success for the CollapseorExpandRow ROP
+machine S04_ExpandRowRops_CollapseorExpandRow_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSortTable(1, true, false,true, true, true, false,false); 
+			RopSetColumns(1,false,false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.Advance,true);
+			CheckRequirementEnabled(610, out _);
+			RopQueryRowsResponse(QueryRowsFlags.Advance,
+								true, false, TableRopType.SETCOLUMNS, 
+								true, true, true, true,BookmarkType.BOOKMARK_CURRENT,false) ;     
+			(	 
+				( 
+					(
+						CheckRequirementEnabled(748, out _);
+						RopExpandRow(false,false,false);
+						RopExpandRowResponse
+					)
+					|
+					(
+						RopCollapseRow(false,false);
+					)
+				)
+				|
+				(
+					(
+						CheckRequirementEnabled(748, out _);
+						RopExpandRow(false,true,false);
+					)
+					|
+					(
+						RopCollapseRow(false,true);
+					)
+				)
+				| 
+				(
+					(
+						CheckRequirementEnabled(748, out _);
+						RopExpandRow(true,false,false);
+					)
+					|
+					(
+						RopCollapseRow(true,false);
+					)
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRow_Scenario
+machine S04_ExpandRowRops_CollapseorExpandRow_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_CollapseorExpandRow_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test success for the CollapseorExpandRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_CollapseorExpandRow_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_CollapseorExpandRow_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNotSupported error code for the CollapseorExpandRowNotSupported ROP
+machine S04_ExpandRowRops_CollapseorExpandRowNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(      
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))        
+				|  
+				(InitializeTable(TableType.INVALID_TABLE))
+			);    
+			( 
+				(
+					CheckRequirementEnabled(748, out _);
+					RopExpandRow(false,false,false);
+					RopExpandRowResponse(false);
+				)
+				|
+				(
+					RopCollapseRow(false,false);
+				)
+			)
+		)
+    )
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowNotSupported_Scenario
+machine S04_ExpandRowRops_CollapseorExpandRowNotSupported_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_CollapseorExpandRowNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNotSupported error code for the CollapseorExpandRowNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_CollapseorExpandRowNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_CollapseorExpandRowNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNotSupported error code for the CollapseorExpandRowMaxRowCountinvalid ROP
+machine S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE); 
+			RopSortTable(1, true, true, false, true, false, false,false);
+			RopSetColumns(1,false,false,false);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true);
+			CheckRequirementEnabled(610, out _);
+			RopQueryRowsResponse(QueryRowsFlags.NoAdvance,true, false, TableRopType.SETCOLUMNS,true, false, true, true,_,false) ;
+			CheckRequirementEnabled(748, out _);   
+			RopExpandRow(false,false,true);
+		)
+    )
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_Scenario
+machine S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNotSupported error code for the CollapseorExpandRowMaxRowCountinvalid ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_SlicedModel
+}
+
+// Scenario S04 definition for testing success for the GetorSetCollapseRow ROP
+machine S04_ExpandRowRops_GetorSetCollapseRow_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE); 
+			(
+				(RopSortTable(1, true, true, false, true, false, false,false))
+				|
+				(RopSortTable(1, true, true, false, false, true, false,false))
+			);
+			RopSetColumns(1,false,false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.Advance,true);
+			CheckRequirementEnabled(610, out _);
+			RopQueryRowsResponse(QueryRowsFlags.Advance,true, false, TableRopType.SETCOLUMNS, 
+								true, true, true, true,BookmarkType.BOOKMARK_CURRENT,false) ; 
+			RopGetCollapseState;
+			RopGetCollapseStateResponse(false, false);
+			(
+				(
+					CheckRequirementEnabled(748, out _);
+					RopExpandRow(false,false,false);
+					RopExpandRowResponse
+				)			
+				|
+				(
+					RopCollapseRow(false,false);
+				)
+			);       
+			RopGetCollapseState;
+			RopGetCollapseStateResponse(false, false);
+			RopSetCollapseState;
+			RopGetCollapseState;
+			RopGetCollapseStateResponse(true, true);
+        )                                                      
+    )
+}
+
+// Sliced model based on S04_ExpandRowRops_GetorSetCollapseRow_Scenario
+machine S04_ExpandRowRops_GetorSetCollapseRow_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_GetorSetCollapseRow_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test success for the CollapseorExpandRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_GetorSetCollapseRow_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_GetorSetCollapseRow_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNotSupported error code for the GetorSetCollapseRowNotSupported ROP
+machine S04_ExpandRowRops_GetorSetCollapseRowNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))
+				|
+				(InitializeTable(TableType.INVALID_TABLE))
+			);                                             
+			(
+				(
+					RopGetCollapseState;
+					RopGetCollapseStateResponse(false, false)
+				)
+				|        
+				( 
+					RopSetCollapseState;
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_GetorSetCollapseRowNotSupported_Scenario
+machine S04_ExpandRowRops_GetorSetCollapseRowNotSupported_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_GetorSetCollapseRowNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNotSupported error code for the GetorSetCollapseRowNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_GetorSetCollapseRowNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_GetorSetCollapseRowNotSupported_SlicedModel
+}
+
+// Scenario S05 definition for testing success for the ResetTable ROP
+machine S05_ResetSortTableRops_ResetTableSuccess_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.Advance,true);  
+			CheckRequirementEnabled(610, out _);
+			RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.SETCOLUMNS,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false);
+			RopSeekRow(BookmarkType.BOOKMARK_BEGINNING, true, true, true);
+			RopResetTable; 
+			RopResetTableResponse(TableRopType.MOVECURSOR,true);
+		)
+	)
+}
+
+// Sliced model based on S05_ResetSortTableRops_ResetTableSuccess_Scenario
+machine S05_ResetSortTableRops_ResetTableSuccess_SlicedModel(): Actions
+{
+    S05_ResetSortTableRops_ResetTableSuccess_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S05 Test Suite Definition: test success for the ResetTable ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S05_ResetSortTableRops_ResetTableSuccess_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S05_ResetSortTableRops_ResetTableSuccess_SlicedModel
+}
+
+// Scenario S05 definition for testing the ecNotSupported error code for the ResetTableNotSupported ROP
+machine S05_ResetSortTableRops_ResetTableNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(	
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))
+				|
+				(InitializeTable(TableType.INVALID_TABLE))
+			);                            
+			RopResetTable   
+		)
+    )
+}
+
+// Sliced model based on S05_ResetSortTableRops_ResetTableNotSupported_Scenario
+machine S05_ResetSortTableRops_ResetTableNotSupported_SlicedModel(): Actions
+{
+    S05_ResetSortTableRops_ResetTableNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S05 Test Suite Definition: test the ecNotSupported error code for the ResetTableNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S05_ResetSortTableRops_ResetTableNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S05_ResetSortTableRops_ResetTableNotSupported_SlicedModel
+}
+
+// Scenario S05 definition for testing success for the SortTable ROP
+machine S05_ResetSortTableRops_SortTable_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopSortTable(1, true, true, true,false,false, false,false);
+			CheckRequirementEnabled(768, out _);
+			CheckRequirementEnabled(866, out _);
+			CheckRequirementEnabled(867, out _);
+			RopQueryRows(QueryRowsFlags.NoAdvance,true);
+			CheckRequirementEnabled(443, out _);
+			RopQueryRowsResponse(QueryRowsFlags.NoAdvance,true, false, TableRopType.SORTTABLE,true, false, true, true,_,true);  
+        )                                           
+    )
+}
+
+// Sliced model based on S05_ResetSortTableRops_SortTable_Scenario
+machine S05_ResetSortTableRops_SortTable_SlicedModel(): Actions
+{
+    S05_ResetSortTableRops_SortTable_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S05 Test Suite Definition: test success for the SortTable ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S05_ResetSortTableRops_SortTable_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S05_ResetSortTableRops_SortTable_SlicedModel
+}
+
+// Scenario S05 definition for testing the ecNotSupported error code for the SortTableNotSupported ROP
+machine S05_ResetSortTableRops_SortTableNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			(
+				(InitializeTable(TableType.HIERARCHY_TABLE))
+				|
+				(InitializeTable(TableType.INVALID_TABLE))
+			);                                        
+			RopSortTable(1, true, true, false, true,true, true,false);
+		)
+    )
+}
+
+// Sliced model based on S05_ResetSortTableRops_SortTableNotSupported_Scenario
+machine S05_ResetSortTableRops_SortTableNotSupported_SlicedModel(): Actions
+{
+    S05_ResetSortTableRops_SortTableNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S05 Test Suite Definition: test the ecNotSupported error code for the SortTableNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S05_ResetSortTableRops_SortTableNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S05_ResetSortTableRops_SortTableNotSupported_SlicedModel
+}
+
+// Scenario S06 definition for testing success for the Restrict ROP
+machine S06_RestrictRop_Restrict_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);
+			RopCreateBookmark;
+			(	
+				(
+					RopRestrict(1,true,false, false) ;  
+					CheckRequirementEnabled(768, out _);
+					CheckRequirementEnabled(866, out _);
+					CheckRequirementEnabled(867, out _);
+					RopQueryRows(QueryRowsFlags.Advance,true); 
+					CheckRequirementEnabled(456, out _);
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true, false, TableRopType.RESTRICT, 
+										true, true, true, true,BookmarkType.BOOKMARK_END,true);
+				)
+				|
+				( 
+					RopRestrict(1,true,false, false) ;  
+					RopResetTable; 
+					RopResetTableResponse(TableRopType.RESTRICT,true);
+					RopSetColumns(1,false,false,false); 
+					CheckRequirementEnabled(610, out _);
+					RopQueryRows(QueryRowsFlags.Advance,true); 
+					RopQueryRowsResponse(QueryRowsFlags.Advance,true, false, TableRopType.SETCOLUMNS, 
+										true, true, false, false,BookmarkType.BOOKMARK_CURRENT,false);
+				)
+			)
+		)                                                       
+    )
+}
+
+// Sliced model based on S06_RestrictRop_Restrict_Scenario
+machine S06_RestrictRop_Restrict_SlicedModel(): Actions
+{
+    S06_RestrictRop_Restrict_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S06 Test Suite Definition: test success for the Restrict ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S06_RestrictRop_Restrict_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S06_RestrictRop_Restrict_SlicedModel 
+}
+
+// Scenario S06 definition for testing the ecNotSupported error code for the RestrictNotSupported ROP
+machine S06_RestrictRop_RestrictNotSupported_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			(
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))
+				|     
+				(InitializeTable(TableType.INVALID_TABLE))
+			);                       
+			RopRestrict(1,true,false, false);
+		)
+    )
+}
+
+// Sliced model based on S06_RestrictRop_RestrictNotSupported_Scenario
+machine S06_RestrictRop_RestrictNotSupported_SlicedModel(): Actions
+{
+    S06_RestrictRop_RestrictNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S06 Test Suite Definition: test the ecNotSupported error code for the RestricNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S06_RestrictRop_RestrictNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S06_RestrictRop_RestrictNotSupported_SlicedModel
+}
+
+// Scenario S07 definition for testing the ecNotSupported error code for the AbortNotSupported ROP
+machine S07_AsyncRops_AbortNotSupported_Scenario() : Actions
+{	
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+
+			// RopAbort is not implemented on exchange server 2010 and above      
+			CheckRequirementEnabled(791, out _);
+			(
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))
+				|
+				(InitializeTable(TableType.INVALID_TABLE))
+			);   
+			RopAbort(out _)
+		)
+    )
+}
+
+// Sliced model based on S07_AsyncRops_AbortNotSupported_Scenario
+machine S07_AsyncRops_AbortNotSupported_SlicedModel(): Actions
+{
+    S07_AsyncRops_AbortNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the ecNotSupported error code for the RestricNotSupported ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_AbortNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_AbortNotSupported_SlicedModel
+}
+
+// Scenario S07 definition for testing the ecNotSupported error code for the GetStatusNotSupported ROP
+machine S07_AsyncRops_GetStatusNotSupported_Scenario() : Actions
+{	
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+				
+			// GetStatus is not implemented on exchagne server 2010       
+			CheckRequirementEnabled(792, out _);
+			(
+				(InitializeTable(TableType.ATTACHMENTS_TABLE))
+				| 
+				(InitializeTable(TableType.INVALID_TABLE))
+			);                           
+			RopGetStatus(out _)  
+		)
+    )
+}
+
+// Sliced model based on S07_AsyncRops_GetStatusNotSupported_Scenario
+machine S07_AsyncRops_GetStatusNotSupported_SlicedModel(): Actions
+{
+    S07_AsyncRops_GetStatusNotSupported_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the ecNotSupported error code for the GetStatusNotSupportedrop.
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_GetStatusNotSupported_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_GetStatusNotSupported_SlicedModel
+}
+
+// Scenario S07 definition for testing all the SetColumns asynchronous ROPS 
+machine S07_AsyncRops_SetColumnsAsynchronous_Scenario() : Actions
+{	
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1, false,false,true);  
+		)
+    )
+}
+
+// Sliced model based on S07_AsyncRops_SetColumnsAsynchronous_Scenario
+machine S07_AsyncRops_SetColumnsAsynchronous_SlicedModel(): Actions
+{
+    S07_AsyncRops_SetColumnsAsynchronous_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the SetColumns asynchronous ROPS
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_SetColumnsAsynchronous_TestSuite(): Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_SetColumnsAsynchronous_SlicedModel()
+}
+
+// Scenario S07 definition for testing all the SortTable asynchronous ROPS 
+machine S07_AsyncRops_SortTableAsynchronous_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable(TableType.CONTENT_TABLE);
+			RopSetColumns(1,false,false,false);                 
+			RopSortTable(1, true,false, false,true,false, false,true);
+		)
+    )
+}
+
+// Sliced model based on S07_AsyncRops_SortTableAsynchronous_Scenario
+machine S07_AsyncRops_SortTableAsynchronous_SlicedModel(): Actions
+{
+    S07_AsyncRops_SortTableAsynchronous_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the SortTable asynchronous ROPS 
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_SortTableAsynchronous_TestSuite(): Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_SortTableAsynchronous_SlicedModel()
+}
+
+// Scenario S07 definition for testing all the Restrict asynchronous Rops 
+machine S07_AsyncRops_RestrictAsynchronous_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable({TableType.CONTENT_TABLE,TableType.HIERARCHY_TABLE,TableType.RULES_TABLE});
+			RopSetColumns(1,false,false,false);
+			RopRestrict(1,true,false,true);
+		)
+    )
+}
+
+// Sliced model based on S07_AsyncRops_RestrictAsynchronous_Scenario
+machine S07_AsyncRops_RestrictAsynchronous_SlicedModel(): Actions
+{
+    S07_AsyncRops_RestrictAsynchronous_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the Restrict asynchronous ROPS 
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_RestrictAsynchronous_TestSuite(): Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_RestrictAsynchronous_SlicedModel()
+}
+
+// Scenario S07 definition for testing GetStatus and Abort Rops 
+machine S07_AsyncRops_GetStatusAndAbort_Scenario() : Actions
+{	
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);	
+			InitializeTable({TableType.CONTENT_TABLE,TableType.HIERARCHY_TABLE,TableType.RULES_TABLE});
+			RopSetColumns(1,false,false,true);
+			CheckRequirementEnabled(791, out _);
+			CheckRequirementEnabled(792, out _);
+			(	  
+				(RopGetStatus;)
+				|
+				(RopAbort;)
+			)
+        )                     
+    )
+}
+
+// Sliced model based on S07_AsyncRops_GetStatusAndAbort_Scenario
+machine S07_AsyncRops_GetStatusAndAbort_SlicedModel(): Actions
+{
+    S07_AsyncRops_GetStatusAndAbort_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S07 Test Suite Definition: test the GetStatus and Abort asynchronous ROPS 
+// The TestEnable switch should be set to true for generating test suite code
+machine S07_AsyncRops_GetStatusAndAbort_TestSuite(): Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S07_AsyncRops_GetStatusAndAbort_SlicedModel()
+}

@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E96DC9C-60DE-48E2-A35E-08FA55D157EC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCTABL</RootNamespace>
+    <AssemblyName>MS-OXCTABL_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Microsoft.SpecExplorer.Runtime" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-OXCTABL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCTABL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCTABL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCTABL_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-OXCTABL_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-OXCTABL_Adapter.csproj">
+      <Project>{01A08DD2-EFAC-48D3-8978-11971A282B0C}</Project>
+      <Name>MS-OXCTABL_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-OXCTABL_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_ColumnRops_QueryColumnsAllecNotSupported_TestSuite.cs" />
+    <Compile Include="S01_ColumnRops_QueryColumnsAllSuccess_TestSuite.cs" />
+    <Compile Include="S01_ColumnRops_SetColumnsecInvalidParam_TestSuite.cs" />
+    <Compile Include="S01_ColumnRops_SetColumnsecNotSupported_TestSuite.cs" />
+    <Compile Include="S01_ColumnRops_SetColumnsSuccess_TestSuite.cs" />
+    <Compile Include="S02_RowRops_Backward_TestSuite.cs" />
+    <Compile Include="S02_RowRops_FindRowAfterInvalidBookmark_TestSuite.cs" />
+    <Compile Include="S02_RowRops_FindRowBeforeSetColumns_TestSuite.cs" />
+    <Compile Include="S02_RowRops_FindRowNotSupported_TestSuite.cs" />
+    <Compile Include="S02_RowRops_FindRowSuccess_TestSuite.cs" />
+    <Compile Include="S02_RowRops_ParseQueryRowsAfterRestrict_TestSuite.cs" />
+    <Compile Include="S02_RowRops_ParseQueryRowsAfterSetColumnsFailed_TestSuite.cs" />
+    <Compile Include="S02_RowRops_ParseQueryRowsAfterSetColumns_TestSuite.cs" />
+    <Compile Include="S02_RowRops_ParseQueryRowsAfterSortTable_TestSuite.cs" />
+    <Compile Include="S02_RowRops_QueryPositioncNotSupported_TestSuite.cs" />
+    <Compile Include="S02_RowRops_QueryPositionSuccess_TestSuite.cs" />
+    <Compile Include="S02_RowRops_QueryRowsecNotSupported_TestSuite.cs" />
+    <Compile Include="S02_RowRops_QueryRowsecNullObject_TestSuite.cs" />
+    <Compile Include="S02_RowRops_QueryRowsSuccess_TestSuite.cs" />
+    <Compile Include="S02_RowRops_SeekRowNotSupported_TestSuite.cs" />
+    <Compile Include="S02_RowRops_SeekRowSuccess_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_CreateBookmarkNotSupported_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_FreebookmarkNotSupported_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_Freebookmark_ContentTable_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_Freebookmark_HierarchyTable_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowBookMarkNotSupported_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowBookMarkSuccess_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowFractionalNotSupported_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowFractionalSuccess_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_CollapseorExpandRowNotSupported_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_CollapseorExpandRow_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_GetorSetCollapseRowNotSupported_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_GetorSetCollapseRow_TestSuite.cs" />
+    <Compile Include="S05_ResetSortTableRops_ResetTableNotSupported_TestSuite.cs" />
+    <Compile Include="S05_ResetSortTableRops_ResetTableSuccess_TestSuite.cs" />
+    <Compile Include="S05_ResetSortTableRops_SortTableNotSupported_TestSuite.cs" />
+    <Compile Include="S05_ResetSortTableRops_SortTable_TestSuite.cs" />
+    <Compile Include="S06_RestrictRop_RestrictNotSupported_TestSuite.cs" />
+    <Compile Include="S06_RestrictRop_Restrict_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_AbortNotSupported_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_GetStatusAndAbort_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_GetStatusNotSupported_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_RestrictAsynchronous_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_SetColumnsAsynchronous_TestSuite.cs" />
+    <Compile Include="S07_AsyncRops_SortTableAsynchronous_TestSuite.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

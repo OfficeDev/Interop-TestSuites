@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<my:myFields xmlns:my=
+      "http://schemas.microsoft.com/office/infopath/2003/myXSD" >
+  <my:FieldName_Comments>[AlertTodoUpdatedValue]</my:FieldName_Comments>
+</my:myFields>
+

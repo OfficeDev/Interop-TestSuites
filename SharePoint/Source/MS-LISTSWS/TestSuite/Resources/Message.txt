@@ -1,0 +1,21 @@
+﻿Subject: TestDiscussion
+Date: Mon, 3 Nov 2008 17:49:24 +0800
+Message-ID: <000a01c93d99$74245ac0$5cbbb040$@Domain>
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_000B_01C93DDC.82479AC0"
+X-Mailer: Microsoft Office Outlook 12.0
+Thread-Index: Ack9mXQPVbIqwkmxaaa6yqaKQvfUMQ==
+Content-Language: zh-cn
+
+This is a multipart message in MIME format.
+
+------=_NextPart_000_000B_01C93DDC.82479AC0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Add a discussion board item to a list.
+
+
+------=_NextPart_000_000B_01C93DDC.82479AC0--

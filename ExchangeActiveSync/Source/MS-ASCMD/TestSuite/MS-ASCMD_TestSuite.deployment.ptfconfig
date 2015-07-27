@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The User1Name property specifies the name for a user who has FullControl permission to the shared folder specified in the SharedFolder property. -->
+    <Property name="User1Name" value="MSASCMD_User01" />
+    <!-- The User1Password property specifies the password for the user specified in the User1Name property. The property value is case-sensitive. -->
+    <Property name="User1Password" value="Password01!" />
+    <!-- The User2Name property specifies the name for a user who does not have Read permission to the shared folder specified in the SharedFolder property. -->
+    <Property name="User2Name" value="MSASCMD_User02" />
+    <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
+    <Property name="User2Password" value="Password01!" />
+    <!-- The User3Name property specifies the name for a user who should have the required permissions to perform administrative tasks, and be able to send a secure email to the user specified in the property User9Name. -->
+    <Property name="User3Name" value="MSASCMD_User03" />
+    <!-- The User3Password property specifies the password for the user specified in the User3Name property. The property value is case-sensitive. -->
+    <Property name="User3Password" value="Password01!" />
+    <!-- The User7Name property specifies the name for a user who should be a delegated user specified in the User8Name property. -->
+    <Property name="User7Name" value="MSASCMD_User07" />
+    <!-- The User7Password property specifies the password for the user specified in the User7Name property. The property value is case-sensitive. -->
+    <Property name="User7Password" value="Password01!" />
+    <!-- The User8Name property specifies the name for a user who should have a delegated user specified in the User7Name property. -->
+    <Property name="User8Name" value="MSASCMD_User08" />
+    <!-- The User8Password property specifies the password for the user specified in the User8Name property. The property value is case-sensitive. -->
+    <Property name="User8Password" value="Password01!" />
+    <!-- The User9Name property specifies the name for a user who should be able to receive secure email sent by the user specified in the User3Name property. -->
+    <Property name="User9Name" value="MSASCMD_User09" />
+    <!-- The User9Password property specifies the password for the user specified in the User9Name property. The property value is case-sensitive. -->
+    <Property name="User9Password" value="Password01!" />
+    <!--The SharedFolder property specifies the Universal Naming Convention (UNC) path of the shared folder on the server. -->
+    <Property name="SharedFolder" value="\\[SutComputerName]\MSASCMD_SharedFolder"/>
+    <!--The AmbiguousSearchName property specifies the name for a user who should be able to search for ambiguous names by using the ResolveRecipients operation. -->
+    <Property name="AmbiguousSearchName" value="MSASCMD_SearchUser"/>
+    <!--The GroupDisplayName property specifies the display name of a distribution group used by the ResolveRecipients operation. -->
+    <Property name="GroupDisplayName" value="MSASCMD_TestGroup"/>
+    <!--The LargeGroupDisplayName property specifies the display name of a large group (contains 21 or more users) used by the ResolveRecipients operation. -->
+    <Property name="LargeGroupDisplayName" value="MSASCMD_LargeGroup"/>
+    <!--The AcceptableResponseSchema property specifies the URL used by the Autodiscover service. -->
+    <Property name="AcceptableResponseSchema" value="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006"/>
+    <!-- The SharedDocument1 specifies the UNC path of the shared non-empty document. -->
+    <Property name="SharedDocument1" value="[SharedFolder]\MSASCMD_Non-emptyDocument.txt"/>
+    <!-- The SharedDocument2 specifies the UNC path of the shared empty document. -->
+    <Property name="SharedDocument2" value="[SharedFolder]\MSASCMD_EmptyDocument.txt"/>
+    <!-- The MIMEMailSubject property specifies the subject of the MIME email. The subject is set in the SUT configuration script. Don't modify this value if you configured the SUT using the ExchangeSUTConfiguration.ps1 script. -->
+    <Property name="MIMEMailSubject" value="MSASCMD_SecureEmailForTest"/>
+    <!-- SUT section ends. -->
+    </Properties>
+</TestSite>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E76CE3A-5827-4AC3-82FB-6B691B51359F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCFXICS</RootNamespace>
+    <AssemblyName>MS-OXCFXICS_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Xrt.Runtime, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\FastTransferStream\FastTransferStream.cs" />
+    <Compile Include="Helper\FastTransferStream\IStreamDeserializable.cs" />
+    <Compile Include="Helper\FastTransferStream\IStreamSerializable.cs" />
+    <Compile Include="Helper\FastTransferStream\LexicalBase.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\CodePage.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\DispidGroupNamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\DispidNamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\FixedPropTypePropValue.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\GroupNamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\GroupTypedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\MvPropTypePropValue.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\NamedPropIdGroupTypedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\NamedPropIdPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\NamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\NameGroupNamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\NameNamedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\PropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\PropValue.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\TaggedPropIdGroupTypedPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\TaggedPropIdPropInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Lexical\VarPropTypePropValue.cs" />
+    <Compile Include="Helper\FastTransferStream\SyntacticalBase.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\Attachment.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\AttachmentContent.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\ContentsSync.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\Deletions.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\EmbeddedMessage.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\ErrorInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\FolderChange.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\FolderContent.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\FolderMessages.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\GroupInfo.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\HierarchySync.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\Message.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageChange.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageChangeFull.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageChangeHeader.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageChangePartial.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageChildren.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageContent.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\MessageList.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\ProgressPerMessage.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\ProgressTotal.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\PropList.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\ReadStateChanges.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\Recipient.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\State.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\SubFolder.cs" />
+    <Compile Include="Helper\FastTransferStream\Syntactical\TopFolder.cs" />
+    <Compile Include="Helper\FastTransferStream\Tuple.cs" />
+    <Compile Include="Helper\PropertyDataType.cs" />
+    <Compile Include="Helper\TableFlags.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\Structures\AddressBookEntryId.cs" />
+    <Compile Include="Helper\Structures\AuxBlock.cs" />
+    <Compile Include="Helper\Structures\CN.cs" />
+    <Compile Include="Helper\Structures\Command\BitmaskCommand.cs" />
+    <Compile Include="Helper\Structures\Command\Command.cs" />
+    <Compile Include="Helper\Structures\Command\EndCommand.cs" />
+    <Compile Include="Helper\Structures\Command\PopCommand.cs" />
+    <Compile Include="Helper\Structures\Command\PushCommand.cs" />
+    <Compile Include="Helper\Structures\Command\RangeCommand.cs" />
+    <Compile Include="Helper\Structures\CommonByteStack.cs" />
+    <Compile Include="Helper\Structures\Enums\AbstractFastTransferStream.cs" />
+    <Compile Include="Helper\Structures\Enums\ConflictInfo.cs" />
+    <Compile Include="Helper\Structures\Enums\Enums.cs" />
+    <Compile Include="Helper\Structures\Enums\AttachmentProperties.cs" />
+    <Compile Include="Helper\Structures\Enums\EnumHelper.cs" />
+    <Compile Include="Helper\Structures\Enums\FolderProperties.cs" />
+    <Compile Include="Helper\Structures\Enums\LexicalTypeHelper.cs" />
+    <Compile Include="Helper\Structures\Enums\Markers.cs" />
+    <Compile Include="Helper\Structures\Enums\MarkersHelper.cs" />
+    <Compile Include="Helper\Structures\Enums\MessageProperties.cs" />
+    <Compile Include="Helper\Structures\Enums\RootStreamType.cs" />
+    <Compile Include="Helper\Structures\ExtendedErrorInfo.cs" />
+    <Compile Include="Helper\Structures\FieldHelper.cs" />
+    <Compile Include="Helper\Structures\FolderId.cs" />
+    <Compile Include="Helper\Structures\FolderReplicaInfo.cs" />
+    <Compile Include="Helper\Structures\GID.cs" />
+    <Compile Include="Helper\Structures\GLOBCNT.cs" />
+    <Compile Include="Helper\Structures\GLOBSET.cs" />
+    <Compile Include="Helper\Structures\GroupPropertyName.cs" />
+    <Compile Include="Helper\Structures\ICSStateData.cs" />
+    <Compile Include="Helper\Structures\IStructDeserializable.cs" />
+    <Compile Include="Helper\Structures\IDSET.cs" />
+    <Compile Include="Helper\Structures\IStructSerializable.cs" />
+    <Compile Include="Helper\Structures\MessageId.cs" />
+    <Compile Include="Helper\Structures\PredecessorChangeList.cs" />
+    <Compile Include="Helper\Structures\ProgressInformation.cs" />
+    <Compile Include="Helper\Structures\PropertyGroup.cs" />
+    <Compile Include="Helper\Structures\PropertyGroupInfo.cs" />
+    <Compile Include="Helper\Structures\REPLGUID_IDSET.cs" />
+    <Compile Include="Helper\Structures\REPLGUID_IDSETElement.cs" />
+    <Compile Include="Helper\Structures\REPLID_IDSET.cs" />
+    <Compile Include="Helper\Structures\REPLID_IDSETElement.cs" />
+    <Compile Include="Helper\Structures\SerializableBase.cs" />
+    <Compile Include="Helper\Structures\SerializableFieldAttribute.cs" />
+    <Compile Include="Helper\Structures\SerializableObjectAttribute.cs" />
+    <Compile Include="Helper\Structures\Serializer.cs" />
+    <Compile Include="Helper\Structures\ServerID.cs" />
+    <Compile Include="IMS-OXCFXICSAdapter.cs" />
+    <Compile Include="MS-OXCFXICSAdapter.cs" />
+    <Compile Include="Helper\Structures\SizedXid.cs" />
+    <Compile Include="Helper\Structures\StreamBufferContent.cs" />
+    <Compile Include="Helper\Structures\StreamHelper.cs" />
+    <Compile Include="Helper\Structures\StringEncodingAttribute.cs" />
+    <Compile Include="Helper\Structures\StructureSerializer.cs" />
+    <Compile Include="Helper\Structures\XID.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

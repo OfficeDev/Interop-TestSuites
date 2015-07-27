@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ListType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Tasks"/>
+      <xs:enumeration value="Documents"/>
+      <xs:enumeration value="Links"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Editor"/>
+      <xs:enumeration value="Reader"/>
+      <xs:enumeration value="Contributor"/>
+      <xs:enumeration value="WebDesigner"/>
+      <xs:enumeration value="Administrator"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

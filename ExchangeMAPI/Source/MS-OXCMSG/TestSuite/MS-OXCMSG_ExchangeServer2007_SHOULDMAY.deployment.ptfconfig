@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R496Enabled to true to verify that for property PidTagMessageClass, the length of PtypString is fewer than 128 characters because some operations require extending the value of PidTagMessageClass property. Set R496Enabled to false to disable this requirement.-->
+    <Property name="R496Enabled" value="true"/>
+    <!-- Set R661Enabled to true to verify that server supports the read-only flag of RopOpenMessage. Set R661Enabled to false to disable this requirement.-->
+    <Property name="R661Enabled" value="true"/>
+    <!-- Set R1713Enabled to true to verify that implementation supports the PidTagTrustSender property. Set R1713Enabled to false to disable this requirement.-->
+    <Property name="R1713Enabled" value="true"/>
+    <!-- Set R1915Enabled to true to verify that for RopCreateMessage, implementation initializes the PidTagAccess property to 0x00000003. Set R1915Enabled to false to disable this requirement.-->
+    <Property name="R1915Enabled" value="true"/>
+    <!-- Set R1914Enabled to true to verify that for RopCreateMessage, implementation initializes the PidTagAccess property to 0x00000007. Set R1914Enabled to false to disable this requirement.-->
+    <Property name="R1914Enabled" value="false"/>
+    <!-- Set R1912Enabled to true to verify that for RopCreateMessage, implementation initializes the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId and PidTagLastModificationTime. Set R1912Enabled to false to disable this requirement.-->
+    <Property name="R1912Enabled" value="true"/>
+    <!-- Set R1920Enabled to true to verify that for RopCreateAttachment, implementation initializes the PidTagAccessLevel property to 0x00000001. Set R1920Enabled to false to disable this requirement.-->
+    <Property name="R1920Enabled" value="true"/>
+    <!-- Set R1921Enabled to true to verify that for RopCreateAttachment, implementation initializes the PidTagLastModificationTime property the same as the PidTagCreationTime property. Set R1921Enabled to false to disable this requirement.-->
+    <Property name="R1921Enabled" value="true"/>
+    <!-- Set R1651Enabled to true to verify that for RopCreateAttachment, implementation initializes the PidTagLastModificationTime property to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property. Set R1651Enabled to false to disable this requirement.-->
+    <Property name="R1651Enabled" value="false"/>
+    <!-- Set R1650Enabled to true to verify that for RopCreateAttachment, implementation initializes the PidTagAccessLevel property to 0x00000000. Set R1650Enabled to false to disable this requirement.-->
+    <Property name="R1650Enabled" value="false"/>
+    <!-- Set R1919Enabled to true to verify that for RopCreateAttachment, implementation initializes the PidTagAttachSize property to 0x00000040. Set R1919Enabled to false to disable this requirement.-->
+    <Property name="R1919Enabled" value="true"/>
+    <!-- Set R1112Enabled to true to verify that for RopSaveChangesMessage, implementation doesn't return an error if pending changes include changes to read-only properties. Set R1112Enabled to false to disable this requirement.-->
+    <Property name="R1112Enabled" value="true"/>
+    <!-- Set R1714Enabled to true to verify that for Message objects, implementation does support the PidTagNativeBody property. Set R1714Enabled to false to disable this requirement.-->
+    <Property name="R1714Enabled" value="false"/>
+    <!-- Set R1705Enabled to true to verify that for ROP RopSetReadFlags , implementation does return a RopSetReadFlags ROP response if the WantAsynchronous flag is nonzero. Set R1705Enabled to false to disable this requirement.-->
+    <Property name="R1705Enabled" value="true"/>
+    <!-- Set R1706Enabled to true to verify that for ROP RopSetReadFlags , implementation doesn't return a RopProgress ROP response instead if the WantAsynchronous flag is nonzero. Set R1706Enabled to false to disable this requirement.-->
+    <Property name="R1706Enabled" value="true"/>
+    <!-- Set R1643Enabled to true to verify that for ROP RopSaveChangesMessage , implementation does return Success for RopSaveChangesMessage ROP requests ([MS-OXCROPS] section 2.2.6.3) when a previous request has already been committed against the Message object, even though the changes to the object are not actually committed to the server store. Set R1643Enabled to false to disable this requirement.-->
+    <Property name="R1643Enabled" value="false"/>
+    <!-- Set R1644Enabled to true to verify that for ROP RopSaveChangesMessage , implementation does return a GeneralFailure error if pending changes include changes to read-only properties [about RopSaveChangeMessage]. Set R1644Enabled to false to disable this requirement.-->
+    <Property name="R1644Enabled" value="false"/>
+    <!-- Set R1916Enabled to true to verify that for ROP RopSaveChangesMessage , implementation doesn't return Success for RopSaveChangesMessage ROP requests when a previous request has already been committed against the Message object, even though the changes to the object are not actually committed to the server store. Set R1916Enabled to false to disable this requirement.-->
+    <Property name="R1916Enabled" value="true"/>
+    <!-- Set R1917Enabled to true to verify that for ROP RopSetReadFlags , implementation does support this behavior [disable asynchronous processing of the RopSetReadFlags ROP and doesn't return the RopProgress ROP whether or not the WantAsynchronous flag is set if the SUPPORT_PROGRESS flag is not set by the client in the OpenFlags field in the RopLogon ROP].Set R1917Enabled to false to disable this requirement.-->
+    <Property name="R1917Enabled" value="false"/>
+    <!-- Set R911Enabled to true to verify that server supports the read-only flag of RopOpenEmbeddedMessage. Set R911Enabled to false to disable this requirement.-->
+    <Property name="R911Enabled" value="true"/>
+    <!-- Set R1922Enabled to true to verify that for RopSaveChangesAttachment, implementation doesn't return an error if pending changes include changes to read-only property PidTagAttachSize. Set R1922Enabled to false to disable this requirement.-->
+    <Property name="R1922Enabled" value="true"/>
+    <!-- Set R1715Enabled to true to verify that implementation supports the RopGetValidAttachments ROP. Set R1715Enabled to false to disable this requirement.-->
+    <Property name="R1715Enabled" value="true"/>
+    <!-- Set R1909Enabled to true to verify that for PidTagRetentionFlags property, implementation does support the NeedsRescan flag. Set R1909Enabled to false to disable this requirement.-->
+    <Property name="R1909Enabled" value="false"/>
+    <!-- Set R1911Enabled to true to verify that for PidTagRetentionFlags property, implementation does support the PendingRescan flag. Set R1911Enabled to false to disable this requirement.-->
+    <Property name="R1911Enabled" value="false"/>
+    <!-- Set R2192Enabled to true to verify that the implementation ignore the KeepOpenReadOnly flag. Set R2192Enabled to false to disable this requirement.-->
+    <Property name="R2192Enabled" value="false"/>
+    <!-- Set R2193Enabled to true to verify that the implementation returns a success code and keeps the Message object open with read-only access. Set R2193Enabled to false to disable this requirement.-->
+    <Property name="R2193Enabled" value="true"/>
+    <!-- Set R10000Enabled to true to verify that the implementation does support MAPIHTTP transport. Set R10000Enabled to false to disable this requirement.-->
+    <Property name="R10000Enabled" value="false"/>
+  </Properties>
+</TestSite>

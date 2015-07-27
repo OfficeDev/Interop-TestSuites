@@ -1,0 +1,41 @@
+<!--This file provides configuration values to the setup configuration script in case the script runs in unattended mode). 
+    Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. --> 
+<Properties>
+  <!-- The dnsDomain property specifies the domain name. -->
+  <Property name="dnsDomain" value="contoso.com" />
+  <!-- The sutComputerName property specifies the name of the SUT. -->
+  <Property name="sutComputerName" value="SUT01" />
+  <!-- The sutVersion property specifies the version of the SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product.
+        The supported values are:
+        "1", the SUT is Microsoft Exchange Server 2007 Service Pack 3 (SP3);
+        "2", the SUT is Microsoft Exchange Server 2010 Service Pack 3 (SP3);
+        "3", the SUT is Microsoft Exchange Server 2013 Service Pack 1 (SP1). -->
+  <Property name="sutVersion" value="1" />
+  <!-- The protocolVersion property specifies the version of ActiveSync protocol that the test suites use while communicating with the server.
+        Applies to Exchange Server 2010 and 2013 only.
+        The supported values are:
+        "1", the protocol version is 12.1;
+        "2", the protocol version is 14.0;
+        "3", the protocol version is 14.1. -->
+  <Property name="protocolVersion" value="1" />
+  <!-- The transportType property specifies the transport used to transfer messages between the client and the SUT (server).
+           The supported values are:
+           "1", the transport is HTTP;
+           "2", the transport is HTTPS. -->
+  <Property name="transportType" value="1" />
+   <!-- The runOnNonRecommendedOS property specifies whether to run the client setup script when the operating system is not the recommended version. 
+		The supported values are:
+		"1", run the client setup script;
+		"2", exit the client setup script. --> 
+  <Property name="runOnNonRecommendedOS" value="1" />
+  <!-- The runWithoutRequiredAppInstalled property specifies whether to continue running the client setup script without installing the required application(s). 
+		The supported values are:
+		"1", continue running the client setup script;
+		"2", exit and install the required application(s). --> 
+  <Property name="runWithoutRequiredAppInstalled" value="1" /> 
+  <!-- The headerEncodingType property specifies the encoding scheme for the URL query string. 
+		The supported values are:
+		"1", Test suites will use base64 encoding for the URL query string;
+		"2", Test suites will use plaintext encoding for the URL query string. --> 
+  <Property name="headerEncodingType" value="1" /> 
+</Properties>

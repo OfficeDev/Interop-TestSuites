@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R115Enabled to true to verify that if the client sets the FolderOwner flag, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions. Set R115Enabled to false to disable this requirement.-->
+    <Property name="R115Enabled" value="true"/>
+    <!-- Set R1184Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1184Enabled to false to disable this requirement.-->
+    <Property name="R1184Enabled" value="true"/>
+  </Properties>
+</TestSite>

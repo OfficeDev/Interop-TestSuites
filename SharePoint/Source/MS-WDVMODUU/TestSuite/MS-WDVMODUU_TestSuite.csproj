@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{453D8F54-2161-4EEA-AEDF-11898FC16615}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_WDVMODUU</RootNamespace>
+    <AssemblyName>MS-WDVMODUU_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+    <Compile Include="S02_IgnoredHeaders.cs" />
+    <Compile Include="S03_PropFindExtension.cs" />
+    <Compile Include="S01_XVirusInfectedHeader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-WDVMODUU_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_TestSuite.ptfconfig" />
+    <None Include="MS-WDVMODUU_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-WDVMODUU_RequirementSpecification.xml" />
+    <Content Include="Resources\New_File004.txt" />
+    <Content Include="Resources\Test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-WDVMODUU_Adapter.csproj">
+      <Project>{64B77338-C91D-4432-BE08-2A97290C215F}</Project>
+      <Name>MS-WDVMODUU_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

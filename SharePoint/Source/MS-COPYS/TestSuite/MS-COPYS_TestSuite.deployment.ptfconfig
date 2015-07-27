@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The SourceSutComputerName property specifies the computer name of the SUT, which is used as the source SUT when calling the "CopyIntoItems" operation. The source SUT contains the source document library. If this property value is string.empty, the test suite will not run the test cases for "CopyIntoItems" operation.-->
+    <Property name="SourceSutComputerName" value="" />
+    <!-- The TargetServiceUrlOfSourceSUT property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrlOfSourceSUT" value="[TransportType]://[SourceSutComputerName]/sites/[SiteCollectionName]/_vti_bin/copy.asmx" />
+    <!-- The SiteCollectionName property specifies the name of the site collection which is used by the test suite. -->
+    <Property name="SiteCollectionName" value="MSCOPYS_SiteCollection" />
+    <!-- The MeetingWorkSpaceSiteName property specifies the name of the meeting workspace site which is used by the test suite. This site is under the site collection which is indicated in the "SiteCollectionName" property.-->
+    <Property name="MeetingWorkSpaceSiteName" value="MSCOPYS_SubSiteMeetingWorkspace" />
+    <!-- The SourceDocLibraryName property specifies the name of the document library where the source file will be copied and stored. -->
+    <Property name="SourceDocLibraryName" value="MSCOPYS_SourceDocumentLibrary" />
+    <!-- The MeetingWorkSpaceDocLibrary property specifies the name of the document library where the file will be copied to. This document library is under the meeting workspace which is indicated in the "MeetingWorkSpaceSiteName" property. -->
+    <Property name="MeetingWorkSpaceDocLibrary" value="MSCOPYS_SubSiteDocumentLibrary" />
+    <!-- The DestinationDocLibrary property specifies the name of the document library where the file will be copied to. -->
+    <Property name="DestinationDocLibrary" value="MSCOPYS_DestinationDocumentLibrary" />
+    <!-- The SourceFileContents specifies the file contents of the source file. The value will be used to compute the base64 string. The binaries of the file contents uploaded into the document library must be encoded with the UTF8 format.-->
+    <Property name="SourceFileContents" value="MSCOPYS_SourceFile" />
+    <!-- The SourceFileUrlOnSourceSUT property specifies the absolute URL of the source file which will be copied. The file is stored in the source document library on the source SUT and its contents must be equal to the value of the "SourceFileContents" property. The property is used by the "CopyIntoItems" operation. The file name must be "MSCOPYSSourceFile.txt". The source file is stored in the source document library which is inidicated in the "SourceDocLibraryName" property. -->
+    <Property name="SourceFileUrlOnSourceSUT" value="[TransportType]://[SourceSutComputerName]/sites/[SiteCollectionName]/[SourceDocLibraryName]/MSCOPYS_SourceFile.txt" />
+    <!-- The SourceFileUrlOnDesSUT property specifies the absolute URL of the source file which will be copied. The file is stored in the source document library on the destination SUT and its contents must be equal to the value of the "SourceFileContents" property. The property is used by the "CopyIntoItemsLocal" operation. The file name must be "MSCOPYSSourceFile.txt". The source file is stored in the source document library which is inidicated in the "SourceDocLibraryName" property. -->
+    <Property name="SourceFileUrlOnDesSUT" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[SourceDocLibraryName]/MSCOPYS_SourceFile.txt" />
+    <!-- The TargetServiceUrlOfDestinationSUT property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrlOfDestinationSUT" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/copy.asmx" />
+    <!-- The UrlPatternOfDesFileOnDestinationSUT property specifies the URL pattern of a destination file which is copied to the destination SUT. The value must contain "{FileName}" placeholder. If the value does not contain "{FileName}" placeholder, the test suite will throw an exception. All destination files copied to the destination SUT are stored in the destination document library on the destination SUT, which is indicated in the "DestinationDocLibraryOnDestinationSUT" property. -->
+    <Property name="UrlPatternOfDesFileOnDestinationSUT" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[DestinationDocLibrary]/{FileName}" />
+    <!-- The UrlPatternOfDesFileForMWSOnDestinationSUT property specifies the URL pattern of a destination file which is copied to the meeting workspace on the destination SUT. The value must contain "{FileName}" placeholder. If the value does not contain "{FileName}" placeholder, the test suite will throw an exception. The URL pattern points to a destination document library under the Meeting Work Space on the destination SUT, whose name is indicated in the "MeetingWorkSpaceDocLibrary" property. -->
+    <Property name="UrlPatternOfDesFileForMWSOnDestinationSUT" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[MeetingWorkSpaceSiteName]/[MeetingWorkSpaceDocLibrary]/{FileName}" />
+    <!-- The FieldNameOfTestReadOnly property specifies the name of a field used to test the read-only field. The destination document library indicated in the "DestinationDocLibrary" property should contain a read-only field and its name equal to the property value. All source document libraries in the source SUT and the destination SUT should contain a non-read-only field with the name equal to the property value. -->
+    <Property name="FieldNameOfTestReadOnly" value="MSCOPYS_TestReadOnlyFiled" />
+    <!-- The FieldDefaultValueOfTestReadOnlyOnSourceDocLibrary property specifies the default value of a field in the source document library, whose name is indicated in the "FieldNameOfTestReadOnly" property. All source document libraries in the source SUT and destination SUT shoud contain a non-read-only field with the default value equal to the property value. -->
+    <Property name="FieldDefaultValueOfTestReadOnlyOnSourceDocLibrary" value="MSCOPYS_Source" />
+    <!-- The FieldDefaultValueOfTestReadOnlyOnDesDocLibrary property specifies the default value of a field in the destination document library, whose name is indicated in the "FieldNameOfTestReadOnly" property. The destination document libraries in the destination SUT shoud contain a read-only field with the default value equal to the property value. -->
+    <Property name="FieldDefaultValueOfTestReadOnlyOnDesDocLibrary" value="MSCOPYS_Destination" />
+    <!-- The FieldNameOfTestWorkflowEventType property specifies the name of a field used to test the mapping type. The field must be WorkflowEventType. The field must be added into the the destination document library indicated in the "DestinationDocLibrary" property in the destination SUT. This field must be added into all source document libraries both in the source SUT and the destination SUT.-->
+    <Property name="FieldNameOfTestWorkflowEventType" value="MSCOPYS_WorkFlowEventFiled" />
+    <!-- The MSCOPYSCheckOutUserName property specifies the domain user name which can be used by the test suite to perform "CheckOut" or "UndoCheckOut" action for a file on the destination SUT. It must not be different from the default user indicated in the "UserName" property in the "SharePointCommonConfiguration.deployment.ptfconfig" file. -->
+    <Property name="MSCOPYSCheckOutUserName" value="MSCOPYS_EditUser" />
+    <!-- The PasswordOfCheckOutUser property specifies the password of the user defined in the "MSCOPYSCheckOutUserName" property. The property value is case-sensitive. -->
+    <Property name="PasswordOfCheckOutUser" value="Password01!" />
+    <!-- The MSCOPYSNoPermissionUser property specifies the domain user name which does not have any permissions on the target site collection on the destination SUT. It must not be different from the default user indicated in the "UserName" property in the "SharePointCommonConfiguration.deployment.ptfconfig" file. -->
+    <Property name="MSCOPYSNoPermissionUser" value="MSCOPYS_limitUser" />
+    <!-- The PasswordOfNoPermissionUser property specifies the password of the user defined in the "MSCOPYSNoPermissionUser" property. The property value is case-sensitive. -->
+    <Property name="PasswordOfNoPermissionUser" value="Password01!" />
+    <!-- SUT section ends. -->
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The ServiceTimeOut property specifies the time (in minutes) that a synchronous XML Web service request waits for the MS-LISTSWS web service to respond. The MS-LISTSWS is the transport protocol of MS-COPYS. The value must be an integer. -->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

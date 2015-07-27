@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
+    "AirSyncBase" xmlns:settings="Settings" xmlns="Provision"
+    targetNamespace="Provision" elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+  <xs:element name="Provision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="settings:DeviceInformation" minOccurs="0"/>
+        <xs:element name="Status" type="xs:unsignedByte"/>
+        <xs:element name="Policies" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Policy">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="PolicyType"/>
+                    <xs:element name="Status" type="xs:unsignedByte"/>
+                    <xs:element ref="PolicyKey" minOccurs="0"/>
+                    <xs:element name="Data" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="EASProvisionDoc"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RemoteWipe" type="airsyncbase:EmptyTag"
+            minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

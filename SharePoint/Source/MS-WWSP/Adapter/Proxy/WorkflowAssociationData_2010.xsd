@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SchemaXsds>
+
+  <xsd:schema
+  id ="PartnerControls"
+  targetNamespace="http://schemas.microsoft.com/office/infopath/2007/PartnerControls"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields"
+  xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls">
+    <xsd:element name="Person">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="pc:DisplayName" minOccurs="0"/>
+          <xsd:element ref="pc:AccountId" minOccurs="0"/>
+          <xsd:element ref="pc:AccountType" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DisplayName" type="xsd:string"/>
+    <xsd:element name="AccountId" type="xsd:string"/>
+    <xsd:element name="AccountType" type="xsd:string"/>
+  </xsd:schema>
+  
+  <xsd:schema
+  id ="dataFields"
+  targetNamespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields"
+  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/workflow/"
+  xmlns:s1="http://microsoft.com/wsdl/types/"
+  xmlns:xd="http://schemas.microsoft.com/office/infopath/2003"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields"
+  xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls">
+ <s:import namespace="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" id="PartnerControls"/>
+ <xsd:element name="SharePointListItem_RW">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element ref="d:Approvers" />
+          <xsd:any/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+ <xsd:element name="Approvers">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:element name="Assignment"  minOccurs="0">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Assignee"  minOccurs="1" nillable="true">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element ref="pc:Person" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+                <xsd:any />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+  </xsd:element>
+  
+ </xsd:schema>
+  
+  <xsd:schema
+    id="dataFormSolution"
+    targetNamespace="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"
+    xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core"
+    xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"
+    xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/workflow/"
+    xmlns:s1="http://microsoft.com/wsdl/types/"
+    xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD"
+    xmlns:xd="http://schemas.microsoft.com/office/infopath/2003"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:s="http://www.w3.org/2001/XMLSchema"
+    xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields">
+
+   <s:import namespace="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" id="dataFields"/>
+    <xsd:element name="myFields">
+      <xsd:complexType>
+        <xsd:sequence>
+          <xsd:any processContents="skip" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:complexType name="dataFields">
+        <xsd:sequence>
+          <xsd:element ref="d:SharePointListItem_RW"/>
+        </xsd:sequence>
+    </xsd:complexType>
+  </xsd:schema>
+  
+</SchemaXsds>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6407E5EA-0906-4CF9-9490-A37221DB2302}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_DWSS</RootNamespace>
+    <AssemblyName>MS-DWSS_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-DWSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-DWSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-DWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-DWSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-DWSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-DWSS_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-DWSS_TestSuite.ptfconfig" />
+    <None Include="MS-DWSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_ManageSites.cs" />
+    <Compile Include="S02_ManageData.cs" />
+    <Compile Include="S03_ManageFolders.cs" />
+    <Compile Include="S04_ManageDocuments.cs" />
+    <Compile Include="S05_ManageSiteUsers.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-DWSS_Adapter.csproj">
+      <Project>{254DF310-5DF8-4078-B81F-F2C40CA0F644}</Project>
+      <Name>MS-DWSS_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-DWSS_RequirementSpecification.xml" />
+  </ItemGroup>
+</Project>

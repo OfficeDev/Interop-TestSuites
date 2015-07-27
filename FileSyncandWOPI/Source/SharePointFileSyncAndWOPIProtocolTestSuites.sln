@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{342CC5CB-1343-454D-A1A0-9E8BD92959B8}"
+	ProjectSection(SolutionItems) = preProject
+		SharePointFileSyncAndWOPIProtocolTestSuites.runsettings = SharePointFileSyncAndWOPIProtocolTestSuites.runsettings
+		SharePointFileSyncAndWOPIProtocolTestSuites.testsettings = SharePointFileSyncAndWOPIProtocolTestSuites.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS-FSSHTTP-FSSHTTPB", "MS-FSSHTTP-FSSHTTPB", "{B718D072-0F39-477D-BDA3-0011A926D784}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-FSSHTTP-FSSHTTPB_TestSuite", "MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.csproj", "{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedTestSuite", "SharedTestSuite", "{96DB5B59-416C-4A52-B9AF-033F10DED4CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedAdapter", "SharedTestSuite\SharedAdapter\SharedAdapter.csproj", "{46573EAE-E1E9-4768-B8B8-536DC678CCAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTestSuite", "SharedTestSuite\SharedTestCase\SharedTestSuite.csproj", "{680F0D8B-38FB-4749-AB29-0FB54A1F890A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{584275BB-9E04-457E-88B6-B31D0F428DFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MS-WOPI", "MS-WOPI", "{9D711ED0-A755-470B-BD7B-25F379693363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-WOPI_Adapter", "MS-WOPI\Adapter\MS-WOPI_Adapter.csproj", "{C311EC59-8DDE-4224-93C0-81BCCF1AD046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-WOPI_TestSuite", "MS-WOPI\TestSuite\MS-WOPI_TestSuite.csproj", "{45E55E79-A82F-439F-B377-940019226ACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C311EC59-8DDE-4224-93C0-81BCCF1AD046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C311EC59-8DDE-4224-93C0-81BCCF1AD046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C311EC59-8DDE-4224-93C0-81BCCF1AD046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C311EC59-8DDE-4224-93C0-81BCCF1AD046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E55E79-A82F-439F-B377-940019226ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E55E79-A82F-439F-B377-940019226ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E55E79-A82F-439F-B377-940019226ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E55E79-A82F-439F-B377-940019226ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66B8EB2E-6F58-45F0-B1C0-6C09F0D9F251} = {B718D072-0F39-477D-BDA3-0011A926D784}
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE} = {96DB5B59-416C-4A52-B9AF-033F10DED4CA}
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A} = {96DB5B59-416C-4A52-B9AF-033F10DED4CA}
+		{C311EC59-8DDE-4224-93C0-81BCCF1AD046} = {9D711ED0-A755-470B-BD7B-25F379693363}
+		{45E55E79-A82F-439F-B377-940019226ACB} = {9D711ED0-A755-470B-BD7B-25F379693363}
+	EndGlobalSection
+EndGlobal

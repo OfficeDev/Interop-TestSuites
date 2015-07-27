@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CDBECF5A-76E1-47CC-8584-3BC54DC663B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_SITESS</RootNamespace>
+    <AssemblyName>MS-SITESS_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\MS-SITESS_Adapter.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\Enum.cs" />
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Helper\Site.cs" />
+    <Compile Include="IMS-SITESSAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SUTControlAdapter\IMS-SITESSSUTControlAdapter.cs" />
+    <Compile Include="MS-SITESSAdapter.cs" />
+    <Compile Include="Proxy\MS-SITESS.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\GetDocumentLibraryFileNames.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetSiteGuid.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetWebProperties.ps1" />
+    <None Include="SUTControlAdapter\Implementation\PostWebForm.ps1" />
+    <None Include="SUTControlAdapter\Implementation\EmptyDocumentLibrary.ps1" />
+    <None Include="SUTControlAdapter\Implementation\RemoveAllSolution.ps1" />
+    <None Include="SUTControlAdapter\Implementation\RemoveWeb.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SetFormDigestTimeout.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SetUserCodeEnabled.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetStatusCode.ps1" />
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

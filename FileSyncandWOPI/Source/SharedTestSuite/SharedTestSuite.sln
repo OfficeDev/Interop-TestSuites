@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedAdapter", "SharedAdapter\SharedAdapter.csproj", "{46573EAE-E1E9-4768-B8B8-536DC678CCAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{584275BB-9E04-457E-88B6-B31D0F428DFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTestSuite", "SharedTestCase\SharedTestSuite.csproj", "{680F0D8B-38FB-4749-AB29-0FB54A1F890A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584275BB-9E04-457E-88B6-B31D0F428DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680F0D8B-38FB-4749-AB29-0FB54A1F890A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

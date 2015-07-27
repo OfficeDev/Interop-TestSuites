@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8222C65A-49E2-45ED-89AA-1BE045C04043}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_ADMINS</RootNamespace>
+    <AssemblyName>MS-ADMINS_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-ADMINS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_TestSuite.ptfconfig" />
+    <None Include="MS-ADMINS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-ADMINS_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_CreateAndDeleteSite.cs" />
+    <Compile Include="S02_ErrorConditions.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-ADMINS_Adapter.csproj">
+      <Project>{9738768C-989A-4ACA-BC26-188EEB8722F4}</Project>
+      <Name>MS-ADMINS_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

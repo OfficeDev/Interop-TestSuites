@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:rs="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:z="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:sync="http://schemas.microsoft.com/2008/03/sync/"
+                  xmlns:s="http://www.w3.org/2001/XMLSchema/"
+                  xmlns:s1="http://microsoft.com/wsdl/types/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+                  targetNamespace="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:core="http://schemas.microsoft.com/sharepoint/soap/"
+                  xmlns:ds="urn:schemas-microsoft-com:rowset"> 
+  
+  <wsdl:types>
+    
+    <xs:schema id="RowSchema" targetNamespace="#RowsetSchema" 
+               elementFormDefault="qualified" 
+               xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+               xmlns:s="http://www.w3.org/2001/XMLSchema" 
+               xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/">
+
+    <s:import namespace="http://schemas.microsoft.com/sharepoint/soap/" id="MSOUTSPSTypesDefinition"/>
+    <xs:element name="row">
+        <xs:complexType>
+          <xs:attribute name="ows_BusyStatus" type="tns:BusyStatus" use="optional" />
+          <xs:attribute name="ows_IntendedBusyStatus" type="tns:BusyStatus" use="optional" />
+          <xs:attribute name="ows_fAllDayEvent" type="tns:booleanInteger" use="optional" />
+          <xs:attribute name="ows_fRecurrence" type="tns:booleanInteger" use="optional" />
+          <xs:attribute name="ows_EventType" type="tns:EventType" use="optional" />
+          <xs:attribute name="ows_FollowUp" type="tns:FollowUp" use="optional" />
+          <xs:attribute name="ows_Importance" type="tns:Importance" use="optional" />
+          <xs:attribute name="ows_Participants" type="tns:Participants" use="optional" />
+          <xs:attribute name="ows_Gender" type="tns:Gender" use="optional" />
+          
+          <!--This Priority field's shecma definition only valid for Appointment list items. The Task list items does not limited by this definition.-->
+          <xs:attribute name="ows_Priority" type="tns:Priority" use="optional" />
+          <xs:attribute name="ows_ReplicationID" type="tns:stringGUID" use="optional" />
+          <xs:attribute name="ows_ThreadID" type="tns:stringGUID" use="optional" />
+          <xs:attribute name="ows_UID" type="tns:stringGUID" use="optional" />
+          <xs:anyAttribute processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+
+    <s:schema id="MSOUTSPSTypesDefinition"
+          targetNamespace="http://schemas.microsoft.com/sharepoint/soap/"
+          xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/"
+          xmlns:s1="http://microsoft.com/wsdl/types/"
+          xmlns:s="http://www.w3.org/2001/XMLSchema"
+          xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+              xmlns="http://schemas.microsoft.com/sharepoint/soap/"
+              elementFormDefault="qualified">
+
+      <!--This element is used to reference to those 3 complex types in MS-OUTSP, so that the tool could generate proxy classes for those complex types.-->
+      <s:element name="MSOUTSPSComplexTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="RecurrenceDataTypeField" type="tns:RecurrenceXML" minOccurs="0"/>
+            <s:element name="TimeZoneXMLTypeField" type="tns:TimeZoneXML" minOccurs="0"/>
+            <s:element name="AttachPropsTypeField" type="tns:AttachProps" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <!--This element is used to reference to those 9 simple types in MS-OUTSP, so that the tool could generate proxy classes for those simple types.-->
+      <s:element name="MSOUTSPSSimpleTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="booleanIntegerField" type="tns:booleanInteger" minOccurs="0"/>
+            <s:element name="BusyStatusField" type="tns:BusyStatus" minOccurs="0"/>
+            <s:element name="EventTypeField" type="tns:EventType" minOccurs="0"/>
+            <s:element name="FollowUpField" type="tns:FollowUp" minOccurs="0"/>
+            <s:element name="GenderField" type="tns:Gender" minOccurs="0"/>
+            <s:element name="ImportanceField" type="tns:Importance" minOccurs="0"/>
+            <s:element name="ParticipantsField" type="tns:Participants" minOccurs="0"/>
+            <s:element name="stringGUIDField" type="tns:stringGUID" minOccurs="0"/>
+            <s:element name="PriorityField" type="tns:Priority" minOccurs="0"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      
+      <s:element name="CHOICES">
+        <s:complexType>
+           <s:sequence>
+            <s:element name="CHOICE" type="s:string" minOccurs="0" maxOccurs="unbounded" />
+           </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:element name="MAPPINGS">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="MAPPING" minOccurs="0" maxOccurs="unbounded">
+             <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="Value" />
+                </s:extension>
+              </s:simpleContent>
+             </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+
+      <s:complexType name="RecurrenceXML">
+        <s:sequence>
+          <s:element name="recurrence" type="tns:RecurrenceDefinition" />
+          <s:element name="deleteExceptions" type="s:string" fixed="true" minOccurs="0" maxOccurs="1" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:complexType name="RecurrenceDefinition">
+        <s:sequence>
+          <s:element name="rule" type="tns:RecurrenceRule" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:complexType name="RecurrenceRule">
+        <s:sequence>
+          <s:element name="firstDayOfWeek" type="tns:DayOfWeekOrMonth" />
+          <s:element name="repeat" type="tns:RepeatPattern" />
+          <s:choice>
+            <s:element name="windowEnd" type="s:dateTime" />
+            <s:element name="repeatForever">
+              <s:simpleType>
+                <s:restriction base="s:string">
+                  <s:enumeration value="FALSE" />
+                </s:restriction>
+              </s:simpleType>
+            </s:element>
+            <s:element name="repeatInstances" type="s:integer" />
+          </s:choice>
+        </s:sequence>
+      </s:complexType>
+
+      <s:complexType name="RepeatPattern">
+        <s:choice>
+          <s:element name="daily">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="dayFrequency" type="s:integer"  use="optional" />
+                  <s:attribute name="weekday" type="tns:TrueFalseDOW"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="weekly">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="su" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="mo" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="tu" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="we" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="th" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="fr" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="sa" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="weekFrequency" type="s:integer"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="monthlyByDay">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="su" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="mo" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="tu" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="we" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="th" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="fr" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="sa" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="day" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="weekday" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="weekend_day" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="monthFrequency" type="s:int"  use="optional" />
+                  <s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="monthly">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="monthFrequency" type="s:integer"  use="optional" />
+                  <s:attribute name="day" type="s:integer"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="yearly">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="yearFrequency" type="s:integer"  use="optional" />
+                  <s:attribute name="month" type="s:integer"  use="optional" />
+                  <s:attribute name="day" type="s:integer"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="yearlyByDay">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="su" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="mo" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="tu" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="we" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="th" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="fr" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="sa" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="day" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="weekday" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="weekend_day" type="tns:TrueFalseDOW"  use="optional" />
+                  <s:attribute name="yearFrequency" type="s:integer"  use="optional" />
+                  <s:attribute name="month" type="s:integer"  use="optional" />
+                  <s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+        </s:choice>
+      </s:complexType>
+
+      <s:complexType name="TimeZoneRule">
+        <s:sequence>
+          <s:element name="standardBias" type="s:integer" />
+          <s:element name="additionalDaylightBias" type="s:integer" minOccurs="0" />
+          <s:element name="standardDate" type="tns:TransitionDate" minOccurs="0" />
+          <s:element name="daylightDate" type="tns:TransitionDate" minOccurs="0" />
+        </s:sequence>
+      </s:complexType>
+
+      <s:complexType name="TransitionDate">
+        <s:sequence>
+          <s:element name="transitionRule">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="day" type="tns:DayOfWeek"  use="optional" />
+                  <s:attribute name="month" type="s:integer" use="required" />
+                  <s:attribute name="dayOfMonth" type="s:integer" use="optional" />
+                  <s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth"  use="optional" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element name="transitionTime" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+
+      <!--This type is used by ows_AttachProps field in contact list. But the Microsoft products does not include this field in a contact list definition.-->
+      <s:complexType name="AttachProps">
+        <s:sequence>
+          <s:element name="File">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="Photo" use="required">
+                    <s:simpleType>
+                      <s:restriction base="s:string">
+                        <s:enumeration value="0" />
+                        <s:enumeration value="-1" />
+                      </s:restriction>
+                    </s:simpleType>
+                  </s:attribute>
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+
+      <s:complexType name="TimeZoneXML">
+        <s:sequence>
+          <s:element name="timeZoneRule" type="tns:TimeZoneRule" />
+        </s:sequence>
+      </s:complexType>
+
+      <!--SimepleType -->
+
+      <s:simpleType name="booleanInteger">
+        <s:restriction base="s:int">
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="BusyStatus">
+        <s:restriction base="s:int">
+          <s:enumeration value="-1"/>
+          <s:enumeration value="0"/>
+          <s:enumeration value="1"/>
+          <s:enumeration value="2"/>
+          <s:enumeration value="3" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="EventType">
+        <s:restriction base="s:int" >
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+          <s:enumeration value="3" />
+          <s:enumeration value="4" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="FollowUp">
+        <s:restriction base="s:int" >
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+          <s:enumeration value="3" />
+          <s:enumeration value="4" />
+          <s:enumeration value="5" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="Gender">
+        <s:restriction base="s:int" >
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="Importance">
+        <s:restriction base="s:int" >
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+          <s:enumeration value="2" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="Participants">
+        <s:restriction base="s:string" >
+          <s:maxLength value="255" />
+          <s:pattern value="(;#[0-9]+)*" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="stringGUID">
+        <s:restriction base="s:string">
+          <s:maxLength value="38"/>
+          <s:minLength value="38"/>
+          <s:pattern value="\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\}" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="Priority">
+        <s:restriction base="s:int" >
+          <s:enumeration value="-1" />
+          <s:enumeration value="0" />
+          <s:enumeration value="1" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="TrueFalseDOW">
+        <s:restriction base="s:string">
+          <s:enumeration value="TRUE" />
+          <s:enumeration value="FALSE" />
+          <s:enumeration value="true" />
+          <s:enumeration value="false" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="WeekdayOfMonth">
+        <s:restriction base="s:string">
+          <s:enumeration value="first" />
+          <s:enumeration value="second" />
+          <s:enumeration value="third" />
+          <s:enumeration value="fourth" />
+          <s:enumeration value="last" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="DayOfWeekOrMonth">
+        <s:restriction base="s:string">
+          <s:enumeration value="su" />
+          <s:enumeration value="mo" />
+          <s:enumeration value="tu" />
+          <s:enumeration value="we" />
+          <s:enumeration value="th" />
+          <s:enumeration value="fr" />
+          <s:enumeration value="sa" />
+          <s:enumeration value="day" />
+          <s:enumeration value="weekday" />
+          <s:enumeration value="weekend_day" />
+        </s:restriction>
+      </s:simpleType>
+
+      <s:simpleType name="DayOfWeek">
+        <s:restriction base="s:string">
+          <s:enumeration value="su" />
+          <s:enumeration value="mo" />
+          <s:enumeration value="tu" />
+          <s:enumeration value="we" />
+          <s:enumeration value="th" />
+          <s:enumeration value="fr" />
+          <s:enumeration value="sa" />
+        </s:restriction>
+      </s:simpleType>
+
+    </s:schema>
+   
+  </wsdl:types>
+</wsdl:definitions>

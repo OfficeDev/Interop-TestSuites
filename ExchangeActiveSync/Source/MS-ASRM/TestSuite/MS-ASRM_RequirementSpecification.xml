@@ -1,0 +1,3235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R340</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol[MS-ASRM] requires a secure connection between the client and server, as described in section 5.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R341</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol[MS-ASRM] assumes that the client has been approved to consume and compose IRMIRM content by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R342</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] For more information about client-side and server-side IRM requirements, see [MSFT-IRMEAS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] This protocol[MS-ASRM] consists of a series of XML elements that are embedded inside a command request or a command response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The XML markup that constitutes the request body or the response body is transmitted between client and server by using Wireless Application Protocol (WAP) Binary XML (WBXML), as specified in [MS-ASWBXML].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] The XML schema for the RightsManagement namespace is described in section 6.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] For more information about how the RightsManagement namespace elements are used in command requests and responses, see sections 3.1.4 and 3.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] This specification[Exchange ActiveSync: Rights Management Protocol] defines and references various XML namespaces using the mechanisms specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Although this specification[Exchange ActiveSync: Rights Management Protocol] associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] None prefix is used for namespace URI "RightsManagement".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "airsync" is used for namespace URI "AirSync", which reference [MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "airsycnbase" is used for namespace URI "AirSyncBase", which reference [MS-ASAIRS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "composemail" is used for namespace URI "ComposeMail", which reference [MS-ASCMD] sections 2.2.2.15, 2.2.2.17, and 2.2.2.18.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "email" is used for namespace URI "Email", which reference [MS-ASEMAIL])</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "email2" is used for namespace URI "Email2", which reference 
+[MS-ASEMAIL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for namespace URI "ItemOperations", which reference [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "search" is used for namespace URI "Search", which reference 
+[MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "settings" is used for namespace URI "Settings", which reference [MS-ASCMD] section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "xs" is used for namespace URI "http://www.w3.org/2001/XMLSchema", which reference [XMLSCHEMA1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The ContentExpiryDate element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] It[the ContentExpiryDate element] specifies the expiration date for the license.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R23</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The ContentExpiryDate element is set to "9999-12-30T23:59:59.999Z" if the rights management license has no expiration date set.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The client MUST purge the body and attachments of the e-mail message when the ContentExpiryDate has passed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The client can then use the ItemOperations command ([MS-ASCMD] section 2.2.2.8) to fetch the content again from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] If the rights management license allows it[the client fetch the content], the content can be provided once more with a new ContentExpiryDate.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R27</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The value of this element[ContentExpiryDate] is a dateTime ([MS-ASDTYPE] section 2.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R28</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] The ContentExpiryDate element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The ContentOwner element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] It[ContentOwner] specifies the e-mail address of the content owner.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The Owner element is set to TRUE for the user specified by the ContentOwner element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The value of this element[ContentOwner] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The ContentOwner element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The maximum length of the ContentOwner value is 320 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R275.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R275</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The length of the ContentOwner value is less than 320 characters.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R34:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] The EditAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] It[EditAllowed] specifies whether the content of the original email can be modified by the user when the user forwards, replies, or replies all to the email message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] The value of this element[EditAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] The value is TRUE (1) if the e-mail can be modified by the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R325</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] otherwise[the e-mail cannot be modified by the user], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] A value of FALSE requires that the client MUST exclude the original rights-managed email message from the SmartForward or SmartReply request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] Consequently, inline replies are not allowed if the EditAllowed element is set to FALSE.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.135) is not present in a SmartForward request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R470</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.135) is not present in a SmartReply request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and]composemail:ReplaceMime is present[in a SmartForward command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R471</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and]composemail:ReplaceMime is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] The EditAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The ExportAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] It[ExportAllowed] specifies whether the IRM protection on the e-mail message can be removed by the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The value of this element[ExportAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R48</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user forwards the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R343</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user replies to the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R344</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user replies all to the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R326</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] otherwise[the user cannot remove the IRM protection when the user forwards the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R345</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] otherwise[the user cannot remove the IRM protection when the user replies to the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R346</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] otherwise[the user cannot remove the IRM protection when the user replies all to the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] If a rights-managed email message is forwarded or replied to using the SmartForward or SmartReply command, the following conditions are evaluated:
+ The original rights policy template has the ExportAllowed element set to TRUE
+ The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000")</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R51</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] If both of the conditions[The original rights policy template has the ExportAllowed element set to TRUE; The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000")] are true, the IRM protection is removed from the outgoing message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] [If The original rights policy template has the ExportAllowed element set to TRUE; The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000")]The original message retains its IRM protection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] The ExportAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R54</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] The ExtractAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] It[ExtractAllowed] specifies whether the user can copy content out of the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] The value of this element[ExtractAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R57</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] The value is TRUE (1) if the content of the e-mail message can be cut, copied, or a screen capture can be taken of the content.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R327</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] otherwise[the content of the e-mail message cannot be cut, copied, or a screen capture cannot be taken of the content], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In ExtractAllowed] The ExtractAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] The ForwardAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] It[ForwardAllowed] specifies whether the user can forward the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] The value of this element[ForwardAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] The value is TRUE (1) if the user can forward the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R328</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] otherwise[the user cannot forward the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] The ForwardAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] The ModifyRecipientsAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] It[ModifyRecipientsAllowed] specifies whether the user can modify the recipient (1) list when the user forwards, or replies to the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] The value of this element[ModifyRecipientsAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] The value is TRUE (1) if the user can modify the recipient (1) list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R329</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] otherwise[the user cannot modify the recipient (1) list], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] The ModifyRecipientsAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R69</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] The Owner element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] It[Owner] specifies whether the user is the owner of the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] The value of this element[Owner] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R72</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] The value is TRUE (1) if the user is the owner of the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R330</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] otherwise[ the user is not the owner of the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] A value of TRUE indicates that the authenticated user has owner rights on this message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] This element[Owner] is used for information presentation purposes only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R75</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] The Allowed elements (EditAllowed, ReplyAllowed, etc.) are used to evaluate whether a particular action is permitted or restricted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] The Owner element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] The PrintAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] It[PrintAllowed] specifies whether the e-mail can be printed by the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] This element[PrintAllowed] does not indicate client support for printing an e-mail message; it[PrintAllowed] only specifies whether the e-mail message can be printed if the client supports printing.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] The value of this element[PrintAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] The value is TRUE (1) if the e-mail can be printed by the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] otherwise[the e-mail cannot be printed by the user], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] The PrintAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] The ProgrammaticAccessAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] It[ProgrammaticAccessAllowed] specifies whether the contents of the e-mail message can be accessed programmatically by third party applications.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] The value of this element[ProgrammaticAccessAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] The value is TRUE (1) if third party applications can access the content of the e-mail message programmatically.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R332</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] otherwise[third party applications cannot access the content of the e-mail message programmatically], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] A value of TRUE indicates whether the protected content[message body and attachments] is accessible by other applications.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] Protected content consists of the message body and attachments.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] The ProgrammaticAccessAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R281</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] The RemoveRightsManagementProtection element is an optional child element of the Fetch element ([MS-ASCMD] section 2.2.3.63.1) used in ItemOperations commands.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] If present, it[RemoveRightsManagementProtection] indicates that the client is removing the IRM protection from the e-mail.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] The RemoveRightsManagementProtection element is an empty tag element, meaning it[RemoveRightsManagementProtection] has no value or data type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] IRM protection can only be removed from e-mail messages when the ExportAllowed element is set to TRUE.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R282</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] The RemoveRightsManagementProtection element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] The ReplyAllAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] It[ReplyAllAllowed] specifies whether the user can reply to all of the recipients (1) of the original e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] The value of this element[ReplyAllAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] The value is TRUE (1) if the user can reply to all of the recipients (1) of the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] otherwise[the user cannot reply to all of the recipients (1) of the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] The ReplyAllAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] The ReplyAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] It[ReplyAllowed] specifies whether the user is allowed to reply to the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R103</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] The value of this element[ReplyAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] The value is TRUE (1) if the user can reply to the e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R334</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] otherwise[the user cannot reply to the e-mail message], FALSE (0).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] The ReplyAllowed element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R283</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] The RightsManagementLicense element is an optional child element of the ApplicationData element ([MS-ASCMD] section 2.2.3.11).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] It[RightsManagementLicense] contains the rights policy template settings for the template applied to the e-mail message being synchronized.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] The value of this element[RightsManagementLicense] is a container ([MS-ASDTYPE] section 2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R316</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] The RightsManagementLicense element can only have the following child elements[ContentExpiryDate, ContentOwner, EditAllowed, ExportAllowed, ExtractAllowed, ForwardAllowed, ModifyRecipientsAllowed, Owner, PrintAllowed, ProgrammaticAccessAllowed, ReplyAllAllowed, ReplyAllowed, TemplateDescription, TemplateID, TemplateName]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R284</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ContentExpiryDate (section 2.2.2.1). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R285</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ContentOwner (section 2.2.2.2). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R286</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]EditAllowed (section 2.2.2.3). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R287</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ExportAllowed (section 2.2.2.4). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R288</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ExtractAllowed (section 2.2.2.5). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R289</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ForwardAllowed (section 2.2.2.6). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R290</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]ModifyRecipientsAllowed (section 2.2.2.7). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R291</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]Owner (section 2.2.2.8). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R292</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]PrintAllowed (section 2.2.2.9). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R293</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense][The RightsManagementLicense element can only have the following child elements:]ProgrammaticAccessAllowed (section 2.2.2.10). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R294</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense][The RightsManagementLicense element can only have the following child elements:]ReplyAllAllowed (section 2.2.2.12). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R295</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense][The RightsManagementLicense element can only have the following child elements:]ReplyAllowed (section 2.2.2.13). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R296</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]TemplateDescription (section 2.2.2.18.1). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R297</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]TemplateID (section 2.2.2.19.1). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R298</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] [The RightsManagementLicense element can only have the following child elements:]TemplateName (section 2.2.2.20.1). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R299</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] The RightsManagementSupport element is an optional child element of the sync:Options element ([MS-ASCMD] section 2.2.3.115.5), the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2), and the search:Options element ([MS-ASCMD] section 2.2.3.115.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] It[RightsManagementSupport] specifies how the server returns rights-managed email messages to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] The value of this element[RightsManagementSupport] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] If the value of this element[RightsManagementSupport] is TRUE (1), the server will decompress rights-managed email messages before sending them to the client, as specified in section 3.2.4.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R347</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] If the value of this element[RightsManagementSupport] is TRUE (1), the server will decrypt rights-managed email messages before sending them to the client, as specified in section 3.2.4.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R335</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] If the value is FALSE (0), the server will not decompress rights-managed email messages before sending them to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R348</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] If the value is FALSE (0), the server will not decrypt rights-managed email messages before sending them to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] If the RightsManagementSupport element is not included in a request message, a default value of FALSE is assumed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R300</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] The RightsManagementSupport element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R130</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] The RightsManagementTemplate element is an optional child element of the RightsManagementTemplates element (section 2.2.2.17).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] It[RightsManagementTemplate] contains the template identifier, name, and description of a rights policy template available on the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R132</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] The value of this element[RightsManagementTemplate] is a container ([MS-ASDTYPE] section 2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R317</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] The RightsManagementTemplate element can have only one of each of the following child elements[TemplateDescription, TemplateID, TemplateName]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] [The RightsManagementTemplate element can have only one of each of the following child elements:]	TemplateDescription (section 2.2.2.18.2). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] [The RightsManagementTemplate element can have only one of each of the following child elements:]TemplateID (section 2.2.2.19.2). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] [The RightsManagementTemplate element can have only one of each of the following child elements:]	TemplateName (section 2.2.2.20.2). This element is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] The RightsManagementTemplates element is an optional child element of the Get element ([MS-ASCMD] section 2.2.3.75) that contains the rights policy templates available to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] The value of this element[RightsManagementTemplates] is a container ([MS-ASDTYPE] section 2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R302</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] The RightsManagementTemplates element can only have the following child element: RightsManagementTemplate (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R303</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] This element[RightsManagementTemplate] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R304</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] A maximum of 20 RightsManagementTemplate elements can be returned to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R305.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R305</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] The RightsManagementTemplate elements returned to the client is less than 20.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R304:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription] The TemplateDescription element is a child element of the RightsManagementLicense element (section 2.2.2.14) and the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription] The value of this element[TemplateDescription] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] The TemplateDescription element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] It[TemplateDescription (RightsManagementLicense)] contains a description of the rights policy template represented by the parent RightsManagementLicense element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] This element[TemplateDescription (RightsManagementLicense)] is used for informational presentation purposes only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] The TemplateDescription element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] The maximum length of the TemplateDescription[RightsManagementLicense] element is 10240 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R277.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R277</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] The length of the TemplateDescription[RightsManagementLicense] element is less than 10240 characters.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R147:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R148</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] The TemplateDescription element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R149</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] It[TemplateDescription (RightsManagementTemplate)] contains a description of the rights policy template represented by the parent RightsManagementTemplate element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] This element[TemplateDescription (RightsManagementTemplate)] is used for informational presentation purposes only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R151</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] The TemplateDescription element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] The maximum length of the TemplateDescription[RightsManagementTemplate] element is 10240 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R278.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R278</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] The length of the TemplateDescription[RightsManagementTemplate] element is less than 10240 characters.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R152:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R306</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] The TemplateID element is a child element of the following elements:SendMail ([MS-ASCMD] section 2.2.3.148)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartForward ([MS-ASCMD] section 2.2.3.154)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartReply ([MS-ASCMD] section 2.2.3.155)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R156</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]RightsManagementLicense (section 2.2.2.14)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]RightsManagementTemplate (section 2.2.2.16)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R307</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] The value of this element[TemplateID] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementLicense)] The TemplateID element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementLicense)] It[TemplateID] contains a string that identifies the rights policy template represented by the parent RightsManagementLicense element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R161</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementLicense)] The TemplateID element[RightsManagementLicense] has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementTemplate)] The TemplateID element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementTemplate)] It[TemplateID] contains a string that identifies the rights policy template represented by the parent RightsManagementTempalte element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementTemplate)] The TemplateID[RightsManagementTemplate] element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R308</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)]The TemplateID element is an optional child element of the SendMail element ([MS-ASCMD] section 2.2.3.148), the SmartForward element ([MS-ASCMD] section 2.2.3.154), and the SmartReply element ([MS-ASCMD] section 2.2.3.155).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)] It[TemplateID] contains a string that identifies a particular rights policy template to be applied to the outgoing message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R309</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)] If a rights-managed e-mail message is forwarded using the SmartForward command, the IRM protection is removed from the outgoing message if the following conditions are true:
+ The original rights policy template has the ExportAllowed element set to TRUE.
+ The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000").</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R349</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)] If a rights-managed e-mail message is replied to using the SmartReply command, the IRM protection is removed from the outgoing message if the following conditions are true:
+ The original rights policy template has the ExportAllowed element set to TRUE.
+ The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000").</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)] [if the following conditions are true:
+ The original rights policy template has the ExportAllowed element set to TRUE.
+ The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000")]The original message retains its IRM protection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R311</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply) The TemplateID element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R171</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName]The TemplateName element is a child element of the RightsManagementLicense element (section 2.2.2.14) and the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName] The value of this element[TemplateName] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] The TemplateName element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] It[TemplateName] specifies the name of the rights policy template represented by the parent RightsManagementLicense element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] This element[TemplateName] is used for informational presentation purposes only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R176</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] The TemplateName[RightsManagementLicense] element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R177</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] The maximum length of the TemplateName[RightsManagementLicense] element is 256 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R280.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R280</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] The length of the TemplateName[RightsManagementLicense] element is less than 256 characters.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R177:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] The TemplateName element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] It[TemplateName] specifies the name of the rights policy template represented by the parent RightsManagementTemplate element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] This element[TemplateName] is used for informational presentation purposes only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] The TemplateName[RightsManagementTemplate] element has no child elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] The maximum length of the TemplateName[RightsManagementTemplate] element is 256 characters.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASRM_R279.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R279</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] The length of the TemplateName[RightsManagementTemplate] element is less than 256 characters.</ns1:Description>
+		<ns1:Derived>MS-ASRM_R182:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R350</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Initialization] When sending command requests that contain elements defined in this protocol, the client MUST set the MS-ASProtocolVersion header, as specified in [MS-ASHTTP] section 2.2.1.1.2.4, to "14.1" or set the Protocol version field in the Base64 Encoded Query Value, as specified in [MS-ASHTTP] section 2.2.1.1.1.1, to 141.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Higher-Layer Triggered Events] The user triggers the client to create request messages when they synchronize, search, fetch, reply, or forward rights-managed e-mail messages from their mobile device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] When the client sends a Sync ([MS-ASCMD] section 2.2.2.19), ItemOperations ([MS-ASCMD] section 2.2.2.8), or Search ([MS-ASCMD] section 2.2.2.14) command request, the client can request that the server decompress and decrypt rights-managed email messages by including the RightsManagementSupport element set to TRUE (1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] Clients MUST enforce the restrictions on the message as indicated by the RightsManagementLicense element (section 2.2.2.14) included in the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] If a client cannot enforce the restrictions on the message, it SHOULD NOT include the RightsManagementSupport element set to TRUE (1) in requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R351</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Sync request, the RightsManagementSupport element is included as the child of the sync:Options element ([MS-ASCMD] section 2.2.3.115.5).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R352</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In an ItemOperations command request, the RightsManagementSupport element is included as the child of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R353</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Search command request, the RightsManagementSupport element is included as the child of the search:Options element ([MS-ASCMD] section 2.2.3.115.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R313</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Getting Rights Policy Templates] The client obtains the details about the available rights policy templates by sending a Settings command request that includes the settings:RightsManagementInformation element ([MS-ASCMD] section 2.2.3.143) with a settings:Get child element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Getting Rights Policy Templates] The server returns the rights policy template settings in the response, as defined in section 3.2.4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Getting Rights Policy Templates] Once the server returns the templates, the client stores the templates locally for future use within the SendMail, SmartReply or SmartForward commands.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R314</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Getting Rights Policy Templates] Because the templates can change, it is recommended that the client caches the templates for no longer than 24 hours.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Protected E-mail] The client protects an e-mail message by including the TemplateID element in the SendMail ([MS-ASCMD] section 2.2.2.15), SmartReply ([MS-ASCMD] section 2.2.2.18), or SmartForward ([MS-ASCMD] section 2.2.2.17) command requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R194</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Protected E-mail] If the command request does not include the TemplateID element, the e-mail message is sent without rights management.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R354</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Processing Events and Sequencing Rules] The client creates request messages as specified in [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R195</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Higher-Layer Triggered Events] The client triggers the server to create response messages when it receives request messages that contain IRM-protected data or settings.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status ([MS-ASCMD] section 2.2.3.162) value 168 if IRM is disabled on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R355</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] [The server returns Status ([MS-ASCMD] section 2.2.3.162) value 168 if IRM is disabled on the server.]For an example, see section 4.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 169 if a transient failure was encountered.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The client SHOULD retry the request in a few minutes if Status value 169 is returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 170 if a permanent failure was encountered.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R6552</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 170 if multiple transient failures were encountered.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 171 in a SmartReply command response if the request included an invalid TemplateID value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R356</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 171 in a SmartForward command response if the request included an invalid TemplateID value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status value 172 if the client tries to perform an action on a rights-managed e-mail message that is prohibited by the rights policy template.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The settings:RightsManagementInformation element that is included in the Settings response contains all the rights policy templates that are available to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The RightsManagementTemplate element contains the specific settings for each template.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The string values in the TemplateDescription element SHOULD be returned to the client in the language specified in the request (by the Locale field in the Base64 Encoded Query Value as specified in [MS-ASHTTP] section 2.2.1.1.1.1) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R656</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The string values in the TemplateDescription element SHOULD be returned to the client in the language specified in the request (by the Accept-Language header if the request line is not encoded) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The string values in the TemplateName element SHOULD be returned to the client in the language specified in the request (by the Locale field in the Base64 Encoded Query Value as specified in [MS-ASHTTP] section 2.2.1.1.1.1) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R658</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The string values in the TemplateName element SHOULD be returned to the client in the language specified in the request (by the Accept-Language header if the request line is not encoded) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] If the requested language is not available, the server SHOULD return the strings[in the TemplateDescription element] in the closest possible match to the requested language.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R405</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] If the requested language is not available, the server SHOULD return the strings[in the TemplateName element] in the closest possible match to the requested language.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] The method of determining a closest possible match is implementation-specific.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R406</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] If no language is specified in the request, the string values[in the TemplateDescription element] SHOULD be returned in English.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights Policy Templates] If no language is specified in the request, the string values[in the TemplateName element] SHOULD be returned in English.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R208</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] To respond to a Sync command request message that includes the RightsManagementSupport element, the server includes the RightsManagementLicense element and its child elements in the Sync command response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R410</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] To respond to an ItemOperations command request message that includes the RightsManagementSupport element, the server includes the RightsManagementLicense element and its child elements in the ItemOperations command response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R411</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] To respond to a Search command request message that includes the RightsManagementSupport element, the server includes the RightsManagementLicense element and its child elements in the Search command response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In a Sync command response, the RightsManagementLicense element is included as a child of the sync:ApplicationData element ([MS-ASCMD] section 2.2.3.11).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In an ItemOperations command response, the RightsManagementLicense element is included as a child of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In a Search command response, the RightsManagementLicense element is included as a child of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R212</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] The string values in the TemplateDescription element SHOULD be returned to the client in the language specified in the request (by the Locale field in the Base64 Encoded Query Value as specified in [MS-ASHTTP] section 2.2.1.1.1.1) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R660</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] The string values in the TemplateDescription element SHOULD be returned to the client in the language specified in the request (by the Accept-Language header if the request line is not encoded) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R412</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] The string values in the TemplateName element SHOULD be returned to the client in the language specified in the request (by the Locale field in the Base64 Encoded Query Value as specified in [MS-ASHTTP] section 2.2.1.1.1.1) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R662</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] The string values in the TemplateName element SHOULD be returned to the client in the language specified in the request (by the Accept-Language header if the request line is not encoded) if available on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] If the requested language is not available, the server SHOULD return the strings[in the TemplateDescription element] in the closest possible match to the requested language.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R413</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] If the requested language is not available, the server SHOULD return the strings[in the TemplateName element] in the closest possible match to the requested language.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] The method of determining a closest possible match is implementation-specific.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R414</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] If no language is specified in the request, the string values[in the TemplateDescription element] SHOULD be returned in English.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R315</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] If no language is specified in the request, the string values[in the TemplateName element] SHOULD be returned in English.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R216</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Processing Events and Sequencing Rules] The server processes request messages as specified in [MS-ASCMD].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R357</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Processing Events and Sequencing Rules] If the protocol version specified by in the command request is not 14.1, as specified in section 3.1.3, the server SHOULD consider the XML body of the command request to be invalid.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASRM_R418.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: 1.	If no TemplateID element is included in the command request, the server proceeds as follows: If the original message being forwarded has no rights management restrictions, the server proceeds to step 6[The server sends the new message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: 1.	If no TemplateID element is included in the command request, the server proceeds as follows: ]If the original message had rights management restrictions, the server replaces the body of the message with boilerplate text.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:
+1. If no TemplateID element is included in the command request, the server proceeds as follows: ]If the original message had rights management restrictions, the rights-managed e-mail message is added as an .rpmsg attachment as specified in [MS-OXORMMS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If any of the following are true, the server fails the request and returns composemail:Status value 168: The RightsManagementSupport element was set to FALSE.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If any of the following are true, the server fails the request and returns composemail:Status value 168: The RightsManagementSupport element was not included in previous command requests. See section 3.1.4.1 for more details.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If any of the following are true, the server fails the request and returns composemail:Status value 168:] The connection to the server does not use SSL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If any of the following are true, the server fails the request and returns composemail:Status value 168:] The server does not support IRM features. See section 1.5 for more details.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If the TemplateID element is included in the command request, the server does the following: If the original message is not protected, the server proceeds to step 5[If the message has a TemplateID element, the server protects the new outgoing message with the specified rights policy template.].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R358</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the template does not exist on the server, the server fails the request and returns a composemail:Status value of 171.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R359</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions allow it, the server creates the forwarded message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R360</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions do not allow it, a composemail:Status value of 171 is returned by the server.].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R361</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is different than the TemplateID value on the original message, the server verifies that the new TemplateID value exists on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R362</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value does not correspond to a template on the server, the server fails the request and returns a composemail:Status value of 171;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R363</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions allow it, the server creates the forwarded message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R364</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions do not allow it, , a composemail:Status value of 171 is returned by the server.].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R366</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:
+1.	If no TemplateID element is included in the command request, the server proceeds as follows: 
+If the original message being replied to has no rights management restrictions, the server proceeds to step 6[The server sends the new message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R367</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: 1.	If no TemplateID element is included in the command request, the server proceeds as follows: ]If the original message had rights management restrictions, the server replaces the body of the message with boilerplate text.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:
+1. If no TemplateID element is included in the command request, the server proceeds as follows: ]If the original message had rights management restrictions, the rights-managed e-mail message is added as an .rpmsg attachment as specified in [MS-OXORMMS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R369</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If any of the following are true, the server fails the request and returns composemail:Status value 168: The RightsManagementSupport element was set to FALSE.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R370</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If any of the following are true, the server fails the request and returns composemail:Status value 168: The RightsManagementSupport element was not included in previous command requests. See section 3.1.4.1 for more details.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R371</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If any of the following are true, the server fails the request and returns composemail:Status value 168:] The connection to the server does not use SSL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R372</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If any of the following are true, the server fails the request and returns composemail:Status value 168:] The server does not support IRM features. See section 1.5 for more details.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R373</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If the TemplateID element is included in the command request, the server does the following: If the original message is not protected, the server proceeds to step 5[If the message has a TemplateID element, the server protects the new outgoing message with the specified rights policy template.].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R374</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the template does not exist on the server, the server fails the request and returns a composemail:Status value of 171.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R375</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions allow it, the server creates the reply message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R376</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions do not allow it, a composemail:Status value of 171 is returned by the server.].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R377</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is different than the TemplateID value on the original message, the server verifies that the new TemplateID value exists on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R378</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value does not correspond to a template on the server, the server fails the request and returns a composemail:Status value of 171;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R379</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions allow it, the server creates the reply message].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R380</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions do not allow it, a composemail:Status value of 171 is returned by the server.]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R382</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] The following table describes the reply, reply all, and forward enforcement that is performed by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R383</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ModifyRecipientsAllowed is set to TRUE, there is no restrictions for server to perform reply or reply all enforcement.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R384</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ForwardAllowed is set to TRUE, there is no restrictions for server to perform forward enforcement.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R385</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ModifyRecipientsAllowed is set to FALSE, for reply and reply all, refer to the last four rows in this table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R386</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ForwardAllowed is set to FALSE, SmartForward command requests are restricted and return a composemail:Status value of 172.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R387</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ReplyAllowed is set to TRUE, the server will reply to exactly one recipient (1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R400</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ReplyAllAllowed is set to TRUE, the server will reply to all original recipients (1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R388</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [If ReplyAllowed and ReplyAllAllowed are set to TRUE, the server will reply to exactly one recipient (1) or all original recipients (1).]Whether the sender chooses to include themselves in the reply message is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R652</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [If ReplyAllowed and ReplyAllAllowed are set to TRUE, the server will reply to exactly one recipient (1) or all original recipients (1). Whether the sender chooses to include themselves in the reply message is optional.] All other SmartReply command requests are restricted and error out with a composemail:Status value of 172.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R389</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ReplyAllowed is set to TRUE and ReplyAllAllowed is set to FALSE, the server will reply to exactly one recipient (1), the sender of the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R653</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [If ReplyAllowed is set to TRUE and ReplyAllAllowed is set to FALSE, the server will reply to exactly one recipient (1), the sender of the original message.] All other SmartReply command requests are restricted and error out with a composemail:Status value of 172.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R390</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ReplyAllowed is set to FALSE and ReplyAllAllowed is set to TRUE, the server will reply to exactly all original recipients (1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R391</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [If ReplyAllowed is set to FALSE and ReplyAllAllowed is set to TRUE, the server will reply to exactly all original recipients (1).] Whether the sender chooses to include themselves in the reply message is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R654</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] [If ReplyAllowed is set to FALSE and ReplyAllAllowed is set to TRUE, the server will reply to exactly all original recipients (1). Whether the sender chooses to include themselves in the reply message is optional.] All other SmartReply command requests are restricted and error out with a composemail:Status value of 172.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R392</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ReplyAllowed and ReplyAllAllowed are set to FALSE, SmartReply command request error out with a composemail:Status value of 172.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R393</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] *The server does not enforce the lack of reply and reply all rights.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R252</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] The following table describes the edit and export enforcement that is performed by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R253</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R254</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R255</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to TRUE, EditAllowed is set to FALSE, the server will send the message when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R256</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to TRUE, EditAllowed is set to FALSE, the server will send the message when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R257</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R258</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R259</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime is set to TRUE, the server will send the message when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R260</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime is set to TRUE, the server will send the message when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R261</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime is set to FALSE, the server will send the message including the original message as inline content when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime is set to FALSE, the server will send the message including the original message as inline content when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R263</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to TRUE, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R264</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to TRUE, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R265</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to FALSE, EditAllowed is set to TRUE, the server will send the message, including the original message as inline content when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R266</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to FALSE, EditAllowed is set to TRUE, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R267</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses the same TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R268</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R269</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling SmartForward and SmartReply Requests] *In these cases, the client MUST NOT include the original message inline in the new message due to the possible breach of IRM protection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R271</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R272</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R418</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1, as specified in section 3.1.3. (Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASRM_R357:i,MS-ASRM_R271:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Code Pages] [This algorithm supports] [Code page] 24[that indicates] [XML namespace] RightsManagement</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R633</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplates [Token] 0x06</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R634</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplate [Token] 0x07</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R635</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementLicense [Token] 0x08</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R636</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] EditAllowed [Token] 0x09</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R637</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllowed [Token] 0x0A</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R638</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllAllowed [Token] 0x0B</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R639</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ForwardAllowed [Token] 0x0C</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R640</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ModifyRecipientsAllowed [Token] 0x0D</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R641</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExtractAllowed [Token] 0x0E</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R642</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] PrintAllowed [Token] 0x0F</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R643</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExportAllowed [Token] 0x10</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R644</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ProgrammaticAccessAllowed [Token] 0x11</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R645</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] Owner [Token] 0x12</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R646</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentExpiryDate [Token] 0x13</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R647</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateID [Token] 0x14</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R648</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateName [Token] 0x15</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R649</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateDescription [Token] 0x16</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R650</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentOwner [Token] 0x17</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R651</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RemoveRightsManagementDistribution [Token] 0x18</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In boolean Data Type] It [a boolean] is declared as an element with a type attribute of "boolean".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In boolean Data Type] The value of a boolean element is an integer whose only valid values are 1 (TRUE) or 0 (FALSE).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In boolean Data Type] If the integer value is missing, then it [the boolean element]is assumed to be 1 (TRUE).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In boolean Data Type] Elements with a boolean data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In container Data Type] A container is an XML element that encloses other elements but has no value of its own.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In container Data Type] It [container] is a complex type with complex content, as specified in [XMLSCHEMA1/2] section 3.4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3</ns1:Doc_Sect>
+		<ns1:Description>[In dateTime Data Type] It [dateTime]is declared as an element whose type attribute is set to "dateTime".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3</ns1:Doc_Sect>
+		<ns1:Description>[In dateTime Data Type] All dates are given in Coordinated Universal Time (UTC) and are represented as a string in the following format.
+YYYY-MM-DDTHH:MM:SS.MSSZ where
+YYYY = Year (Gregorian calendar year)
+MM = Month (01 - 12)
+DD = Day (01 - 31)
+HH = Number of complete hours since midnight (00 - 24)
+MM = Number of complete minutes since start of hour (00 - 59)
+SS = Number of seconds since start of minute (00 - 59)
+MSS = Number of milliseconds</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3</ns1:Doc_Sect>
+		<ns1:Description>[In dateTime Data Type][in YYYY-MM-DDTHH:MM:SS.MSSZ ]The T serves as a separator, and the Z indicates that this time is in UTC.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDTYPE_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3</ns1:Doc_Sect>
+		<ns1:Description>[In dateTime Data Type] Elements with a dateTime data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+</ns1:ReqTable>

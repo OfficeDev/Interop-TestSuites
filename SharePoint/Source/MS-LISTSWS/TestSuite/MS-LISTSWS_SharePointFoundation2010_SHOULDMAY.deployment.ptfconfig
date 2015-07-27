@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R2412Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection","GetList","GetListAndView", "GetListItemChangesSinceToken" and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.StrictTypeCoercion] on [ListDefinitionCT] in section 7. Set R2412Enabled to false to disable this requirement. -->
+    <Property name="R2412Enabled" value="false" />
+    <!-- Set R2750Enabled to true to verify that AddAttachment operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.1. Set R2750Enabled to false to disable this requirement. -->
+    <Property name="R2750Enabled" value="true" />
+    <!-- Set R2426Enabled to true to verify that AddAttachment operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2426Enabled to false to disable this requirement. -->
+    <Property name="R2426Enabled" value="false" />
+    <!-- Set R2751Enabled to true to verify that AddDiscussionBoardItem operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.2. Set R2751Enabled to false to disable this requirement. -->
+    <Property name="R2751Enabled" value="true" />
+    <!-- Set R2429Enabled to true to verify that AddDiscussionBoardItem operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2429Enabled to false to disable this requirement. -->
+    <Property name="R2429Enabled" value="false" />
+    <!-- Set R2752Enabled to true to verify that ApplyContentTypeToList operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.6. Set R2752Enabled to false to disable this requirement. -->
+    <Property name="R2752Enabled" value="true" />
+    <!-- Set R2433Enabled to true to verify that ApplyContentTypeToList operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2433Enabled to false to disable this requirement. -->
+    <Property name="R2433Enabled" value="false" />
+    <!-- Set R2753Enabled to true to verify that CreateContentType operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.9. Set R2753Enabled to false to disable this requirement. -->
+    <Property name="R2753Enabled" value="true" />
+    <!-- Set R2438Enabled to true to verify that CreateContentType operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2438Enabled to false to disable this requirement. -->
+    <Property name="R2438Enabled" value="false" />
+    <!-- Set R2754Enabled to true to verify that DeleteAttachment operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.10. Set R2754Enabled to false to disable this requirement. -->
+    <Property name="R2754Enabled" value="true" />
+    <!-- Set R2440Enabled to true to verify that DeleteAttachment operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2440Enabled to false to disable this requirement. -->
+    <Property name="R2440Enabled" value="false" />
+    <!-- Set R2755Enabled to true to verify that DeleteContentType operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.11. Set R2755Enabled to false to disable this requirement. -->
+    <Property name="R2755Enabled" value="true" />
+    <!-- Set R2443Enabled to true to verify that DeleteContentType operation does not return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.12. Set R2443Enabled to false to disable this requirement. -->
+    <Property name="R2443Enabled" value="false" />
+    <!-- Set R2756Enabled to true to verify that DeleteContentTypeXmlDocument operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.12. Set R2756Enabled to false to disable this requirement. -->
+    <Property name="R2756Enabled" value="true" />
+    <!-- Set R2446Enabled to true to verify that DeleteContentTypeXmlDocument operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2446Enabled to false to disable this requirement. -->
+    <Property name="R2446Enabled" value="false" />
+    <!-- Set R2757Enabled to true to verify that DeleteList operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.13. Set R2757Enabled to false to disable this requirement. -->
+    <Property name="R2757Enabled" value="true" />
+    <!-- Set R2448Enabled to true to verify that DeleteList operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2448Enabled to false to disable this requirement. -->
+    <Property name="R2448Enabled" value="false" />
+    <!-- Set R2758Enabled to true to verify that GetAttachmentCollection operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.14. Set R2758Enabled to false to disable this requirement. -->
+    <Property name="R2758Enabled" value="true" />
+    <!-- Set R2450Enabled to true to verify that GetAttachmentCollection operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2450Enabled to false to disable this requirement. -->
+    <Property name="R2450Enabled" value="false" />
+    <!-- Set R2759Enabled to true to verify that GetList operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.15. Set R2759Enabled to false to disable this requirement. -->
+    <Property name="R2759Enabled" value="true" />
+    <!-- Set R2452Enabled to true to verify that GetList operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2452Enabled to false to disable this requirement. -->
+    <Property name="R2452Enabled" value="false" />
+    <!-- Set R2760Enabled to true to verify that GetListAndView operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.16. Set R2760Enabled to false to disable this requirement. -->
+    <Property name="R2760Enabled" value="true" />
+    <!-- Set R2454Enabled to true to verify that GetListAndView operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2454Enabled to false to disable this requirement. -->
+    <Property name="R2454Enabled" value="false" />
+    <!-- Set R2761Enabled to true to verify that GetListContentType operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.18. Set R2761Enabled to false to disable this requirement. -->
+    <Property name="R2761Enabled" value="True" />
+    <!-- Set R2457Enabled to true to verify that GetListContentType operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2457Enabled to false to disable this requirement. -->
+    <Property name="R2457Enabled" value="False" />
+    <!-- Set R2762Enabled to true to verify that GetListContentTypes operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.19.2.1. Set R2762Enabled to false to disable this requirement. -->
+    <Property name="R2762Enabled" value="True" />
+    <!-- Set R2460Enabled to true to verify that GetListContentTypes operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2460Enabled to false to disable this requirement. -->
+    <Property name="R2460Enabled" value="False" />
+    <!-- Set R2763Enabled to true to verify that GetListItemChanges operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.21. Set R2763Enabled to false to disable this requirement. -->
+    <Property name="R2763Enabled" value="True" />
+    <!-- Set R2480Enabled to true to verify that GetListItemChanges operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2480Enabled to false to disable this requirement. -->
+    <Property name="R2480Enabled" value="False" />
+    <!-- Set R3032Enabled to true to verify that GetListItemChangesSinceToken operation does ignore the changeToken parameter as specified in section 3.1.4.22.  Set R3032Enabled to false to disable this requirement. -->
+    <Property name="R3032Enabled" value="True" />
+    <!-- Set R2483Enabled to true to verify that GetListItemChangesSinceToken operation does not ignore the changeToken parameter as specified in section 7. Set R2483Enabled to false to disable this requirement. -->
+    <Property name="R2483Enabled" value="False" />
+    <!-- Set R2220Enabled to true to verify that GetListItemChangesWithKnowledge operation does retrieve all rows when get list item changes with knowledge as specified in section 3.1.4.23.2.1. Set R2220Enabled to false to disable this requirement. -->
+    <Property name="R2220Enabled" value="True" />
+    <!-- Set R2489Enabled to true to verify that GetListItems operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2489Enabled to false to disable this requirement. -->
+    <Property name="R2489Enabled" value="False" />
+    <!-- Set R2764Enabled to true to verify that GetListItems operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.24. Set R2764Enabled to false to disable this requirement. -->
+    <Property name="R2764Enabled" value="True" />
+    <!-- Set R2492Enabled to true to verify that GetVersionCollection operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2492Enabled to false to disable this requirement. -->
+    <Property name="R2492Enabled" value="False" />
+    <!-- Set R2765Enabled to true to verify that GetVersionCollection operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.25. Set R2765Enabled to false to disable this requirement. -->
+    <Property name="R2765Enabled" value="True" />
+    <!-- Set R2496Enabled to true to verify that UpdateContentType operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2496Enabled to false to disable this requirement. -->
+    <Property name="R2496Enabled" value="False" />
+    <!-- Set R2766Enabled to true to verify that UpdateContentType operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.27. Set R2766Enabled to false to disable this requirement. -->
+    <Property name="R2766Enabled" value="True" />
+    <!-- Set R2767Enabled to true to verify that UpdateContentTypesXmlDocument operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.28. Set R2767Enabled to false to disable this requirement. -->
+    <Property name="R2767Enabled" value="True" />
+    <!-- Set R2502Enabled to true to verify that UpdateContentTypeXmlDocument operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2502Enabled to false to disable this requirement. -->
+    <Property name="R2502Enabled" value="False" />
+    <!-- Set R2768Enabled to true to verify that UpdateContentTypeXmlDocument operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.29. Set R2768Enabled to false to disable this requirement. -->
+    <Property name="R2768Enabled" value="True" />
+    <!-- Set R2510Enabled to true to verify that UpdateListItems operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2510Enabled to false to disable this requirement. -->
+    <Property name="R2510Enabled" value="False" />
+    <!-- Set R2770Enabled to true to verify that UpdateListItems operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.31. Set R2770Enabled to false to disable this requirement. -->
+    <Property name="R2770Enabled" value="True" />
+    <!-- Set R4007Enabled to true to verify that UpdateListItems operation does result in section the entire operation being aborted as specified in section 3.1.4.31.2.1. Set R4007Enabled to false to disable this requirement. -->
+    <Property name="R4007Enabled" value="True" />
+    <!-- Set R4008Enabled to true to verify that UpdateListItemsWithKnowledge operation does result in section the entire operation being aborted as specified in section 3.1.4.31.2.1. Set R4008Enabled to false to disable this requirement. -->
+    <Property name="R4008Enabled" value="True" />
+    <!-- Set R4009Enabled to true to verify that UpdateListItems operation does execute the subsequent methods in section the batch as specified in section 3.1.4.31.2.1. Set R4009Enabled to false to disable this requirement. -->
+    <Property name="R4009Enabled" value="True" />
+    <!-- Set R4010Enabled to true to verify that UpdateListItemsWithKnowledge operation does execute the subsequent methods in section the batch as specified in section 3.1.4.31.2.1. Set R4010Enabled to false to disable this requirement. -->
+    <Property name="R4010Enabled" value="True" />
+    <!-- Set R3Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients as specified in section 2.1. Set R3Enabled to false to disable this requirement. -->
+    <Property name="R3Enabled" value="True" />
+    <!-- Set R2230Enabled to true to verify that the SUT does support GetListContentTypesAndProperties operation as specified in section 3.1.4.20. Set R2230Enabled to false to disable this requirement. -->
+    <Property name="R2230Enabled" value="True" />
+    <!-- Set R25151Enabled to true to verify that the SUT does support UpdateListItemsWithKnowledge operation as specified in section 7. Set R25151Enabled to false to to disable this requirement. -->
+    <Property name="R25151Enabled" value="True" />
+    <!-- Set R24881Enabled to true to verify that the SUT does support GetListItemChangesWithKnowledge operations specified in section 7.Set R24881Enabled to false to false to disable this requirement. -->
+    <Property name="R24881Enabled" value="True" />
+    <!-- Set R2219Enabled to true to verify that GetListItemChangesSinceToken operation does specify rowLimit to indicate the maximum number of rows of data to return in section the response as specified in section 3.1.4.22.2.1. Set R2219Enabled to false to disable this requirement. -->
+    <Property name="R2219Enabled" value="True" />
+    <!-- Set R677Enabled to true to verify that GetListItemChangesSinceToken operation does retrieve all rows when specifying a value of 0,unless the changeToken parameter is specified as specified in section 3.1.4.22.2.1. Set R677Enabled to false to disable this requirement. -->
+    <Property name="R677Enabled" value="True" />
+    <!-- Set R2504Enabled to true to verify that UpdateList operation does return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2504Enabled to false to disable this requirement. -->
+    <Property name="R2504Enabled" value="false" />
+    <!-- Set R4006Enabled to true to verify that GetListItemChangesSinceToken operation does not return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.22.2.1. Set R4006Enabled to false to disable this requirement. -->
+    <Property name="R4006Enabled" value="true" />
+    <!-- Set R8861Enabled to true to verify that UpdateList operation does not return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.30. Set R8861Enabled to false to disable this requirement. -->
+    <Property name="R8861Enabled" value="true" />
+    <!-- Set R2422Enabled to true to verify that for type "ListDefinitionSchema" in operations "AddList","AddListFromFeature", "GetList", "GetListAndView" and "GetListItemChangesSinceToken", protocol server does not return this attribute[ListDefinitionSchema.ValidationDisplayNames] on [ListDefinitionSchema] in section 7. Set R2422Enabled to false to disable this requirement. -->
+    <Property name="R2422Enabled" value="false" />
+    <!-- Set R2423Enabled to true to verify that for type "ListItemChangeDefinition" in operations "GetListItemChangesSinceToken" and "GetListItemChangesWithKnowledge" protocol server does not return this attribute[UniqueId] on [ListItemChangeDefinition] in section 7. Set R2423Enabled to false to disable this requirement. -->
+    <Property name="R2423Enabled" value="false" />
+    <!-- Set R2424Enabled to true to verify that for type "ListItemChangeDefinition" in operations "GetListItemChangesSinceToken" and "GetListItemChangesWithKnowledge" protocol server does not return this attribute[MetaInfo_vti_clientid] on [ListItemChangeDefinition] in section 7. Set R2424Enabled to false to disable this requirement. -->
+    <Property name="R2424Enabled" value="false" />
+    <!-- Set R2425Enabled to true to verify that for type "ListItemChangeDefinition" in operations "GetListItemChangesSinceToken" and "GetListItemChangesWithKnowledge" protocol server does not return this attribute[ServerChangeUnit] on [ListItemChangeDefinition] in section 7. Set R2425Enabled to false to disable this requirement. -->
+    <Property name="R2425Enabled" value="false" />
+    <!-- Set R2420Enabled to true to verify that for type "ListItemChangeDefinition" in operations "GetListItemChangesSinceToken" and "GetListItemChangesWithKnowledge" protocol server does not return this attribute[ServerChangeUnit] on [ListItemChangeDefinition] in section 7. Set R2420Enabled to false to disable this requirement. -->
+    <Property name="R2420Enabled" value="false" />
+    <!-- Set R2396Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.HasExternalDataSource] on [ListDefinitionCT] in section 7. Set R2396Enabled to false to disable this requirement. -->
+    <Property name="R2396Enabled" value="false" />
+    <!-- Set R2398Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.EnablePeopleSelector] on [ListDefinitionCT] in section 7. Set R2398Enabled to false to disable this requirement. -->
+    <Property name="R2398Enabled" value="false" />
+    <!-- Set R2400Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.EnableResourceSelector] on [ListDefinitionCT] in section 7. Set R2400Enabled to false to disable this requirement. -->
+    <Property name="R2400Enabled" value="false" />
+    <!-- Set R2402Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.ExcludeFromOfflineClient] on [ListDefinitionCT] in section 7. Set R2402Enabled to false to disable this requirement. -->
+    <Property name="R2402Enabled" value="false" />
+    <!-- Set R2404Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.EnableFolderCreation] on [ListDefinitionCT] in section 7. Set R2404Enabled to false to disable this requirement. -->
+    <Property name="R2404Enabled" value="false" />
+    <!-- Set R2406Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.IrmEnabled] on [ListDefinitionCT] in section 7. Set R2406Enabled to false to disable this requirement. -->
+    <Property name="R2406Enabled" value="false" />
+    <!-- Set R2408Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.IsApplicationList] on [ListDefinitionCT] in section 7. Set R2408Enabled to false to disable this requirement. -->
+    <Property name="R2408Enabled" value="false" />
+    <!-- Set R2410Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.PreserveEmptyValues] on [ListDefinitionCT] in section 7. Set R2410Enabled to false to disable this requirement. -->
+    <Property name="R2410Enabled" value="false" />
+    <!-- Set R2414Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.MaxItemsPerThrottledOperation] on [ListDefinitionCT] in section 7. Set R2414Enabled to false to disable this requirement. -->
+    <Property name="R2414Enabled" value="false" />
+    <!-- Set R2416Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.EnforceDataValidation] on [ListDefinitionCT] in section 7. Set R2416Enabled to false to disable this requirement. -->
+    <Property name="R2416Enabled" value="false" />
+    <!-- Set R2418Enabled to true to verify that for type "ListDefinitionSchema" in operations "AddList","AddListFromFeature", "GetList", "GetListAndView" and "GetListItemChangesSinceToken", protocol server does not return this attribute[ListDefinitionSchema.Validation] on [ListDefinitionSchema] in section 7. Set R2418Enabled to false to disable this requirement. -->
+    <Property name="R2418Enabled" value="false" />
+    <!-- Set R5417Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.Followable] on [ListDefinitionCT] in section 7. Set R5417Enabled to false to disable this requirement. -->
+    <Property name="R5417Enabled" value="true" />
+    <!-- Set R2485Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40 as specified in section 7. Set R2485Enabled to false to disable this requirement. -->
+    <Property name="R2485Enabled" value="true" />
+    <!-- Set R2484Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40 as specified in section 7. Set R2484Enabled to false to disable this requirement. -->
+    <Property name="R2484Enabled" value="true" />
+    <!-- Set R2462Enabled to true to verify that GetListContentTypes operation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder] on [GetListContentTypesResponse] in section 7. Set R2462Enabled to false to disable this requirement. -->
+    <Property name="R2462Enabled" value="false" />
+    <!-- Set R2499Enabled to true to verify that UpdateContentTypesXmlDocument operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2499Enabled to false to disable this requirement. -->
+    <Property name="R2499Enabled" value="false" />
+    <!-- Set R6981Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 100 items that changed, if the changeToken parameter is specified and the total number of list items that have been inserted or updated is greater than 100 as specified in section 3.1.4.22.2.1. Set R6981Enabled to false to disable this requirement. -->
+    <Property name="R6981Enabled" value="false" />
+    <!-- Set R2486Enabled to true to verify that GetListItemChangesSinceToken operation does not return this FileFragment element in the Changes element . Set R2486Enabled to false to disable this requirement. -->
+    <Property name="R2486Enabled" value="false" />
+    <!-- Set R7151Enabled to true to verify that GetListItemChangesSinceToken operation does return the inner XML of the Changes element which contains the full List element from the GetList operation. Set R7151Enabled to false to disable this requirement. -->
+    <Property name="R7151Enabled" value="true" />
+    <!-- Set R14021Enabled to true to verify that if operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken" or "UpdateList" return this attribute[ListDefinitionCT.EnableFolderCreation]. Set R14021Enabled to false to disable this requirement. -->
+    <Property name="R14021Enabled" value="true" />
+    <!-- Set R5882Enabled to true to verify that if operation "GetListItemChanges" returns SOAP fault with no error code. Set R5882Enabled to false to to disable this requirement. -->
+    <Property name="R5882Enabled" value="true" />
+    <!-- Set R30183Enabled to true to verify that if operation "GetListItemChanges" returns SOAP fault with error code 0x82000006. Set R30183Enabled to false to to disable this requirement. -->
+    <Property name="R30183Enabled" value="false" />
+    <!-- Set R5894Enabled to true to verify that if operation "GetListItems" returns SOAP fault with no error code. Set R5894Enabled to false to to disable this requirement. -->
+    <Property name="R5894Enabled" value="true" />
+    <!-- Set R30193Enabled to true to verify that if operation "GetListItems" returns SOAP fault with error code 0x82000006. Set R30193Enabled to false to to disable this requirement. -->
+    <Property name="R30193Enabled" value="false" />
+    <!-- Set R3581Enabled to true to verify that AddListFromFeature operation returns the error string "Parameter {0} is missing or invalid". Set R3581Enabled to false to disable this requirement. -->
+    <Property name="R3581Enabled" value="true" />
+    <!-- Set R2771Enabled to true to verify that AddListFromFeature operation returns the error code 0x81072101. Set R2771Enabled to false to disable this requirement. -->
+    <Property name="R2771Enabled" value="false" />
+    <!-- Set R6581Enabled to true to verify that if operation "GetListItemChangesSinceToken" returns SOAP fault with no error code. Set R6581Enabled to false to to disable this requirement. -->
+    <Property name="R6581Enabled" value="false" />
+    <!-- Set R6582Enabled to true to verify that if operation "GetListItemChangesSinceToken" returns SOAP fault with error code 0x82000006. Set R6582Enabled to false to to disable this requirement. -->
+    <Property name="R6582Enabled" value="true" />
+    <!-- Set R6611Enabled to true to verify that if operation "GetListItemChangesSinceToken" ignores the viewName parameter. Set R6611Enabled to false to to disable this requirement. -->
+    <Property name="R6611Enabled" value="true" />
+    <!-- Set R6612Enabled to true to verify that if operation "GetListItemChangesSinceToken" returns SOAP fault with error string "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)". Set R6612Enabled to false to to disable this requirement. -->
+    <Property name="R6612Enabled" value="false" />
+    <!-- Set R30371Enabled to true to verify that GetAttachmentCollection operation returns the error string "Value does not fall within the expected range". Set R30371Enabled to false to disable this requirement. -->
+    <Property name="R30371Enabled" value="false" />
+    <!-- Set R30372Enabled to true to verify that GetAttachmentCollection operation returns the error code 0x81020014. Set R30372Enabled to false to disable this requirement. -->
+    <Property name="R30372Enabled" value="true" />
+    <!-- Set R30231Enabled to true to verify that UpdateListItems operation returns the error string "Object reference not set to an instance of an object". Set R30231Enabled to false to disable this requirement. -->
+    <Property name="R30231Enabled" value="false" />
+    <!-- Set R30232Enabled to true to verify that UpdateListItems operation returns the error string "Cannot access a closed Stream". Set R30232Enabled to false to disable this requirement. -->
+    <Property name="R30232Enabled" value="true" />
+    <!-- Set R7851Enabled to true to verify that operation UndoCheckOut does not return a SOAP fault if the pageUrl is an invalid URL, as specified in section 3.1.4.26. Set R7851Enabled to false to disable this requirement. -->
+    <Property name="R7851Enabled" value="false" />
+    <!-- Set R7852Enabled to true to verify that operation UndoCheckOut returns a SOAP fault with the error string: "Invalid URI: The format of the URI could not be determined." if the pageUrl is an invalid URL, as specified in section 3.1.4.26. Set R7852Enabled to false to disable this requirement. -->
+    <Property name="R7852Enabled" value="true" />
+    <!-- Set R7660Enabled to true to verify that Implementation returns a SOAP fault, when strListItemID is a negative value, the error code is 0x81020014. When strListItemID is zero or a positive value that does not correspond to a list item in a specified list on the site, there is no error code. Set R7660Enabled to false to disable this requirement. -->
+    <Property name="R7660Enabled" value="true" />
+    <!-- Set R7661Enabled to true to verify that Implementation returns a SOAP fault with no error code and the error string "Value does not fall within the expected range." When strListItemID is a negative value, is zero, or is a positive value that does not correspond to a list item in a specified list on the site. Set R7661Enabled to false to disable this requirement. -->
+    <Property name="R7661Enabled" value="false" />
+    <!-- Set R4081Enabled to true to verify that operation CheckOutFile returns a SOAP fault with no error code and the error string "Invalid URI: The format of the URI could not be determined." if pageUrl is an invalid URL. as specified in section 3.1.4.8. Set R4081Enabled to false to disable this requirement. -->
+    <Property name="R4081Enabled" value="true" />
+    <!-- Set R4082Enabled to true to verify that operation CheckOutFile does not return a SOAP fault as specified in section 3.1.4.8. Set R4082Enabled to false to disable this requirement. -->
+    <Property name="R4082Enabled" value="false" />
+    <!-- Set R3921Enabled to true to verify that operation CheckInFile returns a SOAP fault with the error string "Invalid URI: The format of the URI could not be determined." if pageUrl is an invalid URL. as specified in section 3.1.4.7. Set R3921Enabled to false to disable this requirement. -->
+    <Property name="R3921Enabled" value="true" />
+    <!-- Set R3922Enabled to true to verify that operation CheckInFile does not return a SOAP fault as specified in section 3.1.4.7. Set R3922Enabled to false to disable this requirement. -->
+    <Property name="R3922Enabled" value="false" />
+    <!-- Set R18321Enabled to true to verify that operation GetListContentTypes does return a string of content type identifiers in section 3.1.4.19.2.2 Set R18321Enabled to false to disable this requirement. -->
+    <Property name="R18321Enabled" value="true" />
+    <!-- Set R7081Enabled to true to verify that operation GetListItemChangesSinceTokenResponse does not return MaxRecommendedEmbeddedFileSize attribute in section 3.1.4.22.2.2 Set R7081Enabled to false to disable this requirement. -->
+    <Property name="R7081Enabled" value="true" />
+    <!-- Set R10842Enabled to true to verify that operation GetListItemChangesWithKnowledge does not return a SOAP fault with error code 0x82000006 in section 3.1.4.23.2.2 Set R10842Enabled to false to disable this requirement. -->
+    <Property name="R10842Enabled" value="true" />
+    <!-- Set R11461Enabled to true to verify that operation GetListItemChangesWithKnowledgeResponse does not return MaxRecommendedEmbeddedFileSize attribute in section 3.1.4.23.2.2 Set R11461Enabled to false to disable this requirement. -->
+    <Property name="R11461Enabled" value="true" />
+    <!-- Set R3101Enabled to true to verify that the server does support AddDiscussionBoardItem operation in section 3.1.4.2. Set R3101Enabled to false to disable this requirement. -->
+    <Property name="R3101Enabled" value="true" />
+    <!-- Set R3521Enabled to true to verify that the server does support AddListFromFeature operation in section 3.1.4.4. Set R3521Enabled to false to disable this requirement. -->
+    <Property name="R3521Enabled" value="true" />
+    <!-- Set R16231Enabled to true to verify that the server does support ApplyContentTypeToList operation in section 3.1.4.6. Set R16231Enabled to false to disable this requirement. -->
+    <Property name="R16231Enabled" value="true" />
+    <!-- Set R16381Enabled to true to verify that the server does support CheckInFile operation in section 3.1.4.7. Set R16381Enabled to false to disable this requirement. -->
+    <Property name="R16381Enabled" value="true" />
+    <!-- Set R16611Enabled to true to verify that the server does support CheckOutFile operation in section 3.1.4.8. Set R16611Enabled to false to disable this requirement. -->
+    <Property name="R16611Enabled" value="true" />
+    <!-- Set R16801Enabled to true to verify that the server does support CreateContentType operation in section 3.1.4.9. Set R16801Enabled to false to disable this requirement. -->
+    <Property name="R16801Enabled" value="true" />
+    <!-- Set R4801Enabled to true to verify that the server does support DeleteContentType operation in section 3.1.4.11. Set R4801Enabled to false to disable this requirement. -->
+    <Property name="R4801Enabled" value="true" />
+    <!-- Set R4971Enabled to true to verify that the server does support DeleteContentTypeXmlDocument operation in section 3.1.4.12. Set R4971Enabled to false to disable this requirement. -->
+    <Property name="R4971Enabled" value="true" />
+    <!-- Set R5861Enabled to true to verify that the server does support GetListContentType operation in section 3.1.4.18. Set R5861Enabled to false to disable this requirement. -->
+    <Property name="R5861Enabled" value="true" />
+    <!-- Set R6101Enabled to true to verify that the server does support GetListContentTypes operation in section 3.1.4.19. Set R6101Enabled to false to disable this requirement. -->
+    <Property name="R6101Enabled" value="true" />
+    <!-- Set R6501Enabled to true to verify that the server does support GetListItemChangesSinceToken operation in section 3.1.4.22. Set R6501Enabled to false to disable this requirement. -->
+    <Property name="R6501Enabled" value="true" />
+    <!-- Set R7571Enabled to true to verify that the server does support GetVersionCollection operation in section 3.1.4.25. Set R7571Enabled to false to disable this requirement. -->
+    <Property name="R7571Enabled" value="true" />
+    <!-- Set R7781Enabled to true to verify that the server does support UndoCheckOut operation in section 3.1.4.26. Set R7781Enabled to false to disable this requirement. -->
+    <Property name="R7781Enabled" value="true" />
+    <!-- Set R7921Enabled to true to verify that the server does support UpdateContentType operation in section 3.1.4.27. Set R7921Enabled to false to disable this requirement. -->
+    <Property name="R7921Enabled" value="true" />
+    <!-- Set R8351Enabled to true to verify that the server does support UpdateContentTypesXmlDocument operation in section 3.1.4.28. Set R8351Enabled to false to disable this requirement. -->
+    <Property name="R8351Enabled" value="true" />
+    <!-- Set R8581Enabled to true to verify that the server does support UpdateContentTypeXmlDocument operation in section 3.1.4.29. Set R8581Enabled to false to disable this requirement. -->
+    <Property name="R8581Enabled" value="true" />
+    <!-- Set R20961Enabled to true to verify that the server does support UpdateListItems.Move operation in section 3.1.4.31. Set R20961Enabled to false to disable this requirement. -->
+    <Property name="R20961Enabled" value="true" />
+    <!-- Set R20962Enabled to true to verify that the server does support UpdateListItemsWithKnowledge.Move operation in section 3.1.4.32. Set R20962Enabled to false to disable this requirement. -->
+    <Property name="R20962Enabled" value="true" />
+    <!-- Set R2381Enabled to true to verify that the server does not return characters longer than 1024 if ListDefinitionSchema.Validation present. Set R2381Enabled to false to disable this requirement. -->
+    <Property name="R2381Enabled" value="true" />
+    <!-- Set R2380Enabled to true to verify that the server does not return characters longer than 1024 if ListDefinitionSchema.Validation.Message present. Set R2380Enabled to false to disable this requirement. -->
+    <Property name="R2380Enabled" value="true" />
+    <!-- Set R267001Enabled to true to verify that the server does support UpdateList operation and assume the default view if the Method.AddToView attribute present and its value is not a GUID. Set R267001Enabled to false to disable this requirement. -->
+    <Property name="R267001Enabled" value="true" />
+  </Properties>
+</TestSite>

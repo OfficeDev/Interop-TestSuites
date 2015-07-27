@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R12904Enabled to true to verify that for RopQueryNamedProperties the implementation is valid on Logon objects as specified in section 2.2.9.
+      Set R12904Enabled to false to disable this requirement. -->
+    <Property name="R12904Enabled" value="true"/>
+    <!-- Set R86703Enabled to true to verify that for RopGetPropertiesSpecific the implementation does return the PtypErrorCode type with a value of NotEnoughMemory (0x8007000E) when the property size exceed the value of PropertySizeLimit or the ROP response buffer as specified in section 6.
+      Set R86703Enabled to false to disable this requirement. -->
+    <Property name="R86703Enabled" value="false"/>
+    <!-- Set R875Enabled to true to verify that for RopDeleteProperties the implementation does return the NotFound error(0x8004010F) ([MS-OXCDATA] section 2.4.2) in place of a value, if a client request the value of this property[which is deleted] as specified in section 3.2.5.5.
+      Set R875Enabled to false to disable this requirement. -->
+    <Property name="R875Enabled" value="true"/>
+    <!-- Set R86704Enabled to true to verify that for RopCopyProperties the implementation does delete the copied properties from the source object, if the move flag is set in the CopyFlags field of the ROP request buffer as specified in section 3.2.5.7.
+      Set R86704Enabled to false to disable this requirement. -->
+    <Property name="R86704Enabled" value="false"/>
+    <!-- Set R86705Enabled to true to verify that for RopCopyProperties the implementation does return an InvalidParameter error (0x80070057) ([MS-OXCDATA] section 2.4), if any other bits are set in the CopyFlags field as specified in section 6.
+      Set R86705Enabled to false to disable this requirement. -->
+    <Property name="R86705Enabled" value="false"/>
+    <!-- Set R882Enabled to true to verify that for RopCopyProperties the implementation does return NotSupported error, if the original object is a Folder object and the CopyFlags field has the Move flag set as specified in section 3.2.5.7.
+      Set R882Enabled to false to disable this requirement. -->
+    <Property name="R882Enabled" value="true"/>
+    <!-- Set R89603Enabled to true to verify that for RopCopyToProperties the implementation return error code ""0x8004060B"" with name ""FolderCycle"" when The source folder contains the destination folder as specified in section 3.2.5.8.
+      Set R89603Enabled to false to disable this requirement. -->
+    <Property name="R89603Enabled" value="false"/>
+    <!-- Set R899Enabled to true to verify that for RopCopyToProperties the implementation return error code ""0x80040604"" with name ""CollidingNames"", when a subobject cannot be copied because there is already a subobject existing in the destination object with the same display name, which is specified in the PidTagDisplayName property ([MS-OXCFOLD] section 2.2.2.2.2.4), as the subobject to be copied as specified in section 3.2.5.8.
+      Set R899Enabled to false to disable this requirement. -->
+    <Property name="R899Enabled" value="true"/>
+    <!-- Set R891Enabled to true to verify that for RopOpenStream  the implementation return error ""0x8004010F"" with name ""NotFound"", when The property tag does not exist for the object, and it cannot be created because the Create bit was not specified in OpenModeFlags field as specified in section 3.2.5.12.
+      Set R891Enabled to false to disable this requirement. -->
+    <Property name="R891Enabled" value="true"/>
+    <!-- Set R86706Enabled to true to verify that for RopWriteStream implementation does return the StreamSizeError error code if it writes less than the amount requested as specified in section 6.
+      Set R86706Enabled to false to disable this requirement. -->
+    <Property name="R86706Enabled" value="false"/>
+    <!-- Set R901Enabled to true to verify that for RopWriteStream implementation does return error code ""0x80030005"" with name ""STG_E_ACCESSDENIED"" as specified in section 3.2.5.13, when Write access is denied.
+      Set R901Enabled to false to disable this requirement. -->
+    <Property name="R901Enabled" value="true"/>
+    <!-- Set R894Enabled to true to verify that for RopSeekStream implementation does return error code ""0x80030019"" with name ""StreamSeekError"",  When Tried to seek to offset before the start or beyond the max stream size of 2^31 as specified in section 3.2.5.17.
+      Set R894Enabled to false to disable this requirement. -->
+    <Property name="R894Enabled" value="true"/>
+    <!-- Set R903Enabled to true to verify that for RopSeekStream implementation does return error code ""0x80030057"" with name ""StreamInvalidParam"", when The value of the Origin field is invalid as specified in section 3.2.5.17.
+      Set R903Enabled to false to disable this requirement. -->
+    <Property name="R903Enabled" value="true"/>
+    <!-- Set R895Enabled to true to verify that for RopCopyToStream implementation does return error code ""0x00000503"" with name ""NullDestinationObject"", when Destination object does not exist as specified in section 3.2.5.18.
+      Set R895Enabled to false to disable this requirement. -->
+    <Property name="R895Enabled" value="true"/>
+    <!-- Set R750Enabled to true to verify that for RopLockRegionStream implementation does implement the RopLockRegionStream ROP as specified in section 6.
+      Set R750Enabled to false to disable this requirement. -->
+    <Property name="R750Enabled" value="false"/>
+    <!-- Set R751Enabled to true to verify that for RopUnlockRegionStream implementation does implement the RopUnlockRegionStream ROP as specified in section 6.
+      Set R751Enabled to false to disable this requirement. -->
+    <Property name="R751Enabled" value="false"/>
+    <!-- Set R752Enabled to true to verify that for RopWriteAndCommitStream implementation does implement the RopWriteAndCommitStream ROP as specified in section 6.
+      Set R752Enabled to false to disable this requirement. -->
+    <Property name="R752Enabled" value="false"/>
+    <!-- Set R753Enabled to true to verify that for RopCloneStream implementation does implement the RopCloneStream ROP as specified in section 6.
+      Set R753Enabled to false to disable this requirement. -->
+    <Property name="R753Enabled" value="false"/>
+    <!-- Set R86502Enabled to true to verify that for RopCopyProperties implementation does not support the combination of the Move bit and the NoOverwrite bit as specified in section 2.2.10.
+      Set R86502Enabled to false to disable this requirement. -->
+    <Property name="R86502Enabled" value="true"/>
+    <!-- Set R18402Enabled to true to verify that for RopCopyTo implementation does not support the combination of the Move bit and the NoOverwrite bit as specified in section 2.2.11.
+      Set R18402Enabled to false to disable this requirement. -->
+    <Property name="R18402Enabled" value="true"/>
+    <!-- Set R86701Enabled to true to verify that for RopCopyProperties implementation does support the combination of the Move bit and the NoOverwrite bit as specified in section 6.
+      Set R86701Enabled to false to disable this requirement. -->
+    <Property name="R86701Enabled" value="false"/>
+    <!-- Set R86702Enabled to true to verify that for RopCopyTo implementation does support the combination of the Move bit and the NoOverwrite bit as specified in section 6.
+      Set R86702Enabled to false to disable this requirement. -->
+    <Property name="R86702Enabled" value="false"/>
+    <!-- Set R56402Enabled to true to verify that for RopWriteStream the new value of the property is not persisted to the database.
+      Set R56402Enabled to false to disable this requirement. -->
+    <Property name="R56402Enabled" value="false"/>
+    <!-- Set R890Enabled to true to verify that for RopCopyTo implementation does return error code ""0x80040102"" with name ""NotSupported"",  when source object and destination object are not compatible with each other for the copy operation.
+      Set R890Enabled to false to disable this requirement. -->
+    <Property name="R890Enabled" value="true"/>
+    <!-- Set R90102Enabled to true to verify that for RopWriteStream implementation does return error code ""0x80040305"" with name ""TooBig"", when The result set of the operation is too big for the server to return.
+      Set R90102Enabled to false to disable this requirement. -->
+    <Property name="R90102Enabled" value="true"/>
+    <!-- Set R90707Enabled to true to verify that for RopGetPropertiesSpecific implementation does return the same no matter what the value of  PropertySizeLimit field is.
+      Set R90707Enabled to false to disable this requirement. -->
+    <Property name="R90707Enabled" value="true"/>
+    <!-- Set R9070102Enabled to true to verify that for RopGetPropertiesSpecific implementation does return no error, no matter whether the property size exceed the value of PropertySizeLimit or not.
+      Set R9070102Enabled to false to disable this requirement. -->
+    <Property name="R9070102Enabled" value="true"/>
+    <!-- Set R25505Enabled to true to verify that for RopOpenStream Single-valued PtypString type properties ([MS-OXCDATA] section 2.11.1) is supported for Attachment objects.
+      Set R25505Enabled to false to disable this requirement. -->
+    <Property name="R25505Enabled" value="true"/>
+    <!-- Set R50101Enabled to true to verify that for RopCopyProperties implementation doesn't delete the copied properties from the source object, if the move flag is set in the CopyFlags field of the ROP request buffer.
+      Set R50101Enabled to false to disable this requirement. -->
+    <Property name="R50101Enabled" value="true"/>
+    <!-- Set R88001Enabled to true to verify that for RopCopyProperties implementation does return an InvalidParameter error (0x80070057) ([MS-OXCDATA] section 2.4), if any other bits are set in the CopyFlags field.
+      Set R88001Enabled to false to disable this requirement. -->
+    <Property name="R88001Enabled" value="true"/>
+    <!-- Set R49201Enabled to true to verify that for RopDeleteProperties, for Logon objects, the properties MUST be removed immediately without requiring another ROP to commit the change.
+      Set R49201Enabled to false to disable this requirement. -->
+    <Property name="R49201Enabled" value="false"/>
+    <!-- Set R83609Enabled to true to verify that for RopDeletePropertiesNoReplicate, for Logon objects, the properties MUST be removed immediately without requiring another ROP to commit the change.
+      Set R83609Enabled to false to disable this requirement. -->
+    <Property name="R83609Enabled" value="false"/>
+    <!-- Set R86708Enabled to true to verify that for RopCopyTo implementation ignores invalid bits and does not return the InvalidParameter error code (0x80070057). Otherwise, we don't know when to return this error.
+      Set R86708Enabled to false to disable this requirement. -->
+    <Property name="R86708Enabled" value="false"/>
+    <!-- Set R5070506Enabled to true to verify that for RopCopyTo implementation does return an InvalidParameter error (0x80070057). if any other bits are set in the CopyFlags field.
+      Set R5070506Enabled to false to disable this requirement. -->
+    <Property name="R5070506Enabled" value="true"/>
+    <!-- Set R55707Enabled to true to verify that for RopWriteStream implementation does return the TooBig error code if it writes less than the amount requested.
+      Set R55707Enabled to false to disable this requirement. -->
+    <Property name="R55707Enabled" value="true"/>
+    <!-- Set R88601Enabled to true to verify that for RopReadStream implementation does set the DataSize field to zero in the case of a failure.
+      Set R88601Enabled to false to disable this requirement. -->
+    <Property name="R88601Enabled" value="true"/>
+    <!-- Set R86707Enabled to true to verify that for RopCopyTo If the Move flag is set in the CopyFlags field of the ROP request buffer, the implementation does delete the copied properties from the source object.
+      Set R86707Enabled to false to disable this requirement. -->
+    <Property name="R86707Enabled" value="false"/>
+    <!-- Set R5070511Enabled to true to verify that for RopCopyTo implementation does not return a NotSupported error (0x80040102), if the original object is a Folder object and the CopyFlags field has the Move flag set.
+      Set R5070511Enabled to false to disable this requirement. -->
+    <Property name="R5070511Enabled" value="true"/>
+    <!-- Set R83603Enabled to true to verify that for RopDeletePropertiesNoReplicate the Implementation does return the NotFound error(0x8004010F) ([MS-OXCDATA] section 2.4.2) in place of a value, if a client request the value of this property.
+      Set R83603Enabled to false to disable this requirement. -->
+    <Property name="R83603Enabled" value="true"/>
+    <!-- Set R5070513Enabled to true to verify that implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object.
+      Set R5070513Enabled to false to disable this requirement. -->
+    <Property name="R5070513Enabled" value="false"/>
+    <!-- Set R5070514Enabled to true to verify that implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object
+      Set R5070514Enabled to false to disable this requirement. -->
+    <Property name="R5070514Enabled" value="true"/>
+    <!-- Set R457003Enabled to true to verify that implementation does support the PidTagConversationId property.
+      Set R457003Enabled to false to disable this requirement. -->
+    <Property name="R457003Enabled" value="true"/>
+    <!-- Set R2561Enabled to true to verify that implementation does not support the single-valued properties that is of type PtypBinary for Folder objects.
+      Set R2561Enabled to false to disable this requirement. -->
+    <Property name="R2561Enabled" value="false"/>
+    <!-- Set R2563Enabled to true to verify that implementation does not support the single-valued properties that is of type PtypString for Folder objects.
+      Set R2563Enabled to false to disable this requirement. -->
+    <Property name="R2563Enabled" value="true"/>
+    <!-- Set R867091Enabled to true to verify that implementation does support the RopCopyToStream ROP.
+      Set R867091Enabled to false to disable this requirement. -->
+    <Property name="R867091Enabled" value="true"/>
+    <!-- Set R89601Enabled to true to verify that implementation does return error code "0x00000504" with name "MessageCycle" when the source message directly contains the destination message.
+      Set R89601Enabled to false to disable this requirement. -->
+    <Property name="R89601Enabled" value="true"/>
+    <!-- Set R89604Enabled to true to verify that Implementation does return error code "0x00000504" with name "MessageCycle" when the source message indirectly contains the destination message.
+      Set R89604Enabled to false to disable this requirement. -->
+    <Property name="R89604Enabled" value="true"/>
+    <!-- Set R5000Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R5000Enabled to false to disable this requirement.-->
+    <Property name="R5000Enabled" value="true"/>
+  </Properties>
+</TestSite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R60Enabled to true to verify that Protocol servers additionally support SOAP over HTTPS for securing communication with clients. Set R60Enabled to false to disable this requirement. -->
+    <Property name="R60Enabled" value="true" />
+    <!-- Set the value of the property MS-SHDACCWS_Supported to true to indicate that the SUT supports the MS-SHDACCWS protocol. Otherwise set the value to false. -->
+    <Property name="MS-SHDACCWS_Supported" value="true" />
+  </Properties>  
+</TestSite>

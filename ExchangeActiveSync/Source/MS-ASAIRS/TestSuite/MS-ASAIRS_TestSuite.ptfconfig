@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Attribute values are case-sensitive unless otherwise specified. -->
+  <Properties />
+  <Adapters>
+    <!-- Managed code adapter declaration. The "adaptertype" attribute specifies the assembly-qualified name of the type which implements the adapter specified by the "name" attribute. If the adapter is in the current AppDomain loaded assemblies, specify the "name" and "type" attributes; the "adaptertype" attribute is optional. -->
+    <!-- Protocol Adapter -->
+    <Adapter xsi:type="managed" name="IMS_ASAIRSAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_ASAIRS.MS_ASAIRSAdapter"/>
+  </Adapters>
+
+  <!-- Change the defaultprofile value to "Verbose" to see the debug logs, otherwise keep the default value "MinimumLog". -->
+  <TestLog defaultprofile="MinimumLog">
+    <Sinks>
+      <!-- The settings for the file log sink. The "id" attribute is the name, the "directory" attribute is the directory in which the log will be stored in, and the "file" attribute is the name of log. -->
+      <File id="Debug" directory="." file="MS-ASAIRS_DebugLog.txt" format="text" />
+      <File id="FileLog" directory="." file="MS-ASAIRS_Log.xml" format="xml" />
+      <Sink id="Beacon" type="Microsoft.Protocols.TestTools.Logging.BeaconLogSink" />
+    </Sinks>
+    <Profiles>
+      <!-- Name of the profile. The "extends" attribute specifies the profile to be included. -->
+      <Profile name="Verbose" extends="Error">
+        <!-- The settings for the debug log. When "delete" is set to false, the type of log information specified by the "kind" attribute is included in the log. The log information can be excluded by deleting the Rule element. -->
+        <Rule kind="CheckSucceeded" sink="Debug" delete="false" />
+        <Rule kind="Comment" sink="Debug" delete="false" />
+        <Rule kind="Checkpoint" sink="Debug" delete="false" />
+        <Rule kind="Debug" sink="Debug" delete="false" />
+
+        <!-- The settings for the XML log. The XML log generates the report of the test results. When "delete" is set to false, the type of log information specified by the "kind" attribute is included in the log. The log information can be excluded by deleting the Rule element. -->
+        <Rule kind="CheckSucceeded" sink="FileLog" delete="false" />
+        <Rule kind="CheckFailed" sink="FileLog" delete="false" />
+        <Rule kind="Comment" sink="FileLog" delete="false" />
+        <Rule kind="Checkpoint" sink="FileLog" delete="false" />
+        <Rule kind="Debug" sink="FileLog" delete="false" />
+        <Rule kind="EnterMethod" sink="FileLog" delete="false" />
+        <Rule kind="ExitMethod" sink="FileLog" delete="false" />
+        <Rule kind="TestPassed" sink="FileLog" delete="false" />
+        <Rule kind="TestFailed" sink="FileLog" delete="false" />
+        <Rule kind="TestUnknown" sink="FileLog" delete="false" />
+        <Rule kind="Settings" sink="FileLog" delete="false" />
+
+        <!-- The settings for the beacon log. The beacon log is captured by Microsoft Network Monitor (NetMon) or Microsoft Message Analyzer. When "delete" is set to false, the type of log information specified by the "kind" attribute is included in the log. The log information can be excluded by deleting the Rule element. -->
+        <Rule kind="Checkpoint" sink="Beacon" delete="false" />
+        <Rule kind="EnterMethod" sink="Beacon" delete="false" />
+        <Rule kind="ExitMethod" sink="Beacon" delete="false" />
+      </Profile>
+      <!-- Name of the profile. -->
+      <Profile name="MinimumLog">
+        <!-- The settings for the XML log. The XML log generates the report of the test results. When "delete" is set to false, the type of log information specified by the "kind" attribute is included in the log. The log information can be excluded by deleting the Rule element. -->
+        <Rule kind="CheckFailed" sink="FileLog" delete="false" />
+        <Rule kind="EnterMethod" sink="FileLog" delete="false" />
+        <Rule kind="ExitMethod" sink="FileLog" delete="false" />
+        <Rule kind="TestPassed" sink="FileLog" delete="false" />
+        <Rule kind="TestFailed" sink="FileLog" delete="false" />
+        <Rule kind="TestUnknown" sink="FileLog" delete="false" />
+        <Rule kind="Checkpoint" sink="FileLog" delete="false" />
+        <Rule kind="Comment" sink="FileLog" delete="false" />
+        <Rule kind="Settings" sink="FileLog" delete="false" />
+        <!-- The settings for the beacon log. The beacon log is captured by NetMon or Microsoft Message Analyzer. When "delete" is set to false, the type of log information specified by the "kind" attribute is included in the log. The log information can be excluded by deleting the Rule element. -->
+        <Rule kind="EnterMethod" sink="Beacon" delete="false" />
+        <Rule kind="ExitMethod" sink="Beacon" delete="false" />
+      </Profile>
+    </Profiles>
+  </TestLog>
+
+  <!-- The attribute "autoGenerate" can be set to true so that the test report is generated automatically after the test run is complete. The location of the Requirement XML file should be specified in the "location" attribute of the RequirementFile element. -->
+  <TestReport autoGenerate="true">
+    <RequirementFile location="MS-ASAIRS_RequirementSpecification.xml" />
+    <LogFile sink="FileLog" />
+    <Report name="MS-ASAIRS_TestResult.html" autoDisplay="false" />
+    <Prefix value="MS-ASAIRS" />
+  </TestReport>
+</TestSite>

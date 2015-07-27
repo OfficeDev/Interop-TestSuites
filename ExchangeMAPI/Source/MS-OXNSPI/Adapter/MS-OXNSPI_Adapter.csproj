@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B392AEE-1D43-4105-9D88-82A80FE0CDFE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXNSPI</RootNamespace>
+    <AssemblyName>MS-OXNSPI_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.Messages.Runtime" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\OxnspiInterop.cs" />
+    <Compile Include="Helper\Structure\AddressBookPropertyRow.cs" />
+    <Compile Include="Helper\Structure\AddressBookPropValueList.cs" />
+    <Compile Include="Helper\Structure\Restriction\AndRestriction.cs" />
+    <Compile Include="Helper\Structure\Restriction\ContentRestriction.cs" />
+    <Compile Include="Helper\Structure\Restriction\ExistRestriction.cs" />
+    <Compile Include="Helper\Structure\LargePropTagArray.cs" />
+    <Compile Include="Helper\Structure\Restriction\NotRestriction.cs" />
+    <Compile Include="Helper\Structure\Restriction\OrRestriction.cs" />
+    <Compile Include="Helper\Structure\PropertyValue\FlaggedPropertyValue.cs" />
+    <Compile Include="Helper\Structure\PropertyValue\FlaggedPropertyValueWithType.cs" />
+    <Compile Include="Helper\Structure\PropertyValue\PropertyValue.cs" />
+    <Compile Include="Helper\Structure\PropertyValue\TaggedPropertyValue.cs" />
+    <Compile Include="Helper\Structure\PropertyValue\TypedPropertyValue.cs" />
+    <Compile Include="Helper\Structure\Restriction\PropertyRestriction.cs" />
+    <Compile Include="Helper\Structure\RequestBody\AddressBookRequestBodyBase.cs" />
+    <Compile Include="Helper\Structure\RequestBody\BindRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\CompareMinIdsRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\DNToMinIdRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetAddressBookUrlRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetMailboxUrlRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetMatchesRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetPropListRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetPropsRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetSpecialTableRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\GetTemplateInfoRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\ModLinkAttRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\ModPropsRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\QueryColumnsRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\QueryRowsRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\ResolveNamesRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\ResortRestrictionRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\SeekEntriesRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\UnbindRequestBody.cs" />
+    <Compile Include="Helper\Structure\RequestBody\UpdateStatRequestBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\AddressBookResponseBodyBase.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\BindResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\CompareMinIdsResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\DnToMinIdResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetAddressBookUrlResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetMatchesResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetPropListResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetPropsResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetSpecialTableResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\GetTemplateInfoResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\ModLinkAttResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\ModPropsResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\QueryColumnsResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\QueryRowsResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\ResolveNamesResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\ResortRestrictionResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\SeekEntriesResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\UnbindResponseBody.cs" />
+    <Compile Include="Helper\Structure\ResponseBody\UpdateStatResponseBody.cs" />
+    <Compile Include="Helper\Structure\Restriction\Restriction.cs" />
+    <Compile Include="MS-OXNSPIAdapter.cs" />
+    <Compile Include="IMS-OXNSPIAdapter.cs" />
+    <Compile Include="NspiMapiHttpAdapter.cs" />
+    <Compile Include="NspiRpcAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Helper\Structure\Structure.cs" />
+    <Compile Include="Helper\Enums.cs" />
+    <None Include="SUTControlAdapter\Implementation\GetNumberOfAddressBookObject.ps1" />
+    <Compile Include="SUTControlAdapter\IMS-OXNSPISUTControlAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

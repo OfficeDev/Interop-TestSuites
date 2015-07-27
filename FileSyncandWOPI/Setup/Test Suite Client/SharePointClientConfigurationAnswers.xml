@@ -1,0 +1,51 @@
+﻿<!--This file provides configuration values to the setup configuration script in case the script runs in unattended mode. 
+    Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. -->
+<!-- Note: Property values are case-insensitive unless otherwise specified. -->
+<Properties>
+    <!-- The isSutConfigured property specifies whether the SUT is configured before running the client setup script. 
+    The supported values are:
+    "Y", the SUT is configured;
+    "N", the SUT is not configured. -->
+    <Property name="isSutConfigured" value="Y" />
+    <!-- The runOnNonRecommendedOS property specifies whether to run the client setup script when the operating system is not the recommended version.  
+    The supported values are:
+    "1", run the client setup script;
+    "2", exit the client setup script. -->
+    <Property name="runOnNonRecommendedOS" value="1" />
+    <!-- The runWithoutRequiredAppInstalled property defines whether to continue running the client setup script without installing the required application(s). 
+    The possible values are:
+    "1", continue running the client setup script;
+    "2", exit and install the required application(s). -->
+    <Property name="runWithoutRequiredAppInstalled" value="1" />
+    <!-- The sutComputerName property specifies the name of the SUT (system under test). -->
+    <Property name="sutComputerName" value="SUT01" />
+    <!-- The useCurrentUser property specifies whether to use the current logon domain user. This user is used to call protocol methods and remotely configure the SUT if the SUT control adapter is set to PowerShell mode. 
+		The user should be able to create users in Active Directory directory service, be a part of the local admin group on the server, and also be the SUT administrator.
+		The supported values are:
+        "Y", use the current logon domain user;
+        "N", not use the current logon domain user. -->
+    <Property name="useCurrentUser" value="N" />  
+    <!-- The dnsDomain property specifies the domain name. This property will be ignored if the value of the useCurrentUser property is set to "Y". -->
+    <Property name="dnsDomain" value="contoso.com" />
+    <!-- The userName property specifies a user name which can be used by a client to access the SUT. The user corresponding to the username should be an administrator of the SharePoint server. This property will be ignored if the value of the useCurrentUser property is set to "Y". -->
+    <Property name="userName" value="administrator" />
+    <!-- The password property specifies the password for the user specified in the userName property. The property value is case-sensitive. -->
+    <Property name="password" value="Password01!" />  
+    <!-- The transportType property specifies the transport type which is used to transfer the messages between the client and the SUT.
+        The supported values are:
+        "1", the transport type is HTTP;
+        "2", the transport type is HTTPS. -->
+    <Property name="transportType" value="1"/>
+    
+    <!-- The following properties are only used if they are not retrieved automatically by the setup configuration script. -->
+    <!-- The sutVersion property specifies the version of the first or the second SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product.
+		The supported values are:
+        "1", (Microsoft SharePoint Foundation 2010 SP2);
+        "2", (Microsoft SharePoint Server 2010 SP2);
+        "3", (Microsoft SharePoint Foundation 2013 SP1);
+        "4", (Microsoft SharePoint Server 2013 SP1). -->
+    <Property Name="sutVersion" Value="3" />
+    <!-- The SharePointUserName property is a form that enables users to manually enter a property name if the setup script cannot automatically retrieve the information of a SharePoint user. Enter the user name in the "SharePointUserName" property, and in "SharePointUserDisplayName", enter the same value as the user's DisplayName attribute. -->
+    <Property name="SharePointUserName" value="SharePointUserDisplayName" />
+</Properties>
+

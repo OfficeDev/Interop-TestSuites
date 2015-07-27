@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<wsdl:definitions xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/">
+      <xs:import namespace="http://microsoft.com/wsdl/types/"/>
+      <xs:element name="GetHoldsInfo">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetHoldsInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetHoldsInfoResult" type="tns:ArrayOfHoldInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfHoldInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="HoldInfo" nillable="true" type="tns:HoldInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="HoldInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Url" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ManagedBy" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="RepositoryName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DiscoveryQueries" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ListId" type="s1:guid"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="WebId" type="s1:guid"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetFinalRoutingDestinationFolderUrl">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfRecordsRepositoryProperty"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="contentTypeName" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="originalSaveLocation" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfRecordsRepositoryProperty">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RecordsRepositoryProperty" nillable="true" type="tns:RecordsRepositoryProperty"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RecordsRepositoryProperty">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Name" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Value" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Other" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetFinalRoutingDestinationFolderUrlResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetFinalRoutingDestinationFolderUrlResult" type="tns:DocumentRoutingResult"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="DocumentRoutingResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Url" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ResultType" type="tns:DocumentRoutingResultType"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="CollisionSetting" type="tns:DocumentRoutingCollisionSetting"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="DocumentRoutingResultType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success"/>
+          <xs:enumeration value="SuccessToDropOffLibrary"/>
+          <xs:enumeration value="MissingRequiredProperties"/>
+          <xs:enumeration value="NoMatchingRules"/>
+          <xs:enumeration value="DocumentRoutingDisabled"/>
+          <xs:enumeration value="PermissionDeniedAtDestination"/>
+          <xs:enumeration value="ParsingDisabledAtDestination"/>
+          <xs:enumeration value="OriginalSaveLocationIsDocumentSet"/>
+          <xs:enumeration value="NoEnforcementAtOriginalSaveLocation"/>
+          <xs:enumeration value="UnknownFailure"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DocumentRoutingCollisionSetting">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="NoCollision"/>
+          <xs:enumeration value="UseSharePointVersioning"/>
+          <xs:enumeration value="AppendUniqueSuffixes"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="SubmitFile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="fileToSubmit" type="xs:base64Binary"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfRecordsRepositoryProperty"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="recordRouting" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="sourceUrl" type="xs:string"/>
+            <xs:element minOccurs="0" maxOccurs="1" name="userName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SubmitFileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="SubmitFileResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetServerInfo">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetServerInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetServerInfoResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRecordRoutingCollection">
+        <xs:complexType/>
+      </xs:element>
+      <xs:element name="GetRecordRoutingCollectionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetRecordRoutingCollectionResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRecordRouting">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="recordRouting" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetRecordRoutingResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="GetRecordRoutingResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--Added for schema validation, not existent in TD-->
+      <xs:element name="SubmitFileResult" type="tns:SubmitFileResult"/>
+      <xs:element name="ServerInfoResult">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ServerInfo" type="tns:ServerInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--Added completed-->
+      <xs:complexType name="CustomProcessingResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HoldsProcessingResult" type="tns:HoldProcessingResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SubmitFileResult">
+        <xs:sequence>
+          <xs:element name="ResultCode" type="tns:SubmitFileResultCode"/>
+          <xs:choice>
+            <xs:element minOccurs="0" name="ResultUrl" type="xs:anyURI"/>
+            <xs:element minOccurs="0" name="AdditionalInformation" type="xs:string"/>
+          </xs:choice>
+          <xs:element minOccurs="0" name="CustomProcessingResult" type="tns:CustomProcessingResult"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServerInfo">
+        <xs:sequence>
+          <xs:element name="ServerType" type="xs:string"/>
+          <xs:element name="ServerVersion" type="xs:string"/>
+          <xs:element name="RoutingWeb" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SubmitFileResultCode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success"/>
+          <xs:enumeration value="MoreInformation"/>
+          <xs:enumeration value="InvalidRouterConfiguration"/>
+          <xs:enumeration value="InvalidArgument"/>
+          <xs:enumeration value="InvalidUser"/>
+          <xs:enumeration value="NotFound"/>
+          <xs:enumeration value="FileRejected"/>
+          <xs:enumeration value="UnknownError"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="HoldProcessingResult">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success"/>
+          <xs:enumeration value="Failure"/>
+          <xs:enumeration value="InDropOffZone"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHoldsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHoldsInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetHoldsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHoldsInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetFinalRoutingDestinationFolderUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFinalRoutingDestinationFolderUrl"/>
+  </wsdl:message>
+  <wsdl:message name="GetFinalRoutingDestinationFolderUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFinalRoutingDestinationFolderUrlResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitFile"/>
+  </wsdl:message>
+  <wsdl:message name="SubmitFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitFileResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetServerInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetServerInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerInfoResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecordRoutingCollectionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecordRoutingCollection"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecordRoutingCollectionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordRoutingCollectionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecordRoutingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRecordRouting"/>
+  </wsdl:message>
+  <wsdl:message name="GetRecordRoutingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRecordRoutingResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="OfficialFileSoap">
+    <wsdl:operation name="GetHoldsInfo">
+      <wsdl:input message="tns:GetHoldsInfoSoapIn"/>
+      <wsdl:output message="tns:GetHoldsInfoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalRoutingDestinationFolderUrl">
+      <wsdl:input message="tns:GetFinalRoutingDestinationFolderUrlSoapIn"/>
+      <wsdl:output message="tns:GetFinalRoutingDestinationFolderUrlSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <wsdl:input message="tns:SubmitFileSoapIn"/>
+      <wsdl:output message="tns:SubmitFileSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerInfo">
+      <wsdl:input message="tns:GetServerInfoSoapIn"/>
+      <wsdl:output message="tns:GetServerInfoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRoutingCollection">
+      <wsdl:input message="tns:GetRecordRoutingCollectionSoapIn"/>
+      <wsdl:output message="tns:GetRecordRoutingCollectionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRouting">
+      <wsdl:input message="tns:GetRecordRoutingSoapIn"/>
+      <wsdl:output message="tns:GetRecordRoutingSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OfficialFileSoap" type="tns:OfficialFileSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetHoldsInfo">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetHoldsInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalRoutingDestinationFolderUrl">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetFinalRoutingDestinationFolderUrl" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerInfo">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRoutingCollection">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRoutingCollection" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRouting">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRouting" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OfficialFileSoap12" type="tns:OfficialFileSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetHoldsInfo">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetHoldsInfo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalRoutingDestinationFolderUrl">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetFinalRoutingDestinationFolderUrl" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerInfo">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRoutingCollection">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRoutingCollection" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordRouting">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRouting" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

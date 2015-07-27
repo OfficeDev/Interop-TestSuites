@@ -1,0 +1,710 @@
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/workflow/"
+xmlns:s1="http://microsoft.com/wsdl/types/"
+xmlns:z="#RowsetSchema"
+xmlns:s="http://www.w3.org/2001/XMLSchema"
+xmlns:rs="urn:schemas-microsoft-com:rowset"
+xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/workflow/"
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+
+    <xs:schema
+            id="rowSets"
+            xmlns="urn:schemas-microsoft-com:rowset"
+            targetNamespace="urn:schemas-microsoft-com:rowset"
+            attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="number" type="xs:int" />
+      <xs:attribute name="precision" type="xs:unsignedByte" />
+      <xs:attribute name="scale" type="xs:unsignedByte" />
+      <xs:attribute name="CommandTimeout" type="xs:int"/>
+      <xs:element name="data">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any"/>
+          </xs:sequence>
+          <xs:anyAttribute namespace="##any" processContents="skip" />
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+
+    <xs:schema id="RowSchema"
+        targetNamespace="#RowsetSchema"
+        elementFormDefault="qualified"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="row">
+        <xs:complexType>
+          <xs:anyAttribute processContents="skip"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+
+    <s:schema elementFormDefault="qualified"
+              targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+
+    <s:schema elementFormDefault="qualified"
+              xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+              xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/workflow/"
+              xmlns:s1="http://microsoft.com/wsdl/types/"
+              xmlns:z="#RowsetSchema"
+              xmlns:s="http://www.w3.org/2001/XMLSchema"
+              xmlns:rs="urn:schemas-microsoft-com:rowset"
+              xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+              targetNamespace="http://schemas.microsoft.com/sharepoint/soap/workflow/">
+      <s:import namespace="http://microsoft.com/wsdl/types/"/>
+      <s:import namespace="urn:schemas-microsoft-com:rowset" id="rowSets"/>
+      <s:import namespace="http://www.w3.org/2001/XMLSchema/"/>
+
+      <s:element name="GetToDosForItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetToDosForItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetToDosForItemResult" minOccurs="0">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="ToDoData" >
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="xml" minOccurs="0" maxOccurs="1">
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element ref="rs:data" maxOccurs="1"/>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplatesForItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTemplatesForItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetTemplatesForItemResult" minOccurs="0">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="TemplateData" >
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="Web" minOccurs="1" maxOccurs="1" >
+                          <s:complexType>
+                            <s:attribute name="Title" type="s:string" use="required" />
+                            <s:attribute name="Url" type="s:string" use="required" />
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="List" minOccurs="1" maxOccurs="1" >
+                          <s:complexType>
+                            <s:attribute name="Title" type="s:string" use="required" />
+                            <s:attribute name="Url" type="s:string" use="required" />
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="WorkflowTemplates" >
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="WorkflowTemplate" minOccurs="0" maxOccurs="unbounded">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="WorkflowTemplateIdSet" minOccurs="1" maxOccurs="1" >
+                                      <s:complexType>
+                                        <s:attribute name="TemplateId" type="s1:guid" use="required" />
+                                        <s:attribute name="BaseId" type="s1:guid" use="required" />
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element name="AssociationData" minOccurs="0" maxOccurs="1" >
+                                      <s:complexType mixed="true">
+                                        <s:sequence>
+                                          <s:any processContents="skip"/>
+                                        </s:sequence>
+                                      </s:complexType>
+                                    </s:element>
+                                    <s:element name="Metadata" minOccurs="1" maxOccurs="1">
+                                      <s:complexType>
+                                        <s:all>
+                                          <s:element name="InitiationCategories" minOccurs="0" maxOccurs="1">
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip" minOccurs="0"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="Instantiation_FormURN" minOccurs="0" maxOccurs="1">
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip" minOccurs="0"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="Instantiation_FormURI" minOccurs="0" maxOccurs="1">
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip" minOccurs="0"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="AssignmentStagesName" minOccurs="0" maxOccurs="1">
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip" minOccurs="0"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="SigClientSettings" minOccurs="0" maxOccurs="1">
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:all>
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                  <s:attribute name="Name" type="s:string" use="required" />
+                                  <s:attribute name="Description" type="s:string" use="required" />
+                                  <s:attribute name="InstantiationUrl" type="s:string" />
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartWorkflow">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/>
+            <s:element name="templateId" type="s1:guid"/>
+            <s:element name="workflowParameters" minOccurs="0">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartWorkflowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="StartWorkflowResult" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterToDo">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1" maxOccurs="1" />
+            <s:element name="todoId" type="s:int" minOccurs="1" maxOccurs="1" />
+            <s:element name="todoListId" type="s1:guid" minOccurs="1" maxOccurs="1" />
+            <s:element name="taskData" minOccurs="0" maxOccurs="1" >
+              <s:complexType>
+                <s:sequence>
+                  <s:any/>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterToDoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="AlterToDoResult" minOccurs="1" maxOccurs="1" >
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="fSuccess" type="s:int" minOccurs="1" maxOccurs="1" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkflowDataForItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkflowDataForItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetWorkflowDataForItemResult" minOccurs="1" maxOccurs="1">
+              <s:complexType>
+                <s:sequence>
+                  <s:element name="WorkflowData" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element name="ToDoData" >
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="xml" minOccurs="0" maxOccurs="1">
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element ref="rs:data" maxOccurs="1"/>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="TemplateData" >
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="Web" minOccurs="1" maxOccurs="1" >
+                                <s:complexType>
+                                  <s:attribute name="Title" type="s:string" use="required" />
+                                  <s:attribute name="Url" type="s:string" use="required" />
+                                </s:complexType>
+                              </s:element>
+                              <s:element name="List" minOccurs="1" maxOccurs="1" >
+                                <s:complexType>
+                                  <s:attribute name="Title" type="s:string" use="required" />
+                                  <s:attribute name="Url" type="s:string" use="required" />
+                                </s:complexType>
+                              </s:element>
+                              <s:element name="WorkflowTemplates" >
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="WorkflowTemplate" minOccurs="0" maxOccurs="unbounded">
+                                      <s:complexType>
+                                        <s:sequence>
+                                          <s:element name="WorkflowTemplateIdSet" minOccurs="1" maxOccurs="1" >
+                                            <s:complexType>
+                                              <s:attribute name="TemplateId" type="s1:guid" use="required" />
+                                              <s:attribute name="BaseId" type="s1:guid" use="required" />
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="AssociationData" minOccurs="0" maxOccurs="1" >
+                                            <s:complexType mixed="true">
+                                              <s:sequence>
+                                                <s:any processContents="skip"/>
+                                              </s:sequence>
+                                            </s:complexType>
+                                          </s:element>
+                                          <s:element name="Metadata" minOccurs="1" maxOccurs="1">
+                                            <s:complexType>
+
+                                              <s:all>
+                                                <s:element name="InitiationCategories" minOccurs="0" maxOccurs="1">
+                                                  <s:complexType mixed="true">
+                                                    <s:sequence>
+                                                      <s:any processContents="skip"/>
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                                <s:element name="Instantiation_FormURN" minOccurs="0" maxOccurs="1">
+                                                  <s:complexType mixed="true">
+                                                    <s:sequence>
+                                                      <s:any processContents="skip"/>
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                                <s:element name="Instantiation_FormURI" minOccurs="0" maxOccurs="1">
+                                                  <s:complexType mixed="true">
+                                                    <s:sequence>
+                                                      <s:any processContents="skip"/>
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                                <s:element name="AssignmentStagesName" minOccurs="0" maxOccurs="1">
+                                                  <s:complexType mixed="true">
+                                                    <s:sequence>
+                                                      <s:any processContents="skip"/>
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                                <s:element name="SigClientSettings" minOccurs="0" maxOccurs="1">
+                                                  <s:complexType mixed="true">
+                                                    <s:sequence>
+                                                      <s:any processContents="skip"/>
+                                                    </s:sequence>
+                                                  </s:complexType>
+                                                </s:element>
+                                              </s:all>
+
+                                            </s:complexType>
+                                          </s:element>
+                                        </s:sequence>
+                                        <s:attribute name="Name" type="s:string" use="required" />
+                                        <s:attribute name="Description" type="s:string" use="required" />
+                                        <s:attribute name=" InstantiationUrl" type="s:string" />
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="ActiveWorkflowsData" minOccurs="1" maxOccurs="1" >
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="Workflows" minOccurs="1" maxOccurs="1" >
+                                <s:complexType>
+                                  <s:sequence>
+                                    <s:element name="Workflow" minOccurs="0" maxOccurs="unbounded">
+                                      <s:complexType>
+                                        <s:attribute name="StatusPageUrl" type="s:string" use="required"/>
+                                        <s:attribute name="Id" type="s1:guid" use="required" />
+                                        <s:attribute name="TemplateId" type="s1:guid" use="required" />
+                                        <s:attribute name="ListId" type="s1:guid" use="required"/>
+                                        <s:attribute name="SiteId" type="s1:guid" use="required" />
+                                        <s:attribute name="WebId" type="s1:guid" use="required"/>
+                                        <s:attribute name="ItemId" type="s:int" use="required"/>
+                                        <s:attribute name="ItemGUID" type="s1:guid" use="required"/>
+                                        <s:attribute name="TaskListId" type="s1:guid" use="required"/>
+                                        <s:attribute name="AdminTaskListId" type="s:string" use="required"/>
+                                        <s:attribute name="Author" type="s:int" use="required"/>
+                                        <s:attribute name="Modified" type="s:string" use="required"/>
+                                        <s:attribute name="Created" type="s:string" use="required"/>
+                                        <s:attribute name="StatusVersion" type="s:int" use="required"/>
+                                        <s:attribute name="Status1" type="s:int" use="required"/>
+                                        <s:attribute name="Status2" type="s:string" use="required"/>
+                                        <s:attribute name="Status3" type="s:string" use="required"/>
+                                        <s:attribute name="Status4" type="s:string" use="required"/>
+                                        <s:attribute name="Status5" type="s:string" use="required"/>
+                                        <s:attribute name="Status6" type="s:string" use="required"/>
+                                        <s:attribute name="Status7" type="s:string" use="required"/>
+                                        <s:attribute name="Status8" type="s:string" use="required"/>
+                                        <s:attribute name="Status9" type="s:string" use="required"/>
+                                        <s:attribute name="Status10" type="s:string" use="required"/>
+                                        <s:attribute name="TextStatus1" type="s:string" use="required"/>
+                                        <s:attribute name="TextStatus2" type="s:string" use="required"/>
+                                        <s:attribute name="TextStatus3" type="s:string" use="required"/>
+                                        <s:attribute name="TextStatus4" type="s:string" use="required"/>
+                                        <s:attribute name="TextStatus5" type="s:string" use="required"/>
+                                        <s:attribute name="Modifications" type="s:string" use="required"/>
+                                        <!--The ActivityDetails attribute required limitation will not apply on SharePointServer2007.-->
+                                        <s:attribute name="ActivityDetails" type="s:string" />
+                                        <!--The CorrelationId attribute required limitation will not apply on SharePointServer2010 and SharePointServer2007. Chanage it to optional.-->
+                                        <!--The CorrelationId attribute might be an empty string, change the type from "s1:guid" to "s:string"-->
+                                        <s:attribute name="CorrelationId" type="s:string" />
+                                        <s:attribute name="InstanceData" type="s:string" use="required"/>
+                                        <s:attribute name="InstanceDataSize" type="s:int" use="required"/>
+                                        <s:attribute name="InternalState" type="s:int" use="required"/>
+                                        <s:attribute name="ProcessingId" type="s:string" use="required"/>
+                                      </s:complexType>
+                                    </s:element>
+                                  </s:sequence>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                        <s:element name="DefaultWorkflows" minOccurs="1" maxOccurs="1" >
+                          <s:complexType>
+                            <s:sequence>
+                              <s:element name="DefaultWorkflow" minOccurs="0" maxOccurs="1" >
+                                <s:complexType>
+                                  <s:attribute name="Event" type="s:string" use="required"/>
+                                  <s:attribute name="TemplateId" type="s1:guid" use="required"/>
+                                </s:complexType>
+                              </s:element>
+                            </s:sequence>
+                          </s:complexType>
+                        </s:element>
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClaimReleaseTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/>
+            <s:element name="taskId" type="s:int" minOccurs="1" maxOccurs="1"/>
+            <s:element name="listId" type="s1:guid" minOccurs="1" maxOccurs="1"/>
+            <s:element name="fClaim" type="s:boolean" minOccurs="1" maxOccurs="1"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClaimReleaseTaskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="ClaimReleaseTaskResult" minOccurs="1">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:element name="TaskData" minOccurs="1" maxOccurs="1">
+                    <s:complexType>
+                      <s:attribute name="AssignedTo" type="s:string" use="required"/>
+                      <s:attribute name="TaskGroup" type="s:string" use="required"/>
+                      <s:attribute name="ItemId" type="s:int" use="required"/>
+                      <s:attribute name="ListId" type="s1:guid" use="required"/>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkflowTaskData">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="item" type="s:string" minOccurs="1"/>
+            <s:element name="taskId" type="s:int"/>
+            <s:element name="listId" type="s1:guid"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWorkflowTaskDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="GetWorkflowTaskDataResult" >
+              <s:complexType>
+                <s:sequence>
+                  <!--This any contents will be verified as "z:row", as described in [MS-WWSP]section 3.1.4.6.2.2-->
+                  <s:any minOccurs="0" maxOccurs="unbounded" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+
+  </wsdl:types>
+  <wsdl:message name="GetToDosForItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetToDosForItem" />
+  </wsdl:message>
+  <wsdl:message name="GetToDosForItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetToDosForItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplatesForItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTemplatesForItem" />
+  </wsdl:message>
+  <wsdl:message name="GetTemplatesForItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTemplatesForItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartWorkflowSoapIn">
+    <wsdl:part name="parameters" element="tns:StartWorkflow" />
+  </wsdl:message>
+  <wsdl:message name="StartWorkflowSoapOut">
+    <wsdl:part name="parameters" element="tns:StartWorkflowResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterToDoSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterToDo" />
+  </wsdl:message>
+  <wsdl:message name="AlterToDoSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterToDoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkflowDataForItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkflowDataForItem" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkflowDataForItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkflowDataForItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClaimReleaseTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:ClaimReleaseTask" />
+  </wsdl:message>
+  <wsdl:message name="ClaimReleaseTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:ClaimReleaseTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkflowTaskDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorkflowTaskData" />
+  </wsdl:message>
+  <wsdl:message name="GetWorkflowTaskDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorkflowTaskDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WorkflowSoap">
+    <wsdl:operation name="GetToDosForItem">
+      <wsdl:input message="tns:GetToDosForItemSoapIn" />
+      <wsdl:output message="tns:GetToDosForItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForItem">
+      <wsdl:input message="tns:GetTemplatesForItemSoapIn" />
+      <wsdl:output message="tns:GetTemplatesForItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartWorkflow">
+      <wsdl:input message="tns:StartWorkflowSoapIn" />
+      <wsdl:output message="tns:StartWorkflowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterToDo">
+      <wsdl:input message="tns:AlterToDoSoapIn" />
+      <wsdl:output message="tns:AlterToDoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowDataForItem">
+      <wsdl:input message="tns:GetWorkflowDataForItemSoapIn" />
+      <wsdl:output message="tns:GetWorkflowDataForItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClaimReleaseTask">
+      <wsdl:input message="tns:ClaimReleaseTaskSoapIn" />
+      <wsdl:output message="tns:ClaimReleaseTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowTaskData">
+      <wsdl:input message="tns:GetWorkflowTaskDataSoapIn" />
+      <wsdl:output message="tns:GetWorkflowTaskDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WorkflowSoap" type="tns:WorkflowSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetToDosForItem">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForItem">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartWorkflow">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterToDo">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowDataForItem">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClaimReleaseTask">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowTaskData">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WorkflowSoap12" type="tns:WorkflowSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetToDosForItem">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTemplatesForItem">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartWorkflow">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterToDo">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowDataForItem">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClaimReleaseTask">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkflowTaskData">
+      <soap12:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

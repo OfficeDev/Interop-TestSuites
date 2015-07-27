@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The Domain property specifies the domain name. -->
+    <Property name="Domain" value="contoso.com" />
+    <!-- The SUTComputerName property specifies the name of the first SUT. -->
+    <Property name="SutComputerName" value="SUT01" />
+    <!-- The Sut2ComputerName property specifies the name of the second SUT. Keep the value blank if the second SUT is not used. -->
+    <Property name="Sut2ComputerName" value="" />
+    <!-- The SutVersion property specifies the version of the first or the second SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product. 
+         The supported values are:
+         "ExchangeServer2007" (Microsoft® Exchange Server 2007 Service Pack 3 (SP3))
+         "ExchangeServer2010" (Microsoft® Exchange Server 2010 Service Pack 3 (SP3))
+         "ExchangeServer2013" (Microsoft® Exchange Server 2013 Service Pack 1 (SP1)). -->
+    <Property name="SutVersion" value="ExchangeServer2010"/>
+    <!-- The EwsUrl property specifies the format of the Exchange Web Services (EWS) Uniform Resource Locator (URL). The property value is composed of property names "SutComputerName" and "Domain", which are case-sensitive.
+         [SutComputerName] will be replaced with the value of SutComputerName property when the test case makes a call to EWS against the first SUT,
+         [Domain] will be replaced with the value of Domain property. -->
+    <Property name="EwsUrl" value="https://[SutComputerName].[Domain]/EWS/Exchange.asmx" />
+    <!-- The TransportSeq property specifies the protocol sequence for transport. For more information on the ncan_ip_tcp and ncacn_http protocol sequences, refer to section 2.1 in [MS-OXRPC]. 
+    For more information on the mapi_http protocol sequence, refer to [MS-OXCMAPIHTTP].
+         The supported values are:
+         "ncacn_ip_tcp", to use RPC over TCP as transport, Exchange Server 2013 does not support RPC over TCP; 
+         "ncacn_http", to use RPC over HTTP as transport;
+         "mapi_http", to use MAPIHTTP as transport, MAPIHTTP is supported from Exchange Server 2013 SP1. If the value of this property is set to "mapi_http", the value of the UseAutodiscover property must be set to true. -->
+    <Property name="TransportSeq" value="mapi_http"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- RPC connection section begins. Properties in this section take effect only when the TransportSeq property is set to either "ncacn_ip_tcp" or "ncacn_http". -->
+    <!-- The RpcAuthenticationLevel property specifies the authentication level for creating an RPC binding. For more information on setting the property value, refer to section 2.2.1.1.8 in [MS-RPCE].
+         The supported values are:
+         "0", (RPC_C_AUTHN_LEVEL_DEFAULT), same as RPC_C_AUTHN_LEVEL_CONNECT;
+         "1", (RPC_C_AUTHN_LEVEL_NONE), no authentication, only Exchange Server 2013 supports RPC_C_AUTHN_LEVEL_NONE;
+         "2", (RPC_C_AUTHN_LEVEL_CONNECT), authenticates the credentials of the client and server;
+         "3", (RPC_C_AUTHN_LEVEL_CALL), same as RPC_C_AUTHN_LEVEL_PKT;
+         "4", (RPC_C_AUTHN_LEVEL_PKT), same as RPC_C_AUTHN_LEVEL_CONNECT but also prevents replay attacks;
+         "5", (RPC_C_AUTHN_LEVEL_PKT_INTEGRITY), same as RPC_C_AUTHN_LEVEL_PKT but also verifies that none of the data transferred between the client and server has been modified;
+         "6", (RPC_C_AUTHN_LEVEL_PKT_PRIVACY), same as RPC_C_AUTHN_LEVEL_PKT_INTEGRITY but also ensures that the data transferred can only be seen unencrypted by the client and the server.
+         If the value of the RpcAuthenticationLevel property is set to 1, then the value of the RpcAuthenticationService property must be set to 0. -->
+    <Property name="RpcAuthenticationLevel" value="6"/>
+    <!-- The RpcAuthenticationService property specifies authentication services by identifying the security package that provides the service.
+         The supported values are:
+         "0", (RPC_C_AUTHN_NONE), no authentication, only Exchange Server 2013 supports RPC_C_AUTHN_NONE;
+         "9", (RPC_C_AUTHN_GSS_NEGOTIATE), to use the Microsoft Negotiate security support provider (SSP);
+         "10", (RPC_C_AUTHN_WINNT), to use the Microsoft NT LAN Manager (NTLM) SSP;
+         "16", (RPC_C_AUTHN_GSS_KERBEROS), to use the Microsoft Kerberos SSP; 
+         If the value of the RpcAuthenticationService property is set to 0, then the value of the RpcAuthenticationLevel property must be set to 1. -->
+    <Property name="RpcAuthenticationService" value="10"/>
+    <!-- The RpchUseSsl property specifies whether to use RPC over HTTP with SSL. The test suite only uses this property when the TransportSeq property is set as "ncacn_http".
+         The supported values are:
+         "true", to use RPC over HTTP with SSL;
+         "false", to use RPC over HTTP without SSL. -->
+    <Property name="RpchUseSsl" value="true"/>
+    <!-- The RpchAuthScheme property specifies that the authentication scheme is used in the HTTP authentication for RPC over HTTP. This property takes effect only when the TransportSeq property is set as "ncacn_http".
+         The supported values are:
+         "Basic", to use Basic authentication scheme;
+         "NTLM", to use Windows authentication scheme. -->
+    <Property name="RpchAuthScheme" value="Basic"/>
+    <!-- The SetUuid property determines whether to set the PTF_OBJECT_UUID(0x80) field of the RPC header pfc_flags. For more information about pfc_flags, refer to DCE RPC C706 section 12.6.3.1 Declarations.
+         The supported values are:
+         "true", to set the field;
+         "false", to not set the field. -->
+    <Property name ="SetUuid" value ="false"/>
+    <!-- The RpcForceShutdownAssociation property specifies whether to set the RPC_C_OPT_DONT_LINGER option on the binding handle.
+         The supported values are:
+         "true", to shut down the TCP connection after the last binding handle is freed;
+         "false", to reuse the existing TCP connection. -->
+    <Property name="RpcForceShutdownAssociation" value="true" />
+    <!-- RPC connection section ends. -->
+
+    <!-- The CompressRpcRequest property specifies whether compression should be enabled in the RPC request sent by the client. For more information, refer to the RPC operations "EcDoConnectEx" and "EcDoRpcExt2" in [MS-OXCRPC].
+         The supported values are:
+         "true", to enable compression in the RPC request;
+         "false", to disable compression in the RPC request. -->
+    <Property name="CompressRpcRequest" value="true"/>
+    <!-- The XorRpcRequest property specifies whether an RPC request sent by the client needs obfuscation. For more information, refer to the RPC operations "EcDoConnectEx" and "EcDoRpcExt2" in [MS-OXCRPC].
+         The supported values are:
+         "true", RPC request sent by the client needs obfuscation;
+         "false", RPC request sent by the client does not need obfuscation. -->
+    <Property name="XorRpcRequest" value="true"/>
+    <!-- The UseAutodiscover property specifies whether to use the Autodiscover service.
+         The supported values are:
+         "true", to use the Autodiscover service;
+         "false", to not use Autodiscover service. 
+         The value of property UseAutodiscover must be set to true when the value of TransportSeq property set to "mapi_http". -->
+    <Property name="UseAutodiscover" value="true" />
+    <!-- The ServiceSpnFormat property specifies the service principal name (SPN) format used in Kerberos SSP. The value is composed of property names "ServerName" and "Domain", which are case-sensitive.
+         [ServerName] will be replaced with the actual value of the SutComputerName property if the test case connects to the first SUT,
+         [ServerName] will be replaced with the actual value of the Sut2ComputerName property if the test case connects to the second SUT;
+         [Domain] will be replaced with the value of Domain property. -->
+    <Property name="ServiceSpnFormat" value="exchangeMDB/[ServerName].[Domain]"/>
+    <!-- The AutoDiscoverUrlFormat property specifies the URL format of the Autodiscover service. The value is composed of property names "ServerName" and "Domain", which are case-sensitive.
+         [ServerName] will be replaced with the actual value of the SutComputerName property if the test case requests Autodiscover information for the first SUT,
+         [ServerName] will be replaced with the actual value of the Sut2ComputerName property if the test case requests Autodiscover information for the second SUT;
+         [Domain] will be replaced with the value of Domain property. -->
+    <Property name="AutoDiscoverUrlFormat" value="https://[ServerName].[Domain]/autodiscover/autodiscover.xml"/>
+    <!-- The WaitTime property specifies the time interval (in millisecond) that is used by the test suite to find the message item after it sends out. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="WaitTime" value="1000" />
+    <!-- The RetryCount property specifies the retry count that is used by the test suite to find the message item after it sends out. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="RetryCount" value="150" />
+    <!-- The ConnectRetryCount property specifies the retry count used by the test suite to connect to the Exchange server. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="ConnectRetryCount" value="10" />
+    <!--The NotificationIP property is a string that indicates the IPv4 address of the local machine (the computer used to run the test suite). -->
+    <Property name="NotificationIP" value="192.168.3.101" />
+    <!--The NotificationIPv6 property is a string that indicates the IPv6 address of the local machine (the computer used to run the test suite). -->
+    <Property name="NotificationIPv6" value="fe80::589d:6885:1235:b406%11" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

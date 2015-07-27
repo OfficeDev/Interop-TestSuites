@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R113Enabled to true to verify that transmits messages over HTTPS for securing communication with protocol clients. Set R113Enabled to false to disable this requirement. -->
+    <Property name="R113Enabled" value="false" />
+    <!-- Set the value of the property MS-WSSREST_Supported to true to indicate that the SUT supports the MS-WSSREST protocol. Otherwise set the value to false. -->
+    <Property name="MS-WSSREST_Supported" value="false" />
+    <!-- Set R112Enabled to true to indicate this requirement is enable in SharePointServer2007. Set R112Enabled to false to disable this requirement. -->
+    <Property name="R112Enabled" value="false" />
+  </Properties>
+</TestSite>

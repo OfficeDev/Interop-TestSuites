@@ -1,0 +1,175 @@
+﻿Thread-Topic: content location
+Thread-Index: Acy6MMFkepLOk/e0TGO5PHPc3K921g==
+Date: Wed, 14 Dec 2011 07:21:45 +0000
+Message-ID: <14C7EF9960485E429C3BE741026728850DB006CB@Domain>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: Domain
+X-MS-Has-Attach: yes
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+Content-Type: multipart/related;
+	boundary="_004_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_";
+	type="multipart/alternative"
+MIME-Version: 1.0
+
+--_004_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_
+Content-Type: multipart/alternative;
+	boundary="_000_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_"
+
+--_000_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Test
+This is pic [cid:image001.png@01CCBA74.18160250]
+
+--_000_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+<meta name=3D"Generator" content=3D"Microsoft Word 14 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Calibri","sans-serif";
+	color:windowtext;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-family:"Calibri","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"EN-US" link=3D"blue" vlink=3D"purple">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Test This is pic <img width=3D"211" height=3D"115" id=3D"=
+Picture_x0020_1" src=3D"cid:image001.png@01CCBA74.18160250"><o:p></o:p></p>
+</div>
+</body>
+</html>
+
+--_000_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_--
+
+--_004_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=3135;
+	creation-date="Wed, 14 Dec 2011 07:21:45 GMT";
+	modification-date="Wed, 14 Dec 2011 07:21:45 GMT"
+Content-Location: aaabbbccc
+Content-Transfer-Encoding: base64
+
+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
+UQL/A4o1SPAB20BxAAAAAElFTkSuQmCC
+
+--_004_14C7EF9960485E429C3BE741026728850DB006CBDC01NextPart_--

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{159DF1D2-95E5-4E16-96B8-2E923E61E552}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCPRPT</RootNamespace>
+    <AssemblyName>MS-OXCPRPT_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="Microsoft.SpecExplorer.Runtime" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-OXCPRPT_Adapter.csproj">
+      <Project>{45892ADC-1CD0-46E4-AD1D-1E9C902EEA12}</Project>
+      <Name>MS-OXCPRPT_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-OXCPRPT_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-OXCPRPT_TestSuite.ptfconfig" />
+    <None Include="MS-OXCPRPT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCPRPT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCPRPT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_GetPropertyIdQueryNameGetList_TestSuite.cs" />
+    <Compile Include="S01_GetSpecificGetAllGetNames_TestSuite.cs" />
+    <Compile Include="S01_GetSpecificTestUnicode_TestSuite.cs" />
+    <Compile Include="S02_SetPropertyData_TestSuite.cs" />
+    <Compile Include="S03_GetDataWithStream_TestSuite.cs" />
+    <Compile Include="S03_SeekStreamForFolder_TestSuite.cs" />
+    <Compile Include="S03_SeekStream_TestSuite.cs" />
+    <Compile Include="S04_CopyToStreamsCloneStream_TestSuite.cs" />
+    <Compile Include="S04_LockUnLockStream_TestSuite.cs" />
+    <Compile Include="S04_SetDataWithStream_TestSuite.cs" />
+    <Compile Include="S04_StreamForErrorCodeTable_TestSuite.cs" />
+    <Compile Include="S05_RopCopyPropertiesFailSynchronously_TestSuite.cs" />
+    <Compile Include="S05_RopCopyPropertiesSuccessSynchronously_TestSuite.cs" />
+    <Compile Include="S05_RopCopyPropertiesWantAsynchronously_TestSuite.cs" />
+    <Compile Include="S05_RopCopyToFailSynchronously_TestSuite.cs" />
+    <Compile Include="S05_RopCopyToForErrorCodeTable_TestSuite.cs" />
+    <Compile Include="S05_RopCopyToForPublicFolder_TestSuite.cs" />
+    <Compile Include="S05_RopCopyToSuccessSynchronously_TestSuite.cs" />
+    <Compile Include="S05_RopCopyToWantAsynchronously_TestSuite.cs" />
+    <Compile Include="S06_CommonObjectProperties_TestSuite.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-OXCPRPT_RequirementSpecification.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

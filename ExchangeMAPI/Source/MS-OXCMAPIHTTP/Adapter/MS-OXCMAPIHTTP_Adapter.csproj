@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP</RootNamespace>
+    <AssemblyName>MS-OXCMAPIHTTP_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.Messages.Runtime" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataStructure\AddressBookPropertyRow.cs" />
+    <Compile Include="DataStructure\AddressBookPropValueList.cs" />
+    <Compile Include="DataStructure\ExistRestriction.cs" />
+    <Compile Include="DataStructure\IRestriction.cs" />
+    <Compile Include="DataStructure\LargePropTagArray.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\FlaggedPropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\FlaggedPropertyValueWithType.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\PropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\TaggedPropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\TypedPropertyValue.cs" />
+    <Compile Include="DataStructure\Restriction.cs" />
+    <Compile Include="DataStructure\Structure.cs" />
+    <Compile Include="Helper\CommonResponse.cs" />
+    <Compile Include="RequestBody\AddressBookServer\AddressBookRequestBodyBase.cs" />
+    <Compile Include="RequestBody\AddressBookServer\BindRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\CompareMinIdsRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\DNToMinIdRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetAddressBookUrlRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetMailboxUrlRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetMatchesRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetPropListRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetPropsRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetSpecialTableRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\GetTemplateInfoRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\ModLinkAttRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\ModPropsRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\QueryColumnsRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\QueryRowsRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\ResolveNamesRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\ResortRestrictionRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\SeekEntriesRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\UnbindRequestBody.cs" />
+    <Compile Include="RequestBody\AddressBookServer\UpdateStatRequestBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\AddressBookResponseBodyBase.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\BindResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\CompareMinIdsResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\DnToMinIdResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetAddressBookUrlResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetMailboxUrlResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetMatchesResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetPropListResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetPropsResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetSpecialTableResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\GetTemplateInfoResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\ModLinkAttResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\ModPropsResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\QueryColumnsResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\QueryRowsResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\ResolveNamesResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\ResortRestrictionResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\SeekEntriesResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\UnbindResponseBody.cs" />
+    <Compile Include="ResponseBody\AddressBookServer\UpdateStatResponseBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\ConnectFailedResponseBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\DisconnectFailedResponseBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\DisconnectSuccessResponseBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\ExecuteFailedResponseBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\NotificationWaitFailedResponseBody.cs" />
+    <Compile Include="RequestBody\MailboxServer\NotificationWaitRequestBody.cs" />
+    <Compile Include="ResponseBody\MailboxServer\NotificationWaitSuccessResponseBody.cs" />
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\ConstValues.cs" />
+    <Compile Include="Helper\Enum.cs" />
+    <Compile Include="Helper\RopBufferHelper.cs" />
+    <Compile Include="IMS-OXCMAPIHTTPAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MS-OXCMAPIHTTPAdapter.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-OXCMAPIHTTPSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXCMAPIHTTPSUTControlAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common\Common.csproj">
+      <Project>{584275BB-9E04-457E-88B6-B31D0F428DFC}</Project>
+      <Name>Common %28Common\Common%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

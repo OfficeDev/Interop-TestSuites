@@ -1,0 +1,13 @@
+<!-- This file provides configuration values for setup configuration script in case the script runs in unattended mode. 
+     Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. -->
+	<!-- Note: Property values are case-insensitive unless otherwise specified. -->
+<Properties>
+    <!-- The runOnNonRecommendedSUT property specifies whether to run the SUT setup script if the version of SharePoint server is not the recommended one. 
+		The supported values are:
+		"1", run the SUT setup script;
+		"2", exit. -->
+    <Property name="runOnNonRecommendedSUT" value="1" />
+	<!-- The webAppName property specifies the name of a SharePoint site. This site is only used when the SharePoint site "SharePoint - 80" does not exist. -->
+	<Property name="webAppName" value="SharePoint - 81" />
+</Properties>
+

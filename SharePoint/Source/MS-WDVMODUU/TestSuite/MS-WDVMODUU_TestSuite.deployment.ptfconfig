@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The SiteCollectionName property specifies the name of the site collection used by the MS-WDVMODUU test suite. All the test cases will send HTTP requests to the URI of the site collection. -->
+    <Property name="SiteCollectionName" value="MSWDVMODUU_SiteCollection"/>
+    <!-- The Server_DefaultDocumentLibName property specifies the name of the default document library created on the test site. -->
+    <Property name="Server_DefaultDocumentLibName" value="MSWDVMODUU_DocumentLibrary1"/>
+    <!-- The Server_DefaultDocLibUri property specifies the URI of the default document library created on the test site. -->
+    <Property name="Server_DefaultDocLibUri" value="http://[SutComputerName]/sites/[SiteCollectionName]/[Server_DefaultDocumentLibName]/"/>
+    <!-- The Server_NewFile001Uri property specifies the URI of the test file "NewFile001" in the default document library on the test site. -->
+    <Property name="Server_NewFile001Uri" value="[Server_DefaultDocLibUri]MSWDVMODUU_TestData1.txt"/>
+    <!-- The Server_NewFile002Uri property specifies the URI of the test file "NewFile002" in the default document library on the test site. -->
+    <Property name="Server_NewFile002Uri" value="[Server_DefaultDocLibUri]MSWDVMODUU_TestData2.txt"/>
+    <!-- The Server_TestTxtFileUri_Put property specifies the URI of the test text file in the default document library on the test site. -->
+    <Property name="Server_TestTxtFileUri_Put" value="[Server_DefaultDocLibUri][Client_TestTxtFileName]" />    
+    <!-- The Server_SubFolderUri property specifies the URI of the subfolder created in the default document library. -->
+    <Property name="Server_SubFolderUri" value="[Server_DefaultDocLibUri]MSWDVMODUU_TestFolder/"/>
+    <!-- The Server_NewFile003Uri property specifies the URI of the test file "NewFile003" in the subfolder. -->
+    <Property name="Server_NewFile003Uri" value="[Server_SubFolderUri]MSWDVMODUU_TestData3.txt"/>
+    <!-- The Server_NewFile004Uri property specifies the URI of the test file "NewFile004" in the subfolder. -->
+    <Property name="Server_NewFile004Uri" value="[Server_SubFolderUri][Client_NewFile004Name]"/>
+    <!-- The Server_TestDocumentLibName property specifies the name of the test document library created on the test site. -->
+    <Property name="Server_TestDocumentLibName" value="MSWDVMODUU_DocumentLibrary2"/>
+    <!-- The Server_TestDocLibUri property specifies the URI of the test document library created on the test site. -->
+    <Property name="Server_TestDocLibUri" value="http://[SutComputerName]/sites/[SiteCollectionName]/[Server_TestDocumentLibName]/"/>
+    <!-- The Server_FakeVirusInfectedFileUri_Get property specifies the URI of the fake virus infected file in the test document library on the server. The URI is only used by the HTTP get method. -->
+    <Property name="Server_FakeVirusInfectedFileUri_Get" value="[Server_TestDocLibUri]FakeVirusInfectedFile_Get.txt" />
+    <!-- The Server_FakeVirusInfectedFileUri_Put property specifies the URI of the fake virus infected file in the test document library on the server. The URI is only used by the HTTP put method. -->
+    <Property name="Server_FakeVirusInfectedFileUri_Put" value="[Server_TestDocLibUri]FakeVirusInfectedFile_Put.txt" />
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The Client_TestTxtFileName property specifies the name of the test text file, and the file must be in the local output path (such as: <Solution Directory>\TestSuite\Resources\) under the client. -->
+    <Property name="Client_TestTxtFileName" value="Test.txt" />
+    <!-- The Client_NewFile004Name property specifies the name of the test file "NewFile004", and the file must be in the local output path (such as: <Solution Directory>\TestSuite\Resources\) under the client. -->
+    <Property name="Client_NewFile004Name" value="New_File004.txt" />
+    <!-- The Client_FakeVirusInfectedFileName property specifies the name of the fake virus infected file, and the file must be in the local output path (such as: <Solution Directory>\TestSuite\Resources\) under the client. -->
+    <Property name="Client_FakeVirusInfectedFileName" value="FakeVirusInfectedFile.txt" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The User1Name property specifies the name for a user who should be able to send, receive mails. -->
+    <Property name="User1Name" value="MSASHTTP_User01"/>
+    <!-- The User1Password property specifies the password for the user specified in the User1Name property. The property value is case-sensitive. -->
+    <Property name="User1Password" value="Password01!"/>
+    <!-- The User2Name property specifies the name for a user who should be able to receive, smart forward and smart reply meeting request mails. -->
+    <Property name="User2Name" value="MSASHTTP_User02"/>
+    <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
+    <Property name="User2Password" value="Password01!"/>
+    <!-- The User3Name property specifies the name for a user who should be able to send meeting request mails. -->
+    <Property name="User3Name" value="MSASHTTP_User03"/>
+    <!-- The User3Password property specifies the password for the user specified in the User3Name property. The property value is case-sensitive. -->
+    <Property name="User3Password" value="Password01!"/>
+    <!-- The User4Name property specifies the name for a user who should be in the Administrator groups of SUT. -->
+    <Property name="User4Name" value="MSASHTTP_User04"/>
+    <!-- The User4Password property specifies the password for the user specified in the User4Name property. The property value is case-sensitive. -->
+    <Property name="User4Password" value="Password01!"/>
+    <!-- SUT section ends. -->
+  </Properties>
+</TestSite>

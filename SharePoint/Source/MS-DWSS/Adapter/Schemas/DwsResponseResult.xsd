@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="Elements.xsd"/>
+  <xs:include schemaLocation="ComplexTypes.xsd"/>
+  <xs:include schemaLocation="ADOXML-BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882.xsd"/>
+  <xs:complexType name="UserType">
+    <xs:sequence>
+      <xs:element name="User" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="Email" type="xs:string"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CanCreateDwsUrlResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Result" type="xs:string">
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDwsResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Results">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Url" type="xs:string" />
+              <xs:element name="DoclibUrl" type="xs:string"/>
+              <xs:element name="ParentWeb" type="xs:string"/>
+              <xs:element name="FailedUsers" type="UserType" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="AddUsersUrl" type="xs:string"/>
+              <xs:element name="AddUsersRole" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFolderResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element name="Result" type="xs:string"/>
+        <xs:element ref="Error"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDwsResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Result" type="xs:string"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFolderResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Result" type="xs:string"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindDwsDocResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Result" type="xs:string">
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDwsDataResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element ref="Results"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Results">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Title" type="xs:string"/>
+        <xs:element name="LastUpdate" type="xs:integer"/>
+        <xs:element name="User">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:string"/>
+              <xs:element name="Name" type="xs:string"/>
+              <xs:element name="LoginName" type="xs:string"/>
+              <xs:element name="Email" type="xs:string"/>
+              <xs:element name="IsDomainGroup">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="True" />
+                    <xs:enumeration value="False" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsSiteAdmin">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="True" />
+                    <xs:enumeration value="False" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Members" type="MemberData"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Assignees"/>
+          <xs:element ref="List"/>
+          <xs:element ref="List"/>
+          <xs:element ref="List"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDwsMetaDataResult" type="GetDwsMetaDataResultType"/>
+  <xs:complexType name="GetDwsMetaDataResultType">
+    <xs:choice>
+      <xs:element ref="Error"/>
+      <xs:element name="Results">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SubscribeUrl" type="xs:string" minOccurs="0"/>
+            <xs:element name="MtgInstance" type="xs:string"/>
+            <xs:element name="SettingUrl" type="xs:string"/>
+            <xs:element name="PermsUrl" type="xs:string"/>
+            <xs:element name="UserInfoUrl" type="xs:string"/>
+            <xs:element ref="Roles"/>
+            <xs:element ref="Schema" minOccurs="0" maxOccurs="3"/>
+            <xs:element ref="ListInfo" minOccurs="0" maxOccurs="3"/>
+            <xs:element name="Permissions">
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element ref="Error"/>
+                  <xs:sequence>
+                    <xs:element name="ManageSubwebs" minOccurs="0"/>
+                    <xs:element name="ManageWeb" minOccurs="0"/>
+                    <xs:element name="ManageRoles" minOccurs="0"/>
+                    <xs:element name="ManageLists" minOccurs="0"/>
+                    <xs:element name="InsertListItems" minOccurs="0"/>
+                    <xs:element name="EditListItems" minOccurs="0"/>
+                    <xs:element name="DeleteListItems" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="HasUniquePerm"/>
+            <xs:element name="WorkspaceType"/>
+            <xs:element name="IsADMode"/>
+            <xs:element name="DocUrl"/>
+            <xs:element name="Minimal"/>
+            <xs:element ref="Results"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="ListInfo">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error" minOccurs="0"/>
+        <xs:sequence>
+          <xs:element name="Moderated">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="True" />
+                <xs:enumeration value="False" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ListPermissions">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="InsertListItems" minOccurs="0"/>
+                <xs:element name="EditListItems" minOccurs="0"/>
+                <xs:element name="DeleteListItems" minOccurs="0"/>
+                <xs:element name="ManageLists" minOccurs="0"/>
+                <xs:element ref="Error" minOccurs="0"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:choice>
+      <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDwsUserResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Results" type="xs:string"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RenameDwsResult">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Error"/>
+        <xs:element name="Result" type="xs:string"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

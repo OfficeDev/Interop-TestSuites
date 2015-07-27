@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The TargetServiceUrl property specifies the fully qualified URL of the service on which the test suite will run. -->
+    <Property name="TargetServiceUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/lists.asmx" />
+    <!-- The SiteCollectionName property specifies the URL of the top-level site on the site collection on the SUT. -->
+    <Property name="SiteCollectionName" value="MSLISTSWS_SiteCollection"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The ServiceTimeOut property specifies the time (in minutes) a synchronous XML Web service request waits for the MS-LISTSWS web service to respond. -->
+    <Property name="ServiceTimeOut" value="10" />
+    <!-- The MessageDataFileName property specifies the name of the MessageData file which contains the valid format message data for the AddDiscussionBoardItem operation. -->
+    <Property name="MessageDataFileName" value="Message.txt" />
+    <!-- The ListFieldText property specifies the field name which will be added into the initialized list through the CreateList helper method, whose type is text. -->
+    <Property name="ListFieldText" value="EmployeeName" />
+    <!-- The ListFieldCounter property specifies the field name which will be added into the initialized list through the CreateList helper method, whose type is counter. -->
+    <Property name="ListFieldCounter" value="Age" />
+    <!-- The ListFeatureId property specifies the feature ID which will be used in the AddListFromFeature method. -->
+    <Property name="ListFeatureId" value="{00BFEA71-DE22-43B2-A848-C05709900100}" />
+    <!-- The PropertyPrefix property specifies the property prefixes of fields. The default value of Microsoft implementation is "vti_", this will be used in the operation GetListContentTypesAndProperties. The property value is case-sensitive.-->
+    <Property name="PropertyPrefix" value="vti_" />
+    <!-- The ContentTypeXmlQualifiedName property specifies the valid element name of CreateElement in UpdateContentTypesXmlDocument. This property is required when the UpdateContentTypeXmlDocument method is called. -->
+    <Property name="ContentTypeXmlQualifiedName" value="XmlElement1" />
+    <!-- The ContentTypeXmlNamespaceUri property specifies the NamespaceURI string of CreateNode in UpdateContentTypeXmlDocument. This property is required when the UpdateContentTypeXmlDocument method is called. -->
+    <Property name="ContentTypeXmlNamespaceUri" value="http://schemas.microsoft.com/sharepoint/soap/namespaceUri1/" />
+    <!-- The ValidContentTypeXmlDocument property specifies the InnerXml string of newDocument in UpdateContentTypeXmlDocument. This property is required when the UpdateContentTypeXmlDocument method is called. -->
+    <Property name="ValidContentTypeXmlDocument" value="&lt;DemoNode1 xmlns='http://schemas.microsoft.com/sharepoint/soap/namespaceUri1/'&gt;&lt;/DemoNode1&gt;" />
+    <!-- The AttachmentName property specifies the name of the attachment file which will be added into a list item. -->
+    <Property name="AttachmentName" value="Attachment.txt" />
+    <!-- The UserInfoListName property specifies the name of the user information list. -->
+    <Property name="UserInfoListName" value="User Information List" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

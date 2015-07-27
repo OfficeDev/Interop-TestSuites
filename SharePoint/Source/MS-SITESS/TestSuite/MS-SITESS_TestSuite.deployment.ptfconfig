@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig"/>
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The SiteCollectionName property specifies the name of the site collection which is used by the MS-SITESS test suite. -->
+    <Property name="SiteCollectionName" value="MSSITESS_SiteCollection"/>
+    <!-- The SiteCollectionUrl property specifies the URL of the site collection which is used by the MS-SITESS test suite. The value of the property is case-sensitive. -->
+    <Property name="SiteCollectionUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]"/>
+    <!-- The SiteCollectionPath property specifies the path of the site collection. The name of the site collection in this path should be the same as the value in the SiteCollectionName property. -->
+    <Property name="SiteCollectionPath" value="sites/[SiteCollectionName]"/>
+    <!-- The SiteName property specifies the name of the site in which subsites will be created. -->
+    <Property name="SiteName" value="MSSITESS_Site"/>
+    <!-- The SiteUrl property specifies the URL of the site in which subsites will be created. The value of the property is case-sensitive. -->
+    <Property name="SiteUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[SiteName]"/>
+    <!-- The ServiceUrl property specifies the service URL of the protocol server endpoint used by this test suite. -->
+    <Property name="ServiceUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/_vti_bin/sites.asmx"/>
+    <!-- The SpecialSubsiteName property specifies the name of a subsite to be exported. Note that a 24 MB text file and the custom web page file MSSITESS_CustomPage.aspx should be uploaded prior to exporting the subsite. The value of the property is case-sensitive. -->
+    <Property name="SpecialSubsiteName" value="MSSITESS_SpecialSubSite"/>
+    <!-- The WebPageUrl property specifies the URL of an uploaded web page. The page contains a form to be posted. The value of the property is case-sensitive. -->
+    <Property name="WebPageUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[SiteName]/[SpecialSubsiteName]/MSSITESS_SubSite_DocumentLibrary/MSSITESS_CustomPage.aspx"/>
+    <!-- The NormalSubsiteUrl property specifies the URL of a subsite to be exported. Note that no file should be uploaded to the subsite. The value of the property is case-sensitive. -->
+    <Property name="NormalSubsiteUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[SiteName]/MSSITESS_NormalSubSite"/>
+    <!-- The SpecialSubsiteUrl property specifies the URL of a subsite to be exported. Note that a 24 MB text file and the custom web page file MSSITESS_CustomPage.aspx should be uploaded prior to exporting the subsite. The value of the property is case-sensitive. -->
+    <Property name="SpecialSubsiteUrl" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[SiteName]/[SpecialSubsiteName]"/>
+    <!-- The RegularExpression property specifies the regular expression pattern which should match the web form content. The regular expression pattern should be consistent with the input control in the uploaded web page. The value of the property is case-sensitive. -->
+    <Property name="RegularExpression" value="&lt;input .*name=\&quot;(?&lt;name&gt;.+?)\&quot; .*?value=\&quot;(?&lt;value&gt;.+?)\&quot;"/>
+    <!-- The SubSitePropertyLanguage property is a string used by the SUT control adapter to get the language code identifier (LCID) for the display language of the specified subsite. -->
+    <Property name="SubSitePropertyLanguage" value="language"/>
+    <!-- The SubSitePropertyLocale property is a string used by the SUT control adapter to get the LCID that specifies the display format for numbers, dates, times, and currencies of the specified subsite. -->
+    <Property name="SubSitePropertyLocale" value="locale"/>
+    <!-- The SubSitePropertyCurrentUser property is a string used by the SUT control adapter to get the user name who has currently logged on the specified subsite.-->
+    <Property name="SubSitePropertyCurrentUser" value="currentUser"/>
+    <!-- The SubSitePropertyUserNameInPermissions property is a string used by the SUT control adapter to get the current user's permissions of the specified subsite. -->
+    <Property name="SubSitePropertyUserNameInPermissions" value="permissions"/>
+    <!-- The SubSitePropertyDefaultLanguage property is a string used by the SUT control adapter to get the SharePoint site's default language. -->
+    <Property name="SubSitePropertyDefaultLanguage" value="defaultLanguage"/>
+    <!-- The SubSitePropertyAnonymous property is a string used by the SUT control adapter to get the access level of anonymous users on the specified subsite. -->
+    <Property name="SubSitePropertyAnonymous" value="anonymous"/>
+    <!-- The ExpireTimePeriodBySecond property specifies a time period in seconds after which the security validation will expire. The security validation is generated by the FormDigest control to help prevent the type of attack whereby a user is tricked into posting data to the server without knowing. -->
+    <Property name="ExpireTimePeriodBySecond" value="60"/>
+    <!-- The DefaultExpireTimePeriod property specifies the default expiration time of the security validation. -->
+    <Property name="DefaultExpireTimePeriod" value="1800"/>
+    <!-- The ValidLCID property specifies the language code identifier (LCID) of the language package installed on the server. -->
+    <Property name="ValidLCID" value="1033"/>
+    <!-- The DefaultLCID property specifies the language code identifier (LCID) of the default language installed on the server. -->
+    <Property name="DefaultLCID" value="1033"/>
+    <!-- The NotInstalledLCID property specifies the language code identifier (LCID) of the language package that is not installed on the server. -->
+    <Property name="NotInstalledLCID" value="2052"/>
+    <!-- The ValidLibraryName property specifies the name of a document library, which is used as the store location of the exported files for the ExportWeb and ExportWorkflowTemplate operations. -->
+    <Property name="ValidLibraryName" value="MSSITESS_DocumentLibrary"/>
+    <!-- The DataPath property specifies the full path where the exported files for the ExportWeb and ExportWorkflowTemplate operations are saved. The document library in this path should be the same as the value in the ValidLibraryName property. The value of the property is case-sensitive. -->
+    <Property name="DataPath" value="[TransportType]://[SutComputerName]/sites/[SiteCollectionName]/[ValidLibraryName]"/>
+    <!-- The SolutionGalleryName property specifies the name of a document library, which is used as the store location of the exported solution file for the ExportSolution operation. For Microsoft products, this property value should not be changed. -->
+    <Property name="SolutionGalleryName" value="Solution Gallery"/>
+    <!-- The WorkflowTemplateName property specifies the name of a declarative workflow template on the server, which is a definition of operations, the sequence of operations, constraints, and timing for a specific process, and can be used to create a new workflow. -->
+    <Property name="WorkflowTemplateName" value="Approval - SharePoint 2010"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The SoapServiceTimeOut property specifies the number of seconds to wait for the response of the MS-SITESS web service.-->
+    <Property name="SoapServiceTimeOut" value="600" />
+    <!-- The ExportWaitTime property specifies the number of seconds to wait for the server to generate all the exported files and log file for the ExportWeb, ExportSolution and ExportWorkflowTemplate operations. -->
+    <Property name="ExportWaitTime" value="15"/>
+    <!-- The ImportWebWaitTime property specifies the number of seconds to wait for the server to generate the status code for the ImportWeb operation. -->
+    <Property name="ImportWebWaitTime" value="30"/>
+    <!-- The ExportRepeatTime property specifies the maximum retry count for the server to generate all the exported files and log files. If the server is unable to generate all the exported files and log files by the maximum retry count, the operation is considered as failed. -->
+    <Property name="ExportRepeatTime" value="12"/>
+    <!-- The ImportWebRepeatTime property specifies the maximum retry count for the server to generate the status code for the ImportWeb operation. If the server is unable to generate the status code by the maximum retry count, the operation is considered as failed. -->
+    <Property name="ImportWebRepeatTime" value="12"/>
+    <!-- The InvalidLibraryName property specifies the name of the document library which cannot be used as a store location. -->
+    <Property name="InvalidLibraryName" value="invalidlibraryname"/>
+    <!-- The InvalidWorkflowTemplateName property specifies the name of the workflow template which does not exist. -->
+    <Property name="InvalidWorkflowTemplateName" value="InvalidWorkflowTemplateName"/>
+    <!-- The NonExistentImportUrl property specifies the name of a computer. The computer does not exist in the environment on which the test suite runs. -->
+    <Property name="NonExistentImportUrl" value="[TransportType]://nonExistentComputerName"/>
+    <!-- The NonExistentSiteName property specifies the name of a subsite which does not exist in the site collection. -->
+    <Property name="NonExistentSiteName" value="nonExistentsitename"/>
+    <!-- The UnauthorizedUserDomain property specifies the domain of the unauthorized user who logs in to the server. -->
+    <Property name="UnauthorizedUserDomain" value="UnauthorizedUserDomain"/>
+    <!-- The UnauthorizedUserName property specifies the user name of the unauthorized user who logs in to the server. -->
+    <Property name="UnauthorizedUserName" value="UnauthorizedUserName"/>
+    <!-- The UnauthorizedUserPassword property specifies the password of the unauthorized user who logs in to the server. The value of the property is case-sensitive. -->
+    <Property name="UnauthorizedUserPassword" value="UnauthorizedUserPassword!"/>
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>
