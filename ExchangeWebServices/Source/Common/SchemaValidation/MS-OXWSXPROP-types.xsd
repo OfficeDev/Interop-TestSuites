@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:element name="ExtendedFieldURI" type="t:PathToExtendedFieldType" substitutionGroup="t:Path"/>
+  <xs:complexType name="ExtendedPropertyType">
+    <xs:sequence>
+      <xs:element name="ExtendedFieldURI" type="t:PathToExtendedFieldType"/>
+      <xs:choice>
+        <xs:element name="Value" type="xs:string"/>
+        <xs:element name="Values" type="t:NonEmptyArrayOfPropertyValuesType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfExtendedPropertyType">
+    <xs:choice>
+      <xs:element name="ExtendedProperty" type="t:ExtendedPropertyType" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:simpleType name="GuidType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MapiPropertyTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ApplicationTime"/>
+      <xs:enumeration value="ApplicationTimeArray"/>
+      <xs:enumeration value="Binary"/>
+      <xs:enumeration value="BinaryArray"/>
+      <xs:enumeration value="Boolean"/>
+      <xs:enumeration value="CLSID"/>
+      <xs:enumeration value="CLSIDArray"/>
+      <xs:enumeration value="Currency"/>
+      <xs:enumeration value="CurrencyArray"/>
+      <xs:enumeration value="Double"/>
+      <xs:enumeration value="DoubleArray"/>
+      <xs:enumeration value="Error"/>
+      <xs:enumeration value="Float"/>
+      <xs:enumeration value="FloatArray"/>
+      <xs:enumeration value="Integer"/>
+      <xs:enumeration value="IntegerArray"/>
+      <xs:enumeration value="Long"/>
+      <xs:enumeration value="LongArray"/>
+      <xs:enumeration value="Null"/>
+      <xs:enumeration value="Object"/>
+      <xs:enumeration value="ObjectArray"/>
+      <xs:enumeration value="Short"/>
+      <xs:enumeration value="ShortArray"/>
+      <xs:enumeration value="SystemTime"/>
+      <xs:enumeration value="SystemTimeArray"/>
+      <xs:enumeration value="String"/>
+      <xs:enumeration value="StringArray"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NonEmptyArrayOfPropertyValuesType">
+    <xs:choice>
+      <xs:element name="Value" type="xs:string" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PathToExtendedFieldType">
+    <xs:complexContent>
+      <xs:extension base="t:BasePathToElementType">
+        <xs:attribute name="DistinguishedPropertySetId" type="t:DistinguishedPropertySetType" use="optional"/>
+        <xs:attribute name="PropertySetId" type="t:GuidType" use="optional"/>
+        <xs:attribute name="PropertyTag" type="t:PropertyTagType" use="optional"/>
+        <xs:attribute name="PropertyName" type="xs:string" use="optional"/>
+        <xs:attribute name="PropertyId" type="xs:int" use="optional"/>
+        <xs:attribute name="PropertyType" type="t:MapiPropertyTypeType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PropertyTagType">
+    <xs:union memberTypes="xs:unsignedShort">
+      <xs:simpleType id="HexPropertyTagType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="(0x|0X)[0-9A-Fa-f]{1,4}"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
+</xs:schema>

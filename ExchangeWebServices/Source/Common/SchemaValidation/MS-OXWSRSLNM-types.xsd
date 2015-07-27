@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="ArrayOfResolutionType">
+    <xs:sequence>
+      <xs:element name="Resolution" type="t:ResolutionType" minOccurs="0" maxOccurs="100"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="t:FindResponsePagingAttributes"/>
+  </xs:complexType>
+  <xs:complexType name="ResolutionType">
+    <xs:sequence>
+      <xs:element name="Mailbox" type="t:EmailAddressType"/>
+      <xs:element name="Contact" type="t:ContactItemType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ResolveNamesSearchScopeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActiveDirectory"/>
+      <xs:enumeration value="ActiveDirectoryContacts"/>
+      <xs:enumeration value="Contacts"/>
+      <xs:enumeration value="ContactsActiveDirectory"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2013" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
+  <xs:complexType name="ArrayOfRetentionPolicyTagsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RetentionPolicyTag" type="t:RetentionPolicyTagType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ElcFolderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Calendar"/>
+      <xs:enumeration value="Contacts"/>
+      <xs:enumeration value="DeletedItems"/>
+      <xs:enumeration value="Drafts"/>
+      <xs:enumeration value="Inbox"/>
+      <xs:enumeration value="JunkEmail"/>
+      <xs:enumeration value="Journal"/>
+      <xs:enumeration value="Notes"/>
+      <xs:enumeration value="Outbox"/>
+      <xs:enumeration value="SentItems"/>
+      <xs:enumeration value="Tasks"/>
+      <xs:enumeration value="All"/>
+      <xs:enumeration value="ManagedCustomFolder"/>
+      <xs:enumeration value="RssSubscriptions"/>
+      <xs:enumeration value="SyncIssues"/>
+      <xs:enumeration value="ConversationHistory"/>
+      <xs:enumeration value="Personal"/>
+      <xs:enumeration value="RecoverableItems"/>
+      <xs:enumeration value="NonIpmRoot"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RetentionActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="MoveToDeletedItems"/>
+      <xs:enumeration value="MoveToFolder"/>
+      <xs:enumeration value="DeleteAndAllowRecovery"/>
+      <xs:enumeration value="PermanentlyDelete"/>
+      <xs:enumeration value="MarkAsPastRetentionLimit"/>
+      <xs:enumeration value="MoveToArchive"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RetentionPolicyTagType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="RetentionId" type="t:GuidType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="RetentionPeriod" type="xs:int"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="t:ElcFolderType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="RetentionAction" type="t:RetentionActionType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsVisible" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="OptedInto" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsArchive" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RetentionTagType">
+    <xs:simpleContent>
+      <xs:extension base="t:GuidType">
+        <xs:attribute name="IsExplicit" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="RetentionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Delete"/>
+      <xs:enumeration value="Archive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

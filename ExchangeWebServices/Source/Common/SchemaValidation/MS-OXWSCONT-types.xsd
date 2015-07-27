@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="CompleteNameType">
+    <xs:sequence>
+      <xs:element name="Title" type="xs:string" minOccurs="0"/>
+      <xs:element name="FirstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="MiddleName" type="xs:string" minOccurs="0"/>
+      <xs:element name="LastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="Suffix" type="xs:string" minOccurs="0"/>
+      <xs:element name="Initials" type="xs:string" minOccurs="0"/>
+      <xs:element name="FullName" type="xs:string" minOccurs="0"/>
+      <xs:element name="Nickname" type="xs:string" minOccurs="0"/>
+      <xs:element name="YomiFirstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="YomiLastName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactItemType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="FileAs" type="xs:string" minOccurs="0"/>
+          <xs:element name="FileAsMapping" type="t:FileAsMappingType" minOccurs="0"/>
+          <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="GivenName" type="xs:string" minOccurs="0"/>
+          <xs:element name="Initials" type="xs:string" minOccurs="0"/>
+          <xs:element name="MiddleName" type="xs:string" minOccurs="0"/>
+          <xs:element name="Nickname" type="xs:string" minOccurs="0"/>
+          <xs:element name="CompleteName" type="t:CompleteNameType" minOccurs="0"/>
+          <xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
+          <xs:element name="EmailAddresses" type="t:EmailAddressDictionaryType" minOccurs="0"/>
+          <xs:element name="PhysicalAddresses" type="t:PhysicalAddressDictionaryType" minOccurs="0"/>
+          <xs:element name="PhoneNumbers" type="t:PhoneNumberDictionaryType" minOccurs="0"/>
+          <xs:element name="AssistantName" type="xs:string" minOccurs="0"/>
+          <xs:element name="Birthday" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="BusinessHomePage" type="xs:anyURI" minOccurs="0"/>
+          <xs:element name="Children" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="Companies" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="ContactSource" type="t:ContactSourceType" minOccurs="0"/>
+          <xs:element name="Department" type="xs:string" minOccurs="0"/>
+          <xs:element name="Generation" type="xs:string" minOccurs="0"/>
+          <xs:element name="ImAddresses" type="t:ImAddressDictionaryType" minOccurs="0"/>
+          <xs:element name="JobTitle" type="xs:string" minOccurs="0"/>
+          <xs:element name="Manager" type="xs:string" minOccurs="0"/>
+          <xs:element name="Mileage" type="xs:string" minOccurs="0"/>
+          <xs:element name="OfficeLocation" type="xs:string" minOccurs="0"/>
+          <xs:element name="PostalAddressIndex" type="t:PhysicalAddressIndexType" minOccurs="0"/>
+          <xs:element name="Profession" type="xs:string" minOccurs="0"/>
+          <xs:element name="SpouseName" type="xs:string" minOccurs="0"/>
+          <xs:element name="Surname" type="xs:string" minOccurs="0"/>
+          <xs:element name="WeddingAnniversary" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="HasPicture" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="PhoneticFullName" type="xs:string" minOccurs="0" />
+          <xs:element name="PhoneticFirstName" type="xs:string" minOccurs="0" />
+          <xs:element name="PhoneticLastName" type="xs:string" minOccurs="0" />
+          <xs:element name="Alias" type="xs:string" minOccurs="0" />
+          <xs:element name="Notes" type="xs:string" minOccurs="0" />
+          <xs:element name="Photo" type="xs:base64Binary" minOccurs="0" />
+          <xs:element name="UserSMIMECertificate" type="t:ArrayOfBinaryType" minOccurs="0" />
+          <xs:element name="MSExchangeCertificate" type="t:ArrayOfBinaryType" minOccurs="0" />
+          <xs:element name="DirectoryId" type="xs:string" minOccurs="0" />
+          <xs:element name="ManagerMailbox" type="t:SingleRecipientType" minOccurs="0" />
+          <xs:element name="DirectReports" type="t:ArrayOfRecipientsType" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBinaryType">
+    <xs:sequence>
+      <xs:element name="Base64Binary" type="xs:base64Binary" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactsFolderType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseFolderType">
+        <xs:sequence>
+          <xs:element name="SharingEffectiveRights" type="t:PermissionReadAccessType" minOccurs="0"/>
+          <xs:element name="PermissionSet" type="t:PermissionSetType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="ContactSourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ActiveDirectory"/>
+      <xs:enumeration value="Store"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContactsViewType">
+    <xs:complexContent>
+      <xs:extension base="t:BasePagingType">
+        <xs:attribute name="InitialName" type="xs:string" use="optional"/>
+        <xs:attribute name="FinalName" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EmailAddressDictionaryEntryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Key" type="t:EmailAddressKeyType" use="required"/>
+        <xs:attribute name="Name" type="xs:string" use="optional"/>
+        <xs:attribute name="RoutingType" type="xs:string" use="optional"/>
+        <xs:attribute name="MailboxType" type="t:MailboxTypeType" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="EmailAddressDictionaryType">
+    <xs:sequence>
+      <xs:element name="Entry" type="t:EmailAddressDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="EmailAddressKeyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EmailAddress1"/>
+      <xs:enumeration value="EmailAddress2"/>
+      <xs:enumeration value="EmailAddress3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FileAsMappingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="LastCommaFirst"/>
+      <xs:enumeration value="FirstSpaceLast"/>
+      <xs:enumeration value="Company"/>
+      <xs:enumeration value="LastCommaFirstCompany"/>
+      <xs:enumeration value="CompanyLastFirst"/>
+      <xs:enumeration value="LastFirst"/>
+      <xs:enumeration value="LastFirstCompany"/>
+      <xs:enumeration value="CompanyLastCommaFirst"/>
+      <xs:enumeration value="LastFirstSuffix"/>
+      <xs:enumeration value="LastSpaceFirstCompany"/>
+      <xs:enumeration value="CompanyLastSpaceFirst"/>
+      <xs:enumeration value="LastSpaceFirst"/>
+      <xs:enumeration value="DisplayName"/>
+      <xs:enumeration value="FirstName"/>
+      <xs:enumeration value="LastFirstMiddleSuffix"/>
+      <xs:enumeration value="LastName"/>
+      <xs:enumeration value="Empty"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ImAddressDictionaryEntryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Key" type="t:ImAddressKeyType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ImAddressDictionaryType">
+    <xs:sequence>
+      <xs:element name="Entry" type="t:ImAddressDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ImAddressKeyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ImAddress1"/>
+      <xs:enumeration value="ImAddress2"/>
+      <xs:enumeration value="ImAddress3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PhoneNumberDictionaryEntryType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Key" type="t:PhoneNumberKeyType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="PhoneNumberDictionaryType">
+    <xs:sequence>
+      <xs:element name="Entry" type="t:PhoneNumberDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PhoneNumberKeyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AssistantPhone"/>
+      <xs:enumeration value="BusinessFax"/>
+      <xs:enumeration value="BusinessPhone"/>
+      <xs:enumeration value="BusinessPhone2"/>
+      <xs:enumeration value="Callback"/>
+      <xs:enumeration value="CarPhone"/>
+      <xs:enumeration value="CompanyMainPhone"/>
+      <xs:enumeration value="HomeFax"/>
+      <xs:enumeration value="HomePhone"/>
+      <xs:enumeration value="HomePhone2"/>
+      <xs:enumeration value="Isdn"/>
+      <xs:enumeration value="MobilePhone"/>
+      <xs:enumeration value="OtherFax"/>
+      <xs:enumeration value="OtherTelephone"/>
+      <xs:enumeration value="Pager"/>
+      <xs:enumeration value="PrimaryPhone"/>
+      <xs:enumeration value="RadioPhone"/>
+      <xs:enumeration value="Telex"/>
+      <xs:enumeration value="TtyTddPhone"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PhysicalAddressDictionaryEntryType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string" minOccurs="0"/>
+      <xs:element name="City" type="xs:string" minOccurs="0"/>
+      <xs:element name="State" type="xs:string" minOccurs="0"/>
+      <xs:element name="CountryOrRegion" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Key" type="t:PhysicalAddressKeyType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="PhysicalAddressDictionaryType">
+    <xs:sequence>
+      <xs:element name="Entry" type="t:PhysicalAddressDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PhysicalAddressIndexType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Business"/>
+      <xs:enumeration value="Home"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhysicalAddressKeyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Business"/>
+      <xs:enumeration value="Home"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

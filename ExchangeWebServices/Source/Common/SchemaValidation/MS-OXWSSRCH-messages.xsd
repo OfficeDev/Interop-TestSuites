@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <!--    CHANGE THE SCHEMA LOCATION TO REFLECT THE TYPES XSD ASSOCIATED WITH THIS DOCUMENT
+    <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="types.xsd"/>
+    <xs:include/>
+-->
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSSRCH-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="FindFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderShape" type="t:FolderResponseShapeType"/>
+          <xs:choice minOccurs="0">
+            <xs:element name="IndexedPageFolderView" type="t:IndexedPageViewType"/>
+            <xs:element name="FractionalPageFolderView" type="t:FractionalPageViewType"/>
+          </xs:choice>
+          <xs:element name="Restriction" type="t:RestrictionType" minOccurs="0"/>
+          <xs:element name="ParentFolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+        <xs:attribute name="Traversal" type="t:FolderQueryTraversalType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindFolder" type="m:FindFolderType"/>
+  <xs:complexType name="FindFolderResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="RootFolder" type="t:FindFolderParentType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindFolderResponse" type="m:FindFolderResponseType"/>
+  <xs:complexType name="FindItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemShape" type="t:ItemResponseShapeType"/>
+          <xs:choice minOccurs="0">
+            <xs:element name="IndexedPageItemView" type="t:IndexedPageViewType"/>
+            <xs:element name="FractionalPageItemView" type="t:FractionalPageViewType"/>
+            <xs:element name="SeekToConditionPageItemView" type="t:SeekToConditionPageViewType"/>
+            <xs:element name="CalendarView" type="t:CalendarViewType"/>
+            <xs:element name="ContactsView" type="t:ContactsViewType"/>
+          </xs:choice>
+          <xs:choice minOccurs="0">
+            <xs:element name="GroupBy" type="t:GroupByType"/>
+            <xs:element name="DistinguishedGroupBy" type="t:DistinguishedGroupByType"/>
+          </xs:choice>
+          <xs:element name="Restriction" type="t:RestrictionType" minOccurs="0"/>
+          <xs:element name="SortOrder" type="t:NonEmptyArrayOfFieldOrdersType" minOccurs="0"/>
+          <xs:element name="ParentFolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+          <xs:element name="QueryString" type="m:QueryStringType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="Traversal" type="t:ItemQueryTraversalType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindItem" type="m:FindItemType"/>
+  <xs:complexType name="FindItemResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="RootFolder" type="t:FindItemParentType" minOccurs="0"/>
+          <xs:element name="HighlightTerms" type="t:ArrayOfHighlightTermsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FindItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindItemResponse" type="m:FindItemResponseType"/>
+  <xs:complexType name="QueryStringType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="ResetCache" type="xs:boolean" use="optional"/>
+        <xs:attribute name="ReturnHighlightTerms" type="xs:boolean" use="optional"/>
+        <xs:attribute name="ReturnDeletedItems" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

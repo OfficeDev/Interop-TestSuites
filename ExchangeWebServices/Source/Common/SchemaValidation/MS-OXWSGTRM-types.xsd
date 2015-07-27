@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+  <xs:include schemaLocation="MS-OXWSCORE-types.xsd" />
+
+  <xs:complexType name="DirectoryEntryType">
+    <xs:sequence>
+      <xs:element name="Id" type="t:EmailAddressType" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RoomType">
+    <xs:complexContent>
+      <xs:extension base="t:DirectoryEntryType">
+        <!-- We don't need anything additional at this time -->
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ArrayOfRoomsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Room" type="t:RoomType" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

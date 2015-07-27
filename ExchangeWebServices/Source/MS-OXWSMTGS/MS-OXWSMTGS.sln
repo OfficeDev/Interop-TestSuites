@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83B55C5F-C67F-4628-B796-526897B0B1A4}"
+	ProjectSection(SolutionItems) = preProject
+		MS-OXWSMTGS.runsettings = MS-OXWSMTGS.runsettings
+		MS-OXWSMTGS.testsettings = MS-OXWSMTGS.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSMTGS_TestSuite", "TestSuite\MS-OXWSMTGS_TestSuite.csproj", "{2A648DFF-8A42-49E5-B5CB-E8CA541AD5A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSMTGS_Adapter", "Adapter\MS-OXWSMTGS_Adapter.csproj", "{AA5D378F-993E-432A-A5C9-E5460A6D1A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{719F410B-0D1A-46F2-80A7-D5D91CF8E915}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A648DFF-8A42-49E5-B5CB-E8CA541AD5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A648DFF-8A42-49E5-B5CB-E8CA541AD5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A648DFF-8A42-49E5-B5CB-E8CA541AD5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A648DFF-8A42-49E5-B5CB-E8CA541AD5A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5D378F-993E-432A-A5C9-E5460A6D1A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5D378F-993E-432A-A5C9-E5460A6D1A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5D378F-993E-432A-A5C9-E5460A6D1A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5D378F-993E-432A-A5C9-E5460A6D1A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MS-OXWSMTGS.vsmdi
+	EndGlobalSection
+EndGlobal

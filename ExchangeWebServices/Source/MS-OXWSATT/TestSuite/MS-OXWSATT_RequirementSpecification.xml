@@ -1,0 +1,3593 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R1001</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] The endpoint (4) URL that is returned by either the Autodiscover Publishing and Lookup SOAP-Based Web Service Protocol, as described in [MS-OXWSADISC], or the Autodiscover Publishing and Lookup Protocol, as described in [MS-OXDSCLI], is required to form the HTTP request to the Web server that hosts this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R1002</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] The operations that this protocol defines cannot be accessed unless the correct endpoint (4) is identified in the HTTP Web requests that target this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R522</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] In the following sections, the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R523</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The WSDL in this specification provides a base description of the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R524</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The schema in this specification provides a base description of the message syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R525</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The text that specifies the WSDL and schema might specify restrictions that reflect actual protocol behavior.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R526</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, or present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The SOAP version supported is SOAP 1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] For details [of SOAP 1.1], see [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] This protocol [MS-OXWSATT] relies on the Web server that hosts the application to perform authentication.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The protocol [MS-OXWSATT] SHOULD use secure communications via HTTPS, as defined in [RFC2818].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] This section [section 2.2] contains common definitions that are used by this protocol [MS-OXWSATT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and Web Services Description Language (WSDL), as defined in [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] This specification [Attachment Handling Web Service Protocol Specification] defines and references various XML namespaces by using the mechanisms specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Although this specification [Attachment Handling Web Service Protocol Specification] associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "soap" is used for Namespace URI "http://schemas.xmlsoap.org/wsdl/soap/" with reference to SOAP1.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "tns" is used for Namespace URI "http://schemas.microsoft.com/exchange/services/2006/messages".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "s" is used for Namespace URI "http://www.w3.org/2001/XMLSchema" with reference to [XMLSCHEMA1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "targetNamespace" is used for Namespace URI "http://schemas.microsoft.com/exchange/services/2006/messages".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "wsdl" is used for Namespace URI "http://schemas.xmlsoap.org/wsdl/" with reference to [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Prefix "t" is used for Namespace URI "http://schemas.microsoft.com/exchange/services/2006/types".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R410</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] This specification [Attachment Handling Web Service Protocol Specification] does not define any common WSDL message definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R411</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] This specification [Attachment Handling Web Service Protocol Specification] does not define any common XML schema element definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table [in section 2.2.4] summarizes the set of common XML schema complex type definitions that are defined by this specification [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] XML schema complex type [ArrayOfAttachmentsType, AttachmentIdType, AttachmentInfoResponseMessageType, AttachmentType, FileAttachmentType, t:ItemAttachmentType, NonEmptyArrayOfRequestAttachmentIdsType, RequestAttachmentIdType, RootItemIdType] definitions that are specific to a particular operation are described with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R486</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] ArrayOfAttachmentsType
+ represents an array of types based on attachments to the item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R487</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] AttachmentIdType
+ represents the item identifier and new change key of an item after an attachment has been attached.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R488</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] AttachmentInfoResponseMessageType 
+contains status and response data for attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R489</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] AttachmentType
+ represents an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R490</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] FileAttachmentType
+ represents a file that is attached to an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] t:ItemAttachmentType
+represents an item that is attached to another item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R492</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] NonEmptyArrayOfRequestAttachmentIdsType
+ represents an array of attachment identifiers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R493</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] RequestAttachmentIdType
+ represents the identifier for an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R494</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] RootItemIdType
+ identifies the root item of a deleted attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type] The ArrayOfAttachmentsType complex type represents an array of types based on attachments to the item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type] The ArrayOfAttachmentsType complex type is used only in the response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R441.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R441</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type] The ArrayOfAttachmentsType complex type is used in the response message.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R32:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type][The ArrayOfAttachmentsType Complex Type is defined as follow:]
+&lt;xs:complexType name="ArrayOfAttachmentsType"&gt;
+  &lt;xs:choice
+    minOccurs="0"
+    maxOccurs="unbounded"
+  &gt;
+    &lt;xs:element name="ItemAttachment"
+      type="t:ItemAttachmentType"
+     /&gt;
+    &lt;xs:element name="FileAttachment"
+      type="t:FileAttachmentType"
+     /&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type] The following table [in section 2.2.4.1] lists the child elements [ItemAttachment, FileAttchment] of the ArrayOfAttachmentsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type][The type of ItemAttachment element is] t:ItemAttachmentType (section 2.2.4.6).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type][The ItemAttachment element] specifies an item that is attached to another item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R332</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type][The type of FileAttachment element is] t:FileAttachmentType (section 2.2.4.5).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfAttachmentsType Complex Type][The FileAttachment element] specifies a file that is attached to another item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type] The AttachmentIdType complex type represents the item identifier and new change key of an item after an attachment has been attached.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type] The AttachmentIdType complex type extends the RequestAttachmentIdType complex type, as specified in section 2.2.4.8.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type] [the schema of "AttachmentIdType" is:]
+&lt;xs:complexType name="AttachmentIdType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:RequestAttachmentIdType"
+    &gt;
+      &lt;xs:attribute name="RootItemId"
+        type="xs:string"
+        use="optional"
+       /&gt;
+      &lt;xs:attribute name="RootItemChangeKey"
+        type="xs:string"
+        use="optional"
+       /&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type] The following table [in section 2.2.4.2] summarizes the set of common XML schema attribute [RootItemId, RootItemChangeKey] definitions defined by this specification [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][The type of RootItemId attribute is] xs:string ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][The RootItemId attribute] represents the unique identifier of the root store item to which the attachment is attached.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R44</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][In RootItemId] The maximum length [of RootItemId attribute] is 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R439.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R439</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][In RootItemId] The length of RootItemId attribute is no more than 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R44:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R334</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][The type of RootItemChangeKey attribute is] xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][The RootItemChangeKey attribute] represents the change key of the root store item to which the attachment is attached.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][In RootItemChangeKey] The maximum length [of RootItemChangeKey attribute] is 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R440.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R440</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentIdType Complex Type][In RootItemChangeKey] The length of RootItemChangeKey attribute is no more than 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R46:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type] The AttachmentInfoResponseMessageType complex type contains status and response data for attachments.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type] The AttachmentInfoResponseMessageType complex type extends the ResponseMessageType complex type, ([MS-OXWSCDATA] section 2.2.4.57).
+&lt;xs:complexType name="AttachmentInfoResponseMessageType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:ResponseMessageType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="Attachments"
+          type="t:ArrayOfAttachmentsType"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R50</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type] The following table [in section 2.2.4.3] lists the child element [Attachments] of the AttachmentInfoResponseMessageType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R335</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type][The type of Attachments element is] t:ArrayOfAttachmentsType (section 2.2.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type][The Attachments element] Represents an array of types based on attachments on the item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R557</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type] The ArrayOfAttachmentsType complex type is used only in the response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R5577.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R5577</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:AttachmentInfoResponseMessageType Complex Type] The ArrayOfAttachmentsType complex type is used in the response message.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R557:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] The AttachmentType complex type represents an attachment.
+&lt;xs:complexType name="AttachmentType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="AttachmentId"
+      type="t:AttachmentIdType"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="Name"
+      type="xs:string"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="ContentType"
+      type="xs:string"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="ContentId"
+      type="xs:string"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="ContentLocation"
+      type="xs:string"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="Size"
+      type="xs:int"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="LastModifiedTime"
+      type="xs:dateTime"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="IsInline"
+      type="xs:boolean"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] The following table [in section 2.2.4.4] lists the child elements [AttachmentId, Name, ContentType, ContentId, ContentLocation, Size, LastModifiedTime, IsInline] of the AttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R336</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of AttachmentId element is] t:AttachmentIdType (section 2.2.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R416</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The AttachmentId element] specifies the attachment identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R337</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of Name element is] xs:string([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The Name element] specifies the descriptive name of the attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R338</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of ContentType element is] xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The ContentType element] specifies the MIME type of the attachment content.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][In ContentType] For example [of ContentType]: "text/enriched", "text/html", "text/plain", "text/rfc822-headers", "text/richtext", or "text/sgml".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R339</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of ContentId element is] xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The ContentId element] specifies the unique object identifier for an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R6201.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R6201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The ContentId element] If N (N=2) attachments are not the same, the object identifier for each attachment is different.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R62:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R340</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of ContentLocation element is] xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The ContentLocation element] specifies the URI that corresponds to the location of the content of the attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] The ContentLocation element can be used to associate an attachment with a URL that defines its location on the Web.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R341</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of Size element is] xs:int ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The Size element] specifies an estimate of the size, in bytes, of the item's complete body.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R342</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of LastModifiedTime element is] xs:dateTime ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The LastModifiedTime element] specifies the day and time that this item was last changed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R343</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][The type of IsInline element is] xs:Boolean ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type][IsInline element is] a Boolean value that indicates whether the attachment is an inline attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] The IsInline element is set to indicate that the attachment appears inline within an item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R496</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] The AttachmentType complex type is extended by the ItemAttachmentType complex type, as specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R497</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentType Complex Type] [The AttachmentType complex type is extended by] the FileAttachmentType complex type, as specified in section 2.2.4.5.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type] The FileAttachmentType complex type represents a file that is attached to an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R72</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type] The FileAttachmentType complex type extends the AttachmentType complex type, as specified in section 2.2.4.4.
+&lt;xs:complexType name="FileAttachmentType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension name="FileAttachmentType"
+      base="t:AttachmentType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="IsContactPhoto"
+          type="xs:boolean"
+          minOccurs="0"
+          maxOccurs="1"
+         /&gt;
+        &lt;xs:element name="Content"
+          type="xs:base64Binary"
+          minOccurs="0"
+          maxOccurs="1"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type] The following table [in section 2.2.4.5] lists the child elements [IsContactPhoto, Content] of the FileAttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R346</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type] [The type of IsContactPhoto element is] xs:boolean ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type][The IsContactPhoto element is] a value that indicates whether this attachment is a contact photo.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R347</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type][The type of Content element is] xs:base64Binary ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAttachmentType Complex Type] [The Content element] represents the base64-encoded contents of the file attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type] The ItemAttachmentType complex type represents an item that is attached to another item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type] The ItemAttachmentType complex type extends the AttachmentType complex type as specified in section 2.2.4.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The ItemAttachmentType is defined as follow:] &lt;xs:complexType name="ItemAttachmentType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:AttachmentType"
+    &gt;
+      &lt;xs:choice
+        minOccurs="0"
+        maxOccurs="1"
+      &gt;
+        &lt;xs:element name="Item"
+          type="t:ItemType"
+         /&gt;
+        &lt;xs:element name="Message"
+          type="t:MessageType"
+         /&gt;
+        &lt;xs:element name="CalendarItem"
+          type="t:CalendarItemType"
+         /&gt;
+        &lt;xs:element name="Contact"
+          type="t:ContactItemType"
+         /&gt;
+        &lt;xs:element name="MeetingMessage"
+          type="t:MeetingMessageType"
+         /&gt;
+        &lt;xs:element name="MeetingRequest"
+          type="t:MeetingRequestMessageType"
+         /&gt;
+        &lt;xs:element name="MeetingResponse"
+          type="t:MeetingResponseMessageType"
+         /&gt;
+        &lt;xs:element name="MeetingCancellation"
+          type="t:MeetingCancellationMessageType"
+         /&gt;
+        &lt;xs:element name="Task"
+          type="t:TaskType"
+         /&gt;
+        &lt;xs:element name="PostItem"
+          type="t:PostItemType"
+         /&gt;
+      &lt;/xs:choice&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type] The following table [in section 2.2.4.6] lists the child elements [Item, Message, CalendarItem, Contact, MeetingMessage, MeetingRequest, MeetingResponse, MeetingCancellation, Task, PostItem] of the ItemAttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R527</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Item element is] t:ItemType ([MS-OXWSCORE] section 2.2.4.8).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The Item element] Represents a generic item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R349</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The Message element] Represents a server e-mail message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R350</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.4)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The CalendarItem element] Represents a calendar item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R351</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Contact element is] t:ContactItemType ([MS-OXWSCONT] section 2.2.4.2)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R554</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The Contact element] Represents a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R352</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingMessage element is] t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.12)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R555</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The MeetingMessage element] Represents a meeting message in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R353</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingRequest element is] t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.13)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The MeetingRequest element] Represents a meeting request in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R354</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingResponse element is] t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.14)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The MeetingResponse element] Represents a meeting response in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R355</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingCancellation element is] t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.11)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The MeetingCancellation element] Represents a meeting cancellation in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R356</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Task element is] t:TaskType ([MS-OXWSTASK] section 2.2.4.3)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The Task element] Represents a task in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R357</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of PostItem element is] t:PostItemType ([MS-OXWSPOST] section 2.2.4.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The PostItem element] Represents a post item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfRequestAttachmentIdsType Complex Type] The NonEmptyArrayOfRequestAttachmentIdsType complex type represents an array that contains attachment identifiers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfRequestAttachmentIdsType Complex Type][The NonEmptyArrayOfRequestAttachmentIdsType is defined as follow:]
+&lt;xs:complexType name="NonEmptyArrayOfRequestAttachmentIdsType"&gt;
+  &lt;xs:choice
+    minOccurs="1"
+    maxOccurs="unbounded"
+  &gt;
+    &lt;xs:element name="AttachmentId"
+      type="t:RequestAttachmentIdType"
+     /&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfRequestAttachmentIdsType Complex Type] The following table [in section 2.2.4.7] lists the child element [AttachmentId] of the NonEmptyArrayOfRequestAttachmentIdsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R358</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfRequestAttachmentIdsType Complex Type][The type of AttachmentId element is] t:RequestAttachmentIdType section 2.2.4.8).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfRequestAttachmentIdsType Complex Type][The AttachmenId element] represents an identifier for an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type] The RequestAttachmentIdType complex type represents an identifier for an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type] The RequestAttachmentIdType complex type extends the BaseItemIdType complex type ([MS-OXWSCDATA] section 2.2.4.13).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type][The RequestAttachmentIdType is defined as following:]
+&lt;xs:complexType name="RequestAttachmentIdType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:BaseItemIdType"
+    &gt;	
+      &lt;xs:attribute name="Id"
+        type="xs:string"
+        use="required"
+       /&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type] The following table [in section 2.2.4.8] summarizes the set of common XML schema attribute [Id] definitions defined by this specification [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R359</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type][The type of Id attribute is] xs:string ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type][The Id attribute] Provides an identifier for an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:RequestAttachmentIdType Complex Type][In Id] The maximum length [of Id attribute] is 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R111</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type] The RootItemIdType complex type identifies the root item of a deleted attachment and the new change key to the parent item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type] The RootItemIdType complex type extends the BaseItemIdType complex type ([MS-OXWSCDATA] section 2.2.4.13.)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][The RootItemIdType is defined as follow:]
+&lt;xs:complexType name="RootItemIdType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:BaseItemIdType"
+    &gt;
+      &lt;xs:attribute name="RootItemId"
+        type="xs:string"
+        use="required"
+       /&gt;
+      &lt;xs:attribute name="RootItemChangeKey"
+        type="xs:string"
+        use="required"
+       /&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type] The following table [in section 2.2.4.9] summarizes the set of common XML schema attribute [RootItemId, RootItemChangeKey] definitions defined by this specification [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R442</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][The type of RootItemId attribute is] xs:string ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R443</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][The RootItemId attribute] Identifies the root item of an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R481</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][In RootItemId] The maximum length [of RootItemId attribute] is 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R482.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R482</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][In RootItemId] The length of RootItemId is no more than 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R481:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R445</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][The type of RootItemChangeKey attribute is] xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R446</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][The RootItemChangeKey attribute] Identifies the new change key of the root item of an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R483</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][In RootItemChangeKey] The maximum length [of RootItemChangeKey attribute] is 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R556.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R556</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:RootItemIdType Complex Type][In RootItemChangeKey] The length of RootItemChangeKey attribute is no more than 512 bytes after base64 decoding.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R483:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R528</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] This specification [Attachment Handling Web Service Protocol Specification] does not define any common XML schema simple type definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R529</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Attributes] This specification [Attachment Handling Web Service Protocol Specification] does not define any common XML schema attribute definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R530</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups] This specification [Attachment Handling Web Service Protocol Specification] does not define any common XML schema group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R531</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Attribute Groups] This specification [Attachment Handling Web Service Protocol Specification] does not define any common XML schema attribute group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] The client side of this protocol [MS-OXWSATT] is simply a pass-through.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R124</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] That is, no additional timers or other state are required on the client side of this protocol [MS-OXWSATT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R364</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] Calls made by the higher-layer protocol or application are passed directly to the transport.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R363</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] The results [of the calls made by the higher-layer protocol or application] the results returned by the transport are passed directly back to the higher-layer protocol or application.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] The Attachment Handling Web Service Protocol defines a single WSDL port type with three operations [CreateAttachment, DeleteAttachment, GetAttchment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] The operations [CreateAttachment, DeleteAttachment, GetAttchment] enable client implementations to create, delete, and get attachments.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] This section [section 3.1.1] describes a conceptual model of possible data organization that an implementation maintains to participate in this protocol [MS-OXWSATT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] The described organization [conceptual model of possible data organization] is provided to facilitate the explanation of how the protocol [MS-OXWSATT] behaves.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R130</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] This document [Attachment Handling Web Service Protocol Specification] does not mandate that implementations adhere to this model [Abstract Data Model] as long as their [implementations] external behavior is consistent with that specified in this document [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Abstract Data Model] The Attachment Handling Web Service Protocol is used to create, delete, and get attachments on items on the account's mailbox on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R498</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The following table [in section 3.1.4] summarizes the list of WSDL operations [CreateAttachment, DeleteAttachment, GetAttachment] as defined by this specification [Attachment Handling Web Service Protocol Specification].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R532</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The CreateAttachment operation] Creates an item and attaches it to the specified item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R53201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The CreateAttachment operation] Creates file attachment and attaches it to the specified item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R533</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The DeleteAttachment operation] Deletes file and item attachments from an existing item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R534</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The GetAttachment operation] Retrieves existing attachments on items in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] The CreateAttachment operation creates an item or file attachment on an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R535</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] The following is the WSDL port type specification of the CreateAttachment operation.
+&lt;wsdl:operation name="CreateAttachment"&gt;
+      &lt;wsdl:input message="tns:CreateAttachmentSoapIn" /&gt;
+      &lt;wsdl:output message="tns:CreateAttachmentSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R320</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] The following is the WSDL binding specification of the CreateAttachment operation.
+&lt;wsdl:operation name="CreateAttachment"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CreateAttachment" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:CreateAttachmentSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:CreateAttachmentSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:CreateAttachmentSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:header message="tns:CreateAttachmentSoapIn" part="TimeZoneContext" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="CreateAttachmentResult" use="literal" /&gt;
+        &lt;soap:header message="tns:CreateAttachmentSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R365</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] The protocol client sends a CreateAttachmentSoapIn request WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R366</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] The protocol server responds with a CreateAttachmentSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] An item attachment does not exist as a store item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] It [item attachment] only exists as an attachment to an item or another attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R14201.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R14201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] It [item attachment] exists as an attachment to an item or another attachment.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R142:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] Item attachments can be retrieved only by using the GetAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation] A successful CreateAttachment operation request returns a CreateAttachmentResponse element with the ResponseClass attribute of the CreateAttachmentResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Operation][A successful CreateAttachment operation request returns a CreateAttachmentResponse element] The ResponseCode element of the CreateAttachmentResponse element is set to "NoError".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table [in section 3.1.4.1.1] summarizes the set of WSDL message [CreateAttachmentSoapIn, CreateAttachmentSoapOut] definitions that are specific to the CreateAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R536</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][The CreateAttachmentSoapIn message] Specifies the SOAP message that creates an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R537</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][The CreateAttachmentSoapOut message] Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message] The CreateAttachmentSoapIn WSDL message specifies the CreateAttachment operation request to create an attachment.
+&lt;wsdl:message name="CreateAttachmentSoapIn"&gt;
+    &lt;wsdl:part name="request" element="tns:CreateAttachment" /&gt;
+    &lt;wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/&gt;
+    &lt;wsdl:part name="MailboxCulture" element="t:MailboxCulture"/&gt;
+    &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
+    &lt;wsdl:part name="TimeZoneContext" element="t:TimeZoneContext"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R151</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message] The CreateAttachmentSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/CreateAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message] The five parts [request, Impersonation, MailboxCulture, RequestVertion, TimeZoneContext] of the CreateAttachmentSoapIn WSDL message are described in the following table [in section 3.1.4.1.1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R367</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The element of request part is]  tns:CreateAttachment (section 3.1.4.1.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R450</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The request part] Specifies the SOAP body of the request create an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.29).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R538</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The Impersonation part] Specifies a SOAP header that identifies the user whom the client application is impersonating.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R369</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.39).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R452</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The MailboxCulture part] Specifies a SOAP header that identifies the culture to use for accessing the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][In MailboxCulture] The cultures [identified by MailboxCulture part] are defined by [RFC3066].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R370</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R539</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The RequestVersion part] Specifies a SOAP header that identifies the schema version for the CreateAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R371</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The element of TimeZoneContext part is] t:TimeZoneContext ([MS-OXWSGTZ] section 2.2.3.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R540</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The TimeZoneContext part] Specifies a time zone definition and enables associating SOAP attributes with the definition.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R165</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message] The CreateAttachmentSoapOut WSDL message specifies the server response to the CreateAttachment operation request to create an attachment.
+&lt;wsdl:message name="CreateAttachmentSoapOut"&gt;
+    &lt;wsdl:part name="CreateAttachmentResult" element="tns:CreateAttachmentResponse" /&gt;
+    &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message] The CreateAttachmentSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/CreateAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message] The two parts [CreateAttachmentResult, ServerVersion] of the CreateAttachmentSoapOut WSDL message are described in the following table [in section 3.1.4.1.1.2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R372</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of CreateAttachmentResult part is] tns:CreateAttachmentResponse (section 3.1.4.1.2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R541</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The CreateAttachmentResult part] Specifies the SOAP body of the response to a CreateAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R553</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R542</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The ServerVersion part] Specifies a SOAP header that identifies the server version for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R499</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table [in section 3.1.4.1.2] summarizes the XML schema element definitions that are specific to this operation [CreateAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R544</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] CreateAttachment Specifies a request to create an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R543</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] CreateAttachmentResponse Specifies the response body content from a request to create an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R321</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachment Element] The CreateAttachment element specifies the request message for a CreateAttachment operation.
+ &lt;xs:element name="CreateAttachment"
+  type="m:CreateAttachmentType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R322</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateAttachmentResponse Element] The CreateAttachmentResponse element specifies the response message for a GetAttachment operation.
+ &lt;xs:element name="CreateAttachmentResponse"
+  type="m:CreateAttachmentResponseType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R502</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table [in section 3.1.4.1.3] summarizes the XML schema complex type [CreateAttachmentResponseType, CreateAttachmentType] definitions that are specific to this operation [CreateAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R545</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name] CreateAttachmentResponseType
+[Description] Specifies a response message for the CreateAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R546</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name] CreateAttachmentType specifies request message for the CreateAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentResponseType Complex Type] The CreateAttachmentResponseType complex type specifies the response message that is returned by the CreateAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentResponseType Complex Type] The CreateAttachmentResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentResponseType Complex Type][The CreateAttachmentResponseType  is defined as follow:] &lt;xs:complexType name="CreateAttachmentResponseType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseResponseMessageType"
+     /&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type] The CreateAttachmentType complex type specifies a request message to attach an item or file to a specified item in the server database.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type] The CreateAttachmentType complex type extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.15).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type][The CreateAttachmentType  is defined as follow:]
+ &lt;xs:complexType name="CreateAttachmentType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseRequestType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="ParentItemId"
+          type="t:ItemIdType"
+         /&gt;
+        &lt;xs:element name="Attachments"
+          type="t:NonEmptyArrayOfAttachmentsType"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type] The following table [in section 3.1.4.1.3.2] lists the child elements [ParentItemId, Attachments] of the CreateAttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R374</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type][The type of ParentItemId element is] t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R457</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type][The ParentId element] Identifies the parent item in the server store that contains the attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type] The ParentItemId element MUST provide the ID of a store item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type] The ParentItemId element can be retrieved by using the GetItem operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R375</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type][The type of Attachments element is] t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.43).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R458</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:CreateAttachmentType Complex Type][The Attachments element] Contains the items or files that are attached to an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] The DeleteAttachment operation deletes an attachment from an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R323</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] The following is the WSDL port type specification of the operation.
+ &lt;wsdl:operation name="DeleteAttachment"&gt;
+    &lt;wsdl:input message="tns:DeleteAttachmentSoapIn" /&gt;
+    &lt;wsdl:output message="tns:DeleteAttachmentSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R324</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] The following is the WSDL binding specification of the operation.
+ &lt;wsdl:operation name="DeleteAttachment"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/DeleteAttachment" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:DeleteAttachmentSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:DeleteAttachmentSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:DeleteAttachmentSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="DeleteAttachmentResult" use="literal" /&gt;
+        &lt;soap:header message="tns:DeleteAttachmentSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R376</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] The protocol client sends a DeleteAttachmentSoapIn request WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R377</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation]  The protocol server responds with a DeleteAttachmentSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R547</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] An item attachment does not exist as a store item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] It [the item attachment] only exists as an attachment to an item or another attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSATT_R20001.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R20001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] It [the item attachment] exists as an attachment to an item or another attachment.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R200:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] Item attachments can be retrieved only by using the GetAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] Before an attachment can be deleted, the item MUST be retrieved from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation] A successful DeleteAttachment operation request returns a DeleteAttachmentResponse element with the ResponseClass attribute of the DeleteAttachmentResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Operation][A successful DeleteAttachment operation request returns a DeleteAttachmentResponse element] The ResponseCode element of the DeleteAttachmentResponse element is set to "NoError".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table [in section 3.1.4.2.1] summarizes the set of WSDL message [DeleteAttachmentSoapIn, DeleteAttachmentSoapOut] definitions that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][The DeleteAttachmentSoapIn  message] Specifies the SOAP message that deletes an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][The DeleteAttachmentSoapOut  message] Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message] The DeleteAttachmentSoapIn WSDL message specifies the DeleteAttachment operation request to delete an attachment.
+ &lt;wsdl:message name="DeleteAttachmentSoapIn"&gt;
+    &lt;wsdl:part name="request" element="tns:DeleteAttachment" /&gt;
+    &lt;wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/&gt;
+    &lt;wsdl:part name="MailboxCulture" element="t:MailboxCulture"/&gt;
+    &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message] The DeleteAttachmentSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/DeleteAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message] The four parts [request, Impersonation, MailboxCulture, RequestVersion] of the DeleteAttachmentSoapIn WSDL message are described in the following table [in section 3.1.4.2.1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R378</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The element of request part is] tns:DeleteAttachment (section 3.1.4.2.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R459</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The request part] Specifies the SOAP body of the request to delete an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R379</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.29.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R460</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The Impersonation part] Specifies a SOAP header that identifies the user who the client application is impersonating.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R380</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.39).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R463</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The MailboxCulture part] Specifies a SOAP header that identifies the culture to use for accessing the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message] The cultures [identified by MailboxCulture part] are defined by [RFC3066].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R381</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The element of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R462</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The RequestVersion part] Specifies a SOAP header that identifies the schema version for the DeleteAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message] The DeleteAttachmentSoapOut WSDL message specifies the server response to the DeleteAttachment operation request to delete an attachment.
+ &lt;wsdl:message name="DeleteAttachmentSoapOut"&gt;
+    &lt;wsdl:part name="DeleteAttachmentResult" element="tns:DeleteAttachmentResponse" /&gt;
+    &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message] The DeleteAttachmentSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/DeleteAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message] The two parts [DeleteAttachmentResult, ServerVersion] of the DeleteAttachmentSoapOut WSDL message are described in the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R382</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The element of DeleteAttachmentResult part is] tns:DeleteAttachmentResponse (section 3.1.4.2.2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R464</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The DeleteAttachmentResult part] Specifies the SOAP body of the response to a DeleteAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R383</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R465</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The ServerVersion part] Specifies a SOAP header that identifies the server version for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R505</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table [in section 3.1.4.2.2] summarizes the XML schema element [DeleteAttachment, DeleteAttachmentResponse] definitions that are specific to this operation [DeleteAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R506</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] DeleteAttachment Specifies a request to delete an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R507</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] [DeleteAttachmentResponse] Specifies the response body content from a request to delete an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R384</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Element] The DeleteAttachment element specifies the request message for a DeleteAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R325</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachment Element][The DeleteAttachment is defined as follow:]
+&lt;xs:element name="DeleteAttachment"
+  type="m:DeleteAttachmentType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R326</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAttachmentResponse Element] The DeleteAttachmentResponse element specifies the response message for a DeleteAttachment operation.
+ &lt;xs:element name="DeleteAttachmentResponse"
+  type="m:DeleteAttachmentResponseType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R508</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table [in section 3.1.4.2.3] summarizes the XML schema complex type [DeleteAttachmentResponseMessageType, DeleteAttachmentResponseType, DeleteAttachmentType] definitions that are specific to this operation [DeleteAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R509</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name]DeleteAttachmentResponseMessageType
+Specifies the parent item of a deleted attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R511</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name] DeleteAttachmentType Specifies a request message for the DeleteAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R510</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name]DeleteAttachmentResponseType Specifies a response message for the DeleteAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R238</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type] The DeleteAttachmentResponseMessageType complex type contains the status and result of a single DeleteAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type] The DeleteAttachmentResponseMessageType complex type extends the ResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.57).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type][The DeleteAttachmentResponseMessageType  is defined as follow:]
+ &lt;xs:complexType name="DeleteAttachmentResponseMessageType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:ResponseMessageType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="RootItemId"
+          type="t:RootItemIdType"
+          minOccurs="0"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type] The following table [in section 3.1.4.2.3.1] lists the child element [RootItemId] of the DeleteAttachmentResponseMessageType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R387</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type][The type of RootItemId element is] t:RootItemIdType (section 2.2.4.9).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R466</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseMessageType Complex Type][The RootItemId element] Specifies the parent item of a deleted attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseType Complex Type] The DeleteAttachmentResponseType complex type specifies the response message that is returned by the DeleteAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseType Complex Type] The DeleteAttachmentResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentResponseType Complex Type][The DeleteAttachmentResponseType  is defined as follow:]
+&lt;xs:complexType name="DeleteAttachmentResponseType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseResponseMessageType"
+     /&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type] The DeleteAttachmentType complex type specifies a request message to delete an attachment on an item in the server database.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type] The DeleteAttachmentType complex type extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.15).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type][The DeleteAttachmentType  is defined as follow:]
+ &lt;xs:complexType name="DeleteAttachmentType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseRequestType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="AttachmentIds"
+          type="t:NonEmptyArrayOfRequestAttachmentIdsType"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type] The following table [in section 3.1.4.2.3.3] lists the child element of the DeleteAttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R388</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type][The type of AttachmentIds element is] t:NonEmptyArrayOfRequestAttachmentIdsType (section 2.2.4.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R467</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:DeleteAttachmentType Complex Type][The AttachmentIds element] Contains the items or files that are attached to an item in the server store to be deleted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R253</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] The GetAttachment operation gets an attachment from an item in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R327</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] The following is the WSDL port type specification of the operation.
+ &lt;wsdl:operation name="GetAttachment"&gt;
+    &lt;wsdl:input message="tns:GetAttachmentSoapIn" /&gt;
+    &lt;wsdl:output message="tns:GetAttachmentSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R328</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] The following is the WSDL binding specification of the operation.
+ &lt;wsdl:operation name="GetAttachment"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetAttachment" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:GetAttachmentSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:GetAttachmentSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:GetAttachmentSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:header message="tns:GetAttachmentSoapIn" part="TimeZoneContext" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="GetAttachmentResult" use="literal" /&gt;
+        &lt;soap:header message="tns:GetAttachmentSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R389</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] The protocol client sends a GetAttachmentSoapIn request WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R390</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] The protocol server responds with a GetAttachmentSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R259</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] A successful GetAttachment operation request returns a GetAttachmentResponse element with the ResponseClass attribute of the GetAttachmentResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R260</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Operation] [A successful GetAttachment operation request returns a GetAttachmentResponse element ] The ResponseCode element of the GetAttachmentResponse element is set to "NoError".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R512</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following table [in section 3.1.4.3.1] summarizes the set of WSDL message [GetAttachmentSoapIn, GetAttachmentSoapOut] definitions that are specific to this operation [GetAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R513</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] [Message name] GetAttachmentSoapIn specifies the SOAP message that gets an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R514</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] [Message name] GetAttachmentSoapOut Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R265</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] The GetAttachmentSoapIn WSDL message specifies the GetAttachment operation request to get an attachment.
+&lt;wsdl:message name="GetAttachmentSoapIn"&gt;
+    &lt;wsdl:part name="request" element="tns:GetAttachment" /&gt;
+    &lt;wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/&gt;
+    &lt;wsdl:part name="MailboxCulture" element="t:MailboxCulture"/&gt;
+    &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
+    &lt;wsdl:part name="TimeZoneContext" element="t:TimeZoneContext"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R266</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] The GetAttachmentSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/GetAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R267</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] The five parts [request, Impersonation, MailboxCulture, RequestVersion, TimeZoneContext] of the GetAttachmentSoapIn message are described in the following table [in section 3.1.4.3.1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R391</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of request part is] tns:GetAttachment (section 3.1.4.3.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R468</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The request part] Specifies the SOAP body of the request to get an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R392</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.29).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R469</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The Impersonation part] Specifies a SOAP header that identifies the user who the client application is impersonating.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R393</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.39).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R470</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The MailboxCulture part] Specifies a SOAP header that identifies the culture to use for accessing the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R274</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] The cultures [identified by MailboxCulture part] are defined by [RFC3066].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R417</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message][The RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R471</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The RequestVersion part] Specifies a SOAP header that identifies the schema version for the GetAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R394</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of TimeZoneContext part is] t:TimeZoneContext ([MS-OXWSGTZ] section 2.2.3.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R472</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The TimeZoneContext part] Specifies a time zone definition and enables associating SOAP attributes with the definition.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R280</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message] The GetAttachmentSoapOut WSDL message specifies the server response to the GetAttachment operation request to get an attachment.
+&lt;wsdl:message name="GetAttachmentSoapOut"&gt;
+    &lt;wsdl:part name="GetAttachmentResult" element="tns:GetAttachmentResponse" /&gt;
+    &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R281</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message] The GetAttachmentSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/GetAttachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R282</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message] The two parts [GetAttachmentResult, ServerVersion] of the GetAttachmentSoapOut WSDL message are described in the following table [in section 3.1.4.3.1.2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R395</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message] [The element of GetAttachmentResult part is] tns:GetAttachmentResponse (section 3.1.4.3.2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R473</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message][The GetAttachmentResult part] Specifies the SOAP body of the response to a GetAttachment operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R396</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R474</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message][The ServerVersion part] Specifies a SOAP header that identifies the server version for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R515</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following table [in section 3.1.4.3.2] summarizes the XML schema element [GetAttachment, GetAttachmentResponse] definitions that are specific to this operation [GetAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R516</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] GetAttachment Specifies a request to get an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R517</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] [Element name] GetAttachmentResponse Specifies the response body content from a request to get an attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R560</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachment Element] The GetAttachment element specifies the request message for a GetAttachment operation.
+&lt;xs:element name="GetAttachment"
+  type="m:GetAttachmentType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R330</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetAttachmentResponse Element] The GetAttachmentResponse element specifies the response message to a GetAttachment operation. &lt;xs:element name="GetAttachmentResponse"
+  type="m:GetAttachmentResponseType"
+ /&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R518</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table [in section 3.1.4.3.3] summarizes the XML schema complex type [GetAttachmentResponseType, GetAttachmentType, AttachmentResponseShapeType] definitions that are specific to this operation [GetAttachment].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R519</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name]GetAttachmentResponseType Specifies a response message for the GetAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R521</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name]AttachmentResponseShapeType Specifies additional properties for the GetAttachment operation to return.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R520</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] [Complex type name]GetAttachmentType[Description] Specifies a request message for the GetAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R296</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentResponseType Complex Type] The GetAttachmentResponseType complex type specifies the response message that is returned by the GetAttachment operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R298</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentResponseType Complex Type] The GetAttachmentResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).
+ &lt;xs:complexType name="GetAttachmentResponseType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseResponseMessageType"
+     /&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R299</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type] The GetAttachmentType complex type specifies a request message to get attached items and files on an item in the server database.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R559</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type] The GetAttachmentType complex type extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.15).
+&lt;xs:complexType name="GetAttachmentType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseRequestType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="AttachmentShape"
+          type="t:AttachmentResponseShapeType"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="AttachmentIds"
+          type="t:NonEmptyArrayOfRequestAttachmentIdsType"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R302</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type] The following table [in section 3.1.4.3.3.3] lists the child elements [AttachmentShape, AttachmentIds] of the GetAttachmentType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R397</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type][The type of AttachmentShape element is] t:AttachmentResponseShapeType (section 3.1.4.3.3.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R475</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type][The AttachmentShape element] Contains additional properties to return for the attachments.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R398</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type][The type of AttachmentIds element is] t:NonEmptyArrayOfRequestAttachmentIdsType (section 2.2.4.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R476</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetAttachmentType Complex Type][The AttachmentIds element] Contains the identifiers of the attachments to return in the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R308</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] The AttachmentResponseShapeType complex type identifies additional properties for the GetAttachment operation to return.
+&lt;xs:complexType name="AttachmentResponseShapeType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="IncludeMimeContent"
+      type="xs:boolean"
+      minOccurs="0"
+     /&gt;
+    &lt;xs:element name="BodyType"
+      type="t:BodyTypeResponseType"
+      minOccurs="0"
+     /&gt;
+    &lt;xs:element name="FilterHtmlContent"
+      type="xs:boolean"
+      minOccurs="0"
+      maxOccurs="1"
+     /&gt;
+    &lt;xs:element name="AdditionalProperties"     type="t:NonEmptyArrayOfPathsToElementType"
+      minOccurs="0"
+     /&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R309</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] The following table [in section 3.1.4.3.3.3] lists the child elements [IncludeMimeContent, BodyType, FilterContent, AdditonalProperties] of the AttachmentResponseShapeType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R399</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The type of IncludeMimeContent element is] xs:boolean ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R477</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The IncludeMimeContent element] Indicates whether the MIME content of an item or attachment is returned in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R311</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of "true" indicates that the attachment contains MIME content.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R477:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R3111</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of "false" indicates that the attachment doesn't contain MIME content.</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R477:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R55001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R55002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R55003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R55004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Contact.&lt;1&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R550.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R552</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes [IPM.Note, IPM.Post, IPM.Appointment, and IPM.Contact], the GetAttachmentResponseMessage element MUST return an ErrorUnsupportedMimeConversion response code as specified in [MS-OXWSCDATA] section 2.2.3.23.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R400</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The type of BodyType element is] t:BodyTypeResponseType ([MS-OXWSCDATA] section 2.2.3.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R478</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The BodyType element] Represents the format of the body text in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R401</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The type of FilterHtmlContent element is] xs:boolean ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R479</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The FilterHtmlContent element] Indicates whether to filter potentially unsafe HTML content from message bodies.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R402</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The type of AdditionalProperties element is] t:NonEmptyArrayOfPathsToElementType ([MS-OXWSCDATA] section 2.2.4.44).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R549</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The AdditionalProperties element] Contains additional properties to return in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R551</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return IPM.Contact MIME content. (&lt;1&gt; Section 3.1.4.3.3.3: IPM.Contact MIME content will not be returned with Exchange 2007, Exchange 2010, and Exchange 2010 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R55004:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R550</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return MIME content for attachments of IPM.Contact, when the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type.  &lt;1&gt; (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R55004:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R318</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior]Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange Server 2007 and above follow this behavior. )</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R6:i,MS-OXWSATT_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R713</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.23</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorUnsupportedMimeConversion" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1234</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:Path" specifies a property to be returned in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
+ &lt;xs:complexType&gt;
+  &lt;xs:attribute name="MajorVersion"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MinorVersion"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MajorBuildNumber"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MinorBuildNumber"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="Version"
+   type="xs:string"
+   use="optional"
+   /&gt;
+ &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+</ns1:ReqTable>

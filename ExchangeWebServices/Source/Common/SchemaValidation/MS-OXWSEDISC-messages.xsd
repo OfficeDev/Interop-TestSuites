@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2013" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="MS-OXWSEDISC-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:element name="GetHoldOnMailboxes" type="m:GetHoldOnMailboxesType"/>
+  <xs:element name="GetHoldOnMailboxesResponse" type="m:GetHoldOnMailboxesResponseMessageType"/>
+  <xs:complexType name="GetDiscoverySearchConfigurationType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SearchId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExpandGroupMembership" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InPlaceHoldConfigurationOnly" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDiscoverySearchConfiguration" type="m:GetDiscoverySearchConfigurationType"/>
+  <xs:complexType name="GetDiscoverySearchConfigurationResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="DiscoverySearchConfigurations" type="t:ArrayOfDiscoverySearchConfigurationType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDiscoverySearchConfigurationResponse" type="m:GetDiscoverySearchConfigurationResponseMessageType"/>
+  <xs:complexType name="GetHoldOnMailboxesResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MailboxHoldResult" type="t:MailboxHoldResultType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetHoldOnMailboxesType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="HoldId" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetSearchableMailboxesType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SearchFilter" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExpandGroupMembership" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSearchableMailboxes" type="m:GetSearchableMailboxesType"/>
+  <xs:complexType name="GetSearchableMailboxesResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="SearchableMailboxes" type="t:ArrayOfSearchableMailboxesType"/>
+          <xs:element minOccurs="0" name="FailedMailboxes" type="t:ArrayOfFailedSearchMailboxesType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSearchableMailboxesResponse" type="m:GetSearchableMailboxesResponseMessageType"/>
+  <xs:complexType name="SearchMailboxesType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="SearchQueries" type="t:NonEmptyArrayOfMailboxQueriesType"/>
+          <xs:element minOccurs="1" name="ResultType" type="t:SearchResultType"/>
+          <xs:element minOccurs="0" name="PreviewItemResponseShape" type="t:PreviewItemResponseShapeType"/>
+          <xs:element minOccurs="0" name="SortBy" type="t:FieldOrderType"/>
+          <xs:element minOccurs="0" name="Language" type="xs:string"/>
+          <xs:element minOccurs="0" name="Deduplication" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="PageSize" type="xs:int"/>
+          <xs:element minOccurs="0" name="PageItemReference" type="xs:string"/>
+          <xs:element minOccurs="0" name="PageDirection" type="t:SearchPageDirectionType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchMailboxes" type="m:SearchMailboxesType"/>
+  <xs:complexType name="SearchMailboxesResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchMailboxesResponse" type="m:SearchMailboxesResponseType"/>
+  <xs:complexType name="SearchMailboxesResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SearchMailboxesResult" type="t:SearchMailboxesResultType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SetHoldOnMailboxesType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="ActionType" type="t:HoldActionType"/>
+          <xs:element minOccurs="1" name="HoldId" type="xs:string"/>
+          <xs:element minOccurs="1" name="Query" type="xs:string"/>
+          <xs:element minOccurs="0" name="Mailboxes" type="t:ArrayOfStringsType"/>
+          <xs:element minOccurs="0" name="Language" type="xs:string"/>
+          <xs:element minOccurs="0" name="IncludeNonIndexableItems" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Deduplication" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InPlaceHoldIdentity" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetHoldOnMailboxes" type="m:SetHoldOnMailboxesType"/>
+  <xs:complexType name="SetHoldOnMailboxesResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MailboxHoldResult" type="t:MailboxHoldResultType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetHoldOnMailboxesResponse" type="m:SetHoldOnMailboxesResponseMessageType"/>
+</xs:schema>

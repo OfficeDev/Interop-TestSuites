@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSRSLNM-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="ResolveNamesResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="ResolutionSet" type="t:ArrayOfResolutionType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResolveNamesResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResolveNamesType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ParentFolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType" minOccurs="0"/>
+          <xs:element name="UnresolvedEntry" type="t:NonEmptyStringType"/>
+        </xs:sequence>
+        <xs:attribute name="ReturnFullContactData" type="xs:boolean" use="required"/>
+        <xs:attribute name="SearchScope" type="t:ResolveNamesSearchScopeType" default="ActiveDirectoryContacts"/>
+        <xs:attribute name="ContactDataShape" type="t:DefaultShapeNamesType"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResolveNames" type="m:ResolveNamesType"/>
+  <xs:element name="ResolveNamesResponse" type="m:ResolveNamesResponseType"/>
+</xs:schema>

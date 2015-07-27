@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="types"
+  elementFormDefault="qualified"
+  version="Exchange2013"
+  xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"
+  targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="NonEmptyArrayOfUploadItemsType">
+    <xs:sequence>
+      <xs:element name="Item" type="t:UploadItemType" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UploadItemType">
+    <xs:sequence>
+      <xs:element name="ParentFolderId" type="t:FolderIdType" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ItemId" type="t:ItemIdType" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Data" type="xs:base64Binary" maxOccurs="1" minOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="CreateAction" type="t:CreateActionType" use="required"/>
+    <xs:attribute name="IsAssociated" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+  <xs:simpleType name="CreateActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CreateNew"/>
+      <xs:enumeration value="Update"/>
+      <xs:enumeration value="UpdateOrCreate"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CompleteActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Commit"/>
+      <xs:enumeration value="Abandon"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NonEmptyArrayOfItemIdsType">
+    <xs:sequence>
+      <xs:element name="ItemId" type="t:ItemIdType" maxOccurs="unbounded" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

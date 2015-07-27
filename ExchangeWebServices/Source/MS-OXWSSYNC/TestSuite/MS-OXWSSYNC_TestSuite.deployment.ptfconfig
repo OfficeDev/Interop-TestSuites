@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The User1Name property specifies the name for a user who should act as the organizer of a meeting. This user must be assigned impersonation permissions. -->
+    <Property name="User1Name" value="MSOXWSSYNC_User01"/>
+    <!-- The User1Password property specifies the password for the user specified in the User1Name property. The property value is case-sensitive. -->
+    <Property name="User1Password" value="Password01!"/>
+    <!-- The User2Name property specifies the name for a user who should act as the attendee of a meeting. This user does not require impersonation permissions. -->
+    <Property name="User2Name" value="MSOXWSSYNC_User02"/>
+    <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
+    <Property name="User2Password" value="Password01!"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The MaxChanges property specifies the maximum number of changes that can be returned in a synchronization response. This element MUST be set between 1 and 512, inclusive. (Refer to:[MS-OXWSSYNC]section 3.1.4.2.3.1) -->
+    <Property name="MaxChanges" value="100"/>
+    <!-- The MailboxCulture property specifies the culture to be used when opening a mailbox.-->
+    <Property name="MailboxCulture" value="en-US" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

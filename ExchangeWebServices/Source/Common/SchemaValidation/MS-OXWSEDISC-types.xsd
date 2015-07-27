@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2013" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSMSHR-types.xsd"/>
+  <xs:complexType name="ArrayOfDiscoverySearchConfigurationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiscoverySearchConfiguration" type="t:DiscoverySearchConfigurationType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFailedSearchMailboxesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FailedMailbox" type="t:FailedSearchMailboxType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfKeywordStatisticsSearchResultsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeywordStat" type="t:KeywordStatisticsSearchResultType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMailboxHoldStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailboxHoldStatus" type="t:MailboxHoldStatusType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMailboxStatisticsItemsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MailboxStat" type="t:MailboxStatisticsItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSearchableMailboxesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchableMailbox" type="t:SearchableMailboxType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSearchPreviewItemsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchPreviewItem" type="t:SearchPreviewItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSearchRefinerItemsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Refiner" type="t:SearchRefinerItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DiscoverySearchConfigurationType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SearchId" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="SearchQuery" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="SearchableMailboxes" type="t:ArrayOfSearchableMailboxesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="InPlaceHoldIdentity" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ManagedByOrganization" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FailedSearchMailboxType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Mailbox" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="xs:int"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorMessage" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsArchive" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HoldActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Create"/>
+      <xs:enumeration value="Update"/>
+      <xs:enumeration value="Remove"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HoldStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotOnHold"/>
+      <xs:enumeration value="Pending"/>
+      <xs:enumeration value="OnHold"/>
+      <xs:enumeration value="PartialHold"/>
+      <xs:enumeration value="Failed"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="KeywordStatisticsSearchResultType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Keyword" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemHits" type="xs:int"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MailboxHoldResultType">
+    <xs:sequence>
+      <xs:element name="HoldId" type="xs:string"/>
+      <xs:element minOccurs="0" name="Query" type="xs:string"/>
+      <xs:element name="MailboxHoldStatuses" type="t:ArrayOfMailboxHoldStatusType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MailboxHoldStatusType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Mailbox" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Status" type="t:HoldStatusType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalInfo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MailboxQueryType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Query" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="MailboxSearchScopes" type="t:NonEmptyArrayOfMailboxSearchScopesType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MailboxSearchLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PrimaryOnly"/>
+      <xs:enumeration value="ArchiveOnly"/>
+      <xs:enumeration value="All"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MailboxSearchScopeType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Mailbox" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="SearchScope" type="t:MailboxSearchLocationType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MailboxStatisticsItemType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MailboxId" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemCount" type="xs:long"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Size" type="xs:long"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfExtendedFieldURIsType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="ExtendedFieldURI" type="t:PathToExtendedFieldType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfMailboxSearchScopesType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="MailboxSearchScope" type="t:MailboxSearchScopeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfMailboxQueriesType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="MailboxQuery" type="t:MailboxQueryType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PreviewItemBaseShapeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default"/>
+      <xs:enumeration value="Compact"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PreviewItemMailboxType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="MailboxId" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="PrimarySmtpAddress" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PreviewItemResponseShapeType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BaseShape" type="t:PreviewItemBaseShapeType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalProperties" type="t:NonEmptyArrayOfExtendedFieldURIsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchableMailboxType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Guid" type="t:GuidType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="PrimarySmtpAddress" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsExternalMailbox" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ExternalEmailAddress" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsMembershipGroup" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ReferenceId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchMailboxesResultType">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="SearchQueries" type="t:NonEmptyArrayOfMailboxQueriesType"/>
+      <xs:element minOccurs="1" name="ResultType" type="t:SearchResultType"/>
+      <xs:element minOccurs="1" name="ItemCount" type="xs:long"/>
+      <xs:element minOccurs="1" name="Size" type="xs:long"/>
+      <xs:element minOccurs="1" name="PageItemCount" type="xs:int"/>
+      <xs:element minOccurs="1" name="PageItemSize" type="xs:long"/>
+      <xs:element minOccurs="0" name="KeywordStats" type="t:ArrayOfKeywordStatisticsSearchResultsType"/>
+      <xs:element minOccurs="0" name="Items" type="t:ArrayOfSearchPreviewItemsType"/>
+      <xs:element minOccurs="0" name="FailedMailboxes" type="t:ArrayOfFailedSearchMailboxesType"/>
+      <xs:element minOccurs="0" name="Refiners" type="t:ArrayOfSearchRefinerItemsType"/>
+      <xs:element minOccurs="0" name="MailboxStats" type="t:ArrayOfMailboxStatisticsItemsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SearchPageDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Previous"/>
+      <xs:enumeration value="Next"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SearchPreviewItemType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="t:ItemIdType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Mailbox" type="t:PreviewItemMailboxType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ParentId" type="t:ItemIdType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ItemClass" type="t:ItemClassType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueHash" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="SortValue" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="OwaLink" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Sender" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ToRecipients" type="t:ArrayOfSmtpAddressType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="CcRecipients" type="t:ArrayOfSmtpAddressType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BccRecipients" type="t:ArrayOfSmtpAddressType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="CreatedTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ReceivedTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="SentTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Subject" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Size" type="xs:long"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Preview" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Importance" type="t:ImportanceChoicesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Read" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="HasAttachment" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ExtendedProperties" type="t:NonEmptyArrayOfExtendedPropertyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchRefinerItemType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Name" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Count" type="xs:long"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Token" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SearchResultType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StatisticsOnly"/>
+      <xs:enumeration value="PreviewOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

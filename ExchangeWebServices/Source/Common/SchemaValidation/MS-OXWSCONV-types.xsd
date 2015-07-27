@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="types" elementFormDefault="qualified" version="Exchange2013" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSEDISC-types.xsd"/>
+  <xs:complexType name="ArrayOfItemClassType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ItemClass" type="t:ItemClassType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:simpleType name="ConversationActionTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AlwaysCategorize"/>
+      <xs:enumeration value="AlwaysDelete"/>
+      <xs:enumeration value="AlwaysMove"/>
+      <xs:enumeration value="Delete"/>
+      <xs:enumeration value="Move"/>
+      <xs:enumeration value="Copy"/>
+      <xs:enumeration value="SetReadState"/>
+      <xs:enumeration value="SetRetentionPolicy" />
+      <xs:enumeration value="Flag" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ConversationActionType">
+    <xs:sequence>
+      <xs:element name="Action" type="t:ConversationActionTypeType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ConversationId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ContextFolderId" type="t:TargetFolderIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ConversationLastSyncTime" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ProcessRightAway" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DestinationFolderId" type="t:TargetFolderIdType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Categories" type="t:ArrayOfStringsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EnableAlwaysDelete" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IsRead" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DeleteType" type="t:DisposalType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RetentionPolicyType" type="t:RetentionType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RetentionPolicyTagId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Flag" type="t:FlagType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SuppressReadReceipts" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfApplyConversationActionType">
+    <xs:sequence>
+      <xs:element name="ConversationAction" type="t:ConversationActionType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConversationType">
+    <xs:sequence>
+      <xs:element name="ConversationId" type="t:ItemIdType" minOccurs="0"/>
+      <xs:element name="ConversationTopic" type="xs:string" minOccurs="0"/>
+      <xs:element name="UniqueRecipients" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="GlobalUniqueRecipients" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="UniqueUnreadSenders" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="GlobalUniqueUnreadSenders" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="UniqueSenders" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="GlobalUniqueSenders" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="LastDeliveryTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="GlobalLastDeliveryTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="Categories" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="GlobalCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="FlagStatus" type="t:FlagStatusType" minOccurs="0"/>
+      <xs:element name="GlobalFlagStatus" type="t:FlagStatusType" minOccurs="0"/>
+      <xs:element name="HasAttachments" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="GlobalHasAttachments" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="MessageCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="GlobalMessageCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="UnreadCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="GlobalUnreadCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="Size" type="xs:int" minOccurs="0"/>
+      <xs:element name="GlobalSize" type="xs:int" minOccurs="0"/>
+      <xs:element name="ItemClasses" type="t:ArrayOfItemClassType" minOccurs="0"/>
+      <xs:element name="GlobalItemClasses" type="t:ArrayOfItemClassType" minOccurs="0"/>
+      <xs:element name="Importance" type="t:ImportanceChoicesType" minOccurs="0"/>
+      <xs:element name="GlobalImportance" type="t:ImportanceChoicesType" minOccurs="0"/>
+      <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType" minOccurs="0"/>
+      <xs:element name="GlobalItemIds" type="t:NonEmptyArrayOfBaseItemIdsType" minOccurs="0"/>
+      <xs:element name="LastModifiedTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="InstanceKey" type="xs:base64Binary" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationPreview-->
+      <xs:element name="Preview" type="xs:string" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.NextPredictedAction-->
+      <xs:element name="NextPredictedAction" type="t:PredictedMessageActionType" minOccurs="0" />
+      <!-- Maps to ConversationItemSchema.GroupingAction-->
+      <xs:element name="GroupingAction" type="t:PredictedMessageActionType" minOccurs="0"/>
+      <!-- Flag for the mailbox scope this conversation was found in -->
+      <xs:element name="MailboxScope" type="t:MailboxSearchLocationType" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationIconIndex-->
+      <xs:element name="IconIndex" type="t:IconIndexType" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationGlobalIconIndex-->
+      <xs:element name="GlobalIconIndex" type="t:IconIndexType" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationDraftItemIds-->
+      <xs:element name="DraftItemIds" type="t:NonEmptyArrayOfBaseItemIdsType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConversationsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Conversation" type="t:ConversationType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:simpleType name="ConversationQueryTraversalType">
+    <xs:annotation>
+      <xs:documentation>Types of sub-tree traversal for conversations</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shallow"/>
+      <xs:enumeration value="Deep"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ConversationResponseShapeType">
+    <xs:sequence>
+      <xs:element name="BaseShape" type="t:DefaultShapeNamesType"/>
+      <xs:element name="AdditionalProperties" type="t:NonEmptyArrayOfPathsToElementType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConversationRequestType">
+    <xs:sequence>
+      <xs:element name="ConversationId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SyncState" type="xs:base64Binary" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConversationRequestsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Conversation" type="t:ConversationRequestType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ConversationNodeType">
+    <xs:sequence>
+      <xs:element name="InternetMessageId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ParentInternetMessageId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Items" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConversationNodesType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ConversationNode" type="t:ConversationNodeType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ConversationResponseType">
+    <xs:sequence>
+      <xs:element name="ConversationId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SyncState" type="xs:base64Binary" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ConversationNodes" type="t:ArrayOfConversationNodesType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ConversationNodeSortOrder">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TreeOrderAscending"/>
+      <xs:enumeration value="TreeOrderDescending"/>
+      <xs:enumeration value="DateOrderAscending"/>
+      <xs:enumeration value="DateOrderDescending"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ViewFilterType">
+    <xs:annotation>
+      <xs:documentation>Types of view filters for finding items/conversations</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All"/>
+      <xs:enumeration value="Flagged"/>
+      <xs:enumeration value="HasAttachment"/>
+      <xs:enumeration value="ToOrCcMe"/>
+      <xs:enumeration value="Unread"/>
+      <xs:enumeration value="TaskActive"/>
+      <xs:enumeration value="TaskOverdue"/>
+      <xs:enumeration value="TaskCompleted"/>
+      <xs:enumeration value="Suggestions"/>
+      <xs:enumeration value="SuggestionsRespond"/>
+      <xs:enumeration value="SuggestionsDelete"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

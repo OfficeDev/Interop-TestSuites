@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="ArrayOfDLExpansionType">
+    <xs:sequence>
+      <xs:element name="Mailbox" type="t:EmailAddressType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="t:FindResponsePagingAttributes"/>
+  </xs:complexType>
+  <xs:complexType name="DistributionListType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="FileAs" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContactSource" type="t:ContactSourceType" minOccurs="0"/>
+          <xs:element name="Members" type="t:MembersListType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="MemberStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unrecognized"/>
+      <xs:enumeration value="Normal"/>
+      <xs:enumeration value="Demoted"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MembersListType">
+    <xs:sequence>
+      <xs:element name="Member" type="t:MemberType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MemberType">
+    <xs:sequence>
+      <xs:element name="Mailbox" type="t:EmailAddressType" minOccurs="0"/>
+      <xs:element name="Status" type="t:MemberStatusType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Key" type="xs:string" use="optional"/>
+  </xs:complexType>
+</xs:schema>

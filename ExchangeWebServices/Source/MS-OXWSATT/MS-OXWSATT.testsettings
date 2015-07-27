@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestSettings name="MS-OXWSATT" id="83b2eb0a-0914-4930-8481-912ad96fc73f" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Description>These are the default test settings for running all MS-OXWSATT test cases.</Description>
+  <Deployment>
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSATT.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSATT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+  </Deployment>
+  <Execution>
+    <Hosts skipUnhostableTests="false" />
+    <TestTypeSpecific>
+      <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+        <Browser name="Internet Explorer 7.0">
+          <Headers>
+            <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+            <Header name="Accept" value="*/*" />
+            <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+            <Header name="Accept-Encoding" value="GZIP" />
+          </Headers>
+        </Browser>
+      </WebTestRunConfiguration>
+      <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+        <AssemblyResolution>
+          <TestDirectory useLoadContext="true" />
+        </AssemblyResolution>
+      </UnitTestRunConfig>
+    </TestTypeSpecific>
+    <AgentRule name="LocalMachineDefaultRole">
+    </AgentRule>
+  </Execution>
+</TestSettings>

@@ -1,0 +1,2843 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] The endpoint (4) URL that is returned by either the Autodiscover Publishing Lookup SOAP-Based Web Service Protocol, as described in [MS-OXWSADISC], or the Autodiscover Publishing and Lookup Protocol, as described in [MS-OXDSCLI], is required to form the HTTP request to the Web server that hosts this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] The operations that this protocol defines cannot be accessed unless the correct endpoint (4) is identified in the HTTP Web requests that target this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] In the following sections, the schema definition might differ from the processing rules imposed by the protocol [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The WSDL in this specification [MS-OXWSTASK] provides a base description of the protocol [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The schema in this specification [MS-OXWSTASK] provides a base description of the message syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The text that specifies the WSDL and schema might specify restrictions that reflect actual protocol behavior.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R251</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, or present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The SOAP version supported is SOAP 1.1. For details, see [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] This protocol [MS-OXWSTASK] relies on the Web server that hosts the application to perform authentication.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The protocol [MS-OXWSTASK] SHOULD use secure communications by means of HTTPS, as defined in [RFC2818].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSTASK_R212.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] This section contains common definitions that are used by this protocol [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL as defined in [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] This specification [MS-OXWSTASK] defines and references various XML namespaces by using the mechanisms that are specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Although this specification [MS-OXWSTASK] associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix soap is http://schemas.xmlsoap.org/wsdl/soap/
+and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix tns is http://schemas.microsoft.com/exchange/services/2006/messages.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix s is http://www.w3.org/2001/XMLSchema and the reference of the namespace URI is [XMLSCHEMA1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix targetNamespace is http://schemas.microsoft.com/exchange/services/2006/messages.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix wsdl is http://schemas.xmlsoap.org/wsdl/ and the reference of the namespace URI is [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix t is http://schemas.microsoft.com/exchange/services/2006/types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] This specification [MS-OXWSTASK] does not define any common WSDL message definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] This specification [MS-OXWSTASK] does not define any common XML schema element definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table summarizes the set of common XML schema complex type definitions [TaskRecurrenceType, TaskFolderType, TaskType, DailyRegeneratingPatternType, MonthlyRegeneratingPatternType, RegeneratingPatternBaseType, WeeklyRegeneratingPatternType and YearlyRegeneratingPatternType] that are defined by this specification [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] XML schema complex type definitions that are specific to a particular operation are defined with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] TaskRecurrenceType: Specifies the recurrence pattern for tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] TasksFolderType: Specifies a Tasks folder that is contained in a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] TaskType: Specifies a task in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R23</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] DailyRegeneratingPatternType: Specifies the interval, in days, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] MonthlyRegeneratingPatternType: Specifies the interval, in months, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] RegeneratingPatternBaseType: Specifies the base type for all regenerating patterns.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] WeeklyRegeneratingPatternType: Specifies the interval, in weeks, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R27</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] YearlyRegeneratingPatternType: Specifies the interval, in years, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskRecurrenceType Complex Type] The TaskRecurrenceType complex type specifies the recurrence pattern for tasks.
+&lt;xs:complexType name="TaskRecurrenceType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:group
+      ref="t:TaskRecurrencePatternTypes"/&gt;
+    &lt;xs:group
+      ref="t:RecurrenceRangeTypes"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskRecurrenceType Complex Type] The following table lists and describes the groups [t:TaskRecurrencePatternTypes and t:RecurrenceRangeTypes] of the TaskRecurrenceType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskRecurrenceType Complex Type] [Reference] t:TaskRecurrencePatternTypes (section 2.2.7.1): Specifies recurrence information for recurring tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskRecurrenceType Complex Type] [Reference] t:RecurrenceRangeTypes ([MS-OXWSCDATA] section 2.2.7.2): Specifies recurrence patterns with numbered recurrences, nonending recurrence patterns, and recurrence patterns with a set start date and end date.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TasksFolderType Complex Type] The TasksFolderType complex type specifies a Tasks folder that is contained in a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TasksFolderType Complex Type] The TasksFolderType complex type extends the FolderType complex type, as specified in [MS-OXWSFOLD] section 2.2.4.10.
+&lt;xs:complexType name="TasksFolderType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:FolderType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The TaskType complex type specifies a task in the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The TaskType complex type extends the ItemType complex type, as specified in [MS-OXWSCORE] section 2.2.4.8.
+&lt;xs:complexType name="TaskType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:ItemType"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="ActualWork"
+          type="xs:int"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="AssignedTime"
+          type="xs:dateTime"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="BillingInformation"
+          type="xs:string"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="ChangeCount"
+          type="xs:int"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Companies"
+          type="t:ArrayOfStringsType"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="CompleteDate"
+          type="xs:dateTime"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Contacts"
+          type="t:ArrayOfStringsType"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="DelegationState"
+          type="t:TaskDelegateStateType"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Delegator"
+          type="xs:string"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="DueDate"
+          type="xs:dateTime"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="IsAssignmentEditable"
+          type="xs:int"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="IsComplete"
+          type="xs:boolean"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="IsRecurring"
+          type="xs:boolean"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="IsTeamTask"
+          type="xs:boolean"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Mileage"
+          type="xs:string"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Owner"
+          type="xs:string"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="PercentComplete"
+          type="xs:double"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Recurrence"
+          type="t:TaskRecurrenceType"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="StartDate"
+          type="xs:dateTime"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="Status"
+          type="t:TaskStatusType"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="StatusDescription"
+          type="xs:string"
+          minOccurs="0"/&gt;
+        &lt;xs:element name="TotalWork"
+          type="xs:int"
+          minOccurs="0"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The following table lists and describes the child elements [ActualWork, AssignedTime, BillingInformation, ChangeCount, companies, CompleteDate, Contacts, DelegationState, Delegator, DueDate, IsAssignmentEditable, IsComplete, IsRecurring, IsTeamTask, Mileage, Owner, PercentComplete, Recurrence, StartDate, Status, StatusDescription and TotalWork] of the TaskType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] ActualWork: Specifies an integer value that specifies the actual amount of time that is spent on a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] AssignedTime with xs:dateTime [XMLSCHEMA2] type specifies an instance of the DateTime structure that contains the time when a task is assigned to a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R215</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R44</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] BillingInformation: Specifies a string value that contains billing information for a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R216</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of ChangeCount is xs:int.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] ChangeCount: Specifies an integer value that specifies the version of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type]The type of Companies is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.11).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Companies: Specifies an instance of an array of type string that represents a collection of companies that are associated with a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of CompleteDate is xs:dateTime.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R48</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] CompleteDate: Specifies an instance of the DateTime structure that represents the date on which a task was completed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of Contacts is t:ArrayOfStringsType.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Contacts: Specifies an instance of an array of type string that contains a list of contacts that are associated with a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] DelegationState with t:TaskDelegateStateType (section 2.2.5.1) specifies one of the valid TaskDelegateStateType simple type  enumeration values that represent the status of a delegated task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Delegator with xs:string type specifies a string value that contains the name of the delegator who assigned a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of DueDate is 
+xs:dateTime.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] DueDate: Specifies an instance of the DateTime structure that represents the date when a task is due.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] IsAssignmentEditable with xs:int type specifies an integer value that represents the task type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] IsComplete: Specifies a Boolean value that indicates whether a task has been completed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R5555</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] [IsComplete is] True, indicates a task has been completed.</ns1:Description>
+		<ns1:Derived>MS-OXWSTASK_R55:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R5556</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] [IsComplete is] False, indicates a task has not been completed.</ns1:Description>
+		<ns1:Derived>MS-OXWSTASK_R55:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R225</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of IsRecurring is xs:boolean.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] IsRecurring: Specifies a Boolean value that indicates whether a task is part of a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R5666</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] [IsRecurring is] True, indicates a task is part of a recurring task.</ns1:Description>
+		<ns1:Derived>MS-OXWSTASK_R56:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R5667</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] [IsRecurring is] False, indicates a task is not part of a recurring task.</ns1:Description>
+		<ns1:Derived>MS-OXWSTASK_R56:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R226</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] IsTeamTask with xs:boolean type specifies a Boolean value that indicates whether a task is owned by a team.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R227</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of Mileage is xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Mileage: Specifies a string value that represents the mileage for a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R228</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Owner with xs:string type specifies a string value that represents the owner of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R229</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] PercentComplete: Specifies a double value from 0 through 100 that describes the completion status of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R230</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of Recurrence is t:TaskRecurrenceType (section 2.2.5.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Recurrence: Specifies an instance of the TaskRecurrenceType complex type that contains recurrence information for a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R231</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of StartDate is xs:dateTime.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] StartDate: Specifies an instance of the DateTime structure that represents the start date of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R232</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The Type of Status is 
+t:TaskStatusType (section 2.2.5.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] Status: Specifies one of the valid TaskStatusType simple type enumeration values that represent the status of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R233</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of StatusDescription is xs:string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] StatusDescription: Specifies a string value that contains an explanation of the status of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R234</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] The type of TotalWork is xs:int.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] TotalWork: Specifies an integer value that represents the total amount of work that is associated with a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:DailyRegeneratingPatternType Complex Type] The DailyRegeneratingPatternType complex type specifies the interval, in days, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:DailyRegeneratingPatternType Complex Type] The DailyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+&lt;xs:complexType name="DailyRegeneratingPatternType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:RegeneratingPatternBaseType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:MonthlyRegeneratingPatternType Complex Type] The MonthlyRegeneratingPatternType complex type specifies the interval, in months, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:MonthlyRegeneratingPatternType Complex Type] The MonthlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+&lt;xs:complexType name="MonthlyRegeneratingPatternType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:RegeneratingPatternBaseType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:RegeneratingPatternBaseType Complex Type] The RegeneratingPatternBaseType complex type specifies the base type for all regenerating patterns.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:RegeneratingPatternBaseType Complex Type] The RegeneratingPatternBaseType complex type extends the IntervalRecurrencePatternBaseType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.36.
+&lt;xs:complexType name="RegeneratingPatternBaseType"
+  abstract="true"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:IntervalRecurrencePatternBaseType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRegeneratingPatternType Complex Type] The WeeklyRegeneratingPatternType complex type specifies the interval, in weeks, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRegeneratingPatternType Complex Type] The WeeklyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+&lt;xs:complexType name="WeeklyRegeneratingPatternType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:RegeneratingPatternBaseType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:YearlyRegeneratingPatternType Complex Type] The YearlyRegeneratingPatternType complex type specifies the interval, in years, at which a task is regenerated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:YearlyRegeneratingPatternType Complex Type] The YearlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+&lt;xs:complexType name="YearlyRegeneratingPatternType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:RegeneratingPatternBaseType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] The following table summarizes the set of common XML schema simple type definitions [TaskDelegateStateType and TaskStatusType] that are defined by this specification.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] XML schema simple type definitions that are specific to a particular operation are defined with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] TaskDelegateStateType: Specifies the status types of a delegated task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] This enumeration [TaskDelegateStateType] is never set.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] TaskStatusType: Specifies the status types of a task item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] The TaskDelegateStateType simple type specifies the status types of a delegated task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] The values [Accepted, Declined, Max, NoMatch, Owned and OwnNew] for this simple type [t:TaskDelegateStateType Simple Type] are never set.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] [t:TaskDelegateStateType Simple Type] is defined as  
+name="TaskDelegateStateType"&gt;
+  &lt;xs:restriction
+    base="xs:string"&gt;
+    &lt;xs:enumeration
+      value="Accepted"/&gt;
+    &lt;xs:enumeration
+      value="Declined"/&gt;
+    &lt;xs:enumeration
+      value="Max"/&gt;
+    &lt;xs:enumeration
+      value="NoMatch"/&gt;
+    &lt;xs:enumeration
+      value="Owned"/&gt;
+    &lt;xs:enumeration
+      value="OwnNew"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] The following tables lists the values [Accepted, Declined, Max, NoMatch, Owned and OwnNew] that are defined by the TaskDelegateStateType simple type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Accepted: Specifies that the task has been declined.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Declined: Not used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Max: Not used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] NoMatch: Specifies [that this is not a delegated task or] that the task request has been created but not sent.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R294</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] NoMatch: Specifies that this is not a delegated task [or that the task request has been created but not sent].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] NoMatch: This value is also used for a task request message, whether it's in the owner's Sent Items folder or the delegate's Inbox folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Owned: Specifies that the task has been accepted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Owned: This value cannot be in the simple type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskDelegateStateType Simple Type] OwnNew: Specifies that this is a new task request that has been sent, but the delegate has not yet responded to the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] The TaskStatusType simple type specifies the status of a task item.
+&lt;xs:simpleType name="TaskStatusType"&gt;
+  &lt;xs:restriction
+    base="xs:string"&gt;
+    &lt;xs:enumeration
+      value="Completed"/&gt;
+    &lt;xs:enumeration
+      value="Deferred"/&gt;
+    &lt;xs:enumeration
+      value="InProgress"/&gt;
+    &lt;xs:enumeration
+      value="NotStarted"/&gt;
+    &lt;xs:enumeration
+      value="WaitingOnOthers"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] The following table lists the values [Completed, Deferred, InProgress, NotStarted and WaitingOnOthers] that are defined by the TaskStatusType simple type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] Completed: Specifies that the task is completed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R103</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] Deferred: Specifies that the task is deferred.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type]  InProgress: Specifies that the task is in progress.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] NotStarted: Specifies that the task is not started.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskStatusType Simple Type] WaitingOnOthers: Specifies that the task is waiting on other tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Attributes] This specification [MS-OXWSTASK] does not define any common XML schema attribute definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups] The following table summarizes the set of common XML schema group definitions [TaskRecurrencePatternTypes] that are defined by this specification [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups] XML schema group definitions that are specific to a particular operation are defined with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups] TaskRecurrencePatternTypes: Specifies recurrence information for recurring tasks.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The TaskRecurrencePatternTypes group specifies recurrence information for recurring tasks.
+&lt;xs:group name="TaskRecurrencePatternTypes"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:choice&gt;
+      &lt;xs:element name="RelativeYearlyRecurrence"
+        type="t:RelativeYearlyRecurrencePatternType"/&gt;
+      &lt;xs:element name="AbsoluteYearlyRecurrence"
+       type="t:AbsoluteYearlyRecurrencePatternType"/&gt;
+      &lt;xs:element name="RelativeMonthlyRecurrence"
+    type="t:RelativeMonthlyRecurrencePatternType"/&gt;
+      &lt;xs:element name="AbsoluteMonthlyRecurrence"
+  type="t:AbsoluteMonthlyRecurrencePatternType"/&gt;
+      &lt;xs:element name="WeeklyRecurrence"
+        type="t:WeeklyRecurrencePatternType"/&gt;
+      &lt;xs:element name="DailyRecurrence"
+        type="t:DailyRecurrencePatternType"/&gt;
+      &lt;xs:element name="DailyRegeneration"
+        type="t:DailyRegeneratingPatternType"/&gt;
+      &lt;xs:element name="WeeklyRegeneration"
+        type="t:WeeklyRegeneratingPatternType"/&gt;
+      &lt;xs:element name="MonthlyRegeneration"
+        type="t:MonthlyRegeneratingPatternType"/&gt;
+      &lt;xs:element name="YearlyRegeneration"
+        type="t:YearlyRegeneratingPatternType"/&gt;
+    &lt;/xs:choice&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:group&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The following table lists and describes the child elements [RelativeYearlyRecurrence, AbsoluteYearlyRecurrence, RelativeMonthlyRecurrence, AbsoluteMonthlyRecurrence, WeeklyRecurrence, DailyRecurrence, DailyRegeneration,WeeklyRegeneration, MonthlyRegeneration and YearlyRegeneration] of the TaskRecurrencePatternTypes group.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R235</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of RelativeYearlyRecurrence is t:RelativeYearlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.53).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] RelativeYearlyRecurrence: Specifies a relative yearly recurrence pattern for a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R236</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of AbsoluteYearlyRecurrence is t:AbsoluteYearlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] AbsoluteYearlyRecurrence: Specifies a yearly recurrence pattern for a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R237</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of RelativeMonthlyRecurrence is t:RelativeMonthlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.52).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] RelativeMonthlyRecurrence:  Specifies a relative monthly recurrence pattern for a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R238</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of AbsoluteMonthlyRecurrence is t:AbsoluteMonthlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] AbsoluteMonthlyRecurrence: Specifies a monthly recurrence pattern for a recurring task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of WeeklyRecurrence is t:WeeklyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.64).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] WeeklyRecurrence: Specifies the weekly interval at which and the days on which a task recurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of DailyRecurrence is t:DailyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.21).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] DailyRecurrence: Specifies the interval, in days, at which a task recurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of DailyRegeneration is t:DailyRegeneratingPatternType (section 2.2.4.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] DailyRegeneration: Specifies how many days after the completion of the current task the next occurrence will happen.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R242</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of WeeklyRegeneration is t:WeeklyRegeneratingPatternType (section 2.2.4.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] WeeklyRegeneration: Specifies how many weeks after the completion of the current task the next occurrence will happen.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R243</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of MonthlyRegeneration is t:MonthlyRegeneratingPatternType (section 2.2.4.5).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] MonthlyRegeneration: Specifies how many months after the completion of the current task the next occurrence will happen.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] The type of YearlyRegeneration is t:YearlyRegeneratingPatternType (section 2.2.4.8).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In TaskRecurrencePatternTypes Group] YearlyRegeneration: Specifies how many years after the completion of the current task the next occurrence will happen.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Attribute Groups] This specification [MS-OXWSTASK] does not define any common XML schema attribute group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In Common Data Structures] This specification [MS-OXWSTASK] does not define any common XML schema data structures.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] The client side of this protocol [MS-OXWSTASK] is simply a pass-through.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] That is, no additional timers or other state is required on the client side of this protocol [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R138</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] Calls made by the higher-layer protocol or application are passed directly to the transport, and the results returned by the transport are passed directly back to the higher-layer protocol or application.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R139</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] The Tasks Web Service Protocol [MS-OXWSTASK] defines a single port type with six operations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R140</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] The operations enable client implementations to get, create, delete, update, move, and copy tasks on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The following table summarizes the WSDL operations [GetItem, CreateItem, DeleteItem, UpdateItem, MoveItem and CopyItem] as defined by this specification [MS-OXWSTASK].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation GetItem: Gets items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation CreateItem: Creates items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation DeleteItem: Deletes items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation UpdateItem: Updates items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation MoveItem: Moves items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] Operation CopyItem: Copies items on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] This protocol [MS-OXWSTASK] uses the CopyItem operation, as specified in [MS-OXWSCORE] section 3.1.4.1, to copy task items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R148</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] The following is the WSDL port type specification for the CopyItem operation. &lt;wsdl:operation name="CopyItem"&gt;
+            &lt;wsdl:input message="tns:CopyItemSoapIn" /&gt;
+            &lt;wsdl:output message="tns:CopyItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] The following is the WSDL binding specification for the CopyItem operation.&lt;wsdl:operation name="CopyItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CopyItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:CopyItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:CopyItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:CopyItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="CopyItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:CopyItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn([MS-OXWSCORE] section 3.1.4.1.1.1): Specifies the SOAP message that defines the task item to be copied.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] [tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)] The t:NonEmptyArrayOfAllItemsType complex type (as specified in [MS-OXWSCDATA] section 2.2.4.42) of the  CopyItem operation (as specified in [MS-OXWSCORE] section 3.1.4.1.1.1) that specifies the XML request MUST contain the t:TargetFolderIdType complex type (as specified in [MS-OXWSFOLD] section 2.2.4.14) and the t:ItemIdType complex type (as specified in [MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R153</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation][tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)] All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapOut ([MS-OXWSCORE] section 3.1.4.1.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] This protocol [MS-OXWSTASK] uses the CreateItem operation, as specified in [MS-OXWSCORE] section 3.1.4.2, to create task items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] The following is the WSDL port type specification for the CreateItem operation.&lt;wsdl:operation name="CreateItem"&gt;
+     &lt;wsdl:input message="tns:CreateItemSoapIn" /&gt;
+     &lt;wsdl:output message="tns:CreateItemSoapOut"/&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] The following is the WSDL binding specification for the CreateItem operation.&lt;wsdl:operation name="CreateItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CreateItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:CreateItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:CreateItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:CreateItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:header message="tns:CreateItemSoapIn" part="TimeZoneContext" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="CreateItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:CreateItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] tns:CreateItemSoapIn ([MS-OXWSCORE] section 3.1.4.2.1.1): Specifies the SOAP message that defines the task item to be created.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] [tns:CreateItemSoapIn ([MS-OXWSCORE] section 3.1.4.2.1.1)] The t:NonEmptyArrayOfAllItemsType complex type (as specified in [MS-OXWSCDATA] section 2.2.4.42) of the CreateItem operation (as specified in [MS-OXWSCORE] section 3.1.4.2) that specifies the XML request MUST contain one or more t:TaskType complex types( as specified in section 2.2.4.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] [tns:CreateItemSoapIn ([MS-OXWSCORE] section 3.1.4.2.1.1)] All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R161</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem Operation] tns:CreateItemSoapOut ([MS-OXWSCORE] section 3.1.4.2.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] This protocol [MS-OXWSTASK] uses the DeleteItem operation, as specified in [MS-OXWSCORE] section 3.1.4.3, to delete task items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] The following is the WSDL port type specification for the DeleteItem operation.&lt;wsdl:operation name="DeleteItem"&gt;
+   &lt;wsdl:input message="tns:DeleteItemSoapIn" /&gt;
+   &lt;wsdl:output message="tns:DeleteItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] The following is the WSDL binding specification for the DeleteItem operation. &lt;wsdl:operation name="DeleteItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/DeleteItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:DeleteItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:DeleteItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:DeleteItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="DeleteItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:DeleteItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] tns:DeleteItemSoapIn ([MS-OXWSCORE] section 3.1.4.3.1.1): Specifies the SOAP message that defines the task item to be deleted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] [tns:DeleteItemSoapIn ([MS-OXWSCORE] section 3.1.4.3.1.1)] The t:NonEmptyArrayOfAllItemsType complex type (as specified in [MS-OXWSCDATA] section 2.2.4.42) of the DeleteItem operation (as specified in [MS-OXWSCORE] section 3.1.4.3) that specifies the XML request MUST contain one or more t:ItemIdType complex type elements (as specified in [MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] [tns:DeleteItemSoapIn ([MS-OXWSCORE] section 3.1.4.3.1.1)] All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem Operation] tns:DeleteItemSoapOut ([MS-OXWSCORE] section 3.1.4.3.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] The following table lists and describes the XML schema simple type definitions [AffectedTaskOccurrencesType] that are specific to the DeleteItem operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R170</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] AffectedTaskOccurrencesType: Specifies whether an occurrence of a task or a master task is deleted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AffectedTaskOccurrencesType Simple Type] The AffectedTaskOccurrencesType simple type specifies whether an occurrence of a task or a master task is deleted.
+&lt;xs:simpleType name="AffectedTaskOccurrencesType"&gt;
+  &lt;xs:restriction
+    base="xs:string"&gt;
+    &lt;xs:enumeration
+      value="AllOccurrences"/&gt;
+    &lt;xs:enumeration
+      value="SpecifiedOccurrenceOnly"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AffectedTaskOccurrencesType Simple Type] The following table lists and describes the values [AllOccurrences and SpecifiedOccurrenceOnly] that are defined by the AffectedTaskOccurrencesType simple type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AffectedTaskOccurrencesType Simple Type] AllOccurrences: Specifies that a DeleteItem operation request, as specified in [MS-OXWSCORE] section 3.1.4.3, deletes the master task and all recurring tasks that are associated with the master task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AffectedTaskOccurrencesType Simple Type]  SpecifiedOccurrenceOnly: Specifies that a DeleteItem operation request, as specified in [MS-OXWSCORE] section 3.1.4.3, deletes only the current occurrence of a task.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] This protocol [MS-OXWSTASK] uses the GetItem operation, as specified in [MS-OXWSCORE] section 3.1.4.4, to get task items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R176</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] The following is the WSDL port type specification for the GetItem operation. &lt;wsdl:operation name="GetItem"&gt;
+   &lt;wsdl:input message="tns:GetItemSoapIn" /&gt;
+   &lt;wsdl:output message="tns:GetItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] The following is the WSDL binding specification for the GetItem operation. &lt;wsdl:operation name="GetItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:GetItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:GetItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:GetItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:header message="tns:GetItemSoapIn" part="TimeZoneContext" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="GetItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:GetItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] tns:GetItemSoapIn ([MS-OXWSCORE] section 3.1.4.4.1.1): Specifies the SOAP message that defines the task item to be retrieved.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] [tns:GetItemSoapIn ([MS-OXWSCORE] section 3.1.4.4.1.1)] The t:NonEmptyArrayOfAllItemsType complex type (as specified in [MS-OXWSCDATA] section 2.2.4.42) of the GetItem operation (as specified in [MS-OXWSCORE] section 3.1.4.4) that specifies the XML request MUST contain the t:ItemResponseShapeType complex type element (as specified in [MS-OXWSCDATA] section 2.2.4.38) and the t:ItemIdType complex type element (as specified in [MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] tns:GetItemSoapOut ([MS-OXWSCORE] section 3.1.4.4.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem Operation] [tns:GetItemSoapOut ([MS-OXWSCORE] section 3.1.4.4.1.2)] The server returns a t:ItemResponseShapeType complex type element, as specified in [MS-OXWSCDATA] section 2.2.4.38, that contains properties associated with the task item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] This protocol [MS-OXWSTASK] uses the MoveItem operation, as specified in [MS-OXWSCORE] section 3.1.4.7, to move task item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] The following is the WSDL port type specification for the MoveItem operation. &lt;wsdl:operation name="MoveItem"&gt;
+   &lt;wsdl:input message="tns:MoveItemSoapIn" /&gt;
+   &lt;wsdl:output message="tns:MoveItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] The following is the WSDL binding specification for the MoveItem operation. &lt;wsdl:operation name="MoveItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/MoveItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:MoveItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:MoveItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:MoveItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="MoveItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:MoveItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] tns:MoveItemSoapIn ([MS-OXWSCORE] section 3.1.4.7.1.1): Specifies the SOAP message that defines the task item to be moved.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R208</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] [tns:MoveItemSoapIn  ([MS-OXWSCORE] section 3.1.4.7.1.1)] The t:NonEmptyArrayOfAllItemsType complex type (as specified in [MS-OXWSCDATA] section 2.2.4.42) of the MoveItem operation (as specified in [MS-OXWSCORE] section 3.1.4.7) that specifies the XML request MUST contain the t:TargetFolderIdType complex type element (as specified in [MS-OXWSFOLD] section 2.2.4.14) and t:ItemIdType complex type element (as specified in [MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] [tns:MoveItemSoapIn  ([MS-OXWSCORE] section 3.1.4.7.1.1)] All other elements [except the t:TargetFolderIdType complex type element and t:ItemIdType complex type element] MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem Operation] tns:MoveItemSoapOut ([MS-OXWSCORE] section 3.1.4.7.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem Operation] This protocol [MS-OXWSTASK] uses the UpdateItem operation, as specified in [MS-OXWSCORE] section 3.1.4.9, to update task item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem Operation] The following is the WSDL port type specification for the UpdateItem operation. &lt;wsdl:operation name="UpdateItem"&gt;
+   &lt;wsdl:input message="tns:UpdateItemSoapIn" /&gt;
+   &lt;wsdl:output message="tns:UpdateItemSoapOut"/&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem Operation] The following is the WSDL binding specification for the UpdateItem operation. &lt;wsdl:operation name="UpdateItem"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UpdateItem"/&gt;
+   &lt;wsdl:input&gt;
+      &lt;soap:header message="tns:UpdateItemSoapIn" part="Impersonation" use="literal"/&gt;
+      &lt;soap:header message="tns:UpdateItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+      &lt;soap:header message="tns:UpdateItemSoapIn" part="RequestVersion" use="literal"/&gt;
+      &lt;soap:header message="tns:UpdateItemSoapIn" part="TimeZoneContext" use="literal"/&gt;
+      &lt;soap:body parts="request" use="literal"/&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+      &lt;soap:body parts="UpdateItemResult" use="literal"/&gt;
+      &lt;soap:header message="tns:UpdateItemSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem Operation] tns:UpdateItemSoapIn ([MS-OXWSCORE] section 3.1.4.9.1.1): Specifies the SOAP message that defines the task item to be updated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem Operation] tns:UpdateItemSoapOut ([MS-OXWSCORE] section 3.1.4.9.1.2): Specifies the SOAP message that is returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R212</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does use secure communications by means of HTTPS, as defined in [RFC2818]. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSTASK_R4:i,MS-OXWSTASK_R210:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekIndexType Simple Type] The type [DayOfWeekIndexType] is defined as follow:
+ &lt;xs:simpleType name="DayOfWeekIndexType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="First"/&gt;
+    &lt;xs:enumeration value="Fourth"/&gt;
+    &lt;xs:enumeration value="Last"/&gt;
+    &lt;xs:enumeration value="Second"/&gt;
+    &lt;xs:enumeration value="Third"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekType Simple Type] The type [DayOfWeekType] is defined as follow:
+&lt;xs:simpleType name="DayOfWeekType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="Day"/&gt;
+    &lt;xs:enumeration value="Friday"/&gt;
+    &lt;xs:enumeration value="Monday"/&gt;
+    &lt;xs:enumeration value="Saturday"/&gt;
+    &lt;xs:enumeration value="Sunday"/&gt;
+    &lt;xs:enumeration value="Thursday"/&gt;
+    &lt;xs:enumeration value="Tuesday"/&gt;
+    &lt;xs:enumeration value="Wednesday"/&gt;
+    &lt;xs:enumeration value="Weekday"/&gt;
+    &lt;xs:enumeration value="WeekendDay"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekType Simple Type] This value MUST NOT be used in the t:RelativeYearlyRecurrencePatternType (section 2.2.4.53) complex types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R2110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekType Simple Type] This value MUST NOT be used in the t:WeeklyRecurrencePatternType (section 2.2.4.64) complex types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1492</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekType Simple Type] This value MUST NOT be used in the t:RelativeYearlyRecurrencePatternType complex types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1493</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:DayOfWeekType Simple Type] This value MUST NOT be used in the t:RelativeYearlyRecurrencePatternType complex types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:DaysOfWeekType Simple Type] The type [DaysOfWeekType] is defined as follow:&lt;xs:simpleType name="DaysOfWeekType"&gt;
+  &lt;xs:list&gt;
+    &lt;xs:itemType name="t:DayOfWeekType"/&gt;
+  &lt;/xs:list&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:DaysOfWeekType Simple Type] The syntax [DaysOfWeekType] is defined as follow:
+&lt;xs:simpleType name="DaysOfWeekType"&gt;
+  &lt;xs:list itemType="t:DayOfWeekType"/&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.19</ns1:Doc_Sect>
+		<ns1:Description>[In t:MonthNamesType Simple Type] The type [MonthNamesType] is defined as follow: 
+&lt;xs:simpleType name="MonthNamesType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="January"
+   /&gt;
+  &lt;xs:enumeration
+   value="February"
+   /&gt;
+  &lt;xs:enumeration
+   value="March"
+   /&gt;
+  &lt;xs:enumeration
+   value="April"
+   /&gt;
+  &lt;xs:enumeration
+   value="May"
+   /&gt;
+  &lt;xs:enumeration
+   value="June"
+   /&gt;
+  &lt;xs:enumeration
+   value="July"
+   /&gt;
+  &lt;xs:enumeration
+   value="August"
+   /&gt;
+  &lt;xs:enumeration
+   value="September"
+   /&gt;
+  &lt;xs:enumeration
+   value="October"
+   /&gt;
+  &lt;xs:enumeration
+   value="November"
+   /&gt;
+  &lt;xs:enumeration
+   value="December"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R995</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AbsoluteMonthlyRecurrencePatternType Complex Type] The type [AbsoluteMonthlyRecurrencePatternType] is defined as follow:
+&lt;xs:complexType name="AbsoluteMonthlyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:IntervalRecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="DayOfMonth"
+     type="xs:int"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R997</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:AbsoluteMonthlyRecurrencePatternType Complex Type] This property [DayOfMonth] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R999</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AbsoluteYearlyRecurrencePatternType Complex Type] The type [AbsoluteYearlyRecurrencePatternType] is defined as follow:
+&lt;xs:complexType name="AbsoluteYearlyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="DayOfMonth"
+     type="xs:int"
+     /&gt;
+    &lt;xs:element name="Month"
+     type="t:MonthNamesType"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AbsoluteYearlyRecurrencePatternType Complex Type] This property [DayOfMonth] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AbsoluteYearlyRecurrencePatternType Complex Type] This property [Month] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1081</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfStringsType Complex Type] The type [ArrayOfStringsType] is defined as follow:
+&lt;xs:complexType name="ArrayOfStringsType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="String"
+   type="xs:string"
+   minOccurs="0"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1109</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
+		<ns1:Description>[In t:DailyRecurrencePatternType Complex Type] The type [DailyRecurrencePatternType] is defined as follow:
+ &lt;xs:complexType name="DailyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:IntervalRecurrencePatternBaseType"
+   /&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1152</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.28</ns1:Doc_Sect>
+		<ns1:Description>[In t:EndDateRecurrenceRangeType Complex Type] The type [EndDateRecurrenceRangeType] is defined as follow:
+ &lt;xs:complexType name="EndDateRecurrenceRangeType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrenceRangeBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="EndDate"
+     type="xs:date"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1431</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.36</ns1:Doc_Sect>
+		<ns1:Description>[In t:IntervalRecurrencePatternBaseType Complex Type] The type [IntervalRecurrencePatternBaseType] is defined as follow:
+&lt;xs:complexType name="IntervalRecurrencePatternBaseType"
+ abstract="true"
+&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="Interval"
+     type="xs:int"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1632</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.36</ns1:Doc_Sect>
+		<ns1:Description>[In t:IntervalRecurrencePatternBaseType Complex Type] The element "Interval" is "xs:int" type ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1179</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.36</ns1:Doc_Sect>
+		<ns1:Description>[In t:IntervalRecurrencePatternBaseType Complex Type] The element "Interval" with type "xs:int" specifies the interval between two consecutive recurring items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1203</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.41</ns1:Doc_Sect>
+		<ns1:Description>[In t:NoEndRecurrenceRangeType Complex Type] The type [NoEndRecurrenceRangeType] is defined as follow:
+&lt;xs:complexType name="NoEndRecurrenceRangeType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrenceRangeBaseType"
+   /&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1236</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.46</ns1:Doc_Sect>
+		<ns1:Description>[In t:NumberedRecurrenceRangeType Complex Type] The type [NumberedRecurrenceRangeType] is defined as follow:
+&lt;xs:complexType name="NumberedRecurrenceRangeType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrenceRangeBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="NumberOfOccurrences"
+     type="xs:int"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1255</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.52</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeMonthlyRecurrencePatternType Complex Type] The type [RelativeMonthlyRecurrencePatternType] is defined as follow:
+&lt;xs:complexType name="RelativeMonthlyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:IntervalRecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="DaysOfWeek"
+     type="t:DayOfWeekType"
+     /&gt;
+    &lt;xs:element name="DayOfWeekIndex"
+     type="t:DayOfWeekIndexType"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1638</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.52</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeMonthlyRecurrencePatternType Complex Type] The element "DaysOfWeek" is "t:DayOfWeekType" type (section 2.2.3.5).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1256</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.52</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeMonthlyRecurrencePatternType Complex Type] The element "DaysOfWeek" with type "t:DayOfWeekType" specifies the days of the week that are used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1639</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.52</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeMonthlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" is "t:DayOfWeekIndexType" type(section 2.2.3.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1257</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.52</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeMonthlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" with type "t:DayOfWeekIndexType" specifies the week that is used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1259</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The type [RelativeYearlyRecurrencePatternType] is defined as follow:
+&lt;xs:complexType name="RelativeYearlyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:RecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="DaysOfWeek"
+     type="t:DayOfWeekType"
+     /&gt;
+    &lt;xs:element name="DayOfWeekIndex"
+     type="t:DayOfWeekIndexType"
+     /&gt;
+    &lt;xs:element name="Month"
+     type="t:MonthNamesType"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1640</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DaysOfWeek" is "t:DayOfWeekType" type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1260</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DaysOfWeek" with type "t:DayOfWeekType" specifies the days of the week that are used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1261</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] This element [DaysOfWeek] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1641</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" is "t:DayOfWeekIndexType" type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1262</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" with type "t:DayOfWeekIndexType" specifies the week that is used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1263</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] This element [DayOfWeekIndex] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1642</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "Month" is "t:MonthNamesType" type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1264</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "Month" with type "t:MonthNamesType" specifies the month when a yearly recurring item occurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1265</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] This element [Month] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1307</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.64</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRecurrencePatternType Complex Type] The type [WeeklyRecurrencePatternType] is defined as follow:
+&lt;xs:complexType name="WeeklyRecurrencePatternType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:IntervalRecurrencePatternBaseType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="DaysOfWeek"
+     type="t:DaysOfWeekType"
+     /&gt;
+    &lt;xs:element name="FirstDayOfWeek"
+     type="t:DayOfWeekType"
+     minOccurs="0"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1653</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.64</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRecurrencePatternType Complex Type] The element "DaysOfWeek" is "t:DaysOfWeekType" type (section 2.2.3.6).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1308</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.64</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRecurrencePatternType Complex Type] The element "DaysOfWeek" with type "t:DaysOfWeekType" specifies the days of the week that are in the weekly recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1309</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.64</ns1:Doc_Sect>
+		<ns1:Description>[In t:WeeklyRecurrencePatternType Complex Type] The element "FirstDayOfWeek" with type "t:DayOfWeekType" (section 2.2.3.5) ] Specifies the first day of the week.&lt;253&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCDATA_R1489, MS-OXWSCDATA_R4005.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1351</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The group [t:RecurrenceRangeTypes] is defined as follow:
+&lt;xs:group name="t:RecurrenceRangeTypes"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:choice&gt;
+   &lt;xs:element name="NoEndRecurrence"
+    type="t:NoEndRecurrenceRangeType"
+    /&gt;
+   &lt;xs:element name="EndDateRecurrence"
+    type="t:EndDateRecurrenceRangeType"
+    /&gt;
+   &lt;xs:element name="NumberedRecurrence"
+    type="t:NumberedRecurrenceRangeType"
+    /&gt;
+  &lt;/xs:choice&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:group&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1660</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "NoEndRecurrence" is "t:NoEndRecurrenceRangeType" type (section 2.2.4.41).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1352</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "NoEndRecurrence" with type "t:NoEndRecurrenceRangeType" specifies a recurrence pattern that does not have a defined end date.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1661</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "EndDateRecurrence" is "t:EndDateRecurrenceRangeType" type (section 2.2.4.28).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1353</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "EndDateRecurrence" with type "t:EndDateRecurrenceRangeType" specifies the start date and the end date of an item recurrence pattern.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1662</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "NumberedRecurrence" is"t:NumberedRecurrenceRangeType" type (section 2.2.4.46).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1354</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:RecurrenceRangeTypes Group] The element "NumberedRecurrence" with type "t:NumberedRecurrenceRangeType" specifies the start date and the number of occurrences of a recurring item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1489</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the FirstDayOfWeek element. (&lt;253&gt; Section 2.2.4.64: Exchange 2007 do not include the FirstDayOfWeek element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R1309:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R4005</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the element "FirstDayOfWeek" with type "t:DayOfWeekType (section 2.2.3.5)" which specifies the first day of the week. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R1309:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+</ns1:ReqTable>

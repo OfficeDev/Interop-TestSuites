@@ -1,0 +1,3775 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R303</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] In the following [section 2] sections, the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R304</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The WSDL in this specification [MS-OXWSCONT] provides a base description of the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R305</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The schema in this specification [MS-OXWSCONT] provides a base description of the message syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R306</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The text that specifies the WSDL and schema might specify restrictions that reflect actual protocol behavior.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R307</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, or present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The SOAP version supported is SOAP 1.1, as specified in [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] This section contains common definitions that are used by this protocol [MS-OXWSCONT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and Web Services Description Language (WSDL), as defined in [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] This specification [MS-OXWSCONT] defines and references various XML namespaces using the mechanisms specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] Although this specification [MS-OXWSCONT] associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix soap is http://schemas.xmlsoap.org/wsdl/soap/ and reference is [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix tns is http://schemas.microsoft.com/exchange/services/2006/messages</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix xs is http://www.w3.org/2001/XMLSchema and reference is [XMLSCHEMA2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix targetNamespace is http://schemas.microsoft.com/exchange/services/2006/messages</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix wsdl is http://schemas.xmlsoap.org/wsdl/ and reference is [WSDL]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The Namespace URI of Prefix t is http://schemas.microsoft.com/exchange/services/2006/types</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] This specification [MS-OXWSCONT] does not define any common WSDL message syntax definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] This specification [MS-OXWSCONT] does not define any common XML schema element definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following table summarizes the set of common XML schema complex type definitions that are defined by this specification.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] XML schema complex type definitions that are specific to a particular operation are defined with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] t:ContactItemType(section 2.2.4.1): Represents a server contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R341</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] The ArrayOfBinaryType complex type specifies a collection of certificates for a contact. &lt;1&gt;
+&lt;xs:complexType name="ArrayOfBinaryType"&gt;
+&lt;xs:sequence&gt;
+&lt;xs:element name="Base64Binary" type="xs:base64Binary" minOccurs="0" maxOccurs="unbounded" /&gt;
+&lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R310</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] The type of the element of Base64Binary is xs:base64Binary [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R311</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] Base64Binary element: Specifies a single certificate for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R312</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] Base64Binary element: The value is encoded with base64 encoding.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The ContactItemType complex type represents a server contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] It [the ContactItemType complex type] is also used by the ResolveNames method ([MS-OXWSRSLNM] section 3.1.4.1), returning directory and store contacts matching a search string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type [ContactItemType] is defined as follow:
+ &lt;xs:complexType name="t:ContactItemType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:ItemType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="FileAs"
+     type="xs:string"
+     minOccurs="0"
+     /&gt;
+    &lt;xs:element name="FileAsMapping"
+     type="t:FileAsMappingType"
+     /&gt;
+    &lt;xs:element name="DisplayName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="GivenName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Initials"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="MiddleName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Nickname"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="CompleteName"
+     type="t:CompleteNameType"
+     /&gt;
+    &lt;xs:element name="CompanyName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="EmailAddresses"
+     type="t:EmailAddressDictionaryType"
+     /&gt;
+    &lt;xs:element name="PhysicalAddresses"
+     type="t:PhysicalAddressDictionaryType"
+     /&gt;
+    &lt;xs:element name="PhoneNumbers"
+     type="t:PhoneNumberDictionaryType"
+     /&gt;
+    &lt;xs:element name="AssistantName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Birthday"
+     type="xs:dateTime"
+     /&gt;
+    &lt;xs:element name="BusinessHomePage"
+     type="xs:anyURI"
+     /&gt;
+    &lt;xs:element name="Children"
+     type="t:ArrayOfStringsType"
+     /&gt;
+    &lt;xs:element name="Companies"
+     type="t:ArrayOfStringsType"
+     /&gt;
+    &lt;xs:element name="ContactSource"
+     type="t:ContactSourceType"
+     /&gt;
+    &lt;xs:element name="Department"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Generation"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="ImAddresses"
+     type="t:ImAddressDictionaryType"
+     /&gt;
+    &lt;xs:element name="JobTitle"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Manager"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Mileage"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="OfficeLocation"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="PostalAddressIndex"
+     type="t:PhysicalAddressIndexType"
+     /&gt;
+    &lt;xs:element name="Profession"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="SpouseName"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="Surname"
+     type="xs:string"
+     /&gt;
+    &lt;xs:element name="WeddingAnniversary"
+     type="xs:dateTime"
+     /&gt;
+    &lt;xs:element name="HasPicture"
+     type="xs:boolean"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of FileAs is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] FileAs element: Represents how a contact is filed in the Contacts folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of FileAsMapping is t:FileAsMappingType (section 3.1.4.1.1.2)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R23</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] FileAsMapping element: Defines how to construct what is displayed for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DisplayName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R25</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] DisplayName element: Contains the display name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of GivenName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R27</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] GivenName element: Contains the given name for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R28</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Initials is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Initials element: Contains the initials for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of MiddleName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] MiddleName element: Represents the middle name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Nickname is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Nickname element: Represents the nickname of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of CompleteName is t:CompleteNameType (section 3.1.4.1.2.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] CompleteName element: Represents the complete name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of CompanyName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] CompanyName element: Contains the company name that is associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of EmailAddresses is t:EmailAddressDictionaryType (section 3.1.4.1.2.5)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] EmailAddress element: Contains e-mail addresses that are associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhysicalAddresses is t:EmailAddressDictionaryType</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhysicalAddresses element: Represents a collection of physical addresses that are associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneNumbers is t:EmailAddressDictionaryType</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneNumbers element: Represents a collection of telephone numbers for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R44</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of AssistantName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] AssistantName element: Contains the name of the assistant for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Birthday is xs:dateTime [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R47</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Birthday element: Represents the birthday of the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R48</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of BusinessHomePage is xs:anyURI [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R49</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] BusinessHomePage element: Contains the business home page Uniform Resource Identifier (URI) of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R50</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Children is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.11)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R51</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Children element: Contains the names of children for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R52</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Companies is t:ArrayOfStringsType.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Companies element: Contains the names of companies that are associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R54</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of ContactSource is t:ContactSourceType (section 2.2.5.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R55</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] ContactSource element: Describes whether the contact is located in the server store or the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R56</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Department is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R57</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Department element: Contains the work department for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Generation is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Generation element: Contains a generational abbreviation that follows the full name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R60</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of ImAddresses is t:ImAddressDictionaryType (section 3.1.4.1.2.7)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] ImAddresses element: Contains instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R62</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of JobTitle is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] JobTitle element: Contains the job title of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Manager is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Manager element: Represents the manager of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Mileage is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Mileage element: Represents the mileage for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of OfficeLocation is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R69</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] OfficeLocation element: Represents the office location of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PostalAddressIndex is t:PhysicalAddressIndexType (section 3.1.4.1.1.5)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PostalAddressIndex element: Represents the index of one of the physical addresses, which is a contact's mailing address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R72</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Profession is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R73</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Profession element: Represents the profession of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R74</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of SpouseName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R75</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] SpouseName element: Represents the name of the spouse/partner of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R76</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Surname is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Surname element: Contains the surname of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of WeddingAnniversary is xs:dateTime</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R79</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] WeddingAnniversary element: Contains the wedding anniversary date of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of HasPicture is xs:boolean [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R81</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] HasPicture element: Represents that the contact has a picture.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R313</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFullName is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R314</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticFullName element: Contains the full name of a contact, including the first and last name, spelled phonetically.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R315</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFirstName is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R316</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticFirstName element: Contains the first name of a contact, spelled phonetically.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R317</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticLastName is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R318</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticLastName element: Contains the last name of a contact, spelled phonetically.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R319</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Alias is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R320</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Alias element: Contains the email alias of a contact.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R321</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Notes is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R322</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Notes element: Contains supplementary contact information.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R323</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Photo is xs:base64Binary [XMLSCHEMA2]&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R324</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] Photo element :Contains a value that encodes the photo of a contact.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R325</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of UserSMIMECertificate is t:ArrayOfBinaryType (section 2.2.4.1)&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R326</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] UserSMIMECertificate element: Contains a value that encodes a contact's S/MIME certificate.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R327</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of MSExchangeCertificate is t:ArrayOfBinaryType&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R328</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] MSExchangeCertificate element: Contains a value that encodes the server certificate of a contact.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R329</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectoryId is xs:string&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R330</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] DirectoryId element: Contains the directory identifier of a contact.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of ManagerMailbox is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.60)&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R332</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] ManagerMailbox element: Contains SMTP information that identifies the mailbox of a contact's manager.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectReports is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.9)&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R334</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] DirectReports element: Contains SMTP information that identifies the mailboxes of a contact's direct reports.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] The following table summarizes the set of common XML Schema simple type definitions [t:ContactSourceType] defined by this specification [MS-OXWSCONT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] XML Schema simple type definitions [t:ContactSourceType] that are specific to a particular operation are described with the operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R84</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] t:ContactSourceType(section 2.2.5.1): Specifies whether a contact is located in the server database or in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R841</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] t:ContactSourceType(section 2.2.5.1): Specifies whether a distribution list is located in the server database or in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] The ContactSourceType specifies whether a contact is located in the server database or in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R851</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] The ContactSourceType specifies whether a distribution list is located in the server database or in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] The type [ContactSupportType] is defined as follow:&lt;xs:simpleType name="ContactSupportType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="ActiveDirectory"
+   /&gt;
+  &lt;xs:enumeration
+   value="Store"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type]The following values are defined by the ContactSupportType simple type: ActiveDirectory, Store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R88</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] ActiveDirectory: Specifies that the contact is located in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R881</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] ActiveDirectory: Specifies that the distribution list is located in the directory service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] Store: Specifies that the contact is located in the server database.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R891</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] Store: Specifies that the distribution list is located in the server database.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] This [the ContactSupportType value] is applicable to the Contacts Web Service protocol and to the Distribution List Creation and Usage Web Service protocol [MS-OXWSDLIST].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactSourceType Simple Type] It [the ContactSupportType value] is also used by the ResolveNames method ([MS-OXWSRSLNM] section 3.1.4.1), returning directory and store contacts matching a search string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Attributes] This specification [MS-OXWSCONT] does not define any common XML schema attribute definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups] This specification [MS-OXWSCONT] does not define any common XML schema group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R94</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Attribute Groups] This specification [MS-OXWSCONT] does not define any common XML schema attribute group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] The client side of this protocol [MS-OXWSCONT] is simply a pass-through.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] That is, no additional timers or other state is required on the client side of this protocol [MS-OXWSCONT].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R97</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details] Calls made by the higher-layer protocol or application are passed directly to the transport, and the results returned by the transport are passed directly back to the higher-layer protocol or application.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] This protocol [MS-OXWSCONT] defines a single port type. [GetItem, DeleteItem, UpdateItem, MoveItem, CopyItem, CreateItem]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] GetItem operation: Defines a request to get an item from a mailbox in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R100</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] DeleteItem operation: Defines a request to delete an item from a mailbox in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] UpdateItem operation: Defines a request to update an item in a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R102</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] MoveItem operation: Defines a request to move an item in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R103</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] CopyItem operation: Defines a request to copy an item in a mailbox in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details] CreateItem operation: Defines a request to create an item in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R105</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Server Abstract Data Model] This protocol [MS-OXWSCONT] is a stateless protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] This protocol [MS-OXWSCONT] includes the operations listed in the following table. [GetItem, DeleteItem, UpdateItem, MoveItem, CopyItem, CreateItem]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] GetItem operation: Gets items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R108</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] DeleteItem operation: Deletes items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R109</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] UpdateItem operation: Updates items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] MoveItem operation: Moves items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R111</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] CopyItem operation: Copies items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Server Message Processing Events and Sequencing] CreateItem operation: Creates items in the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] This protocol [MS-OXWSCONT] uses the GetItem operation specified in [MS-OXWSCORE] section 3.1.4.4 to get contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] The following is the WSDL port type specification for the GetItem operation:&lt;wsdl:operation name="GetItem"&gt;
+      &lt;wsdl:input message="tns:GetItemSoapIn" /&gt;
+      &lt;wsdl:output message="tns:GetItemSoapOut" /&gt;
+    &lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] tns:GetItemSoapIn: Specifies the SOAP message that defines the contact item to get.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R116</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] tns:GetItemSoapIn: The Items ([MS-OXWSCDATA] section 2.2.4.42) child element of the GetItem ([MS-OXWSCORE] section 3.1.4.4.2.1) child element that specifies the XML request MUST contain the following elements: t:ItemResponseShapeType ([MS-OXWSCDATA] section 2.2.4.38), t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] tns:GetItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R118</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] tns:GetItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] tns:GetItemSoapOut: The server returns a t:ItemResponseShapeType ([MS-OXWSCDATA] section 2.2.4.38) element that contains properties associated with the distribution list item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R120</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] The following XML schema simple type definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] The EmailAddressKeyType simple type represents a way to identify a single e-mail address within the e-mail address collection for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R122</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] The type [EmailAddressKeyType] is defined as follow:
+&lt;xs:simpleType name="EmailAddressKeyType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="EmailAddress1"
+   /&gt;
+  &lt;xs:enumeration
+   value="EmailAddress2"
+   /&gt;
+  &lt;xs:enumeration
+   value="EmailAddress3"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] The following values are defined by the EmailAddressKeyType simple type: [EmailAddress1, EmailAddress2, EmailAddress3]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R124</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] EmailAddress1: Identifies the first e-mail address for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R125</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] EmailAddress2: Identifies the second e-mail address for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R126</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressKeyType Simple Type] EmailAddress3: Identifies the third e-mail address for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] The FileAsMappingType simple type defines how to construct what is displayed for a contact in the FileAs property.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] The type [FileAsMappingType] is defined as follow:
+&lt;xs:simpleType name="FileAsMappingType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="None"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastCommaFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="FirstSpaceLast"
+   /&gt;
+  &lt;xs:enumeration
+   value="Company"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastCommaFirstCompany"
+   /&gt;
+  &lt;xs:enumeration
+   value="CompanyLastFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastFirstCompany"
+   /&gt;
+  &lt;xs:enumeration
+   value="CompanyLastCommaFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastFirstSuffix"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastSpaceFirstCompany"
+   /&gt;
+  &lt;xs:enumeration
+   value="CompanyLastSpaceFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastSpaceFirst"
+   /&gt;
+  &lt;xs:enumeration
+   value="DisplayName"
+   /&gt;
+  &lt;xs:enumeration
+   value="FirstName"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastFirstMiddleSuffix"
+   /&gt;
+  &lt;xs:enumeration
+   value="LastName"
+   /&gt;
+  &lt;xs:enumeration
+   value="Empty"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R129</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] The following values are defined by the FileAsMappingType simple type: [None, LastCommaFirst, FirstSpaceLast, Company, LastCommaFirstCompany, CompanyLastFirst, LastFirst, LastFirstCompany, 
+CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceFirst, LastSpaceFirst, DisplayName, FirstName, LastFirstMiddleSuffix, LastName, Empty]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R130</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] None: Indicates that the FileAs value is not constructed from other contact's properties, but is represented by a string, saved "as is".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastCommaFirst: Indicates that the contact is displayed as the last name followed by a comma and the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R132</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] FirstSpaceLast: Indicates that the contact is displayed as the first name followed by a space and the last name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] Company: Indicates that the company name is displayed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastCommaFirstCompany: Indicates that the contact is displayed as the last name, a comma, the first name, and the company name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R135</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] CompanyLastFirst: Indicates that the contact is displayed as the company name, the last name, and the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirst: Indicates that the contact is displayed as the last name followed by the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirstCompany: Indicates that the contact is displayed as the last name, the first name, and the company name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R138</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] CompanyLastCommaFirst: Indicates that the contact is displayed as the company name, the last name, a comma, and the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R139</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirstSuffix: Indicates that the contact is displayed as the last name, the first name, and the suffix for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R140</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastSpaceFirstCompany: Indicates that the contact is displayed as the last name, a space, the first name, and the company name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] CompanyLastSpaceFirst: Indicates that the contact is displayed as the company name, the last name, a space, and the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastSpaceFirst: Indicates that the contact is displayed as the last name, followed by a space and the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] DisplayName: Indicates that the contact is displayed as the display name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] FirstName: Indicates that the contact is displayed as the first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirstMiddleSuffix: Indicates that the contact is displayed as the last name, the first name, the middle name, and the suffix for the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastName: Indicates that the contact is displayed as the last name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] Empty: Indicates that the contact is displayed as empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R148</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] The ImAddressKeyType enumeration represents the instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R149</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] The type [ImAddressKeyType] is defined as follow:
+&lt;xs:simpleType name="ImAddressKeyType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="ImAddress1"
+   /&gt;
+  &lt;xs:enumeration
+   value="ImAddress2"
+   /&gt;
+  &lt;xs:enumeration
+   value="ImAddress3"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] The following values are defined by the ImAddressKeyType simple type: [ImAddress1, ImAddress2, ImAddress3]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R151</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] ImAddress1: Identifies the first instant messaging address for the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] ImAddress2: Identifies the second instant messaging address for the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R153</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressKeyType Simple Type] ImAddress3: Identifies the third instant messaging address for the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] The PhoneNumberKeyType simple type represents types of telephone numbers for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] The type [PhoneNumberKeyType] is defined as follow:
+&lt;xs:simpleType name="PhoneNumberKeyType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="AssistantPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="BusinessFax"
+   /&gt;
+  &lt;xs:enumeration
+   value="BusinessPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="BusinessPhone2"
+   /&gt;
+  &lt;xs:enumeration
+   value="Callback"
+   /&gt;
+  &lt;xs:enumeration
+   value="CarPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="CompanyMainPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="HomeFax"
+   /&gt;
+  &lt;xs:enumeration
+   value="HomePhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="HomePhone2"
+   /&gt;
+  &lt;xs:enumeration
+   value="Isdn"
+   /&gt;
+  &lt;xs:enumeration
+   value="MobilePhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="OtherFax"
+   /&gt;
+  &lt;xs:enumeration
+   value="OtherTelephone"
+   /&gt;
+  &lt;xs:enumeration
+   value="Pager"
+   /&gt;
+  &lt;xs:enumeration
+   value="PrimaryPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="RadioPhone"
+   /&gt;
+  &lt;xs:enumeration
+   value="Telex"
+   /&gt;
+  &lt;xs:enumeration
+   value="TtyTddPhone"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R156</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] The following values are defined by the PhoneNumberKeyType simple type: [AssistantPhone, BusinessFax, BusinessPhone, BusinessPhone2, Callback, CarPhone, CompanyMainPhone, HomeFax, HomePhone, HomePhone2, Isdn, MobilePhone, OtherFax, OtherTelephone, Pager, PrimaryPhone, RadioPhone, Telex, TtyTddPhone]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] AssistantPhone: Identifies the telephone number as the assistant's telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R158</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] BusinessFax: Identifies the telephone number as a business fax number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] BusinessPhone: Identifies the telephone number as a business telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] BusinessPhone2: Identifies the telephone number as a second business telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R161</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Callback: Identifies the telephone number as a callback number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] CarPhone: Identifies the telephone number as a car telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] CompanyMainPhone: Identifies the telephone number as the company's main telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] HomeFax: Identifies the telephone number as a home fax number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R165</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] HomePhone: Identifies the telephone number as a home telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] HomePhone2: Identifies the telephone number as a second home telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Isdn: Identifies the telephone number as an Integrated Services Digital Network (ISDN) line.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] MobilePhone: Identifies the telephone number as a mobile phone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] OtherFax: Identifies the telephone number as another fax number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R170</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] OtherTelephone: Identifies the telephone number as another telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R171</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Pager: Identifies the telephone number as a pager.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] PrimaryPhone: Identifies the telephone number as the primary telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] RadioPhone: Identifies the telephone number as a radio telephone.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Telex: Identifies the telephone number as a telex telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] TtyTddPhone: Identifies the telephone number as a teletype/telecommunication device for the deaf (TTY/TDD) telephone number.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R177</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[t:PhysicalAddressIndexType Simple Type] The PhysicalAddressIndexType complex type identifies the display types for physical addresses.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[t:PhysicalAddressIndexType Simple Type] The type [PhysicalAddressIndexType] is defined as follow:&lt;xs:simpleType name="PhysicalAddressIndexType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="None"
+   /&gt;
+  &lt;xs:enumeration
+   value="Business"
+   /&gt;
+  &lt;xs:enumeration
+   value="Home"
+   /&gt;
+  &lt;xs:enumeration
+   value="Other"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>The following values are defined by the PhysicalAddressIndexType simple type: [None, Business, Home, Other]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressIndexType Simple Type] None: Indicates that no type is specified for the address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressIndexType Simple Type] Business: Displays the address as a business address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressIndexType Simple Type] Home: Displays the address as a home address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressIndexType Simple Type] Other: Displays the address as an address of type other.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] The PhysicalAddressKeyType simple type identifies the types of physical addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] The type [PhysicalAddressKeyType] is defined as follow:&lt;xs:simpleType name="PhysicalAddressKeyType"&gt;
+ &lt;xs:restriction
+  base="xs:string"
+ &gt;
+  &lt;xs:enumeration
+   value="Business"
+   /&gt;
+  &lt;xs:enumeration
+   value="Home"
+   /&gt;
+  &lt;xs:enumeration
+   value="Other"
+   /&gt;
+ &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] The following values are defined by the PhysicalAddressKeyType simple type: [Business, Home, Other]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] Business: Identifies the address as a business address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] Home: Identifies the address as a home address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressKeyType Simple Type] Other: Identifies the address as an address of type other.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The following XML schema complex type definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The CompleteNameType complex type represents the complete name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R192</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type [CompleteNameType] is defined as follow:&lt;xs:complexType name="CompleteNameType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Title"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="FirstName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="MiddleName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="LastName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="Suffix"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="Initials"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="FullName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="Nickname"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="YomiFirstName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="YomiLastName"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of Title is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R194</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] Title element: Contains the title of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R195</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of FirstName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] FirstName element: Contains the first name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R355</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] This [FirstName element] is the same as GivenName.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of MiddleName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] MiddleName element: Contains the middle name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of LastName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] LastName element: Contains the last name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R356</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] This [LastName element] is the same as the Surname.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of Suffix is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] Suffix element: Contains a suffix to a contact's name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R357</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] This [Suffix element] is the same as the Generation property.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of Initials is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] Initials element: Contains the initials of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of FullName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] FullName element: Contains the full name of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of Nickname is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R208</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] Nickname element: Contains the nickname of a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of YomiFirstName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] YomiFirstName element: Contains the name used in Japan for the searchable or phonetic spelling of a Japanese first name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] The type of the element of YomiLastName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R212</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:CompleteNameType Complex Type] YomiLastName element: Contains the name used in Japan for the searchable or phonetic spelling of a Japanese last name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] The ContactsFolderType complex type represents a Contacts folder in a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] The type [ContactsFolderType] is defined as follow:&lt;xs:complexType name="ContactsFolderType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:BaseFolderType"
+  &gt;
+   &lt;xs:sequence&gt;
+    &lt;xs:element name="SharingEffectiveRights"
+     type="t:PermissionReadAccessType"
+     minOccurs="0"
+     /&gt;
+    &lt;xs:element name="PermissionSet"
+     type="t:PermissionSetType"
+     minOccurs="0"
+     /&gt;
+   &lt;/xs:sequence&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R215</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] The type of the element of SharingEffectiveRights is t:PermissionReadAccessType ([MS-OXWSFOLD] section 2.2.5.4)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R216</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] SharingEffectiveRights element: Specifies whether a user has permission to read items in a folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] The type of the element of PermissionSet is t:PermissionSetType ([MS-OXWSFOLD] section 2.2.4.12)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] PermissionSet element: Contains all the permissions that are configured for a folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] The ContactsViewType complex type represents the settings that are used to return contact items based on their alphabetical display names.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] The type [ContactsViewType] is defined as follow:&lt;xs:complexType name="ContactsViewType"&gt;
+ &lt;xs:complexContent&gt;
+  &lt;xs:extension
+   base="t:BasePagingType"
+  &gt;
+   &lt;xs:attribute name="InitialName"
+    type="xs:string"
+    use="optional"
+    /&gt;
+   &lt;xs:attribute name="FinalName"
+    type="xs:string"
+    use="optional"
+    /&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] The type of the element of InitialName is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] InitialName element: Contains the first name in a contacts list to return in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] The type of the element of FinalName is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R224</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsViewType Complex Type] FinalName element: Contains the last name in a contacts list to return in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R225</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The EmailAddressDictionaryEntryType complex type represents an e-mail address that is associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R226</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type [EmailAddressDictionaryEntryType] is defined as follow:&lt;xs:complexType&gt;
+ &lt;xs:simpleContent&gt;
+  &lt;xs:extension
+   base="xs:string"
+  &gt;
+   &lt;xs:attribute name="Key"
+    type="t:EmailAddressKeyType"
+    use="required"
+    /&gt;
+   &lt;xs:attribute name="Name"
+    type="xs:string"
+    use="optional"
+    /&gt;
+   &lt;xs:attribute name="RoutingType"
+    type="xs:string"
+    use="optional"
+    /&gt;
+   &lt;xs:attribute name="MailboxType"
+    type="t:MailboxTypeType"
+    use="optional"
+    /&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:simpleContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R227</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:EmailAddressKeyType (section 3.1.4.1.1.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R228</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] Key attribute: Contains a value that identifies an e-mail address that is associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R229</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Name is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R230</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] Name attribute: Contains the display name associated with an e-mail address of the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R231</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of RoutingType is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R232</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] RoutingType attribute: Contains the routing type associated with an e-mail address of the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R233</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of MailboxType is t:MailboxTypeType ([MS-OXWSCDATA] section 2.2.3.18)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R234</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] MailboxType attribute: Contains the type of mailbox that is represented by the e-mail address of the contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R235</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryType Complex Type] The EmailAddressDictionaryType complex type contains e-mail addresses.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R236</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryType Complex Type] The type [EmailAddressDictionaryType] is defined as follow:&lt;xs:complexType name="EmailAddressDictionaryType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Entry"
+   type="t:EmailAddressDictionaryEntryType"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R237</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryType Complex Type] The type of the element of Entry is t:EmailAddressDictionaryEntryType (section 3.1.4.1.2.4)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R238</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddressDictionaryType Complex Type] Entry element: Represents an e-mail address that is associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryEntryType Complex Type] The ImAddressDictionaryEntryType complex type represents a collection of instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryEntryType Complex Type] The type [ImAddressDictionaryEntryType] is defined as follow:&lt;xs:complexType name="ImAddressDictionaryEntryType"&gt;
+ &lt;xs:simpleContent&gt;
+  &lt;xs:extension
+   base="xs:string"
+  &gt;
+   &lt;xs:attribute name="key"
+    type="t:ImAddressKeyType"
+    use="required"
+    /&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:simpleContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryEntryType Complex Type] The type of the attribute of key is t:ImAddressKeyType (section 3.1.4.1.1.3)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R242</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryEntryType Complex Type] t:ImAddressKeyType attribute: Represents the instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R243</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryType Complex Type] The ImAddressDictionaryType complex type contains instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryType Complex Type] The type [ImAddressDictionaryType] is defined as follow:&lt;xs:complexType name="ImAddressDictionaryType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Entry"
+   type="t:ImAddressDictionaryEntryType"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryType Complex Type] The type of the child element of Entry is t:ImAddressDictionaryEntryType (section 3.1.4.1.2.8)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:ImAddressDictionaryType Complex Type] Entry child element: Represents a collection of instant messaging addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryEntryType Complex Type] The PhoneNumberDictionaryEntryType complex type contains a telephone number for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryEntryType Complex Type] The type [PhoneNumberDictionaryEntryType] is defined as follow:&lt;xs:complexType name="PhoneNumberDictionaryEntryType"&gt;
+ &lt;xs:simpleContent&gt;
+  &lt;xs:extension
+   base="xs:string"
+  &gt;
+   &lt;xs:attribute name="Key"
+    type="t:PhoneNumberKeyType"
+    use="required"
+    /&gt;
+  &lt;/xs:extension&gt;
+ &lt;/xs:simpleContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhoneNumberKeyType (section 3.1.4.1.1.4)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryEntryType Complex Type] Key attribute: Represents types of telephone numbers for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R251</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryType Complex Type] The PhoneNumberDictionaryType complex type represents telephone numbers for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R252</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryType Complex Type] The type [PhoneNumberDictionaryType] is defined as follow:&lt;xs:complexType name="PhoneNumberDictionaryType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Entry"
+   type="t:PhoneNumberDictionaryEntryType"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R253</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryType Complex Type] The type of the child element of Entry is t:PhoneNumberDictionaryEntryType (section 3.1.4.1.2.8)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R254</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhoneNumberDictionaryType Complex Type] Entry child element: Contains a telephone number for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R255</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The PhysicalAddressDictionaryEntryType complex type contains information that defines a physical address, such as a street address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R256</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type [PhysicalAddressDictionaryEntryType] is defined as follow:&lt;xs:complexType name="PhysicalAddressDictionaryEntryType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="Street"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="City"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="State"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="CountryOrRegion"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="PostalCode"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+ &lt;/xs:sequence&gt;
+ &lt;xs:attribute name="Key"
+  type="t:PhysicalAddressKeyType"
+  use="required"
+  /&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R257</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the child element of Street is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R258</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] Street child element: Contains the street address for a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R259</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the child element of City is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R260</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] City child element: Contains the city name for a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R261</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the child element of State is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] State child element: Contains the state for a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R263</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the child element of CountryOrRegion is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R264</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] CountryOrRegion child element: Contains the country or region for a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R265</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the child element of PostalCode is xs:string</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R266</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] PostalCode child element: Contains the postal code for a contact item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R267</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhysicalAddressKeyType (section 3.1.4.1.1.6)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R268</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryEntryType Complex Type] Key attribute: Identifies the types of physical addresses for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R269</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryType Complex Type] The PhysicalAddressDictionaryType complex type contains physical addresses that are associated with a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R270</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryType Complex Type] The type [PhysicalAddressDictionaryType] is defined as follow:&lt;xs:complexType name="PhysicalAddressDictionaryType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="entry"
+   type="t:PhysicalAddressDictionaryEntryType"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R271</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryType Complex Type] The type of the child element of entry is t:PhysicalAddressDictionaryEntryType (section 3.1.4.1.2.10)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R272</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:PhysicalAddressDictionaryType Complex Type] entry child element: Contains information that defines a physical address, such as a street address.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R273</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] This protocol uses the DeleteItem operation specified in [MS-OXWSCORE] section 3.1.4.3 to delete contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R274</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] The following is the WSDL port type specification for the DeleteItem operation: &lt;wsdl:operation name="DeleteItem"&gt;
+      &lt;wsdl:input message="tns:DeleteItemSoapIn" /&gt;
+      &lt;wsdl:output message="tns:DeleteItemSoapOut" /&gt;
+      &lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R275</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] tns:DeleteItemSoapIn: Specifies the SOAP message that defines the contact item to delete.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R276</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] tns:DeleteItemSoapIn: The Items child element of the DeleteItem ([MS-OXWSCORE] section 3.1.4.3.2.1) child element that specifies the XML request MUST contain one or more t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19) elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R277</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] tns:DeleteItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R278</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] tns:DeleteItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R279</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] This protocol uses the UpdateItem operation specified in [MS-OXWSCORE] section 3.1.4.9 to update contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R280</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The following is the WSDL port type specification for the UpdateItem operation: &lt;wsdl:operation name="UpdateItem"&gt;
+      &lt;wsdl:input message="tns:UpdateItemSoapIn" /&gt;
+      &lt;wsdl:output message="tns:UpdateItemSoapOut" /&gt;
+    &lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R281</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] tns:UpdateItemSoapIn: Specifies the SOAP message that defines the contact item to update.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R282</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] tns:UpdateItemSoapIn: The Items child element of the UpdateItem ([MS-OXWSCORE] section 3.1.4.9.2.1) child element that specifies the XML request MUST contain one or more t:ContactItemType elements (section 2.2.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R283</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] tns:UpdateItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R284</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] tns:UpdateItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R285</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem]This protocol uses the MoveItem operation specified in [MS-OXWSCORE] section 3.1.4.7 to move contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R286</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] The following is the WSDL port type specification for the MoveItem operation: &lt;wsdl:operation name="MoveItem"&gt;
+      &lt;wsdl:input message="tns:MoveItemSoapIn" /&gt;
+      &lt;wsdl:output message="tns:MoveItemSoapOut" /&gt;
+      &lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R287</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] tns:MoveItemSoapIn: Specifies the SOAP message that defines the contact item to move.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R288</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] tns:MoveItemSoapIn: The Items child element of the MoveItem child element ([MS-OXWSCORE] section 3.1.4.7.2.1) that specifies the XML request MUST contain the following elements: t:TargetFolderIdType ([MS-OXWSFOLD] section 2.2.4.14), and t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R289</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] tns:MoveItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R290</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] tns:MoveItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R291</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] This protocol uses the CopyItem operation specified in [MS-OXWSCORE] section 3.1.4.1 to copy contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R292</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] The following is the WSDL port type specification for the CopyItem operation: &lt;wsdl:operation name="CopyItem"&gt;
+      &lt;wsdl:input message="tns:CopyItemSoapIn" /&gt;
+      &lt;wsdl:output message="tns:CopyItemSoapOut" /&gt;
+      &lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R293</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] tns:CopyItemSoapIn: Specifies the SOAP message that defines the contact item to copy.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R294</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] tns:CopyItemSoapIn: The Items child element of the CopyItem child element that specifies the XML request MUST contain the following elements: t:TargetFolderIdType ([MS-OXWSFOLD] section 2.2.4.14), and t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R295</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] tns:CopyItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R296</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] tns:CopyItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R297</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] This protocol uses the CreateItem operation specified in [MS-OXWSCORE] section 3.1.4.2 to create contact item elements.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R298</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] The following is the WSDL port type specification for the CreateItem operation:&lt;wsdl:operation name="CreateItem"&gt;
+   &lt;wsdl:input message="tns:CreateItemSoapIn" /&gt;
+   &lt;wsdl:output message="tns:CreateItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R299</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] tns:CreateItemSoapIn: Specifies the SOAP message that defines the contact item to create.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R300</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] tns:CreateItemSoapIn: The Items child element of the CreateItem ([MS-OXWSCORE] section 3.1.4.2.2.1) child element that specifies the XML request MUST contain one or more t:ContactItemType elements (section 2.2.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R301</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] tns:CreateItemSoapIn: All other elements MUST be empty.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R302</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] tns:CreateItemSoapOut: Specifies the SOAP message returned by the server in response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R335</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R336</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R1274</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this ArrayOfBinaryType type. (&lt;1&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and Exchange 2010 SP1 do not include the ArrayOfBinaryType complex type.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R341:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R337</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does introduce this type [ArrayOfBinaryType]. (&lt;1&gt; This type was introduced in Exchange 2010 SP2(and above).)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R341:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R339</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include these child elements. (&lt;2&gt; Section 2.2.4.2: Exchange 2007, Exchange 2010, and Exchange 2010 SP1 do not include the following elements: PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R313:i, MS-OXWSCONT_R314:i, MS-OXWSCONT_R315:i, MS-OXWSCONT_R316:i, MS-OXWSCONT_R317:i, MS-OXWSCONT_R318:i, MS-OXWSCONT_R319:i, MS-OXWSCONT_R320:i, MS-OXWSCONT_R321:i, MS-OXWSCONT_R322:i, MS-OXWSCONT_R323:i, MS-OXWSCONT_R324:i, MS-OXWSCONT_R325:i, MS-OXWSCONT_R326:i, MS-OXWSCONT_R327:i, MS-OXWSCONT_R328:i, MS-OXWSCONT_R329:i, MS-OXWSCONT_R330:i, MS-OXWSCONT_R331:i, MS-OXWSCONT_R332:i, MS-OXWSCONT_R333:i, MS-OXWSCONT_R334:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R1275</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does introduce these elements [PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports]. (&lt;2&gt; These elements were introduced in Exchange 2010 SP2 (and above).)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R313:i, MS-OXWSCONT_R314:i, MS-OXWSCONT_R315:i, MS-OXWSCONT_R316:i, MS-OXWSCONT_R317:i, MS-OXWSCONT_R318:i, MS-OXWSCONT_R319:i, MS-OXWSCONT_R320:i, MS-OXWSCONT_R321:i, MS-OXWSCONT_R322:i, MS-OXWSCONT_R323:i, MS-OXWSCONT_R324:i, MS-OXWSCONT_R325:i, MS-OXWSCONT_R326:i, MS-OXWSCONT_R327:i, MS-OXWSCONT_R328:i, MS-OXWSCONT_R329:i, MS-OXWSCONT_R330:i, MS-OXWSCONT_R331:i, MS-OXWSCONT_R332:i, MS-OXWSCONT_R333:i, MS-OXWSCONT_R334:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.18</ns1:Doc_Sect>
+		<ns1:Description>[In t:MailboxTypeType Simple Type] The type [MailboxTypeType] is defined as follow:
+&lt;xs:simpleType name="MailboxTypeType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="Unknown"/&gt;
+    &lt;xs:enumeration value="OneOff"/&gt;
+    &lt;xs:enumeration value="Contact"/&gt;
+    &lt;xs:enumeration value="Mailbox"/&gt;
+    &lt;xs:enumeration value="PrivateDL"/&gt;
+    &lt;xs:enumeration value="PublicDL"/&gt;
+    &lt;xs:enumeration value="PublicFolder"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.19</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyStringType Simple Type] The NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.19</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyStringType Simple Type] The type [NonEmptyStringType] is defined as follow:
+&lt;xs:simpleType name="NonEmptyStringType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:minLength value="1"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.22</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type]The value "ErrorCannotCreateContactInNonContactFolder" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R367</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.22</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailAddress" specifies that an invalid e-mail address was provided for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.22</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailIndex" specifies that an invalid e-mail index value was provided for an e-mail entry.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1033</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfRecipientsType Complex Type] The type [ArrayOfRecipientsType] is defined as follow:
+ &lt;xs:complexType name="ArrayOfRecipientsType"&gt;
+ &lt;xs:choice
+  maxOccurs="unbounded"
+  minOccurs="0"
+ &gt;
+  &lt;xs:element name="Mailbox"
+   type="t:EmailAddressType"
+   /&gt;
+ &lt;/xs:choice&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1081</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfStringsType Complex Type] The type [ArrayOfStringsType] is defined as follow:
+&lt;xs:complexType name="ArrayOfStringsType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="String"
+   type="xs:string"
+   minOccurs="0"
+   maxOccurs="unbounded"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1147</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.27</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailAddessType Complex Type] The type [EmailAddressType] is defined as follow:
+&lt;xs:complexType name="EmailAddressType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="t:BaseEmailAddressType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="Name"
+          type="xs:string"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="EmailAddress"
+          type="t:NonEmptyStringType"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="RoutingType"
+          type="t:NonEmptyStringType"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="MailboxType"
+          type="t:MailboxTypeType"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="ItemId"
+          type="t:ItemIdType"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="OriginalDisplayName" 
+          type="xs:string" 
+          minOccurs="0"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1292</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.60</ns1:Doc_Sect>
+		<ns1:Description>[In t:SingleRecipientType Complex Type] The type [SingleRecipientType] is defined as follow:
+ &lt;xs:complexType name="SingleRecipientType"&gt;
+ &lt;xs:choice&gt;
+  &lt;xs:element name="Mailbox"
+   type="t:EmailAddressType"
+   /&gt;
+ &lt;/xs:choice&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+</ns1:ReqTable>

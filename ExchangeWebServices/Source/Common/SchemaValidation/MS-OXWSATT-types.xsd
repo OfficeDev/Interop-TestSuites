@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCONT-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSMSG-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSMTGS-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSPOST-types.xsd"/>
+  <xs:complexType name="ArrayOfAttachmentsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ItemAttachment" type="t:ItemAttachmentType"/>
+      <xs:element name="FileAttachment" type="t:FileAttachmentType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="AttachmentIdType">
+    <xs:complexContent>
+      <xs:extension base="t:RequestAttachmentIdType">
+        <xs:attribute name="RootItemId" type="xs:string" use="optional"/>
+        <xs:attribute name="RootItemChangeKey" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AttachmentResponseShapeType">
+    <xs:sequence>
+      <xs:element name="IncludeMimeContent" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="BodyType" type="t:BodyTypeResponseType" minOccurs="0"/>
+      <xs:element name="FilterHtmlContent" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AdditionalProperties" type="t:NonEmptyArrayOfPathsToElementType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AttachmentType">
+    <xs:sequence>
+      <xs:element name="AttachmentId" type="t:AttachmentIdType" minOccurs="0"/>
+      <xs:element name="Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContentType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContentId" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContentLocation" type="xs:string" minOccurs="0"/>
+      <xs:element name="Size" type="xs:int" minOccurs="0"/>
+      <xs:element name="LastModifiedTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="IsInline" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FileAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="t:AttachmentType">
+        <xs:sequence>
+          <xs:element name="IsContactPhoto" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Content" type="xs:base64Binary" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ItemAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="t:AttachmentType">
+        <xs:choice minOccurs="0">
+          <xs:element name="Item" type="t:ItemType"/>
+          <xs:element name="Message" type="t:MessageType"/>
+          <xs:element name="CalendarItem" type="t:CalendarItemType"/>
+          <xs:element name="Contact" type="t:ContactItemType"/>
+          <xs:element name="MeetingMessage" type="t:MeetingMessageType"/>
+          <xs:element name="MeetingRequest" type="t:MeetingRequestMessageType"/>
+          <xs:element name="MeetingResponse" type="t:MeetingResponseMessageType"/>
+          <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
+          <xs:element name="Task" type="t:TaskType"/>
+          <xs:element name="PostItem" type="t:PostItemType"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfRequestAttachmentIdsType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="AttachmentId" type="t:RequestAttachmentIdType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="RequestAttachmentIdType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseItemIdType">
+        <xs:attribute name="Id" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RootItemIdType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseItemIdType">
+        <xs:attribute name="RootItemId" type="xs:string" use="required"/>
+        <xs:attribute name="RootItemChangeKey" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

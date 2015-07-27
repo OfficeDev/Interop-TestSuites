@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSFOLD-TYPES.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+
+
+  <xs:complexType name="BaseMoveCopyFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ToFolderId" type="t:TargetFolderIdType"/>
+          <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CopyFolder" type="m:CopyFolderType"/>
+  <xs:complexType name="CopyFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseMoveCopyFolderType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CopyFolderResponse" type="m:CopyFolderResponseType"/>
+  <xs:complexType name="CopyFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateFolderResponse" type="m:CreateFolderResponseType"/>
+  <xs:complexType name="CreateFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ParentFolderId" type="t:TargetFolderIdType"/>
+          <xs:element name="Folders" type="t:NonEmptyArrayOfFoldersType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateFolder" type="m:CreateFolderType"/>
+  <xs:complexType name="CreateManagedFolderRequestType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderNames" type="t:NonEmptyArrayOfFolderNamesType"/>
+          <xs:element name="Mailbox" type="t:EmailAddressType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateManagedFolder" type="m:CreateManagedFolderRequestType"/>
+  <xs:complexType name="CreateManagedFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateManagedFolderResponse" type="m:CreateManagedFolderResponseType"/>
+  <xs:complexType name="DeleteFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+        <xs:attribute name="DeleteType" type="t:DisposalType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteFolder" type="m:DeleteFolderType"/>
+  <xs:complexType name="DeleteFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteFolderResponse" type="m:DeleteFolderResponseType"/>
+  <xs:complexType name="EmptyFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+        <xs:attribute name="DeleteType" type="t:DisposalType" use="required"/>
+        <xs:attribute name="DeleteSubFolders" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmptyFolder" type="m:EmptyFolderType"/>
+  <xs:complexType name="EmptyFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EmptyFolderResponse" type="m:EmptyFolderResponseType"/>
+  <xs:complexType name="FolderInfoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Folders" type="t:ArrayOfFoldersType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderShape" type="t:FolderResponseShapeType"/>
+          <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFolder" type="m:GetFolderType"/>
+  <xs:complexType name="GetFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFolderResponse" type="m:GetFolderResponseType"/>
+  <xs:complexType name="MoveFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveFolderResponse" type="m:MoveFolderResponseType"/>
+  <xs:complexType name="MoveFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseMoveCopyFolderType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveFolder" type="m:MoveFolderType"/>
+  <xs:complexType name="UpdateFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderChanges" type="t:NonEmptyArrayOfFolderChangesType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateFolder" type="m:UpdateFolderType"/>
+  <xs:complexType name="UpdateFolderResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateFolderResponse" type="m:UpdateFolderResponseType"/>
+</xs:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSGTRM-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+
+
+  <xs:complexType name="GetRoomListsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRoomLists" type="m:GetRoomListsType"/>
+  <xs:complexType name="GetRoomListsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="RoomLists" type="t:ArrayOfEmailAddressesType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRoomListsResponse" type="m:GetRoomListsResponseMessageType"/>
+  <xs:complexType name="GetRoomsType" mixed="false">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="RoomList" type="t:EmailAddressType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRooms" type="m:GetRoomsType"/>
+  <xs:complexType name="GetRoomsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Rooms" type="t:ArrayOfRoomsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRoomsResponse" type="m:GetRoomsResponseMessageType"/>
+</xs:schema>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSFOLD-types.xsd"/>
+  <xs:complexType name="ArrayOfBaseItemIdsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ItemId" type="t:ItemIdType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderHierarchyChangesType">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Create" type="t:SyncFolderHierarchyCreateOrUpdateType"/>
+        <xs:element name="Update" type="t:SyncFolderHierarchyCreateOrUpdateType"/>
+        <xs:element name="Delete" type="t:SyncFolderHierarchyDeleteType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="MaxSyncChangesReturnedType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="512"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SyncFolderHierarchyCreateOrUpdateType">
+    <xs:choice>
+      <xs:element name="Folder" type="t:FolderType"/>
+      <xs:element name="CalendarFolder" type="t:CalendarFolderType"/>
+      <xs:element name="ContactsFolder" type="t:ContactsFolderType"/>
+      <xs:element name="SearchFolder" type="t:SearchFolderType"/>
+      <xs:element name="TasksFolder" type="t:TasksFolderType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderHierarchyDeleteType">
+    <xs:sequence>
+      <xs:element name="FolderId" type="t:FolderIdType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderItemsChangesType">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Create" type="t:SyncFolderItemsCreateOrUpdateType"/>
+        <xs:element name="Update" type="t:SyncFolderItemsCreateOrUpdateType"/>
+        <xs:element name="Delete" type="t:SyncFolderItemsDeleteType"/>
+        <xs:element name="ReadFlagChange" type="t:SyncFolderItemsReadFlagType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderItemsDeleteType">
+    <xs:sequence>
+      <xs:element name="ItemId" type="t:ItemIdType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderItemsReadFlagType">
+    <xs:sequence>
+      <xs:element name="ItemId" type="t:ItemIdType"/>
+      <xs:element name="IsRead" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SyncFolderItemsScopeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NormalItems"/>
+      <xs:enumeration value="NormalAndAssociatedItems"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SyncFolderItemsCreateOrUpdateType">
+    <xs:choice>
+      <xs:element name="Item" type="t:ItemType"/>
+      <xs:element name="Message" type="t:MessageType"/>
+      <xs:element name="CalendarItem" type="t:CalendarItemType"/>
+      <xs:element name="Contact" type="t:ContactItemType"/>
+      <xs:element name="DistributionList" type="t:DistributionListType"/>
+      <xs:element name="MeetingMessage" type="t:MeetingMessageType"/>
+      <xs:element name="MeetingRequest" type="t:MeetingRequestMessageType"/>
+      <xs:element name="MeetingResponse" type="t:MeetingResponseMessageType"/>
+      <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
+      <xs:element name="Task" type="t:TaskType"/>
+      <xs:element name="PostItem" type="t:PostItemType"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

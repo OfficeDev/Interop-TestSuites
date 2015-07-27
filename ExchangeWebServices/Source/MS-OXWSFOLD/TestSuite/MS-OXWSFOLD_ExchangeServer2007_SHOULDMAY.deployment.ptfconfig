@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R3008Enabled to true to verify that the implementation does use secure communications via HTTPS, defined in [RFC2818], as specified in section 2.1. Set R3008Enabled to false to disable this requirement.-->
+    <Property name="R3008Enabled" value="true" />
+    <!--Set R5664Enabled to true to verify that implementation does support EmptyFolder operation, as specified in section 3.1.4.5. Set R5664Enabled to false to disable this requirement.-->
+    <Property name="R5664Enabled" value="false" />
+    <!--Set R3440Enabled to true to verify that implementation does support EmptyFolder operation for use with non-public folders, as specified in section 3.1.4.5. Set R3440Enabled to false to disable this requirement.-->
+    <Property name="R3440Enabled" value="false" />
+    <!--Set R55501Enabled to true to verify that implementation does support CopyFolder operation for use with public folders, as specified in section 3.1.4.1. Set R55501Enabled to false to disable this requirement.-->
+    <Property name="R55501Enabled" value="true" />
+  </Properties>
+</TestSite>

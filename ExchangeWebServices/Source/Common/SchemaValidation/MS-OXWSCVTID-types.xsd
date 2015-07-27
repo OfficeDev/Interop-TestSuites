@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types"
+           xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types"
+           elementFormDefault="qualified"
+           version="Exchange2013"
+           id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="AlternateIdBaseType" abstract="true" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:attribute name="Format" type="t:IdFormatType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="AlternateIdType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="t:AlternateIdBaseType">
+        <xs:attribute name="Id" type="xs:string" use="required"/>
+        <xs:attribute name="Mailbox" type="t:NonEmptyStringType" use="required"/>
+        <xs:attribute name="IsArchive" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AlternatePublicFolderIdType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="t:AlternateIdBaseType">
+        <xs:attribute name="FolderId" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AlternatePublicFolderItemIdType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="t:AlternatePublicFolderIdType">
+        <xs:attribute name="ItemId" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="IdFormatType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EwsLegacyId"/>
+      <xs:enumeration value="EwsId"/>
+      <xs:enumeration value="EntryId"/>
+      <xs:enumeration value="HexEntryId"/>
+      <xs:enumeration value="StoreId"/>
+      <xs:enumeration value="OwaId"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NonEmptyArrayOfAlternateIdsType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:choice minOccurs="1" maxOccurs="unbounded">
+      <xs:element name="AlternateId" type="t:AlternateIdType"/>
+      <xs:element name="AlternatePublicFolderId" type="t:AlternatePublicFolderIdType"/>
+      <xs:element name="AlternatePublicFolderItemId" type="t:AlternatePublicFolderItemIdType"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

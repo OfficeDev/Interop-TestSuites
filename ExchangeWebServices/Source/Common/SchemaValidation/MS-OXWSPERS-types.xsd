@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2013" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCORE-types.xsd"/>
+  <xs:complexType name="ArrayOfFolderIdType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="FolderId" type="t:FolderIdType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfStringAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringAttributedValue" type="t:StringAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfStringArrayAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringArrayAttributedValue" type="t:StringArrayAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEmailAddressAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddressAttributedValue" type="t:EmailAddressAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPeopleType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Persona" type="t:PersonaType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPhoneNumberAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneNumberAttributedValue" type="t:PhoneNumberAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPostalAddressAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostalAddressAttributedValue" type="t:PostalAddressAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfExtendedPropertyAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedPropertyAttributedValue" type="t:ExtendedPropertyAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPersonaAttributionsType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Attribution" type="t:PersonaAttributionType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfValueAttributionsType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Attribution" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfStringValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBodyContentAttributedValuesType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BodyContentAttributedValue" type="t:BodyContentAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BodyContentType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="BodyType" type="t:BodyTypeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BodyContentAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="t:BodyContentType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EmailAddressAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="t:EmailAddressType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendedPropertyAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="t:ExtendedPropertyType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="LocationSourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="LocationServices"/>
+      <xs:enumeration value="PhonebookServices"/>
+      <xs:enumeration value="Device"/>
+      <xs:enumeration value="Contact"/>
+      <xs:enumeration value="Resource"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PersonaAttributionType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Id" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceId" type="t:ItemIdType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="DisplayName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="IsWritable" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="IsQuickContact" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="IsHidden" type="xs:boolean"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FolderId" type="t:FolderIdType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonaPhoneNumberType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Number" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Type" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonaPostalAddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Street" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="City" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="State" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Country" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PostalCode" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PostOfficeBox" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Latitude" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Longitude" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Accuracy" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Altitude" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="AltitudeAccuracy" type="xs:double"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FormattedAddress" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="LocationUri" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="LocationSource" type="t:LocationSourceType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonaResponseShapeType">
+    <xs:sequence>
+      <xs:element name="BaseShape" type="t:DefaultShapeNamesType"/>
+      <xs:element minOccurs="0" name="AdditionalProperties" type="t:NonEmptyArrayOfPathsToElementType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PersonaType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PersonaId" type="t:ItemIdType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PersonaType" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PersonaObjectStatus" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="CreationTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="Bodies" type="t:ArrayOfBodyContentAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameFirstLastSortKey" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameLastFirstSortKey" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyNameSortKey" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="HomeCitySortKey" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="WorkCitySortKey" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameFirstLastHeader" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameLastFirstHeader" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FileAsHeader" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameFirstLast" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNameLastFirst" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FileAs" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FileAsId" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="DisplayNamePrefix" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="GivenName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="MiddleName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Surname" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Generation" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Nickname" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="YomiCompanyName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="YomiFirstName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="YomiLastName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Department" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="CompanyName" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Location" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="t:EmailAddressType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="t:ArrayOfEmailAddressesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="t:PersonaPhoneNumberType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ImAddress" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="HomeCity" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="WorkCity" type="xs:string"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="RelevanceScore" type="xs:int"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="FolderIds" type="t:ArrayOfFolderIdType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Attributions" type="t:ArrayOfPersonaAttributionsType"/>
+      <xs:element minOccurs="0" name="DisplayNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="FileAses" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="FileAsIds" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="DisplayNamePrefixes" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="GivenNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="MiddleNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Surnames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Generations" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Nicknames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Initials" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="YomiCompanyNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="YomiFirstNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="YomiLastNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="BusinessPhoneNumbers" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="BusinessPhoneNumbers2" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="HomePhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="HomePhones2" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="MobilePhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="MobilePhones2" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="AssistantPhoneNumbers" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="CallbackPhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="CarPhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="HomeFaxes" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="OrganizationMainPhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="OtherFaxes" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="OtherTelephones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="OtherPhones2" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Pagers" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="RadioPhones" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="TelexNumbers" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="TTYTDDPhoneNumbers" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" name="WorkFaxes" type="t:ArrayOfPhoneNumberAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Emails1" type="t:ArrayOfEmailAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Emails2" type="t:ArrayOfEmailAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Emails3" type="t:ArrayOfEmailAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" name="BusinessHomePages" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="PersonalHomePages" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="OfficeLocations" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="ImAddresses" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="ImAddresses2" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="ImAddresses3" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusinessAddresses" type="t:ArrayOfPostalAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="HomeAddresses" type="t:ArrayOfPostalAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="OtherAddresses" type="t:ArrayOfPostalAddressAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Titles" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Departments" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="CompanyNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Managers" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="AssistantNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Professions" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="SpouseNames" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Children" type="t:ArrayOfStringArrayAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Schools" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Hobbies" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="WeddingAnniversaries" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Birthdays" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="Locations" type="t:ArrayOfStringAttributedValuesType"/>
+      <xs:element minOccurs="0" name="ExtendedProperties" type="t:ArrayOfExtendedPropertyAttributedValueType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PhoneNumberAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="t:PersonaPhoneNumberType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostalAddressAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="t:PersonaPostalAddressType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StringArrayAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Values" type="t:ArrayOfStringValueType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StringAttributedValueType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Value" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Attributions" type="t:ArrayOfValueAttributionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSATT-types.xsd"/>
+  <xs:complexType name="AttachmentInfoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Attachments" type="t:ArrayOfAttachmentsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateAttachment" type="m:CreateAttachmentType"/>
+  <xs:element name="CreateAttachmentResponse" type="m:CreateAttachmentResponseType"/>
+  <xs:complexType name="CreateAttachmentResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ParentItemId" type="t:ItemIdType"/>
+          <xs:element name="Attachments" type="t:NonEmptyArrayOfAttachmentsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeleteAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="AttachmentIds" type="t:NonEmptyArrayOfRequestAttachmentIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAttachment" type="m:DeleteAttachmentType"/>
+  <xs:complexType name="DeleteAttachmentResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAttachmentResponse" type="m:DeleteAttachmentResponseType"/>
+  <xs:complexType name="DeleteAttachmentResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="RootItemId" type="t:RootItemIdType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="AttachmentShape" type="t:AttachmentResponseShapeType" minOccurs="0"/>
+          <xs:element name="AttachmentIds" type="t:NonEmptyArrayOfRequestAttachmentIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAttachment" type="m:GetAttachmentType"/>
+  <xs:complexType name="GetAttachmentResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAttachmentResponse" type="m:GetAttachmentResponseType"/>
+</xs:schema>

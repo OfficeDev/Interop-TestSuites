@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCORE-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSFOLD-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSSRCH-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSATT-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSRSLNM-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSDLIST-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSGTZ-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSNTIF-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSPSNTIF-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSSYNC-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCVTID-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSMSHR-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSGTRM-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSBTRF-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSPED-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCEXT-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSEDISC-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSGNI-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSPERS-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCONV-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSURPT-messages.xsd"/>
+  <xs:complexType name="ArrayOfResponseMessagesType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="CreateItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
+      <xs:element name="DeleteItemResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="GetItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
+      <xs:element name="UpdateItemResponseMessage" type="m:UpdateItemResponseMessageType"/>
+      <xs:element name="UpdateItemInRecoverableItemsResponseMessage" type="m:UpdateItemInRecoverableItemsResponseMessageType"/>
+      <xs:element name="SendItemResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="DeleteFolderResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="EmptyFolderResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="CreateFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="GetFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="FindFolderResponseMessage" type="m:FindFolderResponseMessageType"/>
+      <xs:element name="UpdateFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="MoveFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="CopyFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="CreateFolderPathResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="CreateAttachmentResponseMessage" type="m:AttachmentInfoResponseMessageType"/>
+      <xs:element name="DeleteAttachmentResponseMessage" type="m:DeleteAttachmentResponseMessageType"/>
+      <xs:element name="GetAttachmentResponseMessage" type="m:AttachmentInfoResponseMessageType"/>
+      <xs:element name="UploadItemsResponseMessage" type="m:UploadItemsResponseMessageType"/>
+      <xs:element name="ExportItemsResponseMessage" type="m:ExportItemsResponseMessageType"/>
+      <xs:element name="MarkAllItemsAsReadResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="GetClientAccessTokenResponseMessage" type="m:GetClientAccessTokenResponseMessageType"/>
+      <xs:element name="GetAppManifestsResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="GetClientExtensionResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="SetClientExtensionResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="FindItemResponseMessage" type="m:FindItemResponseMessageType"/>
+      <xs:element name="MoveItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
+      <xs:element name="ArchiveItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
+      <xs:element name="CopyItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
+      <xs:element name="ResolveNamesResponseMessage" type="m:ResolveNamesResponseMessageType"/>
+      <xs:element name="ExpandDLResponseMessage" type="m:ExpandDLResponseMessageType"/>
+      <xs:element name="GetServerTimeZonesResponseMessage" type="m:GetServerTimeZonesResponseMessageType"/>
+      <xs:element name="GetEventsResponseMessage" type="m:GetEventsResponseMessageType"/>
+      <xs:element name="GetStreamingEventsResponseMessage" type="m:GetStreamingEventsResponseMessageType"/>
+      <xs:element name="SubscribeResponseMessage" type="m:SubscribeResponseMessageType"/>
+      <xs:element name="UnsubscribeResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="SendNotificationResponseMessage" type="m:SendNotificationResponseMessageType"/>
+      <xs:element name="SyncFolderHierarchyResponseMessage" type="m:SyncFolderHierarchyResponseMessageType"/>
+      <xs:element name="SyncFolderItemsResponseMessage" type="m:SyncFolderItemsResponseMessageType"/>
+      <xs:element name="CreateManagedFolderResponseMessage" type="m:FolderInfoResponseMessageType"/>
+      <xs:element name="ConvertIdResponseMessage" type="m:ConvertIdResponseMessageType"/>
+      <xs:element name="GetSharingMetadataResponseMessage" type="m:GetSharingMetadataResponseMessageType"/>
+      <xs:element name="RefreshSharingFolderResponseMessage" type="m:RefreshSharingFolderResponseMessageType"/>
+      <xs:element name="GetSharingFolderResponseMessage" type="m:GetSharingFolderResponseMessageType"/>
+      <xs:element name="CreateUserConfigurationResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="DeleteUserConfigurationResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="UpdateUserConfigurationResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="GetRoomListsResponse" type="m:GetRoomListsResponseMessageType"/>
+      <xs:element name="GetRoomsResponse" type="m:GetRoomsResponseMessageType"/>
+      <xs:element name="ApplyConversationActionResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="GetSearchableMailboxesResponseMessage" type="m:GetSearchableMailboxesResponseMessageType"/>
+      <xs:element name="SearchMailboxesResponseMessage" type="m:SearchMailboxesResponseMessageType"/>
+      <xs:element name="GetDiscoverySearchConfigurationResponseMessage" type="m:GetDiscoverySearchConfigurationResponseMessageType"/>
+      <xs:element name="GetHoldOnMailboxesResponseMessage" type="m:GetHoldOnMailboxesResponseMessageType"/>
+      <xs:element name="SetHoldOnMailboxesResponseMessage" type="m:SetHoldOnMailboxesResponseMessageType"/>
+      <xs:element name="GetNonIndexableItemStatisticsResponseMessage" type="m:GetNonIndexableItemStatisticsResponseMessageType"/>
+      <!-- GetNonIndexableItemDetails response -->
+      <xs:element name="GetNonIndexableItemDetailsResponseMessage" type="m:GetNonIndexableItemDetailsResponseMessageType"/>
+      <xs:element name="FindPeopleResponseMessage" type="m:FindPeopleResponseMessageType"/>
+      <xs:element name="GetPasswordExpirationDateResponse" type="m:GetPasswordExpirationDateResponseMessageType"/>
+      <xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/>
+      <xs:element name="GetConversationItemsResponseMessage" type="m:GetConversationItemsResponseMessageType"/>
+      <xs:element name="GetUserRetentionPolicyTagsResponseMessage" type="m:GetUserRetentionPolicyTagsResponseMessageType"/>
+      <xs:element name="MarkAsJunkResponseMessage" type="m:MarkAsJunkResponseMessageType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BaseRequestType" abstract="true"/>
+  <xs:complexType name="BaseResponseMessageType">
+    <xs:sequence>
+      <xs:element name="ResponseMessages" type="m:ArrayOfResponseMessagesType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemInfoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Items" type="t:ArrayOfRealItemsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResponseMessageType">
+    <xs:sequence minOccurs="0">
+      <xs:element name="MessageText" type="xs:string" minOccurs="0"/>
+      <xs:element name="ResponseCode" type="m:ResponseCodeType" minOccurs="0"/>
+      <xs:element name="DescriptiveLinkKey" type="xs:int" minOccurs="0"/>
+      <xs:element name="MessageXml" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ResponseClass" type="t:ResponseClassType" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="ResponseCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoError"/>
+      <xs:enumeration value="ErrorAccessDenied"/>
+      <xs:enumeration value="ErrorAccessModeSpecified"/>
+      <xs:enumeration value="ErrorAccountDisabled"/>
+      <xs:enumeration value="ErrorAddDelegatesFailed"/>
+      <xs:enumeration value="ErrorAddressSpaceNotFound"/>
+      <xs:enumeration value="ErrorADOperation"/>
+      <xs:enumeration value="ErrorADSessionFilter"/>
+      <xs:enumeration value="ErrorADUnavailable"/>
+      <xs:enumeration value="ErrorAutoDiscoverFailed"/>
+      <xs:enumeration value="ErrorAffectedTaskOccurrencesRequired"/>
+      <xs:enumeration value="ErrorAttachmentNestLevelLimitExceeded"/>
+      <xs:enumeration value="ErrorAttachmentSizeLimitExceeded"/>
+      <xs:enumeration value="ErrorArchiveFolderPathCreation"/>
+      <xs:enumeration value="ErrorArchiveMailboxNotEnabled"/>
+      <xs:enumeration value="ErrorArchiveMailboxServiceDiscoveryFailed"/>
+      <xs:enumeration value="ErrorAvailabilityConfigNotFound"/>
+      <xs:enumeration value="ErrorBatchProcessingStopped"/>
+      <xs:enumeration value="ErrorCalendarCannotMoveOrCopyOccurrence"/>
+      <xs:enumeration value="ErrorCalendarCannotUpdateDeletedItem"/>
+      <xs:enumeration value="ErrorCalendarCannotUseIdForOccurrenceId"/>
+      <xs:enumeration value="ErrorCalendarCannotUseIdForRecurringMasterId"/>
+      <xs:enumeration value="ErrorCalendarDurationIsTooLong"/>
+      <xs:enumeration value="ErrorCalendarEndDateIsEarlierThanStartDate"/>
+      <xs:enumeration value="ErrorCalendarFolderIsInvalidForCalendarView"/>
+      <xs:enumeration value="ErrorCalendarInvalidAttributeValue"/>
+      <xs:enumeration value="ErrorCalendarInvalidDayForTimeChangePattern"/>
+      <xs:enumeration value="ErrorCalendarInvalidDayForWeeklyRecurrence"/>
+      <xs:enumeration value="ErrorCalendarInvalidPropertyState"/>
+      <xs:enumeration value="ErrorCalendarInvalidPropertyValue"/>
+      <xs:enumeration value="ErrorCalendarInvalidRecurrence"/>
+      <xs:enumeration value="ErrorCalendarInvalidTimeZone"/>
+      <xs:enumeration value="ErrorCalendarIsCancelledForAccept"/>
+      <xs:enumeration value="ErrorCalendarIsCancelledForDecline"/>
+      <xs:enumeration value="ErrorCalendarIsCancelledForRemove"/>
+      <xs:enumeration value="ErrorCalendarIsCancelledForTentative"/>
+      <xs:enumeration value="ErrorCalendarIsDelegatedForAccept"/>
+      <xs:enumeration value="ErrorCalendarIsDelegatedForDecline"/>
+      <xs:enumeration value="ErrorCalendarIsDelegatedForRemove"/>
+      <xs:enumeration value="ErrorCalendarIsDelegatedForTentative"/>
+      <xs:enumeration value="ErrorCalendarIsNotOrganizer"/>
+      <xs:enumeration value="ErrorCalendarIsOrganizerForAccept"/>
+      <xs:enumeration value="ErrorCalendarIsOrganizerForDecline"/>
+      <xs:enumeration value="ErrorCalendarIsOrganizerForRemove"/>
+      <xs:enumeration value="ErrorCalendarIsOrganizerForTentative"/>
+      <xs:enumeration value="ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange"/>
+      <xs:enumeration value="ErrorCalendarOccurrenceIsDeletedFromRecurrence"/>
+      <xs:enumeration value="ErrorCalendarOutOfRange"/>
+      <xs:enumeration value="ErrorCalendarMeetingRequestIsOutOfDate"/>
+      <xs:enumeration value="ErrorCalendarViewRangeTooBig"/>
+      <xs:enumeration value="ErrorCallerIsInvalidADAccount"/>
+      <xs:enumeration value="ErrorCannotArchiveCalendarContactTaskFolderException"/>
+      <xs:enumeration value="ErrorCannotArchiveItemsInPublicFolders"/>
+      <xs:enumeration value="ErrorCannotArchiveItemsInArchiveMailbo"/>
+      <xs:enumeration value="ErrorCannotCreateCalendarItemInNonCalendarFolder"/>
+      <xs:enumeration value="ErrorCannotCreateContactInNonContactFolder"/>
+      <xs:enumeration value="ErrorCannotCreatePostItemInNonMailFolder"/>
+      <xs:enumeration value="ErrorCannotCreateTaskInNonTaskFolder"/>
+      <xs:enumeration value="ErrorCannotDeleteObject"/>
+      <xs:enumeration value="ErrorCannotDisableMandatoryExtension"/>
+      <xs:enumeration value="ErrorCannotGetSourceFolderPath"/>
+      <xs:enumeration value="ErrorCannotGetExternalEcpUrl"/>
+      <xs:enumeration value="ErrorCannotOpenFileAttachment"/>
+      <xs:enumeration value="ErrorCannotDeleteTaskOccurrence"/>
+      <xs:enumeration value="ErrorCannotEmptyFolder"/>
+      <xs:enumeration value="ErrorCannotSetCalendarPermissionOnNonCalendarFolder"/>
+      <xs:enumeration value="ErrorCannotSetNonCalendarPermissionOnCalendarFolder"/>
+      <xs:enumeration value="ErrorCannotSetPermissionUnknownEntries"/>
+      <xs:enumeration value="ErrorCannotSpecifySearchFolderAsSourceFolder"/>
+      <xs:enumeration value="ErrorCannotUseFolderIdForItemId"/>
+      <xs:enumeration value="ErrorCannotUseItemIdForFolderId"/>
+      <xs:enumeration value="ErrorChangeKeyRequired"/>
+      <xs:enumeration value="ErrorChangeKeyRequiredForWriteOperations"/>
+      <xs:enumeration value="ErrorClientDisconnected"/>
+      <xs:enumeration value="ErrorClientIntentInvalidStateDefinition"/>
+      <xs:enumeration value="ErrorClientIntentNotFound"/>
+      <xs:enumeration value="ErrorConnectionFailed"/>
+      <xs:enumeration value="ErrorContainsFilterWrongType"/>
+      <xs:enumeration value="ErrorContentConversionFailed"/>
+      <xs:enumeration value="ErrorContentIndexingNotEnabled"/>
+      <xs:enumeration value="ErrorCorruptData"/>
+      <xs:enumeration value="ErrorCreateItemAccessDenied"/>
+      <xs:enumeration value="ErrorCreateManagedFolderPartialCompletion"/>
+      <xs:enumeration value="ErrorCreateSubfolderAccessDenied"/>
+      <xs:enumeration value="ErrorCrossMailboxMoveCopy"/>
+      <xs:enumeration value="ErrorCrossSiteRequest"/>
+      <xs:enumeration value="ErrorDataSizeLimitExceeded"/>
+      <xs:enumeration value="ErrorDataSourceOperation"/>
+      <xs:enumeration value="ErrorDelegateAlreadyExists"/>
+      <xs:enumeration value="ErrorDelegateCannotAddOwner"/>
+      <xs:enumeration value="ErrorDelegateMissingConfiguration"/>
+      <xs:enumeration value="ErrorDelegateNoUser"/>
+      <xs:enumeration value="ErrorDelegateValidationFailed"/>
+      <xs:enumeration value="ErrorDeleteDistinguishedFolder"/>
+      <xs:enumeration value="ErrorDeleteItemsFailed"/>
+      <xs:enumeration value="ErrorDeleteUnifiedMessagingPromptFailed"/>
+      <xs:enumeration value="ErrorDistinguishedUserNotSupported"/>
+      <xs:enumeration value="ErrorDistributionListMemberNotExist"/>
+      <xs:enumeration value="ErrorDuplicateInputFolderNames"/>
+      <xs:enumeration value="ErrorDuplicateUserIdsSpecified"/>
+      <xs:enumeration value="ErrorEmailAddressMismatch"/>
+      <xs:enumeration value="ErrorEventNotFound"/>
+      <xs:enumeration value="ErrorExceededConnectionCount"/>
+      <xs:enumeration value="ErrorExceededSubscriptionCount"/>
+      <xs:enumeration value="ErrorExceededFindCountLimit"/>
+      <xs:enumeration value="ErrorExpiredSubscription"/>
+      <xs:enumeration value="ErrorExtensionNotFound"/>
+      <xs:enumeration value="ErrorFolderCorrupt"/>
+      <xs:enumeration value="ErrorFolderNotFound"/>
+      <xs:enumeration value="ErrorFolderPropertRequestFailed"/>
+      <xs:enumeration value="ErrorFolderSave"/>
+      <xs:enumeration value="ErrorFolderSaveFailed"/>
+      <xs:enumeration value="ErrorFolderSavePropertyError"/>
+      <xs:enumeration value="ErrorFolderExists"/>
+      <xs:enumeration value="ErrorFreeBusyGenerationFailed"/>
+      <xs:enumeration value="ErrorGetServerSecurityDescriptorFailed"/>
+      <xs:enumeration value="ErrorImContactLimitReached"/>
+      <xs:enumeration value="ErrorImGroupDisplayNameAlreadyExists"/>
+      <xs:enumeration value="ErrorImGroupLimitReached"/>
+      <xs:enumeration value="ErrorImpersonateUserDenied"/>
+      <xs:enumeration value="ErrorImpersonationDenied"/>
+      <xs:enumeration value="ErrorImpersonationFailed"/>
+      <xs:enumeration value="ErrorIncorrectSchemaVersion"/>
+      <xs:enumeration value="ErrorIncorrectUpdatePropertyCount"/>
+      <xs:enumeration value="ErrorIndividualMailboxLimitReached"/>
+      <xs:enumeration value="ErrorInsufficientResources"/>
+      <xs:enumeration value="ErrorInternalServerError"/>
+      <xs:enumeration value="ErrorInternalServerTransientError"/>
+      <xs:enumeration value="ErrorInvalidAccessLevel"/>
+      <xs:enumeration value="ErrorInvalidArgument"/>
+      <xs:enumeration value="ErrorInvalidAttachmentId"/>
+      <xs:enumeration value="ErrorInvalidAttachmentSubfilter"/>
+      <xs:enumeration value="ErrorInvalidAttachmentSubfilterTextFilter"/>
+      <xs:enumeration value="ErrorInvalidAuthorizationContext"/>
+      <xs:enumeration value="ErrorInvalidChangeKey"/>
+      <xs:enumeration value="ErrorInvalidClientSecurityContext"/>
+      <xs:enumeration value="ErrorInvalidCompleteDate"/>
+      <xs:enumeration value="ErrorInvalidContactEmailAddress"/>
+      <xs:enumeration value="ErrorInvalidContactEmailIndex"/>
+      <xs:enumeration value="ErrorInvalidCrossForestCredentials"/>
+      <xs:enumeration value="ErrorInvalidDelegatePermission"/>
+      <xs:enumeration value="ErrorInvalidDelegateUserId"/>
+      <xs:enumeration value="ErrorInvalidExcludesRestriction"/>
+      <xs:enumeration value="ErrorInvalidExpressionTypeForSubFilter"/>
+      <xs:enumeration value="ErrorInvalidExtendedProperty"/>
+      <xs:enumeration value="ErrorInvalidExtendedPropertyValue"/>
+      <xs:enumeration value="ErrorInvalidFolderId"/>
+      <xs:enumeration value="ErrorInvalidFolderTypeForOperation"/>
+      <xs:enumeration value="ErrorInvalidFractionalPagingParameters"/>
+      <xs:enumeration value="ErrorInvalidFreeBusyViewType"/>
+      <xs:enumeration value="ErrorInvalidId"/>
+      <xs:enumeration value="ErrorInvalidIdEmpty"/>
+      <xs:enumeration value="ErrorInvalidIdMalformed"/>
+      <xs:enumeration value="ErrorInvalidIdMalformedEwsLegacyIdFormat"/>
+      <xs:enumeration value="ErrorInvalidIdMonikerTooLong"/>
+      <xs:enumeration value="ErrorInvalidIdNotAnItemAttachmentId"/>
+      <xs:enumeration value="ErrorInvalidIdReturnedByResolveNames"/>
+      <xs:enumeration value="ErrorInvalidIdStoreObjectIdTooLong"/>
+      <xs:enumeration value="ErrorInvalidIdTooManyAttachmentLevels"/>
+      <xs:enumeration value="ErrorInvalidIdXml"/>
+      <xs:enumeration value="ErrorInvalidImContactId"/>
+      <xs:enumeration value="ErrorInvalidImDistributionGroupSmtpAddress"/>
+      <xs:enumeration value="ErrorInvalidImGroupId"/>
+      <xs:enumeration value="ErrorInvalidIndexedPagingParameters"/>
+      <xs:enumeration value="ErrorInvalidInternetHeaderChildNodes"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationArchiveItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationCreateItemAttachment"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationCreateItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationAcceptItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationDeclineItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationCancelItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationExpandDL"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationRemoveItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationSendItem"/>
+      <xs:enumeration value="ErrorInvalidItemForOperationTentative"/>
+      <xs:enumeration value="ErrorInvalidLogonType"/>
+      <xs:enumeration value="ErrorInvalidMailbox"/>
+      <xs:enumeration value="ErrorInvalidManagedFolderProperty"/>
+      <xs:enumeration value="ErrorInvalidManagedFolderQuota"/>
+      <xs:enumeration value="ErrorInvalidManagedFolderSize"/>
+      <xs:enumeration value="ErrorInvalidMergedFreeBusyInterval"/>
+      <xs:enumeration value="ErrorInvalidNameForNameResolution"/>
+      <xs:enumeration value="ErrorInvalidOperation"/>
+      <xs:enumeration value="ErrorInvalidNetworkServiceContext"/>
+      <xs:enumeration value="ErrorInvalidOofParameter"/>
+      <xs:enumeration value="ErrorInvalidPagingMaxRows"/>
+      <xs:enumeration value="ErrorInvalidParentFolder"/>
+      <xs:enumeration value="ErrorInvalidPercentCompleteValue"/>
+      <xs:enumeration value="ErrorInvalidPermissionSettings"/>
+      <xs:enumeration value="ErrorInvalidPhoneCallId"/>
+      <xs:enumeration value="ErrorInvalidPhoneNumber"/>
+      <xs:enumeration value="ErrorInvalidUserInfo"/>
+      <xs:enumeration value="ErrorInvalidPropertyAppend"/>
+      <xs:enumeration value="ErrorInvalidPropertyDelete"/>
+      <xs:enumeration value="ErrorInvalidPropertyForExists"/>
+      <xs:enumeration value="ErrorInvalidPropertyForOperation"/>
+      <xs:enumeration value="ErrorInvalidPropertyRequest"/>
+      <xs:enumeration value="ErrorInvalidPropertySet"/>
+      <xs:enumeration value="ErrorInvalidPropertyUpdateSentMessage"/>
+      <xs:enumeration value="ErrorInvalidProxySecurityContext"/>
+      <xs:enumeration value="ErrorInvalidPullSubscriptionId"/>
+      <xs:enumeration value="ErrorInvalidPushSubscriptionUrl"/>
+      <xs:enumeration value="ErrorInvalidRecipients"/>
+      <xs:enumeration value="ErrorInvalidRecipientSubfilter"/>
+      <xs:enumeration value="ErrorInvalidRecipientSubfilterComparison"/>
+      <xs:enumeration value="ErrorInvalidRecipientSubfilterOrder"/>
+      <xs:enumeration value="ErrorInvalidRecipientSubfilterTextFilter"/>
+      <xs:enumeration value="ErrorInvalidReferenceItem"/>
+      <xs:enumeration value="ErrorInvalidRequest"/>
+      <xs:enumeration value="ErrorInvalidRestriction"/>
+      <xs:enumeration value="ErrorInvalidRetentionTagIdGuid"/>
+      <xs:enumeration value="ErrorInvalidRetentionTagTypeMismatch"/>
+      <xs:enumeration value="ErrorInvalidRetentionTagInvisible"/>
+      <xs:enumeration value="ErrorInvalidRetentionTagInheritance"/>
+      <xs:enumeration value="ErrorInvalidRoutingType"/>
+      <xs:enumeration value="ErrorInvalidScheduledOofDuration"/>
+      <xs:enumeration value="ErrorInvalidSchemaVersionForMailboxVersion"/>
+      <xs:enumeration value="ErrorInvalidSecurityDescriptor"/>
+      <xs:enumeration value="ErrorInvalidSendItemSaveSettings"/>
+      <xs:enumeration value="ErrorInvalidSerializedAccessToken"/>
+      <xs:enumeration value="ErrorInvalidServerVersion"/>
+      <xs:enumeration value="ErrorInvalidSid"/>
+      <xs:enumeration value="ErrorInvalidSIPUri"/>
+      <xs:enumeration value="ErrorInvalidSmtpAddress"/>
+      <xs:enumeration value="ErrorInvalidSubfilterType"/>
+      <xs:enumeration value="ErrorInvalidSubfilterTypeNotAttendeeType"/>
+      <xs:enumeration value="ErrorInvalidSubfilterTypeNotRecipientType"/>
+      <xs:enumeration value="ErrorInvalidSubscription"/>
+      <xs:enumeration value="ErrorInvalidSubscriptionRequest"/>
+      <xs:enumeration value="ErrorInvalidSyncStateData"/>
+      <xs:enumeration value="ErrorInvalidTimeInterval"/>
+      <xs:enumeration value="ErrorInvalidUserOofSettings"/>
+      <xs:enumeration value="ErrorInvalidUserPrincipalName"/>
+      <xs:enumeration value="ErrorInvalidUserSid"/>
+      <xs:enumeration value="ErrorInvalidUserSidMissingUPN"/>
+      <xs:enumeration value="ErrorInvalidValueForProperty"/>
+      <xs:enumeration value="ErrorInvalidWatermark"/>
+      <xs:enumeration value="ErrorIPGatewayNotFound"/>
+      <xs:enumeration value="ErrorIrresolvableConflict"/>
+      <xs:enumeration value="ErrorItemCorrupt"/>
+      <xs:enumeration value="ErrorItemNotFound"/>
+      <xs:enumeration value="ErrorItemPropertyRequestFailed"/>
+      <xs:enumeration value="ErrorItemSave"/>
+      <xs:enumeration value="ErrorItemSavePropertyError"/>
+      <xs:enumeration value="ErrorLegacyMailboxFreeBusyViewTypeNotMerged"/>
+      <xs:enumeration value="ErrorLocalServerObjectNotFound"/>
+      <xs:enumeration value="ErrorLogonAsNetworkServiceFailed"/>
+      <xs:enumeration value="ErrorMailboxConfiguration"/>
+      <xs:enumeration value="ErrorMailboxDataArrayEmpty"/>
+      <xs:enumeration value="ErrorMailboxDataArrayTooBig"/>
+      <xs:enumeration value="ErrorMailboxHoldNotFound"/>
+      <xs:enumeration value="ErrorMailboxLogonFailed"/>
+      <xs:enumeration value="ErrorMailboxMoveInProgress"/>
+      <xs:enumeration value="ErrorMailboxStoreUnavailable"/>
+      <xs:enumeration value="ErrorMailRecipientNotFound"/>
+      <xs:enumeration value="ErrorMailTipsDisabled"/>
+      <xs:enumeration value="ErrorManagedFolderAlreadyExists"/>
+      <xs:enumeration value="ErrorManagedFolderNotFound"/>
+      <xs:enumeration value="ErrorManagedFoldersRootFailure"/>
+      <xs:enumeration value="ErrorMeetingSuggestionGenerationFailed"/>
+      <xs:enumeration value="ErrorMessageDispositionRequired"/>
+      <xs:enumeration value="ErrorMessageSizeExceeded"/>
+      <xs:enumeration value="ErrorMimeContentConversionFailed"/>
+      <xs:enumeration value="ErrorMimeContentInvalid"/>
+      <xs:enumeration value="ErrorMimeContentInvalidBase64String"/>
+      <xs:enumeration value="ErrorMissingArgument"/>
+      <xs:enumeration value="ErrorMissingEmailAddress"/>
+      <xs:enumeration value="ErrorMissingEmailAddressForManagedFolder"/>
+      <xs:enumeration value="ErrorMissingInformationEmailAddress"/>
+      <xs:enumeration value="ErrorMissingInformationReferenceItemId"/>
+      <xs:enumeration value="ErrorMissingItemForCreateItemAttachment"/>
+      <xs:enumeration value="ErrorMissingManagedFolderId"/>
+      <xs:enumeration value="ErrorMissingRecipients"/>
+      <xs:enumeration value="ErrorMissingUserIdInformation"/>
+      <xs:enumeration value="ErrorMoreThanOneAccessModeSpecified"/>
+      <xs:enumeration value="ErrorMoveCopyFailed"/>
+      <xs:enumeration value="ErrorMoveDistinguishedFolder"/>
+      <xs:enumeration value="ErrorMultiLegacyMailboxAccess"/>
+      <xs:enumeration value="ErrorNameResolutionMultipleResults"/>
+      <xs:enumeration value="ErrorNameResolutionNoMailbox"/>
+      <xs:enumeration value="ErrorNameResolutionNoResults"/>
+      <xs:enumeration value="ErrorNoApplicableProxyCASServersAvailable"/>
+      <xs:enumeration value="ErrorNoCalendar"/>
+      <xs:enumeration value="ErrorNoDestinationCASDueToKerberosRequirements"/>
+      <xs:enumeration value="ErrorNoDestinationCASDueToSSLRequirements"/>
+      <xs:enumeration value="ErrorNoDestinationCASDueToVersionMismatch"/>
+      <xs:enumeration value="ErrorNoFolderClassOverride"/>
+      <xs:enumeration value="ErrorNoFreeBusyAccess"/>
+      <xs:enumeration value="ErrorNonExistentMailbox"/>
+      <xs:enumeration value="ErrorNonPrimarySmtpAddress"/>
+      <xs:enumeration value="ErrorNoPropertyTagForCustomProperties"/>
+      <xs:enumeration value="ErrorNoPublicFolderReplicaAvailable"/>
+      <xs:enumeration value="ErrorNoPublicFolderServerAvailable"/>
+      <xs:enumeration value="ErrorNoRespondingCASInDestinationSite"/>
+      <xs:enumeration value="ErrorNotDelegate"/>
+      <xs:enumeration value="ErrorNotEnoughMemory"/>
+      <xs:enumeration value="ErrorObjectTypeChanged"/>
+      <xs:enumeration value="ErrorOccurrenceCrossingBoundary"/>
+      <xs:enumeration value="ErrorOccurrenceTimeSpanTooBig"/>
+      <xs:enumeration value="ErrorOperationNotAllowedWithPublicFolderRoot"/>
+      <xs:enumeration value="ErrorParentFolderIdRequired"/>
+      <xs:enumeration value="ErrorParentFolderNotFound"/>
+      <xs:enumeration value="ErrorPasswordChangeRequired"/>
+      <xs:enumeration value="ErrorPasswordExpired"/>
+      <xs:enumeration value="ErrorPhoneNumberNotDialable"/>
+      <xs:enumeration value="ErrorPropertyUpdate"/>
+      <xs:enumeration value="ErrorPromptPublishingOperationFailed"/>
+      <xs:enumeration value="ErrorPropertyValidationFailure"/>
+      <xs:enumeration value="ErrorProxiedSubscriptionCallFailure"/>
+      <xs:enumeration value="ErrorProxyCallFailed"/>
+      <xs:enumeration value="ErrorProxyGroupSidLimitExceeded"/>
+      <xs:enumeration value="ErrorProxyRequestNotAllowed"/>
+      <xs:enumeration value="ErrorProxyRequestProcessingFailed"/>
+      <xs:enumeration value="ErrorProxyServiceDiscoveryFailed"/>
+      <xs:enumeration value="ErrorProxyTokenExpired"/>
+      <xs:enumeration value="ErrorPublicFolderMailboxDiscoveryFailed"/>
+      <xs:enumeration value="ErrorPublicFolderOperationFailed"/>
+      <xs:enumeration value="ErrorPublicFolderRequestProcessingFailed"/>
+      <xs:enumeration value="ErrorPublicFolderServerNotFound"/>
+      <xs:enumeration value="ErrorPublicFolderSyncException"/>
+      <xs:enumeration value="ErrorQueryFilterTooLong"/>
+      <xs:enumeration value="ErrorQuotaExceeded"/>
+      <xs:enumeration value="ErrorReadEventsFailed"/>
+      <xs:enumeration value="ErrorReadReceiptNotPending"/>
+      <xs:enumeration value="ErrorRecurrenceEndDateTooBig"/>
+      <xs:enumeration value="ErrorRecurrenceHasNoOccurrence"/>
+      <xs:enumeration value="ErrorRemoveDelegatesFailed"/>
+      <xs:enumeration value="ErrorRequestAborted"/>
+      <xs:enumeration value="ErrorRequestStreamTooBig"/>
+      <xs:enumeration value="ErrorRequiredPropertyMissing"/>
+      <xs:enumeration value="ErrorResolveNamesInvalidFolderType"/>
+      <xs:enumeration value="ErrorResolveNamesOnlyOneContactsFolderAllowed"/>
+      <xs:enumeration value="ErrorResponseSchemaValidation"/>
+      <xs:enumeration value="ErrorRestrictionTooLong"/>
+      <xs:enumeration value="ErrorRestrictionTooComplex"/>
+      <xs:enumeration value="ErrorResultSetTooBig"/>
+      <xs:enumeration value="ErrorInvalidExchangeImpersonationHeaderData"/>
+      <xs:enumeration value="ErrorSavedItemFolderNotFound"/>
+      <xs:enumeration value="ErrorSchemaValidation"/>
+      <xs:enumeration value="ErrorSearchFolderNotInitialized"/>
+      <xs:enumeration value="ErrorSendAsDenied"/>
+      <xs:enumeration value="ErrorSendMeetingCancellationsRequired"/>
+      <xs:enumeration value="ErrorSendMeetingInvitationsOrCancellationsRequired"/>
+      <xs:enumeration value="ErrorSendMeetingInvitationsRequired"/>
+      <xs:enumeration value="ErrorSentMeetingRequestUpdate"/>
+      <xs:enumeration value="ErrorSentTaskRequestUpdate"/>
+      <xs:enumeration value="ErrorServerBusy"/>
+      <xs:enumeration value="ErrorServiceDiscoveryFailed"/>
+      <xs:enumeration value="ErrorStaleObject"/>
+      <xs:enumeration value="ErrorSubmissionQuotaExceeded"/>
+      <xs:enumeration value="ErrorSubscriptionAccessDenied"/>
+      <xs:enumeration value="ErrorSubscriptionDelegateAccessNotSupported"/>
+      <xs:enumeration value="ErrorSubscriptionNotFound"/>
+      <xs:enumeration value="ErrorSubscriptionUnsubscribed"/>
+      <xs:enumeration value="ErrorSyncFolderNotFound"/>
+      <xs:enumeration value="ErrorTeamMailboxNotFound"/>
+      <xs:enumeration value="ErrorTeamMailboxNotLinkedToSharePoint"/>
+      <xs:enumeration value="ErrorTeamMailboxUrlValidationFailed"/>
+      <xs:enumeration value="ErrorTeamMailboxNotAuthorizedOwner"/>
+      <xs:enumeration value="ErrorTeamMailboxActiveToPendingDelete"/>
+      <xs:enumeration value="ErrorTeamMailboxFailedSendingNotifications"/>
+      <xs:enumeration value="ErrorTeamMailboxErrorUnknown"/>
+      <xs:enumeration value="ErrorTimeIntervalTooBig"/>
+      <xs:enumeration value="ErrorTimeoutExpired"/>
+      <xs:enumeration value="ErrorTimeZone"/>
+      <xs:enumeration value="ErrorToFolderNotFound"/>
+      <xs:enumeration value="ErrorTokenSerializationDenied"/>
+      <xs:enumeration value="ErrorUpdatePropertyMismatch"/>
+      <xs:enumeration value="ErrorUnifiedMessagingDialPlanNotFound"/>
+      <xs:enumeration value="ErrorUnifiedMessagingReportDataNotFound"/>
+      <xs:enumeration value="ErrorUnifiedMessagingPromptNotFound"/>
+      <xs:enumeration value="ErrorUnifiedMessagingRequestFailed"/>
+      <xs:enumeration value="ErrorUnifiedMessagingServerNotFound"/>
+      <xs:enumeration value="ErrorUnableToGetUserOofSettings"/>
+      <xs:enumeration value="ErrorUnableToRemoveImContactFromGroup"/>
+      <xs:enumeration value="ErrorUnsupportedSubFilter"/>
+      <xs:enumeration value="ErrorUnsupportedCulture"/>
+      <xs:enumeration value="ErrorUnsupportedMapiPropertyType"/>
+      <xs:enumeration value="ErrorUnsupportedMimeConversion"/>
+      <xs:enumeration value="ErrorUnsupportedPathForQuery"/>
+      <xs:enumeration value="ErrorUnsupportedPathForSortGroup"/>
+      <xs:enumeration value="ErrorUnsupportedPropertyDefinition"/>
+      <xs:enumeration value="ErrorUnsupportedQueryFilter"/>
+      <xs:enumeration value="ErrorUnsupportedRecurrence"/>
+      <xs:enumeration value="ErrorUnsupportedTypeForConversion"/>
+      <xs:enumeration value="ErrorUpdateDelegatesFailed"/>
+      <xs:enumeration value="ErrorUserNotUnifiedMessagingEnabled"/>
+      <xs:enumeration value="ErrorVoiceMailNotImplemented"/>
+      <xs:enumeration value="ErrorValueOutOfRange"/>
+      <xs:enumeration value="ErrorVirusDetected"/>
+      <xs:enumeration value="ErrorVirusMessageDeleted"/>
+      <xs:enumeration value="ErrorWebRequestInInvalidState"/>
+      <xs:enumeration value="ErrorWin32InteropError"/>
+      <xs:enumeration value="ErrorWorkingHoursSaveFailed"/>
+      <xs:enumeration value="ErrorWorkingHoursXmlMalformed"/>
+      <xs:enumeration value="ErrorWrongServerVersion"/>
+      <xs:enumeration value="ErrorWrongServerVersionDelegate"/>
+      <xs:enumeration value="ErrorMissingInformationSharingFolderId"/>
+      <xs:enumeration value="ErrorDuplicateSOAPHeader"/>
+      <xs:enumeration value="ErrorSharingSynchronizationFailed"/>
+      <xs:enumeration value="ErrorSharingNoExternalEwsAvailable"/>
+      <xs:enumeration value="ErrorFreeBusyDLLimitReached"/>
+      <xs:enumeration value="ErrorInvalidGetSharingFolderRequest"/>
+      <xs:enumeration value="ErrorNotAllowedExternalSharingByPolicy"/>
+      <xs:enumeration value="ErrorUserNotAllowedByPolicy"/>
+      <xs:enumeration value="ErrorPermissionNotAllowedByPolicy"/>
+      <xs:enumeration value="ErrorOrganizationNotFederated"/>
+      <xs:enumeration value="ErrorMailboxFailover"/>
+      <xs:enumeration value="ErrorInvalidExternalSharingInitiator"/>
+      <xs:enumeration value="ErrorMessageTrackingPermanentError"/>
+      <xs:enumeration value="ErrorMessageTrackingTransientError"/>
+      <xs:enumeration value="ErrorMessageTrackingNoSuchDomain"/>
+      <xs:enumeration value="ErrorUserWithoutFederatedProxyAddress"/>
+      <xs:enumeration value="ErrorInvalidOrganizationRelationshipForFreeBusy"/>
+      <xs:enumeration value="ErrorInvalidFederatedOrganizationId"/>
+      <xs:enumeration value="ErrorInvalidExternalSharingSubscriber"/>
+      <xs:enumeration value="ErrorInvalidSharingData"/>
+      <xs:enumeration value="ErrorInvalidSharingMessage"/>
+      <xs:enumeration value="ErrorNotSupportedSharingMessage"/>
+      <xs:enumeration value="ErrorApplyConversationActionFailed"/>
+      <xs:enumeration value="ErrorInboxRulesValidationError"/>
+      <xs:enumeration value="ErrorOutlookRuleBlobExists"/>
+      <xs:enumeration value="ErrorRulesOverQuota"/>
+      <xs:enumeration value="ErrorNewEventStreamConnectionOpened"/>
+      <xs:enumeration value="ErrorMissedNotificationEvents"/>
+      <xs:enumeration value="ErrorDuplicateLegacyDistinguishedName"/>
+      <xs:enumeration value="ErrorInvalidClientAccessTokenRequest"/>
+      <xs:enumeration value="ErrorNoSpeechDetected"/>
+      <xs:enumeration value="ErrorUMServerUnavailable"/>
+      <xs:enumeration value="ErrorRecipientNotFound"/>
+      <xs:enumeration value="ErrorRecognizerNotInstalled"/>
+      <xs:enumeration value="ErrorSpeechGrammarError"/>
+      <xs:enumeration value="ErrorInvalidManagementRoleHeader"/>
+      <xs:enumeration value="ErrorLocationServicesDisabled"/>
+      <xs:enumeration value="ErrorLocationServicesRequestTimedOut"/>
+      <xs:enumeration value="ErrorLocationServicesRequestFailed"/>
+      <xs:enumeration value="ErrorLocationServicesInvalidRequest"/>
+      <xs:enumeration value="ErrorMailboxScopeNotAllowedWithoutQueryString"/>
+      <xs:enumeration value="ErrorArchiveMailboxSearchFailed"/>
+      <xs:enumeration value="ErrorInvalidPhotoSize"/>
+      <xs:enumeration value="ErrorSearchQueryHasTooManyKeywords"/>
+      <xs:enumeration value="ErrorSearchTooManyMailboxes"/>
+      <xs:enumeration value="ErrorDiscoverySearchesDisabled"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

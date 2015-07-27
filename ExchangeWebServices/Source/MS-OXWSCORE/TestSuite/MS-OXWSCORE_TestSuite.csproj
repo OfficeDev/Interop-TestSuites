@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95D84B1B-043A-4609-AD9F-268EC3E29865}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_OXWSCORE</RootNamespace>
+    <AssemblyName>MS-OXWSCORE_TestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools" />
+    <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCORE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCORE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCORE_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-OXWSCORE_TestSuite.ptfconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MS-OXWSCORE_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S01_ManageBaseItems.cs" />
+    <Compile Include="S02_ManageContactItems.cs" />
+    <Compile Include="S03_ManageDistributionListsItems.cs" />
+    <Compile Include="S04_ManageEmailItems.cs" />
+    <Compile Include="S05_ManageMeetingItems.cs" />
+    <Compile Include="S06_ManagePostItems.cs" />
+    <Compile Include="S07_ManageTaskItems.cs" />
+    <Compile Include="S08_ManageSevenKindsOfItems.cs" />
+    <Compile Include="TestSuiteBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{719F410B-0D1A-46F2-80A7-D5D91CF8E915}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MS-OXWSITEMID\Adapter\MS-OXWSITEMID_Adapter.csproj">
+      <Project>{25713b82-15a0-465b-9ba3-dbb6b3076b5e}</Project>
+      <Name>MS-OXWSITEMID_Adapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-OXWSCORE_Adapter.csproj">
+      <Project>{2F1B5C38-30C8-4F1A-B0EB-BD3FD8189E64}</Project>
+      <Name>MS-OXWSCORE_Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

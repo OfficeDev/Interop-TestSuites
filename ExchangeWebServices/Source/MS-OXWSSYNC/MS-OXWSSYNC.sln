@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F814A4C-75E4-453E-A418-EF30D0363556}"
+	ProjectSection(SolutionItems) = preProject
+		MS-OXWSSYNC.runsettings = MS-OXWSSYNC.runsettings
+		MS-OXWSSYNC.testsettings = MS-OXWSSYNC.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSSYNC_TestSuite", "TestSuite\MS-OXWSSYNC_TestSuite.csproj", "{57826A3D-A188-426E-969E-80DAAFEF574E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSSYNC_Adapter", "Adapter\MS-OXWSSYNC_Adapter.csproj", "{38878B2B-8DCB-4902-A01D-E696C06BB5E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{719F410B-0D1A-46F2-80A7-D5D91CF8E915}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57826A3D-A188-426E-969E-80DAAFEF574E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57826A3D-A188-426E-969E-80DAAFEF574E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57826A3D-A188-426E-969E-80DAAFEF574E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57826A3D-A188-426E-969E-80DAAFEF574E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38878B2B-8DCB-4902-A01D-E696C06BB5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38878B2B-8DCB-4902-A01D-E696C06BB5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38878B2B-8DCB-4902-A01D-E696C06BB5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38878B2B-8DCB-4902-A01D-E696C06BB5E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

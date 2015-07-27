@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCORE-types.xsd"/>
+  <xs:complexType name="MessageType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="Sender" type="t:SingleRecipientType" minOccurs="0"/>
+          <xs:element name="ToRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+          <xs:element name="CcRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+          <xs:element name="BccRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+          <xs:element name="IsReadReceiptRequested" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsDeliveryReceiptRequested" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="ConversationIndex" type="xs:base64Binary" minOccurs="0"/>
+          <xs:element name="ConversationTopic" type="xs:string" minOccurs="0"/>
+          <xs:element name="From" type="t:SingleRecipientType" minOccurs="0"/>
+          <xs:element name="InternetMessageId" type="xs:string" minOccurs="0"/>
+          <xs:element name="IsRead" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsResponseRequested" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="References" type="xs:string" minOccurs="0"/>
+          <xs:element name="ReplyTo" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+          <xs:element name="ReceivedBy" type="t:SingleRecipientType" minOccurs="0"/>
+          <xs:element name="ReceivedRepresenting" type="t:SingleRecipientType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="MessageDispositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SaveOnly" />
+      <xs:enumeration value="SendOnly" />
+      <xs:enumeration value="SendAndSaveCopy" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

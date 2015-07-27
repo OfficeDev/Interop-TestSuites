@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2013" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCORE-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSEDISC-types.xsd"/>
+  <xs:complexType name="ArrayOfNonIndexableItemDetailsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NonIndexableItemDetail" type="t:NonIndexableItemDetailType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfNonIndexableItemStatisticsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NonIndexableItemStatistic" type="t:NonIndexableItemStatisticType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ItemIndexErrorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="GenericError"/>
+      <xs:enumeration value="Timeout"/>
+      <xs:enumeration value="StaleEvent"/>
+      <xs:enumeration value="MailboxOffline"/>
+      <xs:enumeration value="AttachmentLimitReached"/>
+      <xs:enumeration value="MarsWriterTruncation"/>
+      <xs:enumeration value="DocumentParserFailure"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NonEmptyArrayOfLegacyDNsType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="LegacyDN" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonIndexableItemStatisticType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Mailbox" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemCount" type="xs:long"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonIndexableItemDetailType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="ItemId" type="t:ItemIdType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="t:ItemIndexErrorType"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="ErrorDescription" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsPartiallyIndexed" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="IsPermanentFailure" type="xs:boolean"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="SortValue" type="xs:string"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="AttemptCount" type="xs:int"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="LastAttemptTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="AdditionalInfo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonIndexableItemDetailResultType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Items" type="t:ArrayOfNonIndexableItemDetailsType"/>
+      <xs:element minOccurs="0" name="FailedMailboxes" type="t:ArrayOfFailedSearchMailboxesType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

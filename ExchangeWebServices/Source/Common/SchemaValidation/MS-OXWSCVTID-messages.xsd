@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCVTID-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="ConvertIdResponseMessageType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="AlternateId" type="t:AlternateIdBaseType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConvertIdResponseType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConvertIdType" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SourceIds" type="t:NonEmptyArrayOfAlternateIdsType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="DestinationFormat" type="t:IdFormatType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConvertId" type="m:ConvertIdType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+  <xs:element name="ConvertIdResponse" type="m:ConvertIdResponseType" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+</xs:schema>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <!-- Import common types. -->
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCORE-types.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSMSG-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="BaseMoveCopyItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ToFolderId" type="t:TargetFolderIdType"/>
+          <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType"/>
+          <xs:element name="ReturnNewItemIds" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CopyItem" type="m:CopyItemType"/>
+  <xs:complexType name="CopyItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseMoveCopyItemType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CopyItemResponse" type="m:CopyItemResponseType"/>
+  <xs:complexType name="CopyItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreateItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateItemResponse" type="m:CreateItemResponseType"/>
+  <xs:complexType name="CreateItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SavedItemFolderId" type="t:TargetFolderIdType" minOccurs="0"/>
+          <xs:element name="Items" type="t:NonEmptyArrayOfAllItemsType"/>
+        </xs:sequence>
+        <xs:attribute name="MessageDisposition" type="t:MessageDispositionType" use="optional"/>
+        <xs:attribute name="SendMeetingInvitations" type="t:CalendarItemCreateOrDeleteOperationType" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateItem" type="m:CreateItemType"/>
+  <xs:complexType name="DeleteItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType"/>
+        </xs:sequence>
+        <xs:attribute name="DeleteType" type="t:DisposalType" use="required"/>
+        <xs:attribute name="SendMeetingCancellations" type="t:CalendarItemCreateOrDeleteOperationType" use="optional"/>
+        <xs:attribute name="AffectedTaskOccurrences" type="t:AffectedTaskOccurrencesType" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteItem" type="m:DeleteItemType"/>
+  <xs:complexType name="DeleteItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteItemResponse" type="m:DeleteItemResponseType"/>
+  <xs:complexType name="GetItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemShape" type="t:ItemResponseShapeType"/>
+          <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetItem" type="m:GetItemType"/>
+  <xs:complexType name="GetItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetItemResponse" type="m:GetItemResponseType"/>
+  <xs:complexType name="MarkAllItemsAsReadType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ReadFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="SuppressReadReceipts" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkAllItemsAsRead" type="m:MarkAllItemsAsReadType"/>
+  <xs:complexType name="MarkAllItemsAsReadResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkAllItemsAsReadResponse" type="m:MarkAllItemsAsReadResponseType"/>
+  <xs:complexType name="MarkAsJunkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="IsJunk" type="xs:boolean" use="required" />
+        <xs:attribute name="MoveItem" type="xs:boolean" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkAsJunk" type="m:MarkAsJunkType" />
+  <!-- MarkAsJunk response -->
+  <xs:complexType name="MarkAsJunkResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarkAsJunkResponse" type="m:MarkAsJunkResponseType" />
+  <xs:complexType name="MarkAsJunkResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:sequence>
+            <xs:element name="MovedItemId" type="t:ItemIdType" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MoveItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveItemResponse" type="m:MoveItemResponseType"/>
+  <xs:complexType name="MoveItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseMoveCopyItemType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MoveItem" type="m:MoveItemType"/>
+  <xs:complexType name="SendItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendItemResponse" type="m:SendItemResponseType"/>
+  <xs:complexType name="SendItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemIds" type="t:NonEmptyArrayOfBaseItemIdsType"/>
+          <xs:element name="SavedItemFolderId" type="t:TargetFolderIdType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="SaveItemToFolder" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendItem" type="m:SendItemType"/>
+  <xs:complexType name="UpdateItemResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateItemResponse" type="m:UpdateItemResponseType"/>
+  <xs:complexType name="UpdateItemType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SavedItemFolderId" type="t:TargetFolderIdType" minOccurs="0"/>
+          <xs:element name="ItemChanges" type="t:NonEmptyArrayOfItemChangesType"/>
+        </xs:sequence>
+        <xs:attribute name="ConflictResolution" type="t:ConflictResolutionType" use="required"/>
+        <xs:attribute name="MessageDisposition" type="t:MessageDispositionType" use="optional"/>
+        <xs:attribute name="SendMeetingInvitationsOrCancellations" type="t:CalendarItemUpdateOperationType" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateItem" type="m:UpdateItemType"/>
+  <xs:complexType name="UpdateItemResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ItemInfoResponseMessageType">
+        <xs:sequence>
+          <xs:element name="ConflictResults" type="t:ConflictResultsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateItemInRecoverableItems" type="m:UpdateItemInRecoverableItemsType"/>
+  <xs:complexType name="UpdateItemInRecoverableItemsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemId" type="t:ItemIdType"/>
+          <xs:element name="Updates" type="t:NonEmptyArrayOfItemChangeDescriptionsType" minOccurs="0"/>
+          <xs:element name="Attachments" type="t:NonEmptyArrayOfAttachmentsType" minOccurs="0"/>
+          <xs:element name="MakeItemImmutable" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateItemInRecoverableItemsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ItemInfoResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Attachments" type="t:ArrayOfAttachmentsType" minOccurs="0"/>
+          <xs:element name="ConflictResults" type="t:ConflictResultsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UpdateItemInRecoverableItemsResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateItemInRecoverableItemsResponse" type="m:UpdateItemInRecoverableItemsResponseMessageType"/>
+</xs:schema>

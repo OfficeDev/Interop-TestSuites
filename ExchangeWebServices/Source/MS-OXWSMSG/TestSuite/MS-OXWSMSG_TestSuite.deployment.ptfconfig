@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The Sender property specifies the name for a user who should be able to send email. -->
+    <Property name="Sender" value="MSOXWSMSG_User01"/>
+    <!-- The SenderPassword property specifies the password for the user specified in the Sender property. The property value is case-sensitive. -->
+    <Property name="SenderPassword" value="Password01!"/>
+    <!-- The Recipient1 property specifies the name for a user who should be able to receive email. -->
+    <Property name="Recipient1" value="MSOXWSMSG_User02"/>
+    <!-- The Recipient1Password property specifies the password for the user specified in the Recipient1 property. The property value is case-sensitive. -->
+    <Property name="Recipient1Password" value="Password01!"/>
+    <!-- The Recipient2 property specifies the name for another user who should be able to receive email. -->
+    <Property name="Recipient2" value="MSOXWSMSG_User03"/>
+    <!-- The Recipient2Password property specifies the password for the user specified in the Recipient2 property. The property value is case-sensitive. -->
+    <Property name="Recipient2Password" value="Password01!"/>
+    <!-- The RoomName property specifies the name of a meeting room. -->
+    <Property name="RoomName" value="MSOXWSMSG_Room01"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The Subject property specifies a string used to generate an email subject by the method GenerateResourceName. -->
+    <Property name="Subject" value="TestMessage"/>
+    <!-- The Reference property specifies the Usenet header that is used to correlate replies with their original message.  -->
+    <Property name="Reference" value="reference"/>
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

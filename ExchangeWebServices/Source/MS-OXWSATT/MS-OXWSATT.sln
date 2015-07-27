@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD4FF674-7020-4064-A452-E6E443A59545}"
+	ProjectSection(SolutionItems) = preProject
+		MS-OXWSATT.runsettings = MS-OXWSATT.runsettings
+		MS-OXWSATT.testsettings = MS-OXWSATT.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSATT_TestSuite", "TestSuite\MS-OXWSATT_TestSuite.csproj", "{BE1EED90-6779-498F-9AEB-AE4A63DC6E1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-OXWSATT_Adapter", "Adapter\MS-OXWSATT_Adapter.csproj", "{CE536B5E-A0C3-4871-B420-9704ECF0B9F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.csproj", "{719F410B-0D1A-46F2-80A7-D5D91CF8E915}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE1EED90-6779-498F-9AEB-AE4A63DC6E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE1EED90-6779-498F-9AEB-AE4A63DC6E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE1EED90-6779-498F-9AEB-AE4A63DC6E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE1EED90-6779-498F-9AEB-AE4A63DC6E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE536B5E-A0C3-4871-B420-9704ECF0B9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE536B5E-A0C3-4871-B420-9704ECF0B9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE536B5E-A0C3-4871-B420-9704ECF0B9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE536B5E-A0C3-4871-B420-9704ECF0B9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719F410B-0D1A-46F2-80A7-D5D91CF8E915}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set MS-OXWSBTRF_Supported to true to indicate the product version of the SUT supports the MS-OXWSBTRF service. Otherwise set MS-OXWSBTRF_Supported to false.-->
+    <Property name="MS-OXWSBTRF_Supported" value="false"/>
+	<!-- Set R6Enabled to true to verify that the implementation does use secure communications via HTTPS as specified in section 2.1. Set R6Enabled to false to disable this requirement.-->
+    <Property name="R6Enabled" value="false"/>
+    <!-- Set R2111Enabled to true to verify that implementation does not implement the ManagementRole part as specified in section 3.1.4.1. Set R2111Enabled to false to disable this requirement.-->
+    <Property name="R2111Enabled" value="false"/>
+  </Properties>
+</TestSite>

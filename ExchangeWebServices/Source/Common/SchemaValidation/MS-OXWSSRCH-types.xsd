@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="AggregateOnType">
+    <xs:choice>
+      <xs:element name="FieldURI" type="t:PathToUnindexedFieldType"/>
+      <xs:element name="IndexedFieldURI" type="t:PathToIndexedFieldType"/>
+      <xs:element name="ExtendedFieldURI" type="t:PathToExtendedFieldType"/>
+    </xs:choice>
+    <xs:attribute name="Aggregate" type="t:AggregateType" use="required"/>
+  </xs:complexType>
+  <xs:simpleType name="AggregateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Minimum"/>
+      <xs:enumeration value="Maximum"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AndType">
+    <xs:complexContent>
+      <xs:extension base="t:MultipleOperandBooleanExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="And" type="t:AndType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="ArrayOfGroupedItemsType">
+    <xs:choice>
+      <xs:element name="GroupedItems" type="t:GroupedItemsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BaseGroupByType" abstract="true">
+    <xs:attribute name="Order" type="t:SortDirectionType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="BasePagingType" abstract="true">
+    <xs:attribute name="MaxEntriesReturned" type="xs:int" use="optional"/>
+  </xs:complexType>
+  <xs:simpleType name="ContainmentModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FullString"/>
+      <xs:enumeration value="Prefixed"/>
+      <xs:enumeration value="Substring"/>
+      <xs:enumeration value="PrefixOnWords"/>
+      <xs:enumeration value="ExactPhrase"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ContainmentComparisonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Exact"/>
+      <xs:enumeration value="IgnoreCase"/>
+      <xs:enumeration value="IgnoreNonSpacingCharacters"/>
+      <xs:enumeration value="Loose"/>
+      <xs:enumeration value="IgnoreCaseAndNonSpacingCharacters"/>
+      <xs:enumeration value="LooseAndIgnoreCase"/>
+      <xs:enumeration value="LooseAndIgnoreNonSpace"/>
+      <xs:enumeration value="LooseAndIgnoreCaseAndIgnoreNonSpace"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContainsExpressionType">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:Path"/>
+          <xs:element name="Constant" type="t:ConstantValueType"/>
+        </xs:sequence>
+        <xs:attribute name="ContainmentMode" type="t:ContainmentModeType" use="optional"/>
+        <xs:attribute name="ContainmentComparison" type="t:ContainmentComparisonType" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Contains" type="t:ContainsExpressionType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="DistinguishedGroupByType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseGroupByType">
+        <xs:sequence>
+          <xs:element name="StandardGroupBy" type="t:StandardGroupByType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ExcludesValueType">
+    <xs:attribute name="Value" type="t:ExcludesAttributeType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="ExcludesType">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:Path"/>
+          <xs:element name="Bitmask" type="t:ExcludesValueType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Excludes" type="t:ExcludesType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="ExistsType">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:Path"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Exists" type="t:ExistsType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="FieldOrderType">
+    <xs:sequence>
+      <xs:element ref="t:Path"/>
+    </xs:sequence>
+    <xs:attribute name="Order" type="t:SortDirectionType" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="FindFolderParentType">
+    <xs:sequence>
+      <xs:element name="Folders" type="t:ArrayOfFoldersType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="t:FindResponsePagingAttributes"/>
+  </xs:complexType>
+  <xs:complexType name="FindItemParentType">
+    <xs:choice>
+      <xs:element name="Items" type="t:ArrayOfRealItemsType"/>
+      <xs:element name="Groups" type="t:ArrayOfGroupedItemsType"/>
+    </xs:choice>
+    <xs:attributeGroup ref="t:FindResponsePagingAttributes"/>
+  </xs:complexType>
+  <xs:simpleType name="FolderQueryTraversalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shallow"/>
+      <xs:enumeration value="Deep"/>
+      <xs:enumeration value="SoftDeleted"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FractionalPageViewType">
+    <xs:complexContent>
+      <xs:extension base="t:BasePagingType">
+        <xs:attribute name="Numerator" type="xs:int" use="required"/>
+        <xs:attribute name="Denominator" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GroupByType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseGroupByType">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="FieldURI" type="t:PathToUnindexedFieldType"/>
+            <xs:element name="IndexedFieldURI" type="t:PathToIndexedFieldType"/>
+            <xs:element name="ExtendedFieldURI" type="t:PathToExtendedFieldType"/>
+          </xs:choice>
+          <xs:element name="AggregateOn" type="t:AggregateOnType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GroupedItemsType">
+    <xs:sequence>
+      <xs:element name="GroupIndex" type="xs:string"/>
+      <xs:element name="Items" type="t:ArrayOfRealItemsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="IndexBasePointType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Beginning"/>
+      <xs:enumeration value="End"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="IndexedPageViewType">
+    <xs:complexContent>
+      <xs:extension base="t:BasePagingType">
+        <xs:attribute name="Offset" type="xs:int" use="required"/>
+        <xs:attribute name="BasePoint" type="t:IndexBasePointType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IsEqualToType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsEqualTo" type="t:IsEqualToType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="IsNotEqualToType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsNotEqualTo" type="t:IsNotEqualToType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="IsGreaterThanType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsGreaterThan" type="t:IsGreaterThanType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="IsGreaterThanOrEqualToType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsGreaterThanOrEqualTo" type="t:IsGreaterThanOrEqualToType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="IsLessThanType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsLessThan" type="t:IsLessThanType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="IsLessThanOrEqualToType">
+    <xs:complexContent>
+      <xs:extension base="t:TwoOperandExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsLessThanOrEqualTo" type="t:IsLessThanOrEqualToType" substitutionGroup="t:SearchExpression"/>
+  <xs:simpleType name="ItemQueryTraversalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shallow"/>
+      <xs:enumeration value="SoftDeleted"/>
+      <xs:enumeration value="Associated"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="NotType">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:SearchExpression"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Not" type="t:NotType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="MultipleOperandBooleanExpressionType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:SearchExpression" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OrType">
+    <xs:complexContent>
+      <xs:extension base="t:MultipleOperandBooleanExpressionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Or" type="t:OrType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="NonEmptyArrayOfFieldOrdersType">
+    <xs:sequence>
+      <xs:element name="FieldOrder" type="t:FieldOrderType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RestrictionType">
+    <xs:sequence>
+      <xs:element ref="t:SearchExpression"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SearchExpressionType" abstract="true"/>
+  <xs:element name="SearchExpression" type="t:SearchExpressionType"/>
+  <xs:simpleType name="SearchFolderTraversalType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Shallow"/>
+      <xs:enumeration value="Deep"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SearchFolderType">
+    <xs:complexContent>
+      <xs:extension base="t:FolderType">
+        <xs:sequence>
+          <xs:element name="SearchParameters" type="t:SearchParametersType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SearchParametersType">
+    <xs:sequence>
+      <xs:element name="Restriction" type="t:RestrictionType"/>
+      <xs:element name="BaseFolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType"/>
+    </xs:sequence>
+    <xs:attribute name="Traversal" type="t:SearchFolderTraversalType" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="SeekToConditionPageViewType">
+    <xs:complexContent>
+      <xs:extension base="t:BasePagingType">
+        <xs:sequence>
+          <xs:element name="Condition" type="t:RestrictionType" minOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="BasePoint" type="t:IndexBasePointType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SortDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending"/>
+      <xs:enumeration value="Descending"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StandardGroupByType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ConversationTopic"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TwoOperandExpressionType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="t:SearchExpressionType">
+        <xs:sequence>
+          <xs:element ref="t:Path"/>
+          <xs:element name="FieldURIOrConstant" type="t:FieldURIOrConstantType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types"  schemaLocation="MS-OXWSMSHR-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+
+  <xs:complexType name="GetSharingFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SmtpAddress" type="t:NonEmptyStringType"/>
+          <xs:element name="DataType" type="t:SharingDataType" minOccurs="0"/>
+          <xs:element name="SharedFolderId" type="t:NonEmptyStringType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSharingFolder" type="m:GetSharingFolderType"/>
+  <xs:complexType name="GetSharingFolderResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence minOccurs="0">
+          <xs:element name="SharingFolderId" type="t:FolderIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSharingFolderResponse" type="m:GetSharingFolderResponseMessageType"/>
+  <xs:complexType name="GetSharingMetadataType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="IdOfFolderToShare" type="t:FolderIdType"/>
+          <xs:element name="SenderSmtpAddress" type="t:NonEmptyStringType"/>
+          <xs:element name="Recipients" type="t:ArrayOfSmtpAddressType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSharingMetadata" type="m:GetSharingMetadataType"/>
+  <xs:complexType name="GetSharingMetadataResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence minOccurs="0">
+          <xs:element name="EncryptedSharedFolderDataCollection" type="t:ArrayOfEncryptedSharedFolderDataType"/>
+          <xs:element name="InvalidRecipients" type="t:ArrayOfInvalidRecipientsType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSharingMetadataResponse" type="m:GetSharingMetadataResponseMessageType"/>
+  <xs:complexType name="RefreshSharingFolderType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SharingFolderId" type="t:FolderIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RefreshSharingFolder" type="m:RefreshSharingFolderType"/>
+  <xs:complexType name="RefreshSharingFolderResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RefreshSharingFolderResponse" type="m:RefreshSharingFolderResponseMessageType"/>
+</xs:schema>

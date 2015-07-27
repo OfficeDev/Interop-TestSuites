@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R1290Enabled to true to verify that the implementation does support the MarkAllItemsAsRead operation which marks all items in a folder as read, as specified in section 3.1.4.5. Set R1290Enabled to false to disable this requirement.-->
+    <Property name="R1290Enabled" value="false" />
+    <!--Set R1271Enabled to true to verify that the implementation does support the FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4.2. Set R1271Enabled to false to disable this requirement.-->
+    <Property name="R1271Enabled" value="false" />
+    <!--Set R1353Enabled to true to verify that the implementation does support element "RetentionDate" with type "xs:dateTime" which specifies the retention date for an item, as specified in section 2.2.4.8. Set R1353Enabled to false to disable this requirement.-->
+    <Property name="R1353Enabled" value="false" />
+    <!--Set R1358Enabled to true to verify that the implementation does support element name "HasBlockedImages" with type "xs:boolean" which is true indicating the item has blocked images, as specified in section 2.2.4.8. Set R1358Enabled to false to disable this requirement.-->
+    <Property name="R1358Enabled" value="false" />
+    <!--Set R21498Enabled to true to verify that the implementation does include the element "ConvertHtmlCodePageToUTF8" which indicates the implementation convert the HTML code page to UTF8, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R21498Enabled to false to disable this requirement.-->
+    <Property name="R21498Enabled" value="false" />
+    <!--Set R2149904Enabled to true to verify that the implementation does use the element "InlineImageUrlTemplate" which specifies the name of the template for the inline image URL, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149904Enabled to false to disable this requirement.-->
+    <Property name="R2149904Enabled" value="false" />
+    <!--Set R2149905Enabled to true to verify that the implementation does use the element "BlockExternalImages" which specifies whether external images are blocked, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149905Enabled to false to disable this requirement.-->
+    <Property name="R2149905Enabled" value="false" />
+    <!--Set R2149908Enabled to true to verify that the implementation does use the element "AddBlankTargetToLinks" which specifies whether the target attribute is set to a value of blank, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149908Enabled to false to disable this requirement.-->
+    <Property name="R2149908Enabled" value="false" />
+    <!--Set R1772Enabled to true to verify that the implementation does use the ArrayOfUrlEntitiesType complex type which specifies an array of URL entities, as specified in section 2.2.4.45. Set R1772Enabled to false to disable this requirement.-->
+    <Property name="R1772Enabled" value="false" />
+    <!--Set R1776Enabled to true to verify that the implementation does use this UrlEntityType complex type which extends the EntityType complex type, as specified in section 2.2.4.46. Set R1776Enabled to false to disable this requirement.-->
+    <Property name="R1776Enabled" value="false" />
+    <!--Set R1230Enabled to true to verify that the ReturnNewItemIds element was introduced in implementation, as specified in section 2.2.4.3. Set R1230Enabled to false to disable this requirement.-->
+    <Property name="R1230Enabled" value="false" />
+    <!--Set R1054011Enabled to true to verify that the implementation does use the element "MarkAllItemsAsReadResponseMessage" with type "m:ResponseMessageType", which specifies the response message for the MarkAllItemsAsRead operation, as specified in [MS-OXWSCDATA] section 2.2.4.10. Set R1054011Enabled to false to disable this requirement.-->
+    <Property name="R1054011Enabled" value="false" />
+    <!--Set R132502Enabled to true to verify that the implementation does include the DateTimePrecision element which specifies precision of DateTime values that are returned in responses, as specified in [MS-OXWSCDATA] section 2.2.5.1. Set R132502Enabled to false to disable this requirement.-->
+    <Property name="R132502Enabled" value="false" />
+    <!--Set R1816Enabled to true to verify that the DateTimePrecisionType simple type was introduced in implementation, as specified in [MS-OXWSCDATA] section 2.2.3.3. Set R1816Enabled to false to disable this requirement.-->
+    <Property name="R1816Enabled" value="false" />
+    <!--Set R4003Enabled to true to verify that the implementation does use the attribute "IsTruncated" with type "xs:boolean ([XMLSCHEMA2])" which specifies whether the body is truncated, as specified in [MS-OXWSCDATA] section 2.2.4.11. Set R4003Enabled to false to disable this requirement.-->
+    <Property name="R4003Enabled" value="false" />
+    <!--Set R1350Enabled to true to verify that the implementation does support element  "EntityExtractionResultt" with type "t:EntityExtractionResultType" which specifies the result of an entity extraction, as specified in section 2.2.4.8. Set R1350Enabled to false to disable this requirement.-->
+    <Property name="R1350Enabled" value="false" />
+    <!--Set R1503Enabled to true to verify that the implementation does support ArrayOfAddressesType complex type which specifies an array of addresses, as specified in section 2.2.4. Set R1503Enabled to false to disable this requirement.-->
+    <Property name="R1503Enabled" value="false" />
+    <!--Set R1504Enabled to true to verify that the implementation does support ArrayOfMeetingSuggestionsType complex type which specifies an array of meeting suggestions, as specified in section 2.2.4. Set R1504Enabled to false to disable this requirement.-->
+    <Property name="R1504Enabled" value="false" />
+    <!--Set R1505Enabled to true to verify that the implementation does support MeetingSuggestionType complex type which specifies a meeting suggestion, as specified in section 2.2.4. Set R1505Enabled to false to disable this requirement.-->
+    <Property name="R1505Enabled" value="false" />
+    <!--Set R1506Enabled to true to verify that the implementation does support ArrayOfTaskSuggestionsType complex type which specifies an array of task suggestions, as specified in section 2.2.4. Set R1506Enabled to false to disable this requirement.-->
+    <Property name="R1506Enabled" value="false" />
+    <!--Set R1507Enabled to true to verify that the implementation does support ArrayOfContactsType complex type which specifies an array of contacts, as specified in section 2.2.4. Set R1507Enabled to false to disable this requirement.-->
+    <Property name="R1507Enabled" value="false" />
+    <!--Set R1508Enabled to true to verify that the implementation does support ContactType complex type which specifies the type of a contact, as specified in section 2.2.4. Set R1508Enabled to false to disable this requirement.-->
+    <Property name="R1508Enabled" value="false" />
+    <!--Set R1509Enabled to true to verify that the implementation does support ArrayOfUrlsType complex type which specifies an array of URLs, as specified in section 2.2.4. Set R1509Enabled to false to disable this requirement.-->
+    <Property name="R1509Enabled" value="false" />
+    <!--Set R1510Enabled to true to verify that the implementation does support ArrayOfPhonesType complex type which specifies an array of phone numbers, as specified in section 2.2.4. Set R1510Enabled to false to disable this requirement.-->
+    <Property name="R1510Enabled" value="false" />
+    <!--Set R1511Enabled to true to verify that the implementation does support PhoneType complex type which specifies a phone number and its type, as specified in section 2.2.4. Set R1511Enabled to false to disable this requirement.-->
+    <Property name="R1511Enabled" value="false" />
+    <!--Set R1512Enabled to true to verify that the implementation does support ArrayOfEmailUsersType complex type which specifies an array of email users, as specified in section 2.2.4. Set R1512Enabled to false to disable this requirement.-->
+    <Property name="R1512Enabled" value="false" />
+    <!--Set R1702Enabled to true to verify that the implementation does support EmailUserType complex type which specifies an email user, as specified in section 2.2.4. Set R1702Enabled to false to disable this requirement.-->
+    <Property name="R1702Enabled" value="false" />
+    <!--Set R1704Enabled to true to verify that the implementation does support TaskSuggestionType complex type which specifies a task suggestion, as specified in section 2.2.4. Set R1704Enabled to false to disable this requirement.-->
+    <Property name="R1704Enabled" value="false" />
+    <!--Set R1706Enabled to true to verify that the implementation does support ArrayOfExtractedEmailAddresses complex type which specifies an array of email addresses, as specified in section 2.2.4. Set R1706Enabled to false to disable this requirement.-->
+    <Property name="R1706Enabled" value="false" />
+    <!--Set R1708Enabled to true to verify that the implementation does support EntityExtractionResultType complex type which specifies the result of an entity extraction, as specified in section 2.2.4. Set R1708Enabled to false to disable this requirement.-->
+    <Property name="R1708Enabled" value="false" />
+    <!--Set R1710Enabled to true to verify that the implementation does support EntityType complex type which specifies a single entity, as specified in section 2.2.4. Set R1710Enabled to false to disable this requirement.-->
+    <Property name="R1710Enabled" value="false" />
+    <!--Set R1712Enabled to true to verify that the implementation does support ArrayOfAddressEntitiesTypeType complex type which specifies an array of address entities, as specified in section 2.2.4. Set R1712Enabled to false to disable this requirement.-->
+    <Property name="R1712Enabled" value="false" />
+    <!--Set R1714Enabled to true to verify that the implementation does support AddressEntityType complex type which specifies an address entity, as specified in section 2.2.4. Set R1714Enabled to false to disable this requirement.-->
+    <Property name="R1714Enabled" value="false" />
+    <!--Set R1716Enabled to true to verify that the implementation does support ArrayOfEmailAddressEntitiesType complex type which specifies an array of email address entities, as specified in section 2.2.4. Set R1716Enabled to false to disable this requirement.-->
+    <Property name="R1716Enabled" value="false" />
+    <!--Set R1718Enabled to true to verify that the implementation does support EmailAddressEntityType complex type which specifies an email address entity, as specified in section 2.2.4. Set R1718Enabled to false to disable this requirement.-->
+    <Property name="R1718Enabled" value="false" />
+    <!--Set R1720Enabled to true to verify that the implementation does support ArrayOfPhoneEntitiesType complex type which specifies an array of phone entities, as specified in section 2.2.4. Set R1720Enabled to false to disable this requirement.-->
+    <Property name="R1720Enabled" value="false" />
+    <!--Set R1722Enabled to true to verify that the implementation does support PhoneEntityType complex type which specifies a phone entity, as specified in section 2.2.4. Set R1722Enabled to false to disable this requirement.-->
+    <Property name="R1722Enabled" value="false" />
+    <!--Set R1724Enabled to true to verify that the implementation does support ArrayOfUrlEntitiesType complex type which specifies an array of URL entities, as specified in section 2.2.4. Set R1724Enabled to false to disable this requirement.-->
+    <Property name="R1724Enabled" value="false" />
+    <!--Set R1726Enabled to true to verify that the implementation does support UrlEntityType complex type which specifies a URL entity, as specified in section 2.2.4. Set R1726Enabled to false to disable this requirement.-->
+    <Property name="R1726Enabled" value="false" />
+    <!--Set R1787Enabled to true to verify that the implementation does use operation MarkAsJunk to mark an item as junk, as specified in section 3.1.4. Set R1787Enabled to false to disable this requirement.-->
+    <Property name="R1787Enabled" value="false" />
+    <!--Set R1790Enabled to true to verify that the implementation does use operation MarkAsJunk to mark an item as junk, as specified in section 3.1.4.6. Set R1790Enabled to false to disable this requirement.-->
+    <Property name="R1790Enabled" value="false" />
+    <!--Set R1272Enabled to true to verify that the implementation does support the ArrayOfAddressesType complex type which specifies an array of addresses, as specified in section 2.2.4.23. Set R1272Enabled to false to disable this requirement.-->
+    <Property name="R1272Enabled" value="false" />
+    <!--Set R1275Enabled to true to verify that the implementation does support the ArrayOfMeetingSuggestionsType complex type which specifies an array of meeting suggestions, as specified in section 2.2.4.24. Set R1275Enabled to false to disable this requirement.-->
+    <Property name="R1275Enabled" value="false" />
+    <!--Set R1276Enabled to true to verify that the implementation does support the MeetingSuggestionType complex type which specifies a meeting suggestion, as specified in section 2.2.4.25. Set R1276Enabled to false to disable this requirement.-->
+    <Property name="R1276Enabled" value="false" />
+    <!--Set R1277Enabled to true to verify that the implementation does support the ArrayOfTaskSuggestionsType complex type which specifies an array of task suggestions, as specified in section 2.2.4.26. Set R1277Enabled to false to disable this requirement.-->
+    <Property name="R1277Enabled" value="false" />
+    <!--Set R1278Enabled to true to verify that the implementation does support the ArrayOfContactsType complex type which specifies an array of contacts, as specified in section 2.2.4.27. Set R1278Enabled to false to disable this requirement.-->
+    <Property name="R1278Enabled" value="false" />
+    <!--Set R1279Enabled to true to verify that the implementation does support the ContactType complex type which specifies the type of a contact, as specified in section 2.2.4.28. Set R1279Enabled to false to disable this requirement.-->
+    <Property name="R1279Enabled" value="false" />
+    <!--Set R1280Enabled to true to verify that the implementation does support the ArrayOfUrlsType complex type which specifies an array of URLs, as specified in section 2.2.4.29. Set R1280Enabled to false to disable this requirement.-->
+    <Property name="R1280Enabled" value="false" />
+    <!--Set R1281Enabled to true to verify that the implementation does support the ArrayOfPhonesType complex type which specifies an array of phone numbers, as specified in 2.2.4.30. Set R1281Enabled to false to disable this requirement.-->
+    <Property name="R1281Enabled" value="false" />
+    <!--Set R1282Enabled to true to verify that the implementation does support the PhoneType complex type which specifies a phone number and its type, as specified in section 2.2.4.31. Set R1282Enabled to false to disable this requirement.-->
+    <Property name="R1282Enabled" value="false" />
+    <!--Set R1283Enabled to true to verify that the implementation does support the ArrayOfEmailUsersType complex type which specifies an array of email users, as specified in section 2.2.4.32. Set R1283Enabled to false to disable this requirement.-->
+    <Property name="R1283Enabled" value="false" />
+    <!--Set R1284Enabled to true to verify that the implementation does support the EmailUserType complex type which specifies an email user, as specified in section 2.2.4.33. Set R1284Enabled to false to disable this requirement.-->
+    <Property name="R1284Enabled" value="false" />
+    <!--Set R1286Enabled to true to verify that the implementation does support the TaskSuggestionType complex type which specifies a task suggestion, as specified in section 2.2.4.34. Set R1286Enabled to false to disable this requirement.-->
+    <Property name="R1286Enabled" value="false" />
+    <!--Set R1287Enabled to true to verify that the implementation does support the ArrayOfExtractedEmailAddresses complex type which specifies an array of email addresses, as specified in section 2.2.4.35. Set R1287Enabled to false to disable this requirement.-->
+    <Property name="R1287Enabled" value="false" />
+    <!--Set R1346Enabled to true to verify that the implementation does support the element "Flag" with type "t:FlagType" which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4.8. Set R1346Enabled to false to disable this requirement.-->
+    <Property name="R1346Enabled" value="false" />
+    <!--Set R1348Enabled to true to verify that the implementation does support element "InstanceKey" with type "xs:base64Binary [XMLSCHEMA2]" which specifies the key for an instance, as specified in section 2.2.4.8. Set R1348Enabled to false to disable this requirement.-->
+    <Property name="R1348Enabled" value="false" />
+    <!--Set R1354Enabled to true to verify that the implementation does support element name "Preview" with type "xs:string" which specifies the first 256 characters of the body of a message for preview without opening the message, as specified in section 2.2.4.8. Set R1354Enabled to false to disable this requirement.-->
+    <Property name="R1354Enabled" value="false" />
+    <!--Set R1357Enabled to true to verify that the implementation does support the BlockStatus element, as specified in section 2.2.4.8. Set R1357Enabled to false to disable this requirement.-->
+    <Property name="R1357Enabled" value="false" />
+    <!--Set R1622Enabled to true to verify that the implementation does support the BlockStatus element, as specified in section 2.2.4.8. Set R1622Enabled to false to disable this requirement.-->
+    <Property name="R1622Enabled" value="false" />
+    <!--Set R1623Enabled to true to verify that the implementation does support element name "HasBlockedImages" with type "xs:boolean" which is false indicating the item has not blocked images, as specified in section 2.2.4.8. Set R1623Enabled to false to disable this requirement.-->
+    <Property name="R1623Enabled" value="false" />
+    <!--Set R2149906Enabled to true to verify that the implementation does use the element "BlockExternalImages" which specifies whether external images are blocked, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149906Enabled to false to disable this requirement.-->
+    <Property name="R2149906Enabled" value="false" />
+    <!--Set R2149909Enabled to true to verify that the implementation does use the element "AddBlankTargetToLinks" which specifies whether the target attribute is set to a value of blank, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149909Enabled to false to disable this requirement.-->
+    <Property name="R2149909Enabled" value="false" />
+    <!--Set R1502Enabled to true to verify that the implementation does support FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4. Set R1502Enabled to false to disable this requirement.-->
+    <Property name="R1502Enabled" value="false" />
+    <!--Set R1729Enabled to true to verify that the implementation does support element name "GroupingAction" with type "t:PredictedMessageActionType" which specifies that the next predicted action is grouping items, as specified in section 2.2.4.8. Set R1729Enabled to false to disable this requirement.-->
+    <Property name="R1729Enabled" value="false" />
+    <!--Set R1731Enabled to true to verify that the implementation does support element name "TextBody" with type "t:BodyType" which specifies the text body of the item, as specified in section 2.2.4.8. Set R1731Enabled to false to disable this requirement.-->
+    <Property name="R1731Enabled" value="false" />
+    <!--Set R1746Enabled to true to verify that the implementation does use the EntityType complex type in which entities are text found in certain parts of a message, such as the subject or the body, as specified in section 2.2.4.38. Set R1746Enabled to false to disable this requirement.-->
+    <Property name="R1746Enabled" value="false" />
+    <!--Set R1749Enabled to true to verify that the implementation does use the ArrayOfAddressEntitiesType complex type which represents an array of address entities, as specified in section 2.2.4.39. Set R1749Enabled to false to disable this requirement.-->
+    <Property name="R1749Enabled" value="false" />
+    <!--Set R1753Enabled to true to verify that the implementation does use the AddressEntityType complex type which extends the EntityType complex type, as specified in section 2.2.4.40. Set R1753Enabled to false to disable this requirement.-->
+    <Property name="R1753Enabled" value="false" />
+    <!--Set R1756Enabled to true to verify that the implementation does use the ArrayOfEmailAddressEntitiesType complex type which specifies an array of email addresses, as specified in section 2.2.4.41. Set R1756Enabled to false to disable this requirement.-->
+    <Property name="R1756Enabled" value="false" />
+    <!--Set R1760Enabled to true to verify that the implementation does use the EmailAddressEntityType Complex Type which extends the EntityType complex type, as specified in section 2.2.4.42. Set R1760Enabled to false to disable this requirement.-->
+    <Property name="R1760Enabled" value="false" />
+    <!--Set R1763Enabled to true to verify that the implementation does use the ArrayOfPhoneEntitiesType complex type which specifies an array of phone entities, as specified in section 2.2.4.43. Set R1763Enabled to false to disable this requirement.-->
+    <Property name="R1763Enabled" value="false" />
+    <!--Set R1767Enabled to true to verify that the implementation does use the PhoneEntityType Complex Type which extends the EntityType complex type, as specified in section 2.2.4.44. Set R1767Enabled to false to disable this requirement.-->
+    <Property name="R1767Enabled" value="false" />
+    <!--Set R21142Enabled to true to verify that the implementation does include the element "ViewPrivateItems" with type "xs:boolean" which is true specifying a client can read private items, as specified in [MS-OXWSCDATA] section 2.2.4.25. Set R21142Enabled to false to disable this requirement.-->
+    <Property name="R21142Enabled" value="false" />
+    <!--Set R1256Enabled to true to verify that the implementation does support the DateTimePrecision SOAP header, as specified in section 3.1.4.4.1.1. Set R1256Enabled to false to disable this requirement.-->
+    <Property name="R1256Enabled" value="false" />
+    <!--Set R1917Enabled to true to verify that the implementation does support value "TaskRecur" of "IconIndex" simple type which specifies the recurring task icon, as specified in section 2.2.4.8. Set R1917Enabled to false to disable this requirement.-->
+    <Property name="R1917Enabled" value="false" />
+    <!--Set R19240Enabled to true to verify that the implementation does support ArrayOfRealItemsType Complex Type which does not include DistributionListType, as specified in [MS-OXWSCDATA] section 2.2.4.8. Set R19240Enabled to false to disable this requirement.-->
+    <Property name="R19240Enabled" value="true" />
+    <!--Set R19241Enabled to true to verify that the implementation does support ArrayOfRealItemsType Complex Type which includes DistributionListType, as specified in [MS-OXWSCDATA] section 2.2.4.8. Set R19241Enabled to false to disable this requirement.-->
+    <Property name="R19241Enabled" value="false" />
+    <!--Set R1006Enabled to true to verify that the implementation does use secure communications via HTTPS, defined in [RFC2818], as specified in section 2.1. Set R1006Enabled to false to disable this requirement.-->
+    <Property name="R1006Enabled" value="true" />
+    <!--Set R1349Enabled to true to verify that the implementation does support value "HTML" of "NormalizedBody" which specifies the item body as HTML content, as specified in section 2.2.4.8. Set R1349Enabled to false to disable this requirement.-->
+    <Property name="R1349Enabled" value="false" />
+    <!--Set R1683Enabled to true to verify that the implementation does support value "Text" of "NormalizedBody" which specifies the item body as text content, as specified in section 2.2.4.8. Set R1683Enabled to false to disable this requirement.-->
+    <Property name="R1683Enabled" value="false" />
+    <!--Set R74Enabled to true to verify that the implementation does support Id Storage Type "MailboxItemMailboxGuidBased", as specified in [MS-OXWSITEMID] section 2.1.3.2.2. Set R74Enabled to false to disable this requirement.-->
+    <Property name="R74Enabled" value="true" />
+  </Properties>
+</TestSite>

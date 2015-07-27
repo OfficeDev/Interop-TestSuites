@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
+    <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
+
+    <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
+    <!-- The UserName property specifies the name for a user who should be able to export and upload streamed opaque item data between the server and the client. This user must be assigned impersonation permissions on the server. -->
+    <Property name="UserName" value="MSOXWSBTRF_User01"/>
+    <!-- The UserPassword property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
+    <Property name="UserPassword" value="Password01!"/>
+    <!-- SUT section ends. -->
+
+    <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
+    <!-- The MailboxCulture property specifies the culture to be used when opening a mailbox. -->
+    <Property name="MailboxCulture" value="en-US" />
+    <!-- Test suite client section ends. -->
+  </Properties>
+</TestSite>

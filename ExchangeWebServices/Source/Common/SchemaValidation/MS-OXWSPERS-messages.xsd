@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2013" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="MS-OXWSPERS-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="FindPeopleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PersonaShape" type="t:PersonaResponseShapeType"/>
+          <xs:element name="IndexedPageItemView" type="t:IndexedPageViewType"/>
+          <xs:element minOccurs="0" name="Restriction" type="t:RestrictionType"/>
+          <xs:element minOccurs="0" name="AggregationRestriction" type="t:RestrictionType"/>
+          <xs:element minOccurs="0" name="SortOrder" type="t:NonEmptyArrayOfFieldOrdersType"/>
+          <xs:element minOccurs="0" name="ParentFolderId" type="t:TargetFolderIdType"/>
+          <xs:element minOccurs="0" name="QueryString" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPeople" type="m:FindPeopleType"/>
+  <xs:complexType name="FindPeopleResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="People" type="t:ArrayOfPeopleType"/>
+          <xs:element minOccurs="0" name="TotalNumberOfPeopleInView" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindPeopleResponse" type="m:FindPeopleResponseMessageType"/>
+  <xs:complexType name="GetPersonaType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="PersonaId" type="t:ItemIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPersona" type="m:GetPersonaType"/>
+  <xs:complexType name="GetPersonaResponseMessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Persona" type="t:PersonaType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/>
+</xs:schema>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSNTIF-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="GetEventsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SubscriptionId" type="t:SubscriptionIdType"/>
+          <xs:element name="Watermark" type="t:WatermarkType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetEvents" type="m:GetEventsType"/>
+  <xs:complexType name="GetEventsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Notification" type="t:NotificationType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetEventsResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetEventsResponse" type="m:GetEventsResponseType"/>
+  <xs:complexType name="SubscribeType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:choice>
+          <xs:element name="PullSubscriptionRequest" type="t:PullSubscriptionRequestType"/>
+          <xs:element name="PushSubscriptionRequest" type="t:PushSubscriptionRequestType"/>
+          <xs:element name="StreamingSubscriptionRequest" type="t:StreamingSubscriptionRequestType"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetStreamingEventsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SubscriptionIds" type="t:NonEmptyArrayOfSubscriptionIdsType"/>
+          <xs:element name="ConnectionTimeout" type="t:StreamingSubscriptionConnectionTimeoutType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetStreamingEvents" type="m:GetStreamingEventsType"/>
+  <!-- GetStreamingEvents response -->
+  <xs:complexType name="GetStreamingEventsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Notifications" type="t:NonEmptyArrayOfNotificationsType" minOccurs="0"/>
+          <xs:element name="ErrorSubscriptionIds" type="t:NonEmptyArrayOfSubscriptionIdsType" minOccurs="0"/>
+          <xs:element name="ConnectionStatus" type="t:ConnectionStatusType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetStreamingEventsResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetStreamingEventsResponse" type="m:GetStreamingEventsResponseType"/>
+  <xs:element name="Subscribe" type="m:SubscribeType"/>
+  <xs:complexType name="SubscribeResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="SubscriptionId" type="t:SubscriptionIdType" minOccurs="0"/>
+          <xs:element name="Watermark" type="t:WatermarkType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SubscribeResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubscribeResponse" type="m:SubscribeResponseType"/>
+  <xs:complexType name="UnsubscribeType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SubscriptionId" type="t:SubscriptionIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Unsubscribe" type="m:UnsubscribeType"/>
+  <xs:complexType name="UnsubscribeResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnsubscribeResponse" type="m:UnsubscribeResponseType"/>
+</xs:schema>

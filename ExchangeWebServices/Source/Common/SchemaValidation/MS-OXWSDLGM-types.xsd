@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd" />
+
+  <xs:complexType name="ArrayOfDelegateUserType">
+    <xs:sequence>
+      <xs:element name="DelegateUser" type="t:DelegateUserType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfUserIdType">
+    <xs:sequence>
+      <xs:element name="UserId" type="t:UserIdType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DeliverMeetingRequestsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DelegatesOnly"/>
+      <xs:enumeration value="DelegatesAndMe"/>
+      <xs:enumeration value="DelegatesAndSendInformationToMe"/>
+      <xs:enumeration value="NoForward"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DelegateUserType">
+    <xs:sequence>
+      <xs:element name="UserId" type="t:UserIdType"/>
+      <xs:element name="DelegatePermissions" type="t:DelegatePermissionsType" minOccurs="0"/>
+      <xs:element name="ReceiveCopiesOfMeetingMessages" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ViewPrivateItems" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DelegatePermissionsType">
+    <xs:sequence>
+      <xs:element name="CalendarFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+      <xs:element name="TasksFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+      <xs:element name="InboxFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+      <xs:element name="ContactsFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+      <xs:element name="NotesFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+      <xs:element name="JournalFolderPermissionLevel" type="t:DelegateFolderPermissionLevelType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DelegateFolderPermissionLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Editor"/>
+      <xs:enumeration value="Reviewer"/>
+      <xs:enumeration value="Author"/>
+      <xs:enumeration value="Custom"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

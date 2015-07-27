@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="messages" elementFormDefault="qualified" version="Exchange2013" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCONV-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="FindConversationType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:element name="IndexedPageItemView" type="t:IndexedPageViewType"/>
+            <xs:element name="SeekToConditionPageItemView" type="t:SeekToConditionPageViewType"/>
+          </xs:choice>
+          <xs:element name="SortOrder" type="t:NonEmptyArrayOfFieldOrdersType" minOccurs="0"/>
+          <xs:element name="ParentFolderId" type="t:TargetFolderIdType" minOccurs="1"/>
+          <xs:element name="MailboxScope" type="t:MailboxSearchLocationType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="QueryString" type="m:QueryStringType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ConversationShape" type="t:ConversationResponseShapeType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="Traversal" type="t:ConversationQueryTraversalType" use="optional"/>
+        <xs:attribute name="ViewFilter" type="t:ViewFilterType" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindConversation" type="m:FindConversationType"/>
+  <xs:complexType name="FindConversationResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Conversations" type="t:ArrayOfConversationsType" minOccurs="0"/>
+          <xs:element name="HighlightTerms" type="t:ArrayOfHighlightTermsType" minOccurs="0"/>
+          <xs:element name="TotalConversationsInView" type="xs:int" minOccurs="0"/>
+          <xs:element name="IndexedOffset" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FindConversationResponse" type="m:FindConversationResponseMessageType"/>
+  <xs:complexType name="ApplyConversationActionType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ConversationActions" type="t:NonEmptyArrayOfApplyConversationActionType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplyConversationAction" type="m:ApplyConversationActionType"/>
+  <xs:complexType name="ApplyConversationActionResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplyConversationActionResponse" type="m:ApplyConversationActionResponseType"/>
+  <xs:complexType name="GetConversationItemsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemShape" type="t:ItemResponseShapeType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="FoldersToIgnore" type="t:NonEmptyArrayOfBaseFolderIdsType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="MaxItemsToReturn" type="xs:int" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="SortOrder" type="t:ConversationNodeSortOrder" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="MailboxScope" type="t:MailboxSearchLocationType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Conversations" type="t:ArrayOfConversationRequestsType" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetConversationItems" type="m:GetConversationItemsType"/>
+  <xs:complexType name="GetConversationItemsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Conversation" type="t:ConversationResponseType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetConversationItemsResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetConversationItemsResponse" type="m:GetConversationItemsResponseType"/>
+</xs:schema>

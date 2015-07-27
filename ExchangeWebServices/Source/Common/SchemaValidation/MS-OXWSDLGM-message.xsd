@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSDLGM-types.xsd"/>
+  <xs:complexType name="AddDelegateResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddDelegateResponse" type="m:AddDelegateResponseMessageType"/>
+  <xs:complexType name="AddDelegateType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateType">
+        <xs:sequence>
+          <xs:element name="DelegateUsers" type="t:ArrayOfDelegateUserType"/>
+          <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddDelegate" type="m:AddDelegateType"/>
+  <xs:complexType name="ArrayOfDelegateUserResponseMessageType">
+    <xs:sequence>
+      <xs:element name="DelegateUserResponseMessageType" type="m:DelegateUserResponseMessageType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BaseDelegateResponseMessageType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="ResponseMessages" type="m:ArrayOfDelegateUserResponseMessageType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseDelegateType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="Mailbox" type="t:EmailAddressType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DelegateUserResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="DelegateUser" type="t:DelegateUserType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetDelegateType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateType">
+        <xs:sequence>
+          <xs:element name="UserIds" type="t:ArrayOfUserIdType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="IncludePermissions" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDelegateResponse" type="m:GetDelegateResponseMessageType"/>
+  <xs:complexType name="GetDelegateResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateResponseMessageType">
+        <xs:sequence>
+          <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDelegate" type="m:GetDelegateType"/>
+  <xs:complexType name="RemoveDelegateType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateType">
+        <xs:sequence>
+          <xs:element name="UserIds" type="t:ArrayOfUserIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RemoveDelegate" type="m:RemoveDelegateType"/>
+  <xs:complexType name="RemoveDelegateResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RemoveDelegateResponse" type="m:RemoveDelegateResponseMessageType"/>
+  <xs:complexType name="UpdateDelegateType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateType">
+        <xs:sequence>
+          <xs:element name="DelegateUsers" type="t:ArrayOfDelegateUserType" minOccurs="0"/>
+          <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateDelegate" type="m:UpdateDelegateType"/>
+  <xs:complexType name="UpdateDelegateResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateDelegateResponse" type="m:UpdateDelegateResponseMessageType"/>
+</xs:schema>

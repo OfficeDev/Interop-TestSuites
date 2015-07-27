@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:element name="AbsoluteDateTransition" type="t:AbsoluteDateTransitionType" substitutionGroup="t:Transition"/>
+  <xs:complexType name="AbsoluteDateTransitionType">
+    <xs:complexContent>
+      <xs:extension base="t:TransitionType">
+        <xs:sequence>
+          <xs:element name="DateTime" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTimeZoneDefinitionType">
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="TimeZoneDefinition" type="t:TimeZoneDefinitionType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransitionsGroupsType">
+    <xs:sequence>
+      <xs:element name="TransitionsGroup" type="t:ArrayOfTransitionsType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransitionsType">
+    <xs:sequence>
+      <xs:element ref="t:Transition" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Id" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfPeriodsType">
+    <xs:sequence>
+      <xs:element name="Period" type="t:PeriodType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfTimeZoneIdType">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PeriodType">
+    <xs:attribute name="Bias" type="xs:duration"/>
+    <xs:attribute name="Name" type="xs:string"/>
+    <xs:attribute name="Id" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="RecurringDayTransition" type="t:RecurringDayTransitionType" substitutionGroup="t:Transition"/>
+  <xs:element name="RecurringDateTransition" type="t:RecurringDateTransitionType" substitutionGroup="t:Transition"/>
+  <xs:complexType name="RecurringDateTransitionType">
+    <xs:complexContent>
+      <xs:extension base="t:RecurringTimeTransitionType">
+        <xs:sequence>
+          <xs:element name="Day" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RecurringDayTransitionType">
+    <xs:complexContent>
+      <xs:extension base="t:RecurringTimeTransitionType">
+        <xs:sequence>
+          <xs:element name="DayOfWeek" type="t:DayOfWeekType"/>
+          <xs:element name="Occurrence" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RecurringTimeTransitionType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="t:TransitionType">
+        <xs:sequence>
+          <xs:element name="TimeOffset" type="xs:duration"/>
+          <xs:element name="Month" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TimeZoneContextType">
+    <xs:sequence>
+      <xs:element name="TimeZoneDefinition" type="t:TimeZoneDefinitionType"/>
+    </xs:sequence>
+    <xs:anyAttribute namespace="http://schemas.xmlsoap.org/soap/envelope/">
+    </xs:anyAttribute>
+  </xs:complexType>
+  <xs:element name="TimeZoneContext" type="t:TimeZoneContextType"/>
+  <xs:complexType name="TimeZoneDefinitionType">
+    <xs:sequence minOccurs="0">
+      <xs:element name="Periods" type="t:NonEmptyArrayOfPeriodsType"/>
+      <xs:element name="TransitionsGroups" type="t:ArrayOfTransitionsGroupsType" minOccurs="0"/>
+      <xs:element name="Transitions" type="t:ArrayOfTransitionsType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="Id" type="xs:string"/>
+    <xs:attribute name="Name" type="xs:string"/>
+  </xs:complexType>
+  <xs:simpleType name="TransitionTargetKindType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Period"/>
+      <xs:enumeration value="Group"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TransitionTargetType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Kind" type="t:TransitionTargetKindType" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="TransitionType" abstract="false">
+    <xs:sequence>
+      <xs:element name="To" type="t:TransitionTargetType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transition" type="t:TransitionType"/>
+</xs:schema>

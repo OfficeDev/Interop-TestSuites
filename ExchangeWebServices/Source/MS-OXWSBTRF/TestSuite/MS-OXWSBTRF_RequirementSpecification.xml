@@ -1,0 +1,3011 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R1001</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions]The endpoint (4) URL that is returned by either the Autodiscover Publishing Lookup SOAP-Based Web Service Protocol, as described in [MS-OXWSADISC], or the Autodiscover Publishing and Lookup Protocol, as described in [MS-OXDSCLI], is required to form the HTTP request to the Web server that hosts this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R1002</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>[In Prerequisites/Preconditions] The operations that this protocol defines cannot be accessed unless the correct endpoint (4) is identified in the HTTP Web requests that target this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]In the following sections, the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]The WSDL in this specification provides a base description of the protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[Messages]The schema in this specification provides a base description of the message syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]The text that specifies the WSDL and schema might specify restrictions that reflect actual protocol behavior.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, or present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport]The SOAP version used for this protocol is SOAP 1.1, as specified in [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport]This protocol [MS-OXWSBTRF] relies on the Web server that hosts the application to perform authentication.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport]The protocol [MS-OXWSBTRF] MUST support SOAP over HTTP, as specified in [RFC2616].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport]The protocol SHOULD use secure communications via HTTPS, as defined in [RFC2818].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSBTRF_R6.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax]This section [Common Message Syntax] contains common definitions used by this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R7001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Common Message Syntax]The syntax of the definitions uses XML schema, as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and Web Services Description Language (WSDL), as defined in [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]This specification [Bulk Transfer Web Service Protocol Specification] defines and references various XML namespaces by using the mechanisms specified in [XMLNS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]Although this specification associates a specific XML namespace prefix for each XML namespace that is used, the choice of any particular XML namespace prefix is implementation-specific and not significant for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "soap" is used for Namespace URI "http://schemas.xmlsoap.org/wsdl/soap/" with reference to [SOAP1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "tns" is used for Namespace URI 
+"http://schemas.microsoft.com/exchange/services/2006/messages".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "wsdl" is used for Namespace URI 
+"http://schemas.xmlsoap.org/wsdl/" with reference to [WSDL].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "t" is used for Namespace URI 
+"http://schemas.microsoft.com/exchange/services/2006/types".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "xs" is used for Namespace URI 
+"http://www.w3.org/2001/XMLSchema" with reference to [XMLSCHEMA1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "m" is used for Namespace URI 
+"http://schemas.microsoft.com/exchange/services/2006/messages".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "none" is used for Namespace URI 
+"http://schemas.microsoft.com/exchange/services/2006/messages".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces]The Prefix "none" is used for Namespace URI 
+"http://schemas.microsoft.com/exchange/services/2006/types".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R18</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]This specification does not define any common WSDL message definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R19</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]This specification does not define any common XML schema element definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]This specification does not define any common XML schema complex type definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types]This specification does not define any common XML schema simple types definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Attributes]This specification does not define any common XML schema attribute definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R23</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Groups]This specification does not define any common XML schema group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R24</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Attribute Groups]This specification does not define any common XML schema attribute group definitions.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R26</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details]The client side of this protocol is simply a pass-through.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2316</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details]That [The client side of this protocol is simply a pass-through]  is, no additional timers or other state is required on the client side of this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R153</ns1:REQ_ID>
+		<ns1:Doc_Sect>3</ns1:Doc_Sect>
+		<ns1:Description>[In Protocol Details]Calls made by the higher-layer protocol or application are passed directly to the transport, and the results returned by the transport are passed directly back to the higher-layer protocol or application.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R29</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details]The Bulk Transfer Web Service Protocol defines a single WSDL port type with two operations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2100</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExchangeServicePortType Server Details]The operations enable client implementations to import and export items to and from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The following table summarizes the list of operations [ExportItems, UploadItems] as defined by this specification.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R33</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The ExportItems operation (section 3.1.4.1) specifies the WSDL messages for exporting items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The UploadItems operation (section 3.1.4.2) specifies the WSDL messages for uploading items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The data stream for the UploadItems operation is provided by previously exported item data streams provided by the ExportItems operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems]The ExportItems operation specifies the WSDL messages for exporting items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R36001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems]The following is the WSDL port type definition of the operation.
+&lt;wsdl:operation name="ExportItems"&gt;
+   &lt;wsdl:input message="tns:ExportItemsSoapIn"/&gt;
+   &lt;wsdl:output message="tns:ExportItemsSoapOut"/&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems]The following is the WSDL binding specification of the operation.&lt;1&gt;
+&lt;wsdl:operation name="ExportItems"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/ExportItems" /&gt;
+   &lt;wsdl:input&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="Impersonation" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="MailboxCulture" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="RequestVersion" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="ManagementRole" use="literal"/&gt;
+       &lt;soap:body parts="request" use="literal" /&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+       &lt;soap:body parts="ExportItemsResult" use="literal" /&gt;
+       &lt;soap:header message="tns:ExportItemsSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSBTRF_R2111.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R39</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]The following table lists the set of WSDL message definitions [ExportItemsSoapIn, ExportItemsSoapOut] that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R40</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]ExportItemsSoapIn (section 3.1.4.1.1.1)
+specifies the SOAP message that represents a request to export items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]ExportItemsSoapOut (section 3.1.4.1.1.2)
+specifies the SOAP message that represents a response that contains exported items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The ExportItemsSoapIn WSDL message specifies the SOAP message that represents a request to export items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The following is the ExportItemsSoapIn WSDL message specification.
+&lt;wsdl:message name="ExportItemsSoapIn"&gt;&lt;wsdl:message name="ExportItemsSoapIn"&gt;
+  &lt;wsdl:part name="request" element="tns:ExportItems"/&gt;
+  &lt;wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/&gt;
+  &lt;wsdl:part name="MailboxCulture" element="t:MailboxCulture"/&gt;
+  &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
+  &lt;wsdl:part name="ManagementRole" element="t:ManagementRole"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The ExportItemSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/ExportItem.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The parts [request, Impersonation, MailboxCulture, RequestVersion, ManagementRole] of the ExportItemSoapIn WSDL message are described in the following table[in 3.1.4.1.1.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of request is tns:ExportItems (section 3.1.4.1.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message][The part request] specifies the SOAP body of the request to export items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R156</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]This part [request] is required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R157</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of Impersonation is t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.5.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R158</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message] [The part Impersonation] 
+specifies a SOAP header that identifies the user whom the client application is impersonating.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R159</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]This part [Impersonation] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R160</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.5.6).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R161</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message] [The part MailboxCulture] specifies a SOAP header that identifies the culture to use for accessing the server. The cultures are defined by [RFC3066].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R162</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message] [RequestVersion] specifies a SOAP header that identifies the schema version for the ExportItems operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2105</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The part ManagementRole with Element/type t:ManagementRole ([MS-OXWSCDATA] section 2.2.5.7): specifies the SOAP header that identifies the caller's role. &lt;2&gt; .</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R51</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The ExportItemsSoapOut WSDL message specifies the SOAP message that represents a response that contains exported items.
+&lt;wsdl:message name="ExportItemsSoapOut"&gt;
+  &lt;wsdl:part name="ExportItemsResult" element="tns:ExportItemsResponse"/&gt;
+  &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R53</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The ExportItemSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/ExportItem.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R54</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The parts [ExportItemsResult, ServerVersion] of the ExportItemsSoapOut WSDL message are described in the following table [in 3.1.4.1.1.2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R251</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The Element/type of ExportItemsResult is tns:ExportItemsResponse (section 3.1.4.1.2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R252</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message][The part ExportItemsResult] specifies the SOAP body of the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R253</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.5.10).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R254</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message][The part ServerVersion] specifies the SOAP header that identifies the server version for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]If the request is successful, the ExportItems operation returns an ExportItemsResponse element with the ResponseClass attribute of the ExportItemsResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2108</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message][If the request is successful]The ResponseCode element of the ExportItemsResponseMessage element is set to "NoError".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2109</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]If the request is unsuccessful, the ExportItems operation returns an ExportItemsResponse element with the ResponseClass attribute of the ExportItemsResponseMessage element set to "Error".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2110</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message][If the request is unsuccessful]The ResponseCode element of the ExportItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R57</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]The following table[in 3.1.4.1.2] lists the XML schema element definitions [ExportItems, ExportItemsResponse] that are specific to this operation[ExportItems].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R58</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements][Element]ExportItems (section 3.1.4.1.2.1) specifies a request to export items from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R59</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements][Element]ExportItemsResponse (section 3.1.4.1.2.2) specifies a response that contains exported items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R236</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems Element]The ExportItems element specifies a request to export items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R237</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems Element]This element [ExportItems Element] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R61</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItems Element][The schema of ExportItems is:]
+&lt;xs:element name="ExportItems"
+  type="m:ExportItemsType"/&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponse Element]The ExportItemsResponse element specifies a response to a request to export items from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R165</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponse Element]This element [ExportItemsResponse] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R63</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponse Element][The schema of ExportItemsResponse is:]&lt;xs:element name="ExportItemsResponse"
+  type="m:ExportItemsResponseType"/&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R64</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]The following table [in 3.1.4.1.3] lists the XML schema complex type definitions [ExportItemsResponseMessageType, ExportItemsResponseType, ExportItemsType, NonEmptyArrayOfItemIdsType] that are specific to this operation[ExportItems].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R65</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]ExportItemsResponseMessageType (section 3.1.4.1.3.1) specifies a single exported item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R66</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]ExportItemsResponseType (section 3.1.4.1.3.2) specifies a response to export items from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R67</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]ExportItemsType (section 3.1.4.1.3.3) specifies a request to export items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R68</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]NonEmptyArrayOfItemIdsType (section 3.1.4.1.3.4) specifies the array of items to export from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]The ExportItemsResponseMessageType complex type specifies a single exported item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R167</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]The ExportItemsResponseMessageType complex type extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.57.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R70</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type][The schema of ExportItemsResponseMessageType is:]
+&lt;xs:complexType name="ExportItemsResponseMessageType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:ResponseMessageType"
+    &gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="ItemId"
+          type="t:ItemIdType"
+          minOccurs="0"
+          maxOccurs="1"
+         /&gt;
+        &lt;xs:element name="Data"
+          type="xs:base64Binary"
+          minOccurs="0"
+          maxOccurs="1"
+         /&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R71</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]The following table lists the child elements [ItemId, Data] of the ExportItemsResponseMessageType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type][ItemId] specifies the item identifier of a single exported item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R170</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]This element [ItemId] MUST be present if the export operation is successful.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R171</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type]The type of Data is xs:base64Binary ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R172</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type][Data] specifies the data of a single exported item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R173</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In m:ExportItemsResponseMessageType Complex Type] This element[Data] MUST be present if the export operation is successful.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R174</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponseType Complex Type]The ExportItemsResponseType complex type specifies a response to export items from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R175</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponseType Complex Type]The ExportItemsResponseType complex type extends the BaseResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.16.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R75</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsResponseType Complex Type][The schema of ExportItemsResponseType is:]
+&lt;xs:complexType name="ExportItemsResponseType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension
+      base="m:BaseResponseMessageType"
+     /&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R176</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type]The ExportItemsType complex type specifies a request to export items out of a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R177</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type]The ExportItemsType complex type extends the BaseRequestType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.15.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R77</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type][The schema of ExportItemsType is:] &lt;xs:complexType name="ExportItemsType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension  base="m:BaseRequestType"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="ItemIds"  type="t:NonEmptyArrayOfItemIdsType"  maxOccurs="1" minOccurs="1"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R78</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type]The following table[in 3.1.4.1.3.3] lists the child elements[ItemIds] of the ExportItemsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R178</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type]The type of ItemIds is t:NonEmptyArrayOfItemIdsType (section 3.1.4.1.3.4)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R179</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type][ItemIds] specifies the item identifier array of the items to export.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R180</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In ExportItemsType Complex Type]This element [ItemIds] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R80</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type]The NonEmptyArrayOfItemIdsType complex type specifies the array of items to export from a mailbox.
+&lt;xs:complexType name="NonEmptyArrayOfItemIdsType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="ItemId"  type="t:ItemIdType" maxOccurs="unbounded" minOccurs="1"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R82</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type]The following table lists the child elements[ItemId] of the ExportItemsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type]The type of ItemId is 
+t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R182</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type][ItemId] specifies the item identifier of an item to export from a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R183</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type]At least one ItemId element MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R184</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfItemIdsType Complex Type]If the ChangeKey attribute of the ItemIdType complex type is present, its [ChangeKey] value MUST be either valid or NULL.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R85</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems]The UploadItems operation uploads items to a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R86</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems]The following is the WSDL port type definition of the operation.
+&lt;wsdl:operation name="UploadItems"&gt;
+   &lt;wsdl:input message="tns:UploadItemsSoapIn"/&gt;
+   &lt;wsdl:output message="tns:UploadItemsSoapOut"/&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R87</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems]The following is the WSDL binding specification of the operation.
+&lt;wsdl:operation name="UploadItems"&gt;
+  &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UploadItems" /&gt;
+  &lt;wsdl:input&gt;
+    &lt;soap:header message="tns:UploadItemsSoapIn" part="Impersonation" use="literal"/&gt;
+    &lt;soap:header message="tns:UploadItemsSoapIn" part="MailboxCulture" use="literal"/&gt;
+    &lt;soap:header message="tns:UploadItemsSoapIn" part="RequestVersion" use="literal"/&gt;
+    &lt;soap:body parts="request" use="literal" /&gt;
+  &lt;/wsdl:input&gt;
+  &lt;wsdl:output&gt;
+    &lt;soap:body parts="UploadItemsResult" use="literal" /&gt;
+    &lt;soap:header message="tns:UploadItemsSoapOut" part="ServerVersion" use="literal"/&gt;
+  &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R89</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages]The following table lists the set of WSDL message definitions [UploadItemsSoapIn, UploadItemsSoapOut] that are specific to this operation [UploadItems].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R90</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][Message]UploadItemsSoapIn (section 3.1.4.2.1.1)
+specifies the SOAP message that represents a request to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R91</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages][Message]UploadItemsSoapOut (section 3.1.4.2.1.2)
+specifies the SOAP message that represents a response that contains the results of an attempt to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R92</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The UploadItemsSoapIn WSDL message specifies the SOAP message that represents a request to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R93</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The following is the WSDL message specification of the UploadItemsSoapIn message.
+&lt;wsdl:message name="UploadItemsSoapIn"&gt;
+  &lt;wsdl:part name="request" element="tns:UploadItems"/&gt;
+  &lt;wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/&gt;
+  &lt;wsdl:part name="MailboxCulture" element="t:MailboxCulture"/&gt;
+  &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R95</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The UploadItemsSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/UploadItems.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R96</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The parts [request, Impersonation, MailboxCulture, RequestVersion] of the UploadItemsSoapIn WSDL message are described in the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R239</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of request is
+UploadItems (section 3.1.4.2.2.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R240</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message] The request part specifies the SOAP body of the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R185</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of Impersonation
+ is ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.5.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R186</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Impersonation part specifies a SOAP header that identifies the user whom the client application is impersonating.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R187</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]This part [Impersonation] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of MailboxCulture is
+MailboxCulture ([MS-OXWSCDATA] section 2.2.5.6).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message] The MailboxCulture part specifies the SOAP header that identifies the culture to use for accessing the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message] The cultures [MailboxCulture] are defined by [RFC3066].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message] This part [MailboxCulture] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of RequestVersion is
+RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R192</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapIn Message]The RequestVersion part specifies a SOAP header that identifies the schema version for the UploadItems operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R101</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The UploadItemsSoapOut WSDL message specifies the SOAP message that represents a response that contains the results of an attempt to upload items into a mailbox.
+[In tns:UploadItemsSoapOut Message]&lt;wsdl:message name="UploadItemsSoapOut"&gt;
+  &lt;wsdl:part name="UploadItemsResult" element="tns:UploadItemsResponse"/&gt;
+  &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;
+&lt;/wsdl:message&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R103</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The UploadItemsSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/UploadItems.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R104</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The parts [UploadItemsResult, ServerVersion] of the UploadItemsSoapOut WSDL message are described in the following table[in 3.1.4.2.1.2].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R247</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The Element/type of UploadItemsResult is
+UploadItemsResponse (section 3.1.4.2.2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R248</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The UploadItemsResult part specifies the SOAP body of the response to an UploadItems operation request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.5.10).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R250</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The ServerVersion part specifies the SOAP header that identifies the server version for the response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2007</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]If the request [UploadItems request] is successful, the UploadItems operation returns an UploadItemsResponse element with the ResponseClass attribute of the UploadItemsResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2008</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message][If the UploadItems request is successful]The ResponseCode element of the UploadItemsResponseMessage element is set to "NoError".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2009</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]If the request [UploadItems request] is unsuccessful, the UploadItems operation returns an UploadItemsResponse element with the ResponseClass attribute of the UploadItemsResponseMessage element set to "Error".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2010</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message][If the request UploadItems request is unsuccessful]The ResponseCode element of the UploadItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]The following table [in 3.1.4.2.2] lists the XML schema element definitions [UploadItems, UploadItemsResponse ] that are specific to this operation[UploadItems].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R243</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]The Element UploadItems (section 3.1.4.2.2.1) specifies the request to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R244</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]This element [UploadItems] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R245</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]The Element UploadItemsResponse (section 3.1.4.2.2.2) specifies the response to an attempt to upload items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R246</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements]This element [UploadItemsResponse] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R111</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems Element]The UploadItems element specifies the request to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R11101</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems Element]This element [UploadItems] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R112</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItems Element][The schema of UploadItems is:]
+&lt;xs:element name="UploadItems"
+  type="m:UploadItemsType"/&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R113</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItemsResponse Element]The UploadItemsResponse element specifies the response to an attempt to upload items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R11301</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItemsResponse Element] This element [UploadItemsResponse Element] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R114</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In UploadItemsResponse Element] [The schema of UploadItemsResponse is:]
+&lt;xs:element name="UploadItemsResponse"
+  type="m:UploadItemsResponseType"/&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R115</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]The following table lists the XML schema complex type definitions [NonEmptyArrayOfUploadItemsType, UploadItemsResponseMessageType, UploadItemsResponseType, UploadItemsType, UploadItemType] that are specific to this operation[UploadItems].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R116</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]NonEmptyArrayOfUploadItemsType (section 3.1.4.2.3.1) specifies the array of items to upload into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R117</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]UploadItemsResponseMessageType (section 3.1.4.2.3.2) specifies the item identifier of an item that was uploaded into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R118</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]UploadItemsResponseType (section 3.1.4.2.3.3) specifies the response messages for items for which an attempt was made to upload into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R119</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]UploadItemsType (section 3.1.4.2.3.4) specifies the contents of a request to upload items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R120</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types][Complex type]UploadItemType (section 3.1.4.2.3.5) specifies the contents of single item to upload into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R121</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfUploadItemsType Complex Type]The NonEmptyArrayOfUploadItemsType complex type specifies the array of items to upload into a mailbox.
+&lt;xs:complexType name="NonEmptyArrayOfUploadItemsType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="Item"  type="t:UploadItemType"  maxOccurs="unbounded" minOccurs="1"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R123</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfUploadItemsType Complex Type]The following table [in 3.1.4.2.3.1] lists the child elements [Item] of the NonEmptyArrayOfUploadItemsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R194</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfUploadItemsType Complex Type]The Type of Item is t:UploadItemType (section 3.1.4.2.3.5).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R195</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfUploadItemsType Complex Type][Item] specifies the array of items to upload in to a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R196</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfUploadItemsType Complex Type]At least one Item element MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]The UploadItemsResponseMessageType complex type specifies the item identifier of an item that was uploaded into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R198</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]The UploadItemsResponseMessageType complex type extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.57.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R127</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type][The schema of UploadItemsResponseMessageType is:]
+&lt;xs:complexType name="UploadItemsResponseMessageType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base="m:ResponseMessageType"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="ItemId"  type="t:ItemIdType" minOccurs="0"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R128</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]The following table [in 3.1.4.2.3.2] lists the child elements [ItemId] of the UploadItemsResponseMessageType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R199</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]The Type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]The ItemId element specifies the item identifier of an item that was uploaded into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R201</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseMessageType Complex Type]Only a single instance of this element [ItemId] can be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseType Complex Type]The UploadItemsResponseType complex type specifies the response messages for which an attempt was made to update into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R203</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseType Complex Type]The UploadItemsResponseType complex type extends the BaseResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.16.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R131</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsResponseType Complex Type][The schema of UploadItemsResponseType is:]
+&lt;xs:complexType name="UploadItemsResponseType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base="m:BaseResponseMessageType"/&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R204</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type]The UploadItemsType complex type specifies the contents of a request to upload items in to a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R205</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type]The UploadItemsType complex type extends the BaseRequestType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.15.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R133</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type][The schema of UploadItemsType is:]
+&lt;xs:complexType name="UploadItemsType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension  base="m:BaseRequestType"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="Items"  type="t:NonEmptyArrayOfUploadItemsType"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R134</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type]The following table lists the child elements [Items] of the UploadItemsType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R206</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type]The Type of Items is t:NonEmptyArrayOfUploadItemsType (section 3.1.4.2.3.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R207</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type][The element Items] specifies the collection of items to upload into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R209</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.4</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemsType Complex Type] This element [Items] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The UploadItemType complex type specifies the contents of a single item to upload in to a mailbox.
+[In m:UploadItemType Complex Type]&lt;xs:complexType name="UploadItemType"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="ParentFolderId" type="t:FolderIdType"  maxOccurs="1" minOccurs="1"/&gt;
+    &lt;xs:element name="ItemId"  type="t:ItemIdType"  maxOccurs="1" minOccurs="0"/&gt;
+    &lt;xs:element name="Data" type="xs:base64Binary"  maxOccurs="1" minOccurs="1"/&gt;
+  &lt;/xs:sequence&gt;
+  &lt;xs:attribute name="CreateAction" type="t:CreateActionType" use="required"/&gt;
+  &lt;xs:attribute name="IsAssociated" type="xs:boolean"/&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R138</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The following table [in 3.1.4.2.3.5] lists the child elements [ParentFolderId, ItemId, Data] of the UploadItemType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R210</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The Type of ParentFolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type][ParentFolderId] specifies the target folder in which to place the upload item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R212</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type] This element [ParentFolderId] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R213</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The Type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R214</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type][ItemId] specifies the item identifier of the upload item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R215</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The Type of Data is xs:base64Binary ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R216</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type][Data] specifies the data of the upload item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R217</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]This element [Data] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The following table [in 3.1.4.2.3.5] lists the attributes [CreateAction, IsAssociated] of the UploadItemType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R218</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The Type of CreateAction is t:CreateActionType (section 3.1.4.2.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R219</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type][CreateAction] specifies the action for uploading items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R220</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]This attribute [of CreateAction] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R221</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]The Type of IsAssociated is 
+xs:boolean ([XMLSCHEMA2]).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2211</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]This attribute [IsAssociated] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R222</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]If it [IsAssociated] is present, it indicates that the item is a folder associated item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R223</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In m:UploadItemType Complex Type]If this attribute [IsAssociated] is not present, the server MUST assume that the item is not a folder associated item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types]The following table [in 3.1.4.2.4] summarizes the XML schema simple type definitions [CreateActionType] that are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types][The simple type CreateActionType (section 3.1.4.2.4.1)] specifies the action for uploading items into a mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type]The CreateActionType simple type specifies the action for uploading items into a mailbox.
+&lt;xs:simpleType&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="CreateNew"/&gt;
+    &lt;xs:enumeration value="Update"/&gt;
+    &lt;xs:enumeration value="UpdateOrCreate"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R149</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type]
+The following values [CreateNew, Update, UpdateOrCreate] are defined by the CreateActionType simple type:</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R226</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type]The Value of CreateNew specifies that a new copy of the original item is uploaded to the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R227</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][CreateNew]The &lt;ItemId&gt; element in the UploadItemType complex type, as specified in section 3.1.4.2.3.5, MUST be ignored by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R228</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][CreateNew]The &lt;ItemId&gt; element that is returned in the UploadItemsResponseMessageType complex type, as specified in section 3.1.4.2.3.2, MUST contain the new item identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R229</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type]The Value of Update specifies that the upload will update an item that is already present in the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R241</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][Update]The &lt;ItemId&gt; element in the UploadItemType complex type MUST be specified;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R242</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][Update] otherwise [the &lt;ItemId&gt; element in the UploadItemType is not specified], a SOAP fault MUST be returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R231</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][Update] if the target item is not in the original folder specified by the &lt;ParentFolderId&gt; element in the UploadItemType complex type, an ErrorItemNotFound error code MUST be returned in the UploadItemsResponseMessageType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R232</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type]The Value of UpdateOrCreate specifies an attempt to first update the item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2321</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][UpdateOrCreate]If the criteria for a successful update are met, the target item is updated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R233</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][UpdateOrCreate] The &lt;ItemId&gt; element in the UploadItemType complex type MUST be specified;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R234</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][UpdateOrCreate] otherwise[the &lt;ItemId&gt; element in the UploadItemType complex type is not specified], an SOAP fault MUST be returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R235</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][UpdateOrCreate]If the target item is not in the original folder specified by the &lt;ParentFolderId&gt; element in the UploadItemType complex type, a new copy of the original item is uploaded to the mailbox associated with the folder specified by the &lt;ParentFolderId&gt; element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2351</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateActionType Simple Type][UpdateOrCreate][If the target item is not in the original folder specified by the &lt;ParentFolderId&gt; element in the UploadItemType complex type]The &lt;ItemId&gt; element that is returned in the UploadItemsResponseMessageType complex type, as specified in section 3.1.4.2.3.2, MUST contain the new item identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSBTRF_R3:i,MS-OXWSBTRF_R4:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2111</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior]Implementation does not implement the ManagementRole part. &lt;wsdl:operation name="ExportItems"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/ExportItems" /&gt;
+   &lt;wsdl:input&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="Impersonation" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="MailboxCulture" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="RequestVersion" use="literal"/&gt;
+       &lt;soap:body parts="request" use="literal" /&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+       &lt;soap:body parts="ExportItemsResult" use="literal" /&gt;
+       &lt;soap:header message="tns:ExportItemsSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;
+(&lt;1&gt; Section 3.1.4.1:  Exchange 2010 does not implement the ManagementRole part.)</ns1:Description>
+		<ns1:Derived>MS-OXWSBTRF_R38:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R3838</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does implement the ManagementRole part. &lt;wsdl:operation name="ExportItems"&gt;
+   &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/ExportItems" /&gt;
+   &lt;wsdl:input&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="Impersonation" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="MailboxCulture" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="RequestVersion" use="literal"/&gt;
+       &lt;soap:header message="tns:ExportItemsSoapIn" part="ManagementRole" use="literal"/&gt;
+       &lt;soap:body parts="request" use="literal" /&gt;
+   &lt;/wsdl:input&gt;
+   &lt;wsdl:output&gt;
+       &lt;soap:body parts="ExportItemsResult" use="literal" /&gt;
+       &lt;soap:header message="tns:ExportItemsSoapOut" part="ServerVersion" use="literal"/&gt;
+   &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;
+(Microsoft Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSBTRF_R38:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2112</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior]Implementation does not implement the Management part. (&lt;2&gt; Section 3.1.4.1.1.1:  Exchange 2010 does not implement the ManagementRole part.)</ns1:Description>
+		<ns1:Derived>MS-OXWSBTRF_R2105:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSBTRF_R2113</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does implement the ManagementRole part. (Microsoft Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSBTRF_R2105:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.22</ns1:Doc_Sect>
+		<ns1:Description>[In t:ResponseClassType Simple Type] The type [ResponseClassType] is defined as follow:
+&lt;xs:simpleType name="ResponseClassType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="Error"/&gt;
+    &lt;xs:enumeration value="Success"/&gt;
+    &lt;xs:enumeration value="Warning"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R197</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.23</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The type [ResponseCodeType] is defined as follow:
+&lt;xs:simpleType name="ResponseCodeType"&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+        &lt;xs:enumeration value="NoError"/&gt;
+        &lt;xs:enumeration value="ErrorAccessDenied"/&gt;
+        &lt;xs:enumeration value="ErrorAccessModeSpecified"/&gt;
+        &lt;xs:enumeration value="ErrorAccountDisabled"/&gt;
+        &lt;xs:enumeration value="ErrorAddDelegatesFailed"/&gt;
+        &lt;xs:enumeration value="ErrorAddressSpaceNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorADOperation"/&gt;
+        &lt;xs:enumeration value="ErrorADSessionFilter"/&gt;
+        &lt;xs:enumeration value="ErrorADUnavailable"/&gt;
+        &lt;xs:enumeration value="ErrorAffectedTaskOccurrencesRequired"/&gt;
+        &lt;xs:enumeration value="ErrorArchiveFolderPathCreation"/&gt;
+        &lt;xs:enumeration value="ErrorArchiveMailboxNotEnabled"/&gt;
+        &lt;xs:enumeration value="ErrorArchiveMailboxServiceDiscoveryFailed"/&gt;
+        &lt;xs:enumeration value="ErrorAvailabilityConfigNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorBatchProcessingStopped"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarCannotMoveOrCopyOccurrence"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarCannotUpdateDeletedItem"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarCannotUseIdForOccurrenceId"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarCannotUseIdForRecurringMasterId"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarDurationIsTooLong"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarEndDateIsEarlierThanStartDate"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarFolderIsInvalidForCalendarView"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidAttributeValue"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidDayForTimeChangePattern"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidDayForWeeklyRecurrence"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidPropertyState"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidPropertyValue"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidRecurrence"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarInvalidTimeZone"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsCancelledForAccept"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsCancelledForDecline"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsCancelledForRemove"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsCancelledForTentative"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsDelegatedForAccept"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsDelegatedForDecline"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsDelegatedForRemove"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsDelegatedForTentative"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsNotOrganizer"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsOrganizerForAccept"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsOrganizerForDecline"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsOrganizerForRemove"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarIsOrganizerForTentative"/&gt;
+        &lt;xs:enumeration
+             value="ErrorCalendarOccurrenceIndexIsOutOfRecurrenceRange"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarOccurrenceIsDeletedFromRecurrence"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarOutOfRange"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarMeetingRequestIsOutOfDate"/&gt;
+        &lt;xs:enumeration value="ErrorCalendarViewRangeTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorCallerIsInvalidADAccount"/&gt;
+        &lt;xs:enumeration value="ErrorCannotArchiveCalendarContactTaskFolderException"/&gt;
+        &lt;xs:enumeration value="ErrorCannotArchiveItemsInPublicFolders"/&gt;
+        &lt;xs:enumeration value="ErrorCannotArchiveItemsInArchiveMailbo"/&gt;
+        &lt;xs:enumeration value="ErrorCannotCreateCalendarItemInNonCalendarFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotCreateContactInNonContactFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotCreatePostItemInNonMailFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotCreateTaskInNonTaskFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotDeleteObject"/&gt;
+        &lt;xs:enumeration value="ErrorCannotDisableMandatoryExtension"/&gt;
+        &lt;xs:enumeration value="ErrorCannotGetSourceFolderPath"/&gt;
+        &lt;xs:enumeration value="ErrorCannotGetExternalEcpUrl"/&gt;
+        &lt;xs:enumeration value="ErrorCannotOpenFileAttachment"/&gt;
+        &lt;xs:enumeration value="ErrorCannotDeleteTaskOccurrence"/&gt;
+        &lt;xs:enumeration value="ErrorCannotEmptyFolder"/&gt;
+        &lt;xs:enumeration 
+            value="ErrorCannotSetCalendarPermissionOnNonCalendarFolder"/&gt;
+        &lt;xs:enumeration 
+            value="ErrorCannotSetNonCalendarPermissionOnCalendarFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotSetPermissionUnknownEntries"/&gt;
+        &lt;xs:enumeration value="ErrorCannotSpecifySearchFolderAsSourceFolder"/&gt;
+        &lt;xs:enumeration value="ErrorCannotUseFolderIdForItemId"/&gt;
+        &lt;xs:enumeration value="ErrorCannotUseItemIdForFolderId"/&gt;
+        &lt;xs:enumeration value="ErrorChangeKeyRequired"/&gt;
+        &lt;xs:enumeration value="ErrorChangeKeyRequiredForWriteOperations"/&gt;
+        &lt;xs:enumeration value="ErrorClientDisconnected"/&gt;
+        &lt;xs:enumeration value="ErrorClientIntentInvalidStateDefinition"/&gt;
+        &lt;xs:enumeration value="ErrorClientIntentNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorConnectionFailed"/&gt;
+        &lt;xs:enumeration value="ErrorContainsFilterWrongType"/&gt;
+        &lt;xs:enumeration value="ErrorContentConversionFailed"/&gt;
+        &lt;xs:enumeration value="ErrorContentIndexingNotEnabled"/&gt;
+        &lt;xs:enumeration value="ErrorCorruptData"/&gt;
+        &lt;xs:enumeration value="ErrorCreateItemAccessDenied"/&gt;
+        &lt;xs:enumeration value="ErrorCreateManagedFolderPartialCompletion"/&gt;
+        &lt;xs:enumeration value="ErrorCreateSubfolderAccessDenied"/&gt;
+        &lt;xs:enumeration value="ErrorCrossMailboxMoveCopy"/&gt;
+        &lt;xs:enumeration value="ErrorCrossSiteRequest"/&gt;
+        &lt;xs:enumeration value="ErrorDataSizeLimitExceeded"/&gt;
+        &lt;xs:enumeration value="ErrorDataSourceOperation"/&gt;
+        &lt;xs:enumeration value="ErrorDelegateAlreadyExists"/&gt;
+        &lt;xs:enumeration value="ErrorDelegateCannotAddOwner"/&gt;
+        &lt;xs:enumeration value="ErrorDelegateMissingConfiguration"/&gt;
+        &lt;xs:enumeration value="ErrorDelegateNoUser"/&gt;
+        &lt;xs:enumeration value="ErrorDelegateValidationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorDeleteDistinguishedFolder"/&gt;
+        &lt;xs:enumeration value="ErrorDeleteItemsFailed"/&gt;
+        &lt;xs:enumeration value="ErrorDeleteUnifiedMessagingPromptFailed"/&gt;
+        &lt;xs:enumeration value="ErrorDistinguishedUserNotSupported"/&gt;
+        &lt;xs:enumeration value="ErrorDistributionListMemberNotExist"/&gt;
+        &lt;xs:enumeration value="ErrorDuplicateInputFolderNames"/&gt;
+        &lt;xs:enumeration value="ErrorDuplicateUserIdsSpecified"/&gt;
+        &lt;xs:enumeration value="ErrorEmailAddressMismatch"/&gt;
+        &lt;xs:enumeration value="ErrorEventNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorExceededConnectionCount"/&gt;
+        &lt;xs:enumeration value="ErrorExceededSubscriptionCount"/&gt;
+        &lt;xs:enumeration value="ErrorExceededFindCountLimit"/&gt;
+        &lt;xs:enumeration value="ErrorExpiredSubscription"/&gt;
+        &lt;xs:enumeration value="ErrorExtensionNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorFolderCorrupt"/&gt;
+        &lt;xs:enumeration value="ErrorFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorFolderPropertRequestFailed"/&gt;
+        &lt;xs:enumeration value="ErrorFolderSave"/&gt;
+        &lt;xs:enumeration value="ErrorFolderSaveFailed"/&gt;
+        &lt;xs:enumeration value="ErrorFolderSavePropertyError"/&gt;
+        &lt;xs:enumeration value="ErrorFolderExists"/&gt;
+        &lt;xs:enumeration value="ErrorFreeBusyGenerationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorGetServerSecurityDescriptorFailed"/&gt;
+        &lt;xs:enumeration value="ErrorImContactLimitReached"/&gt;
+        &lt;xs:enumeration value="ErrorImGroupDisplayNameAlreadyExists"/&gt;
+        &lt;xs:enumeration value="ErrorImGroupLimitReached"/&gt;
+        &lt;xs:enumeration value="ErrorImpersonateUserDenied"/&gt;
+        &lt;xs:enumeration value="ErrorImpersonationDenied"/&gt;
+        &lt;xs:enumeration value="ErrorImpersonationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorIncorrectSchemaVersion"/&gt;
+        &lt;xs:enumeration value="ErrorIncorrectUpdatePropertyCount"/&gt;
+        &lt;xs:enumeration value="ErrorIndividualMailboxLimitReached"/&gt;
+        &lt;xs:enumeration value="ErrorInsufficientResources"/&gt;
+        &lt;xs:enumeration value="ErrorInternalServerError"/&gt;
+        &lt;xs:enumeration value="ErrorInternalServerTransientError"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidAccessLevel"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidArgument"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidAttachmentId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidAttachmentSubfilter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidAttachmentSubfilterTextFilter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidAuthorizationContext"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidChangeKey"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidClientSecurityContext"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidCompleteDate"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidContactEmailAddress"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidContactEmailIndex"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidCrossForestCredentials"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidDelegatePermission"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidDelegateUserId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExcludesRestriction"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExpressionTypeForSubFilter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExtendedProperty"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExtendedPropertyValue"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidFolderId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidFolderTypeForOperation"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidFractionalPagingParameters"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidFreeBusyViewType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdEmpty"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdMalformed"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdMalformedEwsLegacyIdFormat"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdMonikerTooLong"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdNotAnItemAttachmentId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdReturnedByResolveNames"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdStoreObjectIdTooLong"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdTooManyAttachmentLevels"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIdXml"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidImContactId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidImDistributionGroupSmtpAddress"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidImGroupId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidIndexedPagingParameters"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidInternetHeaderChildNodes"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationArchiveItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationCreateItemAttachment"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationCreateItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationAcceptItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationDeclineItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationCancelItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationExpandDL"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationRemoveItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationSendItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidItemForOperationTentative"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidLogonType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidMailbox"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidManagedFolderProperty"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidManagedFolderQuota"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidManagedFolderSize"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidMergedFreeBusyInterval"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidNameForNameResolution"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidOperation"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidNetworkServiceContext"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidOofParameter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPagingMaxRows"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidParentFolder"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPercentCompleteValue"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPermissionSettings"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPhoneCallId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPhoneNumber"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidUserInfo"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyAppend"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyDelete"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyForExists"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyForOperation"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyRequest"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertySet"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPropertyUpdateSentMessage"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidProxySecurityContext"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPullSubscriptionId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPushSubscriptionUrl"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRecipients"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRecipientSubfilter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRecipientSubfilterComparison"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRecipientSubfilterOrder"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRecipientSubfilterTextFilter"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidReferenceItem"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRequest"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRestriction"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRetentionTagTypeMismatch"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRetentionTagInvisible"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRetentionTagIdGuid"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRetentionTagInheritance"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidRoutingType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidScheduledOofDuration"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSchemaVersionForMailboxVersion"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSecurityDescriptor"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSendItemSaveSettings"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSerializedAccessToken"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidServerVersion"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSid"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSIPUri"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSmtpAddress"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSubfilterType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSubfilterTypeNotAttendeeType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSubfilterTypeNotRecipientType"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSubscription"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSubscriptionRequest"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSyncStateData"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidTimeInterval"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidUserOofSettings"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidUserPrincipalName"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidUserSid"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidUserSidMissingUPN"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidValueForProperty"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidWatermark"/&gt;
+        &lt;xs:enumeration value="ErrorIPGatewayNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorIrresolvableConflict"/&gt;
+        &lt;xs:enumeration value="ErrorItemCorrupt"/&gt;
+        &lt;xs:enumeration value="ErrorItemNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorItemPropertyRequestFailed"/&gt;
+        &lt;xs:enumeration value="ErrorItemSave"/&gt;
+        &lt;xs:enumeration value="ErrorItemSavePropertyError"/&gt;
+        &lt;xs:enumeration value="ErrorLegacyMailboxFreeBusyViewTypeNotMerged"/&gt;
+        &lt;xs:enumeration value="ErrorLocalServerObjectNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorLogonAsNetworkServiceFailed"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxConfiguration"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxDataArrayEmpty"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxDataArrayTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxHoldNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxLogonFailed"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxMoveInProgress"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxStoreUnavailable"/&gt;
+        &lt;xs:enumeration value="ErrorMailRecipientNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorMailTipsDisabled"/&gt;
+        &lt;xs:enumeration value="ErrorManagedFolderAlreadyExists"/&gt;
+        &lt;xs:enumeration value="ErrorManagedFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorManagedFoldersRootFailure"/&gt;
+        &lt;xs:enumeration value="ErrorMeetingSuggestionGenerationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorMessageDispositionRequired"/&gt;
+        &lt;xs:enumeration value="ErrorMessageSizeExceeded"/&gt;
+        &lt;xs:enumeration value="ErrorMimeContentConversionFailed"/&gt;
+        &lt;xs:enumeration value="ErrorMimeContentInvalid"/&gt;
+        &lt;xs:enumeration value="ErrorMimeContentInvalidBase64String"/&gt;
+        &lt;xs:enumeration value="ErrorMissingArgument"/&gt;
+        &lt;xs:enumeration value="ErrorMissingEmailAddress"/&gt;
+        &lt;xs:enumeration value="ErrorMissingEmailAddressForManagedFolder"/&gt;
+        &lt;xs:enumeration value="ErrorMissingInformationEmailAddress"/&gt;
+        &lt;xs:enumeration value="ErrorMissingInformationReferenceItemId"/&gt;
+        &lt;xs:enumeration value="ErrorMissingItemForCreateItemAttachment"/&gt;
+        &lt;xs:enumeration value="ErrorMissingManagedFolderId"/&gt;
+        &lt;xs:enumeration value="ErrorMissingRecipients"/&gt;
+        &lt;xs:enumeration value="ErrorMissingUserIdInformation"/&gt;
+        &lt;xs:enumeration value="ErrorMoreThanOneAccessModeSpecified"/&gt;
+        &lt;xs:enumeration value="ErrorMoveCopyFailed"/&gt;
+        &lt;xs:enumeration value="ErrorMoveDistinguishedFolder"/&gt;
+        &lt;xs:enumeration value="ErrorMultiLegacyMailboxAccess"/&gt;
+        &lt;xs:enumeration value="ErrorNameResolutionMultipleResults"/&gt;
+        &lt;xs:enumeration value="ErrorNameResolutionNoMailbox"/&gt;
+        &lt;xs:enumeration value="ErrorNameResolutionNoResults"/&gt;
+        &lt;xs:enumeration value="ErrorNoApplicableProxyCASServersAvailable"/&gt;
+        &lt;xs:enumeration value="ErrorNoCalendar"/&gt;
+        &lt;xs:enumeration value="ErrorNoDestinationCASDueToKerberosRequirements"/&gt;
+        &lt;xs:enumeration value="ErrorNoDestinationCASDueToSSLRequirements"/&gt;
+        &lt;xs:enumeration value="ErrorNoDestinationCASDueToVersionMismatch"/&gt;
+        &lt;xs:enumeration value="ErrorNoFolderClassOverride"/&gt;
+        &lt;xs:enumeration value="ErrorNoFreeBusyAccess"/&gt;
+        &lt;xs:enumeration value="ErrorNonExistentMailbox"/&gt;
+        &lt;xs:enumeration value="ErrorNonPrimarySmtpAddress"/&gt;
+        &lt;xs:enumeration value="ErrorNoPropertyTagForCustomProperties"/&gt;
+        &lt;xs:enumeration value="ErrorNoPublicFolderReplicaAvailable"/&gt;
+        &lt;xs:enumeration value="ErrorNoPublicFolderServerAvailable"/&gt;
+        &lt;xs:enumeration value="ErrorNoRespondingCASInDestinationSite"/&gt;
+        &lt;xs:enumeration value="ErrorNotDelegate"/&gt;
+        &lt;xs:enumeration value="ErrorNotEnoughMemory"/&gt;
+        &lt;xs:enumeration value="ErrorObjectTypeChanged"/&gt;
+        &lt;xs:enumeration value="ErrorOccurrenceCrossingBoundary"/&gt;
+        &lt;xs:enumeration value="ErrorOccurrenceTimeSpanTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorOperationNotAllowedWithPublicFolderRoot"/&gt;
+        &lt;xs:enumeration value="ErrorParentFolderIdRequired"/&gt;
+        &lt;xs:enumeration value="ErrorParentFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorPasswordChangeRequired"/&gt;
+        &lt;xs:enumeration value="ErrorPasswordExpired"/&gt;
+        &lt;xs:enumeration value="ErrorPhoneNumberNotDialable"/&gt;
+        &lt;xs:enumeration value="ErrorPropertyUpdate"/&gt;
+        &lt;xs:enumeration value="ErrorPromptPublishingOperationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorPropertyValidationFailure"/&gt;
+        &lt;xs:enumeration value="ErrorProxiedSubscriptionCallFailure"/&gt;
+        &lt;xs:enumeration value="ErrorProxyCallFailed"/&gt;
+        &lt;xs:enumeration value="ErrorProxyGroupSidLimitExceeded"/&gt;
+        &lt;xs:enumeration value="ErrorProxyRequestNotAllowed"/&gt;
+        &lt;xs:enumeration value="ErrorProxyRequestProcessingFailed"/&gt;
+        &lt;xs:enumeration value="ErrorProxyServiceDiscoveryFailed"/&gt;
+        &lt;xs:enumeration value="ErrorProxyTokenExpired"/&gt;
+        &lt;xs:enumeration value="ErrorPublicFolderMailboxDiscoveryFailed"/&gt;
+        &lt;xs:enumeration value="ErrorPublicFolderOperationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorPublicFolderRequestProcessingFailed"/&gt;
+        &lt;xs:enumeration value="ErrorPublicFolderServerNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorPublicFolderSyncException"/&gt;
+        &lt;xs:enumeration value="ErrorQueryFilterTooLong"/&gt;
+        &lt;xs:enumeration value="ErrorQuotaExceeded"/&gt;
+        &lt;xs:enumeration value="ErrorReadEventsFailed"/&gt;
+        &lt;xs:enumeration value="ErrorReadReceiptNotPending"/&gt;
+        &lt;xs:enumeration value="ErrorRecurrenceEndDateTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorRecurrenceHasNoOccurrence"/&gt;
+        &lt;xs:enumeration value="ErrorRemoveDelegatesFailed"/&gt;
+        &lt;xs:enumeration value="ErrorRequestAborted"/&gt;
+        &lt;xs:enumeration value="ErrorRequestStreamTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorRequiredPropertyMissing"/&gt;
+        &lt;xs:enumeration value="ErrorResolveNamesInvalidFolderType"/&gt;
+        &lt;xs:enumeration value="ErrorResolveNamesOnlyOneContactsFolderAllowed"/&gt;
+        &lt;xs:enumeration value="ErrorResponseSchemaValidation"/&gt;
+        &lt;xs:enumeration value="ErrorRestrictionTooLong"/&gt;
+        &lt;xs:enumeration value="ErrorRestrictionTooComplex"/&gt;
+        &lt;xs:enumeration value="ErrorResultSetTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExchangeImpersonationHeaderData"/&gt;
+        &lt;xs:enumeration value="ErrorSavedItemFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorSchemaValidation"/&gt;
+        &lt;xs:enumeration value="ErrorSearchFolderNotInitialized"/&gt;
+        &lt;xs:enumeration value="ErrorSendAsDenied"/&gt;
+        &lt;xs:enumeration value="ErrorSendMeetingCancellationsRequired"/&gt;
+        &lt;xs:enumeration 
+            value="ErrorSendMeetingInvitationsOrCancellationsRequired"/&gt;
+        &lt;xs:enumeration value="ErrorSendMeetingInvitationsRequired"/&gt;
+        &lt;xs:enumeration value="ErrorSentMeetingRequestUpdate"/&gt;
+        &lt;xs:enumeration value="ErrorSentTaskRequestUpdate"/&gt;
+        &lt;xs:enumeration value="ErrorServerBusy"/&gt;
+        &lt;xs:enumeration value="ErrorServiceDiscoveryFailed"/&gt;
+        &lt;xs:enumeration value="ErrorStaleObject"/&gt;
+        &lt;xs:enumeration value="ErrorSubmissionQuotaExceeded"/&gt;
+        &lt;xs:enumeration value="ErrorSubscriptionAccessDenied"/&gt;
+        &lt;xs:enumeration value="ErrorSubscriptionDelegateAccessNotSupported"/&gt;
+        &lt;xs:enumeration value="ErrorSubscriptionNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorSubscriptionUnsubscribed"/&gt;
+        &lt;xs:enumeration value="ErrorSyncFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxNotLinkedToSharePoint"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxUrlValidationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxNotAuthorizedOwner"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxActiveToPendingDelete"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxFailedSendingNotifications"/&gt;
+        &lt;xs:enumeration value="ErrorTeamMailboxErrorUnknown"/&gt;
+        &lt;xs:enumeration value="ErrorTimeIntervalTooBig"/&gt;
+        &lt;xs:enumeration value="ErrorTimeoutExpired"/&gt;
+        &lt;xs:enumeration value="ErrorTimeZone"/&gt;
+        &lt;xs:enumeration value="ErrorToFolderNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorTokenSerializationDenied"/&gt;
+        &lt;xs:enumeration value="ErrorUpdatePropertyMismatch"/&gt;
+        &lt;xs:enumeration value="ErrorUnifiedMessagingDialPlanNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorUnifiedMessagingReportDataNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorUnifiedMessagingPromptNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorUnifiedMessagingRequestFailed"/&gt;
+        &lt;xs:enumeration value="ErrorUnifiedMessagingServerNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorUnableToGetUserOofSettings"/&gt;
+        &lt;xs:enumeration value="ErrorUnableToRemoveImContactFromGroup"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedSubFilter"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedCulture"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedMapiPropertyType"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedMimeConversion"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedPathForQuery"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedPathForSortGroup"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedPropertyDefinition"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedQueryFilter"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedRecurrence"/&gt;
+        &lt;xs:enumeration value="ErrorUnsupportedTypeForConversion"/&gt;
+        &lt;xs:enumeration value="ErrorUpdateDelegatesFailed"/&gt;
+        &lt;xs:enumeration value="ErrorUserNotUnifiedMessagingEnabled"/&gt;
+        &lt;xs:enumeration value="ErrorValueOutOfRange"/&gt;
+        &lt;xs:enumeration value="ErrorVoiceMailNotImplemented"/&gt;
+        &lt;xs:enumeration value="ErrorVirusDetected"/&gt;
+        &lt;xs:enumeration value="ErrorVirusMessageDeleted"/&gt;
+        &lt;xs:enumeration value="ErrorWebRequestInInvalidState"/&gt;
+        &lt;xs:enumeration value="ErrorWin32InteropError"/&gt;
+        &lt;xs:enumeration value="ErrorWorkingHoursSaveFailed"/&gt;
+        &lt;xs:enumeration value="ErrorWorkingHoursXmlMalformed"/&gt;
+        &lt;xs:enumeration value="ErrorWrongServerVersion"/&gt;
+        &lt;xs:enumeration value="ErrorWrongServerVersionDelegate"/&gt;
+        &lt;xs:enumeration value="ErrorMissingInformationSharingFolderId"/&gt;
+        &lt;xs:enumeration value="ErrorDuplicateSOAPHeader"/&gt;
+        &lt;xs:enumeration value="ErrorSharingSynchronizationFailed"/&gt;
+        &lt;xs:enumeration value="ErrorSharingNoExternalEwsAvailable"/&gt;
+        &lt;xs:enumeration value="ErrorFreeBusyDLLimitReached"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidGetSharingFolderRequest"/&gt;
+        &lt;xs:enumeration value="ErrorNotAllowedExternalSharingByPolicy"/&gt;
+        &lt;xs:enumeration value="ErrorUserNotAllowedByPolicy"/&gt;
+        &lt;xs:enumeration value="ErrorPermissionNotAllowedByPolicy"/&gt;
+        &lt;xs:enumeration value="ErrorOrganizationNotFederated"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxFailover"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExternalSharingInitiator"/&gt;
+        &lt;xs:enumeration value="ErrorMessageTrackingPermanentError"/&gt;
+        &lt;xs:enumeration value="ErrorMessageTrackingTransientError"/&gt;
+        &lt;xs:enumeration value="ErrorMessageTrackingNoSuchDomain"/&gt;
+        &lt;xs:enumeration value="ErrorUserWithoutFederatedProxyAddress"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidOrganizationRelationshipForFreeBusy"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidFederatedOrganizationId"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidExternalSharingSubscriber"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSharingData"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidSharingMessage"/&gt;
+        &lt;xs:enumeration value="ErrorNotSupportedSharingMessage"/&gt;
+        &lt;xs:enumeration value="ErrorApplyConversationActionFailed"/&gt;
+        &lt;xs:enumeration value="ErrorInboxRulesValidationError"/&gt;
+        &lt;xs:enumeration value="ErrorOutlookRuleBlobExists"/&gt;
+        &lt;xs:enumeration value="ErrorRulesOverQuota"/&gt;
+        &lt;xs:enumeration value="ErrorNewEventStreamConnectionOpened"/&gt;
+        &lt;xs:enumeration value="ErrorMissedNotificationEvents"/&gt;
+        &lt;xs:enumeration value="ErrorDuplicateLegacyDistinguishedName"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidClientAccessTokenRequest"/&gt;
+        &lt;xs:enumeration value="ErrorNoSpeechDetected"/&gt;
+        &lt;xs:enumeration value="ErrorUMServerUnavailable"/&gt;
+        &lt;xs:enumeration value="ErrorRecipientNotFound"/&gt;
+        &lt;xs:enumeration value="ErrorRecognizerNotInstalled"/&gt;
+        &lt;xs:enumeration value="ErrorSpeechGrammarError"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidManagementRoleHeader"/&gt;
+        &lt;xs:enumeration value="ErrorLocationServicesDisabled"/&gt;
+        &lt;xs:enumeration value="ErrorLocationServicesRequestTimedOut"/&gt;
+        &lt;xs:enumeration value="ErrorLocationServicesRequestFailed"/&gt;
+        &lt;xs:enumeration value="ErrorLocationServicesInvalidRequest"/&gt;
+        &lt;xs:enumeration value="ErrorMailboxScopeNotAllowedWithoutQueryString"/&gt;
+        &lt;xs:enumeration value="ErrorArchiveMailboxSearchFailed"/&gt;
+        &lt;xs:enumeration value="ErrorArchiveMailboxServiceDiscoveryFailed"/&gt;
+        &lt;xs:enumeration value="ErrorInvalidPhotoSize"/&gt;
+        &lt;xs:enumeration value="ErrorSearchQueryHasTooManyKeywords"/&gt;
+        &lt;xs:enumeration value="ErrorSearchTooManyMailboxes"/&gt;
+        &lt;xs:enumeration value="ErrorDiscoverySearchesDisabled"/&gt;
+    &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1036</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
+		<ns1:Description>[In m:ArrayOfResponseMessagesType Complex Type] The type [ArrayOfResponseMessagesType] is defined as follow:
+&lt;xs:complexType name="ArrayOfResponseMessagesType"&gt;
+  &lt;xs:choice
+    maxOccurs="unbounded"
+  &gt;
+    &lt;xs:element name="CreateItemResponseMessage"
+      type="m:ItemInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="DeleteItemResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetItemResponseMessage"
+      type="m:ItemInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UpdateItemResponseMessage"
+      type="m:UpdateItemResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UpdateItemInRecoverableItemsResponseMessage" 
+     type="m:UpdateItemInRecoverableItemsResponseMessageType"/&gt;
+    &lt;xs:element name="SendItemResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="DeleteFolderResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="EmptyFolderResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="CreateFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="FindFolderResponseMessage"
+      type="m:FindFolderResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UpdateFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="MoveFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="CopyFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="CreateFolderPathResponseMessage" 
+     type="m:FolderInfoResponseMessageType"
+    /&gt;
+    &lt;xs:element name="CreateAttachmentResponseMessage"
+      type="m:AttachmentInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="DeleteAttachmentResponseMessage"
+      type="m:DeleteAttachmentResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetAttachmentResponseMessage"
+      type="m:AttachmentInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UploadItemsResponseMessage"
+      type="m:UploadItemsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="ExportItemsResponseMessage"
+      type="m:ExportItemsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="MarkAllItemsAsReadResponseMessage" 
+       type="m:ResponseMessageType"/&gt;
+    &lt;xs:element name="GetClientAccessTokenResponseMessage" 
+       type="m:GetClientAccessTokenResponseMessageType"/&gt;
+    &lt;xs:element name="GetAppManifestsResponseMessage" type="m:ResponseMessageType"/&gt;
+    &lt;xs:element name="GetClientExtensionResponseMessage" 
+       type="m:ResponseMessageType"/&gt;
+    &lt;xs:element name="SetClientExtensionResponseMessage" 
+       type="m:ResponseMessageType"/&gt;
+
+    &lt;xs:element name="FindItemResponseMessage"
+      type="m:FindItemResponseMessageType"
+     /&gt;
+    &lt;xs:element name="MoveItemResponseMessage"
+      type="m:ItemInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="ArchiveItemResponseMessage" type="m:ItemInfoResponseMessageType"/&gt;
+    &lt;xs:element name="CopyItemResponseMessage"
+      type="m:ItemInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="ResolveNamesResponseMessage"
+      type="m:ResolveNamesResponseMessageType"
+     /&gt;
+    &lt;xs:element name="ExpandDLResponseMessage"
+      type="m:ExpandDLResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetServerTimeZonesResponseMessage"
+      type="m:GetServerTimeZonesResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetEventsResponseMessage"
+      type="m:GetEventsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetStreamingEventsResponseMessage"
+      type="m:GetStreamingEventsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="SubscribeResponseMessage"
+      type="m:SubscribeResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UnsubscribeResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="SendNotificationResponseMessage"
+      type="m:SendNotificationResponseMessageType"
+     /&gt;
+    &lt;xs:element name="SyncFolderHierarchyResponseMessage"
+      type="m:SyncFolderHierarchyResponseMessageType"
+     /&gt;
+    &lt;xs:element name="SyncFolderItemsResponseMessage"
+      type="m:SyncFolderItemsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="CreateManagedFolderResponseMessage"
+      type="m:FolderInfoResponseMessageType"
+     /&gt;
+    &lt;xs:element name="ConvertIdResponseMessage"
+      type="m:ConvertIdResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetSharingMetadataResponseMessage"
+      type="m:GetSharingMetadataResponseMessageType"
+     /&gt;
+    &lt;xs:element name="RefreshSharingFolderResponseMessage"
+      type="m:RefreshSharingFolderResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetSharingFolderResponseMessage"
+      type="m:GetSharingFolderResponseMessageType"
+     /&gt;
+    &lt;xs:element name="CreateUserConfigurationResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="DeleteUserConfigurationResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetUserConfigurationResponseMessage"
+      type="m:GetUserConfigurationResponseMessageType"
+     /&gt;
+    &lt;xs:element name="UpdateUserConfigurationResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetRoomListsResponse"
+      type="m:GetRoomListsResponseMessageType"
+     /&gt;
+    &lt;xs:element name="GetRoomsResponse"
+      type="m:GetRoomsResponseMessageType"
+     /&gt;
+      &lt;xs:element name="GetRemindersResponse" 
+       type="m:GetRemindersResponseMessageType"/&gt;
+      &lt;xs:element name="PerformReminderActionResponse" 
+       type="m:PerformReminderActionResponseMessageType"/&gt;
+    &lt;xs:element name="ApplyConversationActionResponseMessage"
+      type="m:ResponseMessageType"
+     /&gt;
+    &lt;xs:element name="FindMailboxStatisticsByKeywordsResponseMessage" type="m:FindMailboxStatisticsByKeywordsResponseMessageType"/&gt;
+    &lt;xs:element name="GetSearchableMailboxesResponseMessage" type="m:GetSearchableMailboxesResponseMessageType"/&gt;
+    &lt;xs:element name="SearchMailboxesResponseMessage" type="m:SearchMailboxesResponseMessageType"/&gt;
+    &lt;xs:element name="GetDiscoverySearchConfigurationResponseMessage" type="m:GetDiscoverySearchConfigurationResponseMessageType"/&gt;
+    &lt;xs:element name="GetHoldOnMailboxesResponseMessage" type="m:GetHoldOnMailboxesResponseMessageType"/&gt;
+    &lt;xs:element name="SetHoldOnMailboxesResponseMessage" type="m:SetHoldOnMailboxesResponseMessageType"/&gt;
+      &lt;xs:element name="GetNonIndexableItemStatisticsResponseMessage" type="m:GetNonIndexableItemStatisticsResponseMessageType"/&gt;
+      &lt;!-- GetNonIndexableItemDetails response --&gt;
+      &lt;xs:element name="GetNonIndexableItemDetailsResponseMessage" type="m:GetNonIndexableItemDetailsResponseMessageType"/&gt;
+      &lt;!-- GetUserHoldSettings response --&gt;
+    &lt;xs:element name="FindPeopleResponseMessage" type="m:FindPeopleResponseMessageType"/&gt;
+
+    &lt;xs:element name="GetPasswordExpirationDateResponse" type="m:GetPasswordExpirationDateResponseMessageType"
+    /&gt;
+      &lt;xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/&gt;
+      &lt;xs:element name="GetConversationItemsResponseMessage" type="m:GetConversationItemsResponseMessageType"/&gt;
+      &lt;xs:element name="GetUserRetentionPolicyTagsResponseMessage" type="m:GetUserRetentionPolicyTagsResponseMessageType"/&gt;
+      &lt;xs:element name="GetUserPhotoResponseMessage" type="m:GetUserPhotoResponseMessageType"/&gt;
+      &lt;xs:element name="MarkAsJunkResponseMessage" type="m:MarkAsJunkResponseMessageType"/&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:complexType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1091</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Description>[In m:BaseResponseMessageType Complex Type] The BaseResponseMessageType complex type MUST NOT be sent in a SOAP message because it is an abstract type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1092</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Description>[In m:BaseResponseMessageType Complex Type] The type [BaseResponseMessageType] is defined as follow:
+&lt;xs:complexType name="BaseResponseMessageType"&gt;
+ &lt;xs:sequence&gt;
+  &lt;xs:element name="ResponseMessages"
+   type="m:ArrayOfResponseMessagesType"
+   /&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1094</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Description>[In m:BaseResponseMessageType Complex Type] There MUST be only one ResponseMessages element in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1284</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseMessageType Complex Type] This attribute [ResponseClass] MUST be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1434</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseMessageType Complex Type] The type [ResponseMessageType] is defined as follow:
+&lt;xs:complexType name="ResponseMessageType"&gt;
+ &lt;xs:sequence
+  minOccurs="0"
+ &gt;
+  &lt;xs:element name="MessageText"
+   type="xs:string"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="ResponseCode"
+   type="m:ResponseCodeType"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="DescriptiveLinkKey"
+   type="xs:int"
+   minOccurs="0"
+   /&gt;
+  &lt;xs:element name="MessageXml"
+   minOccurs="0"
+  &gt;
+   &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+     &lt;xs:any
+      process_contents="lax"
+      minOccurs="0"
+      maxOccurs="unbounded"
+      /&gt;
+    &lt;/xs:sequence&gt;
+    &lt;xs:attribute name="ResponseClass"
+     type="t:ResponseClassType"
+     use="required"
+     /&gt;
+   &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+ &lt;/xs:sequence&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1436</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseMessageType Complex Type] [ResponseClass:] The following values are valid for this attribute: Success
+, Warning
+, Error.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
+ &lt;xs:complexType&gt;
+  &lt;xs:attribute name="MajorVersion"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MinorVersion"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MajorBuildNumber"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="MinorBuildNumber"
+   type="xs:int"
+   use="optional"
+   /&gt;
+  &lt;xs:attribute name="Version"
+   type="xs:string"
+   use="optional"
+   /&gt;
+ &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+</ns1:ReqTable>

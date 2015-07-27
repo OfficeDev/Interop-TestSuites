@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSSYNC-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:complexType name="SyncFolderHierarchyType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="FolderShape" type="t:FolderResponseShapeType"/>
+          <xs:element name="SyncFolderId" type="t:TargetFolderIdType" minOccurs="0"/>
+          <xs:element name="SyncState" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SyncFolderHierarchy" type="m:SyncFolderHierarchyType"/>
+  <xs:complexType name="SyncFolderHierarchyResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="SyncState" type="xs:string" minOccurs="0"/>
+          <xs:element name="IncludesLastFolderInRange" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Changes" type="t:SyncFolderHierarchyChangesType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderHierarchyResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SyncFolderHierarchyResponse" type="m:SyncFolderHierarchyResponseType"/>
+  <xs:complexType name="SyncFolderItemsType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ItemShape" type="t:ItemResponseShapeType"/>
+          <xs:element name="SyncFolderId" type="t:TargetFolderIdType"/>
+          <xs:element name="SyncState" type="xs:string" minOccurs="0"/>
+          <xs:element name="Ignore" type="t:ArrayOfBaseItemIdsType" minOccurs="0"/>
+          <xs:element name="MaxChangesReturned" type="t:MaxSyncChangesReturnedType"/>
+          <xs:element name="SyncScope" type="t:SyncFolderItemsScopeType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SyncFolderItems" type="m:SyncFolderItemsType"/>
+  <xs:complexType name="SyncFolderItemsResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="SyncState" type="xs:string" minOccurs="0"/>
+          <xs:element name="IncludesLastItemInRange" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Changes" type="t:SyncFolderItemsChangesType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SyncFolderItemsResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SyncFolderItemsResponse" type="m:SyncFolderItemsResponseType"/>
+</xs:schema>

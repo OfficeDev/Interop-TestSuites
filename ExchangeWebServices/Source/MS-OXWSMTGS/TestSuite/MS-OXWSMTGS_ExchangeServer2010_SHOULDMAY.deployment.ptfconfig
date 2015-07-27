@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R504Enabled to true to verify that the implementation does support SOAP over HTTPS, as specified in [RFC2818]. Set R504Enabled to false to disable this requirement.-->
+    <Property name="R504Enabled" value="true" />
+    <!--Set R694Enabled to true to verify that the implementation does include the DateTimePrecision part in the WSDL binding specification for the GetItem operation, as specified in 3.1.4.4. Set R694Enabled to false to disable this requirement.-->
+    <Property name="R694Enabled" value="false" />
+    <!--Set R695Enabled to true to verify that the implementation does not include the DateTimePrecision part in the WSDL binding specification for the GetItem operation, as specified in 3.1.4.4. Set R695Enabled to false to disable this requirement.-->
+    <Property name="R695Enabled" value="true" />
+    <!--Set R699Enabled to true to verify that for CalendarItemType the implementation does support complex type "StartWallClock" with type "xs:dateTime" which specifies the start time of the calendar item, as specified in section 2.2.4.4. Set R699Enabled to false to disable this requirement.-->
+    <Property name="R699Enabled" value="false" />
+    <!--Set R700Enabled to true to verify that for CalendarItemType the implementation does support complex type "EndWallClock" with type "xs:dateTime" which specifies the ending time of the calendar item, as specified in section 2.2.4.4. Set R700Enabled to false to disable this requirement.-->
+    <Property name="R700Enabled" value="false" />
+    <!--Set R701Enabled to true to verify that the implementation does support complex type "StartTimeZoneId" with type "xs:string" which specifies the calendar item start time zone identifier, as specified in section 2.2.4.4. Set R701Enabled to false to disable this requirement.-->
+    <Property name="R701Enabled" value="false" />
+    <!--Set R702Enabled to true to verify that the implementation does support complex type "EndTimeZoneId" with type "xs:string" which specifies the calendar item end time zone identifier, as specified in section 2.2.4.4. Set R702Enabled to false to disable this requirement.-->
+    <Property name="R702Enabled" value="false" />
+    <!--Set R703Enabled to true to verify that the implementation does support complex type "EndTimeZoneId" with type "xs:string" which specifies the calendar item end time zone identifier, as specified in section 2.2.4.4. Set R703Enabled to false to disable this requirement.-->
+    <Property name="R703Enabled" value="false" />
+    <!--Set R708Enabled to true to verify that for MeetingRequestMessageType the implementation does support the complex type "StartWallClock" with type "xs:dateTime" which specifies the start time of the calendar item, as specified in section 2.2.4.13. Set R708Enabled to false to disable this requirement.-->
+    <Property name="R708Enabled" value="false" />
+    <!--Set R709Enabled to true to verify that for MeetingRequestMessageType the implementation does support the complex type "EndWallClock" with type "xs:dateTime" which specifies the ending time of the calendar item, as specified in section 2.2.4.13. Set R709Enabled to false to disable this requirement.-->
+    <Property name="R709Enabled" value="false" />
+    <!--Set R710Enabled to true to verify that the implementation does support the complex type "StartTimeZoneId" with type "xs:string" which specifies the start time zone identifier. Set R710Enabled to false to disable this requirement.-->
+    <Property name="R710Enabled" value="false" />
+    <!--Set R711Enabled to true to verify that the implementation does support the complex type "EndTimeZoneId" with type "xs:string" which specifies the end time zone identifier. Set R711Enabled to false to disable this requirement.-->
+    <Property name="R711Enabled" value="false" />
+    <!--Set R713Enabled to true to verify that the implementation does support "StartTimeZone" with type "t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)" which specifies the calendar item start time zone information. Set R713Enabled to false to disable this requirement.-->
+    <Property name="R713Enabled" value="true" />
+    <!--Set R714Enabled to true to verify that the implementation does support complex type "EndTimeZone" with type "t:TimeZoneDefinitionType" which specifies the calendar item end time zone information. Set R714Enabled to false to disable this requirement.-->
+    <Property name="R714Enabled" value="true" />
+    <!--Set R718Enabled to true to verify that the implementation does support the complex type "StartTimeZone" with type "t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)" which specifies the time zone for the start of the meeting item. Set R718Enabled to false to disable this requirement.-->
+    <Property name="R718Enabled" value="true" />
+    <!--Set R719Enabled to true to verify that the implementation does support the complex type "EndTimeZone" with type "t:TimeZoneDefinitionType" which specifies the time zone for the end of the meeting item. Set R719Enabled to false to disable this requirement.-->
+    <Property name="R719Enabled" value="true" />
+    <!--Set R806Enabled to true to verify that for each item being copied that is a recurring calendar item, implementation does contain a RecurringMasterItemId child element ([MS-OXWSCORE] section 2.2.4.11), as specified in section 3.1.4.1.1. Set R806Enabled to false to disable this requirement.-->
+    <Property name="R806Enabled" value="true" />
+    <!--Set R807Enabled to true to verify that for each item being retrieved that is a recurring calendar item, implementation does contain a RecurringMasterItemId child element ([MS-OXWSCORE] section 2.2.4.11) or an OccurrenceItemId child element ([MS-OXWSCORE] section 2.2.4.11), as specified in section 3.1.4.4.1. Set R807Enabled to false to disable this requirement.-->
+    <Property name="R807Enabled" value="true" />
+    <!--Set R808Enabled to true to verify that for each item being moved that is a recurring calendar item, implementation does contain a RecurringMasterItemId child element ([MS-OXWSCORE] section 2.2.4.11, as specified in section 3.1.4.5.1. Set R808Enabled to false to disable this requirement.-->
+    <Property name="R808Enabled" value="true" />
+    <!--Set R900Enabled to true to verify that for MeetingCancellationMessageType the implementation does support Start which is a dateTime element that represents the start time of the calendar item, as specified in section 2.2.4.11. Set R900Enabled to false to disable this requirement.-->
+    <Property name="R900Enabled" value="false" />
+    <!--Set R901Enabled to true to verify that for MeetingCancellationMessageType the implementation does support End which is a dateTime element that represents the ending time of the calendar item, as specified in section 2.2.4.11. Set R901Enabled to false to disable this requirement.-->
+    <Property name="R901Enabled" value="false" />
+    <!--Set R902Enabled to true to verify that for MeetingCancellationMessageType the implementation does support Location which is a string element that represents the location of the calendar item, as specified in section 2.2.4.11. Set R902Enabled to false to disable this requirement.-->
+    <Property name="R902Enabled" value="false" />
+    <!--Set R903Enabled to true to verify that for MeetingCancellationMessageType the implementation does support Location which is a string element that represents the location of the calendar item, as specified in section 2.2.4.11. Set R903Enabled to false to disable this requirement.-->
+    <Property name="R903Enabled" value="false" />
+    <!--Set R904Enabled to true to verify that for MeetingCancellationMessageType the implementation does support CalendarItemType which is a string element that represents the type of calendar item, as specified in section 2.2.4.11. Set R904Enabled to false to disable this requirement.-->
+    <Property name="R904Enabled" value="false" />
+    <!--Set R906Enabled to true to verify that for MeetingResponseMessageType the implementation does support Start which is a dateTime element that represents the start time of the calendar item, as specified in section 2.2.4.14. Set R906Enabled to false to disable this requirement.-->
+    <Property name="R906Enabled" value="false" />
+    <!--Set R907Enabled to true to verify that for MeetingResponseMessageType the implementation does support End which is a dateTime element that represents the ending time of the calendar item, as specified in section 2.2.4.14. Set R907Enabled to false to disable this requirement.-->
+    <Property name="R907Enabled" value="false" />
+    <!--Set R908Enabled to true to verify that for MeetingResponseMessageType the implementation does support Location which is a string element that represents the location for the calendar item, as specified in section 2.2.4.14. Set R908Enabled to false to disable this requirement.-->
+    <Property name="R908Enabled" value="false" />
+    <!--Set R909Enabled to true to verify that the implementation does support Recurrence which is a RecurrenceType element that represents the recurrence for the calendar item. Set R909Enabled to false to disable this requirement.-->
+    <Property name="R909Enabled" value="false" />
+    <!--Set R910Enabled to true to verify that for MeetingResponseMessageType the implementation does support CalendarItemType which is a string element that represents the type of calendar item, as specified in section 2.2.4.14. Set R910Enabled to false to disable this requirement.-->
+    <Property name="R910Enabled" value="false" />
+    <!--Set R16505Enabled to true to verify that for CalendarItemType the implementation does support the LegacyFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R16505Enabled to false to disable this requirement.-->
+    <Property name="R16505Enabled" value="false" />
+    <!--Set R28505Enabled to true to verify that for MeetingRequestMessageType the implementation does support the IntendedFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R28505Enabled to false to disable this requirement.-->
+    <Property name="R28505Enabled" value="false" />
+    <!--Set R80048Enabled to true to verify that the implementation does support complex type "IsOrganizer" with type "xs:boolean" which specifies whether the current user is the organizer and/or owner of the calendar item. Set R80048Enabled to false to disable this requirement.-->
+    <Property name="R80048Enabled" value="false" />
+    <!--Set R80049Enabled to true to verify that the implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. Set R80049Enabled to false to disable this requirement.-->
+    <Property name="R80049Enabled" value="false" />
+  </Properties>
+</TestSite>

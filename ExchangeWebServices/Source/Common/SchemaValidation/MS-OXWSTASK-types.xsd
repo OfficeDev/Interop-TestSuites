@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSFOLD-types.xsd"/>
+  <xs:simpleType name="AffectedTaskOccurrencesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AllOccurrences"/>
+      <xs:enumeration value="SpecifiedOccurrenceOnly"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RegeneratingPatternBaseType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="t:IntervalRecurrencePatternBaseType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DailyRegeneratingPatternType">
+    <xs:complexContent>
+      <xs:extension base="t:RegeneratingPatternBaseType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WeeklyRegeneratingPatternType">
+    <xs:complexContent>
+      <xs:extension base="t:RegeneratingPatternBaseType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MonthlyRegeneratingPatternType">
+    <xs:complexContent>
+      <xs:extension base="t:RegeneratingPatternBaseType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="YearlyRegeneratingPatternType">
+    <xs:complexContent>
+      <xs:extension base="t:RegeneratingPatternBaseType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TaskStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotStarted"/>
+      <xs:enumeration value="InProgress"/>
+      <xs:enumeration value="Completed"/>
+      <xs:enumeration value="WaitingOnOthers"/>
+      <xs:enumeration value="Deferred"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaskDelegateStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoMatch"/>
+      <xs:enumeration value="OwnNew"/>
+      <xs:enumeration value="Owned"/>
+      <xs:enumeration value="Accepted"/>
+      <xs:enumeration value="Declined"/>
+      <xs:enumeration value="Max"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="TaskType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="ActualWork" type="xs:int" minOccurs="0"/>
+          <xs:element name="AssignedTime" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="BillingInformation" type="xs:string" minOccurs="0"/>
+          <xs:element name="ChangeCount" type="xs:int" minOccurs="0"/>
+          <xs:element name="Companies" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="CompleteDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="Contacts" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="DelegationState" type="t:TaskDelegateStateType" minOccurs="0"/>
+          <xs:element name="Delegator" type="xs:string" minOccurs="0"/>
+          <xs:element name="DueDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="IsAssignmentEditable" type="xs:int" minOccurs="0"/>
+          <xs:element name="IsComplete" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsRecurring" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsTeamTask" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Mileage" type="xs:string" minOccurs="0"/>
+          <xs:element name="Owner" type="xs:string" minOccurs="0"/>
+          <xs:element name="PercentComplete" type="xs:double" minOccurs="0"/>
+          <xs:element name="Recurrence" type="t:TaskRecurrenceType" minOccurs="0"/>
+          <xs:element name="StartDate" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="Status" type="t:TaskStatusType" minOccurs="0"/>
+          <xs:element name="StatusDescription" type="xs:string" minOccurs="0"/>
+          <xs:element name="TotalWork" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TaskRecurrenceType">
+    <xs:sequence>
+      <xs:group ref="t:TaskRecurrencePatternTypes"/>
+      <xs:group ref="t:RecurrenceRangeTypes"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TasksFolderType">
+    <xs:complexContent>
+      <xs:extension base="t:FolderType"/>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

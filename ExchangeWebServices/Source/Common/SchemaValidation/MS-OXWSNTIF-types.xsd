@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="BaseNotificationEventType">
+    <xs:sequence>
+      <xs:element name="Watermark" type="t:WatermarkType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BaseObjectChangedEventType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseNotificationEventType">
+        <xs:sequence>
+          <xs:element name="TimeStamp" type="xs:dateTime"/>
+          <xs:choice>
+            <xs:element name="FolderId" type="t:FolderIdType"/>
+            <xs:element name="ItemId" type="t:ItemIdType"/>
+          </xs:choice>
+          <xs:element name="ParentFolderId" type="t:FolderIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BaseSubscriptionRequestType" abstract="true">
+    <xs:sequence>
+      <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType" minOccurs="0"/>
+      <xs:element name="EventTypes" type="t:NonEmptyArrayOfNotificationEventTypesType"/>
+      <xs:element name="Watermark" type="t:WatermarkType" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="SubscribeToAllFolders" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="ModifiedEventType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseObjectChangedEventType">
+        <xs:sequence>
+          <xs:element name="UnreadCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MovedCopiedEventType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseObjectChangedEventType">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="OldFolderId" type="t:FolderIdType"/>
+            <xs:element name="OldItemId" type="t:ItemIdType"/>
+          </xs:choice>
+          <xs:element name="OldParentFolderId" type="t:FolderIdType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfNotificationEventTypesType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="EventType" type="t:NotificationEventTypeType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="NotificationType">
+    <xs:sequence>
+      <xs:element name="SubscriptionId" type="t:SubscriptionIdType"/>
+      <xs:element name="PreviousWatermark" type="t:WatermarkType" minOccurs="0"/>
+      <xs:element name="MoreEvents" type="xs:boolean" minOccurs="0"/>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="CopiedEvent" type="t:MovedCopiedEventType"/>
+        <xs:element name="CreatedEvent" type="t:BaseObjectChangedEventType"/>
+        <xs:element name="DeletedEvent" type="t:BaseObjectChangedEventType"/>
+        <xs:element name="ModifiedEvent" type="t:ModifiedEventType"/>
+        <xs:element name="MovedEvent" type="t:MovedCopiedEventType"/>
+        <xs:element name="NewMailEvent" type="t:BaseObjectChangedEventType"/>
+        <xs:element name="StatusEvent" type="t:BaseNotificationEventType"/>
+        <xs:element name="FreeBusyChangedEvent" type="t:BaseObjectChangedEventType"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="NotificationEventTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CopiedEvent"/>
+      <xs:enumeration value="CreatedEvent"/>
+      <xs:enumeration value="DeletedEvent"/>
+      <xs:enumeration value="ModifiedEvent"/>
+      <xs:enumeration value="MovedEvent"/>
+      <xs:enumeration value="NewMailEvent"/>
+      <xs:enumeration value="FreeBusyChangedEvent"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="PushSubscriptionRequestType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseSubscriptionRequestType">
+        <xs:sequence>
+          <xs:element name="StatusFrequency" type="t:SubscriptionStatusFrequencyType"/>
+          <xs:element name="URL" type="xs:string"/>
+          <xs:element name="CallerData" type="xs:string" minOccurs ="0" maxOccurs ="1" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PullSubscriptionRequestType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseSubscriptionRequestType">
+        <xs:sequence>
+          <xs:element name="Timeout" type="t:SubscriptionTimeoutType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SubscriptionIdType">
+    <xs:restriction base="t:NonEmptyStringType"/>
+  </xs:simpleType>
+  <xs:simpleType name="WatermarkType">
+    <xs:restriction base="t:NonEmptyStringType"/>
+  </xs:simpleType>
+  <xs:simpleType name="SubscriptionTimeoutType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="1440"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SubscriptionStatusFrequencyType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="1440"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StreamingSubscriptionRequestType">
+    <xs:sequence>
+      <xs:element name="FolderIds" type="t:NonEmptyArrayOfBaseFolderIdsType" minOccurs="0"/>
+      <xs:element name="EventTypes" type="t:NonEmptyArrayOfNotificationEventTypesType"/>
+    </xs:sequence>
+    <xs:attribute name="SubscribeToAllFolders" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfSubscriptionIdsType">
+    <xs:sequence>
+      <xs:element name="SubscriptionId" type="t:SubscriptionIdType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfNotificationsType">
+    <xs:sequence>
+      <xs:element name="Notification" type="t:NotificationType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StreamingSubscriptionConnectionTimeoutType">
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ConnectionStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="Closed"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

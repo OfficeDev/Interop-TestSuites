@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
+  <xs:complexType name="AddressListIdType">
+    <xs:annotation>
+      <xs:documentation>Identifier for a address list</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="t:BaseFolderIdType">
+        <xs:attribute name="Id" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AppendToFolderFieldType">
+    <xs:complexContent>
+      <xs:extension base="t:FolderChangeDescriptionType">
+        <xs:sequence>
+          <xs:choice>
+            <xs:element name="Folder" type="t:FolderType"/>
+            <xs:element name="CalendarFolder" type="t:CalendarFolderType"/>
+            <xs:element name="ContactsFolder" type="t:ContactsFolderType"/>
+            <xs:element name="SearchFolder" type="t:SearchFolderType"/>
+            <xs:element name="TasksFolder" type="t:TasksFolderType"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFoldersType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Folder" type="t:FolderType"/>
+      <xs:element name="CalendarFolder" type="t:CalendarFolderType"/>
+      <xs:element name="ContactsFolder" type="t:ContactsFolderType"/>
+      <xs:element name="SearchFolder" type="t:SearchFolderType"/>
+      <xs:element name="TasksFolder" type="t:TasksFolderType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfUnknownEntriesType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="UnknownEntry" type="xs:string"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="BaseFolderIdType" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Utility type which should never appear in user documents</xs:documentation>
+    </xs:annotation>
+  </xs:complexType>
+  <xs:complexType name="BaseFolderType" abstract="true">
+    <xs:sequence>
+      <xs:element name="FolderId" type="t:FolderIdType" minOccurs="0"/>
+      <xs:element name="ParentFolderId" type="t:FolderIdType" minOccurs="0"/>
+      <xs:element name="FolderClass" type="xs:string" minOccurs="0"/>
+      <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="ChildFolderCount" type="xs:int" minOccurs="0"/>
+      <xs:element name="ExtendedProperty" type="t:ExtendedPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ManagedFolderInformation" type="t:ManagedFolderInformationType" minOccurs="0"/>
+      <xs:element name="EffectiveRights" type="t:EffectiveRightsType" minOccurs="0"/>
+      <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdNameType" minOccurs="0"/>
+      <xs:element name="PolicyTag" type="t:RetentionTagType" minOccurs="0"/>
+      <xs:element name="ArchiveTag" type="t:RetentionTagType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BasePermissionType" abstract="true">
+    <xs:sequence>
+      <xs:element name="UserId" type="t:UserIdType"/>
+      <xs:element name="CanCreateItems" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="CanCreateSubFolders" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="IsFolderOwner" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="IsFolderVisible" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="IsFolderContact" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EditItems" type="t:PermissionActionType" minOccurs="0"/>
+      <xs:element name="DeleteItems" type="t:PermissionActionType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DeleteFolderFieldType">
+    <xs:complexContent>
+      <xs:extension base="t:FolderChangeDescriptionType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FolderChangeDescriptionType">
+    <xs:complexContent>
+      <xs:extension base="t:ChangeDescriptionType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FolderChangeType">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="FolderId" type="t:FolderIdType"/>
+        <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdType"/>
+      </xs:choice>
+      <xs:element name="Updates" type="t:NonEmptyArrayOfFolderChangeDescriptionsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FolderClassType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="ManagedFolderInformationType">
+    <xs:sequence>
+      <xs:element name="CanDelete" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="CanRenameOrMove" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="MustDisplayComment" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="HasQuota" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="IsManagedFoldersRoot" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ManagedFolderId" type="xs:string" minOccurs="0"/>
+      <xs:element name="Comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="StorageQuota" type="xs:int" minOccurs="0"/>
+      <xs:element name="FolderSize" type="xs:int" minOccurs="0"/>
+      <xs:element name="HomePage" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FolderType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseFolderType">
+        <xs:sequence>
+          <xs:element name="PermissionSet" type="t:PermissionSetType" minOccurs="0"/>
+          <xs:element name="UnreadCount" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfBaseFolderIdsType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="FolderId" type="t:FolderIdType"/>
+      <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfFolderChangeDescriptionsType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="AppendToFolderField" type="t:AppendToFolderFieldType"/>
+      <xs:element name="SetFolderField" type="t:SetFolderFieldType"/>
+      <xs:element name="DeleteFolderField" type="t:DeleteFolderFieldType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfFolderChangesType">
+    <xs:sequence>
+      <xs:element name="FolderChange" type="t:FolderChangeType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfFolderNamesType">
+    <xs:sequence>
+      <xs:element name="FolderName" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfFoldersType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="Folder" type="t:FolderType"/>
+      <xs:element name="CalendarFolder" type="t:CalendarFolderType"/>
+      <xs:element name="ContactsFolder" type="t:ContactsFolderType"/>
+      <xs:element name="SearchFolder" type="t:SearchFolderType"/>
+      <xs:element name="TasksFolder" type="t:TasksFolderType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:simpleType name="PermissionActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Owned"/>
+      <xs:enumeration value="All"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PermissionLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Owner"/>
+      <xs:enumeration value="PublishingEditor"/>
+      <xs:enumeration value="Editor"/>
+      <xs:enumeration value="PublishingAuthor"/>
+      <xs:enumeration value="Author"/>
+      <xs:enumeration value="NoneditingAuthor"/>
+      <xs:enumeration value="Reviewer"/>
+      <xs:enumeration value="Contributor"/>
+      <xs:enumeration value="Custom"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PermissionReadAccessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="FullDetails"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PermissionSetType">
+    <xs:annotation>
+      <xs:documentation>The set of permissions on a folder</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Permissions" type="t:ArrayOfPermissionsType"/>
+      <xs:element name="UnknownEntries" type="t:ArrayOfUnknownEntriesType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PermissionType">
+    <xs:annotation>
+      <xs:documentation>A permission on a folder</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="t:BasePermissionType">
+        <xs:sequence>
+          <xs:element name="ReadItems" type="t:PermissionReadAccessType" minOccurs="0"/>
+          <xs:element name="PermissionLevel" type="t:PermissionLevelType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SetFolderFieldType">
+    <xs:complexContent>
+      <xs:extension base="t:FolderChangeDescriptionType">
+        <xs:choice>
+          <xs:element name="Folder" type="t:FolderType"/>
+          <xs:element name="CalendarFolder" type="t:CalendarFolderType"/>
+          <xs:element name="ContactsFolder" type="t:ContactsFolderType"/>
+          <xs:element name="SearchFolder" type="t:SearchFolderType"/>
+          <xs:element name="TasksFolder" type="t:TasksFolderType"/>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TargetFolderIdType">
+    <xs:choice>
+      <xs:element name="FolderId" type="t:FolderIdType"/>
+      <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdType"/>
+      <xs:element name="AddressListId" type="t:AddressListIdType"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
+  <xs:complexType name="ArrayOfSmtpAddressType">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element name="SmtpAddress" type="t:NonEmptyStringType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEncryptedSharedFolderDataType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="EncryptedSharedFolderData" type="t:EncryptedSharedFolderDataType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="EncryptedSharedFolderDataType">
+    <xs:sequence>
+      <xs:element name="Token" type="t:EncryptedDataContainerType"/>
+      <xs:element name="Data" type="t:EncryptedDataContainerType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptedDataContainerType">
+    <xs:sequence>
+      <xs:any namespace="##other" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfInvalidRecipientsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="InvalidRecipient" type="t:InvalidRecipientType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="InvalidRecipientType">
+    <xs:sequence>
+      <xs:element name="SmtpAddress" type="t:NonEmptyStringType"/>
+      <xs:element name="ResponseCode" type="t:InvalidRecipientResponseCodeType"/>
+      <xs:element name="MessageText" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="InvalidRecipientResponseCodeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RecipientOrganizationNotFederated"/>
+      <xs:enumeration value="CannotObtainTokenFromSTS"/>
+      <xs:enumeration value="SystemPolicyBlocksSharingWithThisRecipient"/>
+      <xs:enumeration value="RecipientOrganizationFederatedWithUnknownTokenIssuer"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SharingSecurity" type="t:EncryptedDataContainerType"/>
+  <xs:simpleType name="SharingDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Calendar"/>
+      <xs:enumeration value="Contacts"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
