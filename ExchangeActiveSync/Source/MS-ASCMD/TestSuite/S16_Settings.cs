@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-// Copyright (c) 2014 Microsoft Corporation. All rights reserved.
-// Use of this sample source code is subject to the terms of the Microsoft license 
-// agreement under which you licensed this sample source code and is provided AS-IS.
-// If you did not accept the terms of the license agreement, you are not authorized 
-// to use this sample source code. For the terms of the license, please see the 
-// license agreement between you and Microsoft.
-//-----------------------------------------------------------------------
-
 namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 {
     using System;
@@ -723,7 +714,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 oofMessage.ReplyMessage != null && oofMessage.BodyType != null,
                 1106,
-                @"[In BodyType] Element BodyType in Settings command Oof response, the number allowed is 1…1 (required) if a ReplyMessage element is present [; otherwise, 0…1 (optional)].");
+                @"[In BodyType] Element BodyType in Settings command Oof response, the number allowed is 1ï¿½1 (required) if a ReplyMessage element is present [; otherwise, 0ï¿½1 (optional)].");
             #endregion
         }
 
@@ -848,7 +839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 oofMessage.ReplyMessage == null && oofMessage.BodyType == null,
                 5677,
-                @"[In BodyType] [Element BodyType in Settings command Oof response, the number allowed is 1…1 (required) if a ReplyMessage element is present]; otherwise, [the number allowed is ] 0…1 (optional).");
+                @"[In BodyType] [Element BodyType in Settings command Oof response, the number allowed is 1ï¿½1 (required) if a ReplyMessage element is present]; otherwise, [the number allowed is ] 0ï¿½1 (optional).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2252");
