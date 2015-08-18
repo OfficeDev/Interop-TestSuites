@@ -1,12 +1,3 @@
-//-----------------------------------------------------------------------
-// Copyright (c) 2014 Microsoft Corporation. All rights reserved.
-// Use of this sample source code is subject to the terms of the Microsoft license 
-// agreement under which you licensed this sample source code and is provided AS-IS.
-// If you did not accept the terms of the license agreement, you are not authorized 
-// to use this sample source code. For the terms of the license, please see the 
-// license agreement between you and Microsoft.
-//-----------------------------------------------------------------------
-
 namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 {
     using Microsoft.Protocols.TestSuites.Common;
@@ -691,7 +682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             // Add the debug information
             Site.Log.Add(
                 LogEntryKind.Debug,
-                "Verify MS-OXNSPI_R1666: Call NspiModLinkAtt to add address book member {0} and delete it {1}, then add address book member with different display type {2} and delete it {3}.",
+                "Verify MS-OXNSPI_R1666:ï¿½Call NspiModLinkAtt to add address book memberï¿½{0} andï¿½deleteï¿½itï¿½{1}, thenï¿½add address book member with different display typeï¿½{2} andï¿½deleteï¿½itï¿½{3}.",
                 result1.ToString(),
                 result2.ToString(),
                 result3.ToString(),

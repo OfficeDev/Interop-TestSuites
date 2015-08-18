@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the RPC client stubs */
 
 
- /* File created by MIDL compiler version 7.00.0555 */
-/* at Thu Nov 20 16:59:29 2014
+ /* File created by MIDL compiler version 8.00.0603 */
+/* at Tue Aug 18 11:59:11 2015
  */
 /* Compiler settings for MS-OXCRPC.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0603 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -16,7 +16,7 @@
 */
 /* @@MIDL_FILE_HEADING(  ) */
 
-#if !defined(_M_IA64) && !defined(_M_AMD64)
+#if !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_)
 
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
@@ -1437,7 +1437,7 @@ static const MIDL_STUB_DESC emsmdb_StubDesc =
     1, /* -error bounds_check flag */
     0x50002, /* Ndr library version */
     0,
-    0x700022b, /* MIDL Version 7.0.555 */
+    0x800025b, /* MIDL Version 8.0.603 */
     0,
     0,
     0,  /* notify & notify_flag routine table */
@@ -1467,7 +1467,7 @@ static const MIDL_STUB_DESC asyncemsmdb_StubDesc =
     1, /* -error bounds_check flag */
     0x50002, /* Ndr library version */
     0,
-    0x700022b, /* MIDL Version 7.0.555 */
+    0x800025b, /* MIDL Version 8.0.603 */
     0,
     0,
     0,  /* notify & notify_flag routine table */
@@ -1482,5 +1482,5 @@ static const MIDL_STUB_DESC asyncemsmdb_StubDesc =
 #endif
 
 
-#endif /* !defined(_M_IA64) && !defined(_M_AMD64)*/
+#endif /* !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_) */
 

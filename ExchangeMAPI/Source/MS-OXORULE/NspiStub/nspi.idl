@@ -409,5 +409,3 @@ interface nspi
         [out] PropertyRowSet_r ** ppRows
         );
 }
-
-

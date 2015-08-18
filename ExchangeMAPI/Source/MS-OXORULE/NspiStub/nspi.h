@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 7.00.0555 */
-/* at Thu Nov 20 17:03:20 2014
+ /* File created by MIDL compiler version 8.00.0603 */
+/* at Tue Aug 18 11:59:11 2015
  */
 /* Compiler settings for nspi.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.00.0603 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -76,55 +76,55 @@ typedef /* [public][public][public][public][public][public][public][public][publ
 typedef struct PropertyTagArray_r
     {
     DWORD cValues;
-    DWORD aulPropTag[ 1 ];
+    /* [length_is][size_is][range] */ DWORD aulPropTag[ 1 ];
     } 	PropertyTagArray_r;
 
 typedef struct Binary_r
     {
-    DWORD cb;
-    BYTE *lpb;
+    /* [range] */ DWORD cb;
+    /* [size_is] */ BYTE *lpb;
     } 	Binary_r;
 
 typedef struct ShortArray_r
     {
-    DWORD cValues;
-    short *lpi;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ short *lpi;
     } 	ShortArray_r;
 
 typedef struct _LongArray_r
     {
-    DWORD cValues;
-    long *lpl;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ long *lpl;
     } 	LongArray_r;
 
 typedef struct _StringArray_r
     {
-    DWORD cValues;
-    unsigned char **lppszA;
+    /* [range] */ DWORD cValues;
+    /* [string][size_is] */ unsigned char **lppszA;
     } 	StringArray_r;
 
 typedef struct _BinaryArray_r
     {
-    DWORD cValues;
-    Binary_r *lpbin;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ Binary_r *lpbin;
     } 	BinaryArray_r;
 
 typedef struct _FlatUIDArray_r
     {
-    DWORD cValues;
-    FlatUID_r **lpguid;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ FlatUID_r **lpguid;
     } 	FlatUIDArray_r;
 
 typedef struct _WStringArray_r
     {
-    DWORD cValues;
-    wchar_t **lppszW;
+    /* [range] */ DWORD cValues;
+    /* [string][size_is] */ wchar_t **lppszW;
     } 	WStringArray_r;
 
 typedef struct _DateTimeArray_r
     {
-    DWORD cValues;
-    FILETIME *lpft;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ FILETIME *lpft;
     } 	DateTimeArray_r;
 
 typedef struct _PropertyValue_r PropertyValue_r;
@@ -132,22 +132,22 @@ typedef struct _PropertyValue_r PropertyValue_r;
 typedef struct _PropertyRow_r
     {
     DWORD Reserved;
-    DWORD cValues;
-    PropertyValue_r *lpProps;
+    /* [range] */ DWORD cValues;
+    /* [size_is] */ PropertyValue_r *lpProps;
     } 	PropertyRow_r;
 
 typedef struct _PropertyRowSet_r
     {
-    DWORD cRows;
-    PropertyRow_r aRow[ 1 ];
+    /* [range] */ DWORD cRows;
+    /* [size_is] */ PropertyRow_r aRow[ 1 ];
     } 	PropertyRowSet_r;
 
 typedef struct _Restriction_r Restriction_r;
 
 typedef struct _AndOrRestriction_r
     {
-    DWORD cRes;
-    Restriction_r *lpRes;
+    /* [range] */ DWORD cRes;
+    /* [size_is] */ Restriction_r *lpRes;
     } 	AndRestriction_r;
 
 typedef struct _AndOrRestriction_r OrRestriction_r;
@@ -207,22 +207,22 @@ typedef struct _ExistRestriction_r
 
 typedef /* [switch_type] */ union _RestrictionUnion_r
     {
-    AndRestriction_r resAnd;
-    OrRestriction_r resOr;
-    NotRestriction_r resNot;
-    ContentRestriction_r resContent;
-    PropertyRestriction_r resProperty;
-    ComparePropsRestriction_r resCompareProps;
-    BitMaskRestriction_r resBitMask;
-    SizeRestriction_r resSize;
-    ExistRestriction_r resExist;
-    SubRestriction_r resSubRestriction;
+    /* [case()] */ AndRestriction_r resAnd;
+    /* [case()] */ OrRestriction_r resOr;
+    /* [case()] */ NotRestriction_r resNot;
+    /* [case()] */ ContentRestriction_r resContent;
+    /* [case()] */ PropertyRestriction_r resProperty;
+    /* [case()] */ ComparePropsRestriction_r resCompareProps;
+    /* [case()] */ BitMaskRestriction_r resBitMask;
+    /* [case()] */ SizeRestriction_r resSize;
+    /* [case()] */ ExistRestriction_r resExist;
+    /* [case()] */ SubRestriction_r resSubRestriction;
     } 	RestrictionUnion_r;
 
 struct _Restriction_r
     {
     DWORD rt;
-    RestrictionUnion_r res;
+    /* [switch_is] */ RestrictionUnion_r res;
     } ;
 typedef struct PropertyName_r
     {
@@ -233,20 +233,20 @@ typedef struct PropertyName_r
 
 typedef struct PropertyNameSet_r
     {
-    DWORD cNames;
-    PropertyName_r aNames[ 1 ];
+    /* [range] */ DWORD cNames;
+    /* [size_is] */ PropertyName_r aNames[ 1 ];
     } 	PropertyNameSet_r;
 
 typedef struct _StringsArray
     {
-    DWORD Count;
-    unsigned char *Strings[ 1 ];
+    /* [range] */ DWORD Count;
+    /* [string][size_is] */ unsigned char *Strings[ 1 ];
     } 	StringsArray_r;
 
 typedef struct _WStringsArray
     {
-    DWORD Count;
-    wchar_t *Strings[ 1 ];
+    /* [range] */ DWORD Count;
+    /* [string][size_is] */ wchar_t *Strings[ 1 ];
     } 	WStringsArray_r;
 
 typedef struct _STAT
@@ -264,30 +264,30 @@ typedef struct _STAT
 
 typedef /* [switch_type] */ union _PV_r
     {
-    short i;
-    long l;
-    unsigned short b;
-    unsigned char *lpszA;
-    Binary_r bin;
-    wchar_t *lpszW;
-    FlatUID_r *lpguid;
-    FILETIME ft;
-    long err;
-    ShortArray_r MVi;
-    LongArray_r MVl;
-    StringArray_r MVszA;
-    BinaryArray_r MVbin;
-    FlatUIDArray_r MVguid;
-    WStringArray_r MVszW;
-    DateTimeArray_r MVft;
-    long lReserved;
+    /* [case()] */ short i;
+    /* [case()] */ long l;
+    /* [case()] */ unsigned short b;
+    /* [case()][string] */ unsigned char *lpszA;
+    /* [case()] */ Binary_r bin;
+    /* [case()][string] */ wchar_t *lpszW;
+    /* [case()] */ FlatUID_r *lpguid;
+    /* [case()] */ FILETIME ft;
+    /* [case()] */ long err;
+    /* [case()] */ ShortArray_r MVi;
+    /* [case()] */ LongArray_r MVl;
+    /* [case()] */ StringArray_r MVszA;
+    /* [case()] */ BinaryArray_r MVbin;
+    /* [case()] */ FlatUIDArray_r MVguid;
+    /* [case()] */ WStringArray_r MVszW;
+    /* [case()] */ DateTimeArray_r MVft;
+    /* [case()] */ long lReserved;
     } 	PROP_VAL_UNION;
 
 struct _PropertyValue_r
     {
     DWORD ulPropTag;
     DWORD ulReserved;
-    PROP_VAL_UNION Value;
+    /* [switch_is] */ PROP_VAL_UNION Value;
     } ;
 typedef /* [context_handle] */ void *NSPI_HANDLE;
 
