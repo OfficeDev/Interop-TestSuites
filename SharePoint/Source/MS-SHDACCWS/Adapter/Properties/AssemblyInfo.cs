@@ -4,7 +4,6 @@ using System.Reflection;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyCompany("Microsoft Corporation")]
-[assembly: AssemblyCopyright("(c) 2014 Microsoft Corporation. All rights reserved.")]
 [assembly: AssemblyVersion("15.0.1.0")]
 [assembly: AssemblyFileVersion("15.0.1.0")]
 [assembly: AssemblyTitleAttribute("MS-SHDACCWS_Adapter")]
