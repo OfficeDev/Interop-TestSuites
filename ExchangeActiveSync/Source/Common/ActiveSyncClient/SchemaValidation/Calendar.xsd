@@ -91,6 +91,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ClientUid">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+        <xs:maxLength value="300"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
   <xs:element name="Recurrence">
     <xs:complexType>
       <xs:all minOccurs="0">
@@ -178,18 +186,21 @@
           <xs:complexType>
             <xs:all>
               <xs:element name="Deleted" type="xs:unsignedByte" minOccurs="0"/>
-              <xs:element name="ExceptionStartTime" type="xs:string"/>
+              <xs:element name="ExceptionStartTime" type="xs:string" minOccurs="0"/>
               <xs:element ref="Subject" minOccurs="0"/>
               <xs:element ref="StartTime" minOccurs="0"/>
               <xs:element ref="EndTime" minOccurs="0"/>
               <xs:element ref="airsyncbase:Body" minOccurs="0"/>
               <xs:element ref="Location" minOccurs="0"/>
+              <xs:element ref="airsyncbase:Location" minOccurs="0"/>
+              <xs:element ref="airsyncbase:Attachments" minOccurs="0"/>
               <xs:element ref="Categories" minOccurs="0"/>
               <xs:element ref="Sensitivity" minOccurs="0"/>
               <xs:element ref="BusyStatus" minOccurs="0"/>
               <xs:element ref="AllDayEvent" minOccurs="0"/>
               <xs:element ref="Reminder" minOccurs="0"/>
               <xs:element ref="DtStamp" minOccurs="0"/>
+              <xs:element ref="airsyncbase:InstanceId" minOccurs="0"/>
               <xs:element ref="MeetingStatus" minOccurs="0"/>
               <xs:element ref="Attendees" minOccurs="0"/>
               <xs:element ref="AppointmentReplyTime" minOccurs="0"/>

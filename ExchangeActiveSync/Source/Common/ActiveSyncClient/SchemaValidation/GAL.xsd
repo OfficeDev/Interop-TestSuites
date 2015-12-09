@@ -21,7 +21,6 @@
             <xs:sequence>
               <xs:element name="Status" type="xs:integer"/>
               <xs:element name="Data" type="xs:string" minOccurs="0"/>
-              <xs:element ref="rm:RightsManagementLicense" minOccurs="0"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

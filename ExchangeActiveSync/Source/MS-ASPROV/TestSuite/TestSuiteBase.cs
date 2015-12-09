@@ -183,9 +183,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 FolderSyncResponse folderSyncReponse = this.PROVAdapter.FolderSync(folderSyncRequest);
 
                 // Verify FolderSync command response.
-                Site.Assert.AreEqual<byte>(
+                Site.Assert.AreEqual<int>(
                     1,
-                    folderSyncReponse.ResponseData.Status,
+                    int.Parse(folderSyncReponse.ResponseData.Status),
                     "If the FolderSync command executes successfully, the Status in response should be 1.");
 
                 // Get the folder collectionId of User1
@@ -250,7 +250,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 policy.PolicyKey = policyKey;
                 policy.Status = status;
             }
-            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
+            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" ||
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation();
@@ -316,9 +317,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             FolderSyncResponse folderSynReponse = this.PROVAdapter.FolderSync(Common.CreateFolderSyncRequest("0"));
 
             // Verify FolderSync command response.
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 1,
-                folderSynReponse.ResponseData.Status,
+                int.Parse(folderSynReponse.ResponseData.Status),
                 "If the FolderSync command executes successfully, the Status in response should be 1.");
 
             // Loop to get the specified email.

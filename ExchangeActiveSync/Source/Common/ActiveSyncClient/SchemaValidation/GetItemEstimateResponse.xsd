@@ -5,11 +5,11 @@
   <xs:element name="GetItemEstimate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Status" type="xs:unsignedByte" minOccurs="0"/>
+        <xs:element name="Status" type="xs:integer" minOccurs="0"/>
         <xs:element name="Response" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Status" type="xs:unsignedByte"/>
+              <xs:element name="Status" type="xs:integer"/>
               <xs:element name="Collection" minOccurs="0" maxOccurs="1">
                 <xs:complexType>
                   <xs:sequence>

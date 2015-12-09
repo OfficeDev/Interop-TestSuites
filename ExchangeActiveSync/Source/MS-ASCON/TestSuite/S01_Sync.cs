@@ -577,17 +577,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 @"[In ConversationIndex] Additional timestamps are added when the message is  [forwarded or] replied to.");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R310");
-            Site.Log.Add(LogEntryKind.Debug, "After User1 reply the email to User2, the ConversationIndex is {0} and its length is {1}.", conversationIndexReply, conversationIndexReply.Length);
-
-            // Verify MS-ASCON requirement: MS-ASCON_R310
-            // If the ConversationIndex element is longer than ConversationIndexHeader which means additional timestamp has been added to ConversationIndex, then this requirement can be captured.
-            Site.CaptureRequirementIfIsTrue(
-                additionalTimestampAdded,
-                310,
-                @"[In Response Level] The Response Level field contains information about the time the message was [forwarded or] replied to.");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R91");
 
             // Verify MS-ASCON requirement: MS-ASCON_R91
@@ -596,7 +585,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 conversationIndexHeader.Length + 5,
                 conversationIndexReply.Length,
                 91,
-                @"[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was [forwarded or] replied to, as specified in section 2.2.2.4.2.");
+                @"[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was [forwarded or] replied to.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R306");
@@ -665,7 +654,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 conversationIndexReply.Length + 5,
                 conversationIndexForward.Length,
                 259,
-                @"[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was forwarded [or replied to], as specified in section 2.2.2.4.2.");
+                @"[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was forwarded [or replied to].");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R305");

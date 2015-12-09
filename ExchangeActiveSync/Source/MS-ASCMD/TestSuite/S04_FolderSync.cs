@@ -42,9 +42,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             // Call method FolderSync to synchronize the collection hierarchy.
             FolderSyncResponse folderSyncResponse = this.FolderSync();
-            Site.Assert.AreEqual<byte>(
-                 (byte)1,
-                 folderSyncResponse.ResponseData.Status,
+            Site.Assert.AreEqual<int>(
+                 1,
+                 int.Parse(folderSyncResponse.ResponseData.Status),
                  "The server should return a status code 1 in the FolderSync command response to indicate success.");
 
             Site.Assert.IsNotNull(
@@ -115,8 +115,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4074");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4074
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 folderSyncResponse.ResponseData.Status,
                 4074,
                 @"[In Status(FolderSync)] [When the scope is Global], [the cause of the status value 1 is] Server successfully completed command.");
@@ -177,7 +177,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(folderSyncResponseForNewDeviceID.ResponseData.SyncKey, (byte)FolderType.UserCreatedMail, folderName, "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -216,7 +216,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // The client calls FolderCreate command to create a new folder as a child folder of the specified parent folder, then server returns ServerId for FolderCreate command.
             string folderName = Common.GenerateResourceName(Site, "FolderSync");
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, folderName, "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
 
             // The client calls FolderSync method to synchronize the collection hierarchy, then server returns latest folder SyncKey.
@@ -248,9 +248,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the client sent a malformed or mismatched synchronization key, the server should return a status code 9 in the FolderSync command response.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4068
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderSyncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 4068,
                 @"[In Status(FolderSync)] If the command fails, the Status element contains a code that indicates the type of failure.");
 
@@ -259,9 +259,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the client sent a malformed or mismatched synchronization key, the server should return a status code 9 in the FolderSync command response.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4070
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderSyncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 4070,
                 @"[In Status(FolderSync)] If one collection fails, a failure status MUST be returned for all collections.");
 
@@ -270,9 +270,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 9 in the FolderSync command response to indicate the client sent a malformed or mismatched synchronization key.
             // If the SyncKey is an empty string, the status is equal to 9.
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderSyncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 4083,
                 @"[In Status(FolderSync)] [When the scope is Global], [the cause of the status value 9 is] The client sent a malformed or mismatched synchronization key [, or the synchronization state is corrupted on the server].");
 
@@ -281,9 +281,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 9 in the FolderSync command response to indicate the client sent a malformed or mismatched synchronization key.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4581
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderSyncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 4581,
                 @"[In SyncKey(FolderSync)] The server MUST return a Status element (section 2.2.3.162.4) value of 9 if the value of the SyncKey element does not match the value of the synchronization key on the server.");
         }
@@ -302,9 +302,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4086");
 
             // If the SyncKey is invalid, the status is equal to 10.
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)10,
-                folderSyncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                10,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 4086,
                 @"[In Status(FolderSync)] [When the scope is Global], [the cause of the status value 10 is] The client sent a FolderSync command request that contains a semantic or syntactic error.");
         }
@@ -317,7 +317,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region The client calls FolderCreate command to create a new folder as a child folder of the specified parent folder, then server returns ServerId for FolderCreate command.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderSync"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -353,7 +353,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Call method FolderCreate command to create a new folder as a child folder of the specified parent folder.
             string folderName = Common.GenerateResourceName(Site, "FolderSync");
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, folderName, "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -414,7 +414,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region The client calls FolderCreate command to create a new folder as a child folder of the specified parent folder, then server returns ServerId for FolderCreate command.
             string folderName = Common.GenerateResourceName(Site, "FolderSync");
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, folderName, "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             #endregion
 
             #region Changes DeviceID.
@@ -434,7 +434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region The client calls FolderDelete command to delete the created folder in step 2 from the server.
             FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(folderSyncResponseForNewDeviceID.ResponseData.SyncKey, serverId);
             FolderDeleteResponse folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
-            Site.Assert.AreEqual<byte>((byte)1, folderDeleteResponse.ResponseData.Status, "The server should return a status code 1 in the FolderDelete command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderDeleteResponse.ResponseData.Status), "The server should return a status code 1 in the FolderDelete command response to indicate success.");
             #endregion
 
             #region Restore DeviceID and call FolderSync command
@@ -443,7 +443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // The client calls FolderSync command to synchronize the collection hierarchy with original device id.
             FolderSyncRequest folderSyncRequest = Common.CreateFolderSyncRequest(folderCreateResponse.ResponseData.SyncKey);
             FolderSyncResponse folderSyncResponse = this.CMDAdapter.FolderSync(folderSyncRequest);
-            Site.Assert.AreEqual<byte>(1, folderSyncResponse.ResponseData.Status, "Server should return status 1 in the FolderSync response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderSyncResponse.ResponseData.Status), "Server should return status 1 in the FolderSync response to indicate success.");
             Site.Assert.IsNotNull(folderSyncResponse.ResponseData.Changes, "Server should return Changes element in the FolderSync response after the collection hierarchy changed by call FolderDelete command.");
             Site.Assert.IsNotNull(folderSyncResponse.ResponseData.Changes.Delete, "Server should return Changes element in the FolderSync response after the specified folder deleted.");
             

@@ -135,10 +135,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             Request.BodyPreference bodyReference = new Request.BodyPreference { Type = 1 };
             Request.Schema schema = new Request.Schema
             {
-                ItemsElementName = new Request.ItemsChoiceType3[1],
+                ItemsElementName = new Request.ItemsChoiceType4[1],
                 Items = new object[] { new Request.Body() }
             };
-            schema.ItemsElementName[0] = Request.ItemsChoiceType3.Body;
+            schema.ItemsElementName[0] = Request.ItemsChoiceType4.Body;
 
             // serverIds:null
             ItemOperationsRequest itemOperationRequest = TestSuiteHelper.CreateItemOperationsFetchRequest(null, null, longIds, bodyReference, schema);

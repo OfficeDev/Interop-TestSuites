@@ -104,6 +104,7 @@ namespace Microsoft.Protocols.TestSuites.Common
                         ReadXsdFile("FolderSyncResponse.xsd"),
                         ReadXsdFile("FolderUpdateResponse.xsd"),
                         ReadXsdFile("GAL.xsd"),
+                        ReadXsdFile("GetHierarchyResponse.xsd"),
                         ReadXsdFile("GetItemEstimateResponse.xsd"),
                         ReadXsdFile("ItemOperations.xsd"),
                         ReadXsdFile("ItemOperationsResponse.xsd"),

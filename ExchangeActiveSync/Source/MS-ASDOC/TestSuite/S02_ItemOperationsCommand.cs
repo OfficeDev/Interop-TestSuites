@@ -246,12 +246,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             {
                 LinkId = linkId,
                 Store = SearchName.DocumentLibrary.ToString(),
-                Options = new ItemOperationsFetchOptions { ItemsElementName = new ItemsChoiceType4[2] }
+                Options = new ItemOperationsFetchOptions { ItemsElementName = new ItemsChoiceType5[2] }
             };
 
             // The user account is used to search the document from the document library
-            fetch.Options.ItemsElementName[0] = ItemsChoiceType4.UserName;
-            fetch.Options.ItemsElementName[1] = ItemsChoiceType4.Password;
+            fetch.Options.ItemsElementName[0] = ItemsChoiceType5.UserName;
+            fetch.Options.ItemsElementName[1] = ItemsChoiceType5.Password;
             fetch.Options.Items = new string[2];
             fetch.Options.Items[0] = Common.GetConfigurationPropertyValue("UserName", this.Site);
             fetch.Options.Items[1] = Common.GetConfigurationPropertyValue("UserPassword", this.Site);

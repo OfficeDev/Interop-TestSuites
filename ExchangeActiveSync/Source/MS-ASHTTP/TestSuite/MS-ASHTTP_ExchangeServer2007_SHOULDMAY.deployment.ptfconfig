@@ -13,9 +13,15 @@
     <Property name="R461Enabled" value="false" />
     <!--Set R298Enabled to true to verify that the implementation does not return MS-ASProtocolVersions values of 14.1 and 14.0. Set R298Enabled to false to disable this requirement.-->
     <Property name="R298Enabled" value="true" />
-    <!--Set R478Enabled to true to verify that if the implementation requires the client to reinitialize its synchronization state, it does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. Set R478Enabled to false to disable this requirement.-->
-    <Property name="R478Enabled" value="true" />
+    <!--Set R1202Enabled to true to verify that if the implementation does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response if the client sends a request to synchronize the folder hierarchy with a synchronization key of 0. Set R1202Enabled to false to disable this requirement.-->
+    <Property name="R1202Enabled" value="true" />
     <!--Set R465Enabled to true to verify that implementation does return 501 Not Implemented status code when implementation does not recognize the request method. Set R465Enabled to false to disable this requirement.-->
     <Property name="R465Enabled" value="true" />
+    <!--Set R1201Enabled to true to verify that implementation does return the MS-ASProtocolVersions value of 16.0. Set R1201Enabled to false to disable this requirement.-->
+    <Property name="R1201Enabled" value="false" />
+    <!--Set R456Enabled to true to verify that the implementation does can be configured to use different valules for the allowed number of changes and the time period. Set R456Enabled to false to disable this requirement.-->
+    <Property name="R456Enabled" value="false" />
+    <!--Set R457Enabled to true to verify that the implementation does can be configured to block clients for a different amount of time. Set R457Enabled to false to disable this requirement.-->
+    <Property name="R457Enabled" value="false" />
   </Properties>
 </TestSite>

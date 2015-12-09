@@ -1099,8 +1099,8 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R87</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.5</ns1:Doc_Sect>
-		<ns1:Description>[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
+		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Description>[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1108,7 +1108,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R88</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] A string is a chunk of Unicode text.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1117,7 +1117,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R90</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] An element of this[string] type is declared as an element with a type attribute of "string".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1126,7 +1126,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R91</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements with a string data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1135,7 +1135,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R94</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements of these types [ActiveSync defines several conventions for strings that adhere to commonly used formats]are defined as string types in XML schemas.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1144,7 +1144,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R97</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Byte Array] The structure is comprised of a length, which is expressed as a multi-byte integer, as specified in [WBXML1.2], followed by that many bytes of data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1153,7 +1153,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R98</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Byte Array] Elements with a byte array structure MUST be encoded and transmitted as [WBXML1.2] opaque data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1162,7 +1162,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R123</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.8</ns1:Doc_Sect>
 		<ns1:Description>[In unsignedByte Data Type] The unsignedByte data type is an integer value between 0 and 255, inclusive.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1171,7 +1171,7 @@ MSS = Number of milliseconds</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R125</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.8</ns1:Doc_Sect>
 		<ns1:Description>[In unsignedByte Data Type] Elements of this type[unsignedByte type] are declared with an element whose type attribute is set to "unsignedByte".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

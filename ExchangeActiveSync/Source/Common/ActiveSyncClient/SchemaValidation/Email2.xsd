@@ -17,7 +17,16 @@
   <xs:element name="AccountId" type="xs:string"/>
   <xs:element name="FirstDayOfWeek" type="xs:unsignedByte"/>
   <xs:element name="MeetingMessageType" type="xs:unsignedByte"/>
-  <xs:group name="AllProps">
+  <xs:element name="Bcc">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="1024"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="IsDraft" type="xs:boolean"/>
+    <xs:element name="Send"/>
+    <xs:group name="AllProps">
     <xs:sequence>
       <xs:choice maxOccurs="unbounded">
         <xs:element ref="UmCallerID"/>
@@ -35,6 +44,9 @@
         <xs:element ref="AccountId"/>
         <xs:element ref="FirstDayOfWeek"/>
         <xs:element ref="MeetingMessageType"/>
+        <xs:element ref="Bcc"/>
+        <xs:element ref="IsDraft"/>
+        <xs:element ref="Send"/>
       </xs:choice>
     </xs:sequence>
   </xs:group>

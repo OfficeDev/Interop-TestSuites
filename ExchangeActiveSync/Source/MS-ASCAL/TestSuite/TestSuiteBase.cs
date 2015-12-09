@@ -206,21 +206,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 },
                 {
                     Request.ItemsChoiceType8.Body, TestSuiteHelper.CreateCalendarBody(1, this.Content)
-                },
-                {
-                    Request.ItemsChoiceType8.OrganizerEmail,
-                    Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain)
-                },
-                {
-                    Request.ItemsChoiceType8.OrganizerName, this.User1Information.UserName
-                },
-                {
-                    Request.ItemsChoiceType8.Location, this.Location
-                },
-                {
-                    Request.ItemsChoiceType8.UID, Guid.NewGuid().ToString()
                 }
             };
+
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "12.1"
+                && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.0"
+                && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.1")
+            {
+                calendarItem.Add(Request.ItemsChoiceType8.ClientUid, Guid.NewGuid().ToString());
+            }
+            else
+            {
+                calendarItem.Add(Request.ItemsChoiceType8.OrganizerEmail, Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain));
+                calendarItem.Add(Request.ItemsChoiceType8.OrganizerName, this.User1Information.UserName);
+                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.UID, Guid.NewGuid().ToString());
+            }
 
             return calendarItem;
         }
@@ -566,7 +567,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                                     if (additem.Name == "Status")
                                     {
-                                        res.Status = byte.Parse(additem.InnerText);
+                                        res.Status = additem.InnerText;
                                     }
                                 }
 
@@ -784,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             MeetingResponseRequest meetingResponseRequest = Common.CreateMeetingResponseRequest(new Request.MeetingResponseRequest[] { meetingResponseRequestItem });
             MeetingResponseResponse meetingResponseResponse = this.CALAdapter.MeetingResponse(meetingResponseRequest);
 
-            if (meetingResponseResponse.ResponseData.Result[0].Status == 1)
+            if (meetingResponseResponse.ResponseData.Result[0].Status == "1")
             {
                 isSuccess = true;
             }

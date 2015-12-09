@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
             Request.Schema schema = new Request.Schema
             {
                 Items = new object[] { string.Empty },
-                ItemsElementName = new Request.ItemsChoiceType3[] { Request.ItemsChoiceType3.FileAs }
+                ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.FileAs }
             };
 
             this.GetItemOperationsResult(this.User1Information.ContactsCollectionId, newAddedItem.ServerId, null, schema);

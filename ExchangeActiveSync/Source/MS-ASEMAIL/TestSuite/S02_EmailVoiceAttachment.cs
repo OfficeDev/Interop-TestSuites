@@ -52,15 +52,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements
-            foreach (Response.AttachmentsAttachment attachment in mailResult.Email.Attachments.Attachment)
+            foreach (Response.AttachmentsAttachment attachment in mailResult.Email.Attachments.Items)
             {
                 Site.Assert.IsNotNull(attachment, "The attachment should not be null.");
                 Site.Assert.IsNotNull(attachment.UmAttOrder, "The order of electronic voice mail attachment should not be null.");
             }
 
             // According to MS-OXCMAIL and MS-OXOUM, the order of attachments is the reverse of the order in which the attachments were added, so the most recent attachment is Email.Attachments.Attachment[1].
-            Site.Assert.IsNull(mailResult.Email.Attachments.Attachment[0].UmAttDuration, "The duration of the next recent electronic voice mail attachment should be null since this element specifies the duration of the most recent electronic voice mail attachment.");
-            Site.Assert.IsNotNull(mailResult.Email.Attachments.Attachment[1].UmAttDuration, "The duration of the most recent electronic voice mail attachment should not be null.");
+            Site.Assert.IsNull(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[0]).UmAttDuration, "The duration of the next recent electronic voice mail attachment should be null since this element specifies the duration of the most recent electronic voice mail attachment.");
+            Site.Assert.IsNotNull(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[1]).UmAttDuration, "The duration of the most recent electronic voice mail attachment should not be null.");
 
             // If the server response contains Attachment element and UmAttDuration is a child element of the most recent attachment, then MS-ASEMAIL_R799 can be verified
             // Add the debug information
@@ -69,7 +69,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R799
             Site.CaptureRequirement(
                 799,
-                @"[In UmAttDuration] The email2:UmAttDuration element<19> is an optional child element of the airsyncbase:Attachment element (section 2.2.2.3) that specifies the duration of the most recent electronic voice mail attachment in seconds.");
+                @"[In UmAttDuration] The email2:UmAttDuration element is an optional child element of the airsyncbase:Attachment element (section 2.2.2.7) that specifies the duration of the most recent electronic voice mail attachment in seconds.");
 
             // If the server response contains UmAttDuration and UmAttOrder element, the response must contains a MessageClass element which element value that begins with the prefix of "IPM.Note.Microsoft.Voicemail", "IPM.Note.RPMSG.Microsoft.Voicemail", or "IPM.Note.Microsoft.Missed.Voice", then MS-ASEMAIL_R804 and MS-ASEMAIL_R811 can be verified.
             string messageClass = mailResult.Email.MessageClass;
@@ -82,7 +82,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                 verifyR804AndR811,
                 804,
-                @"[In UmAttDuration] This element[email2:UmAttDuration] MUST only be included for messages with a MessageClass element (section 2.2.2.41) value that begins with the prefix of ""IPM.Note.Microsoft.Voicemail"", ""IPM.Note.RPMSG.Microsoft.Voicemail"", or ""IPM.Note.Microsoft.Missed.Voice"".");
+                @"[In UmAttDuration] This element[email2:UmAttDuration] MUST only be included for messages with a MessageClass element (section 2.2.2.49) value that begins with the prefix of ""IPM.Note.Microsoft.Voicemail"", ""IPM.Note.RPMSG.Microsoft.Voicemail"", or ""IPM.Note.Microsoft.Missed.Voice"".");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R811");
@@ -91,7 +91,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                 verifyR804AndR811,
                 811,
-                @"[In UmAttOrder] This element[email2:UmAttOrder] MUST only be included for messages with a MessageClass element (section 2.2.2.41) value that begins with the prefix of ""IPM.Note.Microsoft.Voicemail"", ""IPM.Note.RPMSG.Microsoft.Voicemail"", or ""IPM.Note.Microsoft.Missed.Voice"".");
+                @"[In UmAttOrder] This element[email2:UmAttOrder] MUST only be included for messages with a MessageClass element (section 2.2.2.49) value that begins with the prefix of ""IPM.Note.Microsoft.Voicemail"", ""IPM.Note.RPMSG.Microsoft.Voicemail"", or ""IPM.Note.Microsoft.Missed.Voice"".");
 
             // If UmAttDuration element is not null means server set the element value then MS-ASEMAIL_R803 is verified.
             // Add the debug information
@@ -99,12 +99,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R803
             Site.CaptureRequirementIfIsNotNull(
-                mailResult.Email.Attachments.Attachment[1].UmAttDuration,
+                ((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[1]).UmAttDuration,
                 803,
                 @"[In UmAttDuration] This value is set by the server [and is read-only for the client].");
 
             // The display name of the attachment should not be null
-            Site.Assert.IsNotNull(mailResult.Email.Attachments.Attachment[0].DisplayName, "The name of the attachment file should not be null.");
+            Site.Assert.IsNotNull(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[0]).DisplayName, "The name of the attachment file should not be null.");
 
             // If the value of UmAttOrder for the most recent attachment is 1, and for the next recent is larger than the most recent one, it indicates the UmAttOrder identifies the order of electronic voice mail attachments, then MS-ASEMAIL_R805 can be captured.
             // Add the debug information
@@ -112,9 +112,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R805
             Site.CaptureRequirementIfIsTrue(
-                int.Parse(mailResult.Email.Attachments.Attachment[1].UmAttOrder) == 1 && int.Parse(mailResult.Email.Attachments.Attachment[0].UmAttOrder) > 1,
+                int.Parse(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[1]).UmAttOrder) == 1 && int.Parse(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[0]).UmAttOrder) > 1,
                 805,
-                @"[In UmAttOrder] The email2:UmAttOrder element<20>  is an optional child element of the airsyncbase:Attachment element (section 2.2.2.3) that identifies the order of electronic voice mail attachments.");
+                @"[In UmAttOrder] The email2:UmAttOrder element  is an optional child element of the airsyncbase:Attachment element (section 2.2.2.7) that identifies the order of electronic voice mail attachments.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R808");
@@ -122,7 +122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R808
             Site.CaptureRequirementIfAreEqual<string>(
                 "1",
-                mailResult.Email.Attachments.Attachment[1].UmAttOrder,
+                ((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[1]).UmAttOrder,
                 808,
                 @"[In UmAttOrder] This value is set by the server [and is read-only for the client].");
 
@@ -132,7 +132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R809
             Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                int.Parse(mailResult.Email.Attachments.Attachment[1].UmAttOrder),
+                int.Parse(((Response.AttachmentsAttachment)mailResult.Email.Attachments.Items[1]).UmAttOrder),
                 809,
                 @"[In UmAttOrder] The most recent voice mail attachment in an e-mail item MUST have an email2:UmAttOrder value of 1.");
 
@@ -157,7 +157,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 mailResult.Email.UmCallerID,
                 812,
-                @"[In UmCallerID] The email2:UmCallerID element<21> is an optional element that specifies the callback telephone number of the person who called or left an electronic voice message.");
+                @"[In UmCallerID] The email2:UmCallerID element is an optional element that specifies the callback telephone number of the person who called or left an electronic voice message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R933");
@@ -203,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 "6",
                 statusCode,
                 817,
-                @"[In UmCallerID] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if the client attempts to send the email2:UmCallerId element to the server.");
+                @"[In UmCallerID] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the client attempts to send the email2:UmCallerId element to the server.");
             #endregion
         }
         #endregion
@@ -240,7 +240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 "6",
                 statusCode,
                 835,
-                @"[In UmUserNotes] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if the client attempts to send the email2:UmUserNotes element to the server.");
+                @"[In UmUserNotes] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the client attempts to send the email2:UmUserNotes element to the server.");
             #endregion
         }
         #endregion

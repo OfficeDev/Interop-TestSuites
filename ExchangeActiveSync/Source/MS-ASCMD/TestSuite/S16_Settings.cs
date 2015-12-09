@@ -896,15 +896,18 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.IsOofSettingsChanged = true;
             #endregion
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5194");
+            if (Common.IsRequirementEnabled(5194, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5194");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5194
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                settingsResponseAfterSet.ResponseData.Oof.Status,
-                5194,
-                @"[In Appendix A: Product Behavior] <54> Section 2.2.3.113: Exchange 2007, Exchange 2010 and Exchange 2013 require that the reply message for unknown external and known external audiences be the same.");
+                // Verify MS-ASCMD requirement: MS-ASCMD_R5194
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "1",
+                    settingsResponseAfterSet.ResponseData.Oof.Status,
+                    5194,
+                    @"[In Appendix A: Product Behavior] <54> Section 2.2.3.113: Exchange 2007, Exchange 2010 and Exchange 2013 require that the reply message for unknown external and known external audiences be the same.");
+            }
 
             #region Get OOF message
             int counter = 0;
@@ -950,15 +953,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.AreEqual<string>(externalUnknownReplyMessage, externalUnknownOofMessage.ReplyMessage.Trim(), "The reply message to unknown external users should be set successfully. Retry count: {0}", counter);
             Site.Assert.AreEqual<string>(externalUnknownBodyType, externalUnknownOofMessage.BodyType, "The body type of the oof settings for unknown external users should be set successfully. Retry count: {0}", counter);
             #endregion
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3513");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R3513
-            Site.CaptureRequirementIfIsTrue(
-                internalOofMessage.ReplyMessage.Trim().Equals(internalReplyMessage) && externalKnownOofMessage.ReplyMessage.Trim().Equals(externalKnownReplyMessage) && externalUnknownOofMessage.ReplyMessage.Trim().Equals(externalUnknownReplyMessage),
-                3513,
-                @"[In OofMessage] The Oof property (section 2.2.3.112) supports the following three audiences [Internal, Known external, Unknown external] for an OOF message:<54>");
         }
 
         /// <summary>
@@ -1178,11 +1172,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3863");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R3863
-            Site.CaptureRequirementIfIsTrue(
-                settingsResponse.ResponseData.RightsManagementInformation != null && settingsResponse.ResponseData.RightsManagementInformation.Status.Equals("1"),
-                3863,
-                @"[In RightsManagementInformation] The RightsManagementInformation element<68> is an optional child element of the Settings element in Settings command requests and responses.");
+            if (settingsResponse.ResponseData.RightsManagementInformation != null)
+            {
+                // If RightsManagementInformation element is returned, R3863 can be verified.
+                Site.CaptureRequirement(
+                    3863,
+                    @"[In RightsManagementInformation] The RightsManagementInformation element<68> is an optional child element of the Settings element in Settings command requests and responses.");
+            }
         }
 
         /// <summary>
@@ -1238,7 +1234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     if (!string.IsNullOrEmpty(serverId))
                     {
                         break;
-                    } 
+                    }
                 }
 
                 System.Threading.Thread.Sleep(waitTime);
@@ -1294,6 +1290,45 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 settingsResponse.ResponseData.DevicePassword.Status,
                 4400,
                 @"[In Status(Settings)] [The meaning of the status value 5 is] The specified password is too long.");
+        }
+
+        /// <summary>
+        /// This test case is used to verify if OofState not set to 2 and both StartTime and EndTime are present, server returns a successful response.
+        /// </summary>        
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S16_TC17_Settings_OofStateNotTwo()
+        {
+            #region Creates Settings request with only StartTime element
+            // The client calls Settings command with both StartTime and EndTime elements, but OofState not set as 2.
+            SettingsRequest settingsRequest = new SettingsRequest
+            {
+                RequestData = new Request.Settings
+                {
+                    Oof = new Request.SettingsOof
+                    {
+                        Item = new Request.SettingsOofSet
+                        {
+                            OofState = Request.OofState.Item1,
+                            OofStateSpecified = true,
+                            StartTime = DateTime.Today,
+                            StartTimeSpecified = true,
+                            EndTime = DateTime.Today.AddDays(1),
+                            EndTimeSpecified = true
+                        }
+                    }
+                }
+            };
+            #endregion
+
+            #region Calls Settings command
+            SettingsResponse settingsResponse = this.CMDAdapter.Settings(settingsRequest);
+            #endregion Calls Settings command
+
+            Site.CaptureRequirementIfAreEqual(
+                "1",
+                settingsResponse.ResponseData.Oof.Status,
+                3535,
+                @"[In OofState] If the OofState element value is not set to 2 and the StartTime and EndTime elements are submitted in the request, the client does receive a successful response message.");
         }
         #endregion
 

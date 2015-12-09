@@ -476,12 +476,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 Name = SearchName.Mailbox.ToString(),
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)searchStores[0].Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)searchStores[0].Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)searchStores[0].Query.Items[0]).Items = new object[] { collectionId, freeText };
 
             searchStores[0].Options = new Request.Options1
@@ -551,7 +551,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 policy.PolicyKey = policyKey;
                 policy.Status = "1";
             }
-            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
+            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation
@@ -796,21 +796,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             // Call Sync command to synchronize changes in Sent Items folder.
             SyncResponse syncResponse = this.CallInitialSyncCommand(Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.SentItems, Site));
 
-            if (Common.IsRequirementEnabled(478, this.Site))
+            if (Common.IsRequirementEnabled(1202, this.Site))
             {
-                bool isR478Satisfied = TestSuiteHelper.VerifySyncRequiredResponseHeaders(folderSyncResponse.Headers.AllKeys);
+                bool isR1202Satisfied = TestSuiteHelper.VerifySyncRequiredResponseHeaders(folderSyncResponse.Headers.AllKeys);
 
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R478");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R1202");
                 Site.Log.Add(LogEntryKind.Debug, "The FolderSync command response header is {0}." + folderSyncResponse.Headers.ToString());
                 Site.Log.Add(LogEntryKind.Debug, "The Sync command response header is {0}." + syncResponse.Headers.ToString());
 
-                // Verify MS-ASHTTP requirement: MS-ASHTTP_R478
+                // Verify MS-ASHTTP requirement: MS-ASHTTP_R1202
                 // If the FolderSync response header contains X-MS-RP, MS-ASProtocolCommands, and MS-ASProtocolVersions headers, this requirement can be captured.
                 Site.CaptureRequirementIfIsTrue(
-                    isR478Satisfied,
-                    478,
-                    @"[In Appendix A: Product Behavior] If the implementation requires the client to reinitialize its synchronization state, it does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)");
+                    isR1202Satisfied,
+                    1202,
+                    @"[In Appendix A: Product Behavior] If the client sends a request to synchronize the folder hierarchy with a synchronization key of 0, the implementation does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)");
             }
             #endregion
 
@@ -1128,7 +1128,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 SearchResponse searchResponse = this.CallSearchCommand(collectionId, subject);
 
                 Site.Assert.IsNotNull(searchResponse.ResponseData, "The Search response should not be null.");
-                if (!string.Equals(searchResponse.ResponseData.Status, "10", StringComparison.InvariantCultureIgnoreCase))
+                if (!string.Equals(searchResponse.ResponseData.Status, "10", StringComparison.Ordinal))
                 {
                     Site.Assert.AreEqual<string>("1", searchResponse.ResponseData.Status, "As a child element of Search, the Status element should be 1 which means success.");
                     Site.Assert.IsNotNull(searchResponse.ResponseData.Response, "The Response element should not be null.");
@@ -1685,8 +1685,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                         Site.Assert.IsNotNull(emailAttachments, "Attachment should be added in the email.");
 
                         // The attachment number should be 1.
-                        Site.Assert.AreEqual<int>(1, emailAttachments.Attachment.Length, "There should be one attachment in the email, actual {0}.", emailAttachments.Attachment.Length);
-                        fileReference = emailAttachments.Attachment[0].FileReference;
+                        Site.Assert.AreEqual<int>(1, emailAttachments.Items.Length, "There should be one attachment in the email, actual {0}.", emailAttachments.Items.Length);
+                        fileReference = ((Response.AttachmentsAttachment)emailAttachments.Items[0]).FileReference;
                     }
                 }
             }

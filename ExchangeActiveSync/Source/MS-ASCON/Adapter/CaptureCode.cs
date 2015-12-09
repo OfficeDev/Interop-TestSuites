@@ -293,7 +293,7 @@ itemoperations:Status (section 2.2.2.10).");
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 87,
-                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.");
+                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
         }
 
         /// <summary>
@@ -401,7 +401,7 @@ itemoperations:Status (section 2.2.2.10).");
                                         token,
                                         "MS-ASWBXML",
                                         234,
-                                        @"[In Code Page 5: Move] [Tag name] MoveItems [Token] 0x05");
+                                        @"[In Code Page 5: Move] [Tag name] MoveItems [Token] 0x05 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -417,7 +417,7 @@ itemoperations:Status (section 2.2.2.10).");
                                         token,
                                         "MS-ASWBXML",
                                         239,
-                                        @"[In Code Page 5: Move] [Tag name] Response [Token] 0x0A");
+                                        @"[In Code Page 5: Move] [Tag name] Response [Token] 0x0A [supports protocol versions] All");
 
                                     break;
                                 }
@@ -433,7 +433,7 @@ itemoperations:Status (section 2.2.2.10).");
                                         token,
                                         "MS-ASWBXML",
                                         240,
-                                        @"[In Code Page 5: Move] [Tag name] Status [Token] 0x0B");
+                                        @"[In Code Page 5: Move] [Tag name] Status [Token] 0x0B [supports protocol versions] All");
 
                                     break;
                                  }
@@ -452,7 +452,7 @@ itemoperations:Status (section 2.2.2.10).");
                             token,
                             "MS-ASWBXML",
                             468,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart<41> [Token] 0x1A");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0");
                     }
 
                     // Begin to capture requirements of code page 20.
@@ -469,7 +469,7 @@ itemoperations:Status (section 2.2.2.10).");
                                 token,
                                 "MS-ASWBXML",
                                 571,
-                                @"[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D");
+                                @"[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
                         }
                         else if (tagName == "ConversationId")
                         {
@@ -482,7 +482,7 @@ itemoperations:Status (section 2.2.2.10).");
                                 token,
                                 "MS-ASWBXML",
                                 582,
-                                @"[In Code Page 20: ItemOperations] [Tag name] ConversationId<55> [Token] 0x18");
+                                @"[In Code Page 20: ItemOperations] [Tag name] ConversationId [Token] 0x18 [supports protocol versions] 14.0, 14.1, 16.0");
                         }
                         else if (tagName == "Move")
                         {
@@ -495,7 +495,7 @@ itemoperations:Status (section 2.2.2.10).");
                                 token,
                                 "MS-ASWBXML",
                                 580,
-                                @"[In Code Page 20: ItemOperations] [Tag name] Move<53> [Token] 0x16");
+                                @"[In Code Page 20: ItemOperations] [Tag name] Move [Token] 0x16 [supports protocol versions] 14.0, 14.1, 16.0");
                         }
                     }
 
@@ -513,7 +513,7 @@ itemoperations:Status (section 2.2.2.10).");
                                 token,
                                 "MS-ASWBXML",
                                 610,
-                                @"[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09");
+                                @"[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0");
                         }
                         else if (tagName == "ConversationIndex")
                         {
@@ -526,7 +526,7 @@ itemoperations:Status (section 2.2.2.10).");
                                  token,
                                  "MS-ASWBXML",
                                  611,
-                                 @"[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A");
+                                 @"[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0");
                         }
                     }
                 }

@@ -225,12 +225,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         {
             get
             {
-                return this.prefixOfURI.ToUpper();
+                return this.prefixOfURI.ToUpper(CultureInfo.InvariantCulture);
             }
 
             set
             {
-                this.prefixOfURI = (value ?? "https").ToLower();
+                this.prefixOfURI = (value ?? "https").ToLower(CultureInfo.InvariantCulture);
             }
         }
         #endregion
@@ -576,6 +576,24 @@ namespace Microsoft.Protocols.TestSuites.Common
             rawRequest.CommandName = CommandName.MoveItems;
             ActiveSyncRawResponse rawResponse = this.SendRequest(rawRequest);
             return ConvertRawResponse<MoveItemsResponse>(rawResponse);
+        }
+
+        /// <summary>
+        /// Sends a GetHierarchy request.
+        /// </summary>
+        /// <returns>A GetHierarchyResponse object.</returns>
+        public GetHierarchyResponse GetHierarchy()
+        {
+            object request = null;
+            ActiveSyncRawRequest rawRequest = ConfigCmdRequest(request);
+            rawRequest.CommandName = CommandName.GetHierarchy;
+            rawRequest.HttpMethod = "POST";
+            rawRequest.ContentType = GetContenTypeString(ContentTypeEnum.Wbxml);
+            rawRequest.HttpRequestBody = string.Empty;
+
+            rawRequest.SetCommandParameters(new Dictionary<CmdParameterName, object>());
+            ActiveSyncRawResponse rawResponse = this.SendRequest(rawRequest);
+            return ConvertRawResponse<GetHierarchyResponse>(rawResponse);
         }
 
         /// <summary>
@@ -1862,6 +1880,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string GetQueryString(QueryValueType queryvalueType, ActiveSyncRawRequest requestdata)
         {
             string url;
+            if (requestdata.CommandName == CommandName.GetHierarchy)
+            {
+                queryvalueType = QueryValueType.PlainText;
+            }
+
             switch (queryvalueType)
             {
                 case QueryValueType.PlainText:
@@ -1916,7 +1939,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             // Add command parameters if existed
             if (requestdata.CommandParameters != null && requestdata.CommandParameters.Count > 0)
             {
-                foreach (var cmdParaItem in requestdata.CommandParameters)
+                foreach (KeyValuePair<CmdParameterName, object> cmdParaItem in requestdata.CommandParameters)
                 {
                     strBuilder.AppendFormat(@"&{0}={1}", cmdParaItem.Key, cmdParaItem.Value);
                 }

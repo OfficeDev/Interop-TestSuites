@@ -1082,7 +1082,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R88</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] A string is a chunk of Unicode text.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1091,7 +1091,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R90</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] An element of this [string] type is declared as an element with a type attribute of "string".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1100,7 +1100,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R91</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements with a string data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1109,7 +1109,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R94</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements of these types [ActiveSync defines several conventions for strings that adhere to commonly used formats]are defined as string types in XML schemas.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1118,7 +1118,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R12211</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.5</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.5</ns1:Doc_Sect>
 		<ns1:Description>[In Compact DateTime] A Compact DateTime value is a representation of a UTC date and time within an element of type xs:string, as specified in [XMLSCHEMA2/2] section 3.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1127,16 +1127,15 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R12213</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.5</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.5</ns1:Doc_Sect>
 		<ns1:Description>[In Compact DateTime] [The format of a Compact DateTime value is specified by the following Augmented Backus-Naur Form (ABNF) notation. ]
-date_string   = year month day "T" hour minute seconds [milliseconds] "Z"
+date_string   = year month day "T" hour minute seconds "Z"
 year          = 4*DIGIT
 month         = ("0" DIGIT) / "10" / "11" / "12"
 day           = ("0" DIGIT) / ("1" DIGIT) / ("2" DIGIT) / "30" / "31"
 hour          = ("0" DIGIT) / ("1" DIGIT) / "20" / "21" / "22" / "23"
 minute        = ("0" DIGIT) / ("1" DIGIT) / ("2" DIGIT) / ("3" DIGIT) / ("4" DIGIT) / ("5" DIGIT)
-seconds       = ("0" DIGIT) / ("1" DIGIT) / ("2" DIGIT) / ("3" DIGIT) / ("4" DIGIT) / ("5" DIGIT)
-milliseconds  = 1*3DIGIT</ns1:Description>
+seconds       = ("0" DIGIT) / ("1" DIGIT) / ("2" DIGIT) / ("3" DIGIT) / ("4" DIGIT) / ("5" DIGIT)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

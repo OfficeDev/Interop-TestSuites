@@ -1,7 +1,9 @@
 <!--This file provides configuration values to the setup configuration script in case the script runs in unattended mode). 
     Run the setup configuration script with one argument with the same path of the current XML file when the script runs in unattended mode. --> 
 <Properties>
-  <!-- The dnsDomain property specifies the domain name. -->
+  <!-- The isSutConfigured property specifies whether the SUT is configured before running the client setup script. The supported values are: "Y", the SUT is configured before running the client setup script; "N", the SUT is not configured; -->
+  <Property value="Y" name="isSutConfigured"/>
+  <!--The dnsDomain property specifies the domain name.-->
   <Property name="dnsDomain" value="contoso.com" />
   <!-- The sutComputerName property specifies the name of the SUT. -->
   <Property name="sutComputerName" value="SUT01" />

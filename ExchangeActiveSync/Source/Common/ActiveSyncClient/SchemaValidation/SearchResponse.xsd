@@ -49,6 +49,7 @@
         <xs:element ref="airsyncbase:Attachments"/>
         <xs:element ref="airsyncbase:Body"/>
         <xs:element ref="airsyncbase:BodyPart"/>
+        <xs:element ref="airsyncbase:Location"/>
         <xs:element ref="airsyncbase:NativeBodyType"/>
         <xs:element ref="calendar:Timezone"/>
         <xs:element ref="calendar:AllDayEvent"/>
@@ -164,6 +165,9 @@
         <xs:element ref="email2:LastVerbExecuted"/>
         <xs:element ref="email2:LastVerbExecutionTime"/>
         <xs:element ref="email2:ReceivedAsBcc"/>
+        <xs:element ref="email2:Bcc"/>
+        <xs:element ref="email2:IsDraft"/>
+        <xs:element ref="email2:Send"/>
         <xs:element ref="email:Categories"/>
         <xs:element ref="notes:Subject"/>
         <xs:element ref="notes:MessageClass"/>

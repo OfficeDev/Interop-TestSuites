@@ -242,8 +242,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 isVerifiedR212,
                 212,
                 @"[In Response Headers] When these two conditions [the response is to an HTTP POST request and the response has HTTP status 200] are met, only the following headers are necessary in the response: 
-                    Content-Length
-                    Content-Type, only required if Content-Length is greater than zero.");
+                  Content-Length
+                  Content-Type, required only if Content-Length is greater than zero.");
         }
 
         /// <summary>
@@ -324,11 +324,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             Site.Log.Add(LogEntryKind.Debug, "The MS-ASProtocolCommands header in response is: {0}.", commandHeaders);
             Site.Log.Add(LogEntryKind.Debug, "The MS-ASProtocolVersions header in response is: {0}.", versionHeaders);
 
+
             if (Common.IsRequirementEnabled(459, Site))
             {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R459");
-        
+
                 // Verify MS-ASHTTP requirement: MS-ASHTTP_R459
                 // There is "12.1" in MS-ASProtocolVersions header, so this requirement can be captured.
                 Site.CaptureRequirementIfIsTrue(
@@ -341,7 +342,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R460");
-        
+
                 // Verify MS-ASHTTP requirement: MS-ASHTTP_R460
                 // There is "14.0" in MS-ASProtocolVersions header, so this requirement can be captured.
                 Site.CaptureRequirementIfIsTrue(
@@ -354,7 +355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R461");
-        
+
                 // Verify MS-ASHTTP requirement: MS-ASHTTP_R461
                 // There is "14.1" in MS-ASProtocolVersions header, so this requirement can be captured.
                 Site.CaptureRequirementIfIsTrue(
@@ -363,38 +364,48 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                     @"[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 14.1. (Exchange 2013 and above follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(1201, Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R1201");
+
+                // Verify MS-ASHTTP requirement: MS-ASHTTP_R1201
+                // There is "16.0" in MS-ASProtocolVersions header, so this requirement can be captured.
+                Site.CaptureRequirementIfIsTrue(
+                    versionHeaders.Contains("16.0"),
+                    1201,
+                    @"[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 16.0. (Exchange 2016 Preview and above follow this behavior.)");
+            }
+
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R249");
 
             // Verify MS-ASHTTP requirement: MS-ASHTTP_R249
-            // R459, R460 and R461 are captured which means implementation returns MS-ASProtocolVersions value of 12.1, 14.0 or 14.1, so this requirement can be captured directly.
+            // R459, R460 and R461 are captured which means implementation returns MS-ASProtocolVersions value of 12.1, 14.0, 14.1 or 16.0, so this requirement can be captured directly.
             Site.CaptureRequirement(
                 249,
-                @"[In MS-ASProtocolVersions] [HTTP OPTIONS Response] Values [MS-ASProtocolVersions] that correspond to the versions specified by [MS-ASCMD] are ""12.1"" ""14.0"", and ""14.1"".");
+                @"[In MS-ASProtocolVersions] The following values [MS-ASProtocolVersions] correspond to the ActiveSync protocol versions that are specified by [MS-ASCMD]: ""16.0"", ""14.1"", ""14.0"", ""12.1"", ""12.0"" and ""2.5"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R1107");
+
+            // Verify MS-ASHTTP requirement: MS-ASHTTP_R1107
+            Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(commandHeaders) && !string.IsNullOrEmpty(versionHeaders),
+                1107,
+                @"[In Handling HTTP OPTIONS Command] The server's response MUST contain both the MS-ASProtocolCommands header, as specified in section 2.2.4.1.2.1, and the MS-ASProtocolVersions header, as specified in section 2.2.2.1.2.8.");
 
             string[] splitCommand = commandHeaders.Split(',');
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R247");
-        
+
             // Verify MS-ASHTTP requirement: MS-ASHTTP_R247
             // The MS-ASProtocolCommands header is split by ",", so this requirement can be captured.
             Site.CaptureRequirementIfIsTrue(
                 splitCommand.Length > 1,
                 247,
                 @"[In MS-ASProtocolCommands] The MS-ASProtocolCommands header contains a comma-delimited list of the ActiveSync commands supported by the server.");
-
-            string[] splitVersion = versionHeaders.Split(',');
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R291");
-        
-            // Verify MS-ASHTTP requirement: MS-ASHTTP_R291
-            // The MS-ASProtocolVersions header is split by "," as well as MS-ASProtocolCommands, so this requirement can be captured.
-            Site.CaptureRequirementIfIsTrue(
-                splitVersion.Length > 1,
-                291,
-                @"[In Handling HTTP OPTIONS Command] The server response to the HTTP OPTIONS command request MUST contain the MS-ASProtocolCommands header set to a comma-delimited list of the supported ActiveSync commands, and a MS-ASProtocolVersions header set to a comma-delimited list of the supported ActiveSync protocol versions.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R238");
@@ -407,12 +418,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R296");
-        
+
             // Verify MS-ASHTTP requirement: MS-ASHTTP_R296
             // After R459, R460 and R461 are captured which means implementation returns MS-ASProtocolVersions value of 12.1, 14.0 or 14.1, so this requirement can be captured.
             Site.CaptureRequirement(
                 296,
-                @"[In Handling HTTP OPTIONS Command] A protocol server can support multiple versions of this protocol [MS-ASHTTP].");
+                @"[In Handling HTTP OPTIONS Command] A protocol server can support multiple versions of the ActiveSync protocol.");
 
             if (Common.IsRequirementEnabled(298, Site))
             {
@@ -420,11 +431,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R298");
 
                 // Verify MS-ASHTTP requirement: MS-ASHTTP_R298
-                // When the server version is ExchangeServer2007, 14.0 and 14.1 are not returned, this requirement can be captured.
+                // When the server version is ExchangeServer2007, 14.0, 14.1 and 16.0 are not returned, this requirement can be captured.
                 Site.CaptureRequirementIfIsTrue(
-                    !versionHeaders.Contains("14.0") && !versionHeaders.Contains("14.1"),
+                    !versionHeaders.Contains("14.0") && !versionHeaders.Contains("14.1") && !versionHeaders.Contains("16.0"),
                     298,
-                    @"[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 14.1 and 14.0. (<10> Section 3.2.5.2: Exchange 2007 SP1 does not return MS-ASProtocolVersions values of 14.1 and 14.0.)");
+                    @"[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 16.0, 14.1 or 14.0. (<10> Section 3.2.5.2: Exchange 2007 SP1 does not return the value ""16.0"", ""14.1"", or ""14.0"" in the MS-ASProtocolVersions header.)");
             }
         }
 

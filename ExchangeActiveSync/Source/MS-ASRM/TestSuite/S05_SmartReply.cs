@@ -5,6 +5,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
 
     /// <summary>
     /// This scenario is designed to test the SmartReply command.
@@ -90,7 +91,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNotNull(
                 item.Email,
                 104,
-                @"[In ReplyAllowed] The value is TRUE (1) if the user can reply to the e-mail message.");
+                @"[In ReplyAllowed] If the value is TRUE (1), the user can reply to the e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R375");
@@ -253,7 +254,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNull(
                 repliedItem.Email.RightsManagementLicense,
                 343,
-                @"[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user replies to the e-mail message.");
+                @"[In ExportAllowed]  If the value is TRUE (1), if the user can remove the IRM protection of the original message’s content in the outgoing message when the user replies to the original e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R349");
@@ -348,7 +349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 99,
-                @"[In ReplyAllAllowed] The value is TRUE (1) if the user can reply to all of the recipients (1) of the e-mail message.");
+                @"[In ReplyAllAllowed] If the value is TRUE (1), the user can reply to all of the recipients (1) of the e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R344");
@@ -358,7 +359,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNull(
                 item.Email.RightsManagementLicense,
                 344,
-                @"[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user replies all to the e-mail message.");
+                @"[In ExportAllowed] If the value is TRUE (1), if the user can remove the IRM protection of the original message’s content in the outgoing message when the user replies all to the original e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R400");
@@ -551,7 +552,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             // The original e-mail item has ModifyRecipientsAllowed element set to false, and receive a SmartReply response with status 172, thus this requirement can be verified.
             Site.CaptureRequirement(
                 329,
-                @"[In ModifyRecipientsAllowed] otherwise[the user cannot modify the recipient (1) list], FALSE (0).");
+                @"[In ModifyRecipientsAllowed] if the value is FALSE (0), the user cannot modify the recipient list. ");
      
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R652");
@@ -629,7 +630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             // The original e-mail item has ModifyRecipientsAllowed element set to true, the recipient replies the email and the User3 can receive the email, thus this requirement can be verified.
             Site.CaptureRequirement(
                 67,
-                @"[In ModifyRecipientsAllowed] The value is TRUE (1) if the user can modify the recipient (1) list.");
+                @"[In ModifyRecipientsAllowed] If the value is TRUE (1), the user can modify the recipient (1) list.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R379");
@@ -706,7 +707,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             // The original e-mail item has ReplyAllowed element set to true, ReplyAllAllowed set to false, the recipient replies the email and the sender can receive the email, thus this requirement can be verified.
             Site.CaptureRequirement(
                 333,
-                @"[In ReplyAllAllowed] otherwise[the user cannot reply to all of the recipients (1) of the e-mail message], FALSE (0).");
+                @"[In ReplyAllAllowed] if the value is FALSE (0), the user cannot reply to all of the recipients (1) of the e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R389");
@@ -846,7 +847,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             // The original e-mail item has ReplyAllowed element set to false, the recipient reply the email to sender, thus this requirement can be verified.
             Site.CaptureRequirement(
                 334,
-                @"[In ReplyAllowed] otherwise[the user cannot reply to the e-mail message], FALSE (0).");
+                @"[In ReplyAllowed] if the value is FALSE (0), the user cannot reply to the e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R392");
@@ -1103,7 +1104,7 @@ If the original message being replied to has no rights management restrictions, 
                 item.Email.RightsManagementLicense,
                 373,
                 @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:] If the TemplateID element is included in the command request, the server does the following: If the original message is not protected, the server proceeds to step 5[If the message has a TemplateID element, the server protects the new outgoing message with the specified rights policy template.].");
-            #endregion
+             #endregion
         }
         #endregion
 
@@ -1225,7 +1226,17 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 253,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are sent to TRUE, composemail:ReplaceMime present is set to yes, the server will send the message when it uses the same TemplateID with the original message.");
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                item,
+                376,
+                @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions do not allow it, a composemail:Status value of 172 is returned by the server.].");
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                item,
+                380,
+                @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions do not allow it, a composemail:Status value of 172 is returned by the server.]. ");
             #endregion
         }
         #endregion
@@ -1290,7 +1301,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 254,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are sent to TRUE, composemail:ReplaceMime present is set to yes, the server will send the message when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1351,7 +1362,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 257,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed is set to TRUE, composemail:ReplaceMime presnet is set to yes, the server will send the message when it uses the same TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1416,7 +1427,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 258,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed and composemail:ReplaceMime are set to TRUE, the server will send the message when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed is set to TRUE, composemail:ReplaceMime presnet is set to yes, the server will send the message when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1481,7 +1492,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 260,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime is set to TRUE, the server will send the message when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests]  If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime present is set to yes, the server will send the message when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1550,7 +1561,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsTrue(
                 repliedContent.Contains(originalContent),
                 261,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime is set to FALSE, the server will send the message including the original message as inline content when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime present is set to no, the server will send the message including the original message as inline content when it uses the same TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1622,7 +1633,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsTrue(
                 repliedContent.Contains(originalContent),
                 262,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime is set to FALSE, the server will send the message including the original message as inline content when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to TRUE, composemail:ReplaceMime present is set to no, the server will send the message including the original message as inline content when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1690,7 +1701,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsTrue(
                 repliedContent.Contains(originalContent),
                 265,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to FALSE, EditAllowed is set to TRUE, the server will send the message, including the original message as inline content when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed is set to TRUE, composemail:ReplaceMime present is set to no, the server will send the message, including the original message as inline content when it uses the same TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1755,7 +1766,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item.Email.Attachments,
                 266,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and composemail:ReplaceMime are set to FALSE, EditAllowed is set to TRUE, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed is set to FALSE, EditAllowed is set to TRUE, composemail:ReplaceMime present is set to no, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion
@@ -1820,7 +1831,7 @@ If the original message being replied to has no rights management restrictions, 
             Site.CaptureRequirementIfIsNotNull(
                 item.Email.Attachments,
                 268,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed are set to FALSE, composemail:ReplaceMime present is set to no, the server will send the message, including the original message as an attachment when it uses a different TemplateID with the original message.");
             #endregion
         }
         #endregion

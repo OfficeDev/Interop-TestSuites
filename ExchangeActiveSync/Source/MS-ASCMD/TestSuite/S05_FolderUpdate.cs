@@ -41,7 +41,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate command to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -76,8 +76,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4100");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4100
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 folderUpdateResponse.ResponseData.Status,
                 4100,
                 @"[In Status(FolderUpdate)] [When the scope is Global], [the cause of the status value 1 is] Server successfully completed command.");
@@ -100,7 +100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S05_TC02_FolderUpdate_Status2()
         {
             // Call method FolderUpdate to rename the Calendar folder.
-            FolderUpdateRequest folderUpdateRequest = Common.CreateFolderUpdateRequest(this.LastFolderSyncKey, ((byte)FolderType.Calendar).ToString(), "Notes", "0");
+            FolderUpdateRequest folderUpdateRequest = Common.CreateFolderUpdateRequest(this.LastFolderSyncKey, this.User1Information.CalendarCollectionId, "Notes", "0");
             FolderUpdateResponse folderUpdateResponse = this.CMDAdapter.FolderUpdate(folderUpdateRequest);
 
             // Add the debug information
@@ -108,9 +108,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // When the special folder, such as the Inbox, Outbox, Contacts, or Drafts folders, be updated, server will return status 2.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4101
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4101,
                 @"[In Status(FolderUpdate)] [When the scope is] Item, [the meaning of the status value] 2 [is] A folder with that name already exists or the specified folder is a special folder.");
 
@@ -119,9 +119,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // When the special folder, such as the Inbox, Outbox, Contacts, or Drafts folders, be updated, server will return status 2.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4102
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4102,
                 @"[In Status(FolderUpdate)] [When the scope is Item], [the cause of the status value 2 is] [A folder with that name already exists or] the specified folder is a special folder, such as the Inbox, Outbox, Contacts, or Drafts folders. Special folders cannot be updated.");
 
@@ -130,9 +130,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // When the special folder, such as the Inbox, Outbox, Contacts, or Drafts folders, be updated, server will return status 2.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4096
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4096,
                 @"[In Status(FolderUpdate)] If the command fails, the Status element contains a code that indicates the type of failure.");
 
@@ -161,9 +161,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the specified folder is a non existent folder when call FolderUpdate command, server will return status 4.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4105
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4105,
                 @"[In Status(FolderUpdate)] [When the scope is] Item, [the meaning of the status value] 4 [is] The specified folder does not exist.");
 
@@ -172,9 +172,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the specified folder is a non existent folder when call FolderUpdate command, server will return status 4.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4106
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4106,
                 @"[In Status(FolderUpdate)] [When the scope is Item], [the cause of the status value 4 is] Client specified a nonexistent folder in a FolderUpdate command request.");
         }
@@ -198,9 +198,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If calls method FolderUpdate to move the folder to a nonexistent parent folder, server will return status 5.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4108
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)5,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                5,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4108,
                 @"[In Status(FolderUpdate)] [When the scope is] Item, [the meaning of the status value] 5 [is] The specified parent folder was not found.");
 
@@ -209,9 +209,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If calls method FolderUpdate to move the folder to a nonexistent parent folder, server will return status 5.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4109
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)5,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                5,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4109,
                 @"[In Status(FolderUpdate)] [When the scope is Item], [the cause of the status value 5 is] Client specified a nonexistent folder in a FolderUpdate command request.");
         }
@@ -224,7 +224,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -236,9 +236,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4120");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4120
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4120,
                 @"[In Status(FolderUpdate)] [When the scope is Global], [the cause of the status value 9 is] The client sent a malformed or mismatched synchronization key, or the synchronization state is corrupted on the server.");
             #endregion
@@ -252,7 +252,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -265,9 +265,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 10 in the FolderUpdate command response to indicate the client sent FolderUpdate request contains a semantic error.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3102
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)10,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                10,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 3102,
                 @"[In FolderUpdate] Including the Status element in a FolderUpdate request results in a Status element value of 10 being returned in the response.");
 
@@ -276,9 +276,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 10 in the FolderUpdate command response to indicate the client sent FolderUpdate request contains a semantic error.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4123
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)10,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                10,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4123,
                 @"[In Status(FolderUpdate)] [When the scope is Global], [the cause of the status value 10 is] The client sent a FolderUpdate command request that contains a semantic error.");
 
@@ -287,9 +287,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 10 in the FolderUpdate command response to indicate the client sent FolderUpdate request does not contain SyncKey element.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4568
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)10,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                10,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4568,
                 @"[In SyncKey(FolderCreate, FolderDelete, and FolderUpdate)] The server returns a Status element (section 2.2.3.162.5) value of 10 if the SyncKey element is not included in a FolderUpdate command request.");
             #endregion
@@ -312,7 +312,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Call method FolderUpdate to move the new created folder from the mailbox Root folder to SentItems folder on the server.
             FolderUpdateRequest folderUpdateRequest = Common.CreateFolderUpdateRequest(folderCreateResponse.ResponseData.SyncKey, folderServerId1, folderName, ((byte)FolderType.SentItems).ToString());
             FolderUpdateResponse folderUpdateResponse = this.CMDAdapter.FolderUpdate(folderUpdateRequest);
-            Site.Assert.AreEqual<byte>(1, folderUpdateResponse.ResponseData.Status, "Server should return status 1 to indicate FolderUpdate command success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderUpdateResponse.ResponseData.Status), "Server should return status 1 to indicate FolderUpdate command success.");
             #endregion
 
             #region Call method FolderSync to synchronize the collection hierarchy.
@@ -349,9 +349,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5438");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5438
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 5438,
                 @"[In Status(FolderUpdate)] [When the scope is Item], [the cause of the status value 2 is] A folder with that name already exists [or the specified folder is a special folder, such as the Inbox, Outbox, Contacts, or Drafts folders. Special folders cannot be updated].");
             #endregion
@@ -373,9 +373,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "MS-ASCMD_R143");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R143
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 143,
                 @"[In FolderUpdate] Attempting to update a recipient information cache using this [FolderUpdate] command results in a Status element (section 2.2.3.162.5) value of 3.");
 
@@ -383,9 +383,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "MS-ASCMD_R4103");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4103
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4103,
                 @"[In Status(FolderUpdate)] [When the scope is] Item, [the meaning of the status value] 3 [is] The specified folder is the Recipient information folder, which cannot be updated by the client.");
 
@@ -393,9 +393,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "MS-ASCMD_R4104");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4104
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderUpdateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderUpdateResponse.ResponseData.Status),
                 4104,
                 @"[In Status(FolderUpdate)] [When the scope is Item], [the cause of the status value 3 is] The client specified the Recipient information folder, which is a special folder. Special folders cannot be updated.");
 

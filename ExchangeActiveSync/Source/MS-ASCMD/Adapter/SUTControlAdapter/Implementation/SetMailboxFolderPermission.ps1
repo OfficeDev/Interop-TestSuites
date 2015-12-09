@@ -1,4 +1,4 @@
-$script:ErrorActionPreference = "Stop"
+﻿$script:ErrorActionPreference = "Stop"
 
 $adminDomain = $userDomain
 $adminName = $userName
@@ -28,6 +28,6 @@ If($sutVersion -ge "ExchangeServer2010")
 
 			#Set mailbox folder access permission of User1$
 			$identity = $adminAccount+":\Calendar"
-			Set-MailboxFolderPermission $identity –User Default -AccessRights $permission
+			Set-MailboxFolderPermission $identity -User Default -AccessRights $permission
 		}-ArgumentList $adminAccount,$adminPassword,$serverComputerName, $permission
 }

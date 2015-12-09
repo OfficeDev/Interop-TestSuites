@@ -49,7 +49,7 @@
                                     <xs:sequence>
                                       <xs:element ref="Class" minOccurs="0"/>
                                       <xs:element ref="ServerId"/>
-                                      <xs:element name="ApplicationData" minOccurs="0">
+                                      <xs:element name="ApplicationData">
                                         <xs:complexType>
                                           <xs:choice maxOccurs="unbounded">
                                             <xs:element ref="airsyncbase:Attachments"/>
@@ -58,6 +58,10 @@
                                                 ref="airsyncbase:BodyPart"/>
                                             <xs:element
                                                 ref="airsyncbase:NativeBodyType"/>
+                                            <xs:element
+	                                              ref="airsyncbase:InstanceId"/>
+                                            <xs:element
+	                                              ref="airsyncbase:Location"/>
                                             <xs:group ref="calendar:AllProps"/>
                                             <xs:group ref="contacts:AllProps"/>
                                             <xs:group ref="contacts2:AllProps"/>
@@ -83,7 +87,7 @@
                                   <xs:complexType>
                                     <xs:sequence>
                                       <xs:element ref="ServerId"/>
-                                      <xs:element name="ApplicationData" minOccurs="0">
+                                      <xs:element name="ApplicationData">
                                         <xs:complexType>
                                           <xs:sequence>
                                             <xs:choice maxOccurs="unbounded">
@@ -94,6 +98,10 @@
                                                   ref="airsyncbase:BodyPart"/>
                                               <xs:element
                                                   ref="airsyncbase:NativeBodyType"/>
+                                              <xs:element
+	                                                ref="airsyncbase:InstanceId"/>
+                                              <xs:element
+	                                                ref="airsyncbase:Location"/>
                                               <xs:group ref="calendar:AllProps"/>
                                               <xs:group ref="contacts:AllProps"/>
                                               <xs:group
@@ -142,6 +150,33 @@
                                       <xs:element ref="ClientId"/>
                                       <xs:element ref="ServerId" minOccurs="0"/>
                                       <xs:element ref="Status"/>
+                                      <xs:element name="ApplicationData" minOccurs="0">
+                                        <xs:complexType>
+                                          <xs:sequence>
+                                            <xs:choice maxOccurs="unbounded">
+                                              <xs:element
+                                                  ref="airsyncbase:Attachments"/>
+                                              <xs:element
+                                                  ref="airsyncbase:Body"/>
+                                              <xs:element
+                                                  ref="airsyncbase:NativeBodyType"/>
+                                              <xs:element
+                                                  ref="airsyncbase:Location"/>
+                                              <xs:group ref="calendar:AllProps"/>
+                                              <xs:group ref="contacts:AllProps"/>
+                                              <xs:group
+                                                  ref="contacts2:AllProps"/>
+                                              <xs:group
+                                                  ref="documentlibrary:AllProps"/>
+                                              <xs:group ref="email:AllProps"/>
+                                              <xs:group ref="email2:AllProps"/>
+                                              <xs:group ref="tasks:AllProps"/>
+                                              <xs:element
+                                                  ref="rm:RightsManagementLicense"/>
+                                            </xs:choice>
+                                          </xs:sequence>
+                                        </xs:complexType>
+                                      </xs:element>
                                     </xs:sequence>
                                   </xs:complexType>
                                 </xs:element>
@@ -168,6 +203,8 @@
                                                   ref="airsyncbase:Body"/>
                                               <xs:element
                                                   ref="airsyncbase:NativeBodyType"/>
+                                            <xs:element
+                                                ref="airsyncbase:Location"/>
                                               <xs:group ref="calendar:AllProps"/>
                                               <xs:group ref="contacts:AllProps"/>
                                               <xs:group
@@ -176,10 +213,6 @@
                                                   ref="documentlibrary:AllProps"/>
                                               <xs:group ref="email:AllProps"/>
                                               <xs:group ref="email2:AllProps"/>
-                                              <xs:element ref="notes:Subject"/>
-                                              <xs:element ref="notes:MessageClass"/>
-                                              <xs:element ref="notes:LastModifiedDate"/>
-                                              <xs:element ref="notes:Categories"/>
                                               <xs:group ref="tasks:AllProps"/>
                                               <xs:element
                                                   ref="rm:RightsManagementLicense"/>

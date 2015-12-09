@@ -2,15 +2,16 @@
 <TestSettings name="MS-ASNOTE" id="0e0fd11b-adfe-4cbd-8cbd-af567507fd47" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASNOTE test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.ptfconfig" />
-    <DeploymentItem filename="MS-ASNOTE.runsettings" />
-    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASNOTE.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -33,4 +34,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

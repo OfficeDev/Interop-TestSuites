@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 {
     using System;
     using System.Collections.Generic;
+    using System.Net;
     using System.Threading;
     using System.Xml.XPath;
     using Microsoft.Protocols.TestSuites.Common;
@@ -126,8 +127,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             FolderSyncResponse response = this.activeSyncClient.FolderSync(request);
             this.VerifyTransportRequirements();
-            this.VerifyWBXMLCapture(CommandName.FolderSync, response);
-            this.VerifyFolderSyncCommand(response);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                this.VerifyWBXMLCapture(CommandName.FolderSync, response);
+                this.VerifyFolderSyncCommand(response);
+            }
+
             return response;
         }
 
@@ -182,8 +187,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             MoveItemsResponse response = this.activeSyncClient.MoveItems(request);
             this.VerifyTransportRequirements();
-            this.VerifyWBXMLCapture(CommandName.MoveItems, response);
-            this.VerifyMoveItemsCommand(response);
+            if (response.ResponseData.Response != null)
+            {
+                this.VerifyWBXMLCapture(CommandName.MoveItems, response);
+                this.VerifyMoveItemsCommand(response);
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// Gets the list of email folders from the server
+        /// </summary>
+        /// <returns>GetHierarchy command response.</returns>
+        public GetHierarchyResponse GetHierarchy()
+        {
+            GetHierarchyResponse response = this.activeSyncClient.GetHierarchy();
+            this.VerifyGetHierarchyCommand(response);
             return response;
         }
 

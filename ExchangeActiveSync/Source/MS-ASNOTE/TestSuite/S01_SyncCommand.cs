@@ -203,6 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             Dictionary<Request.ItemsChoiceType8, object> addElements = this.CreateNoteElements();
             string lastModifiedDate = DateTime.UtcNow.ToString("yyyyMMddTHHmmssZ", CultureInfo.InvariantCulture);
             addElements.Add(Request.ItemsChoiceType8.LastModifiedDate, lastModifiedDate);
+            System.Threading.Thread.Sleep(1000);
             SyncStore addResult = this.SyncAdd(addElements, 1);
             Response.SyncCollectionsCollectionResponsesAdd item = addResult.AddResponses[0];
             #endregion
@@ -210,8 +211,27 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             #region Call method Sync to synchronize the note item with the server.
             SyncStore result = this.SyncChanges(1);
 
-            Note note = result.AddElements[0].Note;
+            Note note=null;
 
+            for (int i = 0; i < result.AddElements.Count; i++)
+            {
+                if (addResult.AddElements != null)
+                {
+                    if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                    {
+                        note = result.AddElements[0].Note;
+                        break;
+                    }
+                }
+                else if(addResult.AddResponses!=null)
+                {
+                    if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                    {
+                        note = result.AddElements[0].Note;
+                        break;
+                    }
+                }
+            }
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASNOTE_R84");
 
@@ -390,7 +410,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             // Verify MS-ASNOTE requirement: MS-ASNOTE_R119
             Site.CaptureRequirementIfAreEqual<int>(
                 6,
-                addResult.AddResponses[0].Status,
+                int.Parse(addResult.AddResponses[0].Status),
                 119,
                 @"[In MessageClass Element] If a client submits a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains a MessageClass element value that does not conform to the requirements specified in section 2.2.2.5, the server MUST respond with a Status element with a value of 6, as specified in [MS-ASCMD] section 2.2.3.162.16.");
 

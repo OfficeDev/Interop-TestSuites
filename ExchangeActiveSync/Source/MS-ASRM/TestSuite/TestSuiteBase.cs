@@ -3,7 +3,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
     using System;
     using System.Collections.ObjectModel;
     using System.Globalization;
-    using Common.DataStructures;
+    using DataStructures=Microsoft.Protocols.TestSuites.Common.DataStructures;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Request = Microsoft.Protocols.TestSuites.Common.Request;
@@ -192,7 +192,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         /// </summary>
         protected void CheckPreconditions()
         {
-            Site.Assume.AreEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1.");
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1") ||
+                                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"),
+                                "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1 and 16.0.");
             Site.Assume.AreEqual<string>("HTTPS", Common.GetConfigurationPropertyValue("TransportType", this.Site).ToUpper(CultureInfo.CurrentCulture), "This protocol requires that communication between the client and server occurs over an HTTP connection that uses Secure Sockets Layer (SSL).");
         }
 
@@ -232,16 +234,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         /// <param name="rightsManagementSupport">A boolean value specifies whether the server will decompress and decrypt rights-managed email messages before sending them to the client or not</param>
         /// <param name="isRetryNeeded">A boolean value specifies whether need retry.</param>
         /// <returns>Return change result</returns>
-        protected Sync SyncEmail(string subject, string collectionId, bool? rightsManagementSupport, bool isRetryNeeded)
+        protected DataStructures.Sync SyncEmail(string subject, string collectionId, bool? rightsManagementSupport, bool isRetryNeeded)
         {
             SyncRequest syncRequest = Common.CreateInitialSyncRequest(collectionId);
-            SyncStore initSyncResult = this.ASRMAdapter.Sync(syncRequest);
+            DataStructures.SyncStore initSyncResult = this.ASRMAdapter.Sync(syncRequest);
 
             // Verify sync change result
             this.Site.Assert.AreEqual<byte>(1, initSyncResult.CollectionStatus, "If the Sync command executes successfully, the Status in response should be 1.");
 
             syncRequest = TestSuiteHelper.CreateSyncRequest(initSyncResult.SyncKey, collectionId, rightsManagementSupport);
-            Sync sync = this.ASRMAdapter.SyncEmail(syncRequest, subject, isRetryNeeded);
+            DataStructures.Sync sync = this.ASRMAdapter.SyncEmail(syncRequest, subject, isRetryNeeded);
             return sync;
         }
 
@@ -252,11 +254,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         /// <param name="collectionId">Identify the folder as the collection being synchronized.</param>
         /// <param name="rightsManagementSupport">A boolean value specifies whether the server will decompress and decrypt rights-managed email messages before sending them to the client or not</param>
         /// <returns>Return change result</returns>
-        protected SyncStore SyncChanges(string syncKey, string collectionId, bool rightsManagementSupport)
+        protected DataStructures.SyncStore SyncChanges(string syncKey, string collectionId, bool rightsManagementSupport)
         {
             // Get changes from server use initial syncKey
             SyncRequest syncRequest = TestSuiteHelper.CreateSyncRequest(syncKey, collectionId, rightsManagementSupport);
-            SyncStore syncResult = this.ASRMAdapter.Sync(syncRequest);
+            DataStructures.SyncStore syncResult = this.ASRMAdapter.Sync(syncRequest);
 
             return syncResult;
         }
@@ -372,13 +374,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             foreach (CreatedItems itemToDelete in itemsToDelete)
             {
                 SyncRequest syncRequest = Common.CreateInitialSyncRequest(itemToDelete.CollectionId);
-                SyncStore initSyncResult = this.ASRMAdapter.Sync(syncRequest);
-                SyncStore result = this.SyncChanges(initSyncResult.SyncKey, itemToDelete.CollectionId, false);
+                DataStructures.SyncStore initSyncResult = this.ASRMAdapter.Sync(syncRequest);
+                DataStructures.SyncStore result = this.SyncChanges(initSyncResult.SyncKey, itemToDelete.CollectionId, false);
                 int i = 0;
                 if (result.AddElements != null)
                 {
                     Request.SyncCollectionDelete[] deletes = new Request.SyncCollectionDelete[result.AddElements.Count];
-                    foreach (Sync item in result.AddElements)
+                    foreach (DataStructures.Sync item in result.AddElements)
                     {
                         foreach (string subject in itemToDelete.ItemSubject)
                         {
@@ -399,7 +401,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
                     syncCollection.Commands = deletes;
 
                     syncRequest = Common.CreateSyncRequest(new Request.SyncCollection[] { syncCollection });
-                    SyncStore deleteResult = this.ASRMAdapter.Sync(syncRequest);
+                    DataStructures.SyncStore deleteResult = this.ASRMAdapter.Sync(syncRequest);
                     this.Site.Assert.AreEqual<byte>(
                         1,
                         deleteResult.CollectionStatus,

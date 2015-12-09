@@ -5,7 +5,7 @@
   <xs:element name="Ping">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Status" type="xs:unsignedByte"/>
+        <xs:element name="Status" type="xs:integer"/>
         <xs:element name="Folders" minOccurs="0">
           <xs:complexType>
             <xs:sequence>

@@ -123,7 +123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R120
             Site.CaptureRequirement(
                 120,
-                @"[In BodyPart] The BodyPart element MUST be included in a command response when the BodyPartPreference element (section 2.2.2.6) is specified in a request.");
+                @"[In BodyPart] The BodyPart element MUST be included in a command response when the BodyPartPreference element (section 2.2.2.11) is specified in a request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R271");
@@ -317,7 +317,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R188
             Site.CaptureRequirement(
                 188,
-                @"[In Data (BodyPart)] If the Truncated element (section 2.2.2.20.2) is included in the response, then the data in the Data element is truncated.");
+                @"[In Data (BodyPart)] If the Truncated element (section 2.2.2.39.2) is included in the response, then the data in the Data element is truncated.");
             #endregion
         }
         #endregion
@@ -495,7 +495,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: Verify MS-ASAIRS_R62
             Site.CaptureRequirement(
                 62,
-                @"[In AllOrNone (BodyPartPreference)] [A client can include multiple BodyPartPreference elements in a command request with different values for the Type element] By default, the server returns the data truncated to the size requested by TruncationSize for the Type element that matches the native storage format of the item's Body element (section 2.2.2.4).");
+                @"[In AllOrNone (BodyPartPreference)] [A client can include multiple BodyPartPreference elements in a command request with different values for the Type element] By default, the server returns the data truncated to the size requested by TruncationSize for the Type element that matches the native storage format of the item's Body element (section 2.2.2.9).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R282");
@@ -785,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R256
             Site.CaptureRequirement(
                 256,
-                @"[In Preview (BodyPart)] The Preview element MUST be present in a command response if a BodyPartPreference element (section 2.2.2.6) in the request included a Preview element and the server can honor the request.");
+                @"[In Preview (BodyPart)] The Preview element MUST be present in a command response if a BodyPartPreference element (section 2.2.2.11) in the request included a Preview element and the server can honor the request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R253");
@@ -793,7 +793,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R253
             Site.CaptureRequirement(
                 253,
-                @"[In Preview (BodyPart)] The Preview element is an optional<3> child element of the BodyPart element (section 2.2.2.5) that contains the Unicode plain text message or message part preview returned to the client.");
+                @"[In Preview (BodyPart)] The Preview element is an optional child element of the BodyPart element (section 2.2.2.10) that contains the Unicode plain text message or message part preview returned to the client.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R255");

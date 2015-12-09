@@ -1,9 +1,10 @@
 namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
 {
-    using System.Collections.Generic;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// This scenario is designed to test optional headers of HTTP POST command.
@@ -226,6 +227,145 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             #region Reset the query value type.
             requestPrefix[HTTPPOSTRequestPrefixField.QueryValueType] = Common.GetConfigurationPropertyValue("HeaderEncodingType", this.Site);
             this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefix);
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate server can use different values for the number of User-Agent header changes or the time
+        /// period, or the time period that server blocks client from changing its User-Agent header value.
+        /// </summary>
+        [TestCategory("MSASHTTP"), TestMethod()]
+        public void MSASHTTP_S03_TC04_LimitChangesToUserAgentHeader()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(456, this.Site), "Exchange server 2013 and above support using different values for the number of User-Agent changes or the time period.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(457, this.Site), "Exchange server 2013 and above support blocking clients for a different amount of time.");
+
+            #region Call FolderSync command for the first time with User-Agent header.
+            // Wait for 1 minute
+            System.Threading.Thread.Sleep(new TimeSpan(0, 1, 0));
+
+            DateTime startTime = DateTime.Now;
+            string folderSyncRequestBody = Common.CreateFolderSyncRequest("0").GetRequestDataSerializedXML();
+            Dictionary<HTTPPOSTRequestPrefixField, string> requestPrefixFields = new Dictionary<HTTPPOSTRequestPrefixField, string>
+            {
+                {
+                    HTTPPOSTRequestPrefixField.UserAgent, Common.GenerateResourceName(this.Site, "ASOM", 1)
+                }
+            };
+
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
+            SendStringResponse folderSyncResponse = HTTPAdapter.HTTPPOST(CommandName.FolderSync, null, folderSyncRequestBody);
+
+            // Check the command is executed successfully.
+            this.CheckResponseStatus(folderSyncResponse.ResponseDataXML);
+
+            #endregion
+
+            #region Call FolderSync command for the second time with updated User-Agent header.
+
+            requestPrefixFields[HTTPPOSTRequestPrefixField.UserAgent] = Common.GenerateResourceName(this.Site, "ASOM", 2);
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
+            folderSyncResponse = HTTPAdapter.HTTPPOST(CommandName.FolderSync, null, folderSyncRequestBody);
+
+            // Check the command is executed successfully.
+            this.CheckResponseStatus(folderSyncResponse.ResponseDataXML);
+
+            #endregion
+
+            #region Call FolderSync command for third time with updated User-Agent header.
+
+            requestPrefixFields[HTTPPOSTRequestPrefixField.UserAgent] = Common.GenerateResourceName(this.Site, "ASOM", 3);
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
+
+            try
+            {
+                folderSyncResponse = HTTPAdapter.HTTPPOST(CommandName.FolderSync, null, folderSyncRequestBody);
+                Site.Assert.Fail("HTTP error 503 should be returned if server blocks a client from changing its User-Agent header value.");
+            }
+            catch (System.Net.WebException exception)
+            {
+                int statusCode = ((System.Net.HttpWebResponse)exception.Response).StatusCode.GetHashCode();
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R422");
+
+                // Verify MS-ASHTTP requirement: MS-ASHTTP_R422
+                Site.CaptureRequirementIfAreEqual<int>(
+                    503,
+                    statusCode,
+                    422,
+                    @"[In User-Agent Change Tracking] If the server blocks a client from changing its User-Agent header value, it [server] returns an HTTP error 503.");
+
+                if (Common.IsRequirementEnabled(456, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R456");
+
+                    // Verify MS-ASHTTP requirement: MS-ASHTTP_R456
+                    // Server configures the number of changes and the time period, and expected HTTP error is returned, this requirement can be captured.
+                    Site.CaptureRequirementIfAreEqual<int>(
+                        503,
+                        statusCode,
+                        456,
+                        @"[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (<8> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to use different values for the allowed number of changes and the time period.)");
+                }
+            }
+
+            #endregion
+
+            #region Call FolderSync command after server blocks client from changing its User-Agent header value.
+            requestPrefixFields[HTTPPOSTRequestPrefixField.UserAgent] = Common.GenerateResourceName(this.Site, "ASOM", 4);
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
+
+            bool isCorrectBlocked = false;
+            try
+            {
+                folderSyncResponse = HTTPAdapter.HTTPPOST(CommandName.FolderSync, null, folderSyncRequestBody);
+            }
+            catch (System.Net.WebException)
+            {
+                // HTTP error returns indicates server blocks client.
+                isCorrectBlocked = true;
+            }
+
+            // Server sets blocking client for 1 minute, wait for 1 minute for un-blocking.
+            System.Threading.Thread.Sleep(new TimeSpan(0, 1, 0));
+
+            requestPrefixFields[HTTPPOSTRequestPrefixField.UserAgent] = Common.GenerateResourceName(this.Site, "ASOM", 5);
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
+            try
+            {
+                folderSyncResponse = HTTPAdapter.HTTPPOST(CommandName.FolderSync, null, folderSyncRequestBody);
+                isCorrectBlocked = isCorrectBlocked && true;
+            }
+            catch (System.Net.WebException)
+            {
+                // HTTP error returns indicates server still blocks client.
+                isCorrectBlocked = false;
+            }
+
+            if (Common.IsRequirementEnabled(457, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R457");
+
+                // Verify MS-ASHTTP requirement: MS-ASHTTP_R457
+                // FolderSync command runs successfully after the blocking time period, and it runs with exception during the time period,
+                // this requirement can be captured.
+                Site.CaptureRequirementIfIsTrue(
+                    isCorrectBlocked,
+                    457,
+                    @"[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (<9> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)");
+            }
+
+            // Wait for 1 minute
+            System.Threading.Thread.Sleep(new TimeSpan(0, 1, 0));
+
+            #endregion
+
+            #region Reset the User-Agent header.
+            requestPrefixFields[HTTPPOSTRequestPrefixField.UserAgent] = null;
+            this.HTTPAdapter.ConfigureRequestPrefixFields(requestPrefixFields);
             #endregion
         }
         #endregion

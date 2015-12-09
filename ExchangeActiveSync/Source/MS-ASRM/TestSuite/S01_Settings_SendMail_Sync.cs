@@ -164,13 +164,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsFalse(
                 item.Email.RightsManagementLicense.Owner,
                 330,
-                @"[In Owner] otherwise[ the user is not the owner of the e-mail message], FALSE (0). ");
+                @"[In Owner] if the value is FALSE (0), the user is not the owner of the e-mail message.");
 
             #endregion
 
             #region The client logs on User1's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of SentItems folder in User1's mailbox, and gets the decompressed and decrypted rights-managed e-mail message, checks the Owner element.
             this.SwitchUser(this.UserOneInformation, false);
-            item = this.SyncEmail(subject, this.UserTwoInformation.SentItemsCollectionId, true, true);
+            item = this.SyncEmail(subject, this.UserOneInformation.SentItemsCollectionId, true, true);
 
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
@@ -182,7 +182,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsTrue(
                 item.Email.RightsManagementLicense.Owner,
                 72,
-                @"[In Owner] The value is TRUE (1) if the user is the owner of the e-mail message.");
+                @"[In Owner] If the value is TRUE (1), the user is the owner of the e-mail message.");
 
             Site.Assert.AreEqual<string>(Common.GetMailAddress(this.UserOneInformation.UserName, this.UserOneInformation.UserDomain).ToUpper(CultureInfo.CurrentCulture), item.Email.RightsManagementLicense.ContentOwner.ToUpper(CultureInfo.CurrentCulture), "The value of ContentOwner element should be equal to the User1's e-mail address.");
 
@@ -205,7 +205,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         [TestCategory("MSASRM"), TestMethod()]
         public void MSASRM_S01_TC03_Settings_InvalidXMLBody_ActiveSyncVersionNot141()
         {
-            Site.Assume.AreNotEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1.");            
+            Site.Assume.AreNotEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 16.0.");
 
             #region The client logs on User1's account, calls Settings command and checks the response of Settings command.
 
@@ -222,7 +223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
                     "1",
                     settingsResponse.ResponseData.Status,
                     418,
-                    @"[In Appendix B: Product Behavior] Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1, as specified in section 3.1.3. (Exchange Server 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]Implementation does consider the XML body of the command request to be invalid, if the protocol version that is specified by the command request does not support the XML elements that are defined for this protocol. (Exchange Server 2010 and above follow this behavior.)");
             }
 
             #endregion

@@ -67,8 +67,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4217");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4217
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "3",
                 moveItemsResponse.ResponseData.Response[0].Status,
                 4217,
                 @"[In Status(MoveItems)] [When the scope is Global], [the cause of the status value 3 is] Server successfully completed command.");
@@ -106,7 +106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsTrue(isItemDeleted, "The item with ServerId: {0} should be deleted for collection ID: {0}.", serverId, this.User1Information.InboxCollectionId);
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User1Information, this.User1Information.InboxCollectionId, subject);
 
-            bool isItemAdded = this.CheckAddInSyncResponse(syncKeyDeletedItems, this.User2Information.DeletedItemsCollectionId, subject);
+            bool isItemAdded = this.CheckAddInSyncResponse(syncKeyDeletedItems, this.User1Information.DeletedItemsCollectionId, subject);
 
             Site.Assert.IsTrue(isItemAdded, "The item with ServerId: {0} should be added for Deleted Items folder", serverId);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.DeletedItemsCollectionId, subject);
@@ -158,9 +158,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4201");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4201
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                moveItemsResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(moveItemsResponse.ResponseData.Response[0].Status),
                 4201,
                 @"[In Status(MoveItems)] If the command failed, Status contains a code indicating the type of failure.");
 
@@ -168,9 +168,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4207");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4207
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                moveItemsResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(moveItemsResponse.ResponseData.Response[0].Status),
                 4207,
                 @"[In Status(MoveItems)] [When the scope is Item], [the cause of the status value 1 is] The source folder collection ID (CollectionId element (section 2.2.3.30.5) value) is not recognized by the server, possibly because the source folder has been deleted.");
             #endregion
@@ -211,9 +211,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4208");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4208
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                moveItemsResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(moveItemsResponse.ResponseData.Response[0].Status),
                 4208,
                 @"[In Status(MoveItems)] [When the scope is Item], [the cause of the status value 1 is] Or, the item with the Item ID (SrcMsgId element (section 2.2.3.160)) has been previously moved out of the folder with the Folder ID (SrcFldId element (section 2.2.3.159)).");
             #endregion
@@ -244,9 +244,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4212");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4212
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                moveItemsResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(moveItemsResponse.ResponseData.Response[0].Status),
                 4212,
                 @"[In Status(MoveItems)] [When the scope is Item], [the cause of the status value 2 is] The destination folder collection ID (CollectionId element value) is not recognized by the server, possibly because the source folder has been deleted.");
             #endregion
@@ -277,9 +277,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4219");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4219
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                moveItemsResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(moveItemsResponse.ResponseData.Response[0].Status),
                 4219,
                 @"[In Status(MoveItems)] [When the scope is Item], [the cause of the status value 4 is] The client supplied a destination folder that is the same as the source.");
             #endregion
@@ -345,12 +345,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             bool hasStatus3 = false;
             foreach (Response.MoveItemsResponse response in moveItemsResponse.ResponseData.Response)
             {
-                if (response.Status == 5)
+                if (int.Parse(response.Status) == 5)
                 {
                     hasStatus5 = true;
                     Site.Log.Add(LogEntryKind.Debug, "There should be at least one Status element equal to 5 in MoveItems response");
                 }
-                else if (response.Status == 3)
+                else if (int.Parse(response.Status) == 3)
                 {
                     hasStatus3 = true;
                 }
@@ -396,6 +396,58 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #endregion
         }
 
+        /// <summary>
+        /// This test case is used to verify if the MoveItems command include more than 1000 move elements.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S10_TC07_MoveItems_Status103()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(5671, this.Site), "Exchange 2007 does not limit the number of elements in command requests.");
+
+            #region User2 sends mail to User1 and does FolderSync in User1's mailbox.
+            string subject = this.SendMailAndFolderSync();
+            #endregion
+
+            #region Call method Sync to synchronize changes of Inbox folder in User1's mailbox between the client and the server, and get the ServerId of sent email item and the SyncKey
+            SyncResponse syncResponseInbox = this.GetMailItem(this.User1Information.InboxCollectionId, subject);
+            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.InboxCollectionId, subject);
+            string syncKeyInbox = this.LastSyncKey;
+            string serverId = TestSuiteBase.FindServerId(syncResponseInbox, "Subject", subject);
+            #endregion
+
+            #region Call method Sync to synchronize changes of DeletedItems folder in User1's mailbox between the client and the server, and get the SyncKey
+            this.SyncChanges(this.User1Information.DeletedItemsCollectionId);
+            string syncKeyDeletedItems = this.LastSyncKey;
+            #endregion
+
+            #region Call method MoveItems with the email item's ServerId to move the email item from Inbox folder to DeletedItems folder.
+            Request.MoveItemsMove moveItemsMove = new Request.MoveItemsMove
+            {
+                DstFldId = this.User1Information.DeletedItemsCollectionId,
+                SrcFldId = this.User1Information.InboxCollectionId,
+                SrcMsgId = serverId
+            };
+
+            Request.MoveItems moveItems = new Request.MoveItems();
+            moveItems.Move = new Request.MoveItemsMove[1001];
+            for (int i = 0; i <= 1000; i++)
+            {
+                moveItems.Move[i] = moveItemsMove;
+            }
+
+            MoveItemsRequest request = new MoveItemsRequest();
+            Request.MoveItems requestData = moveItems;
+            request.RequestData = requestData;
+
+            MoveItemsResponse moveItemsResponse = this.CMDAdapter.MoveItems(request);
+
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                103,
+                int.Parse(moveItemsResponse.ResponseData.Status),
+                5653,
+                @"[In Limiting Size of Command Requests] In MoveItems (section 2.2.2.11) command request, when the limit value of Move element is bigger than 1000 (minimum 1, maximum 2,147,483,647), the error returned by server is Status element (section 2.2.3.167.9) value of 103.");
+            #endregion
+        }
         #endregion
 
         #region Private Method

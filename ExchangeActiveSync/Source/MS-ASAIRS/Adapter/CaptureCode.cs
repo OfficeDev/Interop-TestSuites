@@ -38,6 +38,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             foreach (DataStructures.Search search in store.Results)
             {
                 this.VerifyCommonElementsInResponse(search.Email);
+                this.VerifyCommonElementsInResponse(search.Calendar);
             }
         }
         #endregion
@@ -69,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.CaptureRequirementIfIsTrue(
                 this.activeSyncClient.ValidationResult,
                 231,
-                @"[In NativeBodyType] The NativeBodyType element is a required child element of the airsync:ApplicationData element ([MS-ASCMD]) in the Sync command that specifies the original format type of the item.");
+                @"[In NativeBodyType] The NativeBodyType element is an optional child element of the airsync:ApplicationData element ([MS-ASCMD]) in the Sync command that specifies the original format type of the item.");
 
             XmlDocument doc = new XmlDocument();
             if (!string.IsNullOrEmpty(response.ResponseDataXML))
@@ -116,7 +117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             Site.CaptureRequirementIfIsTrue(
                                 this.activeSyncClient.ValidationResult,
                                 232,
-                                @"[In NativeBodyType] The value of this element [the NativeBodyType element] is an unsignedByte value ([MS-ASDTYPE] section 2.47).");
+                                @"[In NativeBodyType] The value of this element [the NativeBodyType element] is an unsignedByte value ([MS-ASDTYPE] section 2.8).");
 
                             this.VerifyUnsignedByteDataType(item.Email.NativeBodyType);
 
@@ -128,9 +129,42 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                                 this.activeSyncClient.ValidationResult,
                                 235,
                                 @"[In NativeBodyType] The NativeBodyType element MUST have no child elements.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1247,
+                                    @"[In NativeBodyType] Protocol version 12.1 supports this [NativeBodyType] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1248,
+                                    @"[In NativeBodyType] Protocol version 14.0 supports this [NativeBodyType] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1249,
+                                    @"[In NativeBodyType] Protocol version 14.1 supports this [NativeBodyType] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1250,
+                                    @"[In NativeBodyType] Protocol version 16.0 supports this [NativeBodyType] element.");
+                            }
                         }
 
                         this.VerifyCommonElementsInResponse(item.Email);
+                        this.VerifyCommonElementsInResponse(item.Calendar);
                     }
                 }
             }
@@ -166,6 +200,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 if (itemOperation.Email != null)
                 {
                     this.VerifyCommonElementsInResponse(itemOperation.Email);
+                }
+                
+                if (itemOperation.Calendar != null)
+                {
+                    this.VerifyCommonElementsInResponse(itemOperation.Calendar);
                 }
             }
         }
@@ -289,6 +328,38 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     280,
                     @"[In Truncated (Body)] A command response MUST have a maximum of one Truncated element per Body element.");
 
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isTruncatedElementValid,
+                        1293,
+                        @"[In Truncated (Body)] Protocol version 12.1 supports this [Truncated (Body)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isTruncatedElementValid,
+                        1294,
+                        @"[In Truncated (Body)] Protocol version 14.0 supports this [Truncated (Body)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isTruncatedElementValid,
+                        1295,
+                        @"[In Truncated (Body)] Protocol version 14.1 supports this [Truncated (Body)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                         isTruncatedElementValid,
+                         1296,
+                         @"[In Truncated (Body)] Protocol version 16.0 supports this [Truncated (Body)] element.");
+                }
+
                 bool isTypeElementValid = bodyElementNode.SelectNodes("*[name()='Type']").Count <= 1;
 
                 // Add the debug information
@@ -314,6 +385,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     59,
                     @"[In AllOrNone (BodyPartPreference)] The AllOrNone element MUST NOT be used in command responses.");
 
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1023,
+                        @"[In AllOrNone (BodyPartPreference)] Protocol version 14.1 supports this [AllOrNone (BodyPartPreference)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                         this.activeSyncClient.ValidationResult,
+                        1024,
+                        @"[In AllOrNone (BodyPartPreference)] Protocol version 16.0 supports this [AllOrNone (BodyPartPreference)] element.");
+                }
+
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R135");
 
@@ -336,6 +423,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 XmlNodeList bodyPartElementNodes = doc.SelectNodes("//*[name()='BodyPart']");
                 foreach (XmlNode bodyPartElementNode in bodyPartElementNodes)
                 {
+                    bool isStatusValid = bodyPartElementNode.SelectNodes("*[name()='Status']").Count == 1;
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isStatusValid,
+                            1285,
+                            @"[In Status] Protocol version 14.1 supports this [Status] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isStatusValid,
+                            1286,
+                            @"[In Status] Protocol version 16.0 supports this [Status] element.");
+                    }
+
                     bool isDataValid = bodyPartElementNode.SelectNodes("*[name()='Data']").Count <= 1;
 
                     // Add the debug information
@@ -357,6 +462,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         isEstimatedDataSizeValid,
                         207,
                         @"[In EstimatedDataSize (BodyPart)] A command response MUST have a maximum of one EstimatedDataSize element per BodyPart element.");
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isEstimatedDataSizeValid,
+                            1160,
+                            @"[In EstimatedDataSize (BodyPart)] Protocol version 14.1 supports this [EstimatedDataSize (BodyPart)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isEstimatedDataSizeValid,
+                            1161,
+                            @"[In EstimatedDataSize (BodyPart)] Protocol version 16.0 supports this [EstimatedDataSize (BodyPart)] element.");
+                    }
 
                     bool isPreviewElementValid = bodyPartElementNode.SelectNodes("*[name()='Preview']").Count <= 1;
 
@@ -380,6 +501,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         286,
                         @"[In Truncated (BodyPart)] A command response MUST have a maximum of one Truncated element per BodyPart element.");
 
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isTruncatedElementValid,
+                            1398,
+                            @"[In Truncated (BodyPart)] Protocol version 14.1 supports this [Truncated (BodyPart)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isTruncatedElementValid,
+                            1399,
+                            @"[In Truncated (BodyPart)] Protocol version 16.0 supports this [Truncated (BodyPart)] element.");
+                    }
+
                     bool isTypeElementValid = bodyPartElementNode.SelectNodes("*[name()='Type']").Count <= 1;
 
                     // Add the debug information
@@ -392,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         @"[In Type (BodyPart)] A command response MUST have a maximum of one Type element per BodyPart element.");
                 }
             }
-
+          
             XmlNodeList attachmentElementNodes = doc.SelectNodes("//*[name()='Attachment']");
             foreach (XmlNode attachmentElementNode in attachmentElementNodes)
             {
@@ -405,7 +542,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     isContentIdValid,
                     164,
-                    @"[In ContentId] A command response MUST have a maximum of one ContentId element per Attachment element.");
+                    @"[In ContentId (Attachment)] A command response MUST have a maximum of one ContentId element per Attachment element.");
 
                 bool isContentLocationValid = attachmentElementNode.SelectNodes("*[name()='ContentLocation']").Count <= 1;
 
@@ -416,7 +553,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     isContentLocationValid,
                     169,
-                    @"[In ContentLocation] A command response MUST have a maximum of one ContentLocation element per Attachment element.");
+                    @"[In ContentLocation (Attachment)] A command response MUST have a maximum of one ContentLocation element per Attachment element.");
 
                 bool isDisplayNamenValid = attachmentElementNode.SelectNodes("*[name()='DisplayName']").Count <= 1;
 
@@ -427,7 +564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     isDisplayNamenValid,
                     192,
-                    @"[In DisplayName] A command response MUST have a maximum of one DisplayName element per Attachment element.");
+                    @"[In DisplayName (Attachment)] A command response MUST have a maximum of one DisplayName element per Attachment element.");
 
                 bool isEstimatedDataSizeValid = attachmentElementNode.SelectNodes("*[name()='EstimatedDataSize']").Count <= 1;
 
@@ -440,6 +577,38 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     199,
                     @"[In EstimatedDataSize (Attachment)] A command response MUST have a maximum of one EstimatedDataSize element per Attachment element.");
 
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isEstimatedDataSizeValid,
+                        1150,
+                        @"[In EstimatedDataSize (Attachment)] Protocol version 12.1 supports this [EstimatedDataSize (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isEstimatedDataSizeValid,
+                        1151,
+                        @"[In EstimatedDataSize (Attachment)] Protocol version 14.0 supports this [EstimatedDataSize (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isEstimatedDataSizeValid,
+                        1152,
+                        @"[In EstimatedDataSize (Attachment)] Protocol version 14.1 supports this [EstimatedDataSize (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isEstimatedDataSizeValid,
+                        1153,
+                        @"[In EstimatedDataSize (Attachment)] Protocol version 16.0 supports this [EstimatedDataSize (Attachment)] element.");
+                }
+
                 bool isIsInLineValid = attachmentElementNode.SelectNodes("*[name()='IsInLine']").Count <= 1;
 
                 // Add the debug information
@@ -449,7 +618,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     isIsInLineValid,
                     218,
-                    @"[In IsInline] A command response MUST have a maximum of one IsInline element per Attachment element.");
+                    @"[In IsInline (Attachment)] A command response MUST have a maximum of one IsInline element per Attachment element.");
 
                 bool isMethodValid = attachmentElementNode.SelectNodes("*[name()='Method']").Count <= 1;
 
@@ -460,7 +629,39 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     isMethodValid,
                     222,
-                    @"[In Method] A command response MUST have a maximum of one Method element per Attachment element.");
+                    @"[In Method (Attachment)] A command response MUST have a maximum of one Method element per Attachment element.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isMethodValid,
+                        1243,
+                        @"[In Method (Attachment)] Protocol version 12.1 supports this [Method (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isMethodValid,
+                        1244,
+                        @"[In Method (Attachment)] Protocol version 14.0 supports this [Method (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isMethodValid,
+                        1245,
+                        @"[In Method (Attachment)] Protocol version 14.1 supports this [Method (Attachment)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isMethodValid,
+                        1246,
+                        @"[In Method (Attachment)] Protocol version 16.0 supports this [Method (Attachment)] element.");
+                }
             }
         }
         #endregion
@@ -481,7 +682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     106,
-                    @"[In Body] The Body element is a container ([MS-ASDTYPE] section 2.2).");
+                    @"[In Body] The Body element is a container data type, as specified in [MS-ASDTYPE] section 2.2.");
 
                 this.VerifyContainerDataType();
 
@@ -501,19 +702,42 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     113,
-                    @"[In Body] Type (section 2.2.2.22.1): This element is required.");
+                    @"[In Body] Type (section 2.2.2.41.1): This element is required.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1057,
+                        @"[In Body] Protocol version 12.1 supports this [Body] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1058,
+                        @"[In Body] Protocol version 14.0 supports this [Body] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1059,
+                        @"[In Body] Protocol version 14.1 supports this [Body] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1060,
+                        @"[In Body] Protocol version 16.0 supports this [Body] element.");
+                }
 
                 if (email.Body.Data != null)
                 {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R177");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R177
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        177,
-                        @"[In Data (Body)] In a response, the Data element MUST have no child elements.");
-
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R178");
 
@@ -521,7 +745,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         178,
-                        @"[In Data (Body)] The content of the Data element is returned as a string in the format that is specified by the Type element (section 2.2.2.22.1).");
+                        @"[In Data (Body)] The content of the Data element is returned as a string in the format that is specified by the Type element (section 2.2.2.41.1).");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R172");
@@ -530,9 +754,41 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         172,
-                        @"[In Data] The value of this element [the Data element] is a string ([MS-ASDTYPE] section 2.6).");
+                        @"[In Data] The value of this element [the Data element] is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
 
                     this.VerifyStringDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1130,
+                            @"[In Data (Body)] Protocol version 12.1 supports this [Data (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1131,
+                            @"[In Data (Body)] Protocol version 14.0 supports this [Data (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                          this.activeSyncClient.ValidationResult,
+                          1132,
+                          @"[In Data (Body)] Protocol version 14.1 supports this [Data (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1133,
+                            @"[In Data (Body)] Protocol version 16.0 supports this [Data (Body)] element.");
+                    }
                 }
 
                 if (email.Body.Part != null)
@@ -540,7 +796,39 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         246,
-                        @"[In Part] The value of this element [the Part element] is an integer ([MS-ASDTYPE] section 2.5).");
+                        @"[In Part] The value of this element [the Part element] is an integer ([MS-ASDTYPE] section 2.6).");
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1251,
+                            @"[In Part] Protocol version 12.1 supports this [Part] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1252,
+                            @"[In Part] Protocol version 14.0 supports this [Part] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1253,
+                            @"[In Part] Protocol version 14.1 supports this [Part] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1254,
+                            @"[In Part] Protocol version 16.0 supports this [Part] element.");
+                    }
 
                     this.VerifyIntegerDataType();
                 }
@@ -555,6 +843,38 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         this.activeSyncClient.ValidationResult,
                         204,
                         @"[In EstimatedDataSize (Body)] The EstimatedDataSize element MUST have no child elements.");
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1154,
+                            @"[In EstimatedDataSize (Body)] Protocol version 12.1 supports this [EstimatedDataSize (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1155,
+                            @"[In EstimatedDataSize (Body)] Protocol version 14.0 supports this [EstimatedDataSize (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1156,
+                            @"[In EstimatedDataSize (Body)] Protocol version 14.1 supports this [EstimatedDataSize (Body)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1157,
+                            @"[In EstimatedDataSize (Body)] Protocol version 16.0 supports this [EstimatedDataSize (Body)] element.");
+                    }
                 }
 
                 if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
@@ -568,7 +888,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
                             249,
-                            @"[In Preview (Body)] The value of this element [the Preview element] is a string ([MS-ASDTYPE] section 2.6).");
+                            @"[In Preview (Body)] The value of this element [the Preview element] is a string ([MS-ASDTYPE] section 2.7).");
 
                         this.VerifyStringDataType();
 
@@ -580,6 +900,30 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             this.activeSyncClient.ValidationResult,
                             252,
                             @"[In Preview (Body)] The Preview element MUST have no child elements.");
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1262,
+                                @"[In Preview (Body)] Protocol version 14.0 supports this [Preview (Body)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1263,
+                                @"[In Preview (Body)] Protocol version 14.1 supports this [Preview (Body)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1264,
+                                @"[In Preview (Body)] Protocol version 16.0 supports this [Preview (Body)] element.");
+                        }
                     }
                 }
 
@@ -604,7 +948,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     308,
-                    @"[In Type (Body)] The Type element is a required element of the Body element (section 2.2.2.4).");
+                    @"[In Type (Body)] The Type element is a required child element of the Body element (section 2.2.2.9).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R313");
@@ -622,7 +966,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     302,
-                    @"[In Type] The value of this element[Type] is an unsignedByte value ([MS-ASDTYPE] section 2.7) that indicates the format type of the body content of the item.");
+                    @"[In Type] The value of this element[Type] is an unsignedByte value ([MS-ASDTYPE] section 2.8) that indicates the format type of the body content of the item.");
 
                 this.VerifyUnsignedByteDataType(email.Body.Type);
 
@@ -647,7 +991,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     121,
-                    @"[In BodyPart] The BodyPart element is a container ([MS-ASDTYPE] section 2.2).");
+                    @"[In BodyPart] The BodyPart element is a container data type, as specified in [MS-ASDTYPE] section 2.2.");
 
                 this.VerifyContainerDataType();
 
@@ -676,7 +1020,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     127,
-                    @"[In BodyPart] Status (section 2.2.2.19). This element is required.");
+                    @"[In BodyPart] Status (section 2.2.2.37). This element is required.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1063,
+                        @"[In BodyPart] Protocol version 14.1 supports this [BodyPart] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1064,
+                        @"[In BodyPart] Protocol version 16.0 supports this [BodyPart] element.");
+                }
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R269");
@@ -685,7 +1045,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 // Verify MS-ASAIRS requirement: MS-ASAIRS_R269
                 Site.CaptureRequirement(
                     269,
-                    @"[In Status] The Status element is a required child element of the BodyPart element (section 2.2.2.5) that indicates the success or failure of the response in returning Data element content (section 2.2.2.10.2) given the BodyPartPreference element settings (section 2.2.2.6) in the request.");
+                    @"[In Status] The Status element is a required child element of the BodyPart element (section 2.2.2.10) that indicates the success or failure of the response in returning Data element content (section 2.2.2.20.2) given the BodyPartPreference element settings (section 2.2.2.11) in the request.");
 
                 string[] expecedValues = new string[] { "1", "176" };
                 Common.VerifyActualValues("Status", expecedValues, email.BodyPart.Status.ToString(), this.Site);
@@ -705,7 +1065,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     128,
-                    @"[In BodyPart] Type (section 2.2.2.22.2). This element is required.");
+                    @"[In BodyPart] Type (section 2.2.2.41.2). This element is required.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1311,
+                        @"[In Type (BodyPart)] Protocol version 14.1 supports this [Type (BodyPart)] element.");
+                }
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1312,
+                        @"[In Type (BodyPart)] Protocol version 16.0 supports this [Type (BodyPart)] element.");
+                }
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R129");
@@ -714,7 +1090,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     129,
-                    @"[In BodyPart] EstimatedDataSize (section 2.2.2.12.3). This element is required.");
+                    @"[In BodyPart] EstimatedDataSize (section 2.2.2.23.3). This element is required.");
 
                 if (email.BodyPart.Data != null)
                 {
@@ -734,9 +1110,25 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         186,
-                        @"[In Data (BodyPart)] The content of the Data element is returned as a string in the format that is specified by the Type element (section 2.2.2.22.2).");
+                        @"[In Data (BodyPart)] The content of the Data element is returned as a string in the format that is specified by the Type element (section 2.2.2.41.2).");
 
                     this.VerifyStringDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1136,
+                            @"[In Data (BodyPart)] Protocol version 14.1 supports this [Data (BodyPart)] element.");
+                    }
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1137,
+                            @"[In Data (BodyPart)] Protocol version 16.0 supports this [Data (BodyPart)] element.");
+                    }
                 }
 
                 // Add the debug information
@@ -746,7 +1138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                      205,
-                     @"[In EstimatedDataSize (BodyPart)] The EstimatedDataSize element is a required child element of the BodyPart element (section 2.2.2.5).");
+                     @"[In EstimatedDataSize (BodyPart)] The EstimatedDataSize element is a required child element of the BodyPart element (section 2.2.2.10).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R208");
@@ -768,7 +1160,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
                             254,
-                            @"[In Preview (BodyPart)] The value of this element [the Preview element] is a string ([MS-ASDTYPE] section 2.6).");
+                            @"[In Preview (BodyPart)] The value of this element [the Preview element] is a string ([MS-ASDTYPE] section 2.7).");
 
                         this.VerifyStringDataType();
 
@@ -780,6 +1172,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             this.activeSyncClient.ValidationResult,
                             258,
                             @"[In Preview (BodyPart)] The Preview element MUST have no child elements.");
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1267,
+                                @"[In Preview (BodyPart)] Protocol version 14.1 supports this [Preview (BodyPart)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1268,
+                                @"[In Preview (BodyPart)] Protocol version 16.0 supports this [Preview (BodyPart)] element.");
+                        }
                     }
                 }
 
@@ -804,7 +1212,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     314,
-                    @"[In Type (BodyPart)] The Type element is a required child element of the BodyPart element (section 2.2.2.5).");
+                    @"[In Type (BodyPart)] The Type element is a required child element of the BodyPart element (section 2.2.2.10).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R318");
@@ -822,7 +1230,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     302,
-                    @"[In Type] The value of this element[Type] is an unsignedByte value ([MS-ASDTYPE] section 2.7) that indicates the format type of the body content of the item.");
+                    @"[In Type] The value of this element[Type] is an unsignedByte value ([MS-ASDTYPE] section 2.8) that indicates the format type of the body content of the item.");
 
                 this.VerifyUnsignedByteDataType(email.BodyPart.Type);
             }
@@ -836,239 +1244,793 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     102,
-                  @"[In Attachments] The Attachments element has the following child elements: Attachment (section 2.2.2.2): At least one instance of this element is required.");
+                  @"[In Attachments] It [The Attachments element] has the following child elements [Attachment, Add, Delete]:");
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R87");
-
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R87
-                Site.CaptureRequirementIfIsTrue(
+                this.Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
-                    87,
-                    @"[In Attachment] The Attachment element is a required child element of the Attachments element (section 2.2.2.3).");
+                    1327,
+                    @"[In Attachments] The Attachments element is a container data type, as specified in [MS-ASDTYPE] section 2.2. ");
 
-                foreach (Response.AttachmentsAttachment attachment in email.Attachments.Attachment)
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
                 {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R91");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R91
-                    Site.CaptureRequirementIfIsTrue(
+                    this.Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
-                        91,
-                        @"[In Attachment] FileReference (section 2.2.2.13.1). This element is required.");
+                        1053,
+                        @"[In Attachments] Protocol version 12.1 supports this [Attachments] element.");
+                }
 
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R211");
-
-                    // If MS-ASAIRS_R91 can be captured, it means the FileReference element is a required child element of the Attachment element, so MS-ASAIRS_R211 can be captured directly after MS-ASAIRS_R91.
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R211
-                    Site.CaptureRequirement(
-                        211,
-                        @"[In FileReference (Attachment)] The FileReference element is a required child element of the Attachment element (section 2.2.2.2) that specifies the location of an item on the server to retrieve.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R210");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R210
-                    Site.CaptureRequirementIfIsTrue(
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
-                        210,
-                        @"[In FileReference] The value of this element [the FileReference element] is a string value ([MS-ASDTYPE] section 2.6).");
+                        1054,
+                        @"[In Attachments] Protocol version 14.0 supports this [Attachments] element.");
+                }
 
-                    this.VerifyStringDataType();
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R215");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R215
-                    Site.CaptureRequirementIfIsTrue(
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
-                        215,
-                        @"[In FileReference (Fetch)] The FileReference element MUST have no child elements.");
+                        1055,
+                        @"[In Attachments] Protocol version 14.1 supports this [Attachments] element.");
+                }
 
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R92");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R92
-                    Site.CaptureRequirementIfIsTrue(
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
-                        92,
-                        @"[In Attachment] Method (section 2.2.2.15). This element is required.");
+                        1056,
+                        @"[In Attachments] Protocol version 16.0 supports this [Attachments] element.");
+                }
 
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R220");
-
-                    // If MS-ASAIRS_R92 can be captured, it means the Method element is a required child element of the Attachment element, so MS-ASAIRS_R220 can be captured directly after MS-ASAIRS_R92.
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R220
-                    Site.CaptureRequirement(
-                        220,
-                        @"[In Method] The Method element is a required child element of the Attachment element (section 2.2.2.2) that identifies the method in which the attachment was attached.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R223");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R223
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        223,
-                        @"[In Method] The Method element MUST have no child elements.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R221");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R221
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        221,
-                        @"[In Method] The value of this element [the Method element] is an unsignedByte value ([MS-ASDTYPE] section 2.47).");
-
-                    this.VerifyUnsignedByteDataType(attachment.Method);
-
-                    string[] expecedValues = new string[] { "1", "2", "3", "4", "5", "6" };
-                    Common.VerifyActualValues("Method", expecedValues, attachment.Method.ToString(), this.Site);
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R224");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R224
-                    Site.CaptureRequirement(
-                        224,
-                        @"[In Method] The following table defines the valid values [1, 2, 3, 4, 5, 6] of the Method element.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R93");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R93
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        93,
-                        @"[In Attachment] EstimatedDataSize (section 2.2.2.12.1). This element is required.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R198");
-
-                    // If MS-ASAIRS_R93 can be captured, it means the EstimatedDataSize element is a required child element of the Attachment element, so MS-ASAIRS_R198 can be captured directly after MS-ASAIRS_R93.
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R198
-                    Site.CaptureRequirement(
-                        198,
-                        @"[In EstimatedDataSize (Attachment)] The EstimatedDataSize element is required child element of the Attachment element (section 2.2.2.2).");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R195");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R195
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        195,
-                        @"[In EstimatedDataSize] The value of this element [the EstimatedDataSize element] is an integer value ([MS-ASDTYPE] section 2.5).");
-
-                    this.VerifyIntegerDataType();
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R200");
-
-                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R200
-                    Site.CaptureRequirementIfIsTrue(
-                        this.activeSyncClient.ValidationResult,
-                        200,
-                        @"[In EstimatedDataSize (Attachment)] The EstimatedDataSize element MUST have no child elements.");
-
-                    if (attachment.ContentId != null)
+                foreach (object obj in email.Attachments.Items)
+                {
+                    if (obj is Response.AttachmentsAttachment)
                     {
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R163");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R87");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R163
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R87
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
-                            163,
-                            @"[In ContentId] The value of this element [the ContentId element] is a string value ([MS-ASDTYPE] section 2.6).");
+                            87,
+                            @"[In Attachment] The Attachment element is a required child element of the Attachments element (section 2.2.2.8).");
+
+                        this.Site.CaptureRequirementIfIsTrue(
+                             this.activeSyncClient.ValidationResult,
+                            1323,
+                            @"[In Attachment] The Attachment element is a container data type, as specified in [MS-ASDTYPE] section 2.2.");
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1048,
+                                @"[In Attachment] Protocol version 12.1 supports this [Attachment] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1049,
+                                @"[In Attachment] Protocol version 14.0 supports this [Attachment] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1050,
+                                @"[In Attachment] Protocol version 14.1 supports this [Attachment] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1051,
+                                @"[In Attachment] Protocol version 16.0 supports this [Attachment] element.");
+                        }
+
+                        Response.AttachmentsAttachment attachment = obj as Response.AttachmentsAttachment;
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R91");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R91
+                        Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            91,
+                            @"[In Attachment] FileReference (section 2.2.2.24.1). This element is required.");
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R211");
+
+                        // If MS-ASAIRS_R91 can be captured, it means the FileReference element is a required child element of the Attachment element, so MS-ASAIRS_R211 can be captured directly after MS-ASAIRS_R91.
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R211
+                        Site.CaptureRequirement(
+                            211,
+                            @"[In FileReference (Attachment)] The FileReference element is a required child element of the Attachment element (section 2.2.2.2) that specifies the location of an item on the server to retrieve.");
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R210");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R210
+                        Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            210,
+                            @"[In FileReference (Attachment)] The FileReference element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1162,
+                                @"[In FileReference (Attachment)] Protocol version 12.1 supports this [FileReference (Attachment)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1163,
+                                @"[In FileReference (Attachment)] Protocol version 14.0 supports this [FileReference (Attachment)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1164,
+                                @"[In FileReference (Attachment)] Protocol version 14.1 supports this [FileReference (Attachment)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1165,
+                                @"[In FileReference (Attachment)] Protocol version 16.0 supports this [FileReference (Attachment)] element.");
+                        }
 
                         this.VerifyStringDataType();
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R165");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R215");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R165
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R215
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
-                            165,
-                            @"[In ContentId] The ContentId element MUST have no child elements.");
-                    }
+                            215,
+                            @"[In FileReference (Fetch)] The FileReference element MUST have no child elements.");
 
-                    if (attachment.ContentLocation != null)
-                    {
-                        this.VerifyStringDataType();
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1171,
+                                @"[In FileReference (Fetch)] Protocol version 12.1 supports this [FileReference (Fetch)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1172,
+                                @"[In FileReference (Fetch)] Protocol version 14.0 supports this [FileReference (Fetch)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1173,
+                                @"[In FileReference (Fetch)] Protocol version 14.1 supports this [FileReference (Fetch)] element.");
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        {
+                            this.Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                1174,
+                                @"[In FileReference (Fetch)] Protocol version 16.0 supports this [FileReference (Fetch)] element.");
+                        }
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R168");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R92");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R168
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R92
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
-                            168,
-                            @"[In ContentLocation] The value of this element [ContentLocation] is a string ([MS-ASDTYPE] section 2.6) value.");
-
-                        this.VerifyStringDataType();
+                            92,
+                            @"[In Attachment] Method (section 2.2.2.31.2). This element is required.");
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R170");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R220");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R170
-                        Site.CaptureRequirementIfIsTrue(
-                            this.activeSyncClient.ValidationResult,
-                            170,
-                            @"[In ContentLocation] The ContentLocation element MUST have no child elements.");
-                    }
-
-                    if (attachment.DisplayName != null)
-                    {
-                        // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R191");
-
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R191
-                        Site.CaptureRequirementIfIsTrue(
-                            this.activeSyncClient.ValidationResult,
-                            191,
-                            @"[In DisplayName] The value of this element [the DisplayName element] is a string value ([MS-ASDTYPE] section 2.6).");
-
-                        this.VerifyStringDataType();
+                        // If MS-ASAIRS_R92 can be captured, it means the Method element is a required child element of the Attachment element, so MS-ASAIRS_R220 can be captured directly after MS-ASAIRS_R92.
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R220
+                        Site.CaptureRequirement(
+                            220,
+                            @"[In Method (Attachment)] The Method element is a required child element of the Attachment element (section 2.2.2.7) that identifies the method in which the attachment was attached.");
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R193");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R223");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R193
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R223
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
-                            193,
-                            @"[In DisplayName] The DisplayName element MUST have no child elements.");
-                    }
-
-                    if (attachment.IsInlineSpecified)
-                    {
-                        // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R217");
-
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R217
-                        Site.CaptureRequirementIfIsTrue(
-                            this.activeSyncClient.ValidationResult,
-                            217,
-                            @"[In IsInline] The value of this element [the IsInline element] is a boolean value ([MS-ASDTYPE] section 2.1).");
-                        this.VerifyBooleanDataType(attachment.IsInline);
+                            223,
+                            @"[In Method (Attachment)] The Method element MUST have no child elements.");
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R219");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R221");
 
-                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R219
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R221
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
-                            219,
-                            @"[In IsInline] The IsInline element MUST have no child elements.");
+                            221,
+                            @"[In Method (Attachment)] The value of this element [the Method element] is an unsignedByte value ([MS-ASDTYPE] section 2.8).");
+
+                        this.VerifyUnsignedByteDataType(attachment.Method);
+
+                        string[] expecedValues = new string[] { "1", "2", "3", "4", "5", "6" };
+                        Common.VerifyActualValues("Method", expecedValues, attachment.Method.ToString(), this.Site);
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R224");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R224
+                        Site.CaptureRequirement(
+                            224,
+                            @"[In Method (Attachment)] The following table defines the valid values [1, 2, 3, 4, 5, 6] of the Method element.");
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R93");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R93
+                        Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            93,
+                            @"[In Attachment] EstimatedDataSize (section 2.2.2.23.1). This element is required.");
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R198");
+
+                        // If MS-ASAIRS_R93 can be captured, it means the EstimatedDataSize element is a required child element of the Attachment element, so MS-ASAIRS_R198 can be captured directly after MS-ASAIRS_R93.
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R198
+                        Site.CaptureRequirement(
+                            198,
+                            @"[In EstimatedDataSize (Attachment)] The EstimatedDataSize element is required child element of the Attachment element (section 2.2.2.7).");
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R195");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R195
+                        Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            195,
+                            @"[In EstimatedDataSize] The value of this element [the EstimatedDataSize element] is an integer value ([MS-ASDTYPE] section 2.6).");
+
+                        this.VerifyIntegerDataType();
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R200");
+
+                        // Verify MS-ASAIRS requirement: MS-ASAIRS_R200
+                        Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            200,
+                            @"[In EstimatedDataSize (Attachment)] The EstimatedDataSize element MUST have no child elements.");
+
+                        if (attachment.ContentId != null)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R163");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R163
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                163,
+                                @"[In ContentId (Attachment)] The ContentId element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1097,
+                                    @"[In ContentId (Attachment)] Protocol version 12.1 supports this [ContentId (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1098,
+                                    @"[In ContentId (Attachment)] Protocol version 14.0 supports this [ContentId (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1099,
+                                    @"[In ContentId (Attachment)] Protocol version 14.1 supports this [ContentId (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                   this.activeSyncClient.ValidationResult,
+                                   1100,
+                                   @"[In ContentId (Attachment)] Protocol version 16.0 supports this [ContentId (Attachment)] element.");
+                            }
+
+                            this.VerifyStringDataType();
+                        }
+
+                        if (attachment.ContentLocation != null)
+                        {
+                            this.VerifyStringDataType();
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R168");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R168
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                168,
+                                @"[In ContentLocation (Attachment)] The value of this element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                            this.VerifyStringDataType();
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R170");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R170
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                170,
+                                @"[In ContentLocation (Attachment)] The ContentLocation element MUST have no child elements.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1105,
+                                    @"[In ContentLocation (Attachment)] Protocol version 12.1 supports this [ContentLocation (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1106,
+                                    @"[In ContentLocation (Attachment)] Protocol version 14.0 supports this [ContentLocation (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1107,
+                                    @"[In ContentLocation (Attachment)] Protocol version 14.1 supports this [ContentLocation (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1108,
+                                    @"[In ContentLocation (Attachment)] Protocol version 16.0 supports this [ContentLocation (Attachment)] element.");
+                            }
+                        }
+
+                        if (attachment.DisplayName != null)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R191");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R191
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                191,
+                                @"[In DisplayName (Attachment)] The value of this element [the DisplayName element] is a string value ([MS-ASDTYPE] section 2.7).");
+
+                            this.VerifyStringDataType();
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R193");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R193
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                193,
+                                @"[In DisplayName (Attachment)] The DisplayName element MUST have no child elements.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1146,
+                                    @"[In DisplayName (Attachment)] Protocol version 12.1 supports this [DisplayName (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1147,
+                                    @"[In DisplayName (Attachment)] Protocol version 14.0 supports this [DisplayName (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1148,
+                                    @"[In DisplayName (Attachment)] Protocol version 14.1 supports this [DisplayName (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1149,
+                                    @"[In DisplayName (Attachment)] Protocol version 16.0 supports this [DisplayName (Attachment)] element.");
+                            }
+                        }
+
+                        if (attachment.IsInlineSpecified)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R217");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R217
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                217,
+                                @"[In IsInline (Attachment)] The value of this element [the IsInline element] is a boolean value ([MS-ASDTYPE] section 2.1).");
+                            this.VerifyBooleanDataType(attachment.IsInline);
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R219");
+
+                            // Verify MS-ASAIRS requirement: MS-ASAIRS_R219
+                            Site.CaptureRequirementIfIsTrue(
+                                this.activeSyncClient.ValidationResult,
+                                219,
+                                @"[In IsInline (Attachment)] The IsInline element MUST have no child elements.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1189,
+                                    @"[In IsInline (Attachment)] Protocol version 12.1 supports this [IsInline (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1190,
+                                    @"[In IsInline (Attachment)] Protocol version 14.0 supports this [IsInline (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1191,
+                                    @"[In IsInline (Attachment)] Protocol version 14.1 supports this [IsInline (Attachment)] element.");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                            {
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    1192,
+                                    @"[In IsInline (Attachment)] Protocol version 16.0 supports this [IsInline (Attachment)] element.");
+                            }
+                        }
                     }
                 }
             }
         }
+
+        /// <summary>
+        /// This method is used to verify the common elements of Sync command, Search command and ItemOperations command response.
+        /// </summary>
+        /// <param name="calendar">An Calendar object.</param>
+        private void VerifyCommonElementsInResponse(DataStructures.Calendar calendar)
+        {
+            if (calendar.Location1 != null)
+            {
+                if (calendar.Location1.AccuracySpecified)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1001");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R1001
+                    Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1001,
+                        @"[In Accuracy] The Accuracy element is a double data type, as specified in [MS-ASDTYPE] section 2.4.");
+
+                    this.VerifyDoubleDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1005,
+                            @"[In Accuracy] Protocol version 16.0 supports this [Accuracy] element.");
+                    }
+                }
+
+                if (calendar.Location1.AltitudeSpecified)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1031");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R1031
+                    Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1031,
+                        @"[In Altitude] The Altitude element is a double data type, as specified in [MS-ASDTYPE] section 2.4.");
+
+                    this.VerifyDoubleDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1035,
+                            @"[In Altitude] Protocol version 16.0 supports this [Altitude] element.");
+                    }
+                }
+
+                if (calendar.Location1.AltitudeAccuracySpecified)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1037");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R1037
+                    Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1037,
+                        @"[In AltitudeAccuracy] The AltitudeAccuracy element is a double data type, as specified in [MS-ASDTYPE] section 2.4.");
+
+                    this.VerifyDoubleDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1041,
+                            @"[In AltitudeAccuracy] Protocol version 16.0 supports this [AltitudeAccuracy] element.");
+                    }
+                }
+
+                if (calendar.Location1.LatitudeSpecified)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1194");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R1194
+                    Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1194,
+                        @"[In Latitude] The Latitude element is a double data type, as specified in [MS-ASDTYPE] section 2.4.");
+
+                    this.VerifyDoubleDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1198,
+                            @"[In Latitude] Protocol version 16.0 supports this [Latitude] element.");
+                    }
+                }
+
+                if (calendar.Location1.LongitudeSpecified)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1234");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R1234
+                    Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1234,
+                        @"[In Longitude] The Longitude element is a double data type, as specified in [MS-ASDTYPE] section 2.4.");
+
+                    this.VerifyDoubleDataType();
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfIsTrue(
+                            this.activeSyncClient.ValidationResult,
+                            1238,
+                            @"[In Longitude] Protocol version 16.0 supports this [Longitude] element.");
+                    }
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1043");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1043
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1043,
+                    @"[In Annotation] The Annotation element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1047,
+                        @"[In Annotation] Protocol version 16.0 supports this [Annotation] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1074");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1074
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1074,
+                    @"[In City] The City element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1078,
+                        @"[In City] Protocol version 16.0 supports this [City] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1125");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1125
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1125,
+                    @"[In Country] The Country element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1129,
+                        @"[In Country] Protocol version 16.0 supports this [Country] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1361");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1361
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1361,
+                    @"[In DisplayName (Location)] The DisplayName element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1362");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1362
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1362,
+                    @"[In DisplayName (Location)] The Location element MUST have a maximum of one DisplayName element.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1366,
+                        @"[In DisplayName (Location)] Protocol version 16.0 supports this [DisplayName (Location)] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1228");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1228
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1228,
+                    @"[In LocationUri] The LocationUri element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1232,
+                        @"[In LocationUri] Protocol version 16.0 supports this [LocationUri] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1256");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1256
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1256,
+                    @"[In PostalCode] The PostalCode element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1260,
+                        @"[In PostalCode] Protocol version 16.0 supports this [PostalCode] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1278");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1278
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1278,
+                    @"[In State] The State element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1282,
+                        @"[In State] Protocol version 16.0 supports this [State] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1288");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1288
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1288,
+                    @"[In Street] The Street element is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1292,
+                        @"[In Street] Protocol version 16.0 supports this [Street] element.");
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1207");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1207
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1207,
+                    @"[In Location] The Location element is container data type, as specified in [MS-ASDTYPE] section 2.2.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1208");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1208
+                Site.CaptureRequirementIfIsTrue(
+                    this.activeSyncClient.ValidationResult,
+                    1208,
+                    @"[In Location] It has the following child elements [Accuracy, Altitude, AltitudeAccuracy, Annotation, City, Country, DisplayName, Latitude, LocationUri, Longitude, PostalCode, State, Street], all of which are optional:");
+
+                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                {
+                    this.Site.CaptureRequirementIfIsTrue(
+                        this.activeSyncClient.ValidationResult,
+                        1225,
+                        @"[In Location] Protocol version 16.0 supports this [Location] element.");
+                }
+            }
+        }
+
         #endregion
 
         #region Verify requirements from MS-ASDTYPE
@@ -1122,7 +2084,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 87,
-                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.");
+                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
+        }
+
+        /// <summary>
+        /// This method is used to verify the double data type related requirements.
+        /// </summary>
+        private void VerifyDoubleDataType()
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R502");
+
+            // ActiveSyncClient encoded double data as inline strings, so if response is successfully returned this requirement can be covered.
+            // Verify MS-ASDTYPE requirement: MS-ASDTYPE_R502
+            Site.CaptureRequirement(
+                "MS-ASDTYPE",
+                502,
+                @"[In double Data Type] Elements with a double data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
         }
 
         /// <summary>
@@ -1288,7 +2266,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             449,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Type [Token] 0x06");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Type [Token] 0x06 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1304,7 +2282,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             452,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Body [Token] 0x0A");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Body [Token] 0x0A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1320,7 +2298,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             453,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Data[Token]0x0B");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Data[Token]0x0B [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1336,7 +2314,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             454,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] EstimatedDataSize [Token] 0x0C");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] EstimatedDataSize [Token] 0x0C [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1352,7 +2330,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             455,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Truncated [Token] 0x0D");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Truncated [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1368,7 +2346,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             456,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachments [Token] 0x0E");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachments [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1384,7 +2362,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             457,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachment [Token] 0x0F");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachment [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1400,7 +2378,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             458,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] DisplayName [Token] 0x10");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] DisplayName [Token] 0x10 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1416,7 +2394,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             459,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] FileReference [Token] 0x11");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] FileReference [Token] 0x11 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1432,7 +2410,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             460,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Method [Token] 0x12");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Method [Token] 0x12 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1448,7 +2426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             461,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] ContentId [Token] 0x13");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] ContentId [Token] 0x13 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1464,7 +2442,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             462,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] ContentLocation [Token] 0x14 (not used)");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] ContentLocation [Token] 0x14 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1480,7 +2458,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             463,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] IsInline [Token] 0x15");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] IsInline [Token] 0x15 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1496,7 +2474,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             464,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] NativeBodyType [Token] 0x16");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] NativeBodyType [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1515,7 +2493,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             466,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Preview<39> [Token] 0x18");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Preview [Token] 0x18 [supports protocol versions] 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -1531,7 +2509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             468,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart<41> [Token] 0x1A");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1547,7 +2525,215 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             token,
                             "MS-ASWBXML",
                             469,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Status<42> [Token] 0x1B");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Status [Token] 0x1B [supports protocol versions] 14.1, 16.0");
+
+                        break;
+                    }
+
+                case "Location":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R833");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R833
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x20,
+                            token,
+                            "MS-ASWBXML",
+                            833,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Location [Token] 0x20 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Annotation":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R834");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R834
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x21,
+                            token,
+                            "MS-ASWBXML",
+                            834,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Annotation [Token] 0x21 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Street":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R835");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R835
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x22,
+                            token,
+                            "MS-ASWBXML",
+                            835,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Street [Token] 0x22 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "City":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R836");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R836
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x23,
+                            token,
+                            "MS-ASWBXML",
+                            836,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] City [Token] 0x23 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "State":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R837");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R837
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x24,
+                            token,
+                            "MS-ASWBXML",
+                            837,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] State [Token] 0x24 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Country":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R838");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R838
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x25,
+                            token,
+                            "MS-ASWBXML",
+                            838,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Country [Token] 0x25 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "PostalCode":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R839");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R839
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x26,
+                            token,
+                            "MS-ASWBXML",
+                            839,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] PostalCode [Token] 0x26 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Latitude":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R840");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R840
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x27,
+                            token,
+                            "MS-ASWBXML",
+                            840,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Latitude [Token] 0x27 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Longitude":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R841");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R841
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x28,
+                            token,
+                            "MS-ASWBXML",
+                            841,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Longitude [Token] 0x28 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Accuracy":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R842");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R842
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x29,
+                            token,
+                            "MS-ASWBXML",
+                            842,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Accuracy [Token] 0x29 [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "Altitude":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R843");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R843
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x2A,
+                            token,
+                            "MS-ASWBXML",
+                            843,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Altitude [Token] 0x2A [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "AltitudeAccuracy":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R844");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R844
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x2B,
+                            token,
+                            "MS-ASWBXML",
+                            844,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] AltitudeAccuracy [Token] 0x2B [supports protocol versions] 16.0");
+
+                        break;
+                    }
+
+                case "LocationUri":
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R845");
+
+                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R845
+                        Site.CaptureRequirementIfAreEqual<byte>(
+                            0x2C,
+                            token,
+                            "MS-ASWBXML",
+                            845,
+                            @"[In Code Page 17: AirSyncBase] [Tag name] LocationUri [Token] 0x2C [supports protocol versions] 16.0");
 
                         break;
                     }

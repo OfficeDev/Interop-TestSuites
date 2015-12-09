@@ -21,8 +21,8 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element ref="OofState" minOccurs="0"/>
-                    <xs:element ref="StartTime"/>
-                    <xs:element ref="EndTime"/>
+                    <xs:element ref="StartTime" minOccurs="0"/>
+                    <xs:element ref="EndTime" minOccurs="0"/>
                     <xs:element ref="OofMessage" minOccurs="0" maxOccurs="3"/>
                   </xs:sequence>
                 </xs:complexType>
@@ -47,7 +47,6 @@
                   <xs:all>
                     <xs:element ref="EmailAddresses" minOccurs="0"/>
                     <xs:element ref="Accounts" minOccurs="0"/>
-                    
                   </xs:all>
                 </xs:complexType>
               </xs:element>

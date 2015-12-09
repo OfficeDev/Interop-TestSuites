@@ -71,7 +71,13 @@
     <Property name="R5123Enabled" value="true" />
     <!--Set R5175Enabled to true to verify that If the duration spanned by the StartTime element value and the EndTime element value is greater than 42 days, then the implementation does return a Status element value of 5 in the ResolveRecipients command response. Set R5175Enabled to false to disable this requirement.-->
     <Property name="R5175Enabled" value="false" />
+    <!--Set R5194Enabled to true to verify that the reply message for unknown external and known external audiences be the same. Set R5194Enabled to false to disable this requirement.-->
+    <Property name="R5194Enabled" value="true" />
     <!--Set R5201Enabled to true to verify that when the EnableOutboundSMS element is set to 1 and the MS-ASProtocolVersion header is set to 14.0, the PhoneNumber element is required to have a value. Set R5201Enabled to false to disable this requirement.-->
     <Property name="R5201Enabled" value="false" />
+    <!--Set R7500Enabled to true to verify that Implementation does not limit the number of elements in command requests and not return the specified error if the limit is exceeded. Set R7500Enabled to false to disable this requirement.-->
+    <Property name="R7500Enabled" value="true" />
+    <!--Set R7501Enabled to true to verify that Implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. Set R7501Enabled to false to disable this requirement.-->
+    <Property name="R7501Enabled" value="false" />
   </Properties>
 </TestSite>

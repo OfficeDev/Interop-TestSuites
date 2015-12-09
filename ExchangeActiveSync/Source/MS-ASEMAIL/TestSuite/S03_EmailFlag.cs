@@ -148,9 +148,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add flag to the email item
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if the flag Status element is set to a value other than 0, 1, or 2.");
             #endregion
 
@@ -162,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R757
             Site.CaptureRequirement(
                 757,
-                @"[In Status] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if the flag Status element is set to a value other than 0, 1, or 2.");
+                @"[In Status] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the flag Status element is set to a value other than 0, 1, or 2.");
             #endregion
         }
         #endregion
@@ -250,9 +250,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add flag to the email item
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if the ReminderSet element value is set to 1 (TRUE) and the ReminderTime element is not included in the Sync command request.");
             #endregion
 
@@ -264,7 +264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R702
             Site.CaptureRequirement(
                 702,
-                @"[In ReminderTime] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if the tasks:ReminderSet element value is set to 1 (TRUE) and the tasks:ReminderTime element is not included in the Sync command request ([MS-ASCMD] section 2.2.2.19).");
+                @"[In ReminderTime] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the tasks:ReminderSet element value is set to 1 (TRUE) and the tasks:ReminderTime element is not included in the Sync command request ([MS-ASCMD] section 2.2.2.20).");
             #endregion
         }
         #endregion
@@ -305,9 +305,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add flag to the email item
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if the DueDate occurs before StartDate.");
             #endregion
 
@@ -319,7 +319,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R407
             Site.CaptureRequirement(
                 407,
-                @"[In DueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if this condition[When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.60) value.] is not met.");
+                @"[In DueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.72) value.] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R739");
@@ -327,7 +327,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R739
             Site.CaptureRequirement(
                 739,
-                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if this condition[When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.24) value. ] is not met.");
+                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value. ] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R741");
@@ -335,7 +335,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R741
             Site.CaptureRequirement(
                 741,
-                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response if this condition[the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.24) value] is not met.");
+                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response if this condition[the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value] is not met.");
             #endregion
         }
         #endregion
@@ -376,9 +376,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add flag to the email item
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if the UtcDueDate occurs before UtcStartDate.");
             #endregion
 
@@ -390,7 +390,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R851
             Site.CaptureRequirement(
                 851,
-                @"[In UtcDueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if this condition[When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.75) value. ] is not met.");
+                @"[In UtcDueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.87) value. ] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R862");
@@ -398,7 +398,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R862
             Site.CaptureRequirement(
                 862,
-                @"[In UtcStartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) if this condition[When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.74) value. ] is not met.");
+                @"[In UtcStartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.86) value. ] is not met.");
             #endregion
         }
         #endregion
@@ -435,9 +435,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add flag to the email item
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if the the request just sets StartDate and DueDate.");
             #endregion
 
@@ -465,7 +465,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R853
             Site.CaptureRequirement(
                 853,
-                @"[In UtcDueDate] The server returns a Status element value of 6 in the Sync command response if this condition[To set a flag, the tasks:StartDate element (section 2.2.2.60), tasks:DueDate element, tasks:UtcStartDate element, and tasks:UtcDueDate element either all MUST be set, or all MUST be NULL. ] is not met.");
+                @"[In UtcDueDate] The server returns a Status element value of 6 in the Sync command response if this condition[To set a flag, the tasks:StartDate element (section 2.2.2.72), tasks:DueDate element, tasks:UtcStartDate element, and tasks:UtcDueDate element either all MUST be set, or all MUST be NULL.] is not met.");
             #endregion
         }
         #endregion
@@ -517,7 +517,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R850
             Site.CaptureRequirement(
                 850,
-                @"[In UtcDueDate] When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.75) value.");
+                @"[In UtcDueDate] When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.87) value.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R861");
@@ -525,7 +525,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R861
             Site.CaptureRequirement(
                 861,
-                @"[In UtcStartDate] When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.74) value.");
+                @"[In UtcStartDate] When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.86) value.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R738");
@@ -533,7 +533,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R738
             Site.CaptureRequirement(
                 738,
-                @"[In StartDate] When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.24) value.");
+                @"[In StartDate] When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R406");
@@ -541,7 +541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R406
             Site.CaptureRequirement(
                 406,
-                @"[In DueDate] When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.60) value.");
+                @"[In DueDate] When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.72) value.");
             #endregion
         }
         #endregion
@@ -688,7 +688,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R940
             Site.CaptureRequirement(
                 940,
-                @"[In Updating E-Mail Flags] When Action is Flag an email, Required Properties from Device are: Status = 2, FlagType (section 2.2.2.28) = ""Flag for follow up"",tasks:StartDate (section 2.2.2.60) and tasks:UtcStartDate (section 2.2.2.75) tasks:DueDate (section 2.2.2.24) and tasks:UtcDueDate (section 2.2.2.74)");
+                @"[In Updating E-Mail Flags] When Action is Flag an email, Required Properties from Device are: Status = 2, FlagType (section 2.2.2.35) = ""Flag for follow up"",tasks:StartDate (section 2.2.2.72) and tasks:UtcStartDate (section 2.2.2.87) tasks:DueDate (section 2.2.2.31) and tasks:UtcDueDate (section 2.2.2.86)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R693");
@@ -756,7 +756,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R86
             Site.CaptureRequirement(
                 86,
-                @"[In Updating E-Mail Flags] When Action is Mark an email flag as complete, Required Properties from Device are: Status = 1, CompleteTime (section 2.2.2.12), tasks:DateCompleted.");
+                @"[In Updating E-Mail Flags] When Action is Mark an email flag as complete, Required Properties from Device are: Status = 1, CompleteTime (section 2.2.2.19), tasks:DateCompleted.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R334");
@@ -941,9 +941,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Request.Flag newFlag = new Request.Flag { Status = "2" };
 
             SyncStore updateResult = this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, newFlag, null);
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 6,
-                updateResult.ChangeResponses[0].Status,
+                int.Parse(updateResult.ChangeResponses[0].Status),
                 "The server should return a Status 6 in the Sync command response if any of the required elements:StartDate, DueDate, UtcStartDate and UtcDueDate are missing from the Sync command request.");
             #endregion
 
@@ -955,7 +955,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R92
             Site.CaptureRequirement(
                 92,
-                @"[In Updating E-Mail Flags] The Sync command response includes an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 if any of the required elements listed in the table are missing from the Sync command request.");
+                @"[In Updating E-Mail Flags] The Sync command response includes an airsync:Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 if any of the required elements listed in the table are missing from the Sync command request.");
             #endregion
         }
         #endregion
@@ -1257,6 +1257,434 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         }
         #endregion
 
+        #region MSASEMAIL_S03_TC26_FlagEmail_RequiredPropertiesOption2
+        /// <summary>
+        /// This case is designed to test when action is flagging an email, required properties from device are: Status = 2, FlagType = "Flag for follow up", tasks:DateCompleted, CompleteTime.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC26_FlagEmail_RequiredPropertiesOption2()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag with properties Status = 2, FlagType = "Flag for follow up", tasks:DateCompleted, CompleteTime.
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                DateCompletedSpecified = true,
+                DateCompleted = DateTime.Now.AddDays(1),
+                CompleteTimeSpecified = true,
+                CompleteTime = DateTime.Now.AddDays(1)
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Verify requirements
+            // If server returned a Status 1, that is to say, the sync command is successful, then MS-ASEMAIL_R941 can be captured.
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R941");
+
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R941
+            Site.CaptureRequirement(
+                941,
+                @"[In Updating E-Mail Flags] When Action is Flag an email, Required Properties from Device are:Status = 2, FlagType (section 2.2.2.35) = ""Flag for follow up"", tasks:DateCompleted (section 2.2.2.23), CompleteTime (section 2.2.2.19).");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S03_TC27_FlagTask_RequiredProperties
+        /// <summary>
+        /// This case is designed to test when action is Flag a task.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC27_FlagTask_RequiredProperties()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag with properties Status = 2,tasks:Subject,FlagType = "Flag for follow up",tasks:StartDate and tasks:UtcStartDate,tasks:DueDate and tasks:UtcDueDate,tasks:ReminderSet,tasks:ReminderTime
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                Subject = Common.GenerateResourceName(Site, "FlagSubject"),
+                StartDate = DateTime.Now,
+                StartDateSpecified = true,
+                UtcStartDate = DateTime.Now,
+                UtcStartDateSpecified = true,
+                DueDate = DateTime.Now.AddDays(20),
+                DueDateSpecified = true,
+                UtcDueDate = DateTime.Now.AddDays(20),
+                UtcDueDateSpecified = true,
+                ReminderSet=1,
+                ReminderSetSpecified=true,
+                ReminderTime = DateTime.Now,
+                ReminderTimeSpecified=true
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Verify requirements
+            // If server returned a Status 1, that is to say, the sync command is successful, then MS-ASEMAIL_R942 can be captured.
+            // Add the debug information
+            this.Site.CaptureRequirement(
+                942,
+                @"[In Updating E-Mail Flags] When Action is Flag a task, Required Properties from Device are: Status = 2, tasks:Subject (section 2.2.2.75) = user defined, FlagType = ""Flag for follow up"", tasks:StartDate and tasks:UtcStartDate, tasks:DueDate and tasks:UtcDueDate, tasks:ReminderSet (section 2.2.2.64), tasks:ReminderTime (section 2.2.2.65).");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S03_TC28_ClearTaskFlag_Status0
+        /// <summary>
+        /// This case is designed to test when action is clearing the flag on a task, required properties from device are: Status = 0.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC28_ClearTaskFlag_Status0()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag task.
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                Subject = Common.GenerateResourceName(Site, "FlagSubject"),
+                StartDate = DateTime.Now,
+                StartDateSpecified = true,
+                UtcStartDate = DateTime.Now,
+                UtcStartDateSpecified = true,
+                DueDate = DateTime.Now.AddDays(20),
+                DueDateSpecified = true,
+                UtcDueDate = DateTime.Now.AddDays(20),
+                UtcDueDateSpecified = true,
+                ReminderSet = 1,
+                ReminderSetSpecified = true,
+                ReminderTime = DateTime.Now,
+                ReminderTimeSpecified = true
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Call method Sync to clear the flag added in the above step.
+            Request.Flag newFlag = new Request.Flag { Status = "0" };
+
+            // Clear flag
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, newFlag, null);
+
+            // Get update result from server 
+            SyncStore getClearResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(getClearResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The email item with subject '{0}' should be found.", emailSubject);
+            Site.Assert.AreEqual<byte>(
+                1,
+                getClearResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response to indicate clears flag success.");
+            #endregion
+
+            #region Verify requirements
+            bool isVerifiedR89 =
+                item.Email.Flag.Status == null &&
+                item.Email.Flag.FlagType == null
+                && string.IsNullOrEmpty(item.Email.Flag.Subject) &&
+                !item.Email.Flag.StartDateSpecified &&
+                !item.Email.Flag.DueDateSpecified &&
+                !item.Email.Flag.UtcStartDateSpecified &&
+                !item.Email.Flag.UtcDueDateSpecified &&
+                !item.Email.Flag.ReminderSetSpecified &&
+                !item.Email.Flag.ReminderTimeSpecified;
+            
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR89,
+                89,
+                @"[In Updating E-Mail Flags] When Action is Clearing the flag on a task, Required Properties from Device are: Status = 0.");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S03_TC29_ClearTaskFlag_EmptyNode
+        /// <summary>
+        /// This case is designed to test when action is clearing the flag on a task, required properties from device are: Flag node empty.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC29_ClearTaskFlag_EmptyNode()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag task.
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                Subject = Common.GenerateResourceName(Site, "FlagSubject"),
+                StartDate = DateTime.Now,
+                StartDateSpecified = true,
+                UtcStartDate = DateTime.Now,
+                UtcStartDateSpecified = true,
+                DueDate = DateTime.Now.AddDays(20),
+                DueDateSpecified = true,
+                UtcDueDate = DateTime.Now.AddDays(20),
+                UtcDueDateSpecified = true,
+                ReminderSet = 1,
+                ReminderSetSpecified = true,
+                ReminderTime = DateTime.Now,
+                ReminderTimeSpecified = true
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Call method Sync to clear the flag added in the above step.
+            Request.Flag newFlag = new Request.Flag();
+
+            // Clear flag
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, newFlag, null);
+
+            // Get update result from server 
+            SyncStore getClearResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(getClearResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The email item with subject '{0}' should be found.", emailSubject);
+            Site.Assert.AreEqual<byte>(
+                1,
+                getClearResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response to indicate clears flag success.");
+            #endregion
+
+            #region Verify requirements
+            bool isVerifiedR8900 =
+                item.Email.Flag.Status == null &&
+                item.Email.Flag.FlagType == null
+                && string.IsNullOrEmpty(item.Email.Flag.Subject) &&
+                !item.Email.Flag.StartDateSpecified &&
+                !item.Email.Flag.DueDateSpecified &&
+                !item.Email.Flag.UtcStartDateSpecified &&
+                !item.Email.Flag.UtcDueDateSpecified &&
+                !item.Email.Flag.ReminderSetSpecified &&
+                !item.Email.Flag.ReminderTimeSpecified;
+            
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR8900,
+                8900,
+                @"[In Updating E-Mail Flags] When Action is Clearing the flag on a task, Required Properties from Device are: Flag node empty.");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S03_TC30_MarkTaskComplete
+        /// <summary>
+        /// This case is designed to test when action is marking a task complete, required properties from device are: Status = 1, CompleteTime and tasks: DateCompleted.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC30_MarkTaskComplete()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag task.
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                Subject = Common.GenerateResourceName(Site, "FlagSubject"),
+                StartDate = DateTime.Now,
+                StartDateSpecified = true,
+                UtcStartDate = DateTime.Now,
+                UtcStartDateSpecified = true,
+                DueDate = DateTime.Now.AddDays(20),
+                DueDateSpecified = true,
+                UtcDueDate = DateTime.Now.AddDays(20),
+                UtcDueDateSpecified = true,
+                ReminderSet = 1,
+                ReminderSetSpecified = true,
+                ReminderTime = DateTime.Now,
+                ReminderTimeSpecified = true
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Call Sync command with Change element to mark a task as complete.
+            flag = new Request.Flag
+            {
+                Status = "1",
+                CompleteTime = DateTime.Now,
+                CompleteTimeSpecified = true,
+                DateCompleted = DateTime.Now,
+                DateCompletedSpecified = true
+            };
+
+            // Get the email item
+            getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response to indicate sets flag success.");
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirements
+            // If server returned a Status 1, that is to say, the sync command is successful, then MS-ASEMAIL_R87 can be captured.
+            // Add the debug information
+            this.Site.CaptureRequirement(
+                87,
+                @"[In Updating E-Mail Flags] When Action is Mark a task flag as complete, Required Properties from Device are:  Status = 1, CompleteTime, tasks:DateCompleted.");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S03_TC31_UpdateTaskFlagMetadata
+        /// <summary>
+        /// This case is designed to test when action is updating the flag metadata on an task, required properties from device are: All updated properties.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S03_TC31_UpdateTaskFlagMetadata()
+        {
+            #region Call SendMail command to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag with properties Status = 2,tasks:Subject,FlagType = "Flag for follow up",tasks:StartDate and tasks:UtcStartDate,tasks:DueDate and tasks:UtcDueDate,tasks:ReminderSet,tasks:ReminderTime
+            Request.Flag flag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                Subject = Common.GenerateResourceName(Site, "FlagSubject"),
+                StartDate = DateTime.Now,
+                StartDateSpecified = true,
+                UtcStartDate = DateTime.Now,
+                UtcStartDateSpecified = true,
+                DueDate = DateTime.Now.AddDays(20),
+                DueDateSpecified = true,
+                UtcDueDate = DateTime.Now.AddDays(20),
+                UtcDueDateSpecified = true,
+                ReminderSet = 1,
+                ReminderSetSpecified = true,
+                ReminderTime = DateTime.Now,
+                ReminderTimeSpecified = true
+            };
+
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Add flag to an email item
+            SyncStore getChangedResult = this.AddEmailFag(this.User2Information, getEmailItem, emailSubject, flag);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+
+            Site.Assert.AreEqual<byte>(
+                1,
+                getChangedResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response indicate set flag success.");
+            #endregion
+
+            #region Call Sync command with Change element to update the email flag.
+            Request.Flag newFlag = new Request.Flag { Status = "2", FlagType = "for Follow Up" };
+
+            // Update flag
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, newFlag, null);
+
+            // Get update result from server 
+            SyncStore getUpdateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(getUpdateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The email item with subject '{0}' should be found in the {1} folder of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            Site.Assert.AreEqual<byte>(
+                1,
+                getUpdateResult.CollectionStatus,
+                "The server should return a Status 1 in the Sync command response to indicate clears flag success.");
+            #endregion
+
+            #region Verify requirements
+            // If the FlagType value returned from server is "for Follow Up", that is to say, FlagType has been updated successfully, then MS-ASEMAIL_R91 can be captured.
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                newFlag.FlagType,
+                item.Email.Flag.FlagType,
+                91,
+                @"[In Updating E-Mail Flags] When Action is Update flag metadata on a task, Required Properties from Device are: All updated properties.");
+            #endregion
+        }
+        #endregion
         #region Private methods
         /// <summary>
         /// Send mail and update email with additional Flag element

@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                     125,
                     @"[In LastModifiedDate Element] but it[The LastModifiedDate element (section 2.2.2.4) ] is required in the Sync command response ([MS-ASCMD] section 2.2.2.19).");
 
-                Regex regex = new Regex(@"\d{4}(0\d|1[0-2])([0-2]\d|3[0-1])T([0-1]\d|2[0-3])[0-5]\d[0-5]\d(\d{1-3})?Z", RegexOptions.Singleline);
+                Regex regex = new Regex(@"\d{4}(0\d|1[0-2])([0-2]\d|3[0-1])T([0-1]\d|2[0-3])[0-5]\d[0-5]\d?Z", RegexOptions.Singleline);
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R12213");
@@ -182,14 +182,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                     "MS-ASDTYPE",
                     12213,
                     @"[In Compact DateTime] [The format of a Compact DateTime value is specified by the following Augmented Backus-Naur Form (ABNF) notation. ]
-date_string   = year month day ""T"" hour minute seconds [milliseconds] ""Z""
+date_string   = year month day ""T"" hour minute seconds ""Z""
 year          = 4*DIGIT
 month         = (""0"" DIGIT) / ""10"" / ""11"" / ""12""
 day           = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / ""30"" / ""31""
 hour          = (""0"" DIGIT) / (""1"" DIGIT) / ""20"" / ""21"" / ""22"" / ""23""
 minute        = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
-seconds       = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
-milliseconds  = 1*3DIGIT");
+seconds       = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R12211");

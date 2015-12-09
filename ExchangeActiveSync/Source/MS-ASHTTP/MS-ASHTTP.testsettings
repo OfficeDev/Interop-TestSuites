@@ -11,7 +11,8 @@
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\Resources\EmailWithAttachment.txt" />
     <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>

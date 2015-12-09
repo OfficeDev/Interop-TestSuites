@@ -175,7 +175,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
 
             // Code Page 2: Email
             this.codePages[2] = new CodePage { Namespace = "Email", Xmlns = "email" };
-
             this.codePages[2].AddToken(0x0F, "DateReceived");
             this.codePages[2].AddToken(0x11, "DisplayTo");
             this.codePages[2].AddToken(0x12, "Importance");
@@ -272,6 +271,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[4].AddToken(0x39, "FirstDayOfWeek");
             this.codePages[4].AddToken(0x3A, "OnlineMeetingConfLink");
             this.codePages[4].AddToken(0x3B, "OnlineMeetingExternalLink");
+            this.codePages[4].AddToken(0x3C, "ClientUid");
 
             // Code Page 5: Move
             this.codePages[5] = new CodePage { Namespace = "Move", Xmlns = "move" };
@@ -289,12 +289,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[6] = new CodePage { Namespace = "GetItemEstimate", Xmlns = "getitemestimate" };
 
             this.codePages[6].AddToken(0x05, "GetItemEstimate");
-            this.codePages[6].AddToken(0x06, "Version");
             this.codePages[6].AddToken(0x07, "Collections");
             this.codePages[6].AddToken(0x08, "Collection");
             this.codePages[6].AddToken(0x09, "Class");
             this.codePages[6].AddToken(0x0A, "CollectionId");
-            this.codePages[6].AddToken(0x0B, "DateTime");
             this.codePages[6].AddToken(0x0C, "Estimate");
             this.codePages[6].AddToken(0x0D, "Response");
             this.codePages[6].AddToken(0x0E, "Status");
@@ -302,6 +300,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             // Code Page 7: FolderHierarchy
             this.codePages[7] = new CodePage { Namespace = "FolderHierarchy", Xmlns = "folderhierarchy" };
 
+            this.codePages[7].AddToken(0x05, "Folders");
+            this.codePages[7].AddToken(0x06, "Folder");
             this.codePages[7].AddToken(0x07, "DisplayName");
             this.codePages[7].AddToken(0x08, "ServerId");
             this.codePages[7].AddToken(0x09, "ParentId");
@@ -330,6 +330,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[8].AddToken(0x0B, "Status");
             this.codePages[8].AddToken(0x0C, "UserResponse");
             this.codePages[8].AddToken(0x0E, "InstanceId");
+            this.codePages[8].AddToken(0x12, "SendResponse");
 
             // Code Page 9: Tasks
             this.codePages[9] = new CodePage { Namespace = "Tasks", Xmlns = "tasks" };
@@ -422,7 +423,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[13] = new CodePage { Namespace = "Ping", Xmlns = "ping" };
 
             this.codePages[13].AddToken(0x05, "Ping");
-            this.codePages[13].AddToken(0x06, "AutdState");
             this.codePages[13].AddToken(0x07, "Status");
             this.codePages[13].AddToken(0x08, "HeartbeatInterval");
             this.codePages[13].AddToken(0x09, "Folders");
@@ -562,6 +562,25 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[17].AddToken(0x19, "BodyPartPreference");
             this.codePages[17].AddToken(0x1A, "BodyPart");
             this.codePages[17].AddToken(0x1B, "Status");
+            this.codePages[17].AddToken(0x1C, "Add");
+            this.codePages[17].AddToken(0x1D, "Delete");
+            this.codePages[17].AddToken(0x1E, "ClientId");
+            this.codePages[17].AddToken(0x1F, "Content");
+            this.codePages[17].AddToken(0x20, "Location");
+            this.codePages[17].AddToken(0x21, "Annotation");
+            this.codePages[17].AddToken(0x22, "Street");
+            this.codePages[17].AddToken(0x23, "City");
+            this.codePages[17].AddToken(0x24, "State");
+            this.codePages[17].AddToken(0x25, "Country");
+            this.codePages[17].AddToken(0x26, "PostalCode");
+            this.codePages[17].AddToken(0x27, "Latitude");
+            this.codePages[17].AddToken(0x28, "Longitude");
+            this.codePages[17].AddToken(0x29, "Accuracy");
+            this.codePages[17].AddToken(0x2A, "Altitude");
+            this.codePages[17].AddToken(0x2B, "AltitudeAccuracy");
+            this.codePages[17].AddToken(0x2C, "LocationUri");
+            this.codePages[17].AddToken(0x2D, "InstanceId");
+
 
             // Code Page 18: Settings
             this.codePages[18] = new CodePage { Namespace = "Settings", Xmlns = "settings" };
@@ -659,6 +678,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[21].AddToken(0x11, "ClientId");
             this.codePages[21].AddToken(0x12, "Status");
             this.codePages[21].AddToken(0x13, "AccountId");
+            this.codePages[21].AddToken(0x15, "Forwardees");
+            this.codePages[21].AddToken(0x16, "Forwardee");
+            this.codePages[21].AddToken(0x17, "ForwardeeName");
+            this.codePages[21].AddToken(0x18, "ForwardeeEmail");
 
             // Code Page 22: Email2
             this.codePages[22] = new CodePage { Namespace = "Email2", Xmlns = "email2" };
@@ -678,6 +701,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[22].AddToken(0x11, "AccountId");
             this.codePages[22].AddToken(0x12, "FirstDayOfWeek");
             this.codePages[22].AddToken(0x13, "MeetingMessageType");
+            this.codePages[22].AddToken(0x15, "IsDraft");
+            this.codePages[22].AddToken(0x16, "Bcc");
+            this.codePages[22].AddToken(0x17, "Send");
 
             // Code Page 23: Notes
             this.codePages[23] = new CodePage { Namespace = "Notes", Xmlns = "notes" };

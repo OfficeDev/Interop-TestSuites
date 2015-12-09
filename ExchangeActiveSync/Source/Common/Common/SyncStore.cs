@@ -45,7 +45,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <summary>
         /// Gets or sets the Status of the sync operation
         /// </summary>
-        public byte Status { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the Status of the sync operation exists

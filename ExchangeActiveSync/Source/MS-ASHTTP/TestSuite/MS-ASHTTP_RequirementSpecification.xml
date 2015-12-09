@@ -1741,6 +1741,24 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R600</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] [The occurrence of header] Cookie which contains one or more cookies that the client previously received from the server in a Set-Cookie header, depending on the contents of previous server responses and the protocol version in use.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For more details [about the header Cookie], see section 2.2.1.1.2.7.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Request Headers] [The optional header] MS-ASAcceptMultiPart specifies that the client wants items returned in multipart format.</ns1:Description>
@@ -2065,6 +2083,60 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R602</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] The Cookie header contains one or more cookies that the client previously received from the server in a Set-Cookie header (section 2.2.2.1.2.12).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R603</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] Each cookie consistes of the name and value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R604</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] Multiple cookies are separated by a semi-colon.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R605</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] For details about the syntax, see [RFC6265].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R606</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] Clients using protocol version 16.0 MUST be able to parse and interpret a Set-Cookie header that is received from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R607</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie] If the server response includes the Set-Cookie header, clients using protocol version 16.0 MUST provide these cookies in a Cookie header when sending future requests to the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R163</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Request Body] The request body contains data sent to the server.</ns1:Description>
@@ -2305,6 +2377,42 @@ HTTP/1.1 200 OK</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R608</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 456 Blocked [is described as] the user's account is blocked.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R609</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about the client's handling of this error [the user's account is blocked], see section 3.1.5.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R700</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] [Status code] 457 Expired Password [is described as] the user's password has expired.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R701</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Status Line] For details about the client's handling of this error [the user's password has expired], see section 3.1.5.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R184</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status Line] [Status code] 500 Internal Server Error [is described as] the server encountered an unexpected condition that prevented it from fulfilling the request.</ns1:Description>
@@ -2497,10 +2605,28 @@ HTTP/1.1 200 OK</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R207</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Headers] Optional [header] X-MS-Location specifies the URL to use for future requests, [which is] used in conjunction with a 451 Redirect status code.</ns1:Description>
+		<ns1:Description>[In Response Headers] Optional [header] X-MS-Location specifies the URL to use for future requests, [which is] used in conjunction with a 451 Redirect status code, [whose example value is] https://mail.contoso.com/Microsoft-Server-ActiveSync.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R702</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] MS-ASProtocolCommands indicates the commands supported by the server, [whose example value are] Sync, SendMail, SmartForward, SmartReply, GetAttachment, GetHierarchy, CreateCollection, DeleteCollection, MoveCollection, FolderSync, FolderCreate, FolderDelete, FolderUpdate, MoveItems, GetItemEstimate, MeetingResponse, Search, Settings, Ping, ItemOperations, Provision, ResolveRecipients, ValidateCert.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R703</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] MS-ASProtocolVersions indicates the protocol versions supported by the server, [whose example value are] 2.5, 12.0, 12.1, 14.0, 14.1, 16.0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2510,6 +2636,33 @@ HTTP/1.1 200 OK</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R704</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] X-MS-Credential-Service-Url contains a URL for reset of user's password, [whose example value is] https://portal.microsoftonline.com/ChangePassword.aspx.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R705</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] X-MS-Credentials-Expire indicates the number of days remaining until expiration of a user's password, [whose example value is] 13.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R706</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] Set-Cookie contains one or more cookies returned by the server, [whose example value is] X-Cookie=value; expires=Wed, 08-Jul-2015 23:40:27 GMT; path=/Microsoft-Server-ActiveSync; secure; HttpOnly.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2526,7 +2679,7 @@ HTTP/1.1 200 OK</ns1:Description>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Response Headers] When these two conditions [the response is to an HTTP POST request and the response has HTTP status 200] are met, only the following headers are necessary in the response: 
 Content-Length
-Content-Type, only required if Content-Length is greater than zero.</ns1:Description>
+Content-Type, required only if Content-Length is greater than zero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2668,8 +2821,62 @@ Content-Type, only required if Content-Length is greater than zero.</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R225</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASHTTP_R707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolCommands] The MS-ASProtocolCommands header contains a comma-delimited list of the ActiveSync commands supported by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R708</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolCommands] It [MS-ASProtocolCommands] will be returned in an HTTP POST response if the server requires the client to reinitialize its synchronization state.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R709</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] The MS-ASProtocolVersions contains a comma-delimited list of the ActiveSync protocol versions that the server supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R800</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] It [MS-ASProtocolVersions] will be returned in HTTP POST response headers if the server requires the client to reinitialize its synchronization state.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] The following values correspond to the ActiveSync protocol versions that are specified by [MS-ASCMD]: "16.0", "14.0", "12.1", "12.0", and "2.5".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] The latest version is 16.0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R225</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In X-MS-RP] This [X-MS-RP] header is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2678,7 +2885,7 @@ Content-Type, only required if Content-Length is greater than zero.</ns1:Descrip
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R226</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.1.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In X-MS-RP] Its [X-MS-RP header's] presence in a response indicates that a condition on the server (such as a server upgrade) requires the client to discard its local data and resynchronize.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2687,10 +2894,127 @@ Content-Type, only required if Content-Length is greater than zero.</ns1:Descrip
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R227</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.2.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.1.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In X-MS-RP] The value of this [X-MS-RP] header indicates the protocol versions the server supports.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R803</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Service-Url] This [X-MS-Credential-Service-Url] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R804</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Service-Url] This [X-MS-Credential-Service-Url] header contains the URL for a self-service web site that allows a user to reset the user password.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R805</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Service-Url] This [X-MS-Credential-Service-Url] header is required in the response to an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) when the user's password is [either] near expiration [or expired].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R806</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Service-Url] This [X-MS-Credential-Service-Url] header is required in the response to an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) when the user's password is [either near expiration or] expired.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R807</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Service-Url] The point at which a password is near expiration is determined by the implementer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R808</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Expire] This [X-MS-Credential-Expire] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R809</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Expire] This [X-MS-Credential-Expire] header contains a integer that indicates the number of days remaining until the user's password expires.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R900</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Expire] A value of 0 (zero) indicates that the password will expire in less than 24 hours.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R901</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-Credential-Expire] This [X-MS-Credential-Expire] header can be included in a response to provide advance warning of password expiration.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R902</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie] This [Set-Cookie] header is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R903</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie] The Set-Cookie header contains one or more cookies returned by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R904</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie] Each cookie consists of a name, a value, and the following attributes: Expires, Path, Secure, and HttpOnly.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R905</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie] For details about the syntax of this [Set-Cookie] header, see [RFC6265].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -2918,6 +3242,15 @@ Response-headers</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R906</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] Optional [header] Set-Cookie contains one or more cookies returned by the server, [whose example value is] X-Cookie=value; expires=Wed, 08-Jul-2015 23:40:27 GMT; path=/Microsoft-Server-ActiveSync; secure; HttpOnly.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R247</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASProtocolCommands] The MS-ASProtocolCommands header contains a comma-delimited list of the ActiveSync commands supported by the server.</ns1:Description>
@@ -2938,7 +3271,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In MS-ASProtocolVersions] [HTTP OPTIONS Response] Values [MS-ASProtocolVersions] that correspond to the versions specified by [MS-ASCMD] are "12.1" "14.0", and "14.1".</ns1:Description>
+		<ns1:Description>[In MS-ASProtocolVersions] The following values [MS-ASProtocolVersions] correspond to the ActiveSync protocol versions that are specified by [MS-ASCMD]: "16.0", "14.1", "14.0", "12.1", "12.0" and "2.5".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3044,9 +3377,63 @@ Response-headers</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R907</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Headling a Successful Response] If the X-MS-RP header is received in response to a FolderSync request that has a synchronization key of 0, the client can ignore the X-MS-RP header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R908</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Headling a Successful Response] If the server returns the X-MS-Credentials-Expire header (section 2.2.2.1.2.11) in the response, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to retrieve the URL for the self-service web site that allows a user to do a password reset.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R909</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Headling a Successful Response] The Autodiscover command response will include the X-MS-Credential-Service-Url header (section 2.2.2.1.2.10), which contains the URL for the self-service web site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1000</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Headling a Successful Response] The client SHOULD provide this [the self-service web site] URL to the user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling a Failed Response] Any HTTP status code that is not between 200 and 299, as specified in [RFC2616], indicates that the request failed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling a Failed Response] The following sections specify the client's handling of certain HTTP status codes that are returned by the server when a request fails.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R264</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling a Failed Response] Unless otherwise specified in the following sections, all HTTP status codes that do not indicate success is interpreted and handled as specified in [RFC2616].</ns1:Description>
+		<ns1:Description>[In Handling a Failed Response] All other [expect the following sections] HTTP status codes that indicate a failed request are interpreted and handled as specified in [RFC2616].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3055,7 +3442,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R265</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error 401 [, 403, or 500].</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error 401 [, 403, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3064,7 +3451,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R446</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error [401,] 403 [, or 500].</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401 ,] 403[, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3073,16 +3460,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R447</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server if the server responds to any command with an HTTP Error [401, 403, or] 500.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R267</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If the server returns an X-MS-RP header in the response, the client MUST reinitialize its synchronization state as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401, 403, or] 500, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3219,6 +3597,60 @@ Content-Type: text/html</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) with an HTTP error 456, the client SHOULD stop sending requests to the server [and then prompt the user to contact the administrator].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) with an HTTP error 456, the client [SHOULD stop sending requests to the server and] then prompt the user to contact the administrator.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request with an HTTP error 457, the client SHOULD stop sending requests to the server [and then prompt the user to reset the user password]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1006</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request with an HTTP error 457, the client [SHOULD stop sending requests to the server and] then prompt the user to reset the user password. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1007</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The client SHOULD direct the user to the self-service web site that allows a user to do a password reset. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1008</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In HTTP Error] The URL for this web site is contained in the X-MS-Credential-Service-Url header (section 2.2.2.1.2.10) of the server's response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Server Details] The server only responds to client requests by returning HTTP responses as specified in section 2.2.2.</ns1:Description>
@@ -3257,16 +3689,25 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R282</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] The server SHOULD parse requests from clients as specified in section 2.2.1 and [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] The server parse requests from clients as specified in section 2.2.1 and [MS-ASCMD] section 2.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1009</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The ActiveSync command contained within an HTTP POST request is parsed as specified in [MS-ASCMD] section 2.2.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R283</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] The server MUST conform to the protocol version specified by the MS-ASProtocolVersion header (section 2.2.1.1.2.4) in the client request.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] The server MUST conform to the protocol version that is specified by the MS-ASProtocolVersion header (section 2.2.1.1.2.4) in the client request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3275,7 +3716,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R284</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] The server SHOULD format a response to the request as specified in section 2.2.2 with an appropriate HTTP status code as specified in section 2.2.2.1.1.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] The server formats an HTTP POST response as specified in section 2.2.2 with an appropriate HTTP status code as specified in section 2.2.2.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3285,7 +3726,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R285</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 451 error and knows the URL of the correct server, it SHOULD include an X-MS-Location header with the URL of the correct server.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 451 error and knows the URL of the correct server, it SHOULD include an X-MS-Location header (section 2.2.2.1.2.6) with the URL of the correct server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3294,21 +3735,66 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R287</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 503 error, it MAY&lt;6&gt; include a Retry-After header ([RFC2616]) in the response with an estimate of how many seconds will elapse before the server is expected to be able to process the request.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 503 error, it MAY&lt;6&gt; include a Retry-After header, as specified in [RFC2616], in the response with an estimate of the number of seconds that will elapse before the server is sppected to be able to process the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R289</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASHTTP_R1100</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] If the server requires the client to reinitialize its synchronization state, it SHOULD include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 457 error, it MUST include the X-MS-Credential-Service-Url header (section 2.2.2.1.2.10) in its response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1101</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If the user's password is near expiration, the server SHOULD include the X-MS-Credentials-Expire header (section 2.2.2.1.2.11) in its response. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1102</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] This [X-MS-Credentials-Expire] header provides advance warning to the client of password expiration. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1103</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] The point at which the server begins this [advance] warning is determined by the implementer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1104</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If the client sends a request to synchronize the folder hierarchy with a synchronization key of 0 [or the server requires the client to reinitialize its synchronization state], the server SHOULD include an X-MS-RP header, an MS-ASProtocolCommands header, and an MS-ASProtocolVersions header in its response to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R478.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R1202.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1105</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP Requests] If [the client sends a request to synchronize the folder hierarchy with a synchronization key of 0 or] the server requires the client to reinitialize its synchronization state, the server SHOULD include an X-MS-RP header, an MS-ASProtocolCommands header, and an MS-ASProtocolVersions header in its response to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R416</ns1:REQ_ID>
@@ -3345,6 +3831,7 @@ Content-Type: text/html</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R456.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R420</ns1:REQ_ID>
@@ -3363,47 +3850,48 @@ Content-Type: text/html</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R457.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R422</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] If the server blocks a client for changing its User-Agent header value, it [server] returns an error that depends on the value of the MS-ASProtocolVersion header (section 2.2.1.1.2.4).</ns1:Description>
+		<ns1:Description>[In User-Agent Change Tracking] If the server blocks a client from changing its User-Agent header value, it [server] returns an HTTP error 503.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R423</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] If the value of the MS-ASProtocolVersion header is 14.0 or 14.1, the server MUST return a Status element ([MS-ASCMD] section 2.2.3.162) with a value of DeviceIsBlockedForThisUser (129), as specified in [MS-ASCMD] section 2.2.4.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R424</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] If the value of the MS-ASProtocolVersion header is 12.1, the server must return an HTTP error 403.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R291</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASHTTP_R1106</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] The server response to the HTTP OPTIONS command request MUST contain the MS-ASProtocolCommands header set to a comma-delimited list of the supported ActiveSync commands, and a MS-ASProtocolVersions header set to a comma-delimited list of the supported ActiveSync protocol versions.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The server parses HTTP OPTIONS requests from clients as specified in section 2.2.3 and formats its response as specified in section 2.2.4. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1107</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The server's response MUST contain both the MS-ASProtocolCommands header, as specified in section 2.2.4.1.2.1, and the MS-ASProtocolVersions header, as specified in section 2.2.2.1.2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1108</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The server uses these [MS-ASProtocolCommands and MS-ASProtocolVersions] headers to indicate which ActiveSync commands and which ActiveSync protocol versions it supports.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R292</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] The latest supported version of the protocol is 14.1.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The latest supported version of the protocol is 16.0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3412,7 +3900,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R293</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] Older supported versions include 14.0 and 12.1.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] Older supported versions include 14.1, 14.0, 12.1, 12.0, and 2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3439,7 +3927,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R296</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] A protocol server can support multiple versions of this protocol [MS-ASHTTP].</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] A protocol server can support multiple versions of the ActiveSync protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3448,12 +3936,12 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R297</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] This specification [MS-ASHTTP] and any protocol specifications that cite it [MS-ASHTTP] as a dependency are applicable when the value of the MS-ASProtocolVersion header is set to 14.1, 14.0, or 12.1.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] This specification [MS-ASHTTP] and any protocol specifications that cite it [MS-ASHTTP] as a dependency, apply to the server configuration when the value of the MS-ASProtocolVersions header is set to a value that includes "16.0", "14.1", "14.0", "12.1", "12.0", or "2.5".&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-ASHTTP_R298, MS-ASHTTP_R459, MS-ASHTTP_R460, MS-ASHTTP_R461.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-ASHTTP_R298, MS-ASHTTP_R459, MS-ASHTTP_R460, MS-ASHTTP_R461, MS-ASHTTP_R1201.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R299</ns1:REQ_ID>
@@ -3487,15 +3975,25 @@ Content-Type: text/html</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R478</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASHTTP_R1202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the implementation requires the client to reinitialize its synchronization state, it does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-ASHTTP_R289:i,MS-ASHTTP_R299:i</ns1:Derived>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sends a request to synchronize the folder hierarchy with a synchronization key of 0, the implementation does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R1104:i,MS-ASHTTP_R299:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R478</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the implementation requires the client to reinitialize its synchronization state, it does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response to the client. (Exchange 2007 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R1105:i,MS-ASHTTP_R299:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R300</ns1:REQ_ID>
@@ -3510,6 +4008,15 @@ Content-Type: text/html</ns1:Description>
 		<ns1:REQ_ID>MS-ASHTTP_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the Protocol version field to 141. (&lt;1&gt; Section 2.2.1.1.1.1: Exchange 2007 SP1 and the initial release version of Exchange 2010 do not set the Protocol version field to 141.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1109</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the Protocol version field to 160. (&lt;1&gt; Section 2.2.1.1.1.1: Exchange 2010 Service Pack 1 (SP1) and Exchange 2013 do not set the Protocol version field to 160.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3601,27 +4108,29 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R456</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (&lt;8&gt; Section 3.2.5.1.1:  Exchange 2013 can be configured to use different values for the allowed number of changes and the time period.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (&lt;8&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to use different values for the allowed number of changes and the time period.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R419:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R457</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;9&gt; Section 3.2.5.1.1:  Exchange 2013 can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;9&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R421:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R298</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 14.1 and 14.0. (&lt;10&gt; Section 3.2.5.2: Exchange 2007 SP1 does not return MS-ASProtocolVersions values of 14.1 and 14.0.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 16.0, 14.1 or 14.0. (&lt;10&gt; Section 3.2.5.2: Exchange 2007 SP1 does not return the value "16.0", "14.1", or "14.0" in the MS-ASProtocolVersions header.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3632,7 +4141,17 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R458</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 14.1. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 does not return the MS-ASProtocolVersions value of 14.1.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 16.0 or 14.1. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 does not return value "16.0" or "14.1" in the MS-ASProtocolVersions header.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1200</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 16.0. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 SP1 and Exchange 2013 do not return value "16.0" in the MS-ASProtocolVersions header.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3665,6 +4184,17 @@ Content-Type: text/html</ns1:Description>
 		<ns1:REQ_ID>MS-ASHTTP_R461</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 14.1. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1201</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 16.0. (Exchange 2016 Preview and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

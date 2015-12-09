@@ -188,8 +188,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             ical.AppendLine("BEGIN:VEVENT");
             ical.AppendLine("UID:" + calendar.UID);
-
-            ical.AppendLine("DTSTAMP:" + ((DateTime)calendar.DtStamp).ToString("yyyyMMddTHHmmss"));
+            if (calendar.DtStamp != null)
+            {
+                ical.AppendLine("DTSTAMP:" + ((DateTime)calendar.DtStamp).ToString("yyyyMMddTHHmmss"));
+            }
             ical.AppendLine("DESCRIPTION:" + calendar.Subject);
             ical.AppendLine("SUMMARY:" + calendar.Subject);
             ical.AppendLine("ATTENDEE;CN=\"\";RSVP=" + (calendar.ResponseRequested == true ? "TRUE" : "FALSE") + ":mailto:" + calendar.Attendees.Attendee[0].Email);
@@ -507,7 +509,7 @@ MQ==
             {
                 for (int itemIndex = 0; itemIndex < add.ApplicationData.ItemsElementName.Length; itemIndex++)
                 {
-                    if (add.ApplicationData.ItemsElementName[itemIndex].ToString().Contains(field) && add.ApplicationData.Items[itemIndex].ToString().ToLower() == fieldValue.ToLower())
+                    if (add.ApplicationData.ItemsElementName[itemIndex].ToString().Contains(field) && add.ApplicationData.Items[itemIndex].ToString().ToLower().Replace(" ", "") == fieldValue.ToLower().Replace(" ", ""))
                     {
                         return add.ServerId;
                     }
@@ -605,6 +607,40 @@ MQ==
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Get the attachments of an email.
+        /// </summary>
+        /// <param name="syncResponse">The Sync command response.</param>
+        /// <param name="subject">The email subject.</param>
+        /// <returns>The attachments of the email.</returns>
+        protected Response.AttachmentsAttachment[] GetEmailAttachments(SyncResponse syncResponse, string subject)
+        {
+            Response.AttachmentsAttachment[] attachments = null;
+
+            // Get the application data of the email, to which the attachments belong.
+            Response.SyncCollectionsCollectionCommandsAddApplicationData addData = TestSuiteBase.GetAddApplicationData(syncResponse, Response.ItemsChoiceType8.Subject1, subject);
+            Site.Assert.IsNotNull(addData, string.Format("The email with subject '{0}' should exist.", subject));
+
+            for (int i = 0; i < addData.ItemsElementName.Length; i++)
+            {
+                if (addData.ItemsElementName[i] == Response.ItemsChoiceType8.Attachments)
+                {
+                    Response.Attachments attachmentCollection = addData.Items[i] as Response.Attachments;
+                    if (attachmentCollection != null)
+                    {
+                        attachments = new Response.AttachmentsAttachment[attachmentCollection.Items.Length];
+                        for (int j = 0; j < attachmentCollection.Items.Length; j++)
+                        {
+                            attachments[j] = attachmentCollection.Items[j] as Response.AttachmentsAttachment;
+                        }
+                    }
+
+                    break;
+                }
+            }
+            return attachments;
         }
 
         /// <summary>
@@ -790,46 +826,6 @@ MQ==
             Request.DeviceInformation deviceInfo = new Request.DeviceInformation { Set = deviceInfoSet };
 
             return deviceInfo;
-        }
-
-        /// <summary>
-        /// Create one sample calendar object.
-        /// </summary>
-        /// <param name="subject">Meeting subject.</param>
-        /// <param name="organizerEmailAddress">Meeting organizer email address.</param>
-        /// <param name="attendeeEmailAddress">Meeting attendee email address.</param>
-        /// <returns>One sample calendar object.</returns>
-        protected static Calendar CreateDefaultCalendar(string subject, string organizerEmailAddress, string attendeeEmailAddress)
-        {
-            Response.AttendeesAttendee attendee = new Response.AttendeesAttendee
-            {
-                Email = attendeeEmailAddress,
-                Name = attendeeEmailAddress,
-                AttendeeStatus = 0,
-                AttendeeType = 1
-            };
-
-            List<Response.AttendeesAttendee> attendeelist = new List<Response.AttendeesAttendee> { attendee };
-
-            Calendar calendar = new Calendar
-            {
-                Timezone =
-                    "4AEAACgARwBNAFQALQAwADgAOgAwADAAKQAgAFAAYQBjAGkAZgBpAGMAIABUAGkAbQBlACAAKABVAFMAIAAmACAAQwAAAAsAAAABAAIAAAAAAAAAAAAAACgARwBNAFQALQAwADgAOgAwADAAKQAgAFAAYQBjAGkAZgBpAGMAIABUAGkAbQBlACAAKABVAFMAIAAmACAAQwAAAAMAAAACAAIAAAAAAAAAxP///w==",
-                DtStamp = DateTime.UtcNow.AddDays(5),
-                StartTime = DateTime.UtcNow.AddDays(5),
-                Subject = subject,
-                UID = Guid.NewGuid().ToString(),
-                OrganizerEmail = organizerEmailAddress,
-                OrganizerName = organizerEmailAddress,
-                Location = "My Office",
-                EndTime = DateTime.UtcNow.AddDays(5).AddHours(2),
-                Sensitivity = 0,
-                BusyStatus = 1,
-                AllDayEvent = 0,
-                Attendees = new Response.Attendees { Attendee = attendeelist.ToArray() }
-            };
-
-            return calendar;
         }
 
         /// <summary>
@@ -1135,7 +1131,7 @@ MQ==
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder, return ServerId for FolderCreate.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(folderSyncResponse.ResponseData.SyncKey, folderType, folderName, parentFolderID);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual(1, folderCreateResponse.ResponseData.Status, "If the FolderCreate command executes successfully, the Status in response should be 1");
+            Site.Assert.AreEqual(1, Convert.ToInt32(folderCreateResponse.ResponseData.Status), "If the FolderCreate command executes successfully, the Status in response should be 1");
 
             // Record created folder collectionID.
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -1337,9 +1333,9 @@ MQ==
             if (string.IsNullOrEmpty(userInformation.InboxCollectionId))
             {
                 FolderSyncResponse folderSyncResponse = this.CMDAdapter.FolderSync(Common.CreateFolderSyncRequest("0"));
-                Site.Assert.AreEqual<byte>(
-                     (byte)1,
-                     folderSyncResponse.ResponseData.Status,
+                Site.Assert.AreEqual<int>(
+                     1,
+                     int.Parse(folderSyncResponse.ResponseData.Status),
                      "The server should return a status code 1 in the FolderSync command response to indicate success.");
                 this.LastFolderSyncKey = folderSyncResponse.ResponseData.SyncKey;
 
@@ -1361,37 +1357,39 @@ MQ==
         /// <param name="calendar">The meeting calendar</param>
         protected void SendMeetingRequest(string subject, Calendar calendar)
         {
-            string emailBody = Common.GenerateResourceName(Site, "content");
-            string icalendarFormatContent = TestSuiteBase.CreateiCalendarFormatContent(calendar);
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                string emailBody = Common.GenerateResourceName(Site, "content");
+                string icalendarFormatContent = TestSuiteBase.CreateiCalendarFormatContent(calendar);
 
-            string meetingEmailMime = Common.CreateMeetingRequestMime(
-                calendar.OrganizerEmail,
-                calendar.Attendees.Attendee[0].Email,
-                subject,
-                emailBody,
-                icalendarFormatContent);
-            string clientID = TestSuiteBase.ClientId;
+                string meetingEmailMime = Common.CreateMeetingRequestMime(
+                    calendar.OrganizerEmail,
+                    calendar.Attendees.Attendee[0].Email,
+                    subject,
+                    emailBody,
+                    icalendarFormatContent);
+                string clientID = TestSuiteBase.ClientId;
 
-            SendMailRequest sendMailRequest = Common.CreateSendMailRequest(clientID, false, meetingEmailMime);
+                SendMailRequest sendMailRequest = Common.CreateSendMailRequest(clientID, false, meetingEmailMime);
 
-            this.SwitchUser(this.User1Information);
-            SendMailResponse response = this.CMDAdapter.SendMail(sendMailRequest);
+                this.SwitchUser(this.User1Information);
+                SendMailResponse response = this.CMDAdapter.SendMail(sendMailRequest);
 
-            Site.Assert.AreEqual<string>(
-                 string.Empty,
-                 response.ResponseDataXML,
-                 "The server should return an empty xml response data to indicate SendMail command success.");
+                Site.Assert.AreEqual<string>(
+                     string.Empty,
+                     response.ResponseDataXML,
+                     "The server should return an empty xml response data to indicate SendMail command success.");
+            }
         }
 
         /// <summary>
         /// Send a weekly meeting request.
         /// </summary>
         /// <param name="meetingRequestSubject">The subject of the meeting request.</param>
-        /// <param name="senderEmailAddress">The email address of the sender.</param>
         /// <param name="recipientEmailAddress">The email address of the recipient.</param>
-        protected void SendWeeklyRecurrenceMeetingRequest(string meetingRequestSubject, string senderEmailAddress, string recipientEmailAddress)
+        protected void SendWeeklyRecurrenceMeetingRequest(string meetingRequestSubject, string recipientEmailAddress)
         {
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, senderEmailAddress, recipientEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, recipientEmailAddress, null);
             int offset = new Random().Next(1, 100000);
 
             calendar.DtStamp = DateTime.UtcNow.AddDays(offset);
@@ -1620,7 +1618,7 @@ MQ==
                     FolderSyncResponse folderSyncResponse = this.FolderSync();
                     FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(folderSyncResponse.ResponseData.SyncKey, collectionID);
                     FolderDeleteResponse folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
-                    Site.Assert.AreEqual<byte>((byte)1, folderDeleteResponse.ResponseData.Status, "The created Folder should be deleted.");
+                    Site.Assert.AreEqual<int>(1, int.Parse(folderDeleteResponse.ResponseData.Status), "The created Folder should be deleted.");
                 }
             }
         }
@@ -1674,6 +1672,64 @@ MQ==
             SettingsResponse settingsResponse = this.CMDAdapter.Settings(settingsRequest);
             return settingsResponse;
         }
+
+        /// <summary>
+        /// Create one sample calendar object.
+        /// </summary>
+        /// <param name="subject">Meeting subject.</param>
+        /// <param name="attendeeEmailAddress">Meeting attendee email address.</param>
+        /// <param name="createdCalendar">The calendar object</param>
+        /// <returns>One sample calendar object.</returns> 
+        protected Calendar CreateCalendar(string subject, string attendeeEmailAddress, Calendar createdCalendar)
+        {
+            Dictionary<Request.ItemsChoiceType8, object> elementsToValueMap = this.SetMeetingProperties(subject, attendeeEmailAddress, this.Site);
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                elementsToValueMap.Add(Request.ItemsChoiceType8.ResponseRequested, true);
+            }
+
+            if (createdCalendar != null)
+            {
+                if (createdCalendar.DtStamp != null)
+                {
+                    elementsToValueMap.Add(Request.ItemsChoiceType8.DtStamp, DateTime.Parse(createdCalendar.DtStamp.ToString()).ToString("yyyyMMddTHHmmssZ"));
+                }
+                if (createdCalendar.StartTime != null)
+                {
+                    elementsToValueMap.Add(Request.ItemsChoiceType8.StartTime, DateTime.Parse(createdCalendar.StartTime.ToString()).ToString("yyyyMMddTHHmmssZ"));
+                }
+                if (createdCalendar.EndTime != null)
+                {
+                    elementsToValueMap.Add(Request.ItemsChoiceType8.EndTime, DateTime.Parse(createdCalendar.EndTime.ToString()).ToString("yyyyMMddTHHmmssZ"));
+                }
+            }
+            // Call Sync command with Add element to add a meeting
+            Request.SyncCollectionAddApplicationData applicationData = new Request.SyncCollectionAddApplicationData
+            {
+                Items = new object[elementsToValueMap.Count],
+                ItemsElementName = new Request.ItemsChoiceType8[elementsToValueMap.Count]
+            };
+
+            if (elementsToValueMap.Count > 0)
+            {
+                elementsToValueMap.Values.CopyTo(applicationData.Items, 0);
+                elementsToValueMap.Keys.CopyTo(applicationData.ItemsElementName, 0);
+            }
+
+            Request.SyncCollectionAdd calendarData = new Request.SyncCollectionAdd()
+            {
+                ClientId = TestSuiteBase.ClientId,
+                ApplicationData = applicationData,
+            };
+            this.GetInitialSyncResponse(this.User1Information.CalendarCollectionId);
+            SyncRequest syncAddRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, calendarData);
+            SyncResponse syncResponse = this.Sync(syncAddRequest);
+
+            SyncStore getChangeResult = this.GetSyncResult(subject, this.User1Information.CalendarCollectionId, null);
+            Sync calendar = this.GetSyncAddItem(getChangeResult, subject);
+
+            return calendar.Calendar;
+        }
         #endregion
 
         #region Private Methods
@@ -1715,22 +1771,10 @@ MQ==
                     SyncRequest deleteRequest;
                     foreach (SyncItem item in emptySyncResponse.AddElements)
                     {
-                        if (userItem.CollectionId == userInformation.CalendarCollectionId)
-                        {
-                            foreach (string subject in userItem.ItemSubject)
-                            {
-                                if (item.Calendar != null)
-                                {
-                                    if (item.Calendar.Subject.Equals(subject, StringComparison.CurrentCultureIgnoreCase))
-                                    {
-                                        deleteRequest = CreateSyncPermanentDeleteRequest(emptySyncResponse.SyncKey, userItem.CollectionId, item.ServerId);
-                                        SyncResponse resultDelete = this.Sync(deleteRequest);
-                                        SyncStore deleteResult = Common.LoadSyncResponse(resultDelete);
-                                        Site.Assert.AreEqual<byte>(1, deleteResult.CollectionStatus, "Item should be deleted.");
-                                    }
-                                }
-                            }
-                        }
+                        deleteRequest = CreateSyncPermanentDeleteRequest(emptySyncResponse.SyncKey, userItem.CollectionId, item.ServerId);
+                        SyncResponse resultDelete = this.Sync(deleteRequest);
+                        SyncStore deleteResult = Common.LoadSyncResponse(resultDelete);
+                        Site.Assert.AreEqual<byte>(1, deleteResult.CollectionStatus, "Item should be deleted.");
                     }
                 }
 
@@ -1867,6 +1911,135 @@ MQ==
 
             Site.Assert.AreEqual<string>("0", internalOofMessage.Enabled, "The oof message settings for internal users should be disenabled. Retry count: {0}", counter);
             Site.Assert.AreEqual<string>("0", externalKnownOofMessage.Enabled, "The oof message settings for known external users should be disenabled. Retry count: {0}", counter);
+        }
+
+        /// <summary>
+        /// Set the value of common meeting properties
+        /// </summary>
+        /// <param name="subject">The subject of the meeting.</param>
+        /// <param name="attendeeEmailAddress">The email address of attendee.</param>
+        /// <returns>The key and value pairs of common meeting properties.</returns>
+        private Dictionary<Request.ItemsChoiceType8, object> SetMeetingProperties(string subject, string attendeeEmailAddress, ITestSite testSite)
+        {
+            Dictionary<Request.ItemsChoiceType8, object> propertiesToValueMap = new Dictionary<Request.ItemsChoiceType8, object>
+            {
+                {
+                    Request.ItemsChoiceType8.Subject, subject
+                }
+            };
+
+            // Set the subject element.
+
+            // MeetingStauts is set to 1, which means it is a meeting and the user is the meeting organizer.
+            byte meetingStatus = 1;
+            propertiesToValueMap.Add(Request.ItemsChoiceType8.MeetingStatus, meetingStatus);
+
+            // Set the UID
+            string uID = Guid.NewGuid().ToString();
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0"))
+            {
+                propertiesToValueMap.Add(Request.ItemsChoiceType8.ClientUid, uID);
+            }
+            else
+            {
+                propertiesToValueMap.Add(Request.ItemsChoiceType8.UID, uID);
+            }
+
+            // Set the TimeZone
+            string timeZone = Common.GetTimeZone("(UTC) Coordinated Universal Time", 0);
+            propertiesToValueMap.Add(Request.ItemsChoiceType8.Timezone, timeZone);
+
+            List<Request.AttendeesAttendee> attendeelist = new List<Request.AttendeesAttendee>
+            {
+                new Request.AttendeesAttendee
+                {
+                    Email = attendeeEmailAddress,
+                    Name = attendeeEmailAddress,
+                    AttendeeStatus = 0,
+                    AttendeeTypeSpecified=true,
+                    AttendeeType = 1
+                }
+            };
+
+            // Set the attendee to user2
+            Request.Attendees attendees = new Request.Attendees { Attendee = attendeelist.ToArray() };
+            propertiesToValueMap.Add(Request.ItemsChoiceType8.Attendees, attendees);
+
+            return propertiesToValueMap;
+        }
+
+        /// <summary>
+        /// Get the specified email item.
+        /// </summary>
+        /// <param name="emailSubject">The subject of the email item.</param>
+        /// <param name="folderCollectionId">The serverId of the default folder.</param>
+        /// <param name="bodyPreference">The preference information related to the type and size of information that is returned from fetching.</param>
+        /// <returns>The result of getting the specified email item.</returns>
+        protected SyncStore GetSyncResult(string emailSubject, string folderCollectionId, Request.BodyPreference bodyPreference)
+        {
+            SyncStore syncItemResult;
+            Sync item = null;
+            int counter = 0;
+            int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+            int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+
+            do
+            {
+                Thread.Sleep(waitTime);
+
+                // Get the new added email item
+                this.GetInitialSyncResponse(folderCollectionId);
+                SyncResponse response = this.SyncChanges(this.LastSyncKey, folderCollectionId);
+                syncItemResult = Common.LoadSyncResponse(response); ;
+                if (syncItemResult != null && syncItemResult.CollectionStatus == 1)
+                {
+                    item = this.GetSyncAddItem(syncItemResult, emailSubject);
+                }
+
+                counter++;
+            }
+            while ((syncItemResult == null || item == null) && counter < retryCount);
+
+            Site.Assert.IsNotNull(item, "The email item with subject {0} should be found. Retry count: {1}", emailSubject, counter);
+
+            // Verify sync result
+            Site.Assert.AreEqual<byte>(
+                1,
+                syncItemResult.CollectionStatus,
+                "If the Sync command executes successfully, the status in response should be 1.");
+
+            return syncItemResult;
+        }
+
+        /// <summary>
+        /// Get the specified email item from the sync add response by using the subject as the search criteria.
+        /// </summary>
+        /// <param name="syncResult">The sync result.</param>
+        /// <param name="subject">The email subject.</param>
+        /// <returns>Return the specified email item.</returns>
+        private Sync GetSyncAddItem(SyncStore syncResult, string subject)
+        {
+            Sync item = null;
+
+            if (syncResult.AddElements != null)
+            {
+                foreach (Sync syncItem in syncResult.AddElements)
+                {
+                    if (syncItem.Email.Subject == subject)
+                    {
+                        item = syncItem;
+                        break;
+                    }
+
+                    if (syncItem.Calendar.Subject == subject)
+                    {
+                        item = syncItem;
+                        break;
+                    }
+                }
+            }
+
+            return item;
         }
         #endregion
     }

@@ -81,8 +81,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4134");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4134
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 getItemEstimateResponse.ResponseData.Response[0].Status,
                 4134,
                 @"[In Status(GetItemEstimate)] [When the scope is Global], [the cause of the status value 1 is] Server successfully completed command.");
@@ -96,6 +96,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Convert.ToInt32(getItemEstimateResponse.ResponseData.Response[0].Collection.Estimate),
                 171,
                 @"[In GetItemEstimate] The GetItemEstimate command gets an estimate of the number of items in a collection or folder on the server that have to be synchronized.");
+
+            // If R171 has been verified, then the GetItemEstimate command gets an estimate of the number of items in a collection or folder. 
+            // So R5056 will be verified.
+            this.Site.CaptureRequirement(
+                5056,
+                @"[In Synchronizing Inbox, Calendar, Contacts, and Tasks Folders] [Command sequence for folder synchronization, order [3]:] The server responds to indicate how many items will be added, changed, or deleted, for each collection.");
             #endregion
         }
 
@@ -162,9 +168,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2973");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2973
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 2973,
                 @"[In FilterType(GetItemEstimate)] However, if the airsync:FilterType element is included in a GetItemEstimate request for a contact collection, no error is returned.");
             #endregion
@@ -197,9 +203,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2999");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2999
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 2999,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 0, Status element value is 1.]");
             #endregion
@@ -229,9 +235,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3000");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3000
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3000,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 1, Status element value is 1.]");
             #endregion
@@ -272,9 +278,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3001");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3001
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3001,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 2, Status element value is 1.]");
             #endregion
@@ -287,9 +293,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3002");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3002
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3002,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 3, Status element value is 1.]");
             #endregion
@@ -302,9 +308,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3003");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3003
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3003,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 4, Status element value is 1.]");
             #endregion
@@ -317,9 +323,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3004");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3004
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3004,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to email, if FilterType is 5, Status element value is 1.]");
             #endregion
@@ -331,9 +337,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3005");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3005
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3005,
                 @"[In FilterType(GetItemEstimate)] No,[Applies to email, if FilterType is 6,] Status element value 110");
             #endregion
@@ -345,9 +351,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3006");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3006
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3006,
                 @"[In FilterType(GetItemEstimate)] No,[Applies to email, if FilterType is 7,] Status element value 110");
             #endregion
@@ -359,9 +365,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3007");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3007
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3007,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to email, if FilterType is 8,] Status element value is 110.");
             #endregion
@@ -374,10 +380,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S07_TC05_GetItemEstimate_Calendar_FilterType()
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Options element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
 
             #region Add a new calendar
             string calendarSubject = Common.GenerateResourceName(Site, "calendarSubject");
-            string location = Common.GenerateResourceName(Site, "Room");
             DateTime startTime = DateTime.Now.AddDays(1.0);
             DateTime endTime = startTime.AddMinutes(10.0);
 
@@ -389,15 +395,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     ItemsElementName =
                         new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
-                            Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
-                            Request.ItemsChoiceType8.UID
+                            Request.ItemsChoiceType8.Subject, 
+                            Request.ItemsChoiceType8.StartTime, 
+                            Request.ItemsChoiceType8.EndTime                 
                         },
                     Items =
                         new object[]
                         {
-                            calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
-                            endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
+                            calendarSubject, 
+                            startTime.ToString("yyyyMMddTHHmmssZ"),
+                            endTime.ToString("yyyyMMddTHHmmssZ")
                         }
                 },
                 Class = "Calendar"
@@ -409,7 +416,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
 
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
             #endregion
 
@@ -421,9 +428,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3008");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3008
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3008,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to calendar, if FilterType is 0, Status element value is 1.]");
             #endregion
@@ -435,9 +442,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3009");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3009
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3009,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to calendar, if FilterType is 1,] Status element (section 2.2.3.162.6) value is 110.");
             #endregion
@@ -449,9 +456,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3010");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3010
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3010,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to calendar, if FilterType is 2,] Status element value is 110.");
             #endregion
@@ -463,9 +470,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3011");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3011
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3011,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to calendar, if FilterType is 3,] Status element value is 110.");
             #endregion
@@ -478,9 +485,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3012");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3012
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3012,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to calendar, if FilterType is 4, Status element value 1]");
             #endregion
@@ -488,7 +495,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Create a future calendar
             this.GetInitialSyncResponse(this.User1Information.CalendarCollectionId);
             calendarSubject = Common.GenerateResourceName(this.Site, "canlendarSubject");
-            location = Common.GenerateResourceName(this.Site, "Room");
             startTime = DateTime.Now.AddDays(15.0);
             endTime = startTime.AddMinutes(10.0);
 
@@ -500,18 +506,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     ItemsElementName = new Request.ItemsChoiceType8[]
                     {
                         Request.ItemsChoiceType8.Subject,
-                        Request.ItemsChoiceType8.Location,
                         Request.ItemsChoiceType8.StartTime,
                         Request.ItemsChoiceType8.EndTime,
-                        Request.ItemsChoiceType8.UID
                     },
                     Items = new object[]
                     {
                         calendarSubject,
-                        location,
                         startTime.ToString("yyyyMMddTHHmmssZ"),
                         endTime.ToString("yyyyMMddTHHmmssZ"),
-                        Guid.NewGuid().ToString()
                     }
                 },
                 Class = "Calendar"
@@ -521,7 +523,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
 
             syncResponse = this.SyncChanges(this.User1Information.CalendarCollectionId);
@@ -556,7 +558,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 ClientId = TestSuiteBase.ClientId,
                 ApplicationData = new Request.SyncCollectionAddApplicationData
                 {
-                    ItemsElementName = new Request.ItemsChoiceType8[] { Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Recurrence, Request.ItemsChoiceType8.UID },
+                    ItemsElementName = new Request.ItemsChoiceType8[] { Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Recurrence },
                     Items = new object[]
                     {
                         recurrenceCalendarSubject,
@@ -568,7 +570,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                             DayOfWeekSpecified = true,
                             IsLeapMonthSpecified = false
                         },
-                        Guid.NewGuid().ToString()
                     }
                 },
                 Class = "Calendar"
@@ -577,7 +578,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, recurrenceCalendarData);
             syncResponse = this.Sync(syncRequest);
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, recurrenceCalendarSubject);
 
             syncResponse = this.SyncChanges(this.User1Information.CalendarCollectionId);
@@ -612,9 +613,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3013");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3013
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3013,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to calendar, if FilterType is 5, Status element value is 1.]");
             #endregion
@@ -627,9 +628,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3014");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3014
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3014,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to calendar, if FilterType is 6, Status element value 1]");
             #endregion
@@ -642,9 +643,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3015");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3015
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3015,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to calendar, if FilterType is 7, Status element value is 1.]");
             #endregion
@@ -656,9 +657,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3016");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3016
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3016,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to calendar, if FilterType is 8,] Status element value is 110.");
             #endregion
@@ -681,9 +682,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3017");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3017
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3017,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to tasks, if FilterType is 0, Status element value is 1.]");
             #endregion
@@ -695,9 +696,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3018");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3018
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3018,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to tasks, if FilterType is 1, ] Status element value is 110.");
             #endregion
@@ -709,9 +710,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3019");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3019
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3019,
                 @"[In FilterType(GetItemEstimate)] No, [In FilterType] No, [Applies to tasks, if FilterType is 2, ] Status element value is 110.");
             #endregion
@@ -723,9 +724,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3020");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3020
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3020,
                 @"[In FilterType(GetItemEstimate)] No, [In FilterType] No, [Applies to tasks, if FilterType is 3, ] Status element value is 110.");
             #endregion
@@ -737,9 +738,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3021");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3021
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3021,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to tasks, if FilterType is 4, ] Status element value is 110.");
             #endregion
@@ -751,9 +752,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3022");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3022
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3022,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to tasks, if FilterType is 5, ]Status element value 110");
             #endregion
@@ -765,9 +766,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3023");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3023
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3023,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to tasks, if FilterType is 6, ] Status element value is 110.");
             #endregion
@@ -779,9 +780,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3024");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3024
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)110,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                110,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 3024,
                 @"[In FilterType(GetItemEstimate)] No, [Applies to tasks, if FilterType is 7, ] Status element value is 110.");
             #endregion
@@ -794,9 +795,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3025");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3025
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 3025,
                 @"[In FilterType(GetItemEstimate)] Yes. [Applies to tasks, if FilterType is 8, Status element value is 1.]");
             #endregion
@@ -814,28 +815,28 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region Call method GetItemEstimate with invalid FilterType value to get an estimate of the number of items in Contacts folder on server.
             GetItemEstimateResponse getItemEstimateResponse = this.GetItemEstimateWithFilterType(this.User1Information.ContactsCollectionId, 9);
-            byte statusOfContacts = getItemEstimateResponse.ResponseData.Response[0].Status;
+            int statusOfContacts = int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status);
             Assert.AreEqual<int>(103, statusOfContacts, "Specifying a airsync:FilterType of 9 or above for when the CollectionId element identifies contact collection should result in a Status element value of 103.");
             #endregion
 
             #region Call method GetItemEstimate with invalid FilterType value to get an estimate of the number of items in Inbox folder on server.
             this.GetInitialSyncResponse(this.User1Information.InboxCollectionId);
             getItemEstimateResponse = this.GetItemEstimateWithFilterType(this.User1Information.InboxCollectionId, 9);
-            byte statusOfInbox = getItemEstimateResponse.ResponseData.Response[0].Status;
+            int statusOfInbox = int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status);
             Assert.AreEqual<int>(103, statusOfInbox, "Specifying a airsync:FilterType of 9 or above for when the CollectionId element identifies e-mail collection should result in a Status element value of 103.");
             #endregion
 
             #region Call method GetItemEstimate with invalid FilterType value to get an estimate of the number of items in Calendar folder on server.
             this.GetInitialSyncResponse(this.User1Information.CalendarCollectionId);
             getItemEstimateResponse = this.GetItemEstimateWithFilterType(this.User1Information.CalendarCollectionId, 9);
-            byte statusOfCalendar = getItemEstimateResponse.ResponseData.Response[0].Status;
+            int statusOfCalendar = int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status);
             Assert.AreEqual<int>(103, statusOfCalendar, "Specifying a airsync:FilterType of 9 or above for when the CollectionId element identifies calendar collection should result in a Status element value of 103.");
             #endregion
 
             #region Call method GetItemEstimate with invalid FilterType value to get an estimate of the number of items in Tasks folder on server.
             this.GetInitialSyncResponse(this.User1Information.TasksCollectionId);
             getItemEstimateResponse = this.GetItemEstimateWithFilterType(this.User1Information.TasksCollectionId, 9);
-            byte statusOfTasks = getItemEstimateResponse.ResponseData.Response[0].Status;
+            int statusOfTasks = int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status);
             Assert.AreEqual<int>(103, statusOfTasks, "Specifying a airsync:FilterType of 9 or above for when the CollectionId element identifies tasks collection should result in a Status element value of 103.");
 
             // Add the debug information
@@ -877,9 +878,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3272");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R3272
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    getItemEstimateResponse.ResponseData.Response[0].Status,
+                Site.CaptureRequirementIfAreEqual<int>(
+                    1,
+                    int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                     3272,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one airsync:MaxItems element as the child of the airsync:Options element is undefined]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -952,9 +953,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4135
             // When the Status value is 2, it means one of the specified CollectionIds is invalid.
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                getItemEstimateResponse.ResponseData.Response[1].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[1].Status),
                 4135,
                 @"[In Status(GetItemEstimate)] [When the scope is] Item, [the meaning of the status value] 2 [is] A collection was invalid or one of the specified collection IDs was invalid.");
 
@@ -963,9 +964,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4136
             // When the Status value is 2, it means one or more of the specified folders does not exist or an incorrect folder is requested..
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                getItemEstimateResponse.ResponseData.Response[1].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[1].Status),
                 4136,
                 @"[In Status(GetItemEstimate)] [When the scope is Item], [the cause of the status value 2 is] One or more of the specified folders does not exist or an incorrect folder was requested.");
 
@@ -973,7 +974,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4130");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4130
-            bool isVerifyR4130 = getItemEstimateResponse.ResponseData.Response[0].Status == (byte)1 && getItemEstimateResponse.ResponseData.Response[1].Status != (byte)1;
+            bool isVerifyR4130 = int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status) == 1 && int.Parse(getItemEstimateResponse.ResponseData.Response[1].Status) != 1;
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR4130,
                 4130,
@@ -1005,9 +1006,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4139
             // When the Status value is 3, it means the synchronization state has not been primed.
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 4139,
                 @"[In Status(GetItemEstimate)] [When the scope is] Item, [the meaning of the status value] 3 [is] The synchronization state has not been primed.");
 
@@ -1016,9 +1017,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4140
             // When the Status value is 3, it means the issued GetItemEstimate command without first issuing a Sync command request with a SyncKey value of 0.
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 4140,
                 @"[In Status(GetItemEstimate)] [When the scope is Item], [the cause of the status value 3 is] The client has issued a GetItemEstimate command without first issuing a Sync command request (section 2.2.2.19) with an airsync:SyncKey element (section 2.2.3.156.4) value of zero (0).");
             #endregion
@@ -1050,9 +1051,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4142");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4142
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 4142,
                 @"[In Status(GetItemEstimate)] [When the scope is] Global, [the meaning of the status value] 4 [is] The specified synchronization key was invalid.");
             #endregion
@@ -1088,9 +1089,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4594");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4594
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 4594,
                 @"[In SyncKey(GetItemEstimate)] The server MUST provide a Status element (section 2.2.3.162.6) value of 4 if the airsync:SyncKey value provided in the GetItemEstimate request does not match those expected within the next Sync command request (section 2.2.2.19).");
             #endregion
@@ -1114,9 +1115,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2100");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2100
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 103,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 2100,
                 @"[In ConversationMode (GetItemEstimate)] Specifying the airsync:ConversationMode element for collections that do not store email results in an invalid XML error, Status element (section 2.2.3.162.6) value 103.");
 
@@ -1124,9 +1125,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4129");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4129
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 103,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 4129,
                 @"[In Status(GetItemEstimate)] If the entire request command fails, the Status element is present as a child of the GetItemEstimate element and contains a value that indicates the type of global failure.");
 
@@ -1164,9 +1165,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R907");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R907
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                getItemEstimateResponse.ResponseData.Response[0].Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Response[0].Status),
                 907,
                 @"[In Class(GetItemEstimate)] Only SMS messages and email messages can be synchronized at the same time.");
             #endregion
@@ -1217,11 +1218,48 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5647");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5647
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)103,
-                getItemEstimateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                103,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 5647,
                 @"[In Limiting Size of Command Requests] In GetItemEstimate (section 2.2.2.7) command request, when the limit value of Collection element is bigger than 1000 (minimum 30, maximum 5000), the error returned by server is Status element (section 2.2.3.162.6) value of 103.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify the combination of classes other than SMS messages or email messages synchronization at the same time cause status value 4 returned.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S07_TC16_GetItemEstimate_WithStatusValue4Returned()
+        {
+            Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Options element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.InboxCollectionId));
+
+            #region Call GetItemEstimate to get the number of both Email and SMS messages.
+            Request.Options option1 = new Request.Options
+            {
+                Items = new object[] { "Tasks" },
+                ItemsElementName = new Request.ItemsChoiceType1[] { Request.ItemsChoiceType1.Class }
+            };
+
+            Request.Options option2 = new Request.Options
+            {
+                Items = new object[] { "Contacts" },
+                ItemsElementName = new Request.ItemsChoiceType1[] { Request.ItemsChoiceType1.Class }
+            };
+
+            GetItemEstimateRequest getItemEstimateRequest = TestSuiteBase.CreateGetItemEstimateRequest(this.LastSyncKey, this.User1Information.InboxCollectionId, new Request.Options[] { option1, option2 });
+            GetItemEstimateResponse getItemEstimateResponse = CMDAdapter.GetItemEstimate(getItemEstimateRequest);
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R908");
+
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
+                908,
+                @"[In Class(GetItemEstimate)] A request for any other combination of classes will fail with a status value of 4.");
             #endregion
         }
         #endregion

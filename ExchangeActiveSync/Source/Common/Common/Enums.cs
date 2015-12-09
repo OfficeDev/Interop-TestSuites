@@ -18,7 +18,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// The SUT is Exchange Server 2013
         /// </summary>
-        ExchangeServer2013
+        ExchangeServer2013,
+
+        /// <summary>
+        /// The SUT is Exchange Server 2016
+        /// </summary>
+        ExchangeServer2016
     }
 
     /// <summary>
@@ -125,6 +130,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// Autodiscover command.
         /// </summary>
         Autodiscover = 23,
+
+        /// <summary>
+        /// GetHierarchy command.
+        /// </summary>
+        GetHierarchy = 24,
 
         /// <summary>
         /// Not exist command.

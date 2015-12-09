@@ -1,6 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.MS_ASCON
 {
     using System;
+    using System.Collections.ObjectModel;
     using System.Text;
     using System.Xml;
     using Microsoft.Protocols.TestSuites.Common;
@@ -112,10 +113,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             ConversationItem sourceConversationItem = this.CreateConversation(conversationSubject);
             #endregion
 
-            #region Call ItemOperations command to move the conversation from Inbox to SentItems folder
-            ItemOperationsResponse itemOperationResponse = this.ItemOperationsMove(sourceConversationItem.ConversationId, User1Information.SentItemsCollectionId, true);
+            #region Move one email in the conversation to Sent Items folder
+            Collection<string> idToMove = new Collection<string>();
+            idToMove.Add(sourceConversationItem.ServerId[0]);
+            this.CallMoveItemsCommand(idToMove, User1Information.InboxCollectionId, User1Information.SentItemsCollectionId);
+            #endregion
+
+            #region Call ItemOperations command to move the conversation from Inbox to DeletedItems folder
+            ItemOperationsResponse itemOperationResponse = this.ItemOperationsMove(sourceConversationItem.ConversationId, User1Information.DeletedItemsCollectionId, true);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.InboxCollectionId, conversationSubject, true);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.SentItemsCollectionId, conversationSubject, false);
+            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.DeletedItemsCollectionId, conversationSubject, false);
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R143");
@@ -138,12 +146,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 @"[In Always Moving a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).");
             #endregion
 
-            #region User1 syncs messages in the Inbox folder and Sent Items folder after conversation moved
+            #region User1 syncs messages in the Inbox folder and Deleted Items folder after conversation moved
             DataStructures.Sync syncResult = this.SyncEmail(conversationSubject, User1Information.InboxCollectionId, false, null, null);
             Site.Assert.IsNull(syncResult, "No conversation messages should not be found in Inbox folder.");
 
-            ConversationItem destinationCoversationItem = this.GetConversationItem(User1Information.SentItemsCollectionId, sourceConversationItem.ConversationId);
-            Site.Assert.AreEqual(sourceConversationItem.ServerId.Count, destinationCoversationItem.ServerId.Count, "All conversation messages should be moved to Sent Items folder.");
+            ConversationItem destinationCoversationItem = this.GetConversationItem(User1Information.DeletedItemsCollectionId, sourceConversationItem.ConversationId);
+            Site.Assert.AreEqual(sourceConversationItem.ServerId.Count - 1, destinationCoversationItem.ServerId.Count, "All conversation messages except in Sent Items Folder should be moved to Deleted Items folder.");
             #endregion
 
             #region User2 replies the received message to create a future e-mail message for that conversation.
@@ -154,13 +162,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             string user2MailboxAddress = Common.GetMailAddress(User2Information.UserName, User2Information.UserDomain);
 
             // Smart reply the received email from User2 to User1.
-            this.CallSmartReplyCommand(syncResult.ServerId, User2Information.InboxCollectionId, user2MailboxAddress,  user1MailboxAddress, conversationSubject);
+            this.CallSmartReplyCommand(syncResult.ServerId, User2Information.InboxCollectionId, user2MailboxAddress, user1MailboxAddress, conversationSubject);
 
             // Switch the current user to User1.
             this.SwitchUser(this.User1Information, false);
 
-            destinationCoversationItem = this.GetConversationItem(User1Information.SentItemsCollectionId, sourceConversationItem.ConversationId, sourceConversationItem.ServerId.Count + 1);
-            Site.Assert.AreEqual(sourceConversationItem.ServerId.Count + 1, destinationCoversationItem.ServerId.Count, "The future message should be moved to Sent Items folder.");
+            destinationCoversationItem = this.GetConversationItem(User1Information.DeletedItemsCollectionId, sourceConversationItem.ConversationId, sourceConversationItem.ServerId.Count + 1);
+            Site.Assert.AreEqual(sourceConversationItem.ServerId.Count, destinationCoversationItem.ServerId.Count, "The future message should be moved to Deleted Items folder.");
 
             // Check if the received email is in Inbox folder.
             syncResult = this.SyncEmail(conversationSubject, User1Information.InboxCollectionId, false, null, null);
@@ -169,7 +177,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R68");
 
-            // If all messages and future message are moved to SentItems folder, then this requirement can be captured.
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
             Site.CaptureRequirement(
                 68,
                 @"[In ConversationId (ItemOperations)] In an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), the itemoperations:ConversationId element ([MS-ASCMD] section 2.2.3.35.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) that specifies the conversation ID of the conversation that is to be moved.");
@@ -177,10 +185,50 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R118");
 
-            // If all messages and future message are moved to SentItems folder, then this requirement can be captured.
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
             Site.CaptureRequirement(
                 118,
                 @"[In DstFldId] The itemoperations:DstFldId element ([MS-ASCMD] section 2.2.3.49.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) in an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that specifies the folder to which the conversation is moved.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R130");
+
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
+            Site.CaptureRequirement(
+                130,
+                @"[In MoveAlways] When a conversation is set to always be moved, all e-mail messages in the conversation, including all future e-mail messages in the conversation, are moved from all folders except the Sent Items folder to the destination folder that is specified by the DstFldId element (section 2.2.2.6).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R166");
+
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
+            Site.CaptureRequirement(
+                166,
+                @"[In Ignoring a Conversation] When a conversation is ignored, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders except Sent Items folder to the Deleted Items folder.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R172");
+
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
+            Site.CaptureRequirement(
+                172,
+                @"[In Setting up a Conversation to Be Moved Always] When a conversation is set to be moved always, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders except Sent Items folder to a destination folder.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R213");
+
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
+            Site.CaptureRequirement(
+                213,
+                @"[In Ignoring a Conversation] When the server receives a request to ignore a conversation, as specified in section 3.1.4.4, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders except Sent Items folder to the Deleted Items folder.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R215");
+
+            // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
+            Site.CaptureRequirement(
+                215,
+                @"[In Always Moving a Conversation] When the server receives a request to always move a conversation, as specified in section 3.1.4.6, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders except Sent Items folder to the specified destination folder.");
             #endregion
         }
         #endregion

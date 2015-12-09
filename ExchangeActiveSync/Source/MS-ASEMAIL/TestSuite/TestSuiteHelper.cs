@@ -8,6 +8,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
     using System.Xml;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestSuites.Common.DataStructures;
+    using Microsoft.Protocols.TestTools;
     using Request = Microsoft.Protocols.TestSuites.Common.Request;
     using Response = Microsoft.Protocols.TestSuites.Common.Response;
 
@@ -367,21 +368,21 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
             };
 
             // Build up query condition by using the keyword and folder CollectionID
-            var queryItem = new Request.queryType
+            Request.queryType queryItem = new Request.queryType
             {
                 Items = new object[] { folderCollectionId, keyword },
 
-                ItemsElementName = new Request.ItemsChoiceType5[] 
+                ItemsElementName = new Request.ItemsChoiceType2[] 
                 {
-                    Request.ItemsChoiceType5.CollectionId,
-                    Request.ItemsChoiceType5.FreeText
+                    Request.ItemsChoiceType2.CollectionId,
+                    Request.ItemsChoiceType2.FreeText
                 }
             };
 
             searchStore.Query = new Request.queryType
             {
                 Items = new object[] { queryItem },
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And }
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And }
             };
 
             return Common.CreateSearchRequest(new Request.SearchStore[] { searchStore });
@@ -430,17 +431,17 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
             //  :: UserName, Password is not required by MS-ASEMAIl test case
             Request.ItemOperationsFetchOptions fetchOptions = new Request.ItemOperationsFetchOptions();
             List<object> fetchOptionItems = new List<object>();
-            List<Request.ItemsChoiceType4> fetchOptionItemsName = new List<Request.ItemsChoiceType4>();
+            List<Request.ItemsChoiceType5> fetchOptionItemsName = new List<Request.ItemsChoiceType5>();
 
             if (null != bodyPreference)
             {
-                fetchOptionItemsName.Add(Request.ItemsChoiceType4.BodyPreference);
+                fetchOptionItemsName.Add(Request.ItemsChoiceType5.BodyPreference);
                 fetchOptionItems.Add(bodyPreference);
 
                 // when body format is mime (Refer to  [MS-ASAIRS] 2.2.2.22 Type)
                 if (bodyPreference.Type == 0x4)
                 {
-                    fetchOptionItemsName.Add(Request.ItemsChoiceType4.MIMESupport);
+                    fetchOptionItemsName.Add(Request.ItemsChoiceType5.MIMESupport);
 
                     // Magic number '2' indicate server send MIME data for all messages but not S/MIME messages only
                     // (Refer to [MS-ASCMD] 2.2.3.100.1 MIMESupport)
@@ -450,13 +451,13 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
 
             if (null != bodyPartPreference)
             {
-                fetchOptionItemsName.Add(Request.ItemsChoiceType4.BodyPartPreference);
+                fetchOptionItemsName.Add(Request.ItemsChoiceType5.BodyPartPreference);
                 fetchOptionItems.Add(bodyPartPreference);
             }
 
             if (null != schema)
             {
-                fetchOptionItemsName.Add(Request.ItemsChoiceType4.Schema);
+                fetchOptionItemsName.Add(Request.ItemsChoiceType5.Schema);
                 fetchOptionItems.Add(schema);
             }
 
@@ -896,7 +897,7 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
         /// <returns>Status code from change response</returns>
         internal static string GetStatusCode(string changeResponseXml)
         {
-            var doc = new XmlDocument();
+            XmlDocument doc = new XmlDocument();
             doc.LoadXml(changeResponseXml);
             XmlNamespaceManager nameSpaceManager = new XmlNamespaceManager(doc.NameTable);
             nameSpaceManager.AddNamespace("e", "AirSync");
@@ -951,6 +952,7 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
                     Email = attendeeEmail,
                     Name = attendeeEmail,
                     AttendeeStatus = 0,
+                    AttendeeTypeSpecified = true,
                     AttendeeType = 1
                 }
             };
@@ -1103,7 +1105,7 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
         /// <param name="subject">The subject of the meeting.</param>
         /// <param name="attendeeEmailAddress">The email address of attendee.</param>
         /// <returns>The key and value pairs of common meeting properties.</returns>
-        internal static Dictionary<Request.ItemsChoiceType8, object> SetMeetingProperties(string subject, string attendeeEmailAddress)
+        internal static Dictionary<Request.ItemsChoiceType8, object> SetMeetingProperties(string subject, string attendeeEmailAddress, ITestSite testSite)
         {
             Dictionary<Request.ItemsChoiceType8, object> propertiesToValueMap = new Dictionary<Request.ItemsChoiceType8, object>
             {
@@ -1120,7 +1122,14 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
 
             // Set the UID
             string uID = Guid.NewGuid().ToString();
-            propertiesToValueMap.Add(Request.ItemsChoiceType8.UID, uID);
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0"))
+            {
+                propertiesToValueMap.Add(Request.ItemsChoiceType8.ClientUid, uID);
+            }
+            else
+            {
+                propertiesToValueMap.Add(Request.ItemsChoiceType8.UID, uID);
+            }
 
             // Set the TimeZone
             string timeZone = Common.GetTimeZone("(UTC) Coordinated Universal Time", 0);
@@ -1172,6 +1181,92 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
             calendar.Attendees = new Response.Attendees { Attendee = attendeelist.ToArray() };
 
             return calendar;
+        }
+
+        /// <summary>
+        /// Create iCalendar format string from one calendar instance for cancel one occurrence of a meeting request
+        /// </summary>
+        /// <param name="calendar">Calendar information</param>
+        /// <returns>iCalendar formatted string</returns>
+        internal static string CreateiCalendarFormatCancelContent(Calendar calendar)
+        {
+            StringBuilder ical = new StringBuilder();
+            ical.AppendLine("BEGIN: VCALENDAR");
+            ical.AppendLine("PRODID:-//Microosft Protocols TestSuites");
+            ical.AppendLine("VERSION:2.0");
+            ical.AppendLine("METHOD:CANCEL");
+            ical.AppendLine("X-MS-OLK-FORCEINSPECTOROPEN:TRUE");
+            ical.AppendLine("BEGIN:VTIMEZONE");
+            ical.AppendLine("TZID:UTC");
+            ical.AppendLine("BEGIN:STANDARD");
+            ical.AppendLine("DTSTART:16010101T000000");
+            ical.AppendLine("TZOFFSETFROM:-0000");
+            ical.AppendLine("TZOFFSETTO:-0000");
+            ical.AppendLine("END:STANDARD");
+            ical.AppendLine("BEGIN:DAYLIGHT");
+            ical.AppendLine("DTSTART:16010311T020000");
+            ical.AppendLine("TZOFFSETFROM:-0000");
+            ical.AppendLine("TZOFFSETTO:+0000");
+            ical.AppendLine("END:DAYLIGHT");
+            ical.AppendLine("END:VTIMEZONE");
+            ical.AppendLine("BEGIN:VEVENT");
+            ical.AppendLine("ATTENDEE;CN=\"\";RSVP=" + (calendar.ResponseRequested == true ? "TRUE" : "FALSE") + ":mailto:" + calendar.Attendees.Attendee[0].Email);
+            ical.AppendLine("PUBLIC");
+            ical.AppendLine("CREATED:" + ((DateTime)calendar.DtStamp).ToString("yyyyMMddTHHmmss"));
+            ical.AppendLine("DESCRIPTION:" + calendar.Subject);
+            ical.AppendLine("DTEND;TZID=\"UTC\":" + calendar.Exceptions.Exception[0].EndTime);
+            ical.AppendLine("DTSTART;TZID=\"UTC\":" + calendar.Exceptions.Exception[0].StartTime);
+            ical.AppendLine("LOCATION:" + calendar.Location);
+            ical.AppendLine("ORGANIZER:MAILTO:" + calendar.OrganizerEmail);
+            ical.AppendLine("RECURRENCE-ID;TZID=\"UTC\":" + calendar.Exceptions.Exception[0].ExceptionStartTime);
+            ical.AppendLine("SUMMARY: Canceled: " + calendar.Subject);
+            ical.AppendLine("UID:" + calendar.UID);
+            switch (calendar.BusyStatus)
+            {
+                case 0:
+                    ical.AppendLine("X-MICROSOFT-CDO-BUSYSTATUS:FREE");
+                    break;
+                case 1:
+                    ical.AppendLine("X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE");
+                    break;
+                case 2:
+                    ical.AppendLine("X-MICROSOFT-CDO-BUSYSTATUS:BUSY");
+                    break;
+                case 3:
+                    ical.AppendLine("X-MICROSOFT-CDO-BUSYSTATUS:OOF");
+                    break;
+            }
+
+            if (calendar.DisallowNewTimeProposal == true)
+            {
+                ical.AppendLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
+            }
+
+            if (calendar.Recurrence != null)
+            {
+                switch (calendar.Recurrence.Type)
+                {
+                    case 1:
+                        ical.AppendLine("RRULE:FREQ=WEEKLY;BYDAY=MO;UNTIL=" + calendar.Recurrence.Until);
+                        break;
+                    case 2:
+                        ical.AppendLine("RRULE:FREQ=MONTHLY;COUNT=3;BYMONTHDAY=1");
+                        break;
+                    case 3:
+                        ical.AppendLine("RRULE:FREQ=MONTHLY;COUNT=3;BYDAY=1MO");
+                        break;
+                    case 5:
+                        ical.AppendLine("RRULE:FREQ=YEARLY;COUNT=3;BYMONTHDAY=1;BYMONTH=1");
+                        break;
+                    case 6:
+                        ical.AppendLine("RRULE:FREQ=YEARLY;COUNT=3;BYDAY=2MO;BYMONTH=1");
+                        break;
+                }
+            }
+
+            ical.AppendLine("END:VEVENT");
+            ical.AppendLine("END:VCALENDAR");
+            return ical.ToString();
         }
     }
 }

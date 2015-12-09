@@ -287,9 +287,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                     addResult.AddResponses[i],
                     @"The Add element in response should not be null.");
 
-                this.Site.Assert.AreEqual<byte>(
+                this.Site.Assert.AreEqual<int>(
                     1,
-                    addResult.AddResponses[i].Status,
+                    int.Parse(addResult.AddResponses[i].Status),
                     "The server should return a Status 1 in the Sync command response indicate sync command succeed.");
 
                 this.ExistingNoteSubjects.Add(subjects[i]);

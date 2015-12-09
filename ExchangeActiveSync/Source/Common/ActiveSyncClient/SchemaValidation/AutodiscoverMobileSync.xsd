@@ -44,7 +44,7 @@
               <xs:element name="Error" minOccurs="0">
                 <xs:complexType>
                   <xs:all>
-                    <xs:element name="Status" type="xs:string"
+                    <xs:element name="Status" type="xs:integer"
                         minOccurs="0"/>
                     <xs:element name="Message" type="xs:string"
                         minOccurs="0"/>
@@ -56,20 +56,6 @@
                 </xs:complexType>
               </xs:element>
             </xs:all>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Error" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ErrorCode" type="xs:integer"
-                  minOccurs="0"/>
-              <xs:element name="Message" type="xs:string"
-                  minOccurs="0"/>
-              <xs:element name="DebugData" type="xs:string"
-                  minOccurs="0"/>
-            </xs:sequence>
-            <xs:attribute name="Time" type="xs:string"/>
-            <xs:attribute name="Id" type="xs:unsignedInt"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

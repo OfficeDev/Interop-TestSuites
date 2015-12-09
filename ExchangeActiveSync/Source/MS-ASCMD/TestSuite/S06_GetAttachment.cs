@@ -43,6 +43,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 14.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Send a mail with normal attachment
             string subject = Common.GenerateResourceName(Site, "NormalAttachment_Subject");
@@ -107,6 +108,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 14.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetAttachment command is not supported when the MS-ASProtocolVersion header is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             // Send a mail with normal attachment
             string subject = Common.GenerateResourceName(Site, "NormalAttachment_Subject");
@@ -168,39 +170,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     166,
                     @"[In GetAttachment] If the GetAttachment command is used to retrieve an attachment that has been deleted on the server, a 500 status code is returned in the HTTP POST response.");
             }
-        }
-        #endregion
-
-        #region Private Method
-        /// <summary>
-        /// Get the attachments of an email.
-        /// </summary>
-        /// <param name="syncResponse">The Sync command response.</param>
-        /// <param name="subject">The email subject.</param>
-        /// <returns>The attachments of the email.</returns>
-        private Response.AttachmentsAttachment[] GetEmailAttachments(SyncResponse syncResponse, string subject)
-        {
-            Response.AttachmentsAttachment[] attachments = null;
-
-            // Get the application data of the email, to which the attachments belong.
-            Response.SyncCollectionsCollectionCommandsAddApplicationData addData = TestSuiteBase.GetAddApplicationData(syncResponse, Response.ItemsChoiceType8.Subject1, subject);
-            Site.Assert.IsNotNull(addData, string.Format("The email with subject '{0}' should exist.", subject));
-
-            for (int i = 0; i < addData.ItemsElementName.Length; i++)
-            {
-                if (addData.ItemsElementName[i] == Response.ItemsChoiceType8.Attachments)
-                {
-                    Response.Attachments attachmentCollection = addData.Items[i] as Response.Attachments;
-                    if (attachmentCollection != null)
-                    {
-                        attachments = attachmentCollection.Attachment;
-                    }
-
-                    break;
-                }
-            }
-
-            return attachments;
         }
         #endregion
     }

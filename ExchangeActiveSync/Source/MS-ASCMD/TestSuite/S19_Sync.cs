@@ -84,7 +84,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // The value of status is returned by Sync.
             Response.SyncCollectionsCollectionResponses syncCollectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
             Site.Assert.IsNotNull(syncCollectionResponse, "The Response element should not be null.");
-            Site.Assert.AreEqual<byte>((byte)1, syncCollectionResponse.Add[0].Status, "Status code 1 should be returned to indicate the Sync add command success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncCollectionResponse.Add[0].Status), "Status code 1 should be returned to indicate the Sync add command success.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
 
             // Add the debug information
@@ -106,13 +106,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 942,
                 @"[In Class(Sync)] The Class element is not included in Sync Add responses when the class of the collection matches the item class.");
 
-            byte statusValue = (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status);
+            uint statusValue = Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status));
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4423");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4423
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 1,
                 statusValue,
                 4423,
@@ -195,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(this.LastFolderSyncKey, (byte)FolderType.UserCreatedContacts, Common.GenerateResourceName(Site, "FolderCreate"), this.User1Information.ContactsCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<string>("1", folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
 
             // Record created folder collectionID
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -209,7 +209,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Request.SyncCollectionAdd addData = this.CreateAddContactCommand("FirstName", "MiddleName", "LastName", firstContactFileAs, null);
             SyncRequest syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, folderId, addData);
             SyncResponse syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The first contact item should be added successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The first contact item should be added successfully.");
 
             this.FolderSync();
 
@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             addData = this.CreateAddContactCommand("FirstName", "MiddleName", "LastName", secondContactFileAs, null);
             syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, folderId, addData);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The second contact item should be added successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The second contact item should be added successfully.");
             #endregion
 
             #region Synchronize the changes in the new created folder.
@@ -436,14 +436,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string invalidSyncKey = Guid.NewGuid().ToString();
             syncRequest.RequestData.Collections[0].SyncKey = invalidSyncKey;
             SyncResponse syncResponse = this.Sync(syncRequest);
-            byte statusCode = (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status);
+            uint statusCode = Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status));
 
             #region Capture Code
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4415");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4415
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 3,
                 statusCode,
                 4415,
@@ -453,7 +453,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4417");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4417
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 3,
                 statusCode,
                 4417,
@@ -463,7 +463,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4425");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4425
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 3,
                 statusCode,
                 4425,
@@ -484,9 +484,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4430");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4430
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 4430,
                 @"[In Status(Sync)] [When the scope is Item], [the cause the status value 4 is] There was a semantic error in the synchronization request.");
 
@@ -494,9 +494,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4431");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4431
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 4431,
                 @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 4 is] The client is issuing a request that does not comply with the specification requirements.");
 
@@ -504,9 +504,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5778");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5778
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 5778,
                 @"[In Status(Sync)] [When the scope is Global], [the cause the status value 4 is] There was a semantic error in the synchronization request.");
 
@@ -514,9 +514,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5779");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5779
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 5779,
                 @"[In Status(Sync)] [When the scope is Global], [the cause of the status value 4 is] The client is issuing a request that does not comply with the specification requirements.");
 
@@ -530,9 +530,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R756");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R756
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                syncResponse.ResponseData.Status,
+                int.Parse(syncResponse.ResponseData.Status),
                 756,
                 @"[In Add(Sync)] If a client attempts to add an item to the recipient information cache, a Status element with a value of 4 is returned as a child of the Sync element.");
             #endregion
@@ -555,9 +555,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4456");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4456
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)13,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                13,
+                int.Parse(syncResponse.ResponseData.Status),
                 4456,
                 @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 13 is] An empty or partial Sync command request is received and the cached set of notify-able collections is missing.");
         }
@@ -579,7 +579,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4460");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4460
-            bool isVerify4460 = syncResponse.ResponseData.StatusSpecified && syncResponse.ResponseData.Status == 14 && syncResponse.ResponseData.Item.ToString() == "3540" && syncResponse.ResponseDataXML.ToString().Contains("Limit");
+            bool isVerify4460 = int.Parse(syncResponse.ResponseData.Status) == 14 && syncResponse.ResponseData.Item.ToString() == "3540" && syncResponse.ResponseDataXML.ToString().Contains("Limit");
             Site.CaptureRequirementIfIsTrue(
                 isVerify4460,
                 4460,
@@ -588,7 +588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = TestSuiteBase.CreateEmptySyncRequest(this.User1Information.InboxCollectionId);
             syncRequest.RequestData.HeartbeatInterval = "59";
             syncResponse = this.Sync(syncRequest);
-            bool isValidResponse = syncResponse.ResponseData.StatusSpecified && syncResponse.ResponseData.Status == 14 && syncResponse.ResponseData.Item.ToString() == "60" && syncResponse.ResponseDataXML.ToString().Contains("Limit");
+            bool isValidResponse = int.Parse(syncResponse.ResponseData.Status) == 14 && syncResponse.ResponseData.Item.ToString() == "60" && syncResponse.ResponseDataXML.ToString().Contains("Limit");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4461");
@@ -655,9 +655,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2117");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2117
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 2117,
                 @"[In ConversationMode(Sync)] Specifying the ConversationMode element for collections that do not store emails results in an invalid XML error, Status element (section 2.2.3.162.16) value 4.");
         }
@@ -671,7 +671,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Class element is not supported as a child element of the Options element when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId));
-            
+
             // Add a calendar item
             string calendarSubject = Common.GenerateResourceName(Site, "canlendarSubject");
             string calendarTo = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
@@ -698,9 +698,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R930");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R930
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 930,
                 @"[In Class(Sync)] A Status element (section 2.2.3.162.16) value of 4 is returned if options for the same Class within the same Collection are redefined.");
         }
@@ -721,9 +721,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2058");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R2058
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<uint>(
                     1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     2058,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [no child elements for the Commands element]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -744,9 +744,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3035");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3035
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3035,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 0, Status element value is 1.]");
 
@@ -761,9 +761,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3036");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3036
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3036,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 1, Status element value is 1.]");
             #endregion
@@ -777,9 +777,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3037");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3037
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3037,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 2, Status element value is 1.]");
             #endregion
@@ -793,9 +793,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3038");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3038
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3038,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 3, Status element value is 1.]");
             #endregion
@@ -809,9 +809,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3039");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3039
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3039,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 4, Status element value is 1.]");
             #endregion
@@ -825,9 +825,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3040");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3040
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3040,
                 @"[In FilterType(Sync)] Yes. [Applies to Email, if FilterType is 5, Status element value is 1.]");
             #endregion
@@ -840,8 +840,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3041");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3041
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3041,
                 @"[In FilterType(Sync)] No, [Applies to email, if FilterType is 6, status is not 1.]");
@@ -855,8 +855,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3042");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3042
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3042,
                 @"[In FilterType(Sync)] No, [Applies to email, if FilterType is 7, status is not 1.]");
@@ -870,8 +870,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3043");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3043
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3043,
                 @"[In FilterType(Sync)] No, [Applies to email, if FilterType is 8, status is not 1.]");
@@ -880,8 +880,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3080");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3080
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "4",
                 syncResponse.ResponseData.Status,
                 3080,
                 @"[In FilterType(Sync)] The server returns a Status element (section 2.2.3.162.16) value of 4 if a FilterType element value of 8 is included in an email Sync request.");
@@ -895,10 +895,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S19_TC12_Sync_Calendar_FilterType()
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Class element is not supported in a Sync command response when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
             #region Add a new calendar
             string calendarSubject = Common.GenerateResourceName(Site, "calendarSubject");
-            string location = Common.GenerateResourceName(Site, "Room");
             DateTime startTime = DateTime.Now.AddDays(1.0);
             DateTime endTime = startTime.AddMinutes(10.0);
 
@@ -911,16 +910,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                             {
-                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
-                                Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
-                                Request.ItemsChoiceType8.UID
+                                Request.ItemsChoiceType8.Subject, 
+                                Request.ItemsChoiceType8.StartTime, 
+                                Request.ItemsChoiceType8.EndTime
                             },
                         Items =
                             new object[]
                             {
-                                calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
-                                endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
-                            }
+                                calendarSubject, 
+                                startTime.ToString("yyyyMMddTHHmmssZ"),
+                                endTime.ToString("yyyyMMddTHHmmssZ")
+                             }
                     },
                 Class = "Calendar"
             };
@@ -931,7 +931,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
 
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
             #endregion
 
@@ -947,9 +947,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3044");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3044
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3044,
                 @"[In FilterType(Sync)] Yes. [Applies to calendar, if FilterType is 0, Status element value is 1.]");
 
@@ -983,8 +983,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3045");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3045
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3045,
                 @"[In FilterType(Sync)] No, [Applies to calendar, if FilterType is 1, status is not 1.]");
@@ -1001,8 +1001,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3046");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3046
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3046,
                 @"[In FilterType(Sync)] No, [Applies to calendar, if FilterType is 2, status is not 1.]");
@@ -1019,8 +1019,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3047");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3047
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3047,
                 @"[In FilterType(Sync)] No, [Applies to calendar, if FilterType is 3, status is not 1.]");
@@ -1038,16 +1038,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3048");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3048
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3048,
                 @"[In FilterType(Sync)] Yes, [Applies to calendar, if FilterType is 4, Status element value is 1.]");
 
             // Create a future calendar
             this.GetInitialSyncResponse(this.User1Information.CalendarCollectionId);
             calendarSubject = Common.GenerateResourceName(this.Site, "canlendarSubject");
-            location = Common.GenerateResourceName(this.Site, "Room");
             startTime = DateTime.Now.AddDays(15.0);
             endTime = startTime.AddMinutes(10.0);
 
@@ -1060,15 +1059,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                             {
-                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
-                                Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
-                                Request.ItemsChoiceType8.UID
+                                Request.ItemsChoiceType8.Subject,
+                                Request.ItemsChoiceType8.StartTime, 
+                                Request.ItemsChoiceType8.EndTime
                             },
                         Items =
                             new object[]
                             {
-                                calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
-                                endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
+                                calendarSubject, 
+                                startTime.ToString("yyyyMMddTHHmmssZ"),
+                                endTime.ToString("yyyyMMddTHHmmssZ")
                             }
                     },
                 Class = "Calendar"
@@ -1078,7 +1078,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
 
             syncResponse = this.SyncChanges(this.User1Information.CalendarCollectionId);
@@ -1132,7 +1132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, recurrenceCalendarSubject);
 
             syncResponse = this.SyncChanges(this.User1Information.CalendarCollectionId);
@@ -1169,9 +1169,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3049");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3049
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3049,
                 @"[In FilterType(Sync)] Yes. [Applies to calendar, if FilterType is 5, Status element value is 1.]");
             #endregion
@@ -1187,9 +1187,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3050");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3050
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3050,
                 @"[In FilterType(Sync)] Yes. [Applies to calendar, if FilterType is 6, Status element value is 1.]");
             #endregion
@@ -1205,9 +1205,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3051");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3051
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3051,
                 @"[In FilterType(Sync)] Yes. [Applies to calendar, if FilterType is 7, Status element value is 1.]");
 
@@ -1217,7 +1217,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Create a overdue calendar
             this.GetInitialSyncResponse(this.User1Information.CalendarCollectionId);
             calendarSubject = Common.GenerateResourceName(this.Site, "canlendarSubject");
-            location = Common.GenerateResourceName(this.Site, "Room11");
             startTime = DateTime.Now.AddMonths(-7);
             endTime = startTime.AddHours(1.0);
 
@@ -1230,15 +1229,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                             {
-                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
-                                Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
-                                Request.ItemsChoiceType8.UID
+                                Request.ItemsChoiceType8.Subject,
+                                   Request.ItemsChoiceType8.StartTime,
+                                   Request.ItemsChoiceType8.EndTime,
                             },
                         Items =
                             new object[]
                             {
-                                calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
-                                endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
+                                calendarSubject, 
+                                startTime.ToString("yyyyMMddTHHmmssZ"),
+                                endTime.ToString("yyyyMMddTHHmmssZ")
                             }
                     },
                 Class = "Calendar"
@@ -1247,7 +1247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, calendarData);
             syncResponse = this.Sync(syncRequest);
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
 
             syncRequest = TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId, 7);
@@ -1279,8 +1279,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3052");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3052
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3052,
                 @"[In FilterType(Sync)] No, [The result of including a FilterType element value of 8 for a Calendar item is undefined.]");
@@ -1302,9 +1302,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3053");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3053
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3053,
                 @"[In FilterType(Sync)] Yes. [Applies to tasks, if FilterType is 0, Status element value is 1.]");
             #endregion
@@ -1318,8 +1318,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3054");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3054
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3054,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 1, status is not 1.]");
@@ -1334,8 +1334,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3055");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3055
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3055,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 2, status is not 1.]");
@@ -1351,8 +1351,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3056");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3056
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3056,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 3, status is not 1.]");
@@ -1368,8 +1368,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3057");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3057
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3057,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 4, status is not 1.]");
@@ -1385,8 +1385,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3058");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3058
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3058,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 5, status is not 1.]");
@@ -1402,8 +1402,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3059");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3059
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3059,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 6, status is not 1.]");
@@ -1419,8 +1419,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3060");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3060
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3060,
                 @"[In FilterType(Sync)] No, [Applies to tasks, if FilterType is 7, status is not 1.]");
@@ -1435,8 +1435,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3061");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3061
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncResponse.ResponseData.Status,
                 3061,
                 @"[In FilterType(Sync)] Yes. [Applies to tasks, if FilterType is 8, Status element value is 1.]");
@@ -1475,9 +1475,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3075");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R3075
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     3075,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one FilterType element as the child of the Options element ]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -1491,17 +1491,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             // Synchronize changes without FilterType value.
             SyncResponse syncResponseWithoutFilterType = this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponseWithoutFilterType, Response.ItemsChoiceType10.Status), "The Status code of the Sync response without FilterType should be 1.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponseWithoutFilterType, Response.ItemsChoiceType10.Status)), "The Status code of the Sync response without FilterType should be 1.");
 
             // Synchronize changes with a FilterType value.
             SyncResponse syncResponseWithFilterType = this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId, (byte)0));
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponseWithFilterType, Response.ItemsChoiceType10.Status), "The Status code of the Sync response with FilterType should be 1.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponseWithFilterType, Response.ItemsChoiceType10.Status)), "The Status code of the Sync response with FilterType should be 1.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3079");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3079
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<string>(
                 syncResponseWithoutFilterType.ResponseData.Status,
                 syncResponseWithFilterType.ResponseData.Status,
                 3079,
@@ -1520,7 +1520,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(folderSyncResponse.ResponseData.SyncKey, (byte)FolderType.UserCreatedContacts, Common.GenerateResourceName(Site, "FolderCreate"), this.User1Information.ContactsCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>(1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
 
             // Record created folder collectionID
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -1536,7 +1536,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The status code of Sync add operation should be 1.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The status code of Sync add operation should be 1.");
             #endregion
 
             #region Synchronize the changes in the Contacts folder.
@@ -1570,7 +1570,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(this.LastFolderSyncKey, (byte)FolderType.UserCreatedContacts, Common.GenerateResourceName(Site, "FolderCreate"), this.User1Information.ContactsCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>(1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
 
             // Record created folder collectionID
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -1636,7 +1636,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #endregion
 
             this.SwitchUser(this.User2Information);
-            
+
             #region Synchronize the changes in the Inbox folder.
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject);
             SyncRequest syncRequest = TestSuiteBase.CreateEmptySyncRequest(this.User2Information.InboxCollectionId);
@@ -1704,7 +1704,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(folderSyncResponse.ResponseData.SyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), this.User1Information.InboxCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>(1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
 
             // Record created folder collectionID
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -1761,9 +1761,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R938");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R938
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     938,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one Class element as child elements of the Options element]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -1791,9 +1791,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3280");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R3280
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     3280,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one MaxItems element as the child element of the Options element]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -1832,9 +1832,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3404");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R3404
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     3404,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one MIMESupport element as the child element of the Options element]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -1854,7 +1854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.SwitchUser(this.User2Information);
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject);
             this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, null);
-            
+
             // Call Sync with two MIMETruncation options
             Request.Options option = new Request.Options
             {
@@ -1872,9 +1872,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3432");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R3432
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     3432,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one MIMETruncation element as the child element of the Options element is undefined]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -1904,9 +1904,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R752");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R752
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)6,
-                collectionResponse.Add[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                6,
+                int.Parse(collectionResponse.Add[0].Status),
                 752,
                 @"[In Add(Sync)] [When the client adds a calendar item] A Status element value of 6 is returned in the Sync response if the EndTime element is not included.");
 
@@ -1914,9 +1914,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4440");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4440
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)6,
-                collectionResponse.Add[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                6,
+                int.Parse(collectionResponse.Add[0].Status),
                 4440,
                 @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 6 is] The client has sent a malformed or invalid item.");
             #endregion
@@ -1941,9 +1941,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R755");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R755
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)6,
-                collectionResponse.Add[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                6,
+                int.Parse(collectionResponse.Add[0].Status),
                 755,
                 @"[In Add(Sync)] If a client attempts to add emails to the server, a Status element with a value of 6 is returned as a child of the Add element.");
             #endregion
@@ -1965,9 +1965,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5838");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5838
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 5838,
                 @"[In GetChanges] A Status element (section 2.2.3.162.16) value of 4 is returned if the GetChanges element is [present and empty or] set to 1 (TRUE) when the SyncKey element value is 0 (zero).");
             #endregion
@@ -2003,9 +2003,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5839");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5839
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 5839,
                 @"[In GetChanges] No error is returned if the GetChanges element is [absent or] set to 0 (FALSE) when the SyncKey value is 0 (zero).");
             #endregion
@@ -2019,9 +2019,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3129");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3129
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+            Site.CaptureRequirementIfAreEqual<uint>(
+                1,
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 3129,
                 @"[In GetChanges] No error is returned if the GetChanges element is absent [or set to 0 (FALSE)] when the SyncKey value is 0 (zero).");
             #endregion
@@ -2034,7 +2034,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, addData);
             syncResponse = this.Sync(syncRequest, false);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The new contact should be added successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             #endregion
 
@@ -2052,31 +2052,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsNotNull(syncResponseWithSyncKetIsNot0.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             #endregion
 
-            #region Call Sync command with the GetChanges element set to false and the syncKey element set to non-zero value.
+            #region Call Sync command with an empty GetChanges element.
             syncRequest.RequestData.Collections[0].SyncKey = syncKey;
-            syncRequest.RequestData.Collections[0].GetChanges = false;
-            syncRequest.RequestData.Collections[0].GetChangesSpecified = true;
+            syncRequest.RequestData.Collections[0].GetChangesSpecified = false;
             syncResponse = this.Sync(syncRequest, false);
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3125");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3127");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R3125
-            Site.CaptureRequirementIfIsNull(
+            // Verify MS-ASCMD requirement: MS-ASCMD_R3127
+            Site.CaptureRequirementIfIsNotNull(
                 syncResponse.ResponseData.Item,
-                3125,
-                @"[In GetChanges] If the client does not want the server changes returned, the request MUST include the GetChanges element with a value of 0 (FALSE).");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5555");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5555
-            // After above R3125 captured, it means the server does not return any changes.
-            // Then if the Command element is null in the Sync response when the SyncKey set to 0, the R5555 can be captured.
-            Site.CaptureRequirementIfIsNull(
-                TestSuiteBase.GetCollectionItem(syncResponseWithSyncKeyIs0, Response.ItemsChoiceType10.Commands),
-                5555,
-                @"[In GetChanges] If the SyncKey element has a value of 0, then the request is handled as if the GetChanges element were set to 0 (FALSE).");
+                3127,
+                @"[In GetChanges] A value of 1 (TRUE) is assumed when the GetChanges element is empty.");
             #endregion
 
             #region Call Sync command with the GetChanges element set to true and the syncKey element set to non-zero value.
@@ -2107,19 +2095,31 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 @"[In GetChanges] If the SyncKey element has a non-zero value, then the request is handled as if the GetChanges element were set to 1 (TRUE).");
             #endregion
 
-            #region Call Sync command with an empty GetChanges element.
+            #region Call Sync command with the GetChanges element set to false and the syncKey element set to non-zero value.
             syncRequest.RequestData.Collections[0].SyncKey = syncKey;
-            syncRequest.RequestData.Collections[0].GetChangesSpecified = false;
+            syncRequest.RequestData.Collections[0].GetChanges = false;
+            syncRequest.RequestData.Collections[0].GetChangesSpecified = true;
             syncResponse = this.Sync(syncRequest, false);
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3127");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3125");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R3127
-            Site.CaptureRequirementIfIsNotNull(
+            // Verify MS-ASCMD requirement: MS-ASCMD_R3125
+            Site.CaptureRequirementIfIsNull(
                 syncResponse.ResponseData.Item,
-                3127,
-                @"[In GetChanges] A value of 1 (TRUE) is assumed when the GetChanges element is empty.");
+                3125,
+                @"[In GetChanges] If the client does not want the server changes returned, the request MUST include the GetChanges element with a value of 0 (FALSE).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5555");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R5555
+            // After above R3125 captured, it means the server does not return any changes.
+            // Then if the Command element is null in the Sync response when the SyncKey set to 0, the R5555 can be captured.
+            Site.CaptureRequirementIfIsNull(
+                TestSuiteBase.GetCollectionItem(syncResponseWithSyncKeyIs0, Response.ItemsChoiceType10.Commands),
+                5555,
+                @"[In GetChanges] If the SyncKey element has a value of 0, then the request is handled as if the GetChanges element were set to 0 (FALSE).");
             #endregion
         }
 
@@ -2129,6 +2129,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S19_TC27_Sync_Change()
         {
+            CMDAdapter.ChangeDeviceID(Common.GetConfigurationPropertyValue("DeviceID", this.Site));
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
 
             #region Add a new contact with Sync operation.
@@ -2150,7 +2151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 5255,
                 @"[In Responses] Element Responses in Sync command response (section 2.2.2.19), the child elements is Add (section 2.2.3.7.2)[, Fetch (section 2.2.3.63.2) ](If the operation succeeded.)");
 
-            Site.Assert.AreEqual<byte>((byte)1, collectionResponse.Add[0].Status, "The new contact should be added correctly.");
+            Site.Assert.AreEqual<int>(1, int.Parse(collectionResponse.Add[0].Status), "The new contact should be added correctly.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             this.FolderSync();
             #endregion
@@ -2173,10 +2174,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Request.SyncCollectionChange appDataChange = CreateChangedContact(serverId, new Request.ItemsChoiceType7[] { Request.ItemsChoiceType7.FileAs }, new object[] { updatedContactFileAS });
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The status code of Sync change operation should be 1.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The status code of Sync change operation should be 1.");
             #endregion
 
             #region Restore DeviceID and synchronize the changes in the Contacts folder.
+            
             CMDAdapter.ChangeDeviceID(Common.GetConfigurationPropertyValue("DeviceID", this.Site));
 
             syncRequest = TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId);
@@ -2184,7 +2186,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest.RequestData.Collections[0].GetChanges = true;
             syncRequest.RequestData.Collections[0].GetChangesSpecified = true;
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync command should be conducted successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync command should be conducted successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, updatedContactFileAS);
 
             Response.SyncCollectionsCollectionCommands syncCollectionCommands = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Commands) as Response.SyncCollectionsCollectionCommands;
@@ -2212,9 +2214,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             List<string> elements = new List<string>
             {
-                Request.ItemsChoiceType3.FirstName.ToString(),
-                Request.ItemsChoiceType3.MiddleName.ToString(),
-                Request.ItemsChoiceType3.LastName.ToString()
+                Request.ItemsChoiceType4.FirstName.ToString(),
+                Request.ItemsChoiceType4.MiddleName.ToString(),
+                Request.ItemsChoiceType4.LastName.ToString()
             };
 
             Response.SyncCollectionsCollectionCommands commands = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Commands) as Response.SyncCollectionsCollectionCommands;
@@ -2293,9 +2295,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R875");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R875
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 875,
                 @"[In Change] If all the other elements are sent, extra bandwidth is used, but no errors occur.");
 
@@ -2318,7 +2320,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The email should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The email should be updated successfully.");
 
             syncResponse = this.SyncChanges(this.User2Information.InboxCollectionId);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
@@ -2355,7 +2357,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The email should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The email should be updated successfully.");
 
             applicationData = new Request.SyncCollectionChangeApplicationData
             {
@@ -2367,7 +2369,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The email should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The email should be updated successfully.");
 
             syncResponse = this.SyncChanges(this.User2Information.InboxCollectionId);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
@@ -2406,7 +2408,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The email should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The email should be updated successfully.");
 
             applicationData = new Request.SyncCollectionChangeApplicationData
             {
@@ -2418,7 +2420,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The email should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The email should be updated successfully.");
 
             syncResponse = this.SyncChanges(this.User2Information.InboxCollectionId);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
@@ -2468,7 +2470,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             collectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
             Site.Assert.IsNotNull(collectionResponse, "The responses element should exist in the Sync response.");
-            Site.Assert.AreEqual<byte>((byte)1, collectionResponse.Add[0].Status, "The new contact should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(collectionResponse.Add[0].Status), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAs);
 
             syncResponse = this.SyncChanges(this.User1Information.ContactsCollectionId);
@@ -2511,7 +2513,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The FileAs of the contact should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The FileAs of the contact should be updated successfully.");
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAs);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, updatedContactFileAs);
 
@@ -2555,7 +2557,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             // Synchronize the changes in the Contacts folder.
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
-            
+
             #region Use an invalid ServerId to try to change a contact.
             string invalidServerId = Guid.NewGuid().ToString();
             string updatedContactFileAS = Common.GenerateResourceName(Site, "UpdatedFileAS");
@@ -2590,8 +2592,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4419");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4419
-            Site.CaptureRequirementIfAreNotEqual<byte>(
-                (byte)1,
+            Site.CaptureRequirementIfAreNotEqual<string>(
+                "1",
                 syncCollectionResponse.Change[0].Status,
                 4419,
                 @"[In Status(Sync)] If the operation[the Change operation, the Add operation, or the Fetch operation] failed, the Status element contains a code that indicates the type of failure.");
@@ -2618,9 +2620,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3162");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3162
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 3162,
                 @"[In HeartbeatInterval(Sync)] If both[HeartbeatInterval element and the Wait element ] elements are included, the server response will contain a Status element value of 4.");
 
@@ -2628,9 +2630,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4748");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4748
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 4748,
                 @"[In Wait] If both [Wait element and the HeartbeatInterval element ] elements are included, the server response will contain a Status element value of 4.");
 
@@ -2648,7 +2650,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest.RequestData.Wait = "0";
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)14, syncResponse.ResponseData.Status, "The Status code should be 14.");
+            Site.Assert.AreEqual<int>(14, int.Parse(syncResponse.ResponseData.Status), "The Status code should be 14.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3227");
@@ -2673,7 +2675,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest.RequestData.Wait = "60";
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)14, syncResponse.ResponseData.Status, "The Status code should be 14.");
+            Site.Assert.AreEqual<int>(14, int.Parse(syncResponse.ResponseData.Status), "The Status code should be 14.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3228");
@@ -2699,7 +2701,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest.RequestData.HeartbeatInterval = "59";
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)14, syncResponse.ResponseData.Status, "The Status code should be 14.");
+            Site.Assert.AreEqual<int>(14, int.Parse(syncResponse.ResponseData.Status), "The Status code should be 14.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3229");
@@ -2731,7 +2733,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3160
             // When the Status value is 14, the value of the Item element represents the value of the Limit element.
-            bool isVerifyR3160 = syncResponse.ResponseData.Status == (byte)14 && !string.IsNullOrEmpty((string)syncResponse.ResponseData.Item) && (string)syncResponse.ResponseData.Item == "3540";
+            bool isVerifyR3160 = int.Parse(syncResponse.ResponseData.Status) == 14 && !string.IsNullOrEmpty((string)syncResponse.ResponseData.Item) && (string)syncResponse.ResponseData.Item == "3540";
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR3160,
                 3160,
@@ -2789,7 +2791,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             SyncRequest syncRequestDelete = new SyncRequest { RequestData = syncRequestData };
             syncResponse = this.Sync(syncRequestDelete);
-            Site.Assert.AreEqual<byte>(1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync delete operation should be successful.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync delete operation should be successful.");
             #endregion
 
             #region Verify if the email has been deleted from the Inbox folder and placed into the DeletedItems folder.
@@ -2842,7 +2844,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequestDelete = new SyncRequest { RequestData = syncRequestData };
             syncResponse = this.Sync(syncRequestDelete);
-            Site.Assert.AreEqual<byte>(1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync delete operation should be successful.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync delete operation should be successful.");
 
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject1);
             #endregion
@@ -2895,7 +2897,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             SyncResponse syncResponse = this.SyncChanges(this.User2Information.DeletedItemsCollectionId);
             Site.Assert.IsNull(TestSuiteBase.FindServerId(syncResponse, "Subject", emailSubject), "The email should not be found in the DeletedItems folder.");
-            
+
             syncResponse = this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
 
@@ -2954,7 +2956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.SwitchUser(this.User2Information);
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject);
             SyncResponse syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, null);
-            
+
             #region Fetch the email.
             Request.SyncCollectionFetch appDataFetch = new Request.SyncCollectionFetch
             {
@@ -2999,7 +3001,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(this.LastFolderSyncKey, (byte)FolderType.UserCreatedContacts, Common.GenerateResourceName(Site, "FolderCreate"), this.User1Information.ContactsCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>(1, folderCreateResponse.ResponseData.Status, "The server should return a status code 1 in the FolderCreate command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "The server should return a status code 1 in the FolderCreate command response to indicate success.");
 
             // Record created folder collectionID
             string folderId = folderCreateResponse.ResponseData.ServerId;
@@ -3053,6 +3055,36 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 isVerifyR3460WithWindowSize && isVerifyR3460WithoutWindowSize,
                 3460,
                 @"[In MoreAvailable] The MoreAvailable element is returned by the server if there are more than 512 changes, regardless of whether the WindowSize element is included in the request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3460");
+            int itemCount = 0;
+            if (collectionCommands.Add != null)
+            {
+                itemCount += collectionCommands.Add.Length;
+            }
+
+            if (collectionCommands.Change != null)
+            {
+                itemCount += collectionCommands.Change.Length;
+            }
+
+            if (collectionCommands.Delete != null)
+            {
+                itemCount += collectionCommands.Delete.Length;
+            }
+
+            if (collectionCommands.SoftDelete != null)
+            {
+                itemCount += collectionCommands.SoftDelete.Length;
+            }
+
+            bool isVerifiedR4764 = itemCount < 512;
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR4764,
+                4764,
+                @"[In WindowSize] However, if the WindowSize element is set to 512, the server can send Sync response messages that contain less than 512 updates.");
             #endregion
         }
 
@@ -3129,7 +3161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest, false);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The new contact should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             #endregion
 
@@ -3146,7 +3178,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange2);
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync command should succeed.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync command should succeed.");
 
             syncResponse = this.SyncChanges(this.User1Information.ContactsCollectionId);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
@@ -3194,7 +3226,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncResponse = this.Sync(syncRequest, false);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The new contact should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             #endregion
 
@@ -3224,7 +3256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange3);
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync command should be conducted successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync command should be conducted successfully.");
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, updatedContactFileAs);
 
@@ -3297,7 +3329,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncResponse = this.Sync(syncRequest, false);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The new contact should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             #endregion
 
@@ -3320,7 +3352,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange4);
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync command should be conducted successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync command should be conducted successfully.");
 
             syncResponse = this.SyncChanges(this.User1Information.ContactsCollectionId);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
@@ -3393,7 +3425,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Request.SyncCollectionChange appDataChange1 = CreateChangedContact(TestSuiteBase.FindServerId(syncResponse, "FileAs", contactFileAS), new Request.ItemsChoiceType7[] { Request.ItemsChoiceType7.FileAs }, new object[] { updatedContactFileAs });
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, appDataChange1);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The status code of Sync change operation should be 1.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The status code of Sync change operation should be 1.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, updatedContactFileAs);
             #endregion
 
@@ -3451,9 +3483,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2069");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2069
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)7,
-                responses.Change[0].Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                7,
+                int.Parse(responses.Change[0].Status),
                 2069,
                 @"[In Conflict] If the value is 1 and there is a conflict, a Status element (section 2.2.3.162.16) value of 7 is returned to inform the client that the object that the client sent to the server was discarded.");
 
@@ -3494,7 +3526,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             syncRequest.RequestData.Collections[0].Options = new Request.Options[] { option };
             syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The collections in the Sync response should not be null.");
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Sync change operation should be successful.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Sync change operation should be successful.");
 
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, conflictUpdatedFileAs);
 
@@ -3543,9 +3575,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2075");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R2075
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)1,
-                    (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                     2075,
                     @"[In Appendix A: Product Behavior] The implementation does not return a protocol status error in response to such a command request [more than one Conflict element as the child of an Options element]. (Exchange 2007 and above follow this behavior.)");
             }
@@ -3587,9 +3619,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R934");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R934
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<uint>(
                 1,
-                (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status),
+                Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)),
                 934,
                 @"[In Class(Sync)] Only SMS messages and email messages can be synchronized at the same time.");
             #endregion
@@ -3617,9 +3649,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R935");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R935
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                syncResponse.ResponseData.Status,
+                int.Parse(syncResponse.ResponseData.Status),
                 935,
                 @"[In Class(Sync)] A request for any other combination of classes will fail with a status value of 4.");
             #endregion
@@ -3657,7 +3689,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             SyncResponse syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, new Request.Options[] { option });
-            
+
             Response.Body mailBody = GetMailBody(syncResponse, emailSubject);
             Site.Assert.IsNotNull(mailBody, "The body of the received email should not be null.");
             int dataLength = mailBody.Data.Length;
@@ -3670,7 +3702,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, new Request.Options[] { option });
-            
+
             mailBody = GetMailBody(syncResponse, emailSubject);
             Site.Assert.IsNotNull(mailBody, "The body of the received email should not be null.");
             int original = mailBody.Data.Length;
@@ -3699,7 +3731,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, new Request.Options[] { option });
-            
+
             mailBody = GetMailBody(syncResponse, emailSubject);
             Site.Assert.IsNotNull(mailBody, "The body of the received email should not be null.");
 
@@ -3842,7 +3874,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             SyncResponse syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, new Request.Options[] { option });
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The Status of the Sync command response should be 1.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The Status of the Sync command response should be 1.");
             Response.Body mailBody = GetMailBody(syncResponse, emailSubject);
             Site.Assert.IsNotNull(mailBody, "The body of the received email should not be null.");
             Site.Assert.AreEqual<byte>(4, mailBody.Type, "The type of the Body should be 4.");
@@ -3982,7 +4014,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The new contact should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The new contact should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.ContactsCollectionId, contactFileAS);
             this.FolderSync();
             #endregion
@@ -4003,9 +4035,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4545");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4545
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                syncResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(syncResponse.ResponseData.Status),
                 4545,
                 @"[In Supported] A Status element (section 2.2.3.162.16) value of 4 is returned in the Sync response if the CollectionId element is not included in the Sync request.");
             #endregion
@@ -4027,7 +4059,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5781
             Site.CaptureRequirementIfIsTrue(
-                syncResponse.ResponseData.StatusSpecified && syncResponse.ResponseData.Status == 14 && syncResponse.ResponseData.Item.ToString() == "59" && syncResponse.ResponseDataXML.ToString().Contains("Limit"),
+                syncResponse.ResponseData.Status == "14" && syncResponse.ResponseData.Item.ToString() == "59" && syncResponse.ResponseDataXML.ToString().Contains("Limit"),
                 5781,
                 @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 14 is] If the [HeartbeatInterval element value] or Wait element value included in the Sync request is larger than the maximum allowable value, the response contains a Limit element that specifies the maximum allowed value.");
 
@@ -4041,7 +4073,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5782
             Site.CaptureRequirementIfIsTrue(
-                syncResponse.ResponseData.StatusSpecified && syncResponse.ResponseData.Status == 14 && syncResponse.ResponseData.Item.ToString() == "1" && syncResponse.ResponseDataXML.ToString().Contains("Limit"),
+                syncResponse.ResponseData.Status == "14" && syncResponse.ResponseData.Item.ToString() == "1" && syncResponse.ResponseDataXML.ToString().Contains("Limit"),
                 5782,
                 @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 14 is] If the [HeartbeatInterval element value or] Wait value included in the Sync request is smaller than the minimum allowable value, the response contains a Limit element that specifies the minimum allowed value.");
 
@@ -4116,9 +4148,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5659");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5659
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                syncResponse.ResponseData.Status,
+                int.Parse(syncResponse.ResponseData.Status),
                 5659,
                 @"[In Limiting Size of Command Requests] In Sync (section 2.2.2.19) command request, when the limit value of Add, Change, Delete and Fetch elements is bigger than 200 (minimum 1, maximum 2,147,483,647), the error returned by server is Status element (section 2.2.3.162.16) value of 4.");
             #endregion
@@ -4137,35 +4169,67 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string location = Common.GenerateResourceName(Site, "Room");
             DateTime startTime = DateTime.Now.AddDays(-16);
             DateTime endTime = startTime.AddHours(1.0);
+            Request.SyncCollectionAdd calendarData;
 
-            Request.SyncCollectionAdd calendarData = new Request.SyncCollectionAdd
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
             {
-                ClientId = TestSuiteBase.ClientId,
-                ApplicationData = new Request.SyncCollectionAddApplicationData
+                calendarData = new Request.SyncCollectionAdd
                 {
-                    ItemsElementName =
-                        new Request.ItemsChoiceType8[]
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
                         {
                             Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                             Request.ItemsChoiceType8.UID
                         },
-                    Items =
-                        new object[]
+                        Items =
+                            new object[]
                         {
                             calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
                             endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
                         }
-                },
-                Class = "Calendar"
-            };
+                    },
+                    Class = "Calendar"
+                };
+            }
+            else
+            {
+                calendarData = new Request.SyncCollectionAdd
+                {
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
+                        {
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime
+                        },
+                        Items =
+                            new object[]
+                        {
+                            calendarSubject, 
+                            new Request.Location
+                            {
+                            LocationUri=location
+                            }, 
+                            startTime.ToString("yyyyMMddTHHmmssZ"),
+                            endTime.ToString("yyyyMMddTHHmmssZ")
+                        }
+                    },
+                    Class = "Calendar"
+                };
+            }
 
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId));
 
             SyncRequest syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, calendarData);
             SyncResponse syncResponse = this.Sync(syncRequest, true);
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
             #endregion
 
@@ -4175,34 +4239,65 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             startTime = DateTime.Now.AddDays(-10);
             endTime = startTime.AddHours(1.0);
 
-            calendarData = new Request.SyncCollectionAdd
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
             {
-                ClientId = TestSuiteBase.ClientId,
-                ApplicationData = new Request.SyncCollectionAddApplicationData
+                calendarData = new Request.SyncCollectionAdd
                 {
-                    ItemsElementName =
-                        new Request.ItemsChoiceType8[]
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
                         {
                             Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                             Request.ItemsChoiceType8.UID
                         },
-                    Items =
-                        new object[]
+                        Items =
+                            new object[]
                         {
                             calendarSubject, location, startTime.ToString("yyyyMMddTHHmmssZ"),
                             endTime.ToString("yyyyMMddTHHmmssZ"), Guid.NewGuid().ToString()
                         }
-                },
-                Class = "Calendar"
-            };
+                    },
+                    Class = "Calendar"
+                };
+            }
+            else
+            {
+                calendarData = new Request.SyncCollectionAdd
+                {
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
+                        {
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime
+                        },
+                        Items =
+                            new object[]
+                        {
+                            calendarSubject, 
+                            new Request.Location
+                            {
+                            LocationUri=location
+                            }, 
+                            startTime.ToString("yyyyMMddTHHmmssZ"),
+                            endTime.ToString("yyyyMMddTHHmmssZ")
+                        }
+                    },
+                    Class = "Calendar"
+                };
+            }
 
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId));
 
             syncRequest = TestSuiteBase.CreateSyncAddRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, calendarData);
             syncResponse = this.Sync(syncRequest, true);
             responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, calendarSubject);
             #endregion
 
@@ -4326,6 +4421,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S19_TC51_Sync_Change_Exceptions()
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Class element is not supported in a Sync command response when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
 
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId));
 
@@ -4375,7 +4471,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses responses = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-            Site.Assert.AreEqual<byte>((byte)1, responses.Add[0].Status, "The calendar should be added successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(responses.Add[0].Status), "The calendar should be added successfully.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, recurrenceCalendarSubject);
 
             syncResponse = this.SyncChanges(this.User1Information.CalendarCollectionId);
@@ -4398,7 +4494,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The FileAs of the contact should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The FileAs of the contact should be updated successfully.");
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, recurrenceCalendarSubject);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, updatedCalendarSubject);
 
@@ -4455,7 +4551,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             syncRequest = CreateSyncChangeRequest(this.LastSyncKey, this.User1Information.CalendarCollectionId, appDataChange);
             syncResponse = this.Sync(syncRequest);
-            Site.Assert.AreEqual<byte>((byte)1, (byte)TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status), "The FileAs of the contact should be updated successfully.");
+            Site.Assert.AreEqual<uint>(1, Convert.ToUInt32(TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Status)), "The FileAs of the contact should be updated successfully.");
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, updatedCalendarSubject);
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, allNewCalendarSubject);
 
@@ -4496,6 +4592,59 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     break;
                 }
             }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify Sync command, if the client issued a fetch or change operation that has a CollectionId value that is no longer valid on the server, then the status code in the server response will be 8.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S19_TC52_Sync_Status8()
+        {
+            #region Send a MIME-formatted email to User2.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlainTextEmail(null, emailSubject, this.User1Information.UserName, this.User2Information.UserName, null);
+            #endregion
+
+            this.SwitchUser(this.User2Information);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject);
+            SyncResponse syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, null);
+            string itemServerId = TestSuiteBase.FindServerId(syncResponse, "Subject", emailSubject);
+
+            #region Delete the email form Inbox of User2.
+            SyncRequest syncRequest = TestSuiteBase.CreateSyncDeleteRequest(this.LastSyncKey, this.User2Information.InboxCollectionId, itemServerId);
+            syncRequest.RequestData.Collections[0].DeletesAsMoves = false;
+            syncRequest.RequestData.Collections[0].DeletesAsMovesSpecified = true;
+            syncResponse = this.Sync(syncRequest);
+            #endregion
+
+            #region Fetch the email.
+            Request.SyncCollectionFetch appDataFetch = new Request.SyncCollectionFetch
+            {
+                ServerId = itemServerId
+            };
+
+            Request.SyncCollection collection = new Request.SyncCollection
+            {
+                SyncKey = this.LastSyncKey,
+                GetChanges = true,
+                GetChangesSpecified = true,
+                CollectionId = this.User2Information.InboxCollectionId,
+                Commands = new object[] { appDataFetch }
+            };
+
+            Request.Sync syncRequestData = new Request.Sync { Collections = new Request.SyncCollection[] { collection } };
+
+            SyncRequest syncRequestForFetch = new SyncRequest { RequestData = syncRequestData };
+            syncResponse = this.Sync(syncRequestForFetch);
+            Response.SyncCollectionsCollectionResponses collectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
+
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                8,
+                int.Parse(collectionResponse.Fetch.Status),
+                4447,
+                @"[In Status(Sync)] [When the scope is Item], [the cause of the status value 8 is] The client issued a fetch [or change] operation that has a CollectionId (section 2.2.3.30.5) value that is no longer valid on the server (for example, the item was deleted).");
+
             #endregion
         }
         #endregion
@@ -4630,7 +4779,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             SyncResponse syncResponse = this.CheckEmail(this.User2Information.InboxCollectionId, emailSubject, new Request.Options[] { option });
-            
+
             Response.Body mailBody = GetMailBody(syncResponse, emailSubject);
             Site.Assert.IsNotNull(mailBody, "The body of the received email should not be null.");
             Site.Assert.IsNotNull(mailBody.Data, "The Data of the received email's body should not be null.");
@@ -4648,23 +4797,54 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         /// <returns>The add Calendar request.</returns>
         private Request.SyncCollectionAdd CreateAddCalendarCommand(string to, string subject, string location, string endTime)
         {
-            Request.SyncCollectionAdd appData = new Request.SyncCollectionAdd
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
             {
-                ClientId = TestSuiteBase.ClientId,
-                ApplicationData = new Request.SyncCollectionAddApplicationData
+                Request.SyncCollectionAdd appData = new Request.SyncCollectionAdd
                 {
-                    ItemsElementName =
-                        new Request.ItemsChoiceType8[]
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
                         {
                             Request.ItemsChoiceType8.To, Request.ItemsChoiceType8.Subject,
                             Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.EndTime
                         },
-                    Items = new object[] { to, subject, location, endTime }
-                },
-                Class = "Calendar"
-            };
-            return appData;
+                        Items = new object[] { to, subject, location, endTime }
+                    },
+                    Class = "Calendar"
+                };
+                return appData;
+            }
+
+            else
+            {
+                Request.SyncCollectionAdd appData = new Request.SyncCollectionAdd
+                {
+                    ClientId = TestSuiteBase.ClientId,
+                    ApplicationData = new Request.SyncCollectionAddApplicationData
+                    {
+                        ItemsElementName =
+                            new Request.ItemsChoiceType8[]
+                        {
+                            Request.ItemsChoiceType8.To, Request.ItemsChoiceType8.Subject,
+                            Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.EndTime
+                        },
+                        Items = new object[] { 
+                        to, 
+                        subject, 
+                        new Request.Location
+                        {
+                        LocationUri=location
+                        }, 
+                        endTime }
+                    },
+                    Class = "Calendar"
+                };
+                return appData;
+            }
         }
 
         /// <summary>

@@ -48,9 +48,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, subFolderName, this.User1Information.InboxCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
 
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 1,
-                folderCreateResponse.ResponseData.Status,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 "The Status element of the FolderCreate response should be 1.");
 
             // Record created folder CollectionId.
@@ -91,7 +91,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Response.FolderSyncChangesAdd[] folderChangesAdds = folderSyncResponse.ResponseData.Changes.Add;
 
             bool subFolderExists = false;
-            foreach (var folderChangesAdd in folderChangesAdds)
+            foreach (Response.FolderSyncChangesAdd folderChangesAdd in folderChangesAdds)
             {
                 if (folderChangesAdd.DisplayName == subFolderName && folderChangesAdd.ParentId == this.User1Information.InboxCollectionId)
                 {
@@ -155,7 +155,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             folderChangesAdds = folderSyncResponse.ResponseData.Changes.Add;
 
             subFolderExists = false;
-            foreach (var folderChangesAdd in folderChangesAdds)
+            foreach (Response.FolderSyncChangesAdd folderChangesAdd in folderChangesAdds)
             {
                 if (folderChangesAdd.DisplayName == subFolderName && folderChangesAdd.ParentId == this.User1Information.InboxCollectionId)
                 {
@@ -186,12 +186,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Request.ItemOperationsFetchOptions options = new Request.ItemOperationsFetchOptions
             {
                 Items = new object[] { string.Empty },
-                ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.Range }
+                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Range }
             };
 
             // Set the Range element to empty string as the child element of option element in Fetch element, to trigger the status code 2.
             options.Items = new object[] { string.Empty };
-            options.ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.Range };
+            options.ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Range };
 
             ItemOperationsRequest itemOperationsRequest = CreateItemOperationsRequestWithFetchElement(this.User1Information.InboxCollectionId, SearchName.Mailbox.ToString(), string.Empty, options);
             ItemOperationsResponse itemOperationsResponse = this.CMDAdapter.ItemOperations(itemOperationsRequest, DeliveryMethodForFetch.Inline);
@@ -489,7 +489,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Set the value of MIMESupport element to 0, which indicates never to send MIME data.
             options.Items = new object[] { (byte)0, bodyPreference };
-            options.ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.MIMESupport, Request.ItemsChoiceType4.BodyPreference };
+            options.ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.MIMESupport, Request.ItemsChoiceType5.BodyPreference };
             ItemOperationsRequest itemOperationsRequest = CreateItemOperationsRequestWithFetchElement(this.User1Information.InboxCollectionId, SearchName.Mailbox.ToString(), serverId, options);
             ItemOperationsResponse itemOperationsResponse = this.CMDAdapter.ItemOperations(itemOperationsRequest, DeliveryMethodForFetch.Inline);
             Response.Body body = this.GetBodyElement(itemOperationsResponse);
@@ -664,7 +664,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses collectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
             Site.Assert.IsNotNull(collectionResponse, "The responses element should exist in the Sync response.");
-            Site.Assert.AreEqual<byte>((byte)1, collectionResponse.Add[0].Status, "The new contact should be added correctly.");
+            Site.Assert.AreEqual<string>("1", collectionResponse.Add[0].Status, "The new contact should be added correctly.");
             TestSuiteBase.RecordCaseRelativeItems(this.User1Information, folderId, contactFileAS);
             #endregion
 
@@ -718,7 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword }
                 }
             };
@@ -845,7 +845,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password, Request.ItemsChoiceType4.Range },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password, Request.ItemsChoiceType5.Range },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword, "0-0" }
                 }
             };
@@ -927,7 +927,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword }
                 }
             };
@@ -966,7 +966,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password },
                     Items = new string[] { this.User1Information.UserName, "invalidPassword" }
                 }
             };
@@ -1004,7 +1004,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password, Request.ItemsChoiceType4.Range },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password, Request.ItemsChoiceType5.Range },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword, "99-99" }
                 }
             };
@@ -1042,7 +1042,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword }
                 }
             };
@@ -1080,7 +1080,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Store = SearchName.DocumentLibrary.ToString(),
                 Options = new Request.ItemOperationsFetchOptions
                 {
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.UserName, Request.ItemsChoiceType4.Password, Request.ItemsChoiceType4.Range },
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.UserName, Request.ItemsChoiceType5.Password, Request.ItemsChoiceType5.Range },
                     Items = new string[] { this.User1Information.UserName, this.User1Information.UserPassword, "0-10240000" }
                 }
             };
@@ -1190,9 +1190,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Initialize a Fetch element.
             Request.ItemOperationsFetch fetch = new Request.ItemOperationsFetch
             {
-                FileReference = attachments.Attachment[0].FileReference,
+                FileReference = ((Response.AttachmentsAttachment)attachments.Items[0]).FileReference,
                 Store = SearchName.Mailbox.ToString(),
-                CollectionId = attachments.Attachment[0].FileReference
+                CollectionId = ((Response.AttachmentsAttachment)attachments.Items[0]).FileReference
             };
 
             // Create an ItemOperations command request and construct two FileReference elements

@@ -18,7 +18,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="Status" type="xs:unsignedByte"/>
+  <xs:element name="Status" type="xs:integer"/>
   <xs:element name="SyncKey">
     <xs:simpleType>
       <xs:restriction base="xs:string">
