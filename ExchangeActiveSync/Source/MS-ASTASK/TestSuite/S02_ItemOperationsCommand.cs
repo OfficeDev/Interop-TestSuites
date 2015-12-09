@@ -56,7 +56,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // add task
             SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Adding a task item to server should success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Adding a task item to server should success.");
             SyncItem task = this.GetChangeItem(this.UserInformation.TasksCollectionId, subject);
             Site.Assert.IsNotNull(task.Task, "The task which subject is {0} should exist in server.", subject);
             ItemsNeedToDelete.Add(subject);
@@ -75,10 +75,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             Request.Schema schema = new Request.Schema
             {
-                ItemsElementName = new Request.ItemsChoiceType3[1],
+                ItemsElementName = new Request.ItemsChoiceType4[1],
                 Items = new object[1]
             };
-            schema.ItemsElementName[0] = Request.ItemsChoiceType3.Body;
+            schema.ItemsElementName[0] = Request.ItemsChoiceType4.Body;
             schema.Items[0] = new Request.Body();
 
             Request.BodyPreference bodyReference = new Request.BodyPreference { Type = 1 };

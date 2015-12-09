@@ -27,127 +27,112 @@ if(!(Test-Path $logPath))
     New-Item $logPath -ItemType directory |Out-null
 }
 Start-Transcript $debugLogFile -Force -Append
+#-----------------------------------------------------
+# Import the common function library file
+#-----------------------------------------------------
+$scriptDirectory = Split-Path $MyInvocation.Mycommand.Path 
+$commonScriptDirectory = $scriptDirectory.SubString(0,$scriptDirectory.LastIndexOf("\")+1) +"Common"
+.(Join-Path $commonScriptDirectory CommonConfiguration.ps1)
+.(Join-Path $commonScriptDirectory ExchangeCommonConfiguration.ps1)
 
+AddTimesStampsToLogFile "Start" "$logFile"
+$environmentResourceFile            = "$commonScriptDirectory\ExchangeTestSuite.config"
 #---------------------------------------------------------
 # Configuration Variables
 #---------------------------------------------------------
-$userPassword                              = "Password01!" 
+$userPassword                              = ReadConfigFileNode "$environmentResourceFile" "userPassword"
 
-$MSASAIRSUser01                            = "MSASAIRS_User01"
-$MSASAIRSUser02                            = "MSASAIRS_User02" 
+$MSASAIRSUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASAIRSUser01"
+$MSASAIRSUser02                            = ReadConfigFileNode "$environmentResourceFile" "MSASAIRSUser02" 
 
-$MSASCALUser01                             = "MSASCAL_User01"
-$MSASCALUser02                             = "MSASCAL_User02" 
+$MSASCALUser01                             = ReadConfigFileNode "$environmentResourceFile" "MSASCALUser01"
+$MSASCALUser02                             = ReadConfigFileNode "$environmentResourceFile" "MSASCALUser02"
 
-$MSASCMDUser01                             = "MSASCMD_User01"
-$MSASCMDUser02                             = "MSASCMD_User02"
-$MSASCMDUser03                             = "MSASCMD_User03"
-$MSASCMDUser04                             = "MSASCMD_User04"
-$MSASCMDUser05                             = "MSASCMD_User05"
-$MSASCMDUser06                             = "MSASCMD_User06"
-$MSASCMDUser07                             = "MSASCMD_User07"
-$MSASCMDUser08                             = "MSASCMD_User08"
-$MSASCMDUser09                             = "MSASCMD_User09"
-$MSASCMDUser10                             = "MSASCMD_User10"
-$MSASCMDUser11                             = "MSASCMD_User11"
-$MSASCMDUser12                             = "MSASCMD_User12"
-$MSASCMDUser13                             = "MSASCMD_User13"
-$MSASCMDUser14                             = "MSASCMD_User14"
-$MSASCMDUser15                             = "MSASCMD_User15"
-$MSASCMDUser16                             = "MSASCMD_User16"
-$MSASCMDUser17                             = "MSASCMD_User17"
-$MSASCMDUser18                             = "MSASCMD_User18"
-$MSASCMDUser19                             = "MSASCMD_User19"
-$MSASCMDSearchUser01                       = "MSASCMD_SearchUser01"
-$MSASCMDSearchUser02                       = "MSASCMD_SearchUser02"
-$MSASCMDTestGroup                          = "MSASCMD_TestGroup"
-$MSASCMDLargeGroup                         = "MSASCMD_LargeGroup"
-$MSASCMDSharedFolder                       = "MSASCMD_SharedFolder"
-$MSASCMDNonEmptyDocument                   = "MSASCMD_Non-emptyDocument.txt"
-$MSASCMDEmptyDocument                      = "MSASCMD_EmptyDocument.txt"
-$MSASCMDUser01Photo                        = "MSASCMD_User01Photo.jpg" 
-$MSASCMDUser02Photo                        = "MSASCMD_User02Photo.jpg"
-$MSASCMDPfxFileName                        = "MSASCMD_PfxFile.pfx"
-$MSASCMDEmailSubjectName                   = "MSASCMD_SecureEmailForTest" 
+$MSASCMDUser01                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser01"
+$MSASCMDUser02                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser02"
+$MSASCMDUser03                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser03"
+$MSASCMDUser04                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser04"
+$MSASCMDUser05                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser05"
+$MSASCMDUser06                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser06"
+$MSASCMDUser07                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser07"
+$MSASCMDUser08                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser08"
+$MSASCMDUser09                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser09"
+$MSASCMDUser10                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser10"
+$MSASCMDUser11                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser11"
+$MSASCMDUser12                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser12"
+$MSASCMDUser13                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser13"
+$MSASCMDUser14                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser14"
+$MSASCMDUser15                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser15"
+$MSASCMDUser16                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser16"
+$MSASCMDUser17                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser17"
+$MSASCMDUser18                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser18"
+$MSASCMDUser19                             = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser19"
+$MSASCMDSearchUser01                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDSearchUser01"
+$MSASCMDSearchUser02                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDSearchUser02"
+$MSASCMDTestGroup                          = ReadConfigFileNode "$environmentResourceFile" "MSASCMDTestGroup"
+$MSASCMDLargeGroup                         = ReadConfigFileNode "$environmentResourceFile" "MSASCMDLargeGroup"
+$MSASCMDSharedFolder                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDSharedFolder"
+$MSASCMDNonEmptyDocument                   = ReadConfigFileNode "$environmentResourceFile" "MSASCMDNonEmptyDocument"
+$MSASCMDEmptyDocument                      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDEmptyDocument"
+$MSASCMDUser01Photo                        = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser01Photo" 
+$MSASCMDUser02Photo                        = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser02Photo"
+$MSASCMDPfxFileName                        = ReadConfigFileNode "$environmentResourceFile" "MSASCMDPfxFileName"
+$MSASCMDEmailSubjectName                   = ReadConfigFileNode "$environmentResourceFile" "MSASCMDEmailSubjectName" 
 
-$MSASCNTCUser01                            = "MSASCNTC_User01"
-$MSASCNTCUser02                            = "MSASCNTC_User02"
+$MSASCNTCUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASCNTCUser01"
+$MSASCNTCUser02                            = ReadConfigFileNode "$environmentResourceFile" "MSASCNTCUser02"
 
-$MSASCONUser01                             = "MSASCON_User01"
-$MSASCONUser02                             = "MSASCON_User02"
-$MSASCONUser03                             = "MSASCON_User03"
+$MSASCONUser01                             = ReadConfigFileNode "$environmentResourceFile" "MSASCONUser01"
+$MSASCONUser02                             = ReadConfigFileNode "$environmentResourceFile" "MSASCONUser02"
+$MSASCONUser03                             = ReadConfigFileNode "$environmentResourceFile" "MSASCONUser03"
 
-$MSASDOCUser01                             = "MSASDOC_User01"
-$MSASDOCSharedFolder                       = "MSASDOC_SharedFolder"
-$MSASDOCVisibleFolder                      = "MSASDOC_VisibleFolder"
-$MSASDOCHiddenFolder                       = "MSASDOC_HiddenFolder"
-$MSASDOCVisibleDocument                    = "MSASDOC_VisibleDocument.txt"
-$MSASDOCHiddenDocument                     = "MSASDOC_HiddenDocument.txt"
+$MSASDOCUser01                             = ReadConfigFileNode "$environmentResourceFile" "MSASDOCUser01"
+$MSASDOCSharedFolder                       = ReadConfigFileNode "$environmentResourceFile" "MSASDOCSharedFolder"
+$MSASDOCVisibleFolder                      = ReadConfigFileNode "$environmentResourceFile" "MSASDOCVisibleFolder"
+$MSASDOCHiddenFolder                       = ReadConfigFileNode "$environmentResourceFile" "MSASDOCHiddenFolder"
+$MSASDOCVisibleDocument                    = ReadConfigFileNode "$environmentResourceFile" "MSASDOCVisibleDocument"
+$MSASDOCHiddenDocument                     = ReadConfigFileNode "$environmentResourceFile" "MSASDOCHiddenDocument"
 
-$MSASEMAILUser01                           = "MSASEMAIL_User01"
-$MSASEMAILUser02                           = "MSASEMAIL_User02"
-$MSASEMAILUser03                           = "MSASEMAIL_User03"
-$MSASEMAILUser04                           = "MSASEMAIL_User04"
-$MSASEMAILUser05                           = "MSASEMAIL_User05"
+$MSASEMAILUser01                           = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser01"
+$MSASEMAILUser02                           = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser02"
+$MSASEMAILUser03                           = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser03"
+$MSASEMAILUser04                           = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser04"
+$MSASEMAILUser05                           = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser05"
 
-$MSASHTTPUser01                            = "MSASHTTP_User01"
-$MSASHTTPUser02                            = "MSASHTTP_User02"
-$MSASHTTPUser03                            = "MSASHTTP_User03"
-$MSASHTTPUser04                            = "MSASHTTP_User04"
+$MSASHTTPUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser01"
+$MSASHTTPUser02                            = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser02"
+$MSASHTTPUser03                            = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser03"
+$MSASHTTPUser04                            = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser04"
 
-$MSASNOTEUser01                            = "MSASNOTE_User01"
+$MSASNOTEUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASNOTEUser01"
 
-$MSASPROVUser01                            = "MSASPROV_User01"
-$MSASPROVUser02                            = "MSASPROV_User02"
-$MSASPROVUser03                            = "MSASPROV_User03"
-$MSASPROVUserPolicy01                      = "MSASPROV_UserPolicy01"
-$MSASPROVUserPolicy02                      = "MSASPROV_UserPolicy02"
+$MSASPROVUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASPROVUser01"
+$MSASPROVUser02                            = ReadConfigFileNode "$environmentResourceFile" "MSASPROVUser02"
+$MSASPROVUser03                            = ReadConfigFileNode "$environmentResourceFile" "MSASPROVUser03"
+$MSASPROVUserPolicy01                      = ReadConfigFileNode "$environmentResourceFile" "MSASPROVUserPolicy01"
+$MSASPROVUserPolicy02                      = ReadConfigFileNode "$environmentResourceFile" "MSASPROVUserPolicy02"
 
-$MSASRMUser01                              = "MSASRM_User01"
-$MSASRMUser02                              = "MSASRM_User02"
-$MSASRMUser03                              = "MSASRM_User03"
-$MSASRMUser04                              = "MSASRM_User04"
-$MSASRMADUser                              = "MSASRM_ADUser"
-$MSASRMSuperUserGroup                      = "MSASRM_SuperUserGroup"
-$MSASRMAllRights_AllowedTemplate           = "MSASRM_AllRights_AllowedTemplate"
-$MSASRMView_AllowedTemplate                = "MSASRM_View_AllowedTemplate"
-$MSASRMView_ReplyAll_AllowedTemplate       = "MSASRM_ViewReplyAll_AllowedTemplate"
-$MSASRMView_Reply_AllowedTemplate          = "MSASRM_ViewReply_AllowedTemplate"
-$MSASRMView_Reply_ReplyAll_AllowedTemplate = "MSASRM_ViedwReplyReplyAll_AllowedTemplate"
-$MSASRMEdit_Export_NotAllowedTemplate      = "MSASRM_EditExport_NotAllowedTemplate"
-$MSASRMExport_NotAllowedTemplate           = "MSASRM_Export_NotAllowedTemplate"
-$MSASRMReplyAll_NotAllowedTemplate         = "MSASRMReplyAll_NotAllowedTemplate"
+$MSASRMUser01                              = ReadConfigFileNode "$environmentResourceFile" "MSASRMUser01"
+$MSASRMUser02                              = ReadConfigFileNode "$environmentResourceFile" "MSASRMUser02"
+$MSASRMUser03                              = ReadConfigFileNode "$environmentResourceFile" "MSASRMUser03"
+$MSASRMUser04                              = ReadConfigFileNode "$environmentResourceFile" "MSASRMUser04"
+$MSASRMADUser                              = ReadConfigFileNode "$environmentResourceFile" "MSASRMADUser"
+$MSASRMSuperUserGroup                      = ReadConfigFileNode "$environmentResourceFile" "MSASRMSuperUserGroup"
+$MSASRMAllRights_AllowedTemplate           = ReadConfigFileNode "$environmentResourceFile" "MSASRMAllRights_AllowedTemplate"
+$MSASRMView_AllowedTemplate                = ReadConfigFileNode "$environmentResourceFile" "MSASRMView_AllowedTemplate"
+$MSASRMView_ReplyAll_AllowedTemplate       = ReadConfigFileNode "$environmentResourceFile" "MSASRMView_ReplyAll_AllowedTemplate"
+$MSASRMView_Reply_AllowedTemplate          = ReadConfigFileNode "$environmentResourceFile" "MSASRMView_Reply_AllowedTemplate"
+$MSASRMView_Reply_ReplyAll_AllowedTemplate = ReadConfigFileNode "$environmentResourceFile" "MSASRMView_Reply_ReplyAll_AllowedTemplate"
+$MSASRMEdit_Export_NotAllowedTemplate      = ReadConfigFileNode "$environmentResourceFile" "MSASRMEdit_Export_NotAllowedTemplate"
+$MSASRMExport_NotAllowedTemplate           = ReadConfigFileNode "$environmentResourceFile" "MSASRMExport_NotAllowedTemplate"
+$MSASRMReplyAll_NotAllowedTemplate         = ReadConfigFileNode "$environmentResourceFile" "MSASRMReplyAll_NotAllowedTemplate"
 
-$MSASTASKUser01                            = "MSASTASK_User01"
+$MSASTASKUser01                            = ReadConfigFileNode "$environmentResourceFile" "MSASTASKUser01"
 
-$Exchange2013                              = "Microsoft Exchange Server 2013"
-$Exchange2010                              = "Microsoft Exchange Server 2010"
-$Exchange2007                              = "Microsoft Exchange Server 2007"
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Print the content with the specified color and add the content to the log file. 
-# </summary>
-# <param name="content">The content to be printed.</param>
-# <param name="color">The color of the content.</param>
-#-----------------------------------------------------------------------------------
-function Output
-{
-    param([string]$content, [string]$color)
-    $timeString = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
-    $timeContent = "[$timeString] $content"
-    $content = $content + "`r`n"
-    if (($color -eq $null) -or ($color -eq ""))
-    {
-        Write-Host $content -NoNewline
-        Add-Content -Path $logFile -Force -Value $timeContent
-    }
-    else
-    {
-        Write-Host $content -NoNewline -ForegroundColor $color
-        Add-Content -Path $logFile -Force -Value $timeContent
-    }
-}
+$Exchange2016                              = ReadConfigFileNode "$environmentResourceFile" "Exchange2016"
+$Exchange2013                              = ReadConfigFileNode "$environmentResourceFile" "Exchange2013"
+$Exchange2010                              = ReadConfigFileNode "$environmentResourceFile" "Exchange2010"
+$Exchange2007                              = ReadConfigFileNode "$environmentResourceFile" "Exchange2007"
 
 #-----------------------------------------------------------------------------------
 # <summary>
@@ -215,650 +200,6 @@ function StartService
     }
 }
 
-#-----------------------------------------------------------------------------------
-# <summary>
-# Get user input by manually input or by reading unattended configuration XML.
-# </summary>
-# <param name="nodeName">Property name in unattended configuration XML.</param>
-# <returns>
-# user input or value read from XML.
-# </returns>
-#-----------------------------------------------------------------------------------
-function GetUserInput
-{
-    param(
-    [string]$nodeName
-    )
-    [string]$userInput = ""
-    if($unattendedXmlName -eq "")
-    {
-        $userInput = Read-Host
-    }
-    else
-    {
-        $isNodeFound = $false
-        [xml]$xmlContent = New-Object XML
-        $xmlContent.Load($unattendedXmlName)
-        $propertyNodes = $xmlContent.GetElementsByTagName("Property")
-        foreach($node in $propertyNodes)
-        {
-            if($node.name -eq $nodeName)
-            {
-                $userInput = $node."value"
-                $isNodeFound = $true
-                Output "$userInput (Received from the ExchangeSUTConfigurationAnswers.xml file for property : $nodeName)." "White"
-                break
-            }
-        }        
-        if(!$isNodeFound)
-        {
-            Output "Cannot find node with the name attribute $nodeName in $unattendedXmlName. An empty value will be used instead." "Yellow"
-        }
-    }
-    return $userInput
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Check user's input until it is a valid one. 
-# </summary>
-# <param name="userChoices">The available number list user can select from.</param>
-# <param name="nodeName">Property name in unattended configuration XML.</param> 
-# <returns>
-# The valid number.
-# </returns>
-#-----------------------------------------------------------------------------------
-function ReadUserChoice
-{
-    param(
-    [Array]$userChoices,
-    [string]$nodeName
-    )
-    While(1)
-    {
-        [String]$userChoice = GetUserInput $nodeName
-        if($userChoices -contains $userChoice)
-        {
-            return $userChoice
-        }
-        else
-        {
-            Output """$userChoice"" is not a correct input." "Yellow"
-            if($unattendedXmlName -eq "")
-            {
-                Output "Retry with a correct number from the values listed." "Yellow"
-            }
-            else
-            {
-                Write-Warning "Change the value of $nodeName in the ExchangeSUTConfigurationAnswers.xml file with the values listed and run the script again."
-                Stop-Transcript
-                exit 2
-            }
-        }
-    }
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Compare the recommended Exchange minor version with the installed Exchange minor version.
-# </summary>
-# <param name="actualVersion">The display version of the Exchange installed currently.</param>
-# <param name="recommendedVersion">The recommended Exchange display version.</param> 
-# <returns>
-# A Boolean value, true if the server installed the recommended service pack, otherwise false.
-# </returns>
-#-----------------------------------------------------------------------------------           
-function CompareExchangeMinorVersion
-{
-    param(
-    [string]$actualVersion,
-    [string]$recommendedVersion
-    )
-
-    $actualMinorVersion = $actualVersion.split(".")[1]
-    $recommendedMinorVersion = $recommendedVersion.split(".")[1]
-    $actualVersionBuildNumber = $actualVersion.split(".")[2]
-    $recommendedVersionBuildNumber = $recommendedVersion.split(".")[2]
-    
-    if(($actualMinorVersion -eq $recommendedMinorVersion) -and ($actualVersionBuildNumber -ge $recommendedVersionBuildNumber))
-    {
-        return  $true
-    }
-    else
-    {
-        return  $false
-    }
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Get the Exchange server Version. 
-# </summary>
-# <returns>
-# The version name of the Exchange server.
-# Return "Microsoft Exchange Server 2007" if Exchange version is "Microsoft Exchange Server 2007".
-# Return "Microsoft Exchange Server 2010" if Exchange version is "Microsoft Exchange Server 2010".
-# Return "Microsoft Exchange Server 2013" if Exchange version is "Microsoft Exchange Server 2013".
-# Others return warning on "Unknown Version" and exit script.
-# </returns>
-#-----------------------------------------------------------------------------------
-function GetExchangeServerVersion
-{
-    $ExchangeServer2007             = $Exchange2007,   "8.3.83.0",      "SP3"
-    $ExchangeServer2010             = $Exchange2010,   "14.3.123.4",    "SP3"
-    $ExchangeServer2013             = $Exchange2013,   "15.0.847.32",   "SP1"
-    $ExchangeVersion                = "Unknown Version"
- 
-    Output "Trying to get the Exchange server version; please wait ..." "White"
-    $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
-    $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
-    foreach ($item in $items)
-    {
-        if (($item.DisplayName -eq $null) -or ($item.DisplayName -eq ""))
-        {
-            continue
-        }
-        if($item.DisplayName -eq $ExchangeServer2007[0])
-        {
-            $version = $item.DisplayVersion
-            $ExchangeVersion = $ExchangeServer2007[0]
-            $recommendVersion = $ExchangeServer2007[1]
-            $recommendMinorVersion = $ExchangeServer2007[2]
-            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
-            break
-        }
-        if($item.DisplayName -eq $ExchangeServer2010[0])
-        {
-            $version = $item.DisplayVersion
-            $ExchangeVersion = $ExchangeServer2010[0]
-            $recommendVersion = $ExchangeServer2010[1]
-            $recommendMinorVersion = $ExchangeServer2010[2]
-            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
-            break
-        }        
-        if($item.DisplayName.StartsWith($ExchangeServer2013[0]))
-        {
-            $version = $item.DisplayVersion
-            $ExchangeVersion = $ExchangeServer2013[0]
-            $recommendVersion = $ExchangeServer2013[1]
-            $recommendMinorVersion = $ExchangeServer2013[2]
-            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
-            break
-        }        
-    }
-    if ($ExchangeVersion -eq "Unknown Version")
-    {
-        Write-Warning "Could not find the supported version of Exchange server on the system! Install one of the recommended versions ($($ExchangeServer2007[0]) $($ExchangeServer2007[2]), $($ExchangeServer2010[0]) $($ExchangeServer2010[2]), $($ExchangeServer2013[0]) $($ExchangeServer2013[2])) and run the SUT configuration script again.`r`n"
-        Stop-Transcript
-        exit 2
-    }
-    else
-    {
-        if($isRecommendMinorVersion)
-        {
-            Output ("Exchange server version: $ExchangeVersion " + $recommendMinorVersion) "White"
-        }
-        else
-        {
-            Output "$ExchangeVersion $version is not the recommended version." "Yellow"
-            Output ("Please install the recommended $ExchangeVersion " + "$recommendVersion, otherwise some cases might fail.") "Yellow"
-            Output "Would you like to continue configuring the server or exit?" "Cyan"
-            Output "1: CONTINUE." "Cyan"
-            Output "2: EXIT." "Cyan"
-            $runOnNonRecommendedSUTChoices = @('1','2')
-            $runOnNonRecommendedSUT = ReadUserChoice $runOnNonRecommendedSUTChoices "runOnNonRecommendedSUT"
-            if ($runOnNonRecommendedSUT -eq "2")
-            {
-                Stop-Transcript
-                exit 0
-            }           
-        }
-    }
-    return $ExchangeVersion
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Check whether Exchange server is installed on a domain controller.
-# </summary>
-#-----------------------------------------------------------------------------------
-function CheckExchangeInstalledOnDCOrNot
-{
-    Import-module ActiveDirectory
-    $domainControllerInfo = Get-ADDomainController | where {($_.Name -eq $env:COMPUTERNAME ) -and ($_.Domain -eq $env:USERDNSDOMAIN)}
-    if(($domainControllerInfo -ne $null) -and ($domainControllerInfo -ne ""))
-    {
-        Output "An Exchange server installed on a domain controller is not recommended." "Yellow"
-        Output "Would you like to continue to run the SUT setup script on this machine or exit?" "Cyan"    
-        Output "1: CONTINUE." "Cyan"    
-        Output "2: EXIT." "Cyan"    
-        $runOnDomainControllerChoices = @('1','2')
-        $runOnDomainController = ReadUserChoice $runOnDomainControllerChoices "runOnDomainController"
-        if($runOnDomainController -eq "2")
-        {
-            Stop-Transcript
-            exit 0
-        }
-        
-    }
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Set user's password never expires. 
-# </summary>
-# <param name="userName">The user name that will be set password never expires.</param>
-#-----------------------------------------------------------------------------------
-function SetPasswordNeverExpires
-{
-    param(
-    [string]$userName
-    )
-    
-    #----------------------------------------------------------------------------
-    # Parameter validation
-    #----------------------------------------------------------------------------
-    if ($userName -eq $null -or $userName -eq "")
-    {
-        Throw "Parameter userName cannot be empty."
-    }
-        
-    try
-    {
-        $context = new-object System.DirectoryServices.AccountManagement.PrincipalContext("Domain") 
-        $userPrincipal = [System.DirectoryServices.AccountManagement.UserPrincipal]::FindByIdentity($context,$userName)
-        $userPrincipal.PasswordNeverExpires = $true
-        $userPrincipal.save()
-         Output "Enable the setting such that Password for $userName never expires." "Green"
-    }
-    catch [Exception]
-    {
-        throw $_.Exception.Message
-    }
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Configure the SSL settings of the specified page in IIS.
-# </summary>
-# <param name="pageName">The page name that will be configured for SSL settings.</param>
-# <param name="labelName">The label of the object that will be configured for SSL settings.</param>
-# <param name="SSLStatus">The SSL status that will be configured to for the specified page.</param>
-#-----------------------------------------------------------------------------------
-function ConfigureSSLSettings
-{
-    param(
-    [string]$pageName,
-    [string]$labelName,
-    [string]$SSLStatus
-    )
-
-    switch ($SSLStatus)
-    {
-        "None"{ $expectSSLStatus = $false }
-        "Ssl" { $expectSSLStatus = $true }
-    }
-		
-    $retryCount = 20
-    do
-    {
-        cmd /c $env:windir\system32\inetsrv\appcmd.exe set config $pageName /commit:APPHOST /section:system.webServer/security/access /sslFlags:$SSLStatus
-        Start-Sleep -s 3
-        $EASWebSettingsObj = get-wmiobject -namespace "root/MicrosoftIISv2" -query "select * from IIsWebVirtualDirSetting where Name='$labelName'" -computer $Env:ComputerName
-        $currentSSLStatus = $EASWebSettingsObj.AccessSSL
-        $retryCount = $retryCount-1
-    }
-    while($currentSSLStatus -ne $expectSSLStatus -and $retryCount -gt 0)
-
-    if($currentSSLStatus -ne $expectSSLStatus)
-    {
-        if($SSLStatus -eq "None")
-        {
-            Throw "Failed to clear the `"Require SSL`" and set `"Ignore`" for Client certificates in the `"SSL Settings`" page of `"$pageName`" in IIS."
-        }
-        else
-        {
-            Throw "Failed to enable the `"Require SSL`" and set `"Ignore`" for Client certificates in the `"SSL Settings`" page of `"$pageName`" in IIS."
-        }
-    }
-}
-
-#-----------------------------------------------------------------------------------
-# <summary>
-# Check if the specified mailbox user already exists in the server. 
-# </summary>
-# <param name="mailboxUserName">The username of the mailbox.</param>
-# <returns>
-# Return true if the mailbox user already exists.
-# Return false if the mailbox user does not exist.
-# </returns>
-#-----------------------------------------------------------------------------------
-function CheckMailboxUserExistOrNot
-{
-    param(
-    [string]$mailboxUserName
-    )
-	
-    $mailboxInfo = Get-Mailbox -filter {Name -eq $mailboxUserName}
-    if(($mailboxInfo -ne $null) -and ($mailboxInfo -ne ""))
-    {
-        return $true
-    }
-    else
-    {
-        return $false
-    }
-}
-
-#--------------------------------------------------------------------------------------
-# <summary>
-# Create a new mailbox user. 
-# </summary>
-# <param name="mailboxUserName">The name of the mailbox user.</param>
-# <param name="mailboxUserPassword">The password of the mailbox user.</param>
-# <param name="mailboxUserDatabase">The database of the mailbox user.</param>
-# <param name="mailboxUserDomain">The domain that the mailbox user in.</param>
-#-----------------------------------------------------------------------------------
-function CreateMailboxUser
-{
-    param(
-    [string]$mailboxUserName,
-    [string]$mailboxUserPassword,
-    [string]$mailboxUserDatabase,
-    [string]$mailboxUserDomain
-    )
-    if(($mailboxUserName -eq $null) -or ($mailboxUserName -eq ""))
-    {
-        throw "Parameter mailboxUserName cannot be empty."
-    }
-    if(($mailboxUserPassword -eq $null) -or ($mailboxUserPassword -eq ""))
-    {
-        throw "Parameter mailboxUserPassword cannot be empty."
-    }
-    if(($mailboxUserDatabase -eq $null) -or ($mailboxUserDatabase -eq ""))
-    {
-        throw "Parameter mailboxUserDatabase cannot be empty."
-    }
-    if(($mailboxUserDomain -eq $null) -or ($mailboxUserDomain -eq ""))
-    {
-        throw "Parameter mailboxUserDomain cannot be empty."
-    }
-	
-    Output "Create a mailbox user $mailboxUserName." "White"
-    $exist = CheckMailboxUserExistOrNot $mailboxUserName
-    if($exist -eq $true)
-    {
-        Output "Mailbox for $mailboxUserName already exists." "Yellow"
-    }
-    else
-    {
-       if($mailboxUserName.Length -ge 21)
-        {
-            Output "The mailbox username should be below 20 characters, the length of ""$mailboxUserName"" exceeds 20 characters." "Yellow"
-            Output "Warning: creating the mailbox user $mailboxUserName exceeds 20 characters. This will cause an RPC connection failure." "Yellow"
-            Output "Would you like to continue creating the mailbox for ""$mailboxUserName"" or exit?" "Cyan"
-            Output "1: CONTINUE." "Cyan"
-			Output "2: EXIT." "Cyan"
-            $runWithLongerMailboxNameChoices = @('1','2')
-            $runWithLongerMailboxNameChoice = ReadUserChoice $runWithLongerMailboxNameChoices "runWithLongerMailboxNameChoice"
-            if ($runWithLongerMailboxNameChoice -eq "2")
-            {
-                Stop-Transcript
-                exit 0
-            }
-        }
-       $securePassword = ConvertTo-SecureString -String $mailboxUserPassword -AsPlainText -Force
-
-       New-Mailbox -UserPrincipalName "$mailboxUserName@$mailboxUserDomain" -Database $mailboxUserDatabase -Name $mailboxUserName -Password $securePassword  |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-        
-       $check = CheckMailboxUserExistOrNot $mailboxUserName
-       if($check)
-       {
-           Output "Mailbox for $mailboxUserName was created successfully." "Green"
-       }
-       else
-       {
-           Throw("Failed to create the mailbox for $mailboxUserName!")
-       }
-    }
-    SetPasswordNeverExpires $mailboxUserName
-}
-
-#-----------------------------------------------------------------------------------------------------
-# <summary>
-# Check if the user already exists in the specified group.
-# </summary>
-# <param name="userName">The name of the user.</param>
-# <param name="groupName">The name of the group that will be checked whether containing the user.</param>
-# <returns>
-# Return true if the user already exists in the specified group.
-# Return false if the user does not exist in the specified group.
-# </returns>
-#------------------------------------------------------------------------------------------------------
-function CheckGroupMember
-{
-    param(
-    [string]$userName,
-    [string]$groupName
-    )
-	
-    $groupMembers = Get-WmiObject -Class Win32_GroupUser |where{$_.GroupComponent -like "*$groupName*"}
-    if(($groupMembers -ne $null) -and ($groupMembers -ne ""))
-    {
-        foreach($groupMemberInfo in $groupMembers)
-        {
-            #An example value of $groupMember is "\\sutComputerName\root\cimv2:Win32_UserAccount.Domain="contoso",Name=$userName"
-            $groupMember= $groupMemberInfo.PartComponent
-            if((($groupMember.Split(",")[1]).remove(0,5)).replace('"',"") -eq $userName)
-            {
-                return $true
-            } 
-        }    
-    }
-	
-    return $false
-}
-
-#----------------------------------------------------------------------------------
-# <summary>
-# Add user to the specified group.
-# </summary>
-# <param name="ADUser">The name of the user.</param>
-# <param name="groupName">The name of group that the user will be added to.</param>
-#-----------------------------------------------------------------------------------
-function AddUserToGroup
-{
-    param(
-    [string]$ADUser,
-    [string]$groupName
-    )
-	
-    if(($ADUser -eq $null) -or ($ADUser -eq ""))
-    {
-        throw "Parameter ADUser cannot be empty"
-    }
-    if(($groupName -eq $null) -or ($groupName -eq ""))
-    {
-        throw "Parameter groupName cannot be empty"
-    }
-	
-    $userName=($ADUser.split("\"))[1]
-    $exist =CheckGroupMember $userName $groupName
-    
-    if($exist)
-    {
-        Output "User $userName is already a member of Group $groupName." "Yellow"
-    }
-    else
-    {
-        cmd /c net.exe localgroup $groupName $ADUser /add
-		
-        $check =CheckGroupMember $userName $groupName
-        if($check)
-        {
-            Output "$userName was added to $groupName group successfully." "Green"
-        }
-        else
-        {
-            Throw("Failed to add user $userName to Group $groupName!")
-        }
-    }
-}
-
-#-------------------------------------------------------------------------------------------
-# <summary>
-# Check whether the specified Distribution Group exists or not.
-# </summary>
-# <param name="distributionGroupName">The name of the Distribution Group that will be checked.</param>
-# <returns>
-# Return true if the Distribution Group already exists.
-# Return false if the Distribution Group does not exist.
-# </returns>
-#-------------------------------------------------------------------------------------------- 
-function CheckDistributionGroup
-{
-    param(
-    [String]$distributionGroupName
-    ) 
-	
-    $distributionGroupInfo = Get-DistributionGroup | where {$_.Name -eq $distributionGroupName}
-    if(($distributionGroupInfo -ne $null) -and ($distributionGroupInfo -ne ""))
-    {    
-        return $true        
-    }
-    else
-    {
-        return $false
-    }
-}
-
-#-------------------------------------------------------------------------------------------
-# <summary>
-# Create a distributionGroup.
-# </summary>
-# <param name="distributionGroupName">The name of the Distribution Group that will be created.</param>
-# <param name="groupDomain">The name of the domain that the group belongs to.</param>
-#-------------------------------------------------------------------------------------------- 
-function NewDistributionGroup
-{
-    param(
-    [string]$distributionGroupName,
-    [string]$groupDomain
-    )
-	
-    #------------------------------------------------------
-    # Parameter validation
-    #------------------------------------------------------
-    if(($distributionGroupName -eq $null) -or ($distributionGroupName -eq ""))
-    {
-    	Throw "Parameter distributionGroupName cannot be empty."
-    }
-    if(($groupDomain -eq $null) -or ($groupDomain -eq ""))
-    {
-    	Throw "Parameter groupDomain cannot be empty."
-    }
-	
-    $exist = CheckDistributionGroup $distributionGroupName
-	
-    if($exist -eq $true)
-    {
-        Output "Distribution Group $distributionGroupName already exists." "Yellow"
-    }
-    else
-    {
-        New-DistributionGroup -Name $distributionGroupName -Type 'Distribution' -OrganizationalUnit "$groupDomain/Users" -SamAccountName $distributionGroupName -Alias $distributionGroupName |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-        $check = CheckDistributionGroup $distributionGroupName
-        if($check)
-        {
-            Output "Distribution Group $distributionGroupName is created successfully." "Green"
-        }
-        else
-        {
-            throw "Failed to create Distribution Group $distributionGroupName."
-        }
-    }
-}
-
-#-------------------------------------------------------------------------------------------
-# <summary>
-# Check whether the user is a member of the distributionGroup.
-# </summary>
-# <param name="distributionGroup">The name of the distributionGroup to be checked whether containing the specified user.</param>
-# <param name="groupMember">The name of the user to be checked.</param>
-# <returns>
-# Return true if the user is already a member of the distributionGroup.
-# Return false if the user is not a member of the distributionGroup.
-# </returns>
-#-------------------------------------------------------------------------------------------- 
-function CheckDistributionGroupMember
-{
-    param(
-    [string]$distributionGroup,
-    [string]$groupMember
-    )
-	
-    $groupMembers= Get-DistributionGroupMember -Identity $distributionGroup
-    if(($groupMembers -ne $null)-and ($groupMembers -ne ""))
-    {
-        foreach($member in $groupMembers )
-        {
-            if($member.name -eq $groupMember)
-            {
-                return $true
-            }
-        }
-    }
-    return $false
-}
-	
-#---------------------------------------------------------------------------------------------------------
-# <summary>
-# Add a user into the specified distributionGroup.
-# </summary>
-# <param name="distributionGroup">The name of the distributionGroup that the user will be added to.</param>
-# <param name="groupMember">The name of the user to be added to the group.</param>
-#--------------------------------------------------------------------------------------------------------- 
-function AddDistributionGroupMember
-{
-    param(
-    [string]$distributionGroup,
-    [string]$groupMember
-    )
-	
-    #------------------------------------------------------
-    # Parameter validation
-    #------------------------------------------------------
-    if(($distributionGroup -eq $null) -or ($distributionGroup -eq ""))
-    {
-    	Throw "Parameter distributionGroup cannot be empty."
-    }
-    if(($groupMember -eq $null) -or ($groupMember -eq ""))
-    {
-    	Throw "Parameter groupMember cannot be empty."
-    }
-	
-    $exist = CheckDistributionGroupMember $distributionGroup $groupMember
-		
-    if($exist -eq $true)
-    {
-        Output "The user $groupMember is already a member of the group $distributionGroup" "Yellow"
-    }
-    else
-    {
-        Add-DistributionGroupMember  -Identity $distributionGroup -Member $groupMember 
-        $check = CheckDistributionGroupMember $distributionGroup $groupMember
-	    if($check)
-        {
-           Output "$groupMember was added to the group $distributionGroup successfully." "Green"
-        }
-        else
-        {
-            throw "Failed to add the user $groupMember to the group $distributionGroup."
-        }
-        
-    }
-}
-
 #-------------------------------------------------------------------------------------------
 # <summary>
 # Check whether the Mobile Device mailbox policy exists or not.
@@ -881,7 +222,7 @@ function CheckActiveSyncMailboxPolicy
     {
         Get-ActiveSyncMailboxPolicy $mailboxPolicyName -ErrorAction silentlyContinue
     }
-    elseif($ExchangeVersion -eq $Exchange2013)
+    elseif($ExchangeVersion -ge $Exchange2013)
     {
         Get-MobileDeviceMailboxPolicy $mailboxPolicyName -ErrorAction silentlyContinue
     }
@@ -931,7 +272,7 @@ function CreateActiveSyncMailboxPolicy
     $exist = CheckActiveSyncMailboxPolicy $mailboxPolicyName
     if($exist -eq $true)
     {
-        Output "The ActiveSync mailbox policy $mailboxPolicyName already exists." "Yellow"
+        OutputWarning "The ActiveSync mailbox policy $mailboxPolicyName already exists."
     }
     else
     {
@@ -939,14 +280,14 @@ function CreateActiveSyncMailboxPolicy
         {
             New-ActiveSyncMailboxPolicy -Name $mailboxPolicyName -AllowNonProvisionableDevices $false -DevicePasswordEnabled $false -AlphanumericDevicePasswordRequired $false -MaxInactivityTimeDeviceLock 'unlimited' -MinDevicePasswordLength $null -PasswordRecoveryEnabled $false -RequireDeviceEncryption $false -AttachmentsEnabled $true -AllowSimpleDevicePassword $true -DevicePasswordExpiration 'unlimited' -DevicePasswordHistory '0' -confirm:$false  |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
         }
-        elseif($ExchangeVersion -eq $Exchange2013)
+        elseif($ExchangeVersion -ge $Exchange2013)
         {
             New-MobileDeviceMailboxPolicy -Name $mailboxPolicyName -AllowNonProvisionableDevices $false -PasswordEnabled $false -AlphanumericPasswordRequired $false -MaxInactivityTimeLock 'unlimited' -MinPasswordLength $null -PasswordRecoveryEnabled $false -RequireDeviceEncryption $false -AttachmentsEnabled $true -AllowSimplePassword $true -PasswordExpiration 'unlimited' -PasswordHistory '0' -confirm:$false |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
         }
         $check = CheckActiveSyncMailboxPolicy $mailboxPolicyName $ExchangeVersion
         if($check)
         {
-            Output "Created ActiveSync mailbox policy $mailboxPolicyName successfully." "Green"
+            OutputSuccess "Created ActiveSync mailbox policy $mailboxPolicyName successfully."
         }
         else
         {
@@ -969,7 +310,7 @@ function CheckMailboxUserPolicy
     [string]$userName
     )
 	
-    $mailboxInfo = Get-CasMailbox -Filter {Name -eq $userName}
+    $mailboxInfo = Get-CasMailbox |Where {$_.Name -eq "$userName"}
     if(($mailboxInfo -ne $null) -and ($mailboxInfo -ne ""))
     {
         if($mailboxInfo.ActiveSyncMailboxPolicy.Name -eq $mailboxPolicyName)
@@ -1009,7 +350,7 @@ function SetMailboxUserPolicy
     $exist = CheckMailboxUserPolicy $mailboxPolicyName $userName
     if($exist -eq $true)
     {
-        Output "ActiveSync mailbox policy $mailboxPolicyName is already applied to $userName."  "Yellow"
+        OutputWarning "ActiveSync mailbox policy $mailboxPolicyName is already applied to $userName."
     }
     else
     {
@@ -1017,7 +358,7 @@ function SetMailboxUserPolicy
         $check = CheckMailboxUserPolicy $mailboxPolicyName $userName
         if($check)
         {
-            Output "ActiveSync mailbox policy $mailboxPolicyName is applied to $userName successfully." "Green"
+            OutputSuccess "ActiveSync mailbox policy $mailboxPolicyName is applied to $userName successfully."
         }
         else
         {
@@ -1206,12 +547,12 @@ function AddDistributedTemplate
     $exist = CheckDistributedTemplate $templateName
     if($exist -eq $true)
     {
-        Output "The distributed template $templateName already exists." "Yellow"
+        OutputWarning "The distributed template $templateName already exists."
     }
     else
     {
         New-Item AdrmsCluster:\RightsPolicyTemplate -LocaleName en-us -DisplayName $templateName -Description "$rightsInfo" -UserGroup ANYONE -Right $rights
-        Output "The distributed template $templateName is added successfully." "Green"
+        OutputSuccess "The distributed template $templateName is added successfully."
     }
 }
 
@@ -1285,7 +626,7 @@ function  AddUserToOrgMgmtGroup
 	
     if($exist)
     {
-        Output "The user $userName already exists in the Organization Management group." "Yellow"
+        OutputWarning "The user $userName already exists in the Organization Management group."
     }
     else
     {
@@ -1304,7 +645,7 @@ function  AddUserToOrgMgmtGroup
         $check = CheckOrgAdminMember $ExchangeVersion $userName
         if($check)
         {
-            Output "Added the user $userName to Organization Management Group successfully." "Green"
+            OutputSuccess "Added the user $userName to Organization Management Group successfully."
         }
         else
         {
@@ -1343,12 +684,12 @@ function CreateADUser
             }
             else
             {
-                Output "User $username is created successfully." "Green"
+                OutputSuccess "User $username is created successfully."
             }
         }
         else
         {
-            Output "User $userName already exists." "Yellow"
+            OutputWarning "User $userName already exists."
         } 
     }
     #Set the password of $userName into never expired.
@@ -1381,7 +722,7 @@ function AddDNSResourceRecord
         $resourceRecordInfo = Get-WmiObject -namespace "root\MicrosoftDNS" -class MicrosoftDNS_ResourceRecord -ComputerName $domainControllerHostName| Where-Object {$_.TextRepresentation -eq $text}
         if($resourceRecordInfo -ne $null -and $resourceRecordInfo -ne "")
         {
-            Output "The host record rms.$domainName is created successfully." "Green"
+            OutputSuccess "The host record rms.$domainName is created successfully."
         }
         else
         {
@@ -1422,7 +763,7 @@ function AddAcl
    $Acl = $DirInfo.GetAccessControl()
    $Acl.AddAccessRule($AccessRule)
    $DirInfo.SetAccessControl($Acl)
-   Output "Added Read and ReadAndExecute permission for the group $securityGroup on the file successfully." "Green"
+   OutputSuccess "Added Read and ReadAndExecute permission for the group $securityGroup on the file successfully."
 }
 
 #-------------------------------------------------------------------------------------------------------------
@@ -1442,7 +783,7 @@ function TrustComputerForDelegation
 	$domainControllerInfo = Get-ADDomainController | where {($_.Name -eq $sutComputerName) -and ($_.Domain -eq $domainName)}
     if(($domainControllerInfo -eq $null) -or ($domainControllerInfo -eq ""))
     {
-        Output "The computer is not a domain controller"
+        OutputText "The computer is not a domain controller"
         $TRUSTED_FOR_DELEGATION = 524288;
         $domainContext="GC://" + $([adsi] "LDAP://RootDSE").Get("RootDomainNamingContext")
         $contextInfo = New-Object System.DirectoryServices.DirectoryEntry($domainContext)
@@ -1452,7 +793,7 @@ function TrustComputerForDelegation
         $results = $searcher.FindAll()
         if($results.count -eq 0)
         { 
-            Output "Computer $sutComputerName is not found in Active Directory." "Red"
+            OutputError "Computer $sutComputerName is not found in Active Directory."
         }
         else
         {
@@ -1462,7 +803,7 @@ function TrustComputerForDelegation
                 {
                     $dn=[string]$($result.properties["adspath"]).replace("GC://","LDAP://")
                     $computerInfo=New-Object System.DirectoryServices.DirectoryEntry($dn)
-                    Output "Enable the setting such that $($computerInfo.cn) is trusted for delegation..." "Green"
+                    OutputSuccess "Enable the setting such that $($computerInfo.cn) is trusted for delegation..."
                     $uac=$computerInfo.userAccountControl[0] -bor $TRUSTED_FOR_DELEGATION
                     $computerInfo.userAccountControl[0]=$uac
                     $result=$computerInfo.CommitChanges()
@@ -1528,7 +869,7 @@ function AddPhotoToMailboxUser
     $exist = CheckMailboxUserPhoto $mailboxUser
     if($exist -eq $true)
     {
-        Output "The photo is already added into the mailbox user $mailboxUser." "Yellow"
+        OutputWarning "The photo is already added into the mailbox user $mailboxUser."
     }
     else
     {
@@ -1536,7 +877,7 @@ function AddPhotoToMailboxUser
         $check = CheckMailboxUserPhoto $mailboxUser
         if($check -eq $true)
         {
-            Output "Added the photo $userPhotoName to mailbox user $mailboxUser successfully." "Green"
+            OutputSuccess "Added the photo $userPhotoName to mailbox user $mailboxUser successfully."
         }
         else
         {
@@ -1545,60 +886,7 @@ function AddPhotoToMailboxUser
     }
 }
 
-#----------------------------------------------------------------------------------------------------------------------------------------
-# <summary>
-# Add delegate of mailbox user to another mailbox user. 
-# </summary>
-# <param name="mainMailboxUser">The name of mailbox user that will grant the delegate permission.</param>
-# <param name="mainMailboxUserPassword">The password of the mailbox user.</param>
-# <param name="delegateMailboxUser">The name of the mailbox user that will be assigned the delegate permission.</param>
-# <param name="sutComputerName">The name of the server that the Microsoft Exchange Server installed on.</param>
-# <param name="domainName">The name of the domain.</param>
-# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
-#--------------------------------------------------------------------------------------------------------------------------------
-function AddDelegateForMaiboxUser
-{
-    param(
-    [string]$mainMailboxUser,
-    [string]$mainMailboxUserPassword,
-    [string]$delegateMailboxUser,
-    [string]$sutComputerName,
-    [string]$domainName,
-    [string]$ExchangeVersion
-    )
-	
-	$dllPath= & {Split-Path $MyInvocation.scriptName}
-    if(!(Test-Path "$dllPath\MS_OXWSDLGM_ServerAdapter.dll"))
-    {
-        Output "The file MS_OXWSDLGM_ServerAdapter.dll is not found, the case related with delegate can not be tested." "Red"
-    }
-    else
-    {
-        $asm=[Reflection.Assembly]::LoadFrom("$dllpath\MS_OXWSDLGM_ServerAdapter.dll")
-        $delegateInstance = New-Object Microsoft.Protocols.TestSuites.OXWSDLGM.OXWSDLGMAdapter
-        if($ExchangeVersion -eq $Exchange2007)
-        {
-            $version = "Exchange2007_SP3"
-        }   
-        elseif($ExchangeVersion -ge $Exchange2010)
-        {
-            $version = "Exchange2010_SP3"
-        }
-        $delegateInfo= $delegateInstance.AddDelegate($mainMailboxUser, $mainMailboxUserPassword, $delegateMailboxUser, "Https", $sutComputerName, "/ews/exchange.asmx", $domainName, $version)
-        if($delegateInfo -eq "NoError")
-        {
-            Output "Added the delegate of mailbox user $mainMailboxUser to mailbox user $delegateMailboxUser successfully." "Green"
-        }
-        elseif($delegateInfo.contains("DelegateAlreadyExists"))
-        {
-            Output "The delegate of mailbox user $mainMailboxUser has already been set to mailbox user $delegateMailboxUser." "Yellow"
-        }
-	    else
-        {
-            throw "Failed to add the delegate of mailbox user $mainMailboxUser to $delegateMailboxUser."
-        }  
-    }
-}
+
 
 #-----------------------------------------------------------------------
 # <summary>
@@ -1607,7 +895,7 @@ function AddDelegateForMaiboxUser
 #-----------------------------------------------------------------------
 function InstallADCSRole 
 {
-    Output "Install and configure the Active Directory Certificate Services role." "White"
+    OutputText "Install and configure the Active Directory Certificate Services role."
     $os = Get-WmiObject -class Win32_OperatingSystem -computerName $env:COMPUTERNAME	
     if([int]$os.BuildNumber -le 7601)
     {
@@ -1616,7 +904,7 @@ function InstallADCSRole
         {
             Add-WindowsFeature ADCS-Cert-Authority |Out-Null
             Add-WindowsFeature ADCS-Web-Enrollment |Out-Null
-            Output "Configuring settings for ADCS..." "White"
+            OutputText "Configuring settings for ADCS..."
             #Setting CA type. ENTERPRISE_ROOTCA=0, ENTERPRISE_SUBCA=1, STANDALONE_ROOTCA=3, STANDALONE_SUBCA=4
             [int32]$catype="0"
             #Setting CA years
@@ -1641,7 +929,7 @@ function InstallADCSRole
         {
             Install-WindowsFeature -Name ADCS-Cert-Authority |Out-Null
             Install-WindowsFeature -Name ADCS-Web-Enrollment |Out-Null
-            Output "Configuring settings for ADCS..." "White"
+            OutputText "Configuring settings for ADCS..."
             Install-AdcsCertificationAuthority -confirm:$false |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
             Install-AdcsWebEnrollment -confirm:$false |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
         }
@@ -1771,66 +1059,7 @@ function InstallADCSRole
     $smtp.Send($msg)
 }
 
-#----------------------------------------------------------------------------------------------------------------------------------------------------------
-# <summary>
-# Move meeting forward notification email to Deleted Items for specified mailbox user. 
-# </summary>
-# <param name="mailboxUser">The name of mailbox user that will enable the setting to move meeting forward notification email to Deleted Items.</param>
-# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
-#----------------------------------------------------------------------------------------------------------------------------------------------------------
-function MoveNotificationEmailToDeleteFolder
-{
-    param(
-    [string]$mailboxUser,
-    [string]$ExchangeVersion
-    )
-	
-    #--------------------------------------------------
-    # Parameter validation
-    #--------------------------------------------------
-    if(($mailboxUser -eq $null) -or ($mailboxUser -eq ""))
-    {
-    	Throw "Parameter mailboxUser cannot be empty."
-    }
-    if(($ExchangeVersion -eq $null) -or ($ExchangeVersion -eq ""))
-    {
-    	Throw "Parameter ExchangeVersion cannot be empty."
-    }
-	
-    if($ExchangeVersion -eq $Exchange2007)
-    {
-        $calendarAttendantConfig = Get-MailboxCalendarSettings -Identity $mailboxUser   
-        if($calendarAttendantConfig.RemoveForwardedMeetingNotifications -eq $false)
-        {
-            Set-MailboxCalendarSettings -Identity $mailboxUser -RemoveForwardedMeetingNotifications:$true  
-            Output "Enabled the setting such that moving meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser successfully." "Green"  
-        }
-        else
-        {
-            Output "Setting to move meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser has already been set." "Yellow"
-        }
-    }
-    elseif($ExchangeVersion -ge $Exchange2010)
-    {
-        if ($ExchangeVersion -eq $Exchange2010) 
-        {
-            $connectUri = 'http://'+ $sutComputerName + '/PowerShell'
-            $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri $connectUri -Authentication Kerberos  
-            Import-PSSession $session -AllowClobber -DisableNameChecking |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-            Set-AdminAuditLogConfig -AdminAuditLogEnabled $false
-        }
-        $calendarAttendantConfig = Get-CalendarProcessing -Identity $mailboxUser
-        if($calendarAttendantConfig.RemoveForwardedMeetingNotifications -eq $false)
-        {
-            Set-CalendarProcessing -Identity $mailboxUser -RemoveForwardedMeetingNotifications:$true 
-            Output "Enabled the setting such that moving meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser successfully." "Green"  
-        }
-        else
-        {
-            Output "Setting to move meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser has already been set." "Yellow"
-        }
-    }
-}
+
 
 #-----------------------------------------------------------------------------------
 # <summary>
@@ -1859,8 +1088,8 @@ function UninstallRoleADRMS
         Set-ItemProperty -Path "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" -Name "CMD" -Value "$psHome\powershell.exe  `"& '$locationPath\ExchangeSUTConfiguration.cmd' '$unattendedXmlName'`""
         if($unattendedXmlName -eq "" -or $unattendedXmlName -eq $null)
         {    
-            Output "A system restart will be required, please press enter when you are ready" "Cyan"
-            cmd /c pause 
+            OutputQuestion "A system restart will be required, please press enter when you are ready"
+            cmd /c   
         }
         shutdown -r -f -t 3
     }
@@ -1884,7 +1113,7 @@ function InstallRoleADRMS
     $os = Get-WmiObject -class Win32_OperatingSystem -computerName $env:COMPUTERNAME
     if([int]$os.BuildNumber -ge 9200)
     {
-        Output "Add AD RMS role services and tools..." "White"
+        OutputText "Add AD RMS role services and tools..."
         Install-WindowsFeature ADRMS -IncludeManagementTools   |Out-Null
         Install-WindowsFeature NET-Framework-Core |Out-Null
     }
@@ -1904,11 +1133,11 @@ function InstallRoleADRMS
     if(!$?)
     {
         $errorInfo = $Error[0]
-        Output $errorInfo "Red"		
-        Output "The installation of Active Directory Right Management Service role encountered an error, now removing the incomplete installation and re-installing it later." "Yellow"
+        OutputError $errorInfo		
+        OutputWarning "The installation of Active Directory Right Management Service role encountered an error, now removing the incomplete installation and re-installing it later."
         UninstallRoleADRMS $domain
 		
-        Output "Re-installing Active Directory Right Management Service role."  "Yellow"
+        OutputWarning "Re-installing Active Directory Right Management Service role."
         Install-ADRMS -Path RC:\ -Force
     }
 		
@@ -1918,8 +1147,8 @@ function InstallRoleADRMS
     Set-ItemProperty -Path "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce" -Name "CMD" -Value "$psHome\powershell.exe  `"& '$locationPath\ExchangeSUTConfiguration.cmd' '$unattendedXmlName'`""
     if($unattendedXmlName -eq "" -or $unattendedXmlName -eq $null)
     {    
-       Output "A system restart will be required, please press enter when you are ready" "Cyan"
-       cmd /c pause 
+       OutputQuestion "A system restart will be required, please press enter when you are ready"
+       cmd /c   
     }
     shutdown -r -f -t 3
     Start-Sleep -s 6
@@ -1963,7 +1192,7 @@ function CheckRoleADRMS
         Import-Module WebAdministration
         if(Test-Path "IIS:\Sites\default web site\_wmcs")
         {
-            Output "In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs/admin`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow" 
+            OutputWarning "In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs/admin`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" 
             ConfigureSSLSettings "Default Web Site/_wmcs/admin" "W3SVC/1/ROOT/_wmcs/admin" "None"
         }
 		
@@ -1981,16 +1210,16 @@ function CheckRoleADRMS
         if(!$?)
         {
             $errorInfo = $Error[0]
-            Output $errorInfo "Red"			
-            Output "The installation of Active Directory Right Management Service role encountered an error, now removing it and re-installing it later." "Yellow"
+            OutputError $errorInfo 			
+            OutputWarning "The installation of Active Directory Right Management Service role encountered an error, now removing it and re-installing it later."
             UninstallRoleADRMS 
 		
-            Output "Re-installing Active Directory Right Management Service role." "Yellow"
+            OutputWarning "Re-installing Active Directory Right Management Service role."
             InstallRoleADRMS $ADUser $ADUserPassword
         }
         else
         {
-            Output "The Active Directory Right Management Services role has already been installed." "Yellow"
+            OutputWarning "The Active Directory Right Management Services role has already been installed." 
             $exist = Get-RmsSvcAccount -path "AdrmsCluster:\" | foreach-Object{$_.userName -eq $ADUser}
             if($exist -eq $false)
             {
@@ -2004,7 +1233,7 @@ function CheckRoleADRMS
     }    
     else
     {
-        Output "Installing the Active Directory Right Management Services role."  "Yellow" 
+        OutputWarning "Installing the Active Directory Right Management Services role." 
         InstallRoleADRMS $ADUser $ADUserPassword
     }
 }
@@ -2037,7 +1266,7 @@ function ConfigureRoleADRMS
 	
     if($ExchangeVersion -ge $Exchange2010)
     {
-        Output "Add RMS shared identity user into distribution group $distributionGroup." "White"
+        OutputText "Add RMS shared identity user into distribution group $distributionGroup."
         AddDistributionGroupMember $distributionGroup "FederatedEmail.4c1f4d8b-8179-4148-93bf-00a95fa1e042"	
     }
     
@@ -2054,7 +1283,7 @@ function ConfigureRoleADRMS
 #-------------------------------------------------------------------------------------------
 if($unattendedXmlName -eq "" -or $unattendedXmlName -eq $null)
 {    
-    Output "The SUT setup script will run in attended mode." "White"
+    OutputText "The SUT setup script will run in attended mode."
 }
 else
 {    
@@ -2062,14 +1291,14 @@ else
     {   
         if(Test-Path $unattendedXmlName -PathType Leaf)
         {
-            Output "The SUT setup script will run in unattended mode with information provided by the `"$unattendedXmlName`" file." "White"
+            OutputText "The SUT setup script will run in unattended mode with information provided by the `"$unattendedXmlName`" file."
             $unattendedXmlName = Resolve-Path $unattendedXmlName
             break
         }
         else
         {
-            Output "The SUT configuration XML path `"$unattendedXmlName`" is not correct." "Yellow"
-            Output "Retry with the correct file path or press `"Enter`" if you want the SUT setup script to run in attended mode." "Cyan"
+            OutputWarning "The SUT configuration XML path `"$unattendedXmlName`" is not correct."
+            OutputQuestion "Retry with the correct file path or press `"Enter`" if you want the SUT setup script to run in attended mode."
             $unattendedXmlName = Read-Host
         }
     }
@@ -2079,11 +1308,11 @@ else
 # Get Exchange server basic information.
 #-----------------------------------------------------
 $domain          = $Env:UserDNSDomain
-Output "Domain name: $domain" "White"
+OutputText "Domain name: $domain"
 $sutComputerName = $Env:ComputerName
-Output "The name of the Exchange server: $sutComputerName" "White"
+OutputText "The name of the Exchange server: $sutComputerName"
 $userName        = $Env:UserName
-Output "The logon name of the current user: $userName " "White"
+OutputText "The logon name of the current user: $userName "
 $ExchangeVersion = GetExchangeServerVersion
 
 #-----------------------------------------------------
@@ -2118,26 +1347,26 @@ CheckExchangeInstalledOnDCOrNot
 #-----------------------------------------------------
 # Begin to configure server
 #-----------------------------------------------------
-Output "Begin to configure server ..." "White"
-Output "Steps for manual configuration:" "Yellow" 
-Output "Enable remoting in PowerShell." "Yellow"
+OutputText "Begin to configure server ..."
+OutputWarning "Steps for manual configuration:"
+OutputWarning "Enable remoting in PowerShell."
 Invoke-Command {
     $ErrorActionPreference = "Continue"
     Enable-PSRemoting -Force
 }
 
 [int]$recommendedMaxMemory = 1024
-Output "Ensure that the maximum amount of memory allocated per shell for remote shell management is at least $recommendedMaxMemory MB." "Yellow"
+OutputWarning "Ensure that the maximum amount of memory allocated per shell for remote shell management is at least $recommendedMaxMemory MB."
 [int]$originalMaxMemory = (Get-Item WSMan:\localhost\Shell\MaxMemoryPerShellMB).Value
 if($originalMaxMemory -lt $recommendedMaxMemory)
 {
     Set-Item WSMan:\localhost\Shell\MaxMemoryPerShellMB $recommendedMaxMemory
     $actualMaxMemory = (Get-Item WSMan:\localhost\Shell\MaxMemoryPerShellMB).Value
-    Output "The maximum amount of memory allocated per shell for remote shell management is increased from $originalMaxMemory MB to $actualMaxMemory MB." "White"
+    OutputText "The maximum amount of memory allocated per shell for remote shell management is increased from $originalMaxMemory MB to $actualMaxMemory MB."
 }
 else
 {
-    Output "The maximum amount of memory allocated per shell for remote shell management is $originalMaxMemory MB." "White"
+    OutputText "The maximum amount of memory allocated per shell for remote shell management is $originalMaxMemory MB."
 }
 
 StartService "msexchange*" "auto"
@@ -2146,12 +1375,13 @@ StartService "msexchange*" "auto"
 #-----------------------------------------------------------------------------------------------------------------------
 # If the SUT is Exchange Server 2010 or Exchange Server 2013, check the Active Directory Right Management Services role. 
 #-----------------------------------------------------------------------------------------------------------------------
+write-host "`$ExchangeVersion=$ExchangeVersion"
 if($ExchangeVersion -ge $Exchange2010)
 {
     #Create an AD user which will be used as the service account of Active Directory Rights Management Services cluster.
-    Output "Create AD user $MSASRMADUser..." "White"
+    OutputText "Create AD user $MSASRMADUser..." 
     CreateADUser $MSASRMADUser $userPassword
-    Output "Add user $MSASRMADUser into Administrators group." "White"
+    OutputText "Add user $MSASRMADUser into Administrators group."
     AddUserToGroup "$env:USERDOMAIN\$MSASRMADUser" "Administrators"
     #Install ADRMS role automatically if it is not installed. The installation may cause the SUT computer to reboot.
     CheckRoleADRMS  "$env:USERDOMAIN\$MSASRMADUser" $userPassword
@@ -2160,7 +1390,7 @@ if($ExchangeVersion -ge $Exchange2010)
 #----------------------------------------------------------------------------
 # Start to create mailbox users
 #----------------------------------------------------------------------------
-Output "Creating mailbox users on Exchange server $sutComputerName, be patient..." "White"
+OutputText "Creating mailbox users on Exchange server $sutComputerName, be patient..."
 $mailboxDatabases = Get-MailboxDatabase -Server $sutComputerName 
 if(@($mailboxDatabases).count -gt 1)
 {
@@ -2224,50 +1454,50 @@ CreateMailboxUser $MSASCMDSearchUser02     $userPassword         $MailboxDatabas
 #-------------------------------------------------------------
 # Add delegate for specified mailbox user
 #--------------------------------------------------------------
-Output "Add delegate of mailbox user $MSASCMDUser07 to mailbox user $MSASCMDUser08." "White"
+OutputText "Add delegate of mailbox user $MSASCMDUser07 to mailbox user $MSASCMDUser08."
 AddDelegateForMaiboxUser $MSASCMDUser07 $userPassword $MSASCMDUser08 $sutComputerName $domain $ExchangeVersion
-Output "Add delegate of mailbox user $MSASEMAILUser04 to mailbox user $MSASEMAILUser05." "White"
+OutputText "Add delegate of mailbox user $MSASEMAILUser04 to mailbox user $MSASEMAILUser05." 
 AddDelegateForMaiboxUser $MSASEMAILUser04 $userPassword $MSASEMAILUser05 $sutComputerName $domain $ExchangeVersion
 
-Output "Disable the Exchange ActiveSync for mailbox user $MSASCMDUser04."  "White"
-$mailboxInfo = Get-CasMailbox -Filter {Name -eq $MSASCMDUser04}
+OutputText "Disable the Exchange ActiveSync for mailbox user $MSASCMDUser04."  
+$mailboxInfo = Get-CasMailbox |Where {$_.Name -eq $MSASCMDUser04}
 if($mailboxInfo.ActiveSyncEnabled -eq $true)
 {
     Set-CasMailbox $MSASCMDUser04 -ActiveSyncEnabled $false
-    Output "Disabled Exchange ActiveSync for mailbox user $MSASCMDUser04 successfully." "Green"
+    OutputSuccess "Disabled Exchange ActiveSync for mailbox user $MSASCMDUser04 successfully."
 }
 else
 {
-    Output "Setting to not enable the Exchange ActiveSync for mailbox user $MSASCMDUser04 has already been done" "Yellow"
+    OutputWarning "Setting to not enable the Exchange ActiveSync for mailbox user $MSASCMDUser04 has already been done"
 }
 
 #----------------------------------------------------------------------------
 # Set the properties for mailbox user
 #----------------------------------------------------------------------------
-Output "Set the properties for mailbox user $MSASCMDUser01." "White"
+OutputText "Set the properties for mailbox user $MSASCMDUser01."
 Import-Module ActiveDirectory
 Set-ADUser -Identity $MSASCMDUser01 -SamAccountName $MSASCMDUser01 -GivenName "MSASCMD_FirstName" -Surname "MSASCMD_LastName" -Office "D1042" -Company "MS" -Title  "Manager" -homePhone "22222286" -OfficePhone "55555501" -MobilePhone "8612345678910"
-Output "Set the properties for mailbox user $MSASCMDUser01 successfully." "Green"
+OutputSuccess "Set the properties for mailbox user $MSASCMDUser01 successfully."
 
 #----------------------------------------------------------------------------------------------------
 # If the SUT is Exchange Server 2010 or Exchange Server 2013, add photo to the specified mailbox user
 #----------------------------------------------------------------------------------------------------
 if($ExchangeVersion -ge $Exchange2010)
 {
-    Output "Add photo $MSASCMDUser01Photo to the mailbox user $MSASCMDUser01" "White"
+    OutputText "Add photo $MSASCMDUser01Photo to the mailbox user $MSASCMDUser01"
     AddPhotoToMailboxUser $MSASCMDUser01 $MSASCMDUser01Photo
-    Output "Add photo $MSASCMDUser02Photo to the mailbox user $MSASCMDUser02" "White"
+    OutputText "Add photo $MSASCMDUser02Photo to the mailbox user $MSASCMDUser02" 
     AddPhotoToMailboxUser $MSASCMDUser02 $MSASCMDUser02Photo
 }
 
 #-------------------------------------------------------------
 # Add smtpEmailAddress to the specified mailbox user
 #-------------------------------------------------------------- 
-Output "Add smtpEmailAddress to the mailbox user $MSASCMDUser01." "White"
+OutputText "Add smtpEmailAddress to the mailbox user $MSASCMDUser01."
 $exist = CheckSmtpAddress $MSASCMDUser01 $domain
 if($exist -eq $true)
 {
-    Output "The smtpEmailAddress has already been added for $MSASCMDUser01." "Yellow"
+    OutputWarning "The smtpEmailAddress has already been added for $MSASCMDUser01." 
 }
 else
 {
@@ -2285,7 +1515,7 @@ else
     $check = CheckSmtpAddress $MSASCMDUser01 $domain
     if($check)
     {
-        Output "Added smtpEmailAddress to the mailbox user $MSASCMDUser01 successfully." "Green"
+        OutputSuccess "Added smtpEmailAddress to the mailbox user $MSASCMDUser01 successfully." 
     }
     else
     {
@@ -2296,28 +1526,28 @@ else
 #-------------------------------------------------------------
 # Configure External URL
 #-------------------------------------------------------------
-Output "Configure the external URL for the site Microsoft-Server-ActiveSync." "White"
+OutputText "Configure the external URL for the site Microsoft-Server-ActiveSync."
 cmd /c $env:windir\system32\inetsrv\appcmd.exe set config "Default Web Site/Microsoft-Server-ActiveSync" /commit:APPHOST /section:system.webServer/security/access /sslFlags:"Ssl" | Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 $MSASCMDUrl= 'https://' + $sutComputerName + '.'+ $domain +'/Microsoft-Server-ActiveSync'
 $MSASCMDSite= $sutComputerName +'\Microsoft-Server-ActiveSync (Default Web Site)'
 Set-ActiveSyncVirtualDirectory -ExternalUrl $MSASCMDUrl -Identity $MSASCMDSite 
-Output "External URL for the site Microsoft-Server-ActiveSync is configured successfully." "Green"
+OutputSuccess "External URL for the site Microsoft-Server-ActiveSync is configured successfully." 
 
 #-----------------------------------------------------
 # New DistributionGroup 
 #-----------------------------------------------------
-Output "Create two distribution groups $MSASCMDTestGroup and $MSASCMDLargeGroup."  "White"
+OutputText "Create two distribution groups $MSASCMDTestGroup and $MSASCMDLargeGroup."
 NewDistributionGroup $MSASCMDTestGroup $domain
 NewDistributionGroup $MSASCMDLargeGroup $domain
 
-Output "Create an ActiveSync mailbox policy $MSASPROVUserPolicy01."  "White"
+OutputText "Create an ActiveSync mailbox policy $MSASPROVUserPolicy01." 
 CreateActiveSyncMailboxPolicy $MSASPROVUserPolicy01 $ExchangeVersion
-Output "Create an ActiveSync mailbox policy $MSASPROVUserPolicy02."  "White"
+OutputText "Create an ActiveSync mailbox policy $MSASPROVUserPolicy02."  
 CreateActiveSyncMailboxPolicy $MSASPROVUserPolicy02 $ExchangeVersion
 
 if($ExchangeVersion -eq $Exchange2007)
 {
-    Output "Setting the Exchange search not to index this mailbox database." "White"
+    OutputText "Setting the Exchange search not to index this mailbox database."
     Set-MailboxDatabase -Identity $MailboxDatabaseName -IndexEnabled $false
 }
 
@@ -2335,18 +1565,18 @@ if(Test-path $MSASDOCSharedFolderPath)
     }
     Remove-Item $MSASDOCSharedFolderPath -Recurse -Force
 }
-Output "Create a shared folder : $MSASDOCSharedFolderPath. Allow Full Control on this shared folder to the user $MSASDOCUser01."  "White"
+OutputText "Create a shared folder : $MSASDOCSharedFolderPath. Allow Full Control on this shared folder to the user $MSASDOCUser01." 
 New-Item $MSASDOCSharedFolderPath -type directory |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 net.exe share $MSASDOCSharedFolder=$MSASDOCSharedFolderPath
 GrantUserRightsOnFolder $MSASDOCSharedFolderPath "$domain\$MSASDOCUser01" "FullControl" "Allow"
 
-Output "Create a folder (which is not hidden) $MSASDOCVisibleFolder under the shared folder." "White"
+OutputText "Create a folder (which is not hidden) $MSASDOCVisibleFolder under the shared folder." 
 New-Item "$MSASDOCSharedFolderPath\$MSASDOCVisibleFolder" -type directory |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-Output "Create a hidden folder $MSASDOCHiddenFolder under the shared folder." "White"
+OutputText "Create a hidden folder $MSASDOCHiddenFolder under the shared folder." 
 New-Item "$MSASDOCSharedFolderPath\$MSASDOCHiddenFolder" -ItemType Directory | %{$_.Attributes = "hidden"} |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-Output "Create a document (which is not hidden) $MSASDOCVisibleDocument under the shared folder." "White"
+OutputText "Create a document (which is not hidden) $MSASDOCVisibleDocument under the shared folder." 
 New-Item "$MSASDOCSharedFolderPath\$MSASDOCVisibleDocument" -type file -value "This is a visible text file under a shared folder" |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-Output "Create a hidden document $MSASDOCHiddenDocument under the shared folder." "White"
+OutputText "Create a hidden document $MSASDOCHiddenDocument under the shared folder." 
 New-Item "$MSASDOCSharedFolderPath\$MSASDOCHiddenDocument" -type file  -value "This is a hidden text file under a shared folder" | %{$_.Attributes = "hidden"} |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 
 $MSASCMDSharedFolderPath = Join-Path $sharedFolderPath $MSASCMDSharedFolder 
@@ -2359,29 +1589,29 @@ if(Test-path $MSASCMDSharedFolderPath)
     }
     Remove-Item $MSASCMDSharedFolderPath -Recurse -Force
 }
-Output "Create a shared folder : $MSASCMDSharedFolderPath. Deny the Read permission to the user $MSASCMDUser02 on this shared folder."  "White"
+OutputText "Create a shared folder : $MSASCMDSharedFolderPath. Deny the Read permission to the user $MSASCMDUser02 on this shared folder." 
 New-Item $MSASCMDSharedFolderPath -type directory |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 net.exe share $MSASCMDSharedFolder=$MSASCMDSharedFolderPath
 GrantUserRightsOnFolder $MSASCMDSharedFolderPath "$domain\$MSASCMDUser02" "Read" "Deny"
 
-Output "Create a document $MSASCMDNonEmptyDocument that size should keep at least 4 bytes under the shared folder." "White"
+OutputText "Create a document $MSASCMDNonEmptyDocument that size should keep at least 4 bytes under the shared folder."
 New-Item "$MSASCMDSharedFolderPath\$MSASCMDNonEmptyDocument" -type file -value "The size of this text file is at least 4 bytes under a shared folder" |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
-Output "Create an empty document $MSASCMDEmptyDocument under the shared folder."  "White"
+OutputText "Create an empty document $MSASCMDEmptyDocument under the shared folder."  
 New-Item "$MSASCMDSharedFolderPath\$MSASCMDEmptyDocument" -type file |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 
 #-----------------------------------------------------
 # Configure SSL Settings    
 #-----------------------------------------------------
-Output "Configure SSL settings" "white"
-Output "If 'Require SSL' is enabled, server will only accept HTTPS traffic, otherwise server will accept both HTTP and HTTPS traffic." "Yellow"
-Output "Disable SSL settings of the following web sites which support both HTTP and HTTPS you want to test on Exchange Server." "White"
-Output "Steps for manual configuration:" "Yellow"
+OutputText "Configure SSL settings" 
+OutputWarning "If 'Require SSL' is enabled, server will only accept HTTPS traffic, otherwise server will accept both HTTP and HTTPS traffic."
+OutputText "Disable SSL settings of the following web sites which support both HTTP and HTTPS you want to test on Exchange Server." 
+OutputWarning "Steps for manual configuration:" 
 $step = 1 
-Output "$step. In the `"SSL Settings`" page of `"Default Web Site`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow"
+OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" 
 $step++
-Output "$step. In the `"SSL Settings`" page of `"Default Web Site/Microsoft-Server-ActiveSync`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow" 
+OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site/Microsoft-Server-ActiveSync`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates"  
 $step++
-Output "$step. In the `"SSL Settings`" page of `"Default Web Site/Autodiscover`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow" 
+OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site/Autodiscover`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates"  
 ConfigureSSLSettings "Default Web Site" "W3SVC/1/ROOT" "None"
 ConfigureSSLSettings "Default Web Site/Microsoft-Server-ActiveSync" "W3SVC/1/ROOT/Microsoft-Server-ActiveSync" "None"
 ConfigureSSLSettings "Default Web Site/Autodiscover" "W3SVC/1/ROOT/Autodiscover" "None"
@@ -2389,33 +1619,33 @@ ConfigureSSLSettings "Default Web Site/Autodiscover" "W3SVC/1/ROOT/Autodiscover"
 #-----------------------------------------------------
 # Add user into the specified group
 #-----------------------------------------------------
-Output "Add user $MSASCMDUser03 to Administrators group."  "White"
+OutputText "Add user $MSASCMDUser03 to Administrators group."  
 AddUserToGroup "$domain\$MSASCMDUser03" "Administrators"
 
-Output "Add user $MSASHTTPUser04 to Administrators group."  "White"
+OutputText "Add user $MSASHTTPUser04 to Administrators group."  
 AddUserToGroup "$domain\$MSASHTTPUser04" "Administrators"
 
-Output "Add user $MSASPROVUser01 to Administrators group."  "White"
+OutputText "Add user $MSASPROVUser01 to Administrators group."  
 AddUserToGroup "$domain\$MSASPROVUser01"  "Administrators"
 
-Output "Add user $MSASRMUser04 to Administrators group."  "White"
+OutputText "Add user $MSASRMUser04 to Administrators group."  
 AddUserToGroup "$domain\$MSASRMUser04"  "Administrators"
 
 
-Output "Add user $MSASCMDUser03 to Organization Management group." "White"
+OutputText "Add user $MSASCMDUser03 to Organization Management group." 
 AddUserToOrgMgmtGroup $ExchangeVersion $MSASCMDUser03
 
-Output "Add user $MSASPROVUser01 to Organization Management group." "White"
+OutputText "Add user $MSASPROVUser01 to Organization Management group." 
 AddUserToOrgMgmtGroup $ExchangeVersion $MSASPROVUser01
 	
 #-----------------------------------------------------
 # Add users to Distribution Group   
 #-----------------------------------------------------
-Output "Add user $MSASCMDUser01 and $MSASCMDUser02 to distribution group $MSASCMDTestGroup." "White"
+OutputText "Add user $MSASCMDUser01 and $MSASCMDUser02 to distribution group $MSASCMDTestGroup." 
 AddDistributionGroupMember $MSASCMDTestGroup   $MSASCMDUser01
 AddDistributionGroupMember $MSASCMDTestGroup   $MSASCMDUser02
 
-Output "Add 21 mailbox users of MS-ASCMD to distribution group $MSASCMDLargeGroup."  "White"
+OutputText "Add 21 mailbox users of MS-ASCMD to distribution group $MSASCMDLargeGroup."  
 $MSASCMDUsers = @($MSASCMDUser01,$MSASCMDUser02,$MSASCMDUser03,$MSASCMDUser04,$MSASCMDUser05,$MSASCMDUser06,$MSASCMDUser07,$MSASCMDUser08,$MSASCMDUser09,$MSASCMDUser10,$MSASCMDUser11,$MSASCMDUser12,$MSASCMDUser13,$MSASCMDUser14,$MSASCMDUser15,$MSASCMDUser16,$MSASCMDUser17,$MSASCMDUser18,$MSASCMDUser19,$MSASCMDSearchUser01,$MSASCMDSearchUser02)
 foreach($MSASCMDUser in $MSASCMDUsers)
 {
@@ -2427,10 +1657,10 @@ foreach($MSASCMDUser in $MSASCMDUsers)
 #-------------------------------------------------------------- 
 if($ExchangeVersion -eq $Exchange2007)
 {
-    Output "Add IIS 6 WMI Compatibility Role Service." "White"
+    OutputText "Add IIS 6 WMI Compatibility Role Service." 
     Import-Module ServerManager
     Add-WindowsFeature Web-wmi |Out-Null
-    Output "Add IIS 6 WMI Compatibility Role Service successfully." "Green"
+    OutputSuccess "Add IIS 6 WMI Compatibility Role Service successfully." 
 }
 
 #---------------------------------------------------------------------------------------------------------------------
@@ -2452,7 +1682,7 @@ if($ExchangeVersion -eq $Exchange2007)
     $serviceObject = Get-Service $service
     if($serviceObject.status -eq "Running")
     {
-        Output "Service $service is started successfully." "Green"
+        OutputSuccess "Service $service is started successfully." 
     }
     else
     {
@@ -2463,34 +1693,34 @@ if($ExchangeVersion -eq $Exchange2007)
 #--------------------------------------------------------------------------------
 # Set policy with the specified user
 #--------------------------------------------------------------------------------
-Output "Apply several policy settings for the Mobile Device mailbox policy $MSASPROVUserPolicy02, Please refer to Deployment Guide section 5.1.2 for more information on what settings are applied." "White"
+OutputText "Apply several policy settings for the Mobile Device mailbox policy $MSASPROVUserPolicy02, Please refer to Deployment Guide section 5.1.2 for more information on what settings are applied." 
 if($ExchangeVersion -le $Exchange2010)
 {
-    Set-ActiveSyncMailboxPolicy -Identity $MSASPROVUserPolicy02 -AllowNonProvisionableDevices $false -DevicePasswordExpiration 730  -MaxAttachmentSize 2097151 -UnapprovedInROMApplicationList MultiValuedProperty -ApprovedApplicationList d5a090797891fb3ac44749551c87c0a68f46dd82:bthci.dll -confirm:$false
+    Set-ActiveSyncMailboxPolicy -Identity $MSASPROVUserPolicy02 -AttachmentsEnabled $false -AllowNonProvisionableDevices $false -DevicePasswordExpiration 730  -MaxAttachmentSize 2097151 -UnapprovedInROMApplicationList MultiValuedProperty -ApprovedApplicationList d5a090797891fb3ac44749551c87c0a68f46dd82:bthci.dll -confirm:$false
 }
-elseif($ExchangeVersion -eq $Exchange2013)
+elseif($ExchangeVersion -ge $Exchange2013)
 {
-    Set-MobileDeviceMailboxPolicy -Identity $MSASPROVUserPolicy02 -AllowNonProvisionableDevices $false -PasswordExpiration 730  -MaxAttachmentSize 2097151 -UnapprovedInROMApplicationList MultiValuedProperty -ApprovedApplicationList d5a090797891fb3ac44749551c87c0a68f46dd82:bthci.dll -confirm:$false
+    Set-MobileDeviceMailboxPolicy -Identity $MSASPROVUserPolicy02 -AttachmentsEnabled $false -AllowNonProvisionableDevices $false -PasswordExpiration 730  -MaxAttachmentSize 2097151 -UnapprovedInROMApplicationList MultiValuedProperty -ApprovedApplicationList d5a090797891fb3ac44749551c87c0a68f46dd82:bthci.dll -confirm:$false
 }
-Output "Mobile device mailbox policy settings for $MSASPROVUserPolicy02 applied successfully." "Green"
+OutputSuccess "Mobile device mailbox policy settings for $MSASPROVUserPolicy02 applied successfully." 
 
-Output "Set the mailbox policy $MSASPROVUserPolicy01 to user $MSASPROVUser01" "White"
+OutputText "Set the mailbox policy $MSASPROVUserPolicy01 to user $MSASPROVUser01" 
 SetMailboxUserPolicy $MSASPROVUserPolicy01            $MSASPROVUser01
-Output "Set the mailbox policy $MSASPROVUserPolicy02 to user $MSASPROVUser02" "White"
+OutputText "Set the mailbox policy $MSASPROVUserPolicy02 to user $MSASPROVUser02" 
 SetMailboxUserPolicy $MSASPROVUserPolicy02            $MSASPROVUser02
 
 #----------------------------------------------------------------------------------------
 # Move the meeting forward notification email to Delete Items folder.
 #----------------------------------------------------------------------------------------
-Output "Enable the setting to move meeting forward notification email to the Deleted Items folder for mailbox user $MSASCMDUser01" "White"
+OutputText "Enable the setting to move meeting forward notification email to the Deleted Items folder for mailbox user $MSASCMDUser01" 
 MoveNotificationEmailToDeleteFolder $MSASCMDUser01 $ExchangeVersion
-Output "Enable the setting to move meeting forward notification email to the Deleted Items folder for mailbox user $MSASHTTPUser03" "White"
+OutputText "Enable the setting to move meeting forward notification email to the Deleted Items folder for mailbox user $MSASHTTPUser03" 
 MoveNotificationEmailToDeleteFolder $MSASHTTPUser03	$ExchangeVersion
     
 $ServerAdapters = Get-WmiObject -Class Win32_NetworkAdapterConfiguration -Filter IPEnabled=TRUE -Computer $sutComputerName
-if($ServerAdapters -is [array] -and $ExchangeVersion -eq $Exchange2013)
+if($ServerAdapters -is [array] -and $ExchangeVersion -ge $Exchange2013)
 {
-    Output "Configure the internal DNS lookups." "White"
+    OutputText "Configure the internal DNS lookups." 
     $domainIPAddress= (Get-ADDomainController).IPv4Address
     Set-TransportService $sutComputerName -InternalDNSAdapterEnabled $false -InternalDNSServers $domainIPAddress     
 }
@@ -2500,27 +1730,27 @@ if($ServerAdapters -is [array] -and $ExchangeVersion -eq $Exchange2013)
 #----------------------------------------------------------------------------------------
 if($global:ADRMSInstalledFlag -eq $true)
 {
-    Output "Configure the following SSL settings only for MS-ASRM" "White"
+    OutputText "Configure the following SSL settings only for MS-ASRM" 
     $step++
-    Output "$step. In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow" 
+    OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates"  
     $step++
-    Output "$step. In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs/certification`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow" 
+    OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site/Default Web Site/_wmcs/certification`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates"  
     $step++
-    Output "$step. In the `"SSL Settings`" page of `"Default Web Site/_wmcs/licensing`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" "Yellow"
+    OutputWarning "$step. In the `"SSL Settings`" page of `"Default Web Site/_wmcs/licensing`" in IIS, clear `"Require SSL`", and set `"Ignore`" for Client certificates" 
     ConfigureSSLSettings "Default Web Site/_wmcs" "W3SVC/1/ROOT/_wmcs" "None"
     ConfigureSSLSettings "Default Web Site/_wmcs/certification" "W3SVC/1/ROOT/_wmcs/certification" "None"
     ConfigureSSLSettings "Default Web Site/_wmcs/licensing" "W3SVC/1/ROOT/_wmcs/licensing" "None"
 
-    Output "Create a distribution group $MSASRMSuperUserGroup." "White"
+    OutputText "Create a distribution group $MSASRMSuperUserGroup." 
     NewDistributionGroup $MSASRMSuperUserGroup $domain
 
-    Output "Add a record rms.$domain in DNS manager" "White"
+    OutputText "Add a record rms.$domain in DNS manager" 
     AddDNSResourceRecord $sutComputerName
 	
-    Output "Add the Read and Execute permission for the group on the file license.asmx." "White"
+    OutputText "Add the Read and Execute permission for the group on the file license.asmx." 
     AddAcl "Exchange Servers" "$Env:SystemDrive\inetpub\wwwroot\_wmcs\licensing\license.asmx"
 	
-    Output "Add the Read and Execute permission for the group on the file ServerCertification.asmx." "White"
+    OutputText "Add the Read and Execute permission for the group on the file ServerCertification.asmx." 
     AddAcl "Users" "$Env:SystemDrive\inetpub\wwwroot\_wmcs\certification\ServerCertification.asmx"
     AddAcl "Exchange Servers" "$Env:SystemDrive\inetpub\wwwroot\_wmcs\certification\ServerCertification.asmx"
     AddAcl "AD RMS Service Group" "$Env:SystemDrive\inetpub\wwwroot\_wmcs\certification\ServerCertification.asmx"
@@ -2538,20 +1768,24 @@ if($global:ADRMSInstalledFlag -eq $true)
 	 
     if($ExchangeVersion -ge $Exchange2010)
     {
-        Output "Enable IRM features for messages sent to internal recipients." "White"
+        OutputText "Enable IRM features for messages sent to internal recipients." 
         $IRMInfo= Get-IRMConfiguration
-        if($IRMInfo.InternalLicensingEnabled -eq $true)
+        if ((Get-WindowsFeature|where{$_.name -eq "AD-Domain-Services"}).installed)
         {
-            Output "Already enabled the licensing for internal messages."   "Yellow"
+            OutputError "DC and SUT are in the same machine, test cases for MS-ASRM will be failed." 
+        }
+        elseif($IRMInfo.InternalLicensingEnabled -eq $true)
+        {
+            OutputWarning "Already enabled the licensing for internal messages."  
         }
         else
         {
             Set-IRMConfiguration -InternalLicensingEnabled $true 
         }
-        Output "Enable IRM in Microsoft Office Outlook Web App and in Microsoft Exchange ActiveSync." "White"
+        OutputText "Enable IRM in Microsoft Office Outlook Web App and in Microsoft Exchange ActiveSync." 
         if($IRMInfo.ClientAccessServerEnabled -eq $true)
         {
-            Output "Already enabled the IRM in Microsoft Office Outlook Web App and in Microsoft Exchange ActiveSync."  "Yellow"
+            OutputWarning "Already enabled the IRM in Microsoft Office Outlook Web App and in Microsoft Exchange ActiveSync."  
         }
         else
         {
@@ -2572,7 +1806,7 @@ InstallADCSRole
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 # Create a personal certificate for mailbox user $MSASCMDUser03 then mailbox user $MSASCMDUser03 sends a secure email to mailbox user $MSASCMDUser09
 #--------------------------------------------------------------------------------------------------------------------------------------------------- 
-Output "Create the personal certificate for mailbox user $MSASCMDUser03 and then mailbox user $MSASCMDUser03 sends a secure email to mailbox user $MSASCMDUser09."
+OutputText "Create the personal certificate for mailbox user $MSASCMDUser03 and then mailbox user $MSASCMDUser03 sends a secure email to mailbox user $MSASCMDUser09."
 $scriptPath = & {Split-Path $MyInvocation.scriptName}
 $domainControllerInfo = Get-ADDomainController | where {($_.Name -eq $sutComputerName) -and ($_.Domain -eq $domain)}
 $securePassword = ConvertTo-Securestring $userPassword -AsPlainText -Force
@@ -2580,7 +1814,7 @@ $credential = new-object Management.Automation.PSCredential(("$domain\$MSASCMDUs
 $session = New-PSSession -ComputerName $sutComputerName -credential $credential
 if(($ExchangeVersion -eq $Exchange2007) -or (($domainControllerInfo -ne $null) -and ($domainControllerInfo -ne "")))
 {
-    Invoke-Command -Session $session -ScriptBlock $createCert -ArgumentList $MSASCMDUser03, $userPassword, $scriptPath, $MSASCMDPfxFileName     
+    Invoke-Command -Session $session -ScriptBlock $createCert -ArgumentList $MSASCMDUser03, $userPassword, $scriptPath, $MSASCMDPfxFileName     |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
 }
 else
 {
@@ -2604,10 +1838,11 @@ else
     $retryCount=0
     $time=0
     while($true)
-    {
+    {	
+	write-host "`$scriptPath\`$MSASCMDPfxFileName=$scriptPath\$MSASCMDPfxFileName"
         if(Test-Path "$scriptPath\$MSASCMDPfxFileName")
         {
-            Output "The personal encryption certificate of $MSASCMDUser03 was created successfully." "Green"
+            OutputSuccess "The personal encryption certificate of $MSASCMDUser03 was created successfully." 
             break;
         }
         else
@@ -2619,16 +1854,22 @@ else
 			$retryCount=$retryCount + 1
             $time=$time + 10
             Start-Sleep 10
-            Output "Elapsed $time seconds to wait for the personal encryption certificate of $MSASCMDUser03." "White" 
+            OutputText "Elapsed $time seconds to wait for the personal encryption certificate of $MSASCMDUser03."  
         }
     }
 }
-Invoke-Command -Session $session -ScriptBlock $SendSecureEmail -ArgumentList "$sutComputerName.$domain", "$MSASCMDUser03@$domain", $userPassword,  "$MSASCMDUser09@$domain", $scriptPath, $MSASCMDPfxFileName, $MSASCMDEmailSubjectName, $ExchangeVersion
-Output "Mailbox user $MSASCMDUser03 sends the secure email to $MSASCMDUser09 successfully." "Green"
+Invoke-Command -Session $session -ScriptBlock $SendSecureEmail -ArgumentList "$sutComputerName.$domain", "$MSASCMDUser03@$domain", $userPassword,  "$MSASCMDUser09@$domain", $scriptPath, $MSASCMDPfxFileName, $MSASCMDEmailSubjectName, $ExchangeVersion |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
+OutputSuccess "Mailbox user $MSASCMDUser03 sends the secure email to $MSASCMDUser09 successfully." 
+
+if($ExchangeVersion -ge $Exchange2013) 
+{
+    Set-ActiveSyncDeviceAutoblockThreshold -Identity "UserAgentsChanges" -BehaviorTypeIncidenceLimit 2 -BehaviorTypeIncidenceDuration (new-timespan -minutes 1) -DeviceBlockDuration (new-timespan -minutes 1)
+    OutputSuccess "Sets autoblock threshold rule UserAgentsChanges successfully." 
+}
 
 #----------------------------------------------------------------------------
 # Ending script
 #----------------------------------------------------------------------------
-Output "Server configuration script was executed successfully." "Green"
+OutputSuccess "Server configuration script was executed successfully." 
 Stop-Transcript
-exit 0
+cmd.exe /c ECHO CONFIG FINISHED>C:\config.finished.signal

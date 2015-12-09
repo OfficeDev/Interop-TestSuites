@@ -68,7 +68,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
                 Options = new Request.ItemOperationsFetchOptions
                 {
                     Items = new object[] { true },
-                    ItemsElementName = new Request.ItemsChoiceType4[] { Request.ItemsChoiceType4.RightsManagementSupport }
+                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.RightsManagementSupport }
                 }
             };
             ItemOperationsRequest itemOperationsRequest = Common.CreateItemOperationsRequest(new object[] { fetch });

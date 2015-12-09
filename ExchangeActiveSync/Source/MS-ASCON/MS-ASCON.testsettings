@@ -9,6 +9,7 @@
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-ASCON_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>

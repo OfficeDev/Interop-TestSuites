@@ -303,7 +303,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R180
             Site.CaptureRequirement(
                 180,
-                @"[In Data (Body)] If the Truncated element (section 2.2.2.20.1) is included in the response, the data in the Data element is truncated.");
+                @"[In Data (Body)] If the Truncated element (section 2.2.2.39.1) is included in the response, the data in the Data element is truncated.");
             #endregion
         }
         #endregion
@@ -485,7 +485,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R77
             Site.CaptureRequirement(
                 77,
-                @"[In AllOrNone (BodyPreference)] [A client can include multiple BodyPreference elements in a command request with different values for the Type element] By default, the server returns the data truncated to the size requested by TruncationSize for the Type element that matches the native storage format of the item's Body element (section 2.2.2.4).");
+                @"[In AllOrNone (BodyPreference)] [A client can include multiple BodyPreference elements in a command request with different values for the Type element] By default, the server returns the data truncated to the size requested by TruncationSize for the Type element that matches the native storage format of the item's Body element (section 2.2.2.9).");
             #endregion
         }
         #endregion
@@ -824,7 +824,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R248
             Site.CaptureRequirement(
                 248,
-                @"[In Preview (Body)] The Preview element is an optional<2> child element of the Body element (section 2.2.2.4) that contains the Unicode plain text message or message part preview returned to the client.");
+                @"[In Preview (Body)] The Preview element is an optional child element of the Body element (section 2.2.2.9) that contains the Unicode plain text message or message part preview returned to the client.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R250");
@@ -840,7 +840,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R2644
             Site.CaptureRequirement(
                 2644,
-                @"[In Preview (BodyPreference)] [The Preview element]<4> specifies the maximum length of the Unicode plain text message or message part preview to be returned to the client.");
+                @"[In Preview (BodyPreference)] [The Preview element] specifies the maximum length of the Unicode plain text message or message part preview to be returned to the client.");
             #endregion
         }
         #endregion
@@ -983,6 +983,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
         [TestCategory("MSASAIRS"), TestMethod()]
         public void MSASAIRS_S02_TC11_TruncatedPresentOrNotInRequest()
         {
+            bool isTruncatedSupported = Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1")
+                || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0")
+                || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1");
+            Site.Assume.IsTrue(isTruncatedSupported, "The Truncated element is only supported when the MS-ASProtocolVersion header is set to 12.1, 14.0 and 14.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
             #region Add three contacts with or without the Truncated element
             List<object> commandList = new List<object>();
             string data = Common.GenerateResourceName(Site, "ContactData");
@@ -1321,7 +1326,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.CaptureRequirementIfIsNotNull(
                 itemOperationsItemMultiPart.Email.Body.Part,
                 244,
-                @"[In Part] This element [the Part element] MUST be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.8.1.");
+                @"[In Part] This element [the Part element] MUST be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.9.1.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R176");
@@ -1330,7 +1335,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.CaptureRequirementIfIsNull(
                 itemOperationsItemMultiPart.Email.Body.Data,
                 176,
-                @"[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.8.1.");
+                @"[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.9.1.");
             #endregion
         }
         #endregion

@@ -47,27 +47,43 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
         public void MSASTASK_S01_TC01_CreateTaskItemRecursDaily()
         {
             #region Call Sync command to create a task item with Recurrence whose Type element is recurs daily.
+            SyncStore initializeSyncResponse = this.TASKAdapter.Sync(Common.CreateInitialSyncRequest(this.UserInformation.TasksCollectionId));
 
-            Dictionary<Request.ItemsChoiceType8, object> taskItem = new Dictionary<Request.ItemsChoiceType8, object>();
             string subject = Common.GenerateResourceName(Site, "subject");
+            string clientId = System.Guid.NewGuid().ToString();
+            DateTime startTime = DateTime.Now;
+            DateTime utcStartTime = startTime.ToUniversalTime();
+            DateTime until = startTime.AddDays(10);
 
-            taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
-            taskItem.Add(Request.ItemsChoiceType8.Importance1, (byte)0);
-            Request.Categories4 categories = new Request.Categories4 { Category = "Business,Waiting".Split(',') };
-            taskItem.Add(Request.ItemsChoiceType8.Categories3, categories);
+            // Create a task Item with Type 0 and DayOfWeek
+            string stringRequest = "<?xml version=\"1.0\" encoding=\"utf-8\"?><Sync xmlns=\"AirSync\"><Collections><Collection><SyncKey>" + initializeSyncResponse.SyncKey + "</SyncKey><CollectionId>" + this.UserInformation.TasksCollectionId + "</CollectionId><DeletesAsMoves>0</DeletesAsMoves><GetChanges>1</GetChanges><WindowSize>512</WindowSize><Options><BodyPreference xmlns=\"AirSyncBase\"><Type>2</Type></BodyPreference></Options><Commands><Add><ClientId>" + clientId + "</ClientId><ApplicationData><Body xmlns=\"AirSyncBase\"><Type>1</Type><Data>Content of the body.</Data></Body><UtcStartDate xmlns=\"Tasks\">" + utcStartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcStartDate><StartDate xmlns=\"Tasks\">" + startTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</StartDate><UtcDueDate xmlns=\"Tasks\">" + utcStartTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcDueDate><DueDate xmlns=\"Tasks\">" + startTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</DueDate><ReminderSet xmlns=\"Tasks\">1</ReminderSet><ReminderTime xmlns=\"Tasks\">" + startTime.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</ReminderTime><Subject xmlns=\"Tasks\">" + subject + "</Subject><Importance xmlns=\"Tasks\">0</Importance><Categories xmlns=\"Tasks\"><Category xmlns=\"Tasks\">Business</Category><Category xmlns=\"Tasks\">Waiting</Category></Categories><Recurrence xmlns=\"Tasks\"><Type>0</Type><Start>" + DateTime.Now.AddHours(1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Start><Until>" + until.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Until><Interval>1</Interval><DayOfWeek>2</DayOfWeek></Recurrence></ApplicationData></Add></Commands></Collection></Collections></Sync>";
+            SendStringResponse sendStringResponse = this.TASKAdapter.SendStringRequest(stringRequest, CommandName.Sync);
 
-            Request.Recurrence1 recurrence = new Request.Recurrence1
+            SyncStore response;
+            if (Common.IsRequirementEnabled(631, Site))
             {
-                Type = 0,
-                Start = DateTime.Now,
-                StartSpecified = true,
-                UntilSpecified = true
-            };
-            recurrence.Until = recurrence.Start.AddDays(10);
-            taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
+                response = this.ExtractSyncStore(sendStringResponse);
 
-            SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R631");
+
+                // Verify MS-ASTASK requirement: MS-ASTASK_R631
+                Site.CaptureRequirementIfAreEqual<int>(
+                    6,
+                    int.Parse(response.AddResponses[0].Status),
+                    631,
+                    @"[In Appendix A: Product Behavior]  If the Type element value is 0 (zero), the DayOfWeek element is not a required child element of the Recurrence element. (<1> Section 2.2.2.10:  When the Type element value is 0, Exchange 2007 SP1 responds with a status 6 if DayOfWeek is set in the request.)");
+
+                int dayOfWeekIndex = stringRequest.IndexOf("<DayOfWeek>");
+                int dayOfWeekEndIndex = stringRequest.IndexOf("</DayOfWeek>") + 11;
+                stringRequest = stringRequest.Remove(dayOfWeekIndex, dayOfWeekEndIndex - dayOfWeekIndex + 1);
+                sendStringResponse = this.TASKAdapter.SendStringRequest(stringRequest, CommandName.Sync);
+            }
+
+            // Extract status code from string response
+            response = this.ExtractSyncStore(sendStringResponse);
+
+            Site.Assert.AreEqual<int>(1, int.Parse(response.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
             #endregion
@@ -133,9 +149,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // Verify MS-ASTASK requirement: MS-ASTASK_R37011
             // If the Start is not specified in the request, and the Status in the response is 6, this requirement can be covered.
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 6,
-                syncResponse.AddResponses[0].Status,
+                int.Parse(syncResponse.AddResponses[0].Status),
                 37011,
                 @"[In Start Element] If a client does not include the Start element, as specified in section 2.2.2.23, in a Sync command request ([MS-ASCMD] section 2.2.2.19) whenever a Recurrence element is present, then the server MUST respond with status error 6.");
         }
@@ -155,7 +171,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 0,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 2,
@@ -168,7 +183,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 0 and DayOfMonth element set");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element set to 0 and DayOfMonth element set");
 
             #endregion
 
@@ -178,7 +193,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 1,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
@@ -189,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 1 and DayOfMonth element set");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element set to 1 and DayOfMonth element set");
 
             #endregion
 
@@ -199,7 +213,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 3,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
@@ -212,7 +225,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 3 and DayOfMonth element set");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element set to 3 and DayOfMonth element set");
 
             #endregion
 
@@ -222,7 +235,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 6,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
@@ -237,7 +249,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 6 and DayOfMonth element set");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element set to 6 and DayOfMonth element set");
 
             #endregion
 
@@ -270,7 +282,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 2,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 UntilSpecified = true,
                 DayOfMonthSpecified = true,
@@ -281,7 +292,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -319,9 +330,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // Verify MS-ASTASK requirement: MS-ASTASK_R366
             // If response is returned from server successfully, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                syncResponse.AddResponses[0].Status,
+                int.Parse(syncResponse.AddResponses[0].Status),
                 366,
                 @"[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to synchronize its Task class items for a specified user with the tasks currently stored by the server, as specified in section 3.1.5.3, the server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).");
         }
@@ -342,7 +353,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 5,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 UntilSpecified = true,
                 DayOfMonthSpecified = true,
@@ -355,7 +365,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -406,28 +416,20 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
         public void MSASTASK_S01_TC06_CreateTaskItemRecursWeekly()
         {
             #region Call Sync command to create a task item with Recurrence whose Type element is recurs weekly.
+            SyncStore initializeSyncResponse = this.TASKAdapter.Sync(Common.CreateInitialSyncRequest(this.UserInformation.TasksCollectionId));
 
-            Dictionary<Request.ItemsChoiceType8, object> taskItem = new Dictionary<Request.ItemsChoiceType8, object>();
             string subject = Common.GenerateResourceName(Site, "subject");
+            string clientId = System.Guid.NewGuid().ToString();
+            DateTime startTime = DateTime.Now;
+            DateTime utcStartTime = startTime.ToUniversalTime();
+            DateTime until = startTime.AddDays(21);
 
-            taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
-            Request.Recurrence1 recurrence = new Request.Recurrence1
-            {
-                Type = 1,
-                StartSpecified = true,
-                Start = DateTime.Now,
-                UntilSpecified = true,
-                DayOfWeekSpecified = true,
-                DayOfWeek = 2,
-                IntervalSpecified = true,
-                Interval = 1
-            };
-            recurrence.Until = recurrence.Start.AddDays(21);
+            // Create a task Item with Type 1
+            SendStringResponse sendStringResponse = this.TASKAdapter.SendStringRequest("<?xml version=\"1.0\" encoding=\"utf-8\"?><Sync xmlns=\"AirSync\"><Collections><Collection><SyncKey>" + initializeSyncResponse.SyncKey + "</SyncKey><CollectionId>11</CollectionId><DeletesAsMoves>0</DeletesAsMoves><GetChanges>1</GetChanges><WindowSize>512</WindowSize><Options><BodyPreference xmlns=\"AirSyncBase\"><Type>2</Type></BodyPreference></Options><Commands><Add><ClientId>" + clientId + "</ClientId><ApplicationData><Body xmlns=\"AirSyncBase\"><Type>1</Type><Data>Content of the body.</Data></Body><UtcStartDate xmlns=\"Tasks\">" + utcStartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcStartDate><StartDate xmlns=\"Tasks\">" + startTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</StartDate><UtcDueDate xmlns=\"Tasks\">" + utcStartTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcDueDate><DueDate xmlns=\"Tasks\">" + startTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</DueDate><ReminderSet xmlns=\"Tasks\">1</ReminderSet><ReminderTime xmlns=\"Tasks\">" + startTime.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</ReminderTime><Subject xmlns=\"Tasks\">" + subject + "</Subject><Recurrence xmlns=\"Tasks\"><Type>1</Type><Start>" + DateTime.Now.AddHours(1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Start><Until>" + until.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Until><Interval>1</Interval><DayOfWeek>2</DayOfWeek></Recurrence></ApplicationData></Add></Commands></Collection></Collections></Sync>", CommandName.Sync);
 
-            taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
-            SyncStore syncResponse = this.SyncAddTask(taskItem);
-
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            // Extract status code from string response
+            SyncStore response = this.ExtractSyncStore(sendStringResponse);
+            Site.Assert.AreEqual<int>(1, int.Parse(response.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -448,17 +450,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Site.CaptureRequirementIfIsTrue(
                 syncedTaskItem.Task.Recurrence.DayOfWeekSpecified,
                 135,
-                @"[In DayOfWeek] A command [request or] response has a minimum of one DayOfWeek element per Recurrence element if the value of the Interval element (section 2.2.2.13) is 1, unless the Type element value is 0 (zero).");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R15011");
-
-            // Verify MS-ASTASK requirement: MS-ASTASK_R15011
-            // If DayOfWeekSpecified is true, DayOfWeek element is returned from server.
-            Site.CaptureRequirementIfIsTrue(
-                syncedTaskItem.Task.Recurrence.DayOfWeekSpecified,
-                15011,
-                @"[In DayOfWeek] The DayOfWeek element MUST only be included in [requests or] responses when the Type element value is [0 (zero)] 1 [3, or 6].");
+                @"[In DayOfWeek] A command [request or] response has a minimum of one DayOfWeek element per Recurrence element when the Type element value is 1[, 3, or 6].");
         }
 
         /// <summary>
@@ -476,7 +468,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 2,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 2,
@@ -488,7 +479,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 2 and DayOfWeek element set.");
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R532");
+
+            Site.CaptureRequirementIfAreEqual<int>(
+                6,
+                int.Parse(syncResponse.AddResponses[0].Status),
+                532,
+                "[In DayOfWeek] If a request is issued with the DayOfWeek element when the Type element value is 2 [or 5], the server responds with a status 6 error (conversion error). ");
 
             #endregion
 
@@ -498,7 +496,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 5,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfMonthSpecified = true,
                 DayOfMonth = 10,
@@ -510,18 +507,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element set to 5 and DayOfWeek element set.");
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R533");
+
+            Site.CaptureRequirementIfAreEqual<int>(
+                6,
+                int.Parse(syncResponse.AddResponses[0].Status),
+                533,
+                "[In DayOfWeek] If a request is issued with the DayOfWeek element when the Type element value is [2 or] 5, the server responds with a status 6 error (conversion error). ");
 
             #endregion
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R151");
-
-            // Verify MS-ASTASK requirement: MS-ASTASK_R151
-            // If the Type element value is not in {0,1,3,6}, and the server responds with a status 6 error (conversion error),this requirement can be covered.
-            Site.CaptureRequirement(
-                151,
-                @"[In DayOfWeek]When a request is issued with the DayOfWeek element in other instances[when the Type element value is not 0 (zero), 1, 3, or 6], the server responds with a status 6 error (conversion error).");
         }
 
         /// <summary>
@@ -542,7 +537,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 1,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 2,
@@ -555,7 +549,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when an invalid FirstDayOfWeek element value is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when an invalid FirstDayOfWeek element value is set.");
 
             #endregion
 
@@ -586,7 +580,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Importance1, (byte)3);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
             ItemsNeedToDelete.Add(subject);
 
             #endregion
@@ -596,11 +590,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // Verify MS-ASTASK requirement: MS-ASTASK_R187
             // If the Importance in the request is not in {0,1,2} and the response Status is 1(Success),the requirement can be covered.
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                syncResponse.AddResponses[0].Status,
+                int.Parse(syncResponse.AddResponses[0].Status),
                 187,
-                @"[In Importance]If the Importance element is set to a value other than 0 (zero), 1, or 2 in a command request, the server will process the request successfully (that is, will not return an error code in the response).");
+                @"[In Importance] If the Importance element is set to a value other than 0 (zero), 1, or 2 in a command request, the server will process the request successfully (that is, will not return an error code in the response) [and return the same value that is set in the request].");
+
+            SyncItem syncedTaskItem = this.GetChangeItem(this.UserInformation.TasksCollectionId, subject);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R550");
+
+            // Verify MS-ASTASK requirement: MS-ASTASK_R550
+            Site.CaptureRequirementIfAreEqual<byte?>(
+                3,
+                syncedTaskItem.Task.Importance,
+                550,
+                @"[In Importance] If the Importance element is set to a value other than 0 (zero), 1, or 2 in a command request, the server will [process the request successfully (that is, will not return an error code in the response) and] return the same value that is set in the request.");
         }
 
         /// <summary>
@@ -618,7 +624,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 6,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 4,
@@ -632,7 +637,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -646,14 +651,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             #endregion
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R15013");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R531");
 
-            // Verify MS-ASTASK requirement: MS-ASTASK_R15013
+            // Verify MS-ASTASK requirement: MS-ASTASK_R531
             // If DayOfWeekSpecified is true, DayOfWeek element is returned from server.
             Site.CaptureRequirementIfIsTrue(
                 syncedTaskItem.Task.Recurrence.DayOfWeekSpecified,
-                15013,
-                @"[In DayOfWeek] The DayOfWeek element MUST only be included in [requests or] responses when the Type element value is [0 (zero), 1, 3, or] 6.");
+                531,
+                @"[In DayOfWeek] A command [request or] response has a minimum of one DayOfWeek element per Recurrence element when the Type element value is [1, 3, or] 6.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R418");
@@ -702,7 +707,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.ReminderSet, (byte)2);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(6, syncResponse.AddResponses[0].Status, "A status code 6 should be returned when an invalid ReminderSet value is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "A status code 6 should be returned when an invalid ReminderSet value is set.");
 
             #endregion
 
@@ -711,9 +716,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // Verify MS-ASTASK requirement: MS-ASTASK_R252
             // If the ReminderSet contains a value other than 0 (zero) or 1 in a command request, and the Status in the command response is 6,this requirement can be covered.
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 6,
-                syncResponse.AddResponses[0].Status,
+                int.Parse(syncResponse.AddResponses[0].Status),
                 252,
                 @"[In  ReminderSet]If the ReminderSet element contains a value other than 0 (zero) or 1 in a command request, the server responds with a status value of 6 in the command response.");
         }
@@ -734,7 +739,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 3,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 UntilSpecified = true,
                 DayOfWeekSpecified = true,
@@ -747,7 +751,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
 
             SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
             #endregion
@@ -760,14 +764,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             #endregion
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R15012");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R530");
 
-            // Verify MS-ASTASK requirement: MS-ASTASK_R15012
+            // Verify MS-ASTASK requirement: MS-ASTASK_R530
             // If DayOfWeekSpecified is true, DayOfWeek element is returned from server.
             Site.CaptureRequirementIfIsTrue(
                 syncedTaskItem.Task.Recurrence.DayOfWeekSpecified,
-                15012,
-                @"[In DayOfWeek] The DayOfWeek element MUST only be included in [requests or] responses when the Type element value is [0 (zero), 1] 3 [or 6].");
+                530,
+                @"[In DayOfWeek] A command [request or] response has a minimum of one DayOfWeek element per Recurrence element when the Type element value is [1,] 3[, or 6].");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R430");
@@ -805,7 +809,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 0,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 2,
@@ -818,7 +821,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 0 and WeekOfMonth is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 0 and WeekOfMonth is set.");
 
             #endregion
 
@@ -828,7 +831,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 1,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
@@ -839,7 +841,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 1 and WeekOfMonth is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 1 and WeekOfMonth is set.");
 
             #endregion
 
@@ -849,7 +851,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 2,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfMonthSpecified = true,
                 DayOfMonth = 10,
@@ -860,7 +861,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 2 and WeekOfMonth is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 2 and WeekOfMonth is set.");
 
             #endregion
 
@@ -870,7 +871,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 5,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfMonthSpecified = true,
                 DayOfMonth = 10,
@@ -883,7 +883,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 5 and WeekOfMonth is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 5 and WeekOfMonth is set.");
 
             #endregion
 
@@ -915,20 +915,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 0,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 2,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
-                CalendarTypeSpecified = true,
-                CalendarType = 0
+                CalendarType = 0,
+                CalendarTypeSpecified = true
             };
 
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 0 and CalendarType is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 0 and CalendarType is set.");
 
             #endregion
 
@@ -938,18 +937,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             recurrence = new Request.Recurrence1
             {
                 Type = 1,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 DayOfWeekSpecified = true,
                 DayOfWeek = 1,
-                CalendarTypeSpecified = true,
-                CalendarType = 0
+                CalendarType = 0,
+                CalendarTypeSpecified = true
             };
 
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(6, syncResponse.AddResponses[0].Status, "Status code 6 should be returned when Type element value is 1 and CalendarType is set.");
+            Site.Assert.AreEqual<int>(6, int.Parse(syncResponse.AddResponses[0].Status), "Status code 6 should be returned when Type element value is 1 and CalendarType is set.");
 
             #endregion
 
@@ -970,26 +968,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
         public void MSASTASK_S01_TC15_CreateTaskItemOccurrencesAndUntilBothSet()
         {
             #region Call Sync command to create task item with both Occurrences and Until elements set
+            SyncStore initializeSyncResponse = this.TASKAdapter.Sync(Common.CreateInitialSyncRequest(this.UserInformation.TasksCollectionId));
 
-            Dictionary<Request.ItemsChoiceType8, object> taskItem = new Dictionary<Request.ItemsChoiceType8, object>();
             string subject = Common.GenerateResourceName(Site, "subject");
+            string clientId = System.Guid.NewGuid().ToString();
+            DateTime startTime = DateTime.Now;
+            DateTime utcStartTime = startTime.ToUniversalTime();
+            DateTime until = startTime.AddDays(5);
 
-            taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
-            Request.Recurrence1 recurrence = new Request.Recurrence1
-            {
-                Type = 0,
-                StartSpecified = true,
-                Start = DateTime.Now,
-                UntilSpecified = true,
-                OccurrencesSpecified = true,
-                Occurrences = 2
-            };
-            recurrence.Until = recurrence.Start.AddDays(5);
+            // Create a task Item with Type 0
+            SendStringResponse sendStringResponse = this.TASKAdapter.SendStringRequest("<?xml version=\"1.0\" encoding=\"utf-8\"?><Sync xmlns=\"AirSync\"><Collections><Collection><SyncKey>" + initializeSyncResponse.SyncKey + "</SyncKey><CollectionId>11</CollectionId><DeletesAsMoves>0</DeletesAsMoves><GetChanges>1</GetChanges><WindowSize>512</WindowSize><Options><BodyPreference xmlns=\"AirSyncBase\"><Type>2</Type></BodyPreference></Options><Commands><Add><ClientId>" + clientId + "</ClientId><ApplicationData><Body xmlns=\"AirSyncBase\"><Type>1</Type><Data>Content of the body.</Data></Body><UtcStartDate xmlns=\"Tasks\">" + utcStartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcStartDate><StartDate xmlns=\"Tasks\">" + startTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</StartDate><UtcDueDate xmlns=\"Tasks\">" + utcStartTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcDueDate><DueDate xmlns=\"Tasks\">" + startTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</DueDate><ReminderSet xmlns=\"Tasks\">1</ReminderSet><ReminderTime xmlns=\"Tasks\">" + startTime.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</ReminderTime><Subject xmlns=\"Tasks\">" + subject + "</Subject><Recurrence xmlns=\"Tasks\"><Type>0</Type><Start>" + startTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Start><Until>" + until.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Until><Occurrences>2</Occurrences><Interval>1</Interval></Recurrence></ApplicationData></Add></Commands></Collection></Collections></Sync>", CommandName.Sync);
 
-            taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
-            SyncStore syncResponse = this.SyncAddTask(taskItem);
+            // Extract status code from string response
+            SyncStore response = this.ExtractSyncStore(sendStringResponse);
 
-            Site.Assert.AreEqual<int>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(response.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1051,7 +1044,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 {
                                     if (addItem.Name == "Status")
                                     {
-                                        responseData.Status = byte.Parse(addItem.InnerText);
+                                        responseData.Status = addItem.InnerText;
                                     }
                                 }
 
@@ -1068,9 +1061,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R289");
 
             // Verify MS-ASTASK requirement: MS-ASTASK_R289
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 6,
-                response.AddResponses[0].Status,
+                int.Parse(response.AddResponses[0].Status),
                 289,
                 @"[In Type] If a client does not include this element[Type] in a Sync command request ([MS-ASCMD] section 2.2.2.19) whenever a Recurrence element is present, then the server MUST respond with status error 6.");
         }
@@ -1091,7 +1084,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.DateCompleted, DateTime.Now.AddHours(2));
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1131,7 +1124,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Importance1, (byte)2);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
             ItemsNeedToDelete.Add(subject);
 
             #endregion
@@ -1154,7 +1147,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             Site.Assert.IsNotNull(syncedTaskItem.Task, "The task which subject is {0} should exist in server.", subject);
 
-            #region Call Sync command to update task item subject.
+            #region Call Sync command to update task item subject without changing Importance or ReminderSet.
 
             string newSubject = Common.GenerateResourceName(Site, "new subject");
             Dictionary<Request.ItemsChoiceType7, object> changedPropertyValue = new Dictionary<Request.ItemsChoiceType7, object>
@@ -1198,6 +1191,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                 changeInTaskFolder.AddElements.Count > 0,
                 368,
                 @"[In Sync Command Response] Top-level Task class elements, as specified in section 2.2, are returned as child elements of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) within an airsync:Add element ([MS-ASCMD] section 2.2.3.7.2) in the Sync command response.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R369");
+
+            // Verify MS-ASTASK requirement: MS-ASTASK_R369
+            Site.CaptureRequirementIfAreEqual<byte?>(
+                2,
+                syncedTaskItem.Task.Importance,
+                369,
+                @"[In Importance Element] If the Importance element (section 2.2.2.12) is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store, but rather keep its value unchanged.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R370");
+
+            // Verify MS-ASTASK requirement: MS-ASTASK_R370
+            Site.CaptureRequirementIfAreEqual<byte?>(
+                1,
+                syncedTaskItem.Task.ReminderSet,
+                370,
+                @"[In ReminderSet Element] If the ReminderSet element (section 2.2.2.20) was previously set on a task but is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store but rather keep its value unchanged.");
         }
 
         /// <summary>
@@ -1219,7 +1232,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<int>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1265,7 +1278,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             {
                 Type = 2,
                 Start = DateTime.Now,
-                StartSpecified = true,
                 OccurrencesSpecified = true,
                 Occurrences = 3,
                 DayOfMonthSpecified = true,
@@ -1274,7 +1286,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1316,7 +1328,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 3,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 3,
@@ -1329,7 +1340,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
 
             SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
             #endregion
@@ -1369,7 +1380,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 5,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 3,
@@ -1381,7 +1391,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1432,7 +1442,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Request.Recurrence1 recurrence = new Request.Recurrence1
             {
                 Type = 6,
-                StartSpecified = true,
                 Start = DateTime.Now,
                 OccurrencesSpecified = true,
                 Occurrences = 4,
@@ -1446,7 +1455,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
             SyncStore syncResponse = this.SyncAddTask(taskItem);
 
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 
@@ -1480,29 +1489,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The FirstDayOfWeek element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to create a task item which recurs weekly.
+            SyncStore initializeSyncResponse = this.TASKAdapter.Sync(Common.CreateInitialSyncRequest(this.UserInformation.TasksCollectionId));
 
-            Dictionary<Request.ItemsChoiceType8, object> taskItem = new Dictionary<Request.ItemsChoiceType8, object>();
             string subject = Common.GenerateResourceName(Site, "subject");
+            string clientId = System.Guid.NewGuid().ToString();
+            DateTime startTime = DateTime.Now;
+            DateTime utcStartTime = startTime.ToUniversalTime();
+            DateTime until = startTime.AddDays(21);
 
-            taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
-            Request.Recurrence1 recurrence = new Request.Recurrence1
-            {
-                Type = 1,
-                StartSpecified = true,
-                Start = DateTime.Now,
-                UntilSpecified = true,
-                DayOfWeekSpecified = true,
-                DayOfWeek = 2,
-                IntervalSpecified = true,
-                Interval = 1
-            };
+            // Create a task Item with Type 0
+            SendStringResponse sendStringResponse = this.TASKAdapter.SendStringRequest("<?xml version=\"1.0\" encoding=\"utf-8\"?><Sync xmlns=\"AirSync\"><Collections><Collection><SyncKey>" + initializeSyncResponse.SyncKey + "</SyncKey><CollectionId>11</CollectionId><DeletesAsMoves>0</DeletesAsMoves><GetChanges>1</GetChanges><WindowSize>512</WindowSize><Options><BodyPreference xmlns=\"AirSyncBase\"><Type>2</Type></BodyPreference></Options><Commands><Add><ClientId>" + clientId + "</ClientId><ApplicationData><Body xmlns=\"AirSyncBase\"><Type>1</Type><Data>Content of the body.</Data></Body><UtcStartDate xmlns=\"Tasks\">" + utcStartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcStartDate><StartDate xmlns=\"Tasks\">" + startTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</StartDate><UtcDueDate xmlns=\"Tasks\">" + utcStartTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</UtcDueDate><DueDate xmlns=\"Tasks\">" + startTime.AddHours(5).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</DueDate><ReminderSet xmlns=\"Tasks\">1</ReminderSet><ReminderTime xmlns=\"Tasks\">" + startTime.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</ReminderTime><Subject xmlns=\"Tasks\">" + subject + "</Subject><Recurrence xmlns=\"Tasks\"><Type>1</Type><Start>" + DateTime.Now.AddHours(1).ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Start><Until>" + until.ToString("yyyy-MM-ddTHH:mm:ss.fffZ") + "</Until><Interval>1</Interval><DayOfWeek>2</DayOfWeek></Recurrence></ApplicationData></Add></Commands></Collection></Collections></Sync>", CommandName.Sync);
 
-            recurrence.Until = recurrence.Start.AddDays(21);
+            // Extract status code from string response
+            SyncStore response = this.ExtractSyncStore(sendStringResponse);
 
-            taskItem.Add(Request.ItemsChoiceType8.Recurrence1, recurrence);
-            SyncStore syncResponse = this.SyncAddTask(taskItem);
-
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Task item should be created successfully.");
+            Site.Assert.AreEqual<int>(1, int.Parse(response.AddResponses[0].Status), "Task item should be created successfully.");
 
             ItemsNeedToDelete.Add(subject);
 

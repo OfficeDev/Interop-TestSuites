@@ -4,9 +4,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using DataStructures = Microsoft.Protocols.TestSuites.Common.DataStructures;
+    using Response = Microsoft.Protocols.TestSuites.Common.Response;
 
     /// <summary>
-    /// This scenario is designed to test the Attachments element and its subelements in the AirSyncBase namespace, which is used by the Sync command, Search command and ItemOperations command to identify the data sent by and returned to client.
+    /// This scenario is designed to test the Attachments element and its sub elements in the AirSyncBase namespace, which is used by the Sync command, Search command and ItemOperations command to identify the data sent by and returned to client.
     /// </summary>
     [TestClass]
     public class S03_Attachment : TestSuiteBase
@@ -103,16 +104,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R225
             Site.CaptureRequirement(
                 225,
-                @"[In Method] [The value] 1 [of the Method element] meaning ""Normal attachment"" specifies that the attachment is a normal attachment.");
+                @"[In Method (Attachment)] [The value] 1 [of the Method element] meaning ""Normal attachment"" specifies that the attachment is a normal attachment.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R160");
 
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R160
             Site.CaptureRequirementIfIsNotNull(
-                syncItem.Email.Attachments.Attachment[0].ContentId,
+                ((Response.AttachmentsAttachment)syncItem.Email.Attachments.Items[0]).ContentId,
                 160,
-                @"[In ContentId] The ContentId element is an optional child element of the Attachment element (section 2.2.2.2) that contains the unique object ID for an attachment.");
+                @"[In ContentId (Attachment)] The ContentId element is an optional child element of the Attachment element (section 2.2.2.7) that contains the unique object ID for an attachment.");
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                ((Response.AttachmentsAttachment)syncItem.Email.Attachments.Items[0]).ContentId,
+                1343,
+                @"[In ContentId (Attachment)] [The ContentId element is an optional child element of the Attachment element (section 2.2.2.7) that contains the unique identifier of the attachment, and] is used to reference the attachment within the item to which the attachment belongs.");
 
             #endregion
         }
@@ -146,18 +152,18 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
 
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R2299
             Site.CaptureRequirementIfIsTrue(
-                syncItem.Email.Attachments.Attachment[0].DisplayName.EndsWith(".eml", System.StringComparison.CurrentCultureIgnoreCase),
+                ((Response.AttachmentsAttachment)syncItem.Email.Attachments.Items[0]).DisplayName.EndsWith(".eml", System.StringComparison.CurrentCultureIgnoreCase),
                 2299,
-                @"[In Method] [The value] 5 [of the Method element] meaning ""Embedded message"" indicates that the attachment is an e-mail message, and that the attachment file has an .eml extension.");
+                @"[In Method (Attachment)] [The value] 5 [of the Method element] meaning ""Embedded message"" indicates that the attachment is an e-mail message, and that the attachment file has an .eml extension.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R100298");
 
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R100298
             Site.CaptureRequirementIfIsFalse(
-                syncItem.Email.Attachments.Attachment[0].IsInlineSpecified,
+                ((Response.AttachmentsAttachment)syncItem.Email.Attachments.Items[0]).IsInlineSpecified,
                 100298,
-                @"[In IsInline] If the value[IsInline] is FALSE, then the attachment is not embedded in the message.");
+                @"[In IsInline (Attachment)] If the value[IsInline] is FALSE, then the attachment is not embedded in the message.");
             #endregion
         }
         #endregion
@@ -192,16 +198,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R230
             Site.CaptureRequirement(
                  230,
-                 @"[In Method] [The value] 6 [of the Method element] meaning ""Attach OLE"" indicates that the attachment is an embedded Object Linking and Embedding (OLE) object, such as an inline image.");
+                 @"[In Method (Attachment)] [The value] 6 [of the Method element] meaning ""Attach OLE"" indicates that the attachment is an embedded Object Linking and Embedding (OLE) object, such as an inline image.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R100299");
 
             // Verify MS-ASAIRS requirement: MS-ASAIRS_R100299
             Site.CaptureRequirementIfIsTrue(
-                syncItem.Email.Attachments.Attachment[0].IsInline,
+                ((Response.AttachmentsAttachment)syncItem.Email.Attachments.Items[0]).IsInline,
                 100299,
-                @"[In IsInline] If the value[IsInline] is TRUE, then the attachment is embedded in the message.");
+                @"[In IsInline (Attachment)] If the value[IsInline] is TRUE, then the attachment is embedded in the message.");
             #endregion
         }
         #endregion
@@ -219,21 +225,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "The Attachments element in response should not be null.");
 
             Site.Assert.IsNotNull(
-                email.Attachments.Attachment,
+                email.Attachments.Items,
                 "The Attachment element in response should not be null.");
 
             Site.Assert.AreEqual<int>(
                 1,
-                email.Attachments.Attachment.Length,
+                email.Attachments.Items.Length,
                 "There should be only one Attachment element in response.");
 
             Site.Assert.IsNotNull(
-                email.Attachments.Attachment[0],
+                email.Attachments.Items[0],
                 "The Attachment element in response should not be null.");
 
             Site.Assert.AreEqual<byte>(
                 methodValue, 
-                email.Attachments.Attachment[0].Method, 
+                ((Response.AttachmentsAttachment)email.Attachments.Items[0]).Method, 
                 "The value of Method element in response should be equal to the expected value.");
         }
         #endregion

@@ -211,7 +211,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             };
 
             // The format in which the policy settings are to be provided to the client device.
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" ||
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation();
@@ -330,33 +331,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 }
 
                 Site.Assert.IsFalse(string.IsNullOrEmpty(httpErrorCode), "Server should return expected [449] error code if client do not have policy key");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R511");
-
-                // Verify MS-ASPROV requirement: MS-ASPROV_R511
-                // HTTP 449 status is returned when the MS-ASProtocolVersion header is set to 12.1, so this requirement is captured.
-                Site.CaptureRequirementIfAreEqual(
-                    "449",
-                    httpErrorCode,
-                    511,
-                    @"[In Appendix A: Product Behavior] <2> Section 3.1.5.1: When the MS-ASProtocolVersion header is set to 12.1, the server sends an HTTP 449 response to request a Provision command from the client.");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R514");
-
-                // Verify MS-ASPROV requirement: MS-ASPROV_R514
-                // HTTP 449 status is returned when the MS-ASProtocolVersion header is set to 12.1, so this requirement is captured.
-                Site.CaptureRequirementIfAreEqual(
-                    "449",
-                    httpErrorCode,
-                    514,
-                    @"[In Appendix A: Product Behavior] <3> Section 3.2.5.1: When the MS-ASProtocolVersion header is set to 12.1, the server sends an HTTP 449 response to indicate that the client needs to request the security policy settings and obtain a new policy key.");
-            }
+         }
             else
             {
                 FolderSyncResponse folderSyncResponse = this.PROVAdapter.FolderSync(folderSyncRequest);
-                Site.Assert.AreEqual(144, folderSyncResponse.ResponseData.Status, "The server should return status 144 to indicate a invalid policy key.");
+                Site.Assert.AreEqual(144, int.Parse(folderSyncResponse.ResponseData.Status), "The server should return status 144 to indicate a invalid policy key.");
             }
 
             if (Common.IsRequirementEnabled(537, this.Site))
@@ -368,7 +347,137 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 // If the above capture or assert passed, it means the server did returns a status code when the policy key is mismatched.
                 Site.CaptureRequirement(
                     537,
-                    @"[In Appendix A: Product Behavior] If the policy key sent by the client does not match the stored policy key, the implementation does return a status code in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] If the policy key received from the client does not match the stored policy key on the server [, or if the server determines that policy settings need to be updated on the client], the implementation does return a status code, as specified in [MS-ASCMD] section 2.2.4, in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate Status 139 of Policy element.
+        /// </summary>
+        [TestCategory("MSASPROV"), TestMethod()]
+        public void MSASPROV_S03_TC05_VerifyPolicyStatus139()
+        {
+            #region Download the policy settings.
+            // Download the policy settings.
+            ProvisionResponse provisionResponse = this.CallProvisionCommand(string.Empty, "MS-EAS-Provisioning-WBXML", "1");
+            string temporaryPolicyKey = provisionResponse.ResponseData.Policies.Policy.PolicyKey;
+            #endregion
+
+            #region Acknowledge the policy settings.
+            // Acknowledge the policy settings.
+            provisionResponse = this.CallProvisionCommand(temporaryPolicyKey, "MS-EAS-Provisioning-WBXML", "2");
+
+            if (Common.IsRequirementEnabled(1046, this.Site))
+            {
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    139,
+                    provisionResponse.ResponseData.Status,
+                    1046,
+                    @"[In Appendix A: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (Exchange 2013 and above follow this behavior.)");
+
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    139,
+                    provisionResponse.ResponseData.Status,
+                    681,
+                    @"[In Provision Command Errors] [The meaning of status value] 139 [is] The client cannot fully comply with all requirements of the policy.");
+
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    139,
+                    provisionResponse.ResponseData.Status,
+                    684,
+                    @"[In Provision Command Errors] [The cause of status value 139 is] The server is configured to not allow clients that cannot fully apply the policy.");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate Status 145 of Policy element.
+        /// </summary>
+        [TestCategory("MSASPROV"), TestMethod()]
+        public void MSASPROV_S03_TC06_VerifyPolicyStatus145()
+        {
+            #region Download the policy settings.
+            // Download the policy settings.
+            ProvisionResponse provisionResponse = this.CallProvisionCommand(string.Empty, "MS-EAS-Provisioning-WBXML", "1");
+            string temporaryPolicyKey = provisionResponse.ResponseData.Policies.Policy.PolicyKey;
+            #endregion
+
+            #region Acknowledge the policy settings.
+
+            if ("12.1" != Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site))
+            {
+                // Acknowledge the policy settings.
+                provisionResponse = this.CallProvisionCommand(temporaryPolicyKey, "MS-EAS-Provisioning-WBXML", "4");
+
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    145,
+                    provisionResponse.ResponseData.Status,
+                    686,
+                    @"[In Provision Command Errors] [The meaning of status value] 145 [is] The client is externally managed.");
+
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    145,
+                    provisionResponse.ResponseData.Status,
+                    461,
+                    @"[In Provision Command Errors] [The cause of status value 145 is] The client returned a value of 4 in the Status child element of the Policy element in a request to the server to acknowledge a policy.");
+
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    145,
+                    provisionResponse.ResponseData.Status,
+                    687,
+                    @"[In Provision Command Errors] [The cause of status value 145 is] The server is configured to not allow externally managed clients.");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the Status 141.
+        /// </summary>
+        [TestCategory("MSASPROV"), TestMethod()]
+        public void MSASPROV_S03_TC07_VerifyStatus141()
+        {
+            #region Call Provision command to download the policy settings.
+            // Download the policy setting.
+            ProvisionResponse provisionResponse = this.CallProvisionCommand(string.Empty, "MS-EAS-Provisioning-WBXML", "1");
+            string temporaryPolicyKey = provisionResponse.ResponseData.Policies.Policy.PolicyKey;
+            #endregion
+
+            #region Call Provision command to acknowledge the policy settings and get the valid PolicyKey
+            // Acknowledge the policy setting.
+            provisionResponse = this.CallProvisionCommand(temporaryPolicyKey, "MS-EAS-Provisioning-WBXML", "1");
+
+            string finalPolicyKey = provisionResponse.ResponseData.Policies.Policy.PolicyKey;
+            #endregion
+
+            #region Call FolderSync command with an emtry PolicyKey.
+            if ("12.1" != Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site))
+            {
+                // Apply an emtry policy key
+                this.PROVAdapter.ApplyPolicyKey(string.Empty);
+
+                // Call folder sync with "0" in initialization phase.
+                FolderSyncRequest folderSyncRequest = Common.CreateFolderSyncRequest("0");
+
+                FolderSyncResponse folderSyncResponse = this.PROVAdapter.FolderSync(folderSyncRequest);
+
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    141,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
+                    682,
+                    @"[In Provision Command Errors] [The meaning of status value] 141 [is] The device is not provisionable.");
+
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    141,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
+                    458,
+                    @"[In Provision Command Errors] [The cause of status value 141 is] The client did not submit a policy key value in a request.");
+
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    141,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
+                    685,
+                    @"[In Provision Command Errors] [The cause of status value 141 is] The server is configured to not allow clients that do not submit a policy key value.");
             }
             #endregion
         }

@@ -41,7 +41,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "If the FolderCreate command executes successfully, the Status in response should be 1.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "If the FolderCreate command executes successfully, the Status in response should be 1.");
            
             // Record created folder collectionID.
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
@@ -140,7 +140,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string folderName = Common.GenerateResourceName(Site, "FolderCreate", 1);
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, folderName, "0");
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "If the FolderCreate command executes successfully, the Status in response should be 1.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "If the FolderCreate command executes successfully, the Status in response should be 1.");
             TestSuiteBase.RecordCaseRelativeFolders(this.User1Information, folderCreateResponse.ResponseData.ServerId);
             #endregion
 
@@ -152,9 +152,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4013");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4013
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)2,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4013,
                 @"[In Status(FolderCreate)] [When the scope is Item], [the cause of the status value 2 is] The parent folder already contains a folder that has this name.");
             #endregion
@@ -174,9 +174,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the parent folder does not exist on the server, the value of the Status element should be 5.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4019
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)5,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                5,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4019,
                 @"[In Status(FolderCreate)] [When the scope is Item], [the cause of the status value 5 is] The parent folder does not exist on the server, possibly because it has been deleted or renamed.");
 
@@ -185,9 +185,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the parent folder does not exist on the server, the value of the Status element should be 5.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4018
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)5,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                5,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4018,
                 @"[In Status(FolderCreate)] [When the scope is] Item, [the meaning of the status value] 5 [is] The specified parent folder was not found.");
         }
@@ -206,9 +206,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the client sent a malformed or mismatched synchronization key in FolderCreate request, the value of the Status element should be 9.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4032
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4032,
                 @"[In Status(FolderCreate)] [When the scope is Global], [the cause of the status value 9 is] The client sent a malformed or mismatched synchronization key, or the synchronization state is corrupted on the server.");
 
@@ -217,9 +217,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If the client sent a malformed or mismatched synchronization key in FolderCreate request, the value of the Status element should be 9.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4573
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4573,
                 @"[In SyncKey(FolderCreate, FolderDelete, and FolderUpdate)] The server MUST return a Status element (section 2.2.3.162.4) value of 9 if the value of the SyncKey element does not match the value of the synchronization key on the server.");
         }
@@ -232,16 +232,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             // Call method FolderCreate to create a new folder as a child folder of the specified parent folder without folder SyncKey.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(null, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderCreate"), "0");
-            Site.Assert.AreEqual<byte>((byte)10, folderCreateResponse.ResponseData.Status, "If the request contains a semantic error, the status should be equal to 10.");
+            Site.Assert.AreEqual<int>(10, int.Parse(folderCreateResponse.ResponseData.Status), "If the request contains a semantic error, the status should be equal to 10.");
             folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.Inbox, Common.GenerateResourceName(this.Site, "FolderCreate"), "0");
             
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4035");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4035
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 10,
-                folderCreateResponse.ResponseData.Status,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4035,
                 @"[In Status(FolderCreate)] [When the scope is Global], [the cause of the status value 10 is] The client sent a FolderCreate command request (section 2.2.2.2) that contains a semantic error, or the client attempted to create a default folder, such as the Inbox folder, Outbox folder, or Contacts folder.");
         }
@@ -261,9 +261,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "MS-ASCMD_R4016");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4016
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderCreateResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 4016,
                 @"[In Status(FolderCreate)] [When the scope is Item], [the cause of the status value 3 is] The specified parent folder is the Recipient information folder.");
 
@@ -288,7 +288,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Set the specified parent folder is the recipient information cache
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.RecipientInformationCache, Common.GenerateResourceName(Site, "FolderCreate"), User1Information.InboxCollectionId);
 
-            Site.Assert.AreEqual<byte>((byte)3, folderCreateResponse.ResponseData.Status, "The status should be equal to 3 when the FolderCreate is used to create a recipient information cache.");
+            Site.Assert.AreEqual<int>(3, int.Parse(folderCreateResponse.ResponseData.Status), "The status should be equal to 3 when the FolderCreate is used to create a recipient information cache.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "MS-ASCMD_R81");

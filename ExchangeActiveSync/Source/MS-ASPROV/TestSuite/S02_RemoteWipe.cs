@@ -91,7 +91,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                     }
                 }
             };
-            this.PROVAdapter.Provision(wipeRequest);
+
+            provisionResponse = this.PROVAdapter.Provision(wipeRequest);
+
+            if (Common.IsRequirementEnabled(1042, this.Site))
+            {
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                    1,
+                    provisionResponse.ResponseData.Status,
+                    1042,
+                    @"[In Appendix A: Product Behavior]  If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (<4> Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports failure, the server returns a value of 1 in the Status element.)");
+            }
+
+            if (Common.IsRequirementEnabled(1048, this.Site))
+            {
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                2,
+                provisionResponse.ResponseData.Status,
+                1048,
+                @"[In Appendix A: Product Behavior] If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (Exchange 2013 and above follow this behavior.)");
+            }
 
             // Send an empty Provision request to indicate a remote wipe operation on client.
             provisionResponse = this.PROVAdapter.Provision(emptyRequest);
@@ -107,7 +126,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 Site.CaptureRequirementIfIsNotNull(
                     provisionResponse.ResponseData.RemoteWipe,
                     702,
-                    @"[In Appendix B: Product Behavior] If the client reports failure, the implementation does respond to the next command request from the client with a remote wipe directive. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] If the client reports failure, the implementation does return [a value of 2 in the Status element and] a remote wipe directive. (Exchange 2007 and above follow this behavior.)");
             }
             #endregion
 
@@ -116,18 +135,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             wipeRequest.RequestData.RemoteWipe.Status = "1";
             ProvisionResponse wipeResponse = this.PROVAdapter.Provision(wipeRequest);
 
-            if (Common.IsRequirementEnabled(699, this.Site))
+            if (Common.IsRequirementEnabled(1041, this.Site))
             {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R699");
+                this.Site.CaptureRequirementIfAreEqual<byte>(
+                1,
+                wipeResponse.ResponseData.Status,
+                1041,
+                @"[In Appendix A: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.53.2). (<3> Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports success, the server returns a value of 1 in the Status element and a remote wipe directive.)");
+            }
 
-                // Verify MS-ASPROV requirement: MS-ASPROV_R699
-                // The value of Status is 1, so this requirement can be captured.
-                Site.CaptureRequirementIfAreEqual<byte>(
+            if (Common.IsRequirementEnabled(1047, this.Site))
+            {
+                this.Site.CaptureRequirementIfAreEqual<byte>(
                     1,
                     wipeResponse.ResponseData.Status,
-                    699,
-                    @"[In Appendix B: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.53.2). (Exchange 2007 and above follow this behavior.)");
+                    1047,
+                    @"[In Appendix A: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.53.2). (Exchange 2013 and above follow this behavior.)");
             }
 
             // Record the provision confirmation mail for user1 to the item collection of User1.

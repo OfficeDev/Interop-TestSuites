@@ -113,6 +113,22 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
     #endregion
 
+    #region GetHierarchyResponse
+    /// <summary>
+    /// The class of  GetHierarchy response.
+    /// </summary>
+    public class GetHierarchyResponse : ActiveSyncResponseBase<Response.Folders>
+    {
+        /// <summary>
+        ///  Initializes a new instance of the GetHierarchyResponse class.
+        /// </summary>
+        public GetHierarchyResponse()
+        {
+            this.ResponseData = new Response.Folders();
+        }
+    }
+    #endregion
+
     #region GetItemEstimateResponse
     /// <summary>
     /// The class of GetItemEstimate response.

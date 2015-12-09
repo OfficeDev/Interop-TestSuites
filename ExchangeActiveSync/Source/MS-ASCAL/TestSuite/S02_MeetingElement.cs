@@ -48,7 +48,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         /// This case is designed to verify ResponseType, AttendeeStatus, Name, Email, AppointmentReplyTime , BusyStatus, MeetingStatus and AttendeeType when recipient accepts the meeting.
         /// </summary>
         [TestCategory("MSASCAL"), TestMethod()]
-
         public void MSASCAL_S02_TC01_MeetingAccepted()
         {
             #region Organizer calls Sync command to add a calendar to the server, and sync calendars from the server.
@@ -273,7 +272,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to organizer to call Sync command to sync calendars from the server.
 
             // Switch to organizer
-            this.SwitchUser(this.User1Information, false);
+            this.SwitchUser(this.User1Information, true);
 
             // Call Sync command to do an initialization Sync, and get the organizer inbox changes
             emailItem = this.GetChangeItem(this.User1Information.InboxCollectionId, subject);
@@ -309,7 +308,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         /// This test case is designed to verify ResponseType, AttendeeStatus, Name, Email, AppointmentReplyTime , BusyStatus, MeetingStatus and AttendeeType when recipient declines the meeting.
         /// </summary>
         [TestCategory("MSASCAL"), TestMethod()]
-
         public void MSASCAL_S02_TC02_MeetingDeclined()
         {
             #region Organizer calls Sync command to add a calendar to the server, and sync calendars from the server.
@@ -445,7 +443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to organizer to call Sync command to Sync calendars from the server.
 
             // Switch to organizer
-            this.SwitchUser(this.User1Information, false);
+            this.SwitchUser(this.User1Information, true);
 
             // Call Sync command to do an initialization Sync, and get the organizer inbox changes
             emailItem = this.GetChangeItem(this.User1Information.InboxCollectionId, subject);
@@ -481,7 +479,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         /// This test case is designed to verify ResponseType, AttendeeStatus, Name, Email, AppointmentReplyTime , BusyStatus, MeetingStatus and AttendeeType when the meeting is tentative.
         /// </summary>
         [TestCategory("MSASCAL"), TestMethod()]
-
         public void MSASCAL_S02_TC03_MeetingTentative()
         {
             #region Organizer calls Sync command to add a calendar to the server, and sync calendars from the server.
@@ -502,7 +499,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             if (!this.IsActiveSyncProtocolVersion121)
             {
-                calendarItem.Add(Request.ItemsChoiceType8.ResponseRequested, false);
+                calendarItem.Add(Request.ItemsChoiceType8.ResponseRequested, true);
             }
 
             string subject = Common.GenerateResourceName(Site, "subject");
@@ -616,7 +613,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to organizer to call Sync command to sync calendars from the server.
 
             // Switch to organizer
-            this.SwitchUser(this.User1Information, false);
+            this.SwitchUser(this.User1Information, true);
 
             // Call Sync command to do an initialization Sync, and get the organizer inbox changes
             emailItem = this.GetChangeItem(this.User1Information.InboxCollectionId, subject);
@@ -652,7 +649,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         /// This test case is designed to verify ResponseType, ResponseRequested, AttendeeStatus, Name, Email, AppointmentReplyTime, BusyStatus, MeetingStatus and AttendeeType when recipient respond the meeting with no action.
         /// </summary>
         [TestCategory("MSASCAL"), TestMethod()]
-
         public void MSASCAL_S02_TC04_MeetingNotResponded()
         {
             #region Organizer calls Sync command to add a calendar to the server, and sync calendars from the server.
@@ -671,8 +667,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             attendees.Attendee[0].AttendeeType = 3;
             attendees.Attendee[0].AttendeeTypeSpecified = true;
-            attendees.Attendee[0].AttendeeStatusSpecified = true;
-            attendees.Attendee[0].AttendeeStatus = 5;
+            if (this.IsActiveSyncProtocolVersion121
+                || this.IsActiveSyncProtocolVersion140
+                || this.IsActiveSyncProtocolVersion141)
+            {
+                attendees.Attendee[0].AttendeeStatusSpecified = true;
+                attendees.Attendee[0].AttendeeStatus = 5;
+            }
+
             calendarItem.Add(Request.ItemsChoiceType8.Attendees, attendees);
 
             if (!this.IsActiveSyncProtocolVersion121)
@@ -711,6 +713,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 calendarOnOrganizer.Calendar.Attendees.Attendee[0].AttendeeType,
                 575,
                 @"[In AttendeeType] [The value is] 3 [meaning] Resource.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R13814");
+
+            // Verify MS-ASCAL requirement: MS-ASCAL_R13814
+            Site.CaptureRequirementIfAreEqual<byte>(
+                3,
+                calendarOnOrganizer.Calendar.BusyStatus.Value,
+                13814,
+                @"[In BusyStatus] [The value is] 3 [meaning] OutofOffice.");
 
             #endregion
 
@@ -755,7 +767,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to organizer to call Sync command to sync calendars from the server.
 
             // Switch to organizer
-            this.SwitchUser(this.User1Information, false);
+            this.SwitchUser(this.User1Information, true);
 
             // Sync command to do an initialization Sync, and get the organizer calendars changes
             calendarOnOrganizer = this.GetChangeItem(this.User1Information.CalendarCollectionId, subject);
@@ -777,15 +789,20 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     @"[In Message Processing Events and Sequencing Rules][The following information pertains to all command responses:] If no action has been taken on a meeting request, the server MUST NOT include the AppointmentReplyTime element as a top-level element in a command response.");
             }
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R572");
+            if (this.IsActiveSyncProtocolVersion121
+                || this.IsActiveSyncProtocolVersion140
+                || this.IsActiveSyncProtocolVersion141)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R572");
 
-            // Verify MS-ASCAL requirement: MS-ASCAL_R572
-            Site.CaptureRequirementIfAreEqual<byte>(
-                5,
-                calendarOnOrganizer.Calendar.Attendees.Attendee[0].AttendeeStatus,
-                572,
-                @"[In AttendeeStatus] [The value is] 5 [meaning] Not responded.");
+                // Verify MS-ASCAL requirement: MS-ASCAL_R572
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    5,
+                    calendarOnOrganizer.Calendar.Attendees.Attendee[0].AttendeeStatus,
+                    572,
+                    @"[In AttendeeStatus] [The value is] 5 [meaning] Not responded.");
+            }
         }
 
         #endregion
@@ -837,18 +854,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             #endregion
 
-            Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
-
-            // Add the debug information 
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
-
-            // Verify MS-ASCAL requirement: MS-ASCAL_R313
-            Site.CaptureRequirementIfAreEqual<byte>(
-                5,
-                calendarOnOrganizer.Calendar.MeetingStatus.Value,
-                313,
-                @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
-
             #region Organizer sends the meeting request to attendee.
 
             this.SendMimeMeeting(calendarOnOrganizer.Calendar, subject, Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain), Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain), "REQUEST", null);
@@ -881,7 +886,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to organizer to send a cancel meeting request.
 
             // Switch to organizer
-            this.SwitchUser(this.User1Information, false);
+            this.SwitchUser(this.User1Information, true);
 
             this.SendMimeMeeting(calendarOnOrganizer.Calendar, "CANCELLED:" + subject, Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain), Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain), "CANCEL", null);
 
@@ -890,7 +895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             #region Switch to attendee to sync calendars from the server.
 
             // Switch to attendee
-            this.SwitchUser(this.User2Information, false);
+            this.SwitchUser(this.User2Information, true);
 
             // Call Sync command to do an initialization Sync, and get the attendee inbox changes
             emailItem = this.GetChangeItem(this.User2Information.InboxCollectionId, "CANCELLED:" + subject);
@@ -928,6 +933,35 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 calendarOnAttendee.Calendar.MeetingStatus.Value,
                 314,
                 @"[In MeetingStatus][The value 7 means] The meeting has been canceled. The user was not the meeting organizer, the meeting was received from someone else.");
+
+            #region Switch to organizer to call Sync command to sync calendars from the server.
+
+            // Switch to organizer
+            this.SwitchUser(this.User1Information, true);
+
+            // Sync command to do an initialization Sync, and get the organizer calendars changes
+            calendarOnOrganizer = this.GetChangeItem(this.User1Information.CalendarCollectionId, subject);
+
+            Site.Assert.IsNotNull(calendarOnOrganizer.Calendar, "The calendar with subject {0} should exist in server.", subject);
+
+            #endregion
+
+            if (this.IsActiveSyncProtocolVersion121
+                || this.IsActiveSyncProtocolVersion140
+                || this.IsActiveSyncProtocolVersion141)
+            {
+                Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
+
+                // Add the debug information 
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
+
+                // Verify MS-ASCAL requirement: MS-ASCAL_R313
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    5,
+                    calendarOnOrganizer.Calendar.MeetingStatus.Value,
+                    313,
+                    @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+            }
         }
 
         #endregion
@@ -944,6 +978,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             Dictionary<Request.ItemsChoiceType8, object> calendarItem = new Dictionary<Request.ItemsChoiceType8, object>();
 
@@ -974,7 +1009,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             exception1.StartTime = startTimeInException.ToString("yyyyMMddTHHmmssZ");
             exception1.EndTime = endTimeInException.ToString("yyyyMMddTHHmmssZ");
-            exception1.Attendees = TestSuiteHelper.CreateAttendeesRequired(new string[] { Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain), "tester@test.com" }, new string[] { this.User2Information.UserName, "test" });
+            exception1.Attendees = TestSuiteHelper.CreateAttendeesRequired(new string[] { Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain), "tester@test.com" }, new string[] { this.User2Information.UserName, "test" }).Attendee;
 
             exception1.Subject = "Calendar Exception";
             exception1.Body = TestSuiteHelper.CreateCalendarBody(2, this.Content + "InException");
@@ -1017,7 +1052,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                 // Verify MS-ASCAL requirement: MS-ASCAL_R10611
                 Site.CaptureRequirementIfIsTrue(
-                    calendarOnOrganizer.Calendar.Exceptions.Exception[0].Attendees.Attendee != null,
+                    calendarOnOrganizer.Calendar.Exceptions.Exception[0].Attendees != null,
                     10611,
                     @"[In Attendees] The Attendees element specifies the collection of attendees for the calendar item exception.<2>");
             }
@@ -1027,7 +1062,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             // Verify MS-ASCAL requirement: MS-ASCAL_R39211
             Site.CaptureRequirementIfIsTrue(
-                !string.IsNullOrEmpty(calendarOnOrganizer.Calendar.Exceptions.Exception[0].Reminder),
+                string.IsNullOrEmpty(calendarOnOrganizer.Calendar.Exceptions.Exception[0].Reminder) == false,
                 39211,
                 @"[In Reminder] The Reminder element specifies the number of minutes before a calendar item exception's start time to display a reminder notice.");
 
@@ -1039,7 +1074,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             Site.CaptureRequirementIfIsNotNull(
                 calendarOnOrganizer.Calendar.Exceptions.Exception[0].Body,
                 12611,
-                @"[In Body] The airsyncbase:Body element specifies the body text of the calendar item exception.");
+                @"[In Body (AirSyncBase Namespace)] The airsyncbase:Body element specifies the body text of the calendar item exception.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R13411");
@@ -1154,7 +1189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 Site.CaptureRequirementIfIsTrue(
                     calendarOnAttendee.Calendar.Exceptions.Exception[0].MeetingStatusSpecified,
                     30511,
-                    @"[In MeetingStatus] The MeetingStatus element<12> specifies the status of the calendar item exception.");
+                    @"[In MeetingStatus] The MeetingStatus element specifies the status of the calendar item exception.");
             }
 
             #endregion

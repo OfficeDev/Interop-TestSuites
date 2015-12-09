@@ -197,8 +197,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls Sync command uploading one calendar item to create one appointment
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, null);
+            Calendar calendar = new Calendar
+                {
+                    OrganizerEmail = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain),
+                    OrganizerName = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain),
+                    UID = Guid.NewGuid().ToString(),
+                    Subject = meetingRequestSubject
+                };
+
             this.SyncAddCalendar(calendar);
 
             // Calls Sync command to sync user1's calendar folder
@@ -228,7 +234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string mailItemServerId = TestSuiteBase.FindServerId(user2MailboxChange, "Subject", forwardSubject);
 
             Response.Attachments attachments = (Response.Attachments)TestSuiteBase.GetElementValueFromSyncResponse(user2MailboxChange, mailItemServerId, Response.ItemsChoiceType8.Attachments);
-            Site.Assert.AreEqual<int>(1, attachments.Attachment.Length, "Server should return one attachment, if SmartForward one appointment executes successfully.");
+            Site.Assert.AreEqual<int>(1, attachments.Items.Length, "Server should return one attachment, if SmartForward one appointment executes successfully.");
             #endregion
 
             // Add the debug information
@@ -236,7 +242,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R542
             Site.CaptureRequirementIfIsTrue(
-                attachments.Attachment.Length == 1 && attachments.Attachment[0].DisplayName.Contains(".eml"),
+                attachments.Items.Length == 1 && ((Response.AttachmentsAttachment)attachments.Items[0]).DisplayName.Contains(".eml"),
                 542,
                 @"[In SmartForward] When the SmartForward command is used for an appointment, the original message is included by the server as an attachment to the outgoing message.");
         }
@@ -249,12 +255,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes
@@ -296,11 +302,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S17_TC05_SmartForwardWithInstanceIdSuccess()
         {
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
+
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes
@@ -387,12 +394,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S17_TC06_SmartForwardRecurringMeetingWithoutInstanceId()
         {
             Site.Assume.IsTrue(Common.IsRequirementEnabled(5834, this.Site), "[In Appendix A: Product Behavior] If SmartForward is applied to a recurring meeting and the InstanceId element is absent, the implementation does forward the entire recurring meeting. (Exchange 2007 and above follow this behavior.)");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes
@@ -453,6 +460,69 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 5834,
                 @"[In Appendix A: Product Behavior] If SmartForward is applied to a recurring meeting and the InstanceId element is absent, the implementation does forward the entire recurring meeting. (Exchange 2007 and above follow this behavior.)");
         }
+
+        /// <summary>
+        /// This test case is used to verify when ReplaceMime is present in the request, the body or attachment is not included.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S17_TC07_SmartForward_ReplaceMime()
+        {
+            Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "ReplaceMime is not support when MS-ASProtocolVersion header is set to 12.1.MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            #region Call SendMail command to send plain text email messages to user2.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            string emailBody = Common.GenerateResourceName(Site, "NormalAttachment_Body");
+            this.SendEmailWithAttachment(emailSubject, emailBody);
+            #endregion
+
+            #region Call Sync command to sync user2 mailbox changes
+            this.SwitchUser(this.User2Information);
+            SyncResponse syncChangeResponse = this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject);
+            string originalServerID = TestSuiteBase.FindServerId(syncChangeResponse, "Subject", emailSubject);
+            string originalContent = TestSuiteBase.GetDataFromResponseBodyElement(syncChangeResponse, originalServerID);
+            Response.AttachmentsAttachment[] originalAttachments = this.GetEmailAttachments(syncChangeResponse, emailSubject);
+            Site.Assert.IsTrue(originalAttachments != null && originalAttachments.Length == 1, "The email should contain a single attachment.");
+
+            #endregion
+
+            #region Record user name, folder collectionId and item subject that are used in this case
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject);
+            #endregion
+
+            #region Call SmartForward command to forward messages with ReplaceMime.
+            string forwardSubject = string.Format("FW:{0}", emailSubject);
+            SmartForwardRequest smartForwardRequest = this.CreateDefaultForwardRequest(originalServerID, forwardSubject, this.User2Information.InboxCollectionId);
+            smartForwardRequest.RequestData.ReplaceMime = string.Empty;
+            SmartForwardResponse smartForwardResponse = this.CMDAdapter.SmartForward(smartForwardRequest);
+            #endregion
+
+            #region After user2 forwarded email to user3, sync user3 mailbox changes
+            this.SwitchUser(this.User3Information);
+            SyncResponse syncForwardResult = this.GetMailItem(this.User3Information.InboxCollectionId, forwardSubject);
+            string forwardItemServerID = TestSuiteBase.FindServerId(syncForwardResult, "Subject", forwardSubject);
+            string forwardItemContent = TestSuiteBase.GetDataFromResponseBodyElement(syncForwardResult, forwardItemServerID);
+            Response.AttachmentsAttachment[] forwardAttachments = this.GetEmailAttachments(syncForwardResult, forwardSubject);
+            #endregion
+
+            #region Record user name, folder collectionId and item subject that are used in this case
+            TestSuiteBase.RecordCaseRelativeItems(this.User3Information, this.User3Information.InboxCollectionId, forwardSubject);
+            #endregion
+
+            // Compare original content with forward content
+            bool isContained = forwardItemContent.Contains(originalContent);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3775");
+
+            Site.Assert.IsNull(
+                forwardAttachments,
+                @"The attachment should not be returned");
+
+            Site.CaptureRequirementIfIsFalse(
+                isContained,
+                3775,
+                @"[In ReplaceMime] When the ReplaceMime element is present, the server MUST not include the body or attachments of the original message being forwarded.");
+        }
         #endregion
 
         #region Private methods
@@ -495,12 +565,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             elementName.Add(Request.ItemsChoiceType8.Subject);
             elementValue.Add(calendar.Subject);
-
-            elementName.Add(Request.ItemsChoiceType8.UID);
-            elementValue.Add(calendar.UID);
-
-            elementName.Add(Request.ItemsChoiceType8.Location);
-            elementValue.Add(calendar.Location);
 
             elementName.Add(Request.ItemsChoiceType8.Sensitivity);
             elementValue.Add(calendar.Sensitivity);
@@ -563,7 +627,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             }
 
             Site.Assert.AreEqual(1, syncResponses.Add.Length, "User only upload one calendar item");
-            byte statusCode = syncResponses.Add[0].Status;
+            int statusCode = int.Parse(syncResponses.Add[0].Status);
             Site.Assert.AreEqual(1, statusCode, "If upload calendar item successful, server should return status 1");
         }
         #endregion

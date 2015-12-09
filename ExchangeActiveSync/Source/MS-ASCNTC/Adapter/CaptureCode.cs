@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
+﻿namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
 {
     using System;
     using System.Collections.Generic;
@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
                     this.activeSyncClient.ValidationResult,
                     492,
                     @"[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to synchronize its Contact class items for a specified user with the contacts currently stored by the server, as specified in section 3.1.5.3, the server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).");
-
+                
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCNTC_R514");
 
@@ -349,7 +349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     127,
-                    @"[In Body] The airsyncbase:Body element is a container ([MS-ASDTYPE] section 2.2) element.");
+                    @"[In Body (AirSyncBase Namespace)] The airsyncbase:Body element is a container ([MS-ASDTYPE] section 2.2) element.");
 
                 this.VerifyContainer();
             }
@@ -1378,9 +1378,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
         }
 
         /// <summary>
-        /// This method is used to verify the datetime data type related requirements.
+        /// This method is used to verify the dateTime data type related requirements.
         /// </summary>
-        /// <param name="dateTime">The value of a datetime data type element.</param>
+        /// <param name="dateTime">The value of a dateTime data type element.</param>
         private void VerifyDateTime(DateTime? dateTime)
         {
             // If the validation is successful, then MS-ASDTYPE_R12 can be captured.
@@ -1448,7 +1448,7 @@ MSS = Number of milliseconds");
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 87,
-                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.");
+                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
         }
 
         /// <summary>
@@ -1559,7 +1559,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             73,
-                            @"[In Code Page 1: Contacts] [Tag name] Anniversary [Token] 0x05");
+                            @"[In Code Page 1: Contacts] [Tag name] Anniversary [Token] 0x05 [supports protocol versions] All");
 
                         break;
                     }
@@ -1575,7 +1575,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             74,
-                            @"[In Code Page 1: Contacts] [Tag name] AssistantName [Token] Anniversary 0x06");
+                            @"[In Code Page 1: Contacts] [Tag name] AssistantName [Token] Anniversary 0x06 [supports protocol versions] All");
 
                         break;
                     }
@@ -1591,7 +1591,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             75,
-                            @"[In Code Page 1: Contacts] [Tag name] AssistantPhoneNumber [Token] 0x07");
+                            @"[In Code Page 1: Contacts] [Tag name] AssistantPhoneNumber [Token] 0x07 [supports protocol versions] All");
 
                         break;
                     }
@@ -1607,7 +1607,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             76,
-                            @"[In Code Page 1: Contacts] [Tag name] Birthday [Token] 0x08");
+                            @"[In Code Page 1: Contacts] [Tag name] Birthday [Token] 0x08 [supports protocol versions] All");
 
                         break;
                     }
@@ -1623,7 +1623,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             77,
-                            @"[In Code Page 1: Contacts] [Tag name] Business2PhoneNumber [Token] 0x0C");
+                            @"[In Code Page 1: Contacts] [Tag name] Business2PhoneNumber [Token] 0x0C [supports protocol versions] All");
 
                         break;
                     }
@@ -1639,7 +1639,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             78,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressCity [Token] 0x0D");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressCity [Token] 0x0D [supports protocol versions] All");
 
                         break;
                     }
@@ -1655,7 +1655,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             79,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressCountry [Token] 0x0E");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressCountry [Token] 0x0E [supports protocol versions] All");
 
                         break;
                     }
@@ -1671,7 +1671,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             80,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressPostalCode [Token] 0x0F");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressPostalCode [Token] 0x0F [supports protocol versions] All");
 
                         break;
                     }
@@ -1687,7 +1687,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             81,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressState [Token] 0x10");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressState [Token] 0x10 [supports protocol versions] All");
 
                         break;
                     }
@@ -1703,7 +1703,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             82,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressStreet [Token] 0x11");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessAddressStreet [Token] 0x11 [supports protocol versions] All");
 
                         break;
                     }
@@ -1719,7 +1719,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             83,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessFaxNumber [Token] 0x12");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessFaxNumber [Token] 0x12 [supports protocol versions] All");
 
                         break;
                     }
@@ -1735,7 +1735,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             84,
-                            @"[In Code Page 1: Contacts] [Tag name] BusinessPhoneNumber [Token] 0x13");
+                            @"[In Code Page 1: Contacts] [Tag name] BusinessPhoneNumber [Token] 0x13 [supports protocol versions] All");
 
                         break;
                     }
@@ -1751,7 +1751,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             85,
-                            @"[In Code Page 1: Contacts] [Tag name] CarPhoneNumber [Token] 0x14");
+                            @"[In Code Page 1: Contacts] [Tag name] CarPhoneNumber [Token] 0x14 [supports protocol versions] All");
 
                         break;
                     }
@@ -1767,7 +1767,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             86,
-                            @"[In Code Page 1: Contacts] [Tag name] Categories [Token] 0x15");
+                            @"[In Code Page 1: Contacts] [Tag name] Categories [Token] 0x15 [supports protocol versions] All");
 
                         break;
                     }
@@ -1783,7 +1783,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             87,
-                            @"[In Code Page 1: Contacts] [Tag name] Category [Token] 0x16");
+                            @"[In Code Page 1: Contacts] [Tag name] Category [Token] 0x16 [supports protocol versions] All");
 
                         break;
                     }
@@ -1799,7 +1799,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             88,
-                            @"[In Code Page 1: Contacts] [Tag name] Children [Token] 0x17");
+                            @"[In Code Page 1: Contacts] [Tag name] Children [Token] 0x17 [supports protocol versions] All");
 
                         break;
                     }
@@ -1815,7 +1815,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             89,
-                            @"[In Code Page 1: Contacts] [Tag name] Child [Token] 0x18");
+                            @"[In Code Page 1: Contacts] [Tag name] Child [Token] 0x18 [supports protocol versions] All");
 
                         break;
                     }
@@ -1831,7 +1831,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             90,
-                            @"[In Code Page 1: Contacts] [Tag name] CompanyName [Token] 0x19");
+                            @"[In Code Page 1: Contacts] [Tag name] CompanyName [Token] 0x19 [supports protocol versions] All");
 
                         break;
                     }
@@ -1847,7 +1847,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             91,
-                            @"[In Code Page 1: Contacts] [Tag name] Department [Token] 0x1A");
+                            @"[In Code Page 1: Contacts] [Tag name] Department [Token] 0x1A [supports protocol versions] All");
 
                         break;
                     }
@@ -1863,7 +1863,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             92,
-                            @"[In Code Page 1: Contacts] [Tag name] Email1Address [Token] 0x1B");
+                            @"[In Code Page 1: Contacts] [Tag name] Email1Address [Token] 0x1B [supports protocol versions] All");
 
                         break;
                     }
@@ -1879,7 +1879,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             93,
-                            @"[In Code Page 1: Contacts] [Tag name] Email2Address [Token] 0x1C");
+                            @"[In Code Page 1: Contacts] [Tag name] Email2Address [Token] 0x1C [supports protocol versions] All");
 
                         break;
                     }
@@ -1895,7 +1895,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             94,
-                            @"[In Code Page 1: Contacts] [Tag name] Email3Address [Token] 0x1D");
+                            @"[In Code Page 1: Contacts] [Tag name] Email3Address [Token] 0x1D [supports protocol versions] All");
 
                         break;
                     }
@@ -1911,7 +1911,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             95,
-                            @"[In Code Page 1: Contacts] [Tag name] FileAs [Token] 0x1E");
+                            @"[In Code Page 1: Contacts] [Tag name] FileAs [Token] 0x1E [supports protocol versions] All");
 
                         break;
                     }
@@ -1927,7 +1927,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             96,
-                            @"[In Code Page 1: Contacts] [Tag name] FirstName [Token] 0x1F");
+                            @"[In Code Page 1: Contacts] [Tag name] FirstName [Token] 0x1F [supports protocol versions] All");
 
                         break;
                     }
@@ -1943,7 +1943,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             97,
-                            @"[In Code Page 1: Contacts] [Tag name] Home2PhoneNumber [Token] 0x20");
+                            @"[In Code Page 1: Contacts] [Tag name] Home2PhoneNumber [Token] 0x20 [supports protocol versions] All");
 
                         break;
                     }
@@ -1959,7 +1959,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             98,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressCity [Token] 0x21");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressCity [Token] 0x21 [supports protocol versions] All");
 
                         break;
                     }
@@ -1975,7 +1975,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             99,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressCountry [Token] 0x22");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressCountry [Token] 0x22 [supports protocol versions] All");
 
                         break;
                     }
@@ -1991,7 +1991,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             100,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressPostalCode [Token] 0x23");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressPostalCode [Token] 0x23 [supports protocol versions] All");
 
                         break;
                     }
@@ -2007,7 +2007,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             101,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressState [Token] 0x24");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressState [Token] 0x24 [supports protocol versions] All");
 
                         break;
                     }
@@ -2023,7 +2023,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             102,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressStreet [Token] 0x25");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeAddressStreet [Token] 0x25 [supports protocol versions] All");
 
                         break;
                     }
@@ -2039,7 +2039,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             103,
-                            @"[In Code Page 1: Contacts] [Tag name] HomeFaxNumber [Token] 0x26");
+                            @"[In Code Page 1: Contacts] [Tag name] HomeFaxNumber [Token] 0x26 [supports protocol versions] All");
 
                         break;
                     }
@@ -2055,7 +2055,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             104,
-                            @"[In Code Page 1: Contacts] [Tag name] HomePhoneNumber [Token] 0x27");
+                            @"[In Code Page 1: Contacts] [Tag name] HomePhoneNumber [Token] 0x27 [supports protocol versions] All");
 
                         break;
                     }
@@ -2071,7 +2071,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             105,
-                            @"[In Code Page 1: Contacts] [Tag name] JobTitle [Token] 0x28");
+                            @"[In Code Page 1: Contacts] [Tag name] JobTitle [Token] 0x28 [supports protocol versions] All");
 
                         break;
                     }
@@ -2087,7 +2087,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             106,
-                            @"[In Code Page 1: Contacts] [Tag name] LastName [Token] 0x29");
+                            @"[In Code Page 1: Contacts] [Tag name] LastName [Token] 0x29 [supports protocol versions] All");
 
                         break;
                     }
@@ -2103,7 +2103,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             107,
-                            @"[In Code Page 1: Contacts] [Tag name] MiddleName [Token] 0x2A");
+                            @"[In Code Page 1: Contacts] [Tag name] MiddleName [Token] 0x2A [supports protocol versions] All");
 
                         break;
                     }
@@ -2119,7 +2119,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             108,
-                            @"[In Code Page 1: Contacts] [Tag name] MobilePhoneNumber [Token] 0x2B");
+                            @"[In Code Page 1: Contacts] [Tag name] MobilePhoneNumber [Token] 0x2B [supports protocol versions] All");
 
                         break;
                     }
@@ -2135,7 +2135,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             109,
-                            @"[In Code Page 1: Contacts] [Tag name] OfficeLocation [Token] 0x2C");
+                            @"[In Code Page 1: Contacts] [Tag name] OfficeLocation [Token] 0x2C [supports protocol versions] All");
 
                         break;
                     }
@@ -2151,7 +2151,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             110,
-                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressCity [Token] 0x2D");
+                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressCity [Token] 0x2D [supports protocol versions] All");
 
                         break;
                     }
@@ -2167,7 +2167,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             111,
-                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressCountry [Token] 0x2E");
+                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressCountry [Token] 0x2E [supports protocol versions] All");
 
                         break;
                     }
@@ -2183,7 +2183,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             112,
-                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressPostalCode [Token] 0x2F");
+                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressPostalCode [Token] 0x2F [supports protocol versions] All");
 
                         break;
                     }
@@ -2199,7 +2199,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             113,
-                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressState [Token] 0x30");
+                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressState [Token] 0x30 [supports protocol versions] All");
 
                         break;
                     }
@@ -2215,7 +2215,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             114,
-                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressStreet [Token] 0x31");
+                            @"[In Code Page 1: Contacts] [Tag name] OtherAddressStreet [Token] 0x31 [supports protocol versions] All");
 
                         break;
                     }
@@ -2231,7 +2231,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             115,
-                            @"[In Code Page 1: Contacts] [Tag name] PagerNumber [Token] 0x32");
+                            @"[In Code Page 1: Contacts] [Tag name] PagerNumber [Token] 0x32 [supports protocol versions] All");
 
                         break;
                     }
@@ -2247,7 +2247,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             116,
-                            @"[In Code Page 1: Contacts] [Tag name] RadioPhoneNumber [Token] 0x33");
+                            @"[In Code Page 1: Contacts] [Tag name] RadioPhoneNumber [Token] 0x33 [supports protocol versions] All");
 
                         break;
                     }
@@ -2263,7 +2263,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             117,
-                            @"[In Code Page 1: Contacts] [Tag name] Spouse [Token] 0x34");
+                            @"[In Code Page 1: Contacts] [Tag name] Spouse [Token] 0x34 [supports protocol versions] All");
 
                         break;
                     }
@@ -2279,7 +2279,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             118,
-                            @"[In Code Page 1: Contacts] [Tag name] Suffix [Token] 0x35");
+                            @"[In Code Page 1: Contacts] [Tag name] Suffix [Token] 0x35 [supports protocol versions] All");
 
                         break;
                     }
@@ -2295,7 +2295,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             119,
-                            @"[In Code Page 1: Contacts] [Tag name] Title [Token] 0x36");
+                            @"[In Code Page 1: Contacts] [Tag name] Title [Token] 0x36 [supports protocol versions] All");
 
                         break;
                     }
@@ -2311,7 +2311,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             120,
-                            @"[In Code Page 1: Contacts] [Tag name] WebPage [Token] 0x37");
+                            @"[In Code Page 1: Contacts] [Tag name] WebPage [Token] 0x37 [supports protocol versions] All");
 
                         break;
                     }
@@ -2327,7 +2327,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             121,
-                            @"[In Code Page 1: Contacts] [Tag name] YomiCompanyName [Token] 0x38");
+                            @"[In Code Page 1: Contacts] [Tag name] YomiCompanyName [Token] 0x38 [supports protocol versions] All");
 
                         break;
                     }
@@ -2343,7 +2343,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             122,
-                            @"[In Code Page 1: Contacts] [Tag name] YomiFirstName [Token] 0x39");
+                            @"[In Code Page 1: Contacts] [Tag name] YomiFirstName [Token] 0x39 [supports protocol versions] All");
 
                         break;
                     }
@@ -2359,7 +2359,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             123,
-                            @"[In Code Page 1: Contacts] [Tag name] YomiLastName [Token] 0x3A");
+                            @"[In Code Page 1: Contacts] [Tag name] YomiLastName [Token] 0x3A [supports protocol versions] All");
 
                         break;
                     }
@@ -2375,7 +2375,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             124,
-                            @"[In Code Page 1: Contacts] [Tag name] Picture [Token] 0x3C");
+                            @"[In Code Page 1: Contacts] [Tag name] Picture [Token] 0x3C [supports protocol versions] All");
 
                         break;
                     }
@@ -2391,7 +2391,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             127,
-                            @"[In Code Page 1: Contacts] [Tag name] WeightedRank<5> [Token] 0x3E");
+                            @"[In Code Page 1: Contacts] [Tag name] WeightedRank [Token] 0x3E [supports protocol versions] 14.0, 14.1, 16.0");
 
                         break;
                     }
@@ -2425,7 +2425,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             531,
-                            @"[In Code Page 12: Contacts2] [Tag name] CustomerId [Token] 0x05");
+                            @"[In Code Page 12: Contacts2] [Tag name] CustomerId [Token] 0x05 [supports protocol versions] All");
 
                         break;
                     }
@@ -2441,7 +2441,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             532,
-                            @"[In Code Page 12: Contacts2] [Tag name] GovernmentId [Token] 0x06");
+                            @"[In Code Page 12: Contacts2] [Tag name] GovernmentId [Token] 0x06 [supports protocol versions] All");
 
                         break;
                     }
@@ -2457,7 +2457,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             533,
-                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress[Token] 0x07");
+                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress[Token] 0x07 [supports protocol versions] All");
 
                         break;
                     }
@@ -2473,7 +2473,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             534,
-                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress2 [Token]0x08");
+                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress2 [Token]0x08 [supports protocol versions] All");
 
                         break;
                     }
@@ -2489,7 +2489,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             535,
-                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress3 [Token] 0x09");
+                            @"[In Code Page 12: Contacts2] [Tag name] IMAddress3 [Token] 0x09 [supports protocol versions] All");
 
                         break;
                     }
@@ -2505,7 +2505,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             536,
-                            @"[In Code Page 12: Contacts2] [Tag name] ManagerName [Token] 0x0A");
+                            @"[In Code Page 12: Contacts2] [Tag name] ManagerName [Token] 0x0A [supports protocol versions] All");
 
                         break;
                     }
@@ -2521,7 +2521,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             537,
-                            @"[In Code Page 12: Contacts2] [Tag name] CompanyMainPhone [Token] 0x0B");
+                            @"[In Code Page 12: Contacts2] [Tag name] CompanyMainPhone [Token] 0x0B [supports protocol versions] All");
 
                         break;
                     }
@@ -2537,7 +2537,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             538,
-                            @"[In Code Page 12: Contacts2] [Tag name] AccountName [Token] 0x0C");
+                            @"[In Code Page 12: Contacts2] [Tag name] AccountName [Token] 0x0C [supports protocol versions] All");
 
                         break;
                     }
@@ -2553,7 +2553,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             539,
-                            @"[In Code Page 12: Contacts2] [Tag name] NickName [Token] 0x0D");
+                            @"[In Code Page 12: Contacts2] [Tag name] NickName [Token] 0x0D [supports protocol versions] All");
 
                         break;
                     }
@@ -2569,7 +2569,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             540,
-                            @"[In Code Page 12: Contacts2] [Tag name] MMS [Token] 0x0E");
+                            @"[In Code Page 12: Contacts2] [Tag name] MMS [Token] 0x0E [supports protocol versions] All");
 
                         break;
                     }

@@ -53,7 +53,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             GetItemEstimateResponse getItemEstimateResponse = this.CallGetItemEstimateCommand(syncStore.SyncKey, User1Information.InboxCollectionId);
 
             // Verify GetItemEstimate command response.
-            bool isVerifyR211 = getItemEstimateResponse.ResponseData.Response.Length == 1 && getItemEstimateResponse.ResponseData.Response[0].Status == 1;
+            bool isVerifyR211 = getItemEstimateResponse.ResponseData.Response.Length == 1 && getItemEstimateResponse.ResponseData.Response[0].Status == "1";
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R211");
@@ -100,9 +100,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
 
             // Verify MS-ASCON requirement: MS-ASCON_R336
             // If the response Status is 4, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                getItemEstimateResponse.ResponseData.Status,
+                int.Parse(getItemEstimateResponse.ResponseData.Status),
                 336,
                 @"[In Processing a GetItemEstimate Command] [The meaning of status code] 4 [is] Protocol error. The conversation-based filter cannot be applied to a folder that is not of the Email class.");
             #endregion

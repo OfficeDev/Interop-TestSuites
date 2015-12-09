@@ -2,10 +2,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
 {
     using System;
     using System.Globalization;
-    using Common.DataStructures;
+    using DataStructures = Microsoft.Protocols.TestSuites.Common.DataStructures;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;    
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Microsoft.Protocols.TestSuites.Common.Response;
 
     /// <summary>
     /// This scenario is designed to test the SmartForward command.
@@ -53,7 +54,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             Site.Assert.IsFalse(item.Email.RightsManagementLicense.ExportAllowed, "The ExportAllowed element in expected rights-managed e-mail message should be false.");
@@ -92,7 +93,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNotNull(
                 item.Email,
                 62,
-                @"[In ForwardAllowed] The value is TRUE (1) if the user can forward the e-mail message.");
+                @"[In ForwardAllowed] If the value is TRUE (1), the user can forward the e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R359");
@@ -135,7 +136,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNotNull(
                 item.Email.Attachments,
                 267,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed and composemail:ReplaceMime are set to FALSE, the server will send the message, including the original message as an attachment when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed, EditAllowed are set to FALSE, composemail:ReplaceMime present is set to no, the server will send the message, including the original message as an attachment when it uses the same TemplateID with the original message.");
 
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
 
@@ -172,7 +173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             Site.Assert.IsFalse(item.Email.RightsManagementLicense.ExportAllowed, "The ExportAllowed element in expected rights-managed e-mail message should be false.");
@@ -224,8 +225,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNotNull(
                 item.Email,
                 259,
-                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime is set to TRUE, the server will send the message when it uses the same TemplateID with the original message.");
+                @"[In Handling SmartForward and SmartReply Requests] If ExportAllowed and EditAllowed are set to FALSE, composemail:ReplaceMime present is set to yes, the server will send the message when it uses the same TemplateID with the original message.");
 
+            // Becuase the templateID of original message and new message is same,
+            // if the forward message is not null, then step 4 has been executed and R360 will  be verified.
+            this.Site.CaptureRequirementIfIsNotNull(
+                item,
+                360,
+                @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the original message is protected and the specified TemplateID value is the same as the TemplateID value on the original message, the server proceeds to step 4 [The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table[section 3.2.5.1]. If permissions do not allow it, a composemail:Status value of 172 is returned by the server.].");
+
+            // Becuase the templateID value corresponds to a template on the server,
+            // if the forward message is not null,  then step 4 has been executed and R364 will  be verified.
+            this.Site.CaptureRequirementIfIsNotNull(
+                item,
+                364,
+                @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template: If the TemplateID element is included in the command request, the server does the following:] If the TemplateID value corresponds to a template on the server, the server proceeds to step 4[The server compares the recipients (1) on the original message to the recipients (1) sent by the client within the new message. The server verifies that the recipient (1) list on the new message aligns with the granted permissions, as specified in the following table. If permissions do not allow it, , a composemail:Status value of 172 is returned by the server.].");
             #endregion
         }
         #endregion
@@ -248,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             Site.Assert.IsTrue(item.Email.RightsManagementLicense.ExportAllowed, "The ExportAllowed element in expected rights-managed e-mail message should be true.");
@@ -273,7 +287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #region The client logs on User3's account, calls Sync command to synchronize changes of Inbox folder in User3's mailbox, and gets the e-mail message which removed the IRM protection.
             this.SwitchUser(this.UserThreeInformation, true);
             TestSuiteBase.AddCreatedItemToCollection(this.UserThreeInformation, this.UserThreeInformation.InboxCollectionId, forwardSubject);
-            Sync forwardItem = this.SyncEmail(forwardSubject, this.UserThreeInformation.InboxCollectionId, true, true);
+            DataStructures.Sync forwardItem = this.SyncEmail(forwardSubject, this.UserThreeInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(forwardItem, "The returned item should not be null.");
 
             // Add the debug information
@@ -285,7 +299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNull(
                 forwardItem.Email.RightsManagementLicense,
                 48,
-                @"[In ExportAllowed] The value is TRUE (1) if the user can remove the IRM protection when the user forwards the e-mail message.");
+                @"[In ExportAllowed] If the value is TRUE (1), the user can remove the IRM protection of the original message’s content in the outgoing message when the user forwards the original e-mail message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R51");
@@ -341,7 +355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             Site.Assert.IsFalse(item.Email.RightsManagementLicense.ForwardAllowed, "The ForwardAllowed element in expected rights-managed e-mail message should be false.");
@@ -396,7 +410,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.CaptureRequirementIfIsNull(
                 item,
                 328,
-                @"[In ForwardAllowed] otherwise[the user cannot forward the e-mail message], FALSE (0).");
+                @"[In ForwardAllowed] if the value is FALSE (0), the user cannot forward the e-mail message.");
 
             #endregion
         }
@@ -420,7 +434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             #endregion
@@ -493,7 +507,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should be null.");
             #endregion
@@ -550,9 +564,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the decompressed and decrypted rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
+            
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                item.Email.RightsManagementLicense.ForwardAllowed,
+                item.Email.RightsManagementLicense.ModifyRecipientsAllowed,
+                1098,
+                @"[In ModifyRecipientsAllowed] The value of this element [ModifyRecipientsAllowed] MUST be the same with the ForwardAllowed element in the response.");
             #endregion
 
             #region The client logs on User2's account, calls SmartForward method without a TemplateID in request to forward the received email to User3.
@@ -577,19 +597,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
 
             Site.Assert.IsNotNull(item.Email.Attachments, "The Attachments in returned message should not be null.");
-            Site.Assert.IsNotNull(item.Email.Attachments.Attachment, "The Attachment in returned message should not be null.");
-            Site.Assert.IsTrue(item.Email.Attachments.Attachment.Length >= 1, "There should be at least 1 attachment in returned message");
-            Site.Assert.IsNotNull(item.Email.Attachments.Attachment[0], "The first Attachment in returned message should not be null.");
+            Site.Assert.IsNotNull(item.Email.Attachments.Items, "The Attachment in returned message should not be null.");
+            Site.Assert.IsTrue(item.Email.Attachments.Items.Length >= 1, "There should be at least 1 attachment in returned message");
+            Site.Assert.IsNotNull(item.Email.Attachments.Items[0], "The first Attachment in returned message should not be null.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASRM_R219");
 
             // Verify MS-ASRM requirement: MS-ASRM_R219
             Site.CaptureRequirementIfIsTrue(
-                item.Email.Attachments.Attachment[0].DisplayName.EndsWith(".rpmsg", StringComparison.CurrentCulture),
+                ((AttachmentsAttachment)item.Email.Attachments.Items[0]).DisplayName.EndsWith(".rpmsg", StringComparison.CurrentCulture),
                 219,
                 @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartForward command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:
-1. If no TemplateID element is included in the command request, the server proceeds as follows: ]If the original message had rights management restrictions, the rights-managed e-mail message is added as an .rpmsg attachment as specified in [MS-OXORMMS].");
+1. If no TemplateID element is included in the command request, the server proceeds as follows: ]In a SmartForward command, the rights-managed e-mail message is added as an .rpmsg attachment as specified in [MS-OXORMMS].");
+
+
+            this.Site.CaptureRequirementIfIsTrue(
+                ((AttachmentsAttachment)item.Email.Attachments.Items[0]).DisplayName.EndsWith(".rpmsg", StringComparison.CurrentCulture),
+                368,
+                @"[In Handling SmartForward and SmartReply Requests] [When the client sends the server a SmartReply command request for a message with a rights policy template, the server MUST do the following to enforce the rights policy template:
+1. If no TemplateID element is included in the command request, the server proceeds as follows: ]In a SmartForward command, the rights-managed e-mail message is added as an .rpmsg attachment as specified in [MS-OXORMMS].");
             #endregion
         }
         #endregion
@@ -613,7 +640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to false to synchronize changes of Inbox folder in User2's mailbox, and gets the e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, false, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, false, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should be null.");
             #endregion
@@ -670,7 +697,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should be null.");
             #endregion
@@ -729,7 +756,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
             #endregion
 
             #region The client logs on User2's account, calls Sync command with RightsManagementSupport element set to true to synchronize changes of Inbox folder in User2's mailbox, and gets the rights-managed e-mail message.
-            Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
+            DataStructures.Sync item = this.SyncEmail(subject, this.UserTwoInformation.InboxCollectionId, true, true);
             Site.Assert.IsNotNull(item, "The returned item should not be null.");
             Site.Assert.IsNotNull(item.Email.RightsManagementLicense, "The RightsManagementLicense element in expected rights-managed e-mail message should not be null.");
             #endregion

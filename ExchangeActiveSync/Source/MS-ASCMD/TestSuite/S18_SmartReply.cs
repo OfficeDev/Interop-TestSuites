@@ -41,12 +41,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region Call Sync command to sync user2 mailbox changes
@@ -198,9 +198,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes.

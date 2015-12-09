@@ -41,26 +41,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderDelete"), "0");
-            Site.Assert.AreEqual<byte>(
-                (byte)1,
-                folderCreateResponse.ResponseData.Status,
+            Site.Assert.AreEqual<int>(
+                1,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             #endregion
 
             #region Call method FolderDelete to delete the created folder from the server.
             FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(folderCreateResponse.ResponseData.SyncKey, folderCreateResponse.ResponseData.ServerId);
             FolderDeleteResponse folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
-            Site.Assert.AreEqual<byte>(
-                (byte)1,
-                folderDeleteResponse.ResponseData.Status,
+            Site.Assert.AreEqual<int>(
+                1,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 "The server should return a status code 1 in the FolderDelete command response to indicate success.");
             #endregion
 
             #region Call method FolderSync to synchronize the collection hierarchy.
             FolderSyncResponse folderSyncResponse = this.FolderSync();
-            Site.Assert.AreEqual<byte>(
-                (byte)1,
-                folderSyncResponse.ResponseData.Status,
+            Site.Assert.AreEqual<int>(
+                1,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 "The server should return a status code 1 in the FolderSync command response to indicate success.");
 
             bool folderDeleteSuccess = true;
@@ -121,7 +121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S03_TC02_FolderDelete_Status3()
         {
             // Call method FolderDelete to delete a Calendar folder from the server.
-            FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(this.LastFolderSyncKey, ((byte)FolderType.Calendar).ToString());
+            FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(this.LastFolderSyncKey,this.User1Information.CalendarCollectionId);
             FolderDeleteResponse folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
 
             Site.Assert.IsNotNull(folderDeleteResponse.ResponseData, "The FolderDelete element should not be null.");
@@ -141,9 +141,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 3 in the FolderDelete command response to indicate the specified folder is a special folder.
             // Verify MS-ASCMD requirement: MS-ASCMD_R101
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 101,
                 @"[In FolderDelete] Attempting to delete a recipient information cache using this command results in a Status element (section 2.2.3.162.3) value of 3.");
 
@@ -152,9 +152,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 3 in the FolderDelete command response to indicate the specified folder is a special folder.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4046
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4046,
                 @"[In Status(FolderDelete)] [When the scope is] Item, [the meaning of the status value] 3 [is] The specified folder is a special system folder, such as the Inbox folder, Outbox folder, Contacts folder, Recipient information, or Drafts folder, and cannot be deleted by the client.");
 
@@ -163,9 +163,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 3 in the FolderDelete command response to indicate the specified folder is a special folder.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4047
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4047,
                 @"[In Status(FolderDelete)] [When the scope is Item], [the cause of the status value 3 is] The client specified a special folder in a FolderDelete command request (section 2.2.2.3). special folders cannot be deleted.");
 
@@ -174,9 +174,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 3 in the FolderDelete command response to indicate the specified folder is a special folder.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4040
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)3,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                3,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4040,
                 @"[In Status(FolderDelete)] If the command failed, the Status element in the server response contains a code indicating the type of failure.");
 
@@ -206,9 +206,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
                 // The server should return a status code 3 in the FolderDelete command response to indicate the specified folder is a special folder.
                 // Verify MS-ASCMD requirement: MS-ASCMD_R100
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    (byte)3,
-                    folderDeleteResponse.ResponseData.Status,
+                Site.CaptureRequirementIfAreEqual<int>(
+                    3,
+                    int.Parse(folderDeleteResponse.ResponseData.Status),
                     100,
                     @"[In FolderDelete] The FolderDelete command cannot be used to delete a recipient information cache.");
             }
@@ -229,9 +229,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 4 in the FolderDelete command response to indicate the specified folder does not exist.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4048
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4048,
                 @"[In Status(FolderDelete)] [When the scope is] Item, [the meaning of the status value] 4 [is] The specified folder does not exist.");
 
@@ -240,9 +240,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // The server should return a status code 4 in the FolderDelete command response to indicate the specified folder does not exist.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4049
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)4,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                4,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4049,
                 @"[In Status(FolderDelete)] [When the scope is Item], [the cause of the status value 4 is] The client specified a nonexistent folder in a FolderDelete command request.");
         }
@@ -255,9 +255,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderDelete"), "0");
-            Site.Assert.AreEqual<byte>(
-                (byte)1,
-                folderCreateResponse.ResponseData.Status,
+            Site.Assert.AreEqual<int>(
+                1,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 "The server should return a status code 1 in the FolderCreate command response to indicate success.");
             #endregion
 
@@ -269,9 +269,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4060");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4060
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)9,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                9,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4060,
                 @"[In Status(FolderDelete)] [When the scope is Global], [the cause of the status value 9 is] The client sent a malformed or mismatched synchronization key [, or the synchronization state is corrupted on the server].");
             #endregion
@@ -279,7 +279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Call method FolderDelete to delete the created folder from the server.
             folderDeleteRequest = Common.CreateFolderDeleteRequest(folderCreateResponse.ResponseData.SyncKey, folderCreateResponse.ResponseData.ServerId);
             folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
-            Site.Assert.AreEqual<byte>((byte)1, folderDeleteResponse.ResponseData.Status, "The created Folder should be deleted.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderDeleteResponse.ResponseData.Status), "The created Folder should be deleted.");
             #endregion
         }
         
@@ -291,7 +291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region Call method FolderCreate to create a new folder as a child folder of the specified parent folder.
             FolderCreateResponse folderCreateResponse = this.GetFolderCreateResponse(this.LastFolderSyncKey, (byte)FolderType.UserCreatedMail, Common.GenerateResourceName(Site, "FolderDelete"), "0");
-            Site.Assert.AreEqual<byte>((byte)1, folderCreateResponse.ResponseData.Status, "If the FolderCreate command creates a folder successfully, server should return a status code 1.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderCreateResponse.ResponseData.Status), "If the FolderCreate command creates a folder successfully, server should return a status code 1.");
             #endregion
 
             #region Call method FolderDelete without folder SyncKey to delete a folder from the server.
@@ -302,9 +302,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4063");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4063
-            Site.CaptureRequirementIfAreEqual<byte>(
-                (byte)10,
-                folderDeleteResponse.ResponseData.Status,
+            Site.CaptureRequirementIfAreEqual<int>(
+                10,
+                int.Parse(folderDeleteResponse.ResponseData.Status),
                 4063,
                 @"[In Status(FolderDelete)] [When the scope is Global], [the cause of the status value 10 is] The client sent a FolderCreate command request (section 2.2.2.3) that contains a semantic or syntactic error.");
             #endregion
@@ -312,7 +312,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Call method FolderDelete to delete the created folder from the server.
             folderDeleteRequest = Common.CreateFolderDeleteRequest(folderCreateResponse.ResponseData.SyncKey, folderCreateResponse.ResponseData.ServerId);
             folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
-            Site.Assert.AreEqual<byte>((byte)1, folderDeleteResponse.ResponseData.Status, "The server should return a status code 1 in the FolderDelete command response to indicate success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(folderDeleteResponse.ResponseData.Status), "The server should return a status code 1 in the FolderDelete command response to indicate success.");
             #endregion
         }
         #endregion

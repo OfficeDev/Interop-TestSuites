@@ -87,6 +87,16 @@ RemoteWipe (section 2.2.2.44).");
 
             this.VerifyUnsignedByteStructure(provisionResponse.ResponseData.Status);
 
+            if (provisionResponse.ResponseData.Status < 100)
+            {
+                bool isVerifiedR393 = provisionResponse.ResponseData.Status == 1 || provisionResponse.ResponseData.Status == 2 || provisionResponse.ResponseData.Status == 3;
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isVerifiedR393,
+                    393,
+                    @"[In Status (Provision)] The following table lists valid values [1,2,3] for the Status (Provision) element when it is the child of the Provision element.");
+            }
+
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R391");
 
@@ -163,11 +173,14 @@ RemoteWipe (section 2.2.2.44).");
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R318");
 
                         // Verify MS-ASPROV requirement: MS-ASPROV_R318
-                        Site.CaptureRequirementIfAreEqual<string>(
-                            "MS-EAS-Provisioning-WBXML",
-                            provisionResponse.ResponseData.Policies.Policy.PolicyType,
+                        bool isR318Satisfied = provisionResponse.ResponseData.Policies.Policy.PolicyType.Equals("MS-WAP-Provisioning-XML") || provisionResponse.ResponseData.Policies.Policy.PolicyType.Equals("MS-EAS-Provisioning-WBXML");
+
+                        Site.CaptureRequirementIfIsTrue(
+                            isR318Satisfied,
                             318,
-                            @"[In PolicyType] PolicyType MUST be ""MS-EAS-Provisioning-WBXML"".");
+                            @"[In PolicyType] The value of the PolicyType element MUST be one of the values specified in the following table.
+[MS-WAP-Provisioning-XML
+MS-EAS-Provisioning-WBXML]");
                     }
 
                     this.VerifyStringStructure();
@@ -253,7 +266,25 @@ RemoteWipe (section 2.2.2.44).");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         208,
-                        @"[In Data] The Data element is a container element ([MS-ASDTYPE] section 2.2) that specifies the settings for a policy.");
+                        @"[In Data (container Data Type)] The Data element as a container data type ([MS-ASDTYPE] section 2.2) contains a child element in which the policy settings for a device are specified. ");
+
+                    this.Site.CaptureRequirementIfAreEqual<string>(
+                        "MS-EAS-Provisioning-WBXML",
+                        provisionResponse.ResponseData.Policies.Policy.PolicyType,
+                        966,
+                        @"[In PolicyType] Value MS-EAS-Provisioning-WBXML meaning The contents of the Data element are formatted according to the Exchange ActiveSync provisioning WBXML schema, as specified in section 2.2.2.23.1.");
+
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1") ||
+                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0") ||
+                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1") ||
+                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                    {
+                        this.Site.CaptureRequirementIfAreEqual<string>(
+                            "MS-EAS-Provisioning-WBXML",
+                            provisionResponse.ResponseData.Policies.Policy.PolicyType,
+                            971,
+                            @"[In PolicyType] The value ""MS-EAS-Provisioning-WBXML"" is used with protocol versions 12.0, 12.1, 14.0, 14.1, and 16.0.");
+                    }
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R210");
@@ -262,7 +293,7 @@ RemoteWipe (section 2.2.2.44).");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         210,
-                        @"[In Data] The Data element has only the following child element: EASProvisionDoc (section 2.2.2.27): One instance of this element is required.");
+                        @"[In Data (container Data Type)] As a container data type, the Data element has only the following child element: EASProvisionDoc (section 2.2.2.27): One instance of this element is required.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R232");
@@ -388,7 +419,17 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                     Site.CaptureRequirementIfIsNull(
                         provisionResponse.ResponseData.RemoteWipe,
                         661,
-                        @"[In Responding to a Security Policy Settings Acknowledgment] If the level of compliance meets the server's requirements, the server response is in the following format. <Provision> <Status>...</Status> <Policies> <Policy> <PolicyType>MS-EAS-Provisioning-WBXML</PolicyType> <Status>...</Status> <PolicyKey>...</PolicyKey> </Policy> </Policies> </Provision>");
+                        @"[In Responding to a Security Policy Settings Acknowledgment] If the level of compliance meets the server's requirements, the server response is in the following format.
+<Provision>
+   <Status>...</Status>
+   <Policies>
+      <Policy>
+         <PolicyType>...</PolicyType>
+         <Status>...</Status>
+         <PolicyKey>...</PolicyKey>
+      </Policy>
+   </Policies>
+</Provision>");
                 }
 
                 this.VerifyContainerStructure();
@@ -1721,7 +1762,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 87,
-                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.");
+                @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
         }
 
         /// <summary>
@@ -1847,7 +1888,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     337,
-                                    @"[In Code Page 14: Provision] [Tag name] Provision [Token] 0x05");
+                                    @"[In Code Page 14: Provision] [Tag name] Provision [Token] 0x05 [supports protocol versions] All");
 
                                 break;
                             }
@@ -1863,7 +1904,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     338,
-                                    @"[In Code Page 14: Provision] [Tag name] Policies [Token] 0x06");
+                                    @"[In Code Page 14: Provision] [Tag name] Policies [Token] 0x06 [supports protocol versions] All");
 
                                 break;
                             }
@@ -1879,7 +1920,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     339,
-                                    @"[In Code Page 14: Provision] [Tag name] Policy [Token] 0x07");
+                                    @"[In Code Page 14: Provision] [Tag name] Policy [Token] 0x07 [supports protocol versions] All");
 
                                 break;
                             }
@@ -1895,7 +1936,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     340,
-                                    @"[In Code Page 14: Provision] [Tag name] PolicyType [Token] 0x08");
+                                    @"[In Code Page 14: Provision] [Tag name] PolicyType [Token] 0x08 [supports protocol versions] All");
 
                                 break;
                             }
@@ -1911,7 +1952,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     341,
-                                    @"[In Code Page 14: Provision] [Tag name] PolicyKey [Token] 0x09");
+                                    @"[In Code Page 14: Provision] [Tag name] PolicyKey [Token] 0x09 [supports protocol versions] All");
 
                                 break;
                             }
@@ -1927,7 +1968,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     342,
-                                    @"[In Code Page 14: Provision] [Tag name] Data [Token] 0x0A");
+                                    @"[In Code Page 14: Provision] [Tag name] Data [Token] 0x0A [supports protocol versions] All");
 
                                 break;
                             }
@@ -1943,7 +1984,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     343,
-                                    @"[In Code Page 14: Provision] [Tag name] Status [Token] 0x0B");
+                                    @"[In Code Page 14: Provision] [Tag name] Status [Token] 0x0B [supports protocol versions] All");
 
                                 break;
                             }
@@ -1959,7 +2000,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     344,
-                                    @"[In Code Page 14: Provision] [Tag name] RemoteWipe [Token] 0x0C");
+                                    @"[In Code Page 14: Provision] [Tag name] RemoteWipe [Token] 0x0C [supports protocol versions] All");
 
                                 break;
                             }
@@ -1975,7 +2016,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     345,
-                                    @"[In Code Page 14: Provision] [Tag name] EASProvisionDoc [Token] 0x0D");
+                                    @"[In Code Page 14: Provision] [Tag name] EASProvisionDoc [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -1991,7 +2032,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     346,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordEnabled [Token] 0x0E");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordEnabled [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2007,7 +2048,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     347,
-                                    @"[In Code Page 14: Provision] [Tag name] AlphanumericDevicePasswordRequired [Token] 0x0F");
+                                    @"[In Code Page 14: Provision] [Tag name] AlphanumericDevicePasswordRequired [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2023,18 +2064,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     349,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireStorageCardEncryption (equivalent to DeviceEncryptionEnabled) [Token] 0x10");
-
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R348");
-
-                                // Verify MS-ASWBXML requirement: MS-ASWBXML_R348
-                                Site.CaptureRequirementIfAreEqual<byte>(
-                                    0x10,
-                                    token,
-                                    "MS-ASWBXML",
-                                    348,
-                                    @"[In Code Page 14: Provision] [Tag name] DeviceEncryptionEnabled [Token] 0x10");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireStorageCardEncryption [Token] 0x10 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2050,7 +2080,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     350,
-                                    @"[In Code Page 14: Provision] [Tag name] PasswordRecoveryEnabled [Token] 0x11");
+                                    @"[In Code Page 14: Provision] [Tag name] PasswordRecoveryEnabled [Token] 0x11 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2066,7 +2096,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     351,
-                                    @"[In Code Page 14: Provision] [Tag name] AttachmentsEnabled [Token] 0x13");
+                                    @"[In Code Page 14: Provision] [Tag name] AttachmentsEnabled [Token] 0x13 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2082,7 +2112,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     352,
-                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordLength [Token] 0x14");
+                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordLength [Token] 0x14 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2098,7 +2128,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     353,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxInactivityTimeDeviceLock [Token] 0x15");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxInactivityTimeDeviceLock [Token] 0x15 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2114,7 +2144,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     354,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxDevicePasswordFailedAttempts [Token] 0x16");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxDevicePasswordFailedAttempts [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2130,7 +2160,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     355,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxAttachmentSize [Token] 0x17");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxAttachmentSize [Token] 0x17 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2146,7 +2176,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     356,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSimpleDevicePassword [Token] 0x18");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSimpleDevicePassword [Token] 0x18 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2162,7 +2192,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     357,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordExpiration [Token] 0x19");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordExpiration [Token] 0x19 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2178,7 +2208,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     358,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordHistory [Token] 0x1A");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordHistory [Token] 0x1A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2194,7 +2224,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     359,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowStorageCard [Token] 0x1B");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowStorageCard [Token] 0x1B [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2210,7 +2240,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     360,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowCamera [Token] 0x1C");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowCamera [Token] 0x1C [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2226,7 +2256,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     361,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireDeviceEncryption [Token] 0x1D");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireDeviceEncryption [Token] 0x1D [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2242,7 +2272,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     362,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedApplications [Token] 0x1E");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedApplications [Token] 0x1E [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2258,7 +2288,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     363,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedInstallationPackages [Token] 0x1F");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedInstallationPackages [Token] 0x1F [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2274,7 +2304,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     364,
-                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordComplexCharacters [Token] 0x20");
+                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordComplexCharacters [Token] 0x20 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2290,7 +2320,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     365,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowWiFi [Token] 0x21");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowWiFi [Token] 0x21 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2306,7 +2336,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     366,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowTextMessaging [Token] 0x22");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowTextMessaging [Token] 0x22 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2322,7 +2352,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     367,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowPOPIMAPEmail [Token] 0x23");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowPOPIMAPEmail [Token] 0x23 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2338,7 +2368,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     368,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowBluetooth [Token] 0x24");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowBluetooth [Token] 0x24 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2354,7 +2384,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     369,
-                                    @"[In Code Page 14: Provision] [Tag name]AllowIrDA [Token] 0x25");
+                                    @"[In Code Page 14: Provision] [Tag name]AllowIrDA [Token] 0x25 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2370,7 +2400,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     370,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireManualSyncWhenRoaming [Token] 0x26");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireManualSyncWhenRoaming [Token] 0x26 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2386,7 +2416,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     371,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowDesktopSync [Token] 0x27");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowDesktopSync [Token] 0x27 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2402,7 +2432,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     372,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxCalendarAgeFilter [Token] 0x28");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxCalendarAgeFilter [Token] 0x28 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2418,7 +2448,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     373,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowHTMLEmail [Token] 0x29");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowHTMLEmail [Token] 0x29 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2434,7 +2464,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     374,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailAgeFilter [Token] 0x2A");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailAgeFilter [Token] 0x2A [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2450,7 +2480,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     375,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailBodyTruncationSize [Token] 0x2B");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailBodyTruncationSize [Token] 0x2B [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2466,7 +2496,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     376,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailHTMLBodyTruncationSize [Token] 0x2C");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailHTMLBodyTruncationSize [Token] 0x2C [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2482,7 +2512,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     377,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEMessages [Token] 0x2D");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEMessages [Token] 0x2D [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2498,7 +2528,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     378,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptedSMIMEMessages [Token] 0x2E");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptedSMIMEMessages [Token] 0x2E [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2514,7 +2544,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     379,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEAlgorithm [Token] 0x2F");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEAlgorithm [Token] 0x2F [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2530,7 +2560,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     380,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptionSMIMEAlgorithm [Token] 0x30");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptionSMIMEAlgorithm [Token] 0x30 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2546,7 +2576,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     381,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMEEncryptionAlgorithmNegotiation [Token] 0x31");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMEEncryptionAlgorithmNegotiation [Token] 0x31 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2562,7 +2592,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     382,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMESoftCerts [Token] 0x32");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMESoftCerts [Token] 0x32 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2578,7 +2608,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     383,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowBrowser [Token] 0x33");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowBrowser [Token] 0x33 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2594,7 +2624,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     384,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowConsumerEmail [Token] 0x34");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowConsumerEmail [Token] 0x34 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2610,7 +2640,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     385,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowRemoteDesktop [Token] 0x35");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowRemoteDesktop [Token] 0x35 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2626,7 +2656,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     386,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowInternetSharing [Token] 0x36");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowInternetSharing [Token] 0x36 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2642,7 +2672,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     387,
-                                    @"[In Code Page 14: Provision] [Tag name] UnapprovedInROMApplicationList [Token] 0x37");
+                                    @"[In Code Page 14: Provision] [Tag name] UnapprovedInROMApplicationList [Token] 0x37 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2658,7 +2688,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     388,
-                                    @"[In Code Page 14: Provision] [Tag name] ApplicationName [Token] 0x38");
+                                    @"[In Code Page 14: Provision] [Tag name] ApplicationName [Token] 0x38 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2674,7 +2704,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     389,
-                                    @"[In Code Page 14: Provision] [Tag name] ApprovedApplicationList [Token] 0x39");
+                                    @"[In Code Page 14: Provision] [Tag name] ApprovedApplicationList [Token] 0x39 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }
@@ -2690,7 +2720,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     390,
-                                    @"[In Code Page 14: Provision] [Tag name] Hash [Token] 0x3A");
+                                    @"[In Code Page 14: Provision] [Tag name] Hash [Token] 0x3A [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
 
                                 break;
                             }

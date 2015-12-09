@@ -84,5 +84,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
         /// <param name="request">A SendMailRequest object that contains the request information.</param>
         /// <returns>A SendMailResponse object.</returns>
         SendMailResponse SendMail(SendMailRequest request);
+
+        /// <summary>
+        /// Accept, tentatively accept, or decline a meeting request in the user's Inbox folder or Calendar folder
+        /// </summary>
+        /// <param name="request">A MeetingResponseRequest object that contains the request information.</param>
+        /// <returns>A MeetingResponseResponse object.</returns>
+        MeetingResponseResponse MeetingResponse(MeetingResponseRequest request);
+
+        /// <summary>
+        /// Forward messages without retrieving the full, original message from the server.
+        /// </summary>
+        /// <param name="request">A SmartForwardRequest object that contains the request information.</param>
+        /// <returns>A SmartForwardResponse object.</returns>
+        SmartForwardResponse SmartForward(SmartForwardRequest request);
     }
 }

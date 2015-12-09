@@ -265,7 +265,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                             Site.CaptureRequirementIfIsTrue(
                                 this.activeSyncClient.ValidationResult,
                                 12411,
-                                @"[In Body] As a top-level element of the Calendar class, the airsyncbase:Body element specifies the body text of the calendar item.");
+                                @"[In Body (AirSyncBase Namespace)] As a top-level element of the Calendar class, the airsyncbase:Body element specifies the body text of the calendar item.");
 
                             this.VerifyContainerDataType();
                         }
@@ -292,14 +292,53 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R138, the value of BusyStatus is {0}", syncResponse.AddElements[i].Calendar.BusyStatus);
 
-                            string[] expectedValues = new string[] { "0", "1", "2", "3" };
+                            string[] expectedValues = new string[] { "0", "1", "2", "3", "4" };
                             Common.VerifyActualValues("BusyStatus", expectedValues, syncResponse.AddElements[i].Calendar.BusyStatus.ToString(), this.Site);
 
                             // If the verification of actual values success, then requirement MS-ASCAL_R138 can be captured directly.
                             // Verify MS-ASCAL requirement: MS-ASCAL_R138
                             Site.CaptureRequirement(
                                 138,
-                                @"[In BusyStatus] The value of the BusyStatus element MUST be one of the values[0,1,2,3] listed in the following table.");
+                                @"[In BusyStatus] The value of the BusyStatus element MUST be one of the values[0,1,2,3,4] listed in the following table.");
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "12.1")
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2235");
+
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R2235
+                                Site.CaptureRequirementIfAreNotEqual<byte>(
+                                    4,
+                                    (byte)syncResponse.AddElements[i].Calendar.BusyStatus,
+                                    2235,
+                                    @"[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions 2.5, 12.0, 12.1[, 14.0, and 14.1].");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.0")
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2043");
+
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R2043
+                                Site.CaptureRequirementIfAreNotEqual<byte>(
+                                    4,
+                                    (byte)syncResponse.AddElements[i].Calendar.BusyStatus,
+                                    2043,
+                                    @"[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions [2.5, 12.0, 12.1,] 14.0[, and 14.1].");
+                            }
+
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2044");
+
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R2044
+                                Site.CaptureRequirementIfAreNotEqual<byte>(
+                                    4,
+                                    (byte)syncResponse.AddElements[i].Calendar.BusyStatus,
+                                    2044,
+                                    @"[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions [2.5, 12.0, 12.1, 14.0, and] 14.1.");
+                            }
 
                             this.VerifyUnsignedByteDataType(syncResponse.AddElements[i].Calendar.BusyStatus);
                         }
@@ -552,7 +591,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                             else
                             {
                                 // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R3982311");
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R3892311");
 
                                 // Since the schema is validated, this requirement can be captured directly.
                                 Site.CaptureRequirement(
@@ -765,6 +804,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                     3951111,
                                     @"[In Reminder] The value of this element is [an unsignedInt data type, as specified in [XMLSCHEMA2/2], or] an EmptyTag data type, which contains no value.<15>");
                             }
+                        }
+                        else
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2185");
+
+                            // Verify MS-ASCAL requirement: MS-ASCAL_R2185
+                            Site.CaptureRequirementIfIsTrue(
+                                syncResponse.AddElements[i].Calendar.Reminder == null || syncResponse.AddElements[i].Calendar.Reminder.Length != 0,
+                                2185,
+                                @"[In Reminder] When protocol version 2.5, 12.0, 12.1, or 14.0 is used, the value of the Reminder element cannot be an EmptyTag data type.");
                         }
 
                         if (null != syncResponse.AddElements[i].Calendar.Reminder)
@@ -1332,9 +1382,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                                 // Verify MS-ASCAL requirement: MS-ASCAL_R24311
                                 Site.CaptureRequirementIfIsTrue(
-                                    syncResponse.AddElements[i].Calendar.Exceptions.Exception.Length >= 0 && syncResponse.AddElements[i].Calendar.Exceptions.Exception.Length <= 1000,
+                                    syncResponse.AddElements[i].Calendar.Exceptions.Exception.Length >= 0 && syncResponse.AddElements[i].Calendar.Exceptions.Exception.Length <= 256,
                                     24311,
-                                    @"[In Exception] A command response has between zero and 1000 Exception child elements per Exceptions element.");
+                                    @"[In Exception] A command response has between zero and 256 Exception child elements per Exceptions element.");
 
                                 this.VerifyContainerDataType();
 
@@ -1354,44 +1404,59 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                         this.VerifyUnsignedByteDataType(exception.Deleted);
                                     }
 
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R264");
+                                    // Element ExceptionStartTime is supported when protocol version is 12.1/14.0/14.1
+                                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "12.1"
+                                        || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.0"
+                                        || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
+                                    { 
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R264");
 
-                                    // Verify MS-ASCAL requirement: MS-ASCAL_R264
-                                    // If ExceptionStartTime exists, this requirement can be captured.
-                                    Site.CaptureRequirementIfIsNotNull(
-                                        exception.ExceptionStartTime,
-                                        264,
-                                        @"[In ExceptionStartTime] The ExceptionStartTime element is a required child element of the Exception element (section 2.2.2.19) that specifies the start time of the original recurring meeting.");
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R264
+                                        // If ExceptionStartTime exists, this requirement can be captured.
+                                        Site.CaptureRequirementIfIsNotNull(
+                                            exception.ExceptionStartTime,
+                                            264,
+                                            @"[In ExceptionStartTime] The ExceptionStartTime element is a required child element of the Exception element (section 2.2.2.19) that specifies the original start time of the occurrence that the exception is replacing in the recurring series.");
 
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R246");
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2106");
 
-                                    // Verify MS-ASCAL requirement: MS-ASCAL_R246
-                                    // Since R264 is captured, this requirement can be captured too.
-                                    Site.CaptureRequirement(
-                                        246,
-                                        @"[In Exception][The Exception element can have the following child elements:] ExceptionStartTime (section 2.2.2.21): One instance of this element is required.");
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R2106
+                                        Site.CaptureRequirementIfIsNotNull(
+                                            exception.ExceptionStartTime,
+                                            2106,
+                                            @"[In Exception] The ExceptionStartTime element is a required child element of the the Exception element only when protocol version 2.5, 12.0, 12.1, 14.0, or 14.1 is used.");
 
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R268");
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R246");
 
-                                    // Verify MS-ASCAL requirement: MS-ASCAL_R268
-                                    // Since R264 is captured, this requirement can be captured too.
-                                    Site.CaptureRequirement(
-                                        268,
-                                        @"[In ExceptionStartTime] The value of the ExceptionStartTime element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).");
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R246
+                                        // Since R264 is captured, this requirement can be captured too.
+                                        Site.CaptureRequirement(
+                                            246,
+                                            @"[In Exception][The Exception element can have the following child elements:] ExceptionStartTime (section 2.2.2.21): One instance of this element is required.");
 
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R26711");
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R268");
 
-                                    // Verify MS-ASCAL requirement: MS-ASCAL_R26711
-                                    // Since R264 is captured, this requirement can be captured too.
-                                    Site.CaptureRequirement(
-                                        26711,
-                                        @"[In ExceptionStartTime] A command response has only one ExceptionStartTime child element per Exception element.");
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R268
+                                        // Since R264 is captured, this requirement can be captured too.
+                                        Site.CaptureRequirement(
+                                            268,
+                                            @"[In ExceptionStartTime] The value of the ExceptionStartTime element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).");
 
-                                    this.VerifyCompactDateTimeDataType();
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R26711");
+
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R26711
+                                        // Since R264 is captured, this requirement can be captured too.
+                                        Site.CaptureRequirement(
+                                            26711,
+                                            @"[In ExceptionStartTime] A command response has only one ExceptionStartTime child element per Exception element.");
+
+                                        this.VerifyCompactDateTimeDataType();                                    
+                                    }
 
                                     // Add the debug information
                                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R8111");
@@ -1423,14 +1488,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                             @"[In Attendees] A command response has a maximum of one Attendees child element per Exception element.");
                                     }
 
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R25611");
+                                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "12.1")
+                                    {
+                                        // Add the debug information
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2023");
 
-                                    // Verify MS-ASCAL requirement: MS-ASCAL_R25611
-                                    Site.CaptureRequirementIfIsTrue(
-                                        this.activeSyncClient.ValidationResult,
-                                        25611,
-                                        @"[In Exception][The Exception element can have the following child elements:] Attendees (section 2.2.2.4): This element is optional.<5>");
+                                        // Verify MS-ASCAL requirement: MS-ASCAL_R2023
+                                        Site.CaptureRequirementIfIsNull(
+                                            exception.Attendees,
+                                            2023,
+                                            @"[In Attendees] When protocol version 2.5, 12.0, or 12.1 is used, the Attendees element is not supported as a child element of the Exception element.");
+                                    }
 
                                     if (null != exception.Body)
                                     {
@@ -1441,7 +1509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                         Site.CaptureRequirementIfIsTrue(
                                             this.activeSyncClient.ValidationResult,
                                             12711,
-                                            @"[In Body] A command response has a maximum of one airsyncbase:Body child element per Exception element.");
+                                            @"[In Body (AirSyncBase Namespace)] A command response has a maximum of one airsyncbase:Body child element per Exception element.");
                                     }
 
                                     // Add the debug information
@@ -1674,6 +1742,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                 @"[In Location] The value of this element is a string data type, as specified in [MS-ASDTYPE] section 2.6.");
 
                             this.VerifyStringDataType();
+                        }
+
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "12.1"
+                            && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.0"
+                            && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.1")
+                        {
+                            if (syncResponse.AddElements[i].Calendar.Location1.DisplayName != null)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2135");
+
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R2135
+                                Site.CaptureRequirementIfIsNull(
+                                    syncResponse.AddElements[i].Calendar.Location,
+                                    2135,
+                                    @"[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.27) is used instead of the calendar:Location element in protocol version 16.0.");
+                            }
                         }
 
                         // Add the debug information
@@ -1912,15 +1997,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 "MS-ASDTYPE",
                 12213,
                 @"[In Compact DateTime] [The format of a Compact DateTime value is specified by the following Augmented Backus-Naur Form (ABNF) notation. ]
-date_string   = year month day ""T"" hour minute seconds [milliseconds] ""Z""
-year          = 4*DIGIT
-month         = (""0"" DIGIT) / ""10"" / ""11"" / ""12""
-day           = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / ""30"" / ""31""
-hour          = (""0"" DIGIT) / (""1"" DIGIT) / ""20"" / ""21"" / ""22"" / ""23""
-minute        = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
-seconds       = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
-milliseconds  = 1*3DIGIT
-");
+                  date_string   = year month day ""T"" hour minute seconds ""Z""
+                  year          = 4*DIGIT
+                  month         = (""0"" DIGIT) / ""10"" / ""11"" / ""12""
+                  day           = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / ""30"" / ""31""
+                  hour          = (""0"" DIGIT) / (""1"" DIGIT) / ""20"" / ""21"" / ""22"" / ""23""
+                  minute        = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
+                  seconds       = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / (""4"" DIGIT) / (""5"" DIGIT)
+                  ");
         }
 
         /// <summary>
@@ -2000,7 +2084,7 @@ milliseconds  = 1*3DIGIT
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 90,
-                @"[In string Data Type] An element of this [string] type is declared as an element with a type attribute of ""string"".");
+                @"[In string Data Type] An element of this[string] type is declared as an element with a type attribute of ""string"".");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R91");
@@ -2019,7 +2103,7 @@ milliseconds  = 1*3DIGIT
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 94,
-                @"[In string Data Type] Elements of these types [ActiveSync defines several conventions for strings that adhere to commonly used formats] Are defined as string types in XML schemas.");
+                @"[In string Data Type] Elements of these types [ActiveSync defines several conventions for strings that adhere to commonly used formats]are defined as string types in XML schemas.");
         }
 
         /// <summary>
@@ -2249,7 +2333,7 @@ milliseconds  = 1*3DIGIT
             Site.CaptureRequirement(
                 "MS-ASDTYPE",
                 125,
-                @"[In unsignedByte Data Type] Elements of this type [unsignedByte type] are declared with an element whose type attribute is set to ""unsignedByte"".");
+                @"[In unsignedByte Data Type] Elements of this type[unsignedByte type] are declared with an element whose type attribute is set to ""unsignedByte"".");
         }
 
         /// <summary>
@@ -2299,7 +2383,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         180,
-                                        @"[In Code Page 4: Calendar] [Tag name] Timezone [Token] 0x05");
+                                        @"[In Code Page 4: Calendar] [Tag name] Timezone [Token] 0x05 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2315,7 +2399,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         181,
-                                        @"[In Code Page 4: Calendar] [Tag name] AllDayEvent [Token] 0x06");
+                                        @"[In Code Page 4: Calendar] [Tag name] AllDayEvent [Token] 0x06 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2331,7 +2415,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         182,
-                                        @"[In Code Page 4: Calendar] [Tag name] Attendees [Token] 0x07");
+                                        @"[In Code Page 4: Calendar] [Tag name] Attendees [Token] 0x07 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2347,7 +2431,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         183,
-                                        @"[In Code Page 4: Calendar] [Tag name] Attendee [Token] 0x08");
+                                        @"[In Code Page 4: Calendar] [Tag name] Attendee [Token] 0x08 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2363,7 +2447,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         184,
-                                        @"[In Code Page 4: Calendar] [Tag name] Email [Token] 0x09");
+                                        @"[In Code Page 4: Calendar] [Tag name] Email [Token] 0x09 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2379,7 +2463,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         185,
-                                        @"[In Code Page 4: Calendar] [Tag name] Name [Token] 0x0A");
+                                        @"[In Code Page 4: Calendar] [Tag name] Name [Token] 0x0A [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2395,7 +2479,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         186,
-                                        @"[In Code Page 4: Calendar] [Tag name] BusyStatus [Token] 0x0D");
+                                        @"[In Code Page 4: Calendar] [Tag name] BusyStatus [Token] 0x0D [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2411,7 +2495,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         187,
-                                        @"[In Code Page 4: Calendar] [Tag name] Categories [Token] 0x0E");
+                                        @"[In Code Page 4: Calendar] [Tag name] Categories [Token] 0x0E [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2427,7 +2511,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         188,
-                                        @"[In Code Page 4: Calendar] [Tag name] Category [Token] 0x0F");
+                                        @"[In Code Page 4: Calendar] [Tag name] Category [Token] 0x0F [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2443,7 +2527,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         189,
-                                        @"[In Code Page 4: Calendar] [Tag name] DtStamp [Token] 0x11");
+                                        @"[In Code Page 4: Calendar] [Tag name] DtStamp [Token] 0x11 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2459,7 +2543,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         190,
-                                        @"[In Code Page 4: Calendar] [Tag name] EndTime [Token] 0x12");
+                                        @"[In Code Page 4: Calendar] [Tag name] EndTime [Token] 0x12 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2475,7 +2559,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         191,
-                                        @"[In Code Page 4: Calendar] [Tag name] Exception [Token] 0x13");
+                                        @"[In Code Page 4: Calendar] [Tag name] Exception [Token] 0x13 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2491,7 +2575,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         192,
-                                        @"[In Code Page 4: Calendar] [Tag name] Exceptions [Token] 0x14");
+                                        @"[In Code Page 4: Calendar] [Tag name] Exceptions [Token] 0x14 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2507,7 +2591,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         193,
-                                        @"[In Code Page 4: Calendar] [Tag name] Deleted [Token] 0x15");
+                                        @"[In Code Page 4: Calendar] [Tag name] Deleted [Token] 0x15 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2523,7 +2607,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         194,
-                                        @"[In Code Page 4: Calendar] [Tag name] ExceptionStartTime [Token] 0x16");
+                                        @"[In Code Page 4: Calendar] [Tag name] ExceptionStartTime [Token] 0x16 [supports protocol versions] 2.5, 12.0, 12.1, 14.0, 14.1");
 
                                     break;
                                 }
@@ -2539,7 +2623,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         195,
-                                        @"[In Code Page 4: Calendar] [Tag name] Location [Token] 0x17");
+                                        @"[In Code Page 4: Calendar] [Tag name] Location - see note 2 following this table [Token] 0x17 [supports protocol versions] 2.5, 12.0, 12.1, 14.0, 14.1");
 
                                     break;
                                 }
@@ -2555,7 +2639,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         196,
-                                        @"[In Code Page 4: Calendar] [Tag name] MeetingStatus [Token] 0x18");
+                                        @"[In Code Page 4: Calendar] [Tag name] MeetingStatus [Token] 0x18 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2571,7 +2655,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         197,
-                                        @"[In Code Page 4: Calendar] [Tag name] OrganizerEmail [Token] 0x19");
+                                        @"[In Code Page 4: Calendar] [Tag name] OrganizerEmail [Token] 0x19 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2587,7 +2671,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         198,
-                                        @"[In Code Page 4: Calendar] [Tag name] OrganizerName [Token] 0x1A");
+                                        @"[In Code Page 4: Calendar] [Tag name] OrganizerName [Token] 0x1A [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2603,7 +2687,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         199,
-                                        @"[In Code Page 4: Calendar] [Tag name] Recurrence [Token] 0x1B");
+                                        @"[In Code Page 4: Calendar] [Tag name] Recurrence [Token] 0x1B [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2619,7 +2703,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         200,
-                                        @"[In Code Page 4: Calendar] [Tag name] Type [Token] 0x1C");
+                                        @"[In Code Page 4: Calendar] [Tag name] Type [Token] 0x1C [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2635,7 +2719,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         201,
-                                        @"[In Code Page 4: Calendar] [Tag name] Until [Token] 0x1D");
+                                        @"[In Code Page 4: Calendar] [Tag name] Until [Token] 0x1D [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2651,7 +2735,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         202,
-                                        @"[In Code Page 4: Calendar] [Tag name] Occurrences [Token] 0x1E");
+                                        @"[In Code Page 4: Calendar] [Tag name] Occurrences [Token] 0x1E [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2667,7 +2751,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         203,
-                                        @"[In Code Page 4: Calendar] [Tag name] Interval [Token] 0x1F");
+                                        @"[In Code Page 4: Calendar] [Tag name] Interval [Token] 0x1F [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2683,7 +2767,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         204,
-                                        @"[In Code Page 4: Calendar] [Tag name] DayOfWeek [Token] 0x20");
+                                        @"[In Code Page 4: Calendar] [Tag name] DayOfWeek [Token] 0x20 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2699,7 +2783,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         205,
-                                        @"[In Code Page 4: Calendar] [Tag name] DayOfMonth [Token] 0x21");
+                                        @"[In Code Page 4: Calendar] [Tag name] DayOfMonth [Token] 0x21 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2715,7 +2799,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         206,
-                                        @"[In Code Page 4: Calendar] [Tag name] WeekOfMonth [Token] 0x22");
+                                        @"[In Code Page 4: Calendar] [Tag name] WeekOfMonth [Token] 0x22 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2731,7 +2815,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         207,
-                                        @"[In Code Page 4: Calendar] [Tag name] MonthOfYear [Token] 0x23");
+                                        @"[In Code Page 4: Calendar] [Tag name] MonthOfYear [Token] 0x23 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2747,7 +2831,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         208,
-                                        @"[In Code Page 4: Calendar] [Tag name] Reminder [Token] 0x24");
+                                        @"[In Code Page 4: Calendar] [Tag name] Reminder [Token] 0x24 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2763,7 +2847,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         209,
-                                        @"[In Code Page 4: Calendar] [Tag name] Sensitivity [Token] 0x25");
+                                        @"[In Code Page 4: Calendar] [Tag name] Sensitivity [Token] 0x25 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2779,7 +2863,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         210,
-                                        @"[In Code Page 4: Calendar] [Tag name] Subject [Token]  0x26");
+                                        @"[In Code Page 4: Calendar] [Tag name] Subject [Token]  0x26 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2795,7 +2879,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         211,
-                                        @"[In Code Page 4: Calendar] [Tag name] StartTime [Token] 0x27");
+                                        @"[In Code Page 4: Calendar] [Tag name] StartTime [Token] 0x27 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2811,7 +2895,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         212,
-                                        @"[In Code Page 4: Calendar] [Tag name] UID [Token] 0x28");
+                                        @"[In Code Page 4: Calendar] [Tag name] UID [Token] 0x28 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -2827,7 +2911,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         213,
-                                        @"[In Code Page 4: Calendar] [Tag name] AttendeeStatus [Token] 0x29");
+                                        @"[In Code Page 4: Calendar] [Tag name] AttendeeStatus [Token] 0x29 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2843,7 +2927,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         214,
-                                        @"[In Code Page 4: Calendar] [Tag name] AttendeeType [Token] 0x2A");
+                                        @"[In Code Page 4: Calendar] [Tag name] AttendeeType [Token] 0x2A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2859,7 +2943,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         215,
-                                        @"[In Code Page 4: Calendar] [Tag name] DisallowNewTimeProposal<9> [Token] 0x33");
+                                        @"[In Code Page 4: Calendar] [Tag name] DisallowNewTimeProposal [Token] 0x33 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2875,7 +2959,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         217,
-                                        @"[In Code Page 4: Calendar] [Tag name] ResponseRequested<10> [Token] 0x34");
+                                        @"[In Code Page 4: Calendar] [Tag name] ResponseRequested [Token] 0x34 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2891,7 +2975,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         218,
-                                        @"[In Code Page 4: Calendar] [Tag name] AppointmentReplyTime<11> [Token] 0x35");
+                                        @"[In Code Page 4: Calendar] [Tag name] AppointmentReplyTime [Token] 0x35 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2907,7 +2991,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         219,
-                                        @"[In Code Page 4: Calendar] [Tag name] ResponseType<12> [Token] 0x36");
+                                        @"[In Code Page 4: Calendar] [Tag name] ResponseType [Token] 0x36 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2923,7 +3007,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         220,
-                                        @"[In Code Page 4: Calendar] [Tag name] CalendarType<13> [Token] 0x37");
+                                        @"[In Code Page 4: Calendar] [Tag name] CalendarType [Token] 0x37 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2939,7 +3023,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         221,
-                                        @"[In Code Page 4: Calendar] [Tag name] IsLeapMonth<14> [Token] 0x38");
+                                        @"[In Code Page 4: Calendar] [Tag name] IsLeapMonth [Token] 0x38 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -2955,7 +3039,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         222,
-                                        @"[In Code Page 4: Calendar] [Tag name] FirstDayOfWeek<15> [Token] 0x39");
+                                        @"[In Code Page 4: Calendar] [Tag name] FirstDayOfWeek [Token] 0x39 [supports protocol versions] 14.1, 16.0");
 
                                     break;
                                 }
@@ -2971,7 +3055,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         223,
-                                        @"[In Code Page 4: Calendar] [Tag name] OnlineMeetingConfLink<16> [Token] 0x3A");
+                                        @"[In Code Page 4: Calendar] [Tag name] OnlineMeetingConfLink [Token] 0x3A [supports protocol versions] 14.1, 16.0");
 
                                     break;
                                 }
@@ -2987,7 +3071,7 @@ milliseconds  = 1*3DIGIT
                                         token,
                                         "MS-ASWBXML",
                                         224,
-                                        @"[In Code Page 4: Calendar] [Tag name] OnlineMeetingExternalLink<17> [Token] 0x3B");
+                                        @"[In Code Page 4: Calendar] [Tag name] OnlineMeetingExternalLink [Token] 0x3B [supports protocol versions] 14.1, 16.0");
 
                                     break;
                                 }

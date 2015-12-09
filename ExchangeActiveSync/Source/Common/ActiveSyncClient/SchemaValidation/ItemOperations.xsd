@@ -33,6 +33,8 @@
         <xs:element ref="airsyncbase:BodyPart" minOccurs="0"/>
         <xs:element ref="airsyncbase:Attachments" minOccurs="0"/>
         <xs:element ref="airsyncbase:NativeBodyType" minOccurs="0"/>
+        <xs:element ref="airsyncbase:ContentType" minOccurs="0"/>
+        <xs:element ref="airsyncbase:Location" minOccurs="0"/>
         <xs:group ref="calendar:AllProps"/>
         <xs:group ref="contacts:AllProps"/>
         <xs:group ref="contacts2:AllProps"/>
@@ -54,6 +56,7 @@
   <xs:element name="Schema">
     <xs:complexType>
       <xs:choice maxOccurs="unbounded">
+        <xs:element ref="airsyncbase:Location" minOccurs="0"/>
         <xs:group ref="email:TopLevelSchemaProps"/>
         <xs:group ref="airsyncbase:TopLevelSchemaProps"/>
         <xs:group ref="calendar:TopLevelSchemaProps"/>

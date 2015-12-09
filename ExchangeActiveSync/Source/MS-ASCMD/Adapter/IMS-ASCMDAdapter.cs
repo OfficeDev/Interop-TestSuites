@@ -89,6 +89,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         MoveItemsResponse MoveItems(MoveItemsRequest request);
 
         /// <summary>
+        /// Gets the list of email folders from the server
+        /// </summary>
+        /// <returns>GetHierarchy command response.</returns>
+        GetHierarchyResponse GetHierarchy();
+
+        /// <summary>
         /// Gets an estimated number of items in a collection or folder that has to be synchronized on the server.
         /// </summary>
         /// <param name="request">A GetItemEstimateRequest object that contains the request information.</param>

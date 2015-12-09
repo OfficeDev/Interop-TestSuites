@@ -109,6 +109,11 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         public string Location { get; set; }
 
         /// <summary>
+        /// Gets or sets Location information of the Calendar
+        /// </summary>
+        public Response.Location Location1 { get; set; }
+
+        /// <summary>
         /// Gets or sets Attendees information of the Calendar
         /// </summary>
         public Response.Attendees Attendees { get; set; }

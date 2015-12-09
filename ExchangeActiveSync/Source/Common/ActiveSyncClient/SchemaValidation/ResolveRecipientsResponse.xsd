@@ -5,8 +5,8 @@
   <xs:element name="ResolveRecipients">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Status" type="xs:unsignedByte"/>
-        <xs:element name="Response" minOccurs="0">
+        <xs:element name="Status" type="xs:integer"/>
+        <xs:element name="Response" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="To">
@@ -16,7 +16,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Status" type="xs:string"/>
+              <xs:element name="Status" type="xs:integer"/>
               <xs:element name="RecipientCount" type="xs:integer" minOccurs="0"/>
               <xs:element name="Recipient" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
@@ -27,7 +27,7 @@
                     <xs:element name="Availability" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Status" type="xs:string"/>
+                          <xs:element name="Status" type="xs:integer"/>
                           <xs:element name="MergedFreeBusy" type="xs:string"
                               minOccurs="0"/>
                         </xs:sequence>
@@ -36,7 +36,7 @@
                     <xs:element name="Certificates" minOccurs="0">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="Status" type="xs:unsignedByte"/>
+                          <xs:element name="Status" type="xs:integer"/>
                           <xs:element name="CertificateCount" type="xs:integer"
                               minOccurs="0"/>
                           <xs:element name="RecipientCount" type="xs:integer"
@@ -52,7 +52,7 @@
                         maxOccurs="unbounded">
                       <xs:complexType>
                         <xs:all>
-                          <xs:element name="Status" type="xs:string"/>
+                          <xs:element name="Status" type="xs:integer"/>
                           <xs:element name="Data" type="xs:string"
                               minOccurs="0"/>
                         </xs:all>

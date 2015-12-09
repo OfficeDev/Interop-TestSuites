@@ -67,7 +67,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsNotNull(
                     item.Email.ConversationIndex,
                     350,
-                    @"[In ConversationIndex] The email2:ConversationIndex element<9> is a required element that contains a set of timestamps used by clients to generate a conversation tree view.");
+                    @"[In ConversationIndex] The email2:ConversationIndex element is a required element in server responses.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R649");
@@ -120,7 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 item.Email.Body.Data,
                 1057,
-                @"[In Body] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.2.19.2), a Search command response ([MS-ASCMD] section 2.2.2.14.2), or an ItemOperations command response ([MS-ASCMD] section 2.2.2.8.3), the airsyncbase:Body element can contain the following child element: airsyncbase:Data] This element [airsyncbase:Data] is only included if a nonzero airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.21.2) element value was included in the request and the airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.1.2) element value included in the request does not restrict content from being returned in the response.");
+                @"[In Body (Airsyncbase Namespace)] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.2.20), a Search command response ([MS-ASCMD] section 2.2.2.15), or an ItemOperations command response ([MS-ASCMD] section 2.2.2.9), the airsyncbase:Body element can contain the following child element: airsyncbase:Data] This element [airsyncbase:Data] is only included if a nonzero airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.40.2) element value was included in the request and the airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.3.2) element value included in the request does not restrict content from being returned in the response.");
 
             if (Common.IsRequirementEnabled(439, this.Site))
             {
@@ -145,7 +145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     item.Email.CategoriesIsInclude && item.Email.Categories.Category == null,
                     318,
-                    @"[In Categories] An empty Categories element is included as a child of the Add ([MS-ASCMD] section 2.2.3.7.2) element in a Sync ([MS-ASCMD] section 2.2.2.19) command if no child Category elements have been set on the message.");
+                    @"[In Categories] An empty Categories element is included as a child of the Add ([MS-ASCMD] section 2.2.3.7.2) element in a Sync ([MS-ASCMD] section 2.2.2.20) command if no child Category elements have been set on the message.");
             }
             #endregion
         }
@@ -303,18 +303,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements.
-            // If the server will include the Read element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R1018 can be captured.
-            if (Common.IsRequirementEnabled(1018, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1018");
+            // If the server will include the Read element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R75 can be captured.
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R75");
 
-                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1018
-                Site.CaptureRequirementIfIsTrue(
-                    TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Read"),
-                    1018,
-                    @"[In Appendix B: Product Behavior] Implementation does include the Read element as the only child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11)  within the airsync:Change element ([MS-ASCMD] section 2.2.3.24) for that e-mail item in the Sync command response, if only the Read flag has changed for an e-mail item. (Exchange Server 2007 SP1 and above follow this behavior.)");
-            }
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R75
+            Site.CaptureRequirementIfIsTrue(
+                TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Read"),
+                75,
+                @"[In Sending E-Mail Changes to the Client] If only the Read flag has changed for an e-mail item, the server MUST include the Read element as the only child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11)  within the airsync:Change element ([MS-ASCMD] section 2.2.3.24) for that e-mail item in the Sync command response.");
 
             // If the server will include the Read element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R100 can be captured.
             // Add the debug information
@@ -384,17 +381,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // then MS-ASEMAIL_R1019 will be captured.
             if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
             {
-                if (Common.IsRequirementEnabled(1019, this.Site))
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1019");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R76");
 
-                    // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1019
-                    Site.CaptureRequirementIfIsTrue(
-                        TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Flag"),
-                        1019,
-                        @"[In Appendix B: Product Behavior] Implementation does include the Flag element as the only child element of the airsync:ApplicationData element within the airsync:Change element for that e-mail item in the Sync command response, if only Flag properties have changed for an e-mail item. (Exchange Server 2007 SP1 and above follow this behavior.)");
-                }
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R76
+                Site.CaptureRequirementIfIsTrue(
+                    TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Flag"),
+                    76,
+                    @"[In Sending E-Mail Changes to the Client] If only Flag properties have changed for an e-mail item, the server MUST include the Flag element as the only child element of the airsync:ApplicationData element within the airsync:Change element for that e-mail item in the Sync command response.");
 
                 // If the server includes the Flag element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R96 will be captured.
                 // Add the debug information
@@ -649,7 +643,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 643,
-                @"[In Read] If a non-boolean value is used in a Sync command request ([MS-ASCMD] section 2.2.2.19), the server responds with Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19).");
+                @"[In Read] If a non-boolean value is used in a Sync command request ([MS-ASCMD] section 2.2.2.20), the server responds with Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
             #endregion
         }
         #endregion
@@ -692,7 +686,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 723,
-                @"[In Sender] If the client attempts to change this value, the server returns a Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19).");
+                @"[In Sender] If the client attempts to change this value, the server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
             #endregion
         }
         #endregion
@@ -817,7 +811,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 648,
-                @"[In ReceivedAsBcc] If the client changes this element value, the server responds with Status element ([MS-ASCMD] section 2.2.3.162.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19).");
+                @"[In ReceivedAsBcc] If the client changes this element value, the server responds with Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
             #endregion
         }
         #endregion
@@ -873,7 +867,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             Site.CaptureRequirementIfIsNotNull(
                 item,
                 328,
-                @"[In Cc] The message is directed at the primary recipient as specified by the To element (section 2.2.2.67), but the secondary recipients also receive a copy of the message.");
+                @"[In Cc] The message is directed at the primary recipient as specified by the To element (section 2.2.2.79), but the secondary recipients also receive a copy of the message.");
             #endregion
 
             #region The recipient calls Sync method to synchronize the email items on the server.
@@ -963,7 +957,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                     1,
                     item.Email.LastVerbExecuted.Value,
                     510,
-                    @"[In LastVerbExecuted] The email2:LastVerbExecuted element<13> is an optional element that indicates the last action, such as reply or forward, that was taken on the message.");
+                    @"[In LastVerbExecuted] The email2:LastVerbExecuted element is an optional element that indicates the last action, such as reply or forward, that was taken on the message.");
                 #endregion
 
                 #region The reply email recipient calls Sync method to synchronize the email item on the server.
@@ -1118,7 +1112,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(response.ResponseDataXML),
                 347,
-                @"[In ConversationId] The server returns a Status element value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.19) when the email2:ConversationId element is included within a Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request.");
+                @"[In ConversationId] The server returns a Status element value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) when the email2:ConversationId element is included within a Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request.");
             #endregion
         }
         #endregion
@@ -1219,9 +1213,9 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             Request.Schema schema = new Request.Schema();
             List<object> elements = new List<object> { string.Empty };
 
-            List<Request.ItemsChoiceType3> names = new List<Request.ItemsChoiceType3>
+            List<Request.ItemsChoiceType4> names = new List<Request.ItemsChoiceType4>
             {
-                Request.ItemsChoiceType3.Subject1
+                Request.ItemsChoiceType4.Subject1
             };
 
             schema.Items = elements.ToArray();
@@ -1243,7 +1237,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "1",
                 itemOperationResult.Status,
                 61,
-                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
+                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.9), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R63");
@@ -1252,7 +1246,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             Site.CaptureRequirementIfIsTrue(
                 TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "Properties", "Subject"),
                 63,
-                @"[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.145) is included in the ItemOperations command request, then the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.");
+                @"[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.149) is included in the ItemOperations command request, then the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.");
             #endregion
         }
         #endregion
@@ -1312,7 +1306,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "1",
                 itemOperationResult.Status,
                 61,
-                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
+                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.9), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
             #endregion
         }
         #endregion
@@ -1410,7 +1404,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "2",
                 status.InnerText,
                 68,
-                @"[In Search Command Response] If E-mail class elements are included in the Search command request, the Search command response from the server contains a search:Status element ([MS-ASCMD] section 2.2.3.162.12) value of 2 as a child element of the search:Store element ([MS-ASCMD] section 2.2.3.163.2).");
+                @"[In Search Command Response] If E-mail class elements are included in the Search command request, the Search command response from the server contains a search:Status element ([MS-ASCMD] section 2.2.3.167.12) value of 2 as a child element of the search:Store element ([MS-ASCMD] section 2.2.3.168.2).");
             #endregion
         }
         #endregion
@@ -1447,6 +1441,223 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             }
 
             Site.Assert.IsNotNull(searchItem, "The email message with subject {0} should be found.", emailSubject);
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC25_OnlyEmailClassPropertiesChangedOtherThanFlagRead
+
+        /// <summary>
+        /// This case is designed to test if E-Mail Class properties of an e-mail item other than the Read flag and Flag properties have changed for an e-mail item, the server MUST include the changed e-mail properties as child elements of the airsync:ApplicationData element within the airsync:Change element for that e-mail item in the Sync command response.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC25_OnlyEmailClassPropertiesChangedOtherThanFlagRead()
+        {
+            Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Categories element is not supported when the ActiveSyncProtocolVersion is 12.1.");
+
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag and categories for the e-mail item and synchronize it with the server.
+            // Get the email item
+            SyncStore store = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(store, emailSubject);
+
+            // Get the result of adding flag and categories
+            SyncStore getChangedResult = this.AddFlagAndCategories(this.User2Information.InboxCollectionId, store.SyncKey, item.ServerId);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Call Sync command with Change element to update the categories property of the e-mail and synchronize it with server.
+            string newCategory = Common.GenerateResourceName(Site, "NewCategory");
+            Collection<string> newCategories = new Collection<string> { newCategory };
+
+            // Update Categories property
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, null, newCategories);
+
+            // Get server changes 
+            SyncStore updateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(updateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirements.
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R77");
+
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R77
+            Site.CaptureRequirementIfIsTrue(
+                item.Email.CategoriesIsInclude && item.Email.Categories != null,
+                77,
+                @"[In Sending E-Mail Changes to the Client] If E-Mail class properties of an e-mail item other than the Read flag and Flag properties have changed for an e-mail item, the server MUST include the changed e-mail properties as child elements of the airsync:ApplicationData element within the airsync:Change element for that e-mail item in the Sync command response.");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC26_CreateDraftEMail
+
+        /// <summary>
+        /// This case is designed to test the requirements related with draft E-Mail.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC26_CreateDraftEMail()
+        {
+            Site.Assume.AreEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.0.");
+
+            #region Add an email item with Sync command.
+            // Call FolderSync command to synchronize the collection hierarchy.
+            FolderSyncRequest folderSyncRequest = Common.CreateFolderSyncRequest("0");
+            FolderSyncResponse folderSyncResponse = this.EMAILAdapter.FolderSync(folderSyncRequest);
+
+            string draftCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Drafts, this.Site);
+
+            string subject = Common.GenerateResourceName(Site, "subject");
+            string to = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
+            string bcc = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
+            Request.SyncCollectionAdd syncAddCollection = new Request.SyncCollectionAdd();
+            string clientId = TestSuiteHelper.GetClientId();
+            syncAddCollection.ClientId = clientId;
+            syncAddCollection.ApplicationData = new Request.SyncCollectionAddApplicationData();
+            List<object> items = new List<object>();
+            List<Request.ItemsChoiceType8> itemsElementName = new List<Request.ItemsChoiceType8>();
+            itemsElementName.Add(Request.ItemsChoiceType8.Subject3);
+            items.Add(subject);
+            itemsElementName.Add(Request.ItemsChoiceType8.To);
+            items.Add(to);
+            itemsElementName.Add(Request.ItemsChoiceType8.Bcc);
+            items.Add(bcc);
+ 
+            syncAddCollection.ApplicationData.Items = items.ToArray();
+            syncAddCollection.ApplicationData.ItemsElementName = itemsElementName.ToArray();
+            syncAddCollection.Class = "Email";
+
+            SyncStore initSyncResponse = this.InitializeSync(draftCollectionId);
+            SyncRequest addEMailRequest = TestSuiteHelper.CreateSyncAddRequest(initSyncResponse.SyncKey, draftCollectionId, syncAddCollection);
+            this.EMAILAdapter.Sync(addEMailRequest);
+            #endregion
+
+            #region Call Sync command wihtout including BodyPreference to synchronize the e-mail items with server.
+            // Get the new added email item
+            SyncStore syncChangeResult = this.GetSyncResult(subject, draftCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(syncChangeResult, subject);
+
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                true,
+                item.Email.IsDraft.Value,
+                1278,
+                @"[In IsDraft] The value 1 (TRUE) indicates that the email is a draft.");
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                item.Email.IsDraft,
+                1273,
+                @"[In IsDraft] This element [email2:IsDraft] is present in a Sync command response ([MS-ASCMD] section 2.2.2.20)[, a Search command response ([MS-ASCMD] section 2.2.2.15), or an ItemOperations command response ([MS-ASCMD] section 2.2.2.9)].");
+            
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(item.Email.ConversationId),
+                1184,
+                @"[In ConversationId] In protocol version 16.0: When the client adds a new draft item, the server response will contain the email2:ConversationId element for that draft item.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(item.Email.ConversationIndex),
+                1190,
+                @"[In ConversationIndex] In protocol version 16.0: When the client adds a new draft item, the server response will include the email2:ConversationIndex element for that draft item.");
+            #endregion
+
+            #region Call Search command to Search email from server.
+            // Search email from server
+            SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, draftCollectionId);
+            SearchResponse searchResponse = this.EMAILAdapter.Search(searchRequest);
+
+            SearchStore searchStore = Common.LoadSearchResponse(searchResponse);
+            Search searchItem = null;
+            if (searchStore.Results.Count != 0)
+            {
+                foreach (Search resultItem in searchStore.Results)
+                {
+                    if (resultItem.Email.Subject == subject)
+                    {
+                        searchItem = resultItem;
+                        break;
+                    }
+                }
+            }
+
+            Site.Assert.IsNotNull(searchItem, "The email message with subject {0} should be found.", subject);
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                searchItem.Email.IsDraft,
+                1274,
+                @"[In IsDraft] This element [email2:IsDraft] is present in [a Sync command response ([MS-ASCMD] section 2.2.2.20),] a Search command response ([MS-ASCMD] section 2.2.2.15)[, or an ItemOperations command response ([MS-ASCMD] section 2.2.2.9)].");
+            #endregion
+
+            #region Call ItemOperations command without including BodyPreference element to fetch all the information about the e-mail
+            ItemOperationsRequest itemOperationRequest = TestSuiteHelper.CreateItemOperationsFetchRequest(draftCollectionId, item.ServerId, null, null, null);
+            ItemOperationsStore itemOperationResult = this.EMAILAdapter.ItemOperations(itemOperationRequest);
+            ItemOperations itemOperationsItem = TestSuiteHelper.GetItemOperationsItem(itemOperationResult, subject);
+     
+            this.Site.CaptureRequirementIfIsNotNull(
+                itemOperationsItem.Email.IsDraft,
+                1275,
+                @"[In IsDraft] This element [email2:IsDraft] is present in [a Sync command response ([MS-ASCMD] section 2.2.2.20), a Search command response ([MS-ASCMD] section 2.2.2.15), or] an ItemOperations command response ([MS-ASCMD] section 2.2.2.9).");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC27_CreateDraftEMailAndSend
+
+        /// <summary>
+        /// This case is designed to test to draft E-Mail and send it.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC27_CreateDraftEMailAndSend()
+        {
+            Site.Assume.AreEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.0.");
+
+            #region Add an email item with Sync command and send it.
+            // Call FolderSync command to synchronize the collection hierarchy.
+            FolderSyncRequest folderSyncRequest = Common.CreateFolderSyncRequest("0");
+            FolderSyncResponse folderSyncResponse = this.EMAILAdapter.FolderSync(folderSyncRequest);
+
+            string draftCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Drafts, this.Site);
+
+            string subject = Common.GenerateResourceName(Site, "subject");
+            string to = Common.GetMailAddress(this.User2Information.UserName, this.User1Information.UserDomain);
+            Request.SyncCollectionAdd syncAddCollection = new Request.SyncCollectionAdd();
+           
+            string clientId = TestSuiteHelper.GetClientId();
+            syncAddCollection.ClientId = clientId;
+            syncAddCollection.ApplicationData = new Request.SyncCollectionAddApplicationData();
+            List<object> items = new List<object>();
+            List<Request.ItemsChoiceType8> itemsElementName = new List<Request.ItemsChoiceType8>();
+            itemsElementName.Add(Request.ItemsChoiceType8.Subject3);
+            items.Add(subject);
+            itemsElementName.Add(Request.ItemsChoiceType8.To);
+            items.Add(to);
+
+            syncAddCollection.ApplicationData.Items = items.ToArray();
+            syncAddCollection.ApplicationData.ItemsElementName = itemsElementName.ToArray();
+            syncAddCollection.Class = "Email";
+            syncAddCollection.Send = string.Empty;
+
+            SyncStore initSyncResponse = this.InitializeSync(draftCollectionId);
+            SyncRequest addEMailRequest = TestSuiteHelper.CreateSyncAddRequest(initSyncResponse.SyncKey, draftCollectionId, syncAddCollection);
+            this.EMAILAdapter.Sync(addEMailRequest);
+            #endregion
+
+            #region Call Sync command wihtout including BodyPreference to synchronize the e-mail items with server.
+            this.SwitchUser(this.User2Information, true);
+            // Get the new added email item
+            SyncStore syncChangeResult = this.GetSyncResult(subject, User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(syncChangeResult, subject);
+            
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                false,
+                item.Email.IsDraft.Value,
+                1279,
+                @"[In IsDraft] The value 0 (FALSE) indicates that the email is not a draft.");
             #endregion
         }
         #endregion

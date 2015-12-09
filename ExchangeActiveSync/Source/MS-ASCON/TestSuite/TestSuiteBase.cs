@@ -192,9 +192,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 FolderSyncResponse folderSyncResponse = this.CONAdapter.FolderSync(folderSyncRequest);
 
                 // Verify FolderSync command response.
-                Site.Assert.AreEqual<byte>(
+                Site.Assert.AreEqual<int>(
                     1,
-                    folderSyncResponse.ResponseData.Status,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
                     "If the FolderSync command executes successfully, the Status in response should be 1.");
 
                 // Get the folder collectionId of User1
@@ -757,7 +757,7 @@ MIME-Version: 1.0
             Site.Assert.AreEqual<int>(serverIds.Count, moveItemsResponse.ResponseData.Response.Length, "The count of Response element should be {0}, actual {1}.", serverIds.Count, moveItemsResponse.ResponseData.Response.Length);
             foreach (Response.MoveItemsResponse response in moveItemsResponse.ResponseData.Response)
             {
-                Site.Assert.AreEqual<byte>(3, response.Status, "If the MoveItems command executes successfully, the Status should be 3, actual {0}.", response.Status);
+                Site.Assert.AreEqual<int>(3, int.Parse(response.Status), "If the MoveItems command executes successfully, the Status should be 3, actual {0}.", response.Status);
             }
 
             return moveItemsResponse;
@@ -935,13 +935,13 @@ MIME-Version: 1.0
         /// Verify status 164 is returned when the Type element in the BodyPartPreference is other than 2.
         /// </summary>
         /// <param name="status">The status that server returned.</param>
-        protected void VerifyMessagePartStatus164(byte status)
+        protected void VerifyMessagePartStatus164(int status)
         {
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R241");
 
             // Verify MS-ASCON requirement: MS-ASCON_R241
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 164,
                 status,
                 241,

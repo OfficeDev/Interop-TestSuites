@@ -91,7 +91,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "4",
                 status,
                 348,
-                @"[In Validating XML] If the child elements of BodyPreference (section 2.2.2.7) are not in the correct order, the server returns protocol status error 4 (for a Sync command).");
+                @"[In Validating XML] If the child elements of BodyPreference (section 2.2.2.12) are not in the correct order, the server returns protocol status error 4 (for a Sync command).");
             #endregion
 
             #region Call Sync command with a non-boolean value of AllOrNone element
@@ -113,7 +113,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "4",
                 status,
                 350,
-                @"[In Validating XML] If the AllOrNone (section 2.2.2.1.2) element is not of type boolean, the server returns protocol status error 4 (for Sync command).");
+                @"[In Validating XML] If the AllOrNone (section 2.2.2.3.2) element is not of type boolean, the server returns protocol status error 4 (for Sync command).");
             #endregion
 
             #region Call Sync command with multiple AllOrNone elements in a single BodyPreference element
@@ -713,7 +713,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                         500,
                         errorCode,
                         10015,
-                        @"[In Appendix B: Product Behavior] Implementation does return an HTTP error 500 instead of a Status value of 4 when multiple BodyPreference elements are present with the same value in the Type child element. (<5> Section 3.2.5.1:  Exchange 2007 SP1 returns an HTTP error 500 instead of a Status value of 4 when multiple BodyPreference elements are present with the same value in the Type child element.)");
+                        @"[In Appendix B: Product Behavior] Implementation does return an HTTP error 500 instead of a Status value of 4 when multiple BodyPreference elements are present with the same value in the Type child element. (<1> Section 3.2.5.1:  Exchange 2007 SP1 returns an HTTP error 500 instead of a Status value of 4 when multiple BodyPreference elements are present with the same value in the Type child element.)");
                 }
             }
 

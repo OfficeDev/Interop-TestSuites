@@ -3,14 +3,15 @@
   <Description>These are the default test settings for running all MS-ASRM test cases.</Description>
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="..\Common\Common\CommonScript\ConfigureSSLSetting.ps1" />
-    <DeploymentItem filename="TestSuite\MS-ASRM_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\Common\Common\CommonScript\ConfigureSSLSetting.ps1" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASRM.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>

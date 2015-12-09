@@ -86,18 +86,18 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             };
 
             List<object> items = new List<object>();
-            List<Request.ItemsChoiceType4> itemsElementName = new List<Request.ItemsChoiceType4>();
+            List<Request.ItemsChoiceType5> itemsElementName = new List<Request.ItemsChoiceType5>();
 
             if (bodyPreference != null)
             {
                 items.Add(bodyPreference);
-                itemsElementName.Add(Request.ItemsChoiceType4.BodyPreference);
+                itemsElementName.Add(Request.ItemsChoiceType5.BodyPreference);
             }
 
             if (bodyPartPreference != null)
             {
                 items.Add(bodyPartPreference);
-                itemsElementName.Add(Request.ItemsChoiceType4.BodyPartPreference);
+                itemsElementName.Add(Request.ItemsChoiceType5.BodyPartPreference);
             }
 
             if (items.Count > 0)
@@ -143,16 +143,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                                             "Email",
                                             conversationId
                                         },
-                                        ItemsElementName = new Request.ItemsChoiceType5[]
+                                        ItemsElementName = new Request.ItemsChoiceType2[]
                                         {
-                                            Request.ItemsChoiceType5.Class,
-                                            Request.ItemsChoiceType5.ConversationId
+                                            Request.ItemsChoiceType2.Class,
+                                            Request.ItemsChoiceType2.ConversationId
                                         }
                                     }
                                 },
-                                ItemsElementName = new Request.ItemsChoiceType5[]
+                                ItemsElementName = new Request.ItemsChoiceType2[]
                                 {
-                                    Request.ItemsChoiceType5.And
+                                    Request.ItemsChoiceType2.And
                                 }
                             }
                         }

@@ -19,6 +19,10 @@
     <Property name="User3Name" value="MSASCMD_User03" />
     <!-- The User3Password property specifies the password for the user specified in the User3Name property. The property value is case-sensitive. -->
     <Property name="User3Password" value="Password01!" />
+    <!-- The User4Name property specifies the name for a user who should be not allowed to use ActiveSync. -->
+    <Property name="User4Name" value="MSASCMD_User04" />
+    <!-- The User4Password property specifies the password for the user specified in the User4Name property. The property value is case-sensitive. -->
+    <Property name="User4Password" value="Password01!" />
     <!-- The User7Name property specifies the name for a user who should be a delegated user specified in the User8Name property. -->
     <Property name="User7Name" value="MSASCMD_User07" />
     <!-- The User7Password property specifies the password for the user specified in the User7Name property. The property value is case-sensitive. -->
@@ -39,8 +43,6 @@
     <Property name="GroupDisplayName" value="MSASCMD_TestGroup"/>
     <!--The LargeGroupDisplayName property specifies the display name of a large group (contains 21 or more users) used by the ResolveRecipients operation. -->
     <Property name="LargeGroupDisplayName" value="MSASCMD_LargeGroup"/>
-    <!--The AcceptableResponseSchema property specifies the URL used by the Autodiscover service. -->
-    <Property name="AcceptableResponseSchema" value="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006"/>
     <!-- The SharedDocument1 specifies the UNC path of the shared non-empty document. -->
     <Property name="SharedDocument1" value="[SharedFolder]\MSASCMD_Non-emptyDocument.txt"/>
     <!-- The SharedDocument2 specifies the UNC path of the shared empty document. -->

@@ -224,9 +224,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 FolderSyncResponse folderSyncResponse = this.EMAILAdapter.FolderSync(folderSyncRequest);
 
                 // Verify FolderSync command response.
-                Site.Assert.AreEqual<byte>(
+                Site.Assert.AreEqual<int>(
                     1,
-                    folderSyncResponse.ResponseData.Status,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
                     "If the FolderSync command executes successfully, the Status in response should be 1.");
                 if (string.IsNullOrEmpty(userInformation.InboxCollectionId))
                 {
@@ -377,6 +377,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             List<object> items = new List<object>();
             List<Request.ItemsChoiceType8> itemsElementName = new List<Request.ItemsChoiceType8>();
 
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                items.Add(true);
+                itemsElementName.Add(Request.ItemsChoiceType8.ResponseRequested);
+            }
             #region TIME/Subject/Location/UID
             items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == startTime ? DateTime.UtcNow.AddDays(5) : startTime.Value));
             itemsElementName.Add(Request.ItemsChoiceType8.StartTime);
@@ -384,25 +389,46 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == endTime ? DateTime.UtcNow.AddDays(5).AddMinutes(30) : endTime.Value));
             itemsElementName.Add(Request.ItemsChoiceType8.EndTime);
 
-            items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == timestamp ? DateTime.UtcNow.AddDays(5) : timestamp.Value));
-            itemsElementName.Add(Request.ItemsChoiceType8.DtStamp);
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == timestamp ? DateTime.UtcNow.AddDays(5) : timestamp.Value));
+                itemsElementName.Add(Request.ItemsChoiceType8.DtStamp);
+            }
 
             items.Add(subject);
             itemsElementName.Add(Request.ItemsChoiceType8.Subject);
 
             items.Add(calendarUID ?? Guid.NewGuid().ToString());
-            itemsElementName.Add(Request.ItemsChoiceType8.UID);
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                itemsElementName.Add(Request.ItemsChoiceType8.ClientUid);
+            }
+            else
+            {
+                itemsElementName.Add(Request.ItemsChoiceType8.UID);
+            }
 
-            items.Add("OFFICE");
-            itemsElementName.Add(Request.ItemsChoiceType8.Location);
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                Request.Location location = new Request.Location();
+                location.DisplayName = "OFFICE";
+                items.Add(location);
+                itemsElementName.Add(Request.ItemsChoiceType8.Location1);
+            }
+            else
+            {
+                items.Add("OFFICE");
+                itemsElementName.Add(Request.ItemsChoiceType8.Location);
+            }
             #endregion
 
             #region Attendee/Organizer
             Request.AttendeesAttendee attendee = new Request.AttendeesAttendee
             {
                 Email = attendeeEmailAddress,
-                Name = new MailAddress(attendeeEmailAddress).DisplayName,
+                Name = new MailAddress(attendeeEmailAddress).User,
                 AttendeeStatus = 0x0,
+                AttendeeTypeSpecified = true,
                 AttendeeType = 0x1
             };
 
@@ -412,10 +438,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             items.Add(new Request.Attendees() { Attendee = new Request.AttendeesAttendee[] { attendee } });
             itemsElementName.Add(Request.ItemsChoiceType8.Attendees);
 
-            items.Add(organizerEmailAddress);
-            itemsElementName.Add(Request.ItemsChoiceType8.OrganizerEmail);
-            items.Add(new MailAddress(organizerEmailAddress).DisplayName);
-            itemsElementName.Add(Request.ItemsChoiceType8.OrganizerName);
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                items.Add(organizerEmailAddress);
+                itemsElementName.Add(Request.ItemsChoiceType8.OrganizerEmail);
+                items.Add(new MailAddress(organizerEmailAddress).DisplayName);
+                itemsElementName.Add(Request.ItemsChoiceType8.OrganizerName);
+            }
             #endregion
 
             #region Sensitivity/BusyStatus/AllDayEvent
@@ -636,9 +665,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             SyncRequest syncAddRequest = TestSuiteHelper.CreateSyncAddRequest(iniSync.SyncKey, calendarCollectionId, applicationData);
 
             SyncStore syncAddResponse = this.EMAILAdapter.Sync(syncAddRequest);
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 1,
-                syncAddResponse.AddResponses[0].Status,
+                int.Parse(syncAddResponse.AddResponses[0].Status),
                 "The sync add operation should be successful.");
         }
         #endregion
@@ -696,6 +725,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             {
                 SyncStore syncStore = this.InitializeSync(createdItems.CollectionId);
                 SyncStore result = this.SyncChanges(syncStore.SyncKey, createdItems.CollectionId, null);
+                string syncKey = result.SyncKey;
                 int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
                 int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
                 int counter = 0;
@@ -726,48 +756,54 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                                 {
                                     if (syncItem.Calendar.Subject.Equals(subject, StringComparison.CurrentCultureIgnoreCase))
                                     {
-                                        deleteRequest = CreateSyncPermanentDeleteRequest(result.SyncKey, createdItems.CollectionId, syncItem.ServerId);
+                                        deleteRequest = CreateSyncPermanentDeleteRequest(syncKey, createdItems.CollectionId, syncItem.ServerId);
                                         SyncStore deleteSyncResult = this.EMAILAdapter.Sync(deleteRequest);
+                                        syncKey = deleteSyncResult.SyncKey;
                                         Site.Assert.AreEqual<byte>(1, deleteSyncResult.CollectionStatus, "Item should be deleted.");
                                     }
                                 }
                             }
                         }
                         else
-                        {  
+                        {
                             List<Request.SyncCollectionDelete> deleteData = new List<Request.SyncCollectionDelete>();
                             foreach (string subject in createdItems.ItemSubject)
                             {
-                                    string serverId = null;
-                                    if (result != null)
+                                string serverId = null;
+                                if (result != null)
+                                {
+                                    foreach (Sync item in result.AddElements)
                                     {
-                                        foreach (Sync item in result.AddElements)
+                                        if (item.Email.Subject != null && item.Email.Subject.Contains(subject))
                                         {
-                                            if (item.Email.Subject != null && item.Email.Subject.Contains(subject))
-                                            {
-                                                serverId = item.ServerId;
-                                                break;
-                                            }
+                                            serverId = item.ServerId;
+                                            break;
+                                        }
 
-                                            if (item.Calendar.Subject != null && item.Calendar.Subject.Contains(subject))
-                                            {
-                                                serverId = item.ServerId;
-                                                break;
-                                            }
+                                        if (item.Calendar.Subject != null && item.Calendar.Subject.Contains(subject))
+                                        {
+                                            serverId = item.ServerId;
+                                            break;
                                         }
                                     }
-
-                                    Site.Assert.IsNotNull(serverId, "The item with subject '{0}' should be found!", subject);
-                                    deleteData.Add(new Request.SyncCollectionDelete() { ServerId = serverId });
                                 }
 
-                                Request.SyncCollection syncCollection = TestSuiteHelper.CreateSyncCollection(result.SyncKey, createdItems.CollectionId);
+                                if (serverId != null)
+                                {
+                                    deleteData.Add(new Request.SyncCollectionDelete() { ServerId = serverId });
+                                }
+                            }
+
+                            if (deleteData.Count > 0)
+                            {
+                                Request.SyncCollection syncCollection = TestSuiteHelper.CreateSyncCollection(syncKey, createdItems.CollectionId);
                                 syncCollection.Commands = deleteData.ToArray();
                                 syncCollection.DeletesAsMoves = false;
                                 syncCollection.DeletesAsMovesSpecified = true;
 
                                 SyncRequest syncRequest = Common.CreateSyncRequest(new Request.SyncCollection[] { syncCollection });
                                 SyncStore deleteResult = this.EMAILAdapter.Sync(syncRequest);
+                                syncKey = deleteResult.SyncKey;
                                 Site.Assert.AreEqual<byte>(
                                     1,
                                     deleteResult.CollectionStatus,
@@ -777,6 +813,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                     }
                 }
             }
+        }
         #endregion
     }
 }

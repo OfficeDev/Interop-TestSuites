@@ -120,6 +120,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     {
                         this.User1Information.ContactsCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Contacts, this.Site);
                     }
+
+                    if (string.IsNullOrEmpty(this.User1Information.CalendarCollectionId))
+                    {
+                        this.User1Information.CalendarCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Calendar, this.Site);
+                    }
                 }
 
                 // Get the folder collectionId of User2
@@ -128,6 +133,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     if (string.IsNullOrEmpty(this.User2Information.InboxCollectionId))
                     {
                         this.User2Information.InboxCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Inbox, this.Site);
+                    }
+
+                    if (string.IsNullOrEmpty(this.User2Information.CalendarCollectionId))
+                    {
+                        this.User2Information.CalendarCollectionId = Common.GetDefaultFolderServerId(folderSyncResponse, FolderType.Calendar, this.Site);
                     }
                 }
             }
@@ -404,8 +414,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
         {
             FolderSyncResponse folderSyncResponse = this.ASAIRSAdapter.FolderSync(Common.CreateFolderSyncRequest("0"));
 
-            this.Site.Assert.AreEqual<byte>(
-                1,
+            this.Site.Assert.AreEqual<string>(
+                "1",
                 folderSyncResponse.ResponseData.Status,
                 "The Status value should be 1 to indicate the FolderSync command executes successfully.");
 
@@ -439,6 +449,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                             }
 
                             if (item.Contact.FileAs != null && item.Contact.FileAs.Equals(subject, StringComparison.CurrentCulture))
+                            {
+                                serverId = item.ServerId;
+                                break;
+                            }
+
+                            if (item.Calendar.Subject != null && item.Calendar.Subject.Equals(subject, StringComparison.CurrentCulture))
                             {
                                 serverId = item.ServerId;
                                 break;

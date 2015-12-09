@@ -104,17 +104,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
         {
             Request.ItemOperationsFetchOptions fetchOptions = new Request.ItemOperationsFetchOptions();
             List<object> fetchOptionItems = new List<object>();
-            List<Request.ItemsChoiceType4> fetchOptionItemsName = new List<Request.ItemsChoiceType4>();
+            List<Request.ItemsChoiceType5> fetchOptionItemsName = new List<Request.ItemsChoiceType5>();
 
             if (null != bodyPreference)
             {
-                fetchOptionItemsName.Add(Request.ItemsChoiceType4.BodyPreference);
+                fetchOptionItemsName.Add(Request.ItemsChoiceType5.BodyPreference);
                 fetchOptionItems.Add(bodyPreference);
             }
 
             if (null != schema)
             {
-                fetchOptionItemsName.Add(Request.ItemsChoiceType4.Schema);
+                fetchOptionItemsName.Add(Request.ItemsChoiceType5.Schema);
                 fetchOptionItems.Add(schema);
             }
 

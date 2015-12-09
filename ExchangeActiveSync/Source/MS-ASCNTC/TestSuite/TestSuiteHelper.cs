@@ -177,16 +177,16 @@ MIME-Version: 1.0
                                             collectionId,
                                             query
                                         },
-                                        ItemsElementName = new Request.ItemsChoiceType5[]
+                                        ItemsElementName = new Request.ItemsChoiceType2[]
                                         {
-                                            Request.ItemsChoiceType5.CollectionId,
-                                            Request.ItemsChoiceType5.FreeText
+                                            Request.ItemsChoiceType2.CollectionId,
+                                            Request.ItemsChoiceType2.FreeText
                                         }
                                     }
                                 },
-                                ItemsElementName = new Request.ItemsChoiceType5[]
+                                ItemsElementName = new Request.ItemsChoiceType2[]
                                 {
-                                    Request.ItemsChoiceType5.And
+                                    Request.ItemsChoiceType2.And
                                 }
                             }
                         }
@@ -245,22 +245,22 @@ MIME-Version: 1.0
             };
 
             List<object> items = new List<object>();
-            List<Request.ItemsChoiceType4> itemsElementName = new List<Request.ItemsChoiceType4>();
+            List<Request.ItemsChoiceType5> itemsElementName = new List<Request.ItemsChoiceType5>();
 
             if (null != schema)
             {
-                itemsElementName.Add(Request.ItemsChoiceType4.Schema);
+                itemsElementName.Add(Request.ItemsChoiceType5.Schema);
                 items.Add(schema);
             }
 
             if (null != bodyPreference)
             {
-                itemsElementName.Add(Request.ItemsChoiceType4.BodyPreference);
+                itemsElementName.Add(Request.ItemsChoiceType5.BodyPreference);
                 items.Add(bodyPreference);
 
                 if (bodyPreference.Type == 0x4)
                 {
-                    itemsElementName.Add(Request.ItemsChoiceType4.MIMESupport);
+                    itemsElementName.Add(Request.ItemsChoiceType5.MIMESupport);
 
                     // '2' indicates server sends MIME data for all messages but not S/MIME messages only
                     items.Add((byte)0x2);

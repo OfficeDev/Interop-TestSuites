@@ -315,7 +315,7 @@ MSS = Number of milliseconds");
                 Site.CaptureRequirement(
                     "MS-ASDTYPE",
                     87,
-                    @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.");
+                    @"[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R88");

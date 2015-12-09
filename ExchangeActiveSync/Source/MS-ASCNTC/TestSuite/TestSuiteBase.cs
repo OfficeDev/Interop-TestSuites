@@ -319,7 +319,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
         /// <returns>The server response.</returns>
         protected DataStructures.Search GetSearchResult(string fileAs, string collectionId, Request.BodyPreference bodyPreference)
         {
-            SearchRequest request = TestSuiteHelper.CreateSearchRequest(fileAs, collectionId, bodyPreference);
+            SearchRequest request = TestSuiteHelper.CreateSearchRequest(fileAs.Substring(0, fileAs.IndexOf('_')), collectionId, bodyPreference);
 
             DataStructures.SearchStore searchStore = this.ASCNTCAdapter.Search(request);
             DataStructures.Search searchItem = null;
@@ -696,7 +696,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
                 ((Request.Body)contactProperties[Request.ItemsChoiceType8.Body]).Data,
                 contact.Body.Data,
                 1120,
-                @"[In Body] The airsyncbase:Body element [is a container ([MS-ASDTYPE] section 2.2) element that] specifies the notes for the contact.");
+                @"[In Body (AirSyncBase Namespace)] The airsyncbase:Body element [is a container ([MS-ASDTYPE] section 2.2) element that] specifies the notes for the contact.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCNTC_R130");
@@ -1291,9 +1291,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
         {
             FolderSyncResponse folderSyncResponse = this.ASCNTCAdapter.FolderSync(Common.CreateFolderSyncRequest("0"));
 
-            this.Site.Assert.AreEqual<byte>(
+            this.Site.Assert.AreEqual<int>(
                 1,
-                folderSyncResponse.ResponseData.Status,
+                int.Parse(folderSyncResponse.ResponseData.Status),
                 "The Status value should be 1 to indicate the FolderSync command executes successfully.");
 
             return folderSyncResponse;

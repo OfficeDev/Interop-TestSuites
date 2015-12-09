@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
-    "AirSyncBase" xmlns:email2="Email2" xmlns:tasks="Tasks" xmlns="Email"
+    "AirSyncBase" xmlns:calendar="Calendar" xmlns:email2="Email2" xmlns:tasks="Tasks" xmlns="Email"
     targetNamespace="Email" elementFormDefault="qualified"
     attributeFormDefault="unqualified">
   <xs:element name="To">
@@ -30,9 +30,9 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="AllDayEvent" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="StartTime" type="xs:dateTime" minOccurs="1"/>
+        <xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
         <xs:element name="DtStamp" type="xs:dateTime"/>
-        <xs:element name="EndTime" type="xs:dateTime"/>
+        <xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
         <xs:element name="InstanceType" type="xs:unsignedByte" minOccurs="0"/>
         <xs:element name="Location" minOccurs="0">
           <xs:simpleType>
@@ -41,6 +41,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
+        <xs:element ref="airsyncbase:Location" minOccurs="0"/>
         <xs:element name="Organizer" type="xs:string" minOccurs="0"/>
         <xs:element name="RecurrenceId" type="xs:dateTime" minOccurs="0"/>
         <xs:element name="Reminder" type="xs:unsignedShort" minOccurs="0"/>
@@ -54,8 +55,7 @@
                   <xs:sequence>
                     <xs:element name="Type" type="xs:unsignedByte"/>
                     <xs:element name="Interval" type="xs:integer"/>
-                    <xs:element name="Until" type="xs:string"
-                        minOccurs="0"/>
+                    <xs:element name="Until" type="xs:string" minOccurs="0"/>
                     <xs:element name="Occurrences" type="xs:integer"
                         minOccurs="0"/>
                     <xs:element name="WeekOfMonth" type="xs:integer"
@@ -78,10 +78,20 @@
         <xs:element name="Sensitivity" type="xs:integer" minOccurs="0"/>
         <xs:element name="BusyStatus" type="xs:integer" minOccurs="0"/>
         <xs:element name="TimeZone" type="xs:string"/>
-        <xs:element name="GlobalObjId" type="xs:string"/>
-        <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte"
-            minOccurs="0"/>
-        <xs:element ref="email2:MeetingMessageType" minOccurs="0"/>
+        <xs:choice>
+          <xs:sequence>
+            <xs:element name="GlobalObjId" type="xs:string"/>
+            <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte"
+                minOccurs="0"/>
+            <xs:element ref="email2:MeetingMessageType" minOccurs="0"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte"
+                minOccurs="0"/>
+            <xs:element ref="email2:MeetingMessageType" minOccurs="0"/>
+            <xs:element ref="calendar:UID"/>
+          </xs:sequence>
+          </xs:choice>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -278,6 +278,60 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R500</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The functionality of conversations is supported only by protocol versions 16.0, 14.1, and 14.0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version 16.0[, 14.1, or 14.0] for any operation involving conversations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.0,] 14.1[, or 14.0] for any operation involving conversations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R503</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.0, 14.1, or] 14.0 for any operation involving conversations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R504</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The airsyncbase:BodyPart element, as specified in section 2.2.2.1, [and the airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2,] are supported only by protocol versions 16.0 and 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R505</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The [airsyncbase:BodyPart element, as specified in section 2.2.2.1, and the] airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2, are supported only by protocol versions 16.0 and 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element&lt;1&gt; ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in a Sync command response ([MS-ASCMD] section 2.2.2.19) [, an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or a Search command response ([MS-ASCMD] section 2.2.2.14)].</ns1:Description>
@@ -680,7 +734,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R259</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was forwarded [or replied to], as specified in section 2.2.2.4.2.</ns1:Description>
+		<ns1:Description>[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was forwarded [or replied to].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -689,11 +743,20 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R91</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was [forwarded or] replied to, as specified in section 2.2.2.4.2.</ns1:Description>
+		<ns1:Description>[In ConversationIndex] Response Level 1 (5 bytes): A Response Level that contains information about the time the message was [forwarded or] replied to.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R400</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ConversationIndex] [Response Level 1 (5 bytes):] This field [Response Level 1] corresponds to the Response Levels field of the PidTagConversationIndex property as specified in [MS-OXOMSG] section 2.2.1.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R305</ns1:REQ_ID>
@@ -779,7 +842,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Conversation Index Header] Current FILETIME high part (3 bytes): The 24 low bits of the high part of the included FILETIME value ([MS-DTYP]), as shown in the following table.</ns1:Description>
+		<ns1:Description>[In Conversation Index Header] Current FILETIME high part (3 bytes): This field corresponds to the Current FILETIME high part field of the Conversation Index Header structure specified in [MS-OXOMSG] section 2.2.1.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -788,7 +851,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R308</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Conversation Index Header] Current FILETIME low part (2 bytes): The 16 high bits of the low part of the included FILETIME value, as shown in the Current FILETIME high part field table.</ns1:Description>
+		<ns1:Description>[In Conversation Index Header] Current FILETIME low part (2 bytes): This field corresponds to the Current FILETIME low part field of the Conversation Index Header structure specified in [MS-OXOMSG] section 2.2.1.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -811,87 +874,6 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R310</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] The Response Level field contains information about the time the message was [forwarded or] replied to.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R106</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] The Response Level value is set according to the description in the following diagram.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R107</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] Delta Code (1 bit): A 1-bit flag calculated on the difference between the current time and the time stored in the Conversation Index Header (section 2.2.2.4.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R108</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level][Delta Code (1 bit):] If the difference is less than 625 days (high order part of the delta FILETIME (that is, the high order 32 bits of the FILETIME value that results from calculating the difference between the time stored in the Conversation Index Header and the current time in FILETIME format) bitwise AND with "0x00FE0000" resulting in 0 (zero)), the Delta Code MUST be 0 (zero).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R109</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] [Delta Code (1 bit):] If the difference is greater than or equal to 625 days (high order part of the delta FILETIME bitwise AND with "0x00FE0000" resulting in nonzero), the Delta Code MUST be 1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R110</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] Time Delta(31 bits): A 31-bit value calculated using the difference between the current time and the time stored in the Conversation Index Header (section 2.2.2.4.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R111</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] [Time Delta(31 bits):] If the Delta Code is 0 (zero), the Time Delta is the least significant 31 bits of the difference remaining after the 18 least significant bits are excluded.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R112</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] [Time Delta(31 bits):] If the Delta Code is 1, the Time Delta is the least significant 31 bits of the difference remaining after the 23 least significant bits are excluded.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R311</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] Random (1 byte): A random value generated by using an implementation-specific algorithm.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R113</ns1:REQ_ID>
@@ -1063,11 +1045,11 @@ itemoperations:Status (section 2.2.2.10).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R130</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In MoveAlways] When a conversation is set to always be moved, all e-mail messages in the conversation, including all future e-mail messages in the conversation, are moved from all folders to the destination folder that is specified by the DstFldId element (section 2.2.2.6).</ns1:Description>
+		<ns1:Description>[In MoveAlways] When a conversation is set to always be moved, all e-mail messages in the conversation, including all future e-mail messages in the conversation, are moved from all folders except the Sent Items folder to the destination folder that is specified by the DstFldId element (section 2.2.2.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R131</ns1:REQ_ID>
@@ -1379,7 +1361,25 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R163</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Flagging a Conversation for Follow-up] To set a flag on a conversation, clear a flag on a conversation, or mark a flagged conversation as complete, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:Change element, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To set a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R401</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To clear a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R402</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To mark a flagged conversation as complete, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for each flagged item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1406,7 +1406,16 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R165</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as read or unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:Change element, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as read or unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R403</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1415,11 +1424,11 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Ignoring a Conversation] When a conversation is ignored, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders to the Deleted Items folder.</ns1:Description>
+		<ns1:Description>[In Ignoring a Conversation] When a conversation is ignored, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders except Sent Items folder to the Deleted Items folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R167</ns1:REQ_ID>
@@ -1478,11 +1487,11 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R172</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In Setting up a Conversation to Be Moved Always] When a conversation is set to be moved always, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders to a destination folder.</ns1:Description>
+		<ns1:Description>[In Setting up a Conversation to Be Moved Always] When a conversation is set to be moved always, all e-mail messages in the conversation, including all future e-mail messages for that conversation, are moved from all folders except Sent Items folder to a destination folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R173</ns1:REQ_ID>
@@ -1897,11 +1906,11 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R213</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Ignoring a Conversation] When the server receives a request to ignore a conversation, as specified in section 3.1.4.4, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders to the Deleted Items folder.</ns1:Description>
+		<ns1:Description>[In Ignoring a Conversation] When the server receives a request to ignore a conversation, as specified in section 3.1.4.4, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders except Sent Items folder to the Deleted Items folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R214</ns1:REQ_ID>
@@ -1915,11 +1924,11 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R215</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Always Moving a Conversation] When the server receives a request to always move a conversation, as specified in section 3.1.4.6, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders to the specified destination folder.</ns1:Description>
+		<ns1:Description>[In Always Moving a Conversation] When the server receives a request to always move a conversation, as specified in section 3.1.4.6, the server moves all e-mail messages in the conversation, including all future e-mail messages for that conversation, from all folders except Sent Items folder to the specified destination folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R216</ns1:REQ_ID>
@@ -2210,27 +2219,9 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R249</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.2.1: The airsyncbase:BodyPart element is not supported when the MS-ASProtocolVersion header is set to 12.1 or 14.0.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R250</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.2.2: The airsyncbase:BodyPartPreference element is not supported when the MS-ASProtocolVersion header is set to 12.1 or 14.0.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 5: Move] [Tag name] MoveItems [Token] 0x05</ns1:Description>
+		<ns1:Description>[In Code Page 5: Move] [Tag name] MoveItems [Token] 0x05 [supports protocol versions] All</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2239,7 +2230,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 5: Move] [Tag name] Response [Token] 0x0A</ns1:Description>
+		<ns1:Description>[In Code Page 5: Move] [Tag name] Response [Token] 0x0A [supports protocol versions] All</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2248,7 +2239,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R240</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 5: Move] [Tag name] Status [Token] 0x0B</ns1:Description>
+		<ns1:Description>[In Code Page 5: Move] [Tag name] Status [Token] 0x0B [supports protocol versions] All</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2257,7 +2248,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R468</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.18</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 17: AirSyncBase] [Tag name] BodyPart&lt;41&gt; [Token] 0x1A</ns1:Description>
+		<ns1:Description>[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2266,7 +2257,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R571</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2275,7 +2266,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R580</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Move&lt;53&gt; [Token] 0x16</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Move [Token] 0x16 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2284,7 +2275,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R582</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] ConversationId&lt;55&gt; [Token] 0x18</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] ConversationId [Token] 0x18 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2293,7 +2284,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09</ns1:Description>
+		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2302,38 +2293,11 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A</ns1:Description>
+		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R472</ns1:REQ_ID>
-		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;41&gt; Section 2.1.2.1.18: The BodyPart tag is not supported when the MS-ASProtocolVersion header is set to 12.1 or 14.0.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R584</ns1:REQ_ID>
-		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;53&gt; Section 2.1.2.1.21: The Move tag is not supported when the MS-ASProtocolVersion header is set to 12.1.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R586</ns1:REQ_ID>
-		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;55&gt; Section 2.1.2.1.21: The ConversationId tag is not supported when the MS-ASProtocolVersion header is set to 12.1.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R8</ns1:REQ_ID>
@@ -2355,8 +2319,8 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R87</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.5</ns1:Doc_Sect>
-		<ns1:Description>[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
+		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Description>[In integer Data Type] Elements with an integer data type MUST be encoded and transmitted as WBXML inline strings, as specified in [WBXML1.2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2364,7 +2328,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R88</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] A string is a chunk of Unicode text.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2373,7 +2337,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R90</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] An element of this [string] type is declared as an element with a type attribute of "string".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2382,7 +2346,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R91</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements with a string data type MUST be encoded and transmitted as [WBXML1.2] inline strings.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2391,7 +2355,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R94</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7</ns1:Doc_Sect>
 		<ns1:Description>[In string Data Type] Elements of these types [ActiveSync defines several conventions for strings that adhere to commonly used formats]are defined as string types in XML schemas.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2400,7 +2364,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R97</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Byte Array] The structure is comprised of a length, which is expressed as a multi-byte integer, as specified in [WBXML1.2], followed by that many bytes of data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2409,7 +2373,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R98</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.6.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Byte Array] Elements with a byte array structure MUST be encoded and transmitted as [WBXML1.2] opaque data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

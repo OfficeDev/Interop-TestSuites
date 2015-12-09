@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             {
                 // Give the query values
                 queryTypeEqualTo subQuery = new queryTypeEqualTo { LinkId = string.Empty, Value = linkId };
-                store.Query.ItemsElementName = new ItemsChoiceType5[] { ItemsChoiceType5.EqualTo };
+                store.Query.ItemsElementName = new ItemsChoiceType2[] { ItemsChoiceType2.EqualTo };
                 store.Query.Items = new object[] { subQuery };
             }
 

@@ -49,6 +49,7 @@
     <Compile Include="S17_SmartForward.cs" />
     <Compile Include="S18_SmartReply.cs" />
     <Compile Include="S20_ValidateCert.cs" />
+    <Compile Include="S22_GetHierarchy.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="S21_CommonStatusCode.cs" />
     <Compile Include="S12_Provision.cs" />
@@ -66,6 +67,7 @@
     <None Include="MS-ASCMD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCMD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCMD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASCMD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCMD_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ASCMD_TestSuite.ptfconfig" />
   </ItemGroup>

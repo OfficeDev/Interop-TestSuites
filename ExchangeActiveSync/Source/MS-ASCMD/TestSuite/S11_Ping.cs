@@ -64,9 +64,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4240");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4240
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 3,
-                pingReponse.ResponseData.Status,
+                int.Parse(pingReponse.ResponseData.Status),
                 4240,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 3 is] The Ping command request did not specify all the necessary parameters.");
 
@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4241
             Site.CaptureRequirementIfIsTrue(
-                pingReponse.ResponseData.Status == 3 && pingReponseWithoutHeartBeatIntervalElement.ResponseData.Status != 3,
+                int.Parse(pingReponse.ResponseData.Status) == 3 && int.Parse(pingReponseWithoutHeartBeatIntervalElement.ResponseData.Status) != 3,
                 4241,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 3 is] The client MUST issue a Ping request that includes both the heartbeat interval and the folder list at least once.");
             #endregion
@@ -113,9 +113,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4244");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4244
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4244,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 4 is] Frequently caused by poorly formatted WBXML.");
 
@@ -123,9 +123,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4228");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4228
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 4,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4228,
                 @"[In Status(Ping)] If the command failed, the Status element contains a code that indicates the type of failure.");
             #endregion
@@ -150,9 +150,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5837");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5837
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 5837,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 5 is] The client sent a Ping command request with a heartbeat interval that was [either too long or] too short.");
 
@@ -161,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5690
             Site.CaptureRequirementIfIsTrue(
-                pingResponse.ResponseData.HeartbeatInterval != null && pingResponse.ResponseData.Status == 5,
+                pingResponse.ResponseData.HeartbeatInterval != null && int.Parse(pingResponse.ResponseData.Status) == 5,
                 5690,
                 @"[In HeartbeatInterval(Ping)] The HeartbeatInterval element is also returned by the server with a status code of 5 and specifies [either] the minimum [or maximum] interval that is allowed when the client has requested a heartbeat interval that is outside the acceptable range.");
             #endregion
@@ -191,9 +191,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4258");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4258
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 7,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4258,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 7 is] a folder hierarchy sync is required.");
 
@@ -228,9 +228,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string newFolderName = Guid.NewGuid().ToString().Replace("-", string.Empty);
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(folderSynKey, 12, newFolderName, this.User1Information.InboxCollectionId);
             FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
-            Site.Assert.AreEqual<byte>(
+            Site.Assert.AreEqual<int>(
                 1,
-                folderCreateResponse.ResponseData.Status,
+                int.Parse(folderCreateResponse.ResponseData.Status),
                 "After folder create success, server should return status 1");
             #endregion
 
@@ -244,9 +244,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4257");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4257
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 7,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4257,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 7 is] The folder hierarchy is out of date.");
 
@@ -297,7 +297,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // User2 calls MoveItems command to move the email item from Inbox folder to one of created subfolder
             MoveItemsRequest moveItemsRequest = TestSuiteBase.CreateMoveItemsRequest(emailItemServerID, this.User2Information.InboxCollectionId, folderIDList[0]);
             MoveItemsResponse moveItemsResponse = this.CMDAdapter.MoveItems(moveItemsRequest);
-            Site.Assert.AreEqual(3, moveItemsResponse.ResponseData.Response[0].Status, " If MoveItems command executes successfully, server should return status 3");
+            Site.Assert.AreEqual(3, Convert.ToInt32(moveItemsResponse.ResponseData.Response[0].Status), " If MoveItems command executes successfully, server should return status 3");
             #endregion
 
             #region Resend ping request to monitor the changes in sub folders and record duration
@@ -323,9 +323,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4235");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4235
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4235,
                 @"[In Status(Ping)] [When the scope is] Global, [the meaning of the status value] 2 [is] Changes occurred in at least one of the monitored folders.");
 
@@ -333,9 +333,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5636");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5636
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 5636,
                 @"[In Monitoring Folders for New Items] The server uses the last airsync:SyncKey element (as specified in section 2.2.3.166.4) value returned to the client when determining what to report in the Ping response.");
 
@@ -343,9 +343,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4236");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4236
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4236,
                 @"[In Status(Ping)] [When the scope is] Global, [the meaning of the status value 2 is] The response specifies the changed folders.");
 
@@ -356,7 +356,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5714
                 Site.CaptureRequirementIfIsTrue(
-                    pingRequest.RequestData.HeartbeatInterval != null && pingResponse.ResponseData.Status == (byte)2 && duration.Milliseconds < Convert.ToInt32(pingRequest.RequestData.HeartbeatInterval) * 1000,
+                    pingRequest.RequestData.HeartbeatInterval != null && int.Parse(pingResponse.ResponseData.Status) == 2 && duration.Milliseconds < Convert.ToInt32(pingRequest.RequestData.HeartbeatInterval) * 1000,
                     5714,
                     @"[In Appendix A: Product Behavior] The body of the request contains an interval of time that specifies how long the implementation does wait before responding if no new items are added to the specified folders. (Exchange 2007 and above follow this behavior.)");
             }
@@ -372,9 +372,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5836");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5836
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                pingResponse.ResponseData.Status,
+               int.Parse(pingResponse.ResponseData.Status),
                 5836,
                 @"[In Status(Ping)] [When the scope is Global], The server saves the heartbeat interval value (section 2.2.3.79.1), so only the folder list is required on subsequent requests.");
         }
@@ -401,9 +401,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4249");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4249
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 4249,
                 @"[In Status(Ping)] [When the scope is Global], [the cause of the status value 5 is] The client sent a Ping command request with a heartbeat interval that was [either] too long [or too short].");
 
@@ -412,7 +412,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5691
             Site.CaptureRequirementIfIsTrue(
-                pingResponse.ResponseData.HeartbeatInterval != null && pingResponse.ResponseData.Status == 5,
+                pingResponse.ResponseData.HeartbeatInterval != null && int.Parse(pingResponse.ResponseData.Status) == 5,
                 5691,
                 @"[In HeartbeatInterval(Ping)] The HeartbeatInterval element is also returned by the server with a status code of 5 and specifies [either the minimum or] maximum interval that is allowed when the client has requested a heartbeat interval that is outside the acceptable range.");
             #endregion
@@ -434,7 +434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
             int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
             int counter = 1;
-            while (counter < retryCount && 2 == pingResponse.ResponseData.Status)
+            while (counter < retryCount && 2 == int.Parse(pingResponse.ResponseData.Status))
             {
                 System.Threading.Thread.Sleep(waitTime);
                 SyncRequest syncRequest = TestSuiteBase.CreateEmptySyncRequest(this.User1Information.InboxCollectionId);
@@ -446,7 +446,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 counter++;
             }
 
-            Site.Assert.AreEqual<byte>(1, pingResponse.ResponseData.Status, "The Ping command should be successful.");
+            Site.Assert.AreEqual<int>(1, int.Parse(pingResponse.ResponseData.Status), "The Ping command should be successful.");
             #endregion
 
             #region Create a ping request without request body
@@ -461,9 +461,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R335");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R335
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                pingResponse.ResponseData.Status,
+                int.Parse(pingResponse.ResponseData.Status),
                 335,
                 @"[In Ping] A Ping command can be sent with no body, in which case the cached version is used.");
             #endregion

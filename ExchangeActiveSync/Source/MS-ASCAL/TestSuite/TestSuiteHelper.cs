@@ -241,21 +241,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             searchStore.Options.ItemsElementName = items.Keys.ToArray<Request.ItemsChoiceType6>();
 
             // Build up query condition by using the keyword and folder CollectionID
-            var queryItem = new Request.queryType
+            Request.queryType queryItem = new Request.queryType
             {
                 Items = new object[] { collectionId, keyword },
 
-                ItemsElementName = new Request.ItemsChoiceType5[]
+                ItemsElementName = new Request.ItemsChoiceType2[]
                 {
-                    Request.ItemsChoiceType5.CollectionId,
-                    Request.ItemsChoiceType5.FreeText
+                    Request.ItemsChoiceType2.CollectionId,
+                    Request.ItemsChoiceType2.FreeText
                 }
             };
 
             searchStore.Query = new Request.queryType
             {
                 Items = new object[] { queryItem },
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And }
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And }
             };
 
             return Common.CreateSearchRequest(new Request.SearchStore[] { searchStore });
@@ -317,10 +317,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     Request.ItemOperationsFetchOptions fetchOptions = new Request.ItemOperationsFetchOptions();
 
                     List<object> fetchOptionItems = new List<object>();
-                    List<Request.ItemsChoiceType4> fetchOptionItemsName = new List<Request.ItemsChoiceType4>
+                    List<Request.ItemsChoiceType5> fetchOptionItemsName = new List<Request.ItemsChoiceType5>
                     {
-                        Request.ItemsChoiceType4.BodyPreference,
-                        Request.ItemsChoiceType4.Schema
+                        Request.ItemsChoiceType5.BodyPreference,
+                        Request.ItemsChoiceType5.Schema
                     };
 
                     fetchOptionItems.Add(
@@ -432,13 +432,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     icalendar.AppendLine("ATTENDEE;CN=\"\";RSVP=" + (calendar.ResponseRequested == true ? "TRUE" : "FALSE") + ":mailto:" + attendeeEmailAddress);
 
                     icalendar.AppendLine("ORGANIZER:MAILTO:" + organizerEmailAddress);
-                    if (!string.IsNullOrEmpty(calendar.Reminder))
-                    {
-                        icalendar.AppendLine("BEGIN:VALARM");
-                        icalendar.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
-                        icalendar.AppendLine("ACTION:DISPLAY");
-                        icalendar.AppendLine("END:VALARM");
-                    }
 
                     break;
 
@@ -448,13 +441,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     icalendar.AppendLine("ATTENDEE;CN=\"\";RSVP=" + (calendar.ResponseRequested == true ? "TRUE" : "FALSE") + ":mailto:" + attendeeEmailAddress);
 
                     icalendar.AppendLine("ORGANIZER:MAILTO:" + organizerEmailAddress);
-                    if (!string.IsNullOrEmpty(calendar.Reminder))
-                    {
-                        icalendar.AppendLine("BEGIN:VALARM");
-                        icalendar.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
-                        icalendar.AppendLine("ACTION:DISPLAY");
-                        icalendar.AppendLine("END:VALARM");
-                    }
 
                     break;
 
@@ -536,6 +522,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             if (calendar.DisallowNewTimeProposal == true)
             {
                 icalendar.AppendLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
+            }
+
+            switch (method.ToUpper(CultureInfo.CurrentCulture))
+            {
+                case "REQUEST":
+                case "CANCEL":
+                    if (!string.IsNullOrEmpty(calendar.Reminder))
+                    {
+                        icalendar.AppendLine("BEGIN:VALARM");
+                        icalendar.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
+                        icalendar.AppendLine("ACTION:DISPLAY");
+                        icalendar.AppendLine("END:VALARM");
+                    }
+
+                    break;
             }
 
             icalendar.AppendLine("END:VEVENT");
@@ -710,7 +711,9 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
                 Request.AttendeesAttendee attendee = new Request.AttendeesAttendee
                 {
                     Email = attendeeEmailAddress[i],
-                    Name = attendeeName[i]
+                    Name = attendeeName[i],
+                    AttendeeType = 1,
+                    AttendeeTypeSpecified = true
                 };
                 attendeelist.Add(attendee);
             }

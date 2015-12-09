@@ -171,6 +171,30 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.Assert.IsNotNull(response, "If the SendMail command executes successfully, the response from server should not be null.");
             return response;
         }
+
+        /// <summary>
+        /// Accept, tentatively accept, or decline a meeting request in the user's Inbox folder or Calendar folder
+        /// </summary>
+        /// <param name="request">A MeetingResponseRequest object that contains the request information.</param>
+        /// <returns>A MeetingResponseResponse object.</returns>
+        public MeetingResponseResponse MeetingResponse(MeetingResponseRequest request)
+        {
+            MeetingResponseResponse response = this.activeSyncClient.MeetingResponse(request);
+            Site.Assert.IsNotNull(response, "If the MeetingResponse command executes successfully, the response from server should not be null.");
+            return response;
+        }
+
+        /// <summary>
+        /// Forward messages without retrieving the full, original message from the server.
+        /// </summary>
+        /// <param name="request">A SmartForwardRequest object that contains the request information.</param>
+        /// <returns>A SmartForwardResponse object.</returns>
+        public SmartForwardResponse SmartForward(SmartForwardRequest request)
+        {
+            SmartForwardResponse response = this.activeSyncClient.SmartForward(request);
+            Site.Assert.IsNotNull(response, "If the SmartForward command executes successfully, the response from server should not be null.");
+            return response;
+        }
         #endregion
     }
 }

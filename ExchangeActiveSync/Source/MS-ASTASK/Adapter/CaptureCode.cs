@@ -78,7 +78,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                             // Since schema is validated, this requirement can be captured directly.
                             Site.CaptureRequirement(
                                 74,
-                                @"[In Body] The airsyncbase:Body element is a container ([MS-ASDTYPE] section 2.2) element that specifies the text for the task.");
+                                @"[In Body (AirSyncBase Namespace)] The airsyncbase:Body element is a container ([MS-ASDTYPE] section 2.2) element that specifies details about the body of a task item.");
 
                             this.VerifyContainerDataType();
                         }
@@ -201,6 +201,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 182,
                                 @"[In Importance] The value of this element [Importance] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.");
 
+                            if (Common.IsRequirementEnabled(636, Site))
+                            {
+                                Site.Log.Add(LogEntryKind.Debug, "The returned value of Importance is: {0}.", task.Importance);
+                                if (task.Importance >= 0 && task.Importance <= 2)
+                                {
+                                    // Add the debug information
+                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R636");
+
+                                    // Capture R636 when the value is valid
+                                    Site.CaptureRequirement(
+                                        636,
+                                        @"[In Appendix B: Product Behavior] The value of the Importance element is one of the following:[the value is between 0 to 2] (Exchange 2007 SP1 and above follow this behavior.)");
+                                }
+                            }
+
                             this.VerifyUnsignedByteDataType(task.Importance);
                         }
 
@@ -238,38 +253,35 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 226,
                                 @"[In Recurence][The Recurrence element can have the following child elements:] Start (section 2.2.2.22): This element is required.");
 
-                            if (task.Recurrence.CalendarTypeSpecified)
-                            {
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R77");
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R77");
 
-                                // Since schema is validated, this requirement can be captured directly.
-                                Site.CaptureRequirement(
-                                    77,
-                                    @"[In CalendarType] The CalendarType element<1> is a child element of the Recurrence element (section 2.2.2.18) that specifies the calendar system used by the task recurrence.");
+                            // Since schema is validated, this requirement can be captured directly.
+                            Site.CaptureRequirement(
+                                77,
+                                @"[In CalendarType] The CalendarType element<1> is a child element of the Recurrence element (section 2.2.2.18) that specifies the calendar system used by the task recurrence.");
 
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R79");
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R79");
 
-                                // Since schema is validated, this requirement can be captured directly.
-                                Site.CaptureRequirement(
-                                    79,
-                                    @"[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.");
+                            // Since schema is validated, this requirement can be captured directly.
+                            Site.CaptureRequirement(
+                                79,
+                                @"[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.");
 
-                                string[] expectedCalendarTypeValues = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "14", "15", "20" };
+                            string[] expectedCalendarTypeValues = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "14", "15", "20" };
 
-                                Common.VerifyActualValues("CalendarType", expectedCalendarTypeValues, task.Recurrence.CalendarType.ToString(), Site);
+                            Common.VerifyActualValues("CalendarType", expectedCalendarTypeValues, task.Recurrence.CalendarType.ToString(), Site);
 
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R84, the actual value of CalendarType is: &", task.Recurrence.CalendarType);
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R84, the actual value of CalendarType is: &", task.Recurrence.CalendarType);
 
-                                // Since Common.VerifyActualValues runs successfully, this requirement can be captured.
-                                Site.CaptureRequirement(
-                                    84,
-                                    @"[In CalendarType] The value of the CalendarType element MUST be one of the values listed in the following table[The value is among 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15 and 20].");
+                            // Since Common.VerifyActualValues runs successfully, this requirement can be captured.
+                            Site.CaptureRequirement(
+                                84,
+                                @"[In CalendarType] The value of the CalendarType element MUST be one of the values listed in the following table[The value is among 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15 and 20].");
 
-                                this.VerifyUnsignedByteDataType(task.Recurrence.CalendarType);
-                            }
+                            this.VerifyUnsignedByteDataType(task.Recurrence.CalendarType);
 
                             if (task.Recurrence.DayOfMonthSpecified)
                             {
@@ -288,6 +300,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 Site.CaptureRequirement(
                                     130,
                                     @"[In DayOfMonth] A command [request or] response has a maximum of one DayOfMonth element per Recurrence element.");
+
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R525, the actual value of DayOfMonth is: &", task.Recurrence.DayOfMonth);
+
+                                // Verify MS-ASTASK requirement: MS-ASTASK_R525
+                                Site.CaptureRequirementIfIsTrue(
+                                    task.Recurrence.DayOfMonth >= 1 && task.Recurrence.DayOfMonth <= 31,
+                                    525,
+                                    @"[In DayOfMonth] The value of the DayOfMonth element MUST be between 1 and 31.");
 
                                 this.VerifyUnsignedByteDataType(task.Recurrence.DayOfMonth);
                             }
@@ -352,7 +373,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 // Since schema is validated, this requirement can be captured directly.
                                 Site.CaptureRequirement(
                                     162,
-                                    @"[In FirstDayOfWeek] The FirstDayOfWeek<2> element is a child element of the Recurrence element (section 2.2.2.18) that specifies which day is considered the first day of the calendar week for this recurrence.");
+                                    @"[In FirstDayOfWeek] The FirstDayOfWeek element is a child element of the Recurrence element (section 2.2.2.18) that specifies which day is considered the first day of the calendar week for this recurrence.");
 
                                 // Add the debug information
                                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R164");
@@ -512,39 +533,47 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                                 this.VerifyUnsignedByteDataType(task.Recurrence.Regenerate);
                             }
 
-                            // Add the debug information
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R265");
+                            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
+                            {
+                                if (Common.IsRequirementEnabled(633, Site))
+                                {
+                                    // Add the debug information
+                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R633");
 
-                            // Since schema is validated, this requirement can be captured directly.
-                            Site.CaptureRequirement(
-                                265,
-                                @"[In Start] The Start element is a required child element of the Recurrence element (section 2.2.2.18) that specifies the local start date for the recurrence.");
+                                    // Verify MS-ASTASK requirement: MS-ASTASK_R633
+                                    Site.CaptureRequirementIfIsFalse(
+                                        task.Recurrence.StartSpecified,
+                                        633,
+                                        @"[In Appendix A: Product Behavior] <2> Section 2.2.2.25:  Microsoft Exchange Server 2010 Service Pack 1 (SP1), the initial release version of Exchange 2013, and Exchange 2016 Preview do not return the Start element when protocol version is 14.0.");
+                                }
+                            }
+                            else
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R267");
 
-                            // Add the debug information
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R267");
+                                // Since schema is validated, this requirement can be captured directly.
+                                Site.CaptureRequirement(
+                                    267,
+                                    @"[In Start] A command [request or] response has a minimum of one Start child element per Recurrence element.");
 
-                            // Since schema is validated, this requirement can be captured directly.
-                            Site.CaptureRequirement(
-                                267,
-                                @"[In Start] A command [request or] response has a minimum of one Start child element per Recurrence element.");
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R268");
 
-                            // Add the debug information
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R268");
+                                // Since schema is validated, this requirement can be captured directly.
+                                Site.CaptureRequirement(
+                                    268,
+                                    @"[In Start] A command [request or] response has a maximum of one Start child element per Recurrence element.");
 
-                            // Since schema is validated, this requirement can be captured directly.
-                            Site.CaptureRequirement(
-                                268,
-                                @"[In Start] A command [request or] response has a maximum of one Start child element per Recurrence element.");
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R271");
 
-                            // Add the debug information
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R271");
-
-                            // Since schema is validated, this requirement can be captured directly.
-                            Site.CaptureRequirement(
-                                271,
-                                @"[In Start] The value of this element [Start] is a dateTime data type, as specified in [MS-ASDTYPE] section 2.3.");
-
-                            this.VerifyDateTimeDataType();
+                                // Since schema is validated, this requirement can be captured directly.
+                                Site.CaptureRequirement(
+                                    271,
+                                    @"[In Start] The value of this element [Start] is a dateTime data type, as specified in [MS-ASDTYPE] section 2.3.");
+                                this.VerifyDateTimeDataType();
+                            }
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R285");
@@ -1002,7 +1031,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         282,
-                                        @"[In Code Page 9: Tasks] [Tag name] Categories [Token] 0x08");
+                                        @"[In Code Page 9: Tasks] [Tag name] Categories [Token] 0x08 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1018,7 +1047,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         283,
-                                        @"[In Code Page 9: Tasks] [Tag name] Category [Token] 0x09");
+                                        @"[In Code Page 9: Tasks] [Tag name] Category [Token] 0x09 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1034,7 +1063,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         284,
-                                        @"[In Code Page 9: Tasks] [Tag name] Complete [Token] 0x0A");
+                                        @"[In Code Page 9: Tasks] [Tag name] Complete [Token] 0x0A [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1050,7 +1079,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         285,
-                                        @"[In Code Page 9: Tasks] [Tag name] DateCompleted [Token] 0x0B");
+                                        @"[In Code Page 9: Tasks] [Tag name] DateCompleted [Token] 0x0B [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1066,7 +1095,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         286,
-                                        @"[In Code Page 9: Tasks] [Tag name] DueDate [Token] 0x0C");
+                                        @"[In Code Page 9: Tasks] [Tag name] DueDate [Token] 0x0C [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1082,7 +1111,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         287,
-                                        @"[In Code Page 9: Tasks] [Tag name] UtcDueDate [Token] 0x0D");
+                                        @"[In Code Page 9: Tasks] [Tag name] UtcDueDate [Token] 0x0D [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1098,7 +1127,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         288,
-                                        @"[In Code Page 9: Tasks] [Tag name] Importance [Token] 0x0E");
+                                        @"[In Code Page 9: Tasks] [Tag name] Importance [Token] 0x0E [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1114,7 +1143,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         289,
-                                        @"[In Code Page 9: Tasks] [Tag name] Recurrence [Token] 0x0F");
+                                        @"[In Code Page 9: Tasks] [Tag name] Recurrence [Token] 0x0F [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1130,7 +1159,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         290,
-                                        @"[In Code Page 9: Tasks] [Tag name] Type [Token] 0x10");
+                                        @"[In Code Page 9: Tasks] [Tag name] Type [Token] 0x10 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1146,7 +1175,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         291,
-                                        @"[In Code Page 9: Tasks] [Tag name] Start [Token] 0x11");
+                                        @"[In Code Page 9: Tasks] [Tag name] Start [Token] 0x11 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1162,7 +1191,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         292,
-                                        @"[In Code Page 9: Tasks] [Tag name] Until [Token] 0x12");
+                                        @"[In Code Page 9: Tasks] [Tag name] Until [Token] 0x12 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1178,7 +1207,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         293,
-                                        @"[In Code Page 9: Tasks] [Tag name] Occurrences [Token] 0x13");
+                                        @"[In Code Page 9: Tasks] [Tag name] Occurrences [Token] 0x13 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1194,7 +1223,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         294,
-                                        @"[In Code Page 9: Tasks] [Tag name] Interval [Token] 0x14");
+                                        @"[In Code Page 9: Tasks] [Tag name] Interval [Token] 0x14 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1210,7 +1239,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         296,
-                                        @"[In Code Page 9: Tasks] [Tag name] DayOfWeek [Token] 0x16");
+                                        @"[In Code Page 9: Tasks] [Tag name] DayOfWeek [Token] 0x16 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1226,7 +1255,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         295,
-                                        @"[In Code Page 9: Tasks] [Tag name] DayOfMonth [Token] 0x15");
+                                        @"[In Code Page 9: Tasks] [Tag name] DayOfMonth [Token] 0x15 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1242,7 +1271,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         297,
-                                        @"[In Code Page 9: Tasks] [Tag name] WeekOfMonth [Token] 0x17");
+                                        @"[In Code Page 9: Tasks] [Tag name] WeekOfMonth [Token] 0x17 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1258,7 +1287,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         298,
-                                        @"[In Code Page 9: Tasks] [Tag name] MonthOfYear [Token] 0x18");
+                                        @"[In Code Page 9: Tasks] [Tag name] MonthOfYear [Token] 0x18 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1274,7 +1303,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         299,
-                                        @"[In Code Page 9: Tasks] [Tag name] Regenerate [Token] 0x19");
+                                        @"[In Code Page 9: Tasks] [Tag name] Regenerate [Token] 0x19 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1290,7 +1319,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         300,
-                                        @"[In Code Page 9: Tasks] [Tag name] DeadOccur [Token] 0x1A");
+                                        @"[In Code Page 9: Tasks] [Tag name] DeadOccur [Token] 0x1A [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1306,7 +1335,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         301,
-                                        @"[In Code Page 9: Tasks] [Tag name] ReminderSet [Token] 0x1B");
+                                        @"[In Code Page 9: Tasks] [Tag name] ReminderSet [Token] 0x1B [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1322,7 +1351,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         302,
-                                        @"[In Code Page 9: Tasks] [Tag name] ReminderTime [Token] 0x1C");
+                                        @"[In Code Page 9: Tasks] [Tag name] ReminderTime [Token] 0x1C [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1338,7 +1367,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         303,
-                                        @"[In Code Page 9: Tasks] [Tag name] Sensitivity [Token] 0x1D");
+                                        @"[In Code Page 9: Tasks] [Tag name] Sensitivity [Token] 0x1D [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1354,7 +1383,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         304,
-                                        @"[In Code Page 9: Tasks] [Tag name] StartDate [Token] 0x1E");
+                                        @"[In Code Page 9: Tasks] [Tag name] StartDate [Token] 0x1E [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1370,7 +1399,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         305,
-                                        @"[In Code Page 9: Tasks] [Tag name] UtcStartDate [Token] 0x1F");
+                                        @"[In Code Page 9: Tasks] [Tag name] UtcStartDate [Token] 0x1F [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1386,7 +1415,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         306,
-                                        @"[In Code Page 9: Tasks] [Tag name] Subject [Token] 0x20");
+                                        @"[In Code Page 9: Tasks] [Tag name] Subject [Token] 0x20 [supports protocol versions] All");
 
                                     break;
                                 }
@@ -1402,7 +1431,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         309,
-                                        @"[In Code Page 9: Tasks] [Tag name] CalendarType<21> [Token] 0x24");
+                                        @"[In Code Page 9: Tasks] [Tag name] CalendarType [Token] 0x24 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -1418,7 +1447,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         310,
-                                        @"[In Code Page 9: Tasks] [Tag name] IsLeapMonth<22> [Token] 0x25");
+                                        @"[In Code Page 9: Tasks] [Tag name] IsLeapMonth [Token] 0x25 [supports protocol versions] 14.0, 14.1, 16.0");
 
                                     break;
                                 }
@@ -1434,7 +1463,7 @@ MSS = Number of milliseconds");
                                         token,
                                         "MS-ASWBXML",
                                         311,
-                                        @"[In Code Page 9: Tasks] [Tag name] FirstDayOfWeek<23> [Token] 0x26");
+                                        @"[In Code Page 9: Tasks] [Tag name] FirstDayOfWeek [Token] 0x26 [supports protocol versions] 14.1, 16.0");
 
                                     break;
                                 }

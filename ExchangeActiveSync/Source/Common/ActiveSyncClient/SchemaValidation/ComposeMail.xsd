@@ -46,4 +46,24 @@
       </xs:all>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Forwardees">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element name="Forwardee" minOccurs="1" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="Email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:minLength value="1"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" minOccurs="0" type="xs:string" />
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

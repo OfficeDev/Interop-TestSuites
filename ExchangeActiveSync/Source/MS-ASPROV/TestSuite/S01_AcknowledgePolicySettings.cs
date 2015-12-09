@@ -103,7 +103,27 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNotNull(
                 policy.Data,
                 209,
-                @"[In Data] It [Data element] is a required child element of the Policy element (section 2.2.2.40) in responses to initial Provision command requests, as specified in section 3.2.5.1.1.");
+                @"[In Data (container Data Type)] It [Data element] is a required child element of the Policy element (section 2.2.2.40) in responses to initial Provision command requests, as specified in section 3.2.5.1.1.");
+
+            // Because the user is not allowe to download attachment.
+            // So if AttachmentsEnabled element is false then R206 will be verified.
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                false,
+                policy.Data.EASProvisionDoc.AttachmentsEnabled,
+                206,
+                @"[In AttachmentsEnabled] Value 0 means Attachments are not allowed to be downloaded.");
+
+            // Because if the Data element is a container Data type, then the Data element should contain the EASProvisionDoc element.
+            // So if the Data element contain the EASProvisionDoc element and the PolicyType element is set to "MS-EAS-Provisioning-WBXML", then R888 will be verified.
+            this.Site.CaptureRequirementIfIsTrue(
+                policy.Data.EASProvisionDoc != null && policy.PolicyType == "MS-EAS-Provisioning-WBXML",
+                888,
+                @"[In Data (container Data Type)] This element [Data (container Data Type)] requires that the PolicyType element (section 2.2.2.42) is set to ""MS-EAS-Provisioning-WBXML"".");
+            
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(policy.PolicyKey),
+                486,
+                @"[In Provision Command] The server generates, stores, and sends the policy key when it responds to a Provision command request for policy settings.");
             #endregion
 
             #region Acknowledge the policy settings.
@@ -141,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNotNull(
                 temporaryPolicyKey,
                 650,
-                @"[In Responding to an Initial Request] The value of the PolicyKey element (section 2.2.2.41) is a temporary policy key that will only be valid for an acknowledgment request to acknowledge the policy settings contained in the EASProvisionDoc element (section 2.2.2.27).");
+                @"[In Responding to an Initial Request] The value of the PolicyKey element (section 2.2.2.41) is a temporary policy key that will be valid only for an acknowledgment request to acknowledge the policy settings contained in the Data element.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R657");
@@ -227,7 +247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNull(
                 policy.Data,
                 601,
-                @"[In Data] It [Data element] is not present in responses to acknowledgment requests, as specified in section 3.2.5.1.2.");
+                @"[In Data (container Data Type)] It [Data element] is not present in responses to acknowledgment requests, as specified in section 3.2.5.1.2.");
             #endregion
 
             #region Apply the final policy key got from acknowledgement Provision response.
@@ -284,6 +304,46 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 Site.CaptureRequirement(
                     509,
                     @"[In Appendix A: Product Behavior] The implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. (Exchange 2007 and above follow this behavior.)");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to test when a policy setting that was previously set is unset on the server.
+        /// </summary>
+        [TestCategory("MSASPROV"), TestMethod()]
+        public void MSASPROV_S01_TC03_InitialPreviouslySettingUnset()
+        {
+            #region Download the policy settings.
+            // Download the policy settings.
+            ProvisionResponse provisionResponse = this.CallProvisionCommand(string.Empty, "MS-EAS-Provisioning-WBXML", "1");
+
+            // Because the user is allowe to download attachment.
+            // So if AttachmentsEnabled element is true then R207 will be verified.
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                true,
+                provisionResponse.ResponseData.Policies.Policy.Data.EASProvisionDoc.AttachmentsEnabled,
+                207,
+                @"[In AttachmentsEnabled] Value 1 means Attachments are allowed to be downloaded.");
+
+            if (Common.IsRequirementEnabled(1044, this.Site))
+            {
+                // Because the MinDevicePasswordLength is unset in previously set on the server.
+                // So if the MinDevicePasswordLength element is emtry string then R1044 will be verified.
+                this.Site.CaptureRequirementIfIsTrue(
+                    string.IsNullOrEmpty(provisionResponse.ResponseData.Policies.Policy.Data.EASProvisionDoc.MinDevicePasswordLength),
+                    1044,
+                    @"[In Appendix B: Product Behavior] When a policy setting that was previously set is unset on the server, the  implementation does specify the element that represents the setting as an empty tag [or a default value]. (Exchange 2007 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1045, this.Site))
+            {
+                // Because the DevicePasswordHistory is unset in previously set on the server.
+                // So if the DevicePasswordHistory element is default value(0) then R1045 will be verified.
+                this.Site.CaptureRequirementIfIsTrue(
+                    provisionResponse.ResponseData.Policies.Policy.Data.EASProvisionDoc.DevicePasswordHistory == 0,
+                    1045,
+                    @"[In Appendix B: Product Behavior] When a policy setting that was previously set is unset on the server, the  implementation does specify the element that represents the setting as [an empty tag or] a default value. (Exchange 2007 and above follow this behavior.)");
             }
             #endregion
         }

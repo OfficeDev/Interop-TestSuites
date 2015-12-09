@@ -4,10 +4,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Threading;
+    using System.Xml;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestSuites.Common.DataStructures;
     using Microsoft.Protocols.TestTools;
     using Request = Microsoft.Protocols.TestSuites.Common.Request;
+    using Response = Microsoft.Protocols.TestSuites.Common.Response;
     using SyncItem = Microsoft.Protocols.TestSuites.Common.DataStructures.Sync;
     using SyncStore = Microsoft.Protocols.TestSuites.Common.DataStructures.SyncStore;
 
@@ -182,6 +184,47 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
         #endregion
 
         #region Protected methods
+        /// <summary>
+        /// Extract Add elements from a Sync string response.
+        /// </summary>
+        /// <param name="sendStringResponse">The returned SendStringResponse object.</param>
+        /// <returns>The extracted SyncStore object.</returns>        
+        protected SyncStore ExtractSyncStore(SendStringResponse sendStringResponse)
+        {
+            SyncStore response = new SyncStore();
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(sendStringResponse.ResponseDataXML);
+            XmlNodeList nodes = doc.DocumentElement.GetElementsByTagName("Collection");
+
+            foreach (XmlNode node in nodes)
+            {
+                foreach (XmlNode item in node.ChildNodes)
+                {
+                    if (item.Name == "Responses")
+                    {
+                        foreach (XmlNode add in item)
+                        {
+                            if (add.Name == "Add")
+                            {
+                                Response.SyncCollectionsCollectionResponsesAdd responseData = new Response.SyncCollectionsCollectionResponsesAdd();
+
+                                foreach (XmlNode addItem in add)
+                                {
+                                    if (addItem.Name == "Status")
+                                    {
+                                        responseData.Status = addItem.InnerText;
+                                    }
+                                }
+
+                                response.AddResponses.Add(responseData);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return response;
+        }
 
         /// <summary>
         /// Call Sync command to add a task.

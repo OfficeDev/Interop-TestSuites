@@ -84,8 +84,8 @@
   </xs:element>
   <xs:element name="Attachments">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Attachment" maxOccurs="unbounded">
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Attachment">
           <xs:complexType>
             <xs:all>
               <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
@@ -101,10 +101,52 @@
             </xs:all>
           </xs:complexType>
         </xs:element>
-      </xs:sequence>
+        <xs:element minOccurs="0" name="Add">
+          <xs:complexType>
+            <xs:all minOccurs="1">
+              <xs:element name="ClientId" type="xs:string" minOccurs="1"/>
+              <xs:element name="Method" type="xs:unsignedByte" minOccurs="1"/>
+              <xs:element ref="ContentType"/>
+              <xs:element name="Content" type="xs:string" minOccurs="1"/>
+              <xs:element name="DisplayName" type="xs:string" minOccurs="1"/>
+              <xs:element name="ContentId" type="xs:string" minOccurs="0" />
+              <xs:element name="ContentLocation" type="xs:string" minOccurs="0"/>
+              <xs:element name="IsInline" minOccurs="0"/>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="Delete">
+          <xs:complexType>
+            <xs:all minOccurs="1">
+              <xs:element name="FileReference" type="xs:string"/>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
     </xs:complexType>
   </xs:element>
   <xs:element name="NativeBodyType" type="xs:unsignedByte"/>
+  <xs:element name="ContentType" type="xs:string"/>
+  <xs:element name="InstanceId" type="xs:string"/>
+  <xs:element name="Location">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+        <xs:element name="Annotation" type="xs:string" minOccurs="0"/>
+        <xs:element name="Street" type="xs:string" minOccurs="0"/>
+        <xs:element name="City" type="xs:string" minOccurs="0"/>
+        <xs:element name="State" type="xs:string" minOccurs="0"/>
+        <xs:element name="Country" type="xs:string" minOccurs="0"/>
+        <xs:element name="PostalCode" type="xs:string" minOccurs="0"/>
+        <xs:element name="Latitude" type="xs:double" minOccurs="0"/>
+        <xs:element name="Longitude" type="xs:double" minOccurs="0"/>
+        <xs:element name="Accuracy" type="xs:double" minOccurs="0"/>
+        <xs:element name="Altitude" type="xs:double" minOccurs="0"/>
+        <xs:element name="AltitudeAccuracy" type="xs:double" minOccurs="0"/>
+        <xs:element name="LocationUri" type="xs:string" minOccurs="0"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
   <xs:group name="AllProps">
     <xs:sequence>
       <xs:choice maxOccurs="unbounded">

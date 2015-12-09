@@ -899,9 +899,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
 
             // If the Status in the response is 6, then requirement MS-ASCNTC_R384 can be captured.
             // Verify MS-ASCNTC requirement: MS-ASCNTC_R384
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 6,
-                syncAddStore.AddResponses[0].Status,
+                int.Parse(syncAddStore.AddResponses[0].Status),
                 384,
                 @"[In Picture] If the value of the Picture element exceeds 48 KB of content with base64 encoding, the server MUST return a status error of 6.");
             #endregion

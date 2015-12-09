@@ -82,13 +82,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And, Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And, Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType(), new Request.queryType() }
                 }
             };
 
             // Create search request with multiple And elements.
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { "Email", this.User1Information.InboxCollectionId, "FreeText" };
 
             SearchRequest invalidSearchRequest = Common.CreateSearchRequest(new Request.SearchStore[] { store });
@@ -446,12 +446,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { "Email", this.User1Information.InboxCollectionId, "FreeText" };
 
             // Create search request with two store elements
@@ -551,10 +551,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string searchKeyword = Common.GenerateResourceName(Site, "search");
             Request.queryType searchQuery = new Request.queryType
             {
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                 Items = new Request.queryType[] { new Request.queryType() }
             };
-            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)searchQuery.Items[0]).Items = new object[] { "Email", this.User2Information.InboxCollectionId, searchKeyword };
 
             SearchRequest searchRequest = this.CreateDefaultSearchRequest();
@@ -628,10 +628,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             Request.queryType searchQuery = new Request.queryType
             {
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                 Items = new Request.queryType[] { new Request.queryType() }
             };
-            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)searchQuery.Items[0]).Items = new object[] { "Email", this.User2Information.InboxCollectionId, keyWord };
 
             SearchRequest searchRequest = this.CreateDefaultSearchRequest();
@@ -1004,23 +1004,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { this.User2Information.InboxCollectionId, this.User2Information.CalendarCollectionId, this.User2Information.ContactsCollectionId, "Tasks", "Email", "Calendar", "Contacts", "Notes", "SMS", searchPrefix };
@@ -1120,21 +1120,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.Class,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.Class,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { this.User2Information.InboxCollectionId, this.User2Information.CalendarCollectionId, this.User2Information.ContactsCollectionId, "Tasks", "Email", "Calendar", "Contacts", searchPrefix };
@@ -1222,17 +1222,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { this.User2Information.InboxCollectionId, this.User2Information.CalendarCollectionId, this.User2Information.ContactsCollectionId, searchPrefix };
@@ -1532,7 +1532,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // User2 moves the email with emailSubject1 into new subfolder.
             MoveItemsRequest moveItemRequest = TestSuiteBase.CreateMoveItemsRequest(emailItemOneServerID, this.User2Information.InboxCollectionId, folderID);
             MoveItemsResponse moveItemResponse = this.CMDAdapter.MoveItems(moveItemRequest);
-            Site.Assert.AreEqual(3, moveItemResponse.ResponseData.Response[0].Status, " If MoveItems command executes successful, server should return status 3");
+            Site.Assert.AreEqual(3, int.Parse(moveItemResponse.ResponseData.Response[0].Status), " If MoveItems command executes successful, server should return status 3");
             this.GetMailItem(folderID, emailSubject1);
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject1);
             #endregion
@@ -1543,13 +1543,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Request.Options1 optionWithDeepTraversalAndRebuild = new Request.Options1();
 
             // Create search request query.
-            query.ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And };
+            query.ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And };
             query.Items = new Request.queryType[] { new Request.queryType() };
 
-            ((Request.queryType)query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)query.Items[0]).Items = new object[] { this.User2Information.InboxCollectionId, searchPrefix };
@@ -1642,7 +1642,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // User2 moves the email with emailSubject1 into new subfolder.
             MoveItemsRequest moveItemRequest = TestSuiteBase.CreateMoveItemsRequest(emailItemOneServerID, this.User2Information.InboxCollectionId, folderID);
             MoveItemsResponse moveItemResponse = this.CMDAdapter.MoveItems(moveItemRequest);
-            Site.Assert.AreEqual(3, moveItemResponse.ResponseData.Response[0].Status, " If MoveItems command executes successfully, server should return status 3");
+            Site.Assert.AreEqual(3, int.Parse(moveItemResponse.ResponseData.Response[0].Status), " If MoveItems command executes successfully, server should return status 3");
             this.GetMailItem(folderID, emailSubject1);
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject1);
             #endregion
@@ -1658,15 +1658,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { this.User2Information.InboxCollectionId, searchPrefix };
@@ -1939,14 +1939,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId
+                Request.ItemsChoiceType2.CollectionId
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { this.User1Information.InboxCollectionId };
@@ -2042,15 +2042,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.CollectionId,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.CollectionId,
+                Request.ItemsChoiceType2.FreeText
             };
 
             // Search with low case search key word.
@@ -2101,16 +2101,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Name = SearchName.Mailbox.ToString(),
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[]
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[]
             {
-                Request.ItemsChoiceType5.ConversationId,
-                Request.ItemsChoiceType5.ConversationId,
-                Request.ItemsChoiceType5.FreeText
+                Request.ItemsChoiceType2.ConversationId,
+                Request.ItemsChoiceType2.ConversationId,
+                Request.ItemsChoiceType2.FreeText
             };
 
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { conversationId, conversationId, "KeyWord" };
@@ -2149,12 +2149,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Name = SearchName.Mailbox.ToString(),
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Or },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Or },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { "Email", "KeyWord" };
             SearchRequest searchRequest = Common.CreateSearchRequest(new Request.SearchStore[] { store });
             #endregion
@@ -2384,7 +2384,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Name = SearchName.DocumentLibrary.ToString(),
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.EqualTo },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.EqualTo },
                     Items = new Request.queryTypeEqualTo[]
                     {
                         new Request.queryTypeEqualTo
@@ -2542,9 +2542,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             // User1 sends one meeting request mail to use2.
             string meetingRequestSubject = searchPrefix + Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2.
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -2595,9 +2594,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Create search Query element
             Request.queryType searchQuery = new Request.queryType();
-            searchQuery.ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And };
+            searchQuery.ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And };
             searchQuery.Items = new Request.queryType[] { new Request.queryType() };
-            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)searchQuery.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)searchQuery.Items[0]).Items = new object[] { "Email", this.User1Information.InboxCollectionId, keyWord };
 
             SearchRequest searchRequest = this.CreateDefaultSearchRequest();
@@ -2687,12 +2686,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 },
                 Query = new Request.queryType
                 {
-                    ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And },
+                    ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And },
                     Items = new Request.queryType[] { new Request.queryType() }
                 }
             };
 
-            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.Class, Request.ItemsChoiceType5.CollectionId, Request.ItemsChoiceType5.FreeText };
+            ((Request.queryType)store.Query.Items[0]).ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.Class, Request.ItemsChoiceType2.CollectionId, Request.ItemsChoiceType2.FreeText };
             ((Request.queryType)store.Query.Items[0]).Items = new object[] { "Email", this.User1Information.InboxCollectionId, "FreeText" };
 
             SearchRequest searchRequest = Common.CreateSearchRequest(new Request.SearchStore[] { store });

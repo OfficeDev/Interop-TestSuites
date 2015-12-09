@@ -2,19 +2,20 @@
 <TestSettings name="MS-ASCMD" id="e03a0f3c-d64b-4341-a13c-95b171f3219c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASCMD test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="TestSuite\Resources\number1.jpg" />
     <DeploymentItem filename="TestSuite\MS-ASCMD_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteDevice.ps1" />
-    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetMailboxFolderPermission.ps1" />
-    <DeploymentItem filename="TestSuite\MS-ASCMD_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-ASCMD_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetMailboxFolderPermission.ps1" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCMD.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetMailboxFolderPermission.ps1" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetMailboxFolderPermission.ps1" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\Resources\number1.jpg" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

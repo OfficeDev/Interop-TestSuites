@@ -46,9 +46,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls SendMail command to send one meeting request to user2
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -124,8 +123,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4180");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4180
-            Site.CaptureRequirementIfAreEqual<byte>(
-                1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 meetingResponseResponse.ResponseData.Result[0].Status,
                 4180,
                 @"[In Status(MeetingResponse)] [When the scope is Global], [the cause of the status value 1 is] Server successfully completed command.");
@@ -175,7 +174,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5089
             Site.CaptureRequirementIfIsTrue(
-                meetingResponseResponse.ResponseData.Result[0].CalendarId != null && meetingResponseResponse.ResponseData.Result[0].Status != 0,
+                meetingResponseResponse.ResponseData.Result[0].CalendarId != null && int.Parse(meetingResponseResponse.ResponseData.Result[0].Status) != 0,
                 5089,
                 @"[In Receiving and Accepting Meeting Requests] [Command sequence for receiving and accepting meeting requests., order 4:] The server sends a response that contains the MeetingResponse command request status along with the ID of the calendar item that corresponds to this meeting request if the meeting was not declined.");
 
@@ -186,7 +185,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5723
                 Site.CaptureRequirementIfIsTrue(
-                    meetingResponseResponse.ResponseData.Result[0].CalendarId != null && meetingResponseResponse.ResponseData.Result[0].Status != 0,
+                    meetingResponseResponse.ResponseData.Result[0].CalendarId != null && int.Parse(meetingResponseResponse.ResponseData.Result[0].Status) != 0,
                     5723,
                     @"[In Appendix A: Product Behavior] Implementation does use the MeetingResponse command to accept a meeting request in the user's Inbox folder. (Exchange 2007 and above follow this behavior.)");
             }
@@ -242,9 +241,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region User1 calls SendMail command to send one meeting request to user2
 
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -313,9 +311,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls SendMail command to send one meeting request to user2
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -341,9 +338,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4182");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4182
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                responseMeetingResponse.ResponseData.Result[0].Status,
+                int.Parse(responseMeetingResponse.ResponseData.Result[0].Status),
                 4182,
                 @"[In Status(MeetingResponse)] [When the scope is Item], [the cause of the status value 2 is] The client has sent a malformed or invalid item.");
         }
@@ -357,9 +354,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region User1 calls SendMail command to send one meeting request to user2
 
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -375,11 +371,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Set UserResponse value 2 to tentatively accepted
             MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(2, this.User2Information.InboxCollectionId, requestID, string.Empty);
             MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
-            Site.Assert.AreEqual<byte>((byte)1, meetingResponseResponse.ResponseData.Result[0].Status, "If MeetingResponse command executes successfully, server should return status 1");
+            Site.Assert.AreEqual<int>(1, int.Parse(meetingResponseResponse.ResponseData.Result[0].Status), "If MeetingResponse command executes successfully, server should return status 1");
             string itemServerID = this.GetItemServerIdFromSpecialFolder(this.User2Information.CalendarCollectionId, meetingRequestSubject);
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.CalendarCollectionId, meetingRequestSubject);
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.DeletedItemsCollectionId, meetingRequestSubject);
-            
+
             // If user tentatively accepted the meeting, the calendar item will be found in Calendar folder.
             if (Common.IsRequirementEnabled(5724, this.Site))
             {
@@ -388,7 +384,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5724
                 Site.CaptureRequirementIfIsTrue(
-                    meetingResponseResponse.ResponseData.Result[0].Status == 1 && itemServerID != null,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status) == 1 && itemServerID != null,
                     5724,
                     @"[In Appendix A: Product Behavior] Implementation does use the MeetingResponse command to tentatively accept a meeting request in the user's Inbox folder. (Exchange 2007 and above follow this behavior.)");
             }
@@ -426,9 +422,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region User1 calls SendMail command to send one meeting request to user2
 
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -454,9 +449,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4183");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4183
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 4183,
                 @"[In Status(MeetingResponse)] [When the scope is Item], [the cause of the status value 2 is] The request is referencing an item other than a meeting request, email, or calendar item.");
         }
@@ -472,9 +467,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send meeting request to user2
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -501,9 +495,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4186");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4186
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 4186,
                 @"[In Status(MeetingResponse)] [In Status(MeetingResponse)] [When the scope is Item], [the cause of the status value 2 is] The InstanceId element specifies a nonexistent instance or is null.");
         }
@@ -516,9 +510,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls SendMail command to send one meeting request to user2
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -556,9 +549,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5670");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5670
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     1,
-                    meetingResponseResponse.ResponseData.Result[0].Status,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                     5670,
                     @"[In Appendix A: Product Behavior] Implementation does not limit the number of elements in command requests and not return the specified error if the limit is exceeded. (<118> Section 3.1.5.8: Exchange 2007 SP1 and Exchange 2010 do not limit the number of elements in command requests.) ");
 
@@ -566,9 +559,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5672");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5672
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     1,
-                    meetingResponseResponse.ResponseData.Result[0].Status,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                     5672,
                     @"[In Appendix A: Product Behavior] Implementation does not limit the number of elements in command requests. (<119> Section 3.1.5.8: Exchange 2007 SP1 and Exchange 2010 do not limit the number of elements in command requests. )");
             }
@@ -579,9 +572,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5671");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5671
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     103,
-                    meetingResponseResponse.ResponseData.Result[0].Status,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                     5671,
                     @"[In Appendix A: Product Behavior] Implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. (<118> Section 3.1.5.8: Update Rollup 6 for Exchange 2010 SP2 and Exchange 2013 do limit the number of elements in command requests.)");
 
@@ -589,9 +582,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5673");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5673
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     103,
-                    meetingResponseResponse.ResponseData.Result[0].Status,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                     5673,
                     @"[In Appendix A: Product Behavior] Update Rollup 6 for implementation does use the specified limit values by default but can be configured to use different values. (<119> Section 3.1.5.8: Update Rollup 6 for Exchange 2010 SP2 and Exchange 2013 use the specified limit values by default but can be configured to use different values.)");
 
@@ -599,9 +592,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5650");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5650
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     103,
-                    meetingResponseResponse.ResponseData.Result[0].Status,
+                    int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                     5650,
                     @"[In Limiting Size of Command Requests] In MeetingResponse (section 2.2.2.9) command request, when the limit value of Request element is bigger than 100 (minimum 1, maximum 2,147,483,647), the error returned by server is Status element (section 2.2.3.162.8) value of 103.");
             }
@@ -618,9 +611,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes
@@ -655,9 +647,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4185");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4185
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 4185,
                 @"[In Status(MeetingResponse)] [In Status(MeetingResponse)] [When the scope is Item], [the cause of the status value 2 is] The InstanceId element (section 2.2.3.78.1) specifies an email meeting request item.");
         }
@@ -673,9 +665,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one single meeting request to user2
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -707,9 +698,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3196");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3196
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 146,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 3196,
                 @"[In InstanceId(MeetingResponse)] If the InstanceId element value specifies a non-recurring meeting, the server responds with a Status element value of 146.");
 
@@ -717,9 +708,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4919");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4919
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 146,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 4919,
                 @"[In Common Status Codes] [The meaning of the status value 146 is] The request tried to forward an occurrence of a meeting that has no recurrence.");
         }
@@ -732,9 +723,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls SendMail command to send one meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -765,7 +755,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Set to tentatively accept one of recurring meeting request instance
             MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(2, this.User2Information.InboxCollectionId, inboxItemID, null);
             MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
-            Site.Assert.AreEqual<byte>((byte)1, meetingResponseResponse.ResponseData.Result[0].Status, "If MeetingResponse command executes successfully, server should return status 1");
+            Site.Assert.AreEqual<int>(1, int.Parse(meetingResponseResponse.ResponseData.Result[0].Status), "If MeetingResponse command executes successfully, server should return status 1");
             TestSuiteBase.RemoveRecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, meetingRequestSubject);
             TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.DeletedItemsCollectionId, meetingRequestSubject);
 
@@ -810,9 +800,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             #region User1 calls SendMail command to send one meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress,null);
 
             // Send a meeting request email to user2
             this.SendMeetingRequest(meetingRequestSubject, calendar);
@@ -845,9 +834,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one recurring meeting request to user2.
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, organizerEmailAddress, attendeeEmailAddress);
+            this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
             #endregion
 
             #region User2 calls Sync command to get new added meeting request
@@ -881,9 +869,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3195");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3195
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 104,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 3195,
                 @"[In InstanceId(MeetingResponse)] If the InstanceId element value specified is not in the proper format, the server responds with a Status element (section 2.2.3.162.8) value of 104.");
 
@@ -891,9 +879,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4819");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4819
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 104,
-                meetingResponseResponse.ResponseData.Result[0].Status,
+                int.Parse(meetingResponseResponse.ResponseData.Result[0].Status),
                 4819,
                 @"[In Common Status Codes] [The meaning of the status value 104 is] The request contains a timestamp that could not be parsed into a valid date and time.");
             #endregion
@@ -909,9 +897,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one meeting request to user7
             string originalSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User7Information.UserName, this.User7Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(originalSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(originalSubject, attendeeEmailAddress,null);
 
             // Send a meeting request email to user7
             this.SendMeetingRequest(originalSubject, calendar);
@@ -923,6 +910,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Sync Inbox folder
             this.GetMailItem(this.User7Information.InboxCollectionId, originalSubject);
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R7478");
+
+            // If the protocol version is 16.0, nothing will be done in the method SendMeetingRequest.
+            // So when the assertion in GetMailItem succeeds, R7478 can be verified.
+            Site.CaptureRequirement(
+                7478,
+                @"[In Creating a Meeting or Appointment] In protocol version 16.0, the server will send meeting requests to the attendees automatically while processing the Sync command request that creates the meeting.");
 
             // Sync Calendar folder
             this.GetMailItem(this.User7Information.CalendarCollectionId, originalSubject);
@@ -976,16 +972,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 @"[In Substitute Meeting Invitation Email] The value of element email:MessageClass is set to ""IPM.Note"".");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5617");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5617
-            Site.CaptureRequirementIfAreEqual<string>(
-                "urn:content-classes:message",
-                ((string)TestSuiteBase.GetElementValueFromSyncResponse(substituteSyncResponse, substituteInvitationEmailServerId, Response.ItemsChoiceType8.ContentClass)).ToLower(System.Globalization.CultureInfo.InvariantCulture),
-                5617,
-                @"[In Substitute Meeting Invitation Email] The value of element email:ContentClass is set to ""urn:content-classes:message"".");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5604");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5604
@@ -1031,9 +1017,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             #region User1 calls SendMail command to send one meeting request to user7
             string originalSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User7Information.UserName, this.User7Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(originalSubject, organizerEmailAddress, attendeeEmailAddress);
+            Calendar calendar = this.CreateCalendar(originalSubject, attendeeEmailAddress, null);
 
             // Send a meeting request email to user7
             this.SendMeetingRequest(originalSubject, calendar);
@@ -1099,6 +1084,156 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.CheckMeetingForwardNotification(this.User1Information, notificationSubject);
             #endregion
         }
+
+        /// <summary>
+        /// This test case is used to verify CalendarId is returned, when the meeting request is accepted.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S09_TC15_MeetingResponse_AcceptMeetingInCalendarFolder()
+        {
+            Site.Assume.AreNotEqual<SutVersion>(SutVersion.ExchangeServer2007, Common.GetSutVersion(this.Site), "Exchange 2007 SP3 does not use MeetingResponse command on Calendar folder.");
+
+            #region User1 calls SendMail command to send one meeting request to user2
+            string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
+            string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
+
+            // Send a meeting request email to user2
+            this.SendMeetingRequest(meetingRequestSubject, calendar);
+            #endregion
+
+            #region Get new added meeting request email
+            // Switch to user2 mailbox
+            this.SwitchUser(this.User2Information);
+
+            // Sync Inbox folder
+            SyncResponse syncResponse = this.GetMailItem(this.User2Information.InboxCollectionId, meetingRequestSubject);
+            string serverIDForMeetingRequest = TestSuiteBase.FindServerId(syncResponse, "Subject", meetingRequestSubject);
+
+            // Sync Calendar folder
+            SyncResponse syncCalendarBeforeMeetingResponse = this.GetMailItem(this.User2Information.CalendarCollectionId, meetingRequestSubject);
+            string calendarItemServerID = TestSuiteBase.FindServerId(syncCalendarBeforeMeetingResponse, "Subject", meetingRequestSubject);
+            #endregion
+
+            #region Call method MeetingResponse to accept the meeting request in the user2's Calendar folder.
+            MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(1, this.User2Information.InboxCollectionId, serverIDForMeetingRequest, string.Empty);
+
+            // If the user accepts the meeting request, the meeting request mail will be deleted and calendar item will be created.
+            MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
+
+            bool isVerifiedR5707 = meetingResponseResponse.ResponseData.Result[0].CalendarId != null && meetingResponseResponse.ResponseData.Result[0].Status != "0";
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR5707,
+                5707,
+                @"[In MeetingResponse] The MeetingResponse command is used to accept [, tentatively accept, or decline] a meeting request in the [user's Inbox folder or] Calendar folder.<3>");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify CalendarId is returned, when the meeting request is accepted.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S09_TC16_MeetingResponse_TentativelyAcceptInCalendarFolder()
+        {
+            Site.Assume.AreNotEqual<SutVersion>(SutVersion.ExchangeServer2007, Common.GetSutVersion(this.Site), "Exchange 2007 SP3 does not use MeetingResponse command on Calendar folder.");
+
+            #region User1 calls SendMail command to send one meeting request to user2.
+            string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
+            string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
+
+            // Send a meeting request email to user2
+            this.SendMeetingRequest(meetingRequestSubject, calendar);
+            #endregion
+
+            #region User2 calls Sync command to sync user2 mailbox changes
+            this.SwitchUser(this.User2Information);
+            SyncResponse syncInboxResponse = this.GetMailItem(this.User2Information.InboxCollectionId, meetingRequestSubject);
+            string inboxItemID = TestSuiteBase.FindServerId(syncInboxResponse, "Subject", meetingRequestSubject);
+
+            SyncResponse syncCalendarResponse = this.GetMailItem(this.User2Information.CalendarCollectionId, meetingRequestSubject);
+            string calendarItemID = TestSuiteBase.FindServerId(syncCalendarResponse, "Subject", meetingRequestSubject);
+
+            // Get calendar item responseType value before meetingResponse
+            // ResponseType is not supported in ProtocolVersion 12.1, refer MS-ASCAL <17> Section 2.2.2.38
+            uint responseTypeBeforeMeetingResponse = 0;
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.0")
+            {
+                responseTypeBeforeMeetingResponse = (uint)TestSuiteBase.GetElementValueFromSyncResponse(syncCalendarResponse, calendarItemID, Response.ItemsChoiceType8.ResponseType);
+            }
+
+            // Record relative items for clean up
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, meetingRequestSubject);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.CalendarCollectionId, meetingRequestSubject);
+            #endregion
+
+            #region User2 calls MeetingResponse command to tentative accept the meeting
+            // Set to tentatively accept one of recurring meeting request instance
+            MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(2, this.User2Information.InboxCollectionId, inboxItemID, null);
+            MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
+            Site.Assert.AreEqual<int>(1, int.Parse(meetingResponseResponse.ResponseData.Result[0].Status), "If MeetingResponse command executes successfully, server should return status 1");
+            string itemServerID = this.GetItemServerIdFromSpecialFolder(this.User2Information.CalendarCollectionId, meetingRequestSubject);
+            TestSuiteBase.RemoveRecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, meetingRequestSubject);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.DeletedItemsCollectionId, meetingRequestSubject);
+
+            bool isVerifiedR5708 = itemServerID != null && meetingResponseResponse.ResponseData.Result[0].Status == "1";
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR5708,
+                5708,
+                @"[In MeetingResponse] The MeetingResponse command is used to [accept,] tentatively accept [, or decline] a meeting request in the [user's Inbox folder or] Calendar folder.<3>");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify CalendarId is returned, when the meeting request is accepted.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S09_TC17_MeetingResponse_DeclineInCalendarFolder()
+        {
+            Site.Assume.AreNotEqual<SutVersion>(SutVersion.ExchangeServer2007, Common.GetSutVersion(this.Site), "Exchange 2007 SP3 does not use MeetingResponse command on Calendar folder.");
+
+            #region User1 calls SendMail command to send one meeting request to user2
+            string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
+            string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
+            Calendar calendar = this.CreateCalendar(meetingRequestSubject, attendeeEmailAddress, null);
+
+            // Send a meeting request email to user2
+            this.SendMeetingRequest(meetingRequestSubject, calendar);
+            #endregion
+
+            #region Get new added meeting request email
+            // Switch to user2 mailbox
+            this.SwitchUser(this.User2Information);
+
+            // Sync Inbox folder
+            SyncResponse syncResponse = this.GetMailItem(this.User2Information.InboxCollectionId, meetingRequestSubject);
+            string serverIDForMeetingRequest = TestSuiteBase.FindServerId(syncResponse, "Subject", meetingRequestSubject);
+
+            // Sync Calendar folder
+            SyncResponse syncCalendarBeforeMeetingResponse = this.GetMailItem(this.User2Information.CalendarCollectionId, meetingRequestSubject);
+            string calendarItemServerID = TestSuiteBase.FindServerId(syncCalendarBeforeMeetingResponse, "Subject", meetingRequestSubject);
+            #endregion
+
+            #region Call method MeetingResponse to decline the meeting request in the user2's Calendar folder.
+            MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(3, this.User2Information.InboxCollectionId, serverIDForMeetingRequest, string.Empty);
+
+            // If the user declines the meeting request, the meeting request mail will be deleted and no calendar item will be created.
+            MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
+
+            SyncResponse syncInboxFolder = this.SyncChanges(this.User2Information.CalendarCollectionId);
+            string itemServerIDInCalendarFolder = TestSuiteBase.FindServerId(syncInboxFolder, "Subject", meetingRequestSubject);
+
+            bool isVerifiedR5709 = meetingResponseResponse.ResponseData.Result[0].Status == "1" && itemServerIDInCalendarFolder == null;
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR5709,
+                5709,
+                @"[In MeetingResponse] The MeetingResponse command is used to [accept, tentatively accept, or] decline a meeting request in the [user's Inbox folder or] Calendar folder.<3>");
+            #endregion
+        }
+
         #endregion
 
         #region Private methods

@@ -194,9 +194,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4912");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R4912
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     144,
-                    folderSyncResponse.ResponseData.Status,
+                    int.Parse(folderSyncResponse.ResponseData.Status),
                     4912,
                     @"[In Common Status Codes] [The meaning of the status value 144 is] The device's policy key is invalid.");
             }

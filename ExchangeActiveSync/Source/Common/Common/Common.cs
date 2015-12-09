@@ -851,17 +851,17 @@ MIME-Version: 1.0
             {
                 Items = new object[] { folderCollectionId, keyword },
 
-                ItemsElementName = new Request.ItemsChoiceType5[] 
+                ItemsElementName = new Request.ItemsChoiceType2[] 
                 {
-                    Request.ItemsChoiceType5.CollectionId,
-                    Request.ItemsChoiceType5.FreeText
+                    Request.ItemsChoiceType2.CollectionId,
+                    Request.ItemsChoiceType2.FreeText
                 }
             };
 
             searchStore.Query = new Request.queryType
             {
                 Items = new object[] { queryItem },
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And }
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And }
             };
 
             return Common.CreateSearchRequest(new Request.SearchStore[] { searchStore });
@@ -1126,9 +1126,13 @@ MIME-Version: 1.0
             {
                 convertedVersion = "141";
             }
+            else if (string.Equals(originalVersion, "16.0", StringComparison.CurrentCultureIgnoreCase))
+            {
+                convertedVersion = "160";
+            }
             else
             {
-                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0 or 14.1.");
+                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0, 14.1 or 16.0.");
             }
 
             return convertedVersion;
@@ -1326,14 +1330,19 @@ MIME-Version: 1.0
         /// <returns>The SyncStore instance.</returns>
         public static DataStructures.SyncStore LoadSyncResponse(SyncResponse response)
         {
-            DataStructures.SyncStore result = new DataStructures.SyncStore
+            DataStructures.SyncStore result = new DataStructures.SyncStore();
+            if (string.IsNullOrEmpty(response.ResponseData.Status))
             {
-                StatusSpecified = response.ResponseData.StatusSpecified
-            };
+                result.StatusSpecified = false;
+            }
+            else
+            {
+                result.StatusSpecified = true;
+            }
 
             if (result.StatusSpecified)
             {
-                result.Status = response.ResponseData.Status;
+                result.Status = Convert.ToInt32(response.ResponseData.Status);
             }
 
             if (response.ResponseData.Item == null)

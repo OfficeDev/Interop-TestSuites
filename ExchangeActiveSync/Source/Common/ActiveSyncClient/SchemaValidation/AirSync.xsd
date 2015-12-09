@@ -25,7 +25,7 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
-  <xs:element name="Status" type="xs:unsignedByte"/>
+  <xs:element name="Status" type="xs:integer"/>
   <xs:element name="Class" type="xs:string"/>
   <xs:element name="CollectionId">
     <xs:simpleType>

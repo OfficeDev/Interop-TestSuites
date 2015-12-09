@@ -59,7 +59,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // add task
             SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Adding a task item to server should success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Adding a task item to server should success.");
             SyncItem task = this.GetChangeItem(this.UserInformation.TasksCollectionId, subject);
             Site.Assert.IsNotNull(task.Task, "The task which subject is {0} should exist in server.", subject);
             ItemsNeedToDelete.Add(subject);
@@ -84,22 +84,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             option.Items = items.Values.ToArray<object>();
             option.ItemsElementName = items.Keys.ToArray<Request.ItemsChoiceType6>();
 
-            var queryItem = new Request.queryType
+            Request.queryType queryItem = new Request.queryType
             {
                 Items = new object[] { "Tasks", this.UserInformation.TasksCollectionId, subject },
 
-                ItemsElementName = new Request.ItemsChoiceType5[]
+                ItemsElementName = new Request.ItemsChoiceType2[]
                 {
-                    Request.ItemsChoiceType5.Class,
-                    Request.ItemsChoiceType5.CollectionId,
-                    Request.ItemsChoiceType5.FreeText
+                    Request.ItemsChoiceType2.Class,
+                    Request.ItemsChoiceType2.CollectionId,
+                    Request.ItemsChoiceType2.FreeText
                 }
             };
 
             Request.queryType queryType = new Request.queryType
             {
                 Items = new object[] { queryItem },
-                ItemsElementName = new Request.ItemsChoiceType5[] { Request.ItemsChoiceType5.And }
+                ItemsElementName = new Request.ItemsChoiceType2[] { Request.ItemsChoiceType2.And }
             };
 
             SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(SearchName.Mailbox.ToString(), option, queryType);
@@ -149,7 +149,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             // add task
             SyncStore syncResponse = this.SyncAddTask(taskItem);
-            Site.Assert.AreEqual<byte>(1, syncResponse.AddResponses[0].Status, "Adding a task item to server should success.");
+            Site.Assert.AreEqual<int>(1, int.Parse(syncResponse.AddResponses[0].Status), "Adding a task item to server should success.");
             SyncItem task = this.GetChangeItem(this.UserInformation.TasksCollectionId, subject);
             Site.Assert.IsNotNull(task.Task, "The task which subject is {0} should exist in server.", subject);
             ItemsNeedToDelete.Add(subject);

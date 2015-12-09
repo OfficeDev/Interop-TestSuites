@@ -33,13 +33,13 @@
     <Property name="R1007Enabled" value="true"/>
     <!-- Set R1017Enabled to true to verify that implementation does partition email changes into one or more of the following categories:Changes to the Read flag (section 2.2.2.47) Changes to the Flag properties (section 2.2.2.27) Changes to other E-Mail class properties, such as Subject (section 2.2.2.63) Changes to non-E-Mail class properties. Set R1017Enabled to false to disable this requirement. -->
     <Property name="R1017Enabled" value="true"/>
-    <!-- Set R1018Enabled to true to verify that implementation does include the Read element as the only child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11)  within the airsync:Change element ([MS-ASCMD] section 2.2.3.24) for that e-mail item in the Sync command response, if only the Read flag has changed for an e-mail item. Set R1018Enabled to false to disable this requirement. -->
-    <Property name="R1018Enabled" value="true"/>
-    <!-- Set R1019Enabled to true to verify that implementation does include the Flag element as the only child element of the airsync:ApplicationData element within the airsync:Change element for that e-mail item in the Sync command response, if only Flag properties have changed for an e-mail item. Set R1019Enabled to false to disable this requirement.-->
-    <Property name="R1019Enabled" value="true"/>
     <!-- Set R1021Enabled to true to verify that implementation does update the flag on the e-mail message by using the Change element ([MS-ASCMD] section 2.2.3.24) of the Sync command ([MS-ASCMD] section 2.2.2.19), for every flag update that the client sends to the server in a Sync command request ([MS-ASCMD] section 2.2.2.19.1). Set R1021Enabled to false to disable this requirement.-->
     <Property name="R1021Enabled" value="true"/>
     <!-- Set R829Enabled to true to verify that implementation does send this element[email2:UmCallerID] to the client regardless of the client's current VoIP capabilities, in order to enable future VoIP scenarios. Set R829Enabled to false to disable this requirement.-->
     <Property name="R829Enabled" value="true"/>
+    <!-- Set R1493Enabled to true to verify that the element RecurrenceId does include the original start time of the instance. Set R1493Enabled to false to disable this requirement.-->
+    <Property name="R1493Enabled" value="true"/>
+    <!-- Set R1491Enabled to true to verify that implementation does support value 6 for element MeetingMessageType. Set R1491Enabled to false to disable this requirement.-->
+    <Property name="R1491Enabled" value="false"/>
   </Properties>
 </TestSite>

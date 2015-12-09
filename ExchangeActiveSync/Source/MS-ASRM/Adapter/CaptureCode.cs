@@ -1141,7 +1141,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             633,
-                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplates [Token] 0x06");
+                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplates [Token] 0x06 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1157,7 +1157,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             634,
-                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplate [Token] 0x07");
+                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplate [Token] 0x07 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1173,7 +1173,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             635,
-                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementLicense [Token] 0x08");
+                            @"[In Code Page 24: RightsManagement] [Tag name] RightsManagementLicense [Token] 0x08 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1189,7 +1189,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             636,
-                            @"[In Code Page 24: RightsManagement] [Tag name] EditAllowed [Token] 0x09");
+                            @"[In Code Page 24: RightsManagement] [Tag name] EditAllowed [Token] 0x09 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1205,7 +1205,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             637,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ReplyAllowed [Token] 0x0A");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ReplyAllowed [Token] 0x0A [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1221,7 +1221,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             638,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ReplyAllAllowed [Token] 0x0B");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ReplyAllAllowed [Token] 0x0B [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1237,7 +1237,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             639,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ForwardAllowed [Token] 0x0C");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ForwardAllowed [Token] 0x0C [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1253,7 +1253,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             640,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ModifyRecipientsAllowed [Token] 0x0D");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ModifyRecipientsAllowed [Token] 0x0D [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1269,7 +1269,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             641,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ExtractAllowed [Token] 0x0E");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ExtractAllowed [Token] 0x0E [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1285,7 +1285,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             642,
-                            @"[In Code Page 24: RightsManagement] [Tag name] PrintAllowed [Token] 0x0F");
+                            @"[In Code Page 24: RightsManagement] [Tag name] PrintAllowed [Token] 0x0F [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1301,7 +1301,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             643,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ExportAllowed [Token] 0x10");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ExportAllowed [Token] 0x10 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1317,7 +1317,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             644,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ProgrammaticAccessAllowed [Token] 0x11");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ProgrammaticAccessAllowed [Token] 0x11 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1333,7 +1333,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             645,
-                            @"[In Code Page 24: RightsManagement] [Tag name] Owner [Token] 0x12");
+                            @"[In Code Page 24: RightsManagement] [Tag name] Owner [Token] 0x12 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1349,7 +1349,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             646,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ContentExpiryDate [Token] 0x13");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ContentExpiryDate [Token] 0x13 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1365,7 +1365,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             647,
-                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateID [Token] 0x14");
+                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateID [Token] 0x14 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1381,7 +1381,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             648,
-                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateName [Token] 0x15");
+                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateName [Token] 0x15 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1397,7 +1397,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             649,
-                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateDescription [Token] 0x16");
+                            @"[In Code Page 24: RightsManagement] [Tag name] TemplateDescription [Token] 0x16 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }
@@ -1413,7 +1413,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             650,
-                            @"[In Code Page 24: RightsManagement] [Tag name] ContentOwner [Token] 0x17");
+                            @"[In Code Page 24: RightsManagement] [Tag name] ContentOwner [Token] 0x17 [supports protocol versions] 14.1, 16.0");
 
                         break;
                     }

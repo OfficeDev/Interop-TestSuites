@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // If CertificateRetrieval value is set to 1 , server returns a null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R856
             Site.CaptureRequirementIfIsNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates,
                 856,
                 @"[In CertificateRetrieval] Value 1 means do not retrieve certificates for the recipient (default).");
             #endregion
@@ -81,7 +81,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R843
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates,
                 843,
                 @"[In Certificate(ResolveRecipients)] This element [Certificate] is returned by the server only if the client specifies a value of 2 in the CertificateRetrieval element (section 2.2.3.22) in the ResolveRecipients command request.");
 
@@ -91,7 +91,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R857
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates,
                 857,
                 @"[In CertificateRetrieval] Value 2 means retrieve the full certificate for each resolved recipient.");
 
@@ -101,7 +101,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Type.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3825
             Site.CaptureRequirementIfIsTrue(
-                (resolveRecipientsResponse.ResponseData.Response.Recipient.Length > (int)0) && (resolveRecipientsResponse.ResponseData.Response.Recipient[0].EmailAddress != null) && (resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates != null),
+                (resolveRecipientsResponse.ResponseData.Response[0].Recipient.Length > (int)0) && (resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].EmailAddress != null) && (resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates != null),
                 3825,
                 @"[In Response(ResolveRecipients)] If the recipient was resolved, the element also contains the type of recipient, the email address that the recipient resolved to, and, optionally, the S/MIME certificate for the recipient.");
 
@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3764
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates,
                 3764,
                 @"[In Recipient] A Certificates element is returned as a child element of the Recipient element if the client requested certificates to be returned in the response.");
             #endregion
@@ -120,7 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             requestResolveRecipientsOption.CertificateRetrieval = "3";
             resolveRecipientsRequest.RequestData.Items = new object[] { requestResolveRecipientsOption, Common.GetConfigurationPropertyValue("User3Name", Site) };
             resolveRecipientsResponse = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
-            Site.Assert.AreEqual<byte>((byte)1, resolveRecipientsResponse.ResponseData.Status, "The server should return a status code 1 in the ResolveRecipients command response to indicate success.");
+            Site.Assert.AreEqual<string>("1", resolveRecipientsResponse.ResponseData.Status, "The server should return a status code 1 in the ResolveRecipients command response to indicate success.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R858");
@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R858
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates.MiniCertificate,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates.MiniCertificate,
                 858,
                 @"[In CertificateRetrieval] Value 3 means retrieve the mini certificate for each resolved recipient.");
 
@@ -138,7 +138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3435
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates.MiniCertificate,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates.MiniCertificate,
                 3435,
                 @"[In MiniCertificate] This [MiniCertificate] element is returned only if the client specifies a value of 3 in the CertificateRetrieval element (section 2.2.3.22) in the ResolveRecipients command request and the resolved recipient has a valid S/MIME certificate.");
 
@@ -147,9 +147,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Resolve a list of supplied recipients, server returns a non-null Certificates.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4302
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 1,
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates.Status,
+                int.Parse(resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates.Status),
                 4302,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 1 [is] One or more certificates were successfully returned.");
             #endregion
@@ -189,9 +189,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2264");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R2264
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                resolveRecipientsResponse.ResponseData.Status,
+                int.Parse(resolveRecipientsResponse.ResponseData.Status),
                 2264,
                 @"[In EndTime(ResolveRecipients)] If the client sends an invalid EndTime element value, then the server returns a Status element (section 2.2.3.162.11) value of 5 in the ResolveRecipients command response.");
 
@@ -199,9 +199,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3762");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R3762
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                resolveRecipientsResponse.ResponseData.Status,
+                int.Parse(resolveRecipientsResponse.ResponseData.Status),
                 3762,
                 @"[In Recipient] The status code returned in the Response element can be used to determine if the recipient was found to be ambiguous.");
         }
@@ -241,9 +241,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If server returns ResolveRecipients Status 5. The R3986 should be covered.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3986
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                resolveRecipientsResponse.ResponseData.Status,
+                int.Parse(resolveRecipientsResponse.ResponseData.Status),
                 3986,
                 @"[In StartTime(ResolveRecipients)] If the client sends an invalid StartTime element value, then the server returns a Status element (section 2.2.3.162.11) value of 5 in the ResolveRecipients command response.");
         }
@@ -283,9 +283,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If server returns ResolveRecipients Status 5. The R2266 should be covered.
             // Verify MS-ASCMD requirement: MS-ASCMD_R2266
-            Site.CaptureRequirementIfAreEqual<byte>(
+            Site.CaptureRequirementIfAreEqual<int>(
                 5,
-                resolveRecipientsResponse.ResponseData.Status,
+                int.Parse(resolveRecipientsResponse.ResponseData.Status),
                 2266,
                 @"[In EndTime(ResolveRecipients)] If the EndTime element value specified in the request is smaller than the StartTime element value plus 30 minutes,[ or the duration spanned by the StartTime element value and the EndTime element value is greater than a specific number<37> of days,] then the server returns a Status element value of 5 in the ResolveRecipients command response.");
         }
@@ -327,9 +327,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5175");
 
                 // Verify MS-ASCMD requirement: MS-ASCMD_R5175
-                Site.CaptureRequirementIfAreEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<int>(
                     5,
-                    resolveRecipientsResponse.ResponseData.Status,
+                    int.Parse(resolveRecipientsResponse.ResponseData.Status),
                     5175,
                     @"[In Appendix A: Product Behavior] If the duration spanned by the StartTime element value and the EndTime element value is greater than 42 days, then the implementation does return a Status element value of 5 in the ResolveRecipients command response. (<37> Section 2.2.3.58.1: Exchange 2010 and Exchange 2013 use 42 days.)");
             }
@@ -359,7 +359,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             ResolveRecipientsResponse resolveRecipientsResponse = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
-            byte status256 = resolveRecipientsResponse.ResponseData.Status;
+            int status256 = int.Parse(resolveRecipientsResponse.ResponseData.Status);
             #endregion
 
             #region The client calls ResolveRecipients command with To elements value length of 257.
@@ -380,7 +380,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             ResolveRecipientsResponse resolveRecipientsResponse257 = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest257);
-            byte status257 = resolveRecipientsResponse257.ResponseData.Status;
+            int status257 = int.Parse(resolveRecipientsResponse257.ResponseData.Status);
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5873");
@@ -429,7 +429,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R3287
             Site.CaptureRequirementIfAreEqual<string>(
                 "173",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Status,
                 3287,
                 @"[In MaxPictures(ResolveRecipients)] After the MaxPictures limit is reached, the server returns Status element (section 2.2.3.162) value 173 (NoPicture) if the contact has no photo.");
         }
@@ -450,11 +450,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 }
             };
             ResolveRecipientsResponse resolveRecipientsResponse = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
-            Site.Assert.AreEqual<string>("2", resolveRecipientsResponse.ResponseData.Response.Status, "If the recipient was found to be ambiguous, the status should be 2.");
+            Site.Assert.AreEqual<string>("2", resolveRecipientsResponse.ResponseData.Response[0].Status, "If the recipient was found to be ambiguous, the status should be 2.");
 
             bool isFullNameReturned = true;
             bool isNullCertificates = true;
-            foreach (var recipient in resolveRecipientsResponse.ResponseData.Response.Recipient)
+            foreach (Response.ResolveRecipientsResponseRecipient recipient in resolveRecipientsResponse.ResponseData.Response[0].Recipient)
             {
                 if (!recipient.DisplayName.ToLower(System.Globalization.CultureInfo.InvariantCulture).Contains(displayName.ToLower(System.Globalization.CultureInfo.InvariantCulture)))
                 {
@@ -517,11 +517,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             ResolveRecipientsResponse resolveRecipientsResponse = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
-            Site.Assert.IsNotNull(resolveRecipientsResponse.ResponseData.Response.Recipient, "Server should return recipients data");
+            Site.Assert.IsNotNull(resolveRecipientsResponse.ResponseData.Response[0].Recipient, "Server should return recipients data");
 
             // Checks whether server returns free/busy data and MergedFreeBusy element.
             bool mergedFreeBusyisNull = true;
-            foreach (Response.ResolveRecipientsResponseRecipient recipient in resolveRecipientsResponse.ResponseData.Response.Recipient)
+            foreach (Response.ResolveRecipientsResponseRecipient recipient in resolveRecipientsResponse.ResponseData.Response[0].Recipient)
             {
                 mergedFreeBusyisNull = recipient.Availability == null;
             }
@@ -580,7 +580,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If request includes the Availability element and includes a To element for a distribution group, server returns a non-null Availability.
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability,
                 4625,
                 @"[In To] If the ResolveRecipients command request includes the Availability element and the To element specifies a distribution group, then the availability data is returned as a single string that merges the data for the individual members of the distribution group.");
 
@@ -589,7 +589,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If request includes the Availability element and includes a To element for a distribution group, server returns a non-null MergedFreeBusy.
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 819,
                 @"[In Availability] When the Availability element is included in a ResolveRecipients request, the server retrieves free/busy information for the users identified in the To elements included in the request, and returns the free/busy information in the MergedFreeBusy element in the response.");
 
@@ -598,7 +598,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If call ResolveRecipients command includes the Availability element and includes a To element for a distribution group successfully, server returns status 1 and a non-null MergedFreeBusy.
             Site.CaptureRequirementIfIsTrue(
-                (resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy != null) && (resolveRecipientsResponse.ResponseData.Status == 1),
+                (resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy != null) && (resolveRecipientsResponse.ResponseData.Status == "1"),
                 3339,
                 @"[In MergedFreeBusy] The MergedFreeBusy element is also included if the Status element value indicates success.");
 
@@ -607,7 +607,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If call ResolveRecipients command includes the Availability element and includes a To element for a distribution group successfully, server returns status 1.
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.Status,
                 3338,
                 @"[In MergedFreeBusy] If the Availability element is included in the response, the response MUST also include the Status element (section 2.2.3.162.11).");
         }
@@ -648,7 +648,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4626
             Site.CaptureRequirementIfAreEqual<string>(
                 "161",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.Status,
                 4626,
                 @"[In To] If the distribution group contains more than 20 members, a Status element value of 161 is returned in the response indicating that the merged free busy information of such a large distribution group is not useful.");
 
@@ -658,7 +658,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4294
             Site.CaptureRequirementIfAreEqual<string>(
                 "161",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.Status,
                 4294,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 161 [is] The distribution group identified by the To element of the ResolveRecipient request included more than 20 recipients.");
         }
@@ -685,8 +685,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Server return status code 1 in response level to indicate ResolveRecipients command process success.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4268
-            Site.CaptureRequirementIfAreEqual<byte>(
-                1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 resolveRecipientsResponse.ResponseData.Status,
                 4268,
                @"[In Status(ResolveRecipients)] [The meaning of the status value] 1 [is] Success.");
@@ -698,19 +698,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4275
             Site.CaptureRequirementIfAreEqual<string>(
                 "1",
-                resolveRecipientsResponse.ResponseData.Response.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Status,
                 4275,
                @"[In Status(ResolveRecipients)] [The meaning of the status value] 1 [is] The recipient was resolved successfully.");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4620");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R4620
-            Site.CaptureRequirementIfAreEqual<string>(
-                recipientName,
-                resolveRecipientsResponse.ResponseData.Response.To,
-                4620,
-               @"[In To] The To element(s) that are returned in the response corresponds directly to the To element(s) that are specified in the request.<79>");
         }
 
         /// <summary>
@@ -749,7 +739,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R3321
             Site.CaptureRequirementIfAreEqual<string>(
                 "0",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 3321,
                 @"[In MergedFreeBusy] Value 0 means Free.");
 
@@ -759,7 +749,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4291
             Site.CaptureRequirementIfAreEqual<string>(
                 "1",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.Status,
                 4291,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 1 [is] Free/busy data was successfully retrieved for a given recipient.");
 
@@ -769,7 +759,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Server return Availability element if the To element includes a valid SMTP address in ResolveRecipients request.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4618
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability,
                 4618,
                 @"[In To] The Availability element is only included when the To element includes a valid SMTP address or name that resolves to a unique individual on the server.");
 
@@ -778,7 +768,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If specified with valid SMTP addresses, To element includes MergedFreeBusy element in the response.
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 4624,
                 @"[In To] Only users or distribution lists specified with valid SMTP addresses or a uniquely identifiable string in the request message, To element have MergedFreeBusy elements included in the response.");
         }
@@ -811,8 +801,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R343");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R343
-            Site.CaptureRequirementIfAreEqual<byte>(
-                1,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
                 resolveRecipientsResponse.ResponseData.Status,
                 343,
                 @"[In ResolveRecipients] The ResolveRecipients command is used by clients to resolve a list of supplied recipients, to retrieve their free/busy information, and optionally, to retrieve their S/MIME certificates so that clients can send encrypted S/MIME email messages.<4>");
@@ -822,9 +812,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // If there is no certificate on the server, the status is equal to 7.
             // Verify MS-ASCMD requirement: MS-ASCMD_R4304
-            Site.CaptureRequirementIfAreEqual<byte>(
-                7,
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Certificates.Status,
+            Site.CaptureRequirementIfAreEqual<string>(
+                "7",
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Certificates.Status,
                 4304,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 7 [is] No certificates were returned.");
         }
@@ -859,7 +849,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             };
 
             ResolveRecipientsResponse resolveRecipientsResponseBeforeReceiveMeeting = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
-            Site.Assert.AreEqual<byte>((byte)1, resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Status, "If ResolveRecipients command executes successfully, server should return status 1");
+            Site.Assert.AreEqual<string>("1", resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Status, "If ResolveRecipients command executes successfully, server should return status 1");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3319");
@@ -867,7 +857,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R3319 
             Site.CaptureRequirementIfAreEqual(
                 "0000",
-                resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy,
+                resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 3319,
                 @"[In MergedFreeBusy] Each digit in the MergedFreeBusy element value string indicates the free/busy status for the user or distribution list for every 30 minute interval.");
             #endregion
@@ -875,15 +865,29 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region User1 calls SendMail command to send one meeting request to user2
             this.SwitchUser(this.User1Information);
             string meetingSubject = Common.GenerateResourceName(Site, "subject");
-            string organizerEmailAddress = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
-            Calendar calendar = TestSuiteBase.CreateDefaultCalendar(meetingSubject, organizerEmailAddress, attendeeEmailAddress);
-            calendar.DtStamp = DateTime.UtcNow.Date.AddDays(1).AddHours(2).AddMinutes(40);
+            Calendar calendar = new Calendar();
             calendar.StartTime = DateTime.UtcNow.Date.AddDays(1).AddHours(2).AddMinutes(40);
             calendar.EndTime = DateTime.UtcNow.Date.AddDays(1).AddHours(3).AddMinutes(10);
 
             // Send a meeting request email to user2
-            this.SendMeetingRequest(meetingSubject, calendar);
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            {
+                Calendar createdCalendar = this.CreateCalendar(meetingSubject, attendeeEmailAddress, calendar);
+                this.SendMeetingRequest(meetingSubject, createdCalendar);
+            }
+            else
+            {
+                calendar.OrganizerEmail = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
+                calendar.OrganizerName = Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain);
+                calendar.UID = Guid.NewGuid().ToString();
+                calendar.Attendees = new Response.Attendees();
+                calendar.Attendees.Attendee = new Response.AttendeesAttendee[1];
+                calendar.Attendees.Attendee[0] = new Response.AttendeesAttendee();
+                calendar.Attendees.Attendee[0].Email = attendeeEmailAddress;
+                calendar.Attendees.Attendee[0].Name = attendeeEmailAddress;
+                this.SendMeetingRequest(meetingSubject, calendar);
+            }
             #endregion
 
             #region Get new added meeting request emails in user2's mailbox
@@ -910,20 +914,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3330");
 
-            // Because of value "0" indicates "Free", value "1" indicates "Busy", then server change the MergedFreeBusy value to "0110" to indicate the recipient is "Busy" during the middle one hour.
+            // Because of value "0" indicates "Free", value "1" indicates "Tentative", then server change the MergedFreeBusy value to "0110" to indicate the recipient is "Busy" during the middle one hour.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3330
-            Site.CaptureRequirementIfIsTrue(
-                resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy.Equals("0000") && resolveRecipientsResponseBeforeMeetingResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy.Equals("0110"),
+            Site.CaptureRequirementIfAreEqual(
+                "0110",
+                resolveRecipientsResponseBeforeMeetingResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 3330,
                 @"[In MergedFreeBusy] The MergedFreeBusy element value string is populated from the StartTime element value onwards, therefore the last digit represents between a millisecond and 30 minutes.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3332");
 
-            // Because of value "0" indicates "Free", value "1" indicates "Busy", then server change the MergedFreeBusy value to "0110" to indicate the recipient is "Busy" during the middle one hour.
+            // Because of value "0" indicates "Free", value "1" indicates "Tentative", then server change the MergedFreeBusy value to "0110" to indicate the recipient is "Busy" during the middle one hour.
             // Verify MS-ASCMD requirement: MS-ASCMD_R3332
-            Site.CaptureRequirementIfIsTrue(
-                resolveRecipientsResponseBeforeReceiveMeeting.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy.Equals("0000") && resolveRecipientsResponseBeforeMeetingResponse.ResponseData.Response.Recipient[0].Availability.MergedFreeBusy.Equals("0110"),
+            Site.CaptureRequirementIfAreEqual(
+                "0110",
+                resolveRecipientsResponseBeforeMeetingResponse.ResponseData.Response[0].Recipient[0].Availability.MergedFreeBusy,
                 3332,
                 @"[In MergedFreeBusy] Any appointment that ends inside a second of the interval requested shall impact the digit representing that timeframe.");
             #endregion
@@ -962,7 +968,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4311
             Site.CaptureRequirementIfAreEqual<string>(
                 "173",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Status,
                 4311,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 173 [is] The user does not have a contact photo.");
         }
@@ -1008,7 +1014,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4311
             Site.CaptureRequirementIfAreEqual<string>(
                 "1",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Status,
                 4310,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 1 [is] The contact photo was retrieved successfully.");
 
@@ -1018,7 +1024,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R2133
             // The Data element value indicates the contact photo size, if the Data element value is not null then MS-ASCMD_R2133 is verified.
             Site.CaptureRequirementIfIsNotNull(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Data,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Data,
                 2133,
                 @"[In Data(ResolveRecipients)] The Data element<27> is an optional child element of the Picture element in ResolveRecipients command responses that contains the binary data of the contact photo.");
 
@@ -1028,7 +1034,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R5350
             // If the Data element value is less than MaxSize value set in request, then MS-ASCMD_R5350 is verified.
             Site.CaptureRequirementIfIsTrue(
-                Convert.ToInt32(resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Data) <= requestResolveRecipientsOption.Picture.MaxSize,
+                Convert.ToInt32(resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Data) <= requestResolveRecipientsOption.Picture.MaxSize,
                 5350,
                 @"[In MaxSize] The MaxSize element specifies the maximum size of an individual contact photo that is returned in the response, in bytes.");
 
@@ -1037,7 +1043,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R5351
             Site.CaptureRequirementIfIsTrue(
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture.Length <= requestResolveRecipientsOption.Picture.MaxPictures,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture.Length <= requestResolveRecipientsOption.Picture.MaxPictures,
                 5351,
                 @"[In MaxSize] The MaxPictures element (section 2.2.3.94) specifies the maximum number of contact photos to return in the server response.");
         }
@@ -1079,7 +1085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4312
             Site.CaptureRequirementIfAreEqual<string>(
                 "174",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Status,
                 4312,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 174 [is] The contact photo exceeded the size limit set by the MaxSize element (section 2.2.3.95.1).");
         }
@@ -1114,7 +1120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4313
             Site.CaptureRequirementIfAreEqual<string>(
                 "175",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Picture[0].Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Picture[0].Status,
                 4313,
                 @"[In Status(ResolveRecipients)] [The meaning of the status value] 175 [is] The number of contact photos returned exceeded the size limit set by the MaxPictures element (section 2.2.3.94.1).");
         }
@@ -1125,9 +1131,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S13_TC20_ResolveRecipients_Status5()
         {
-            Site.Assume.AreNotEqual<SutVersion>(SutVersion.ExchangeServer2007, Common.GetSutVersion(this.Site), "Exchange 2007 SP1 do not limit the number of elements in command requests. MS-SutVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            Site.Assume.AreNotEqual<SutVersion>(SutVersion.ExchangeServer2010, Common.GetSutVersion(this.Site), "Exchange 2010 do not limit the number of elements in command requests. MS-SutVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
             // Create a ResolveRecipients request with 101 recipients.
             object[] items = new object[101];
             for (int i = 0; i < 101; i++)
@@ -1146,25 +1149,51 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Call method ResolveRecipients to resolve the request with 101 To elements.
             ResolveRecipientsResponse resolveRecipientsResponse = this.CMDAdapter.ResolveRecipients(resolveRecipientsRequest);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4270");
+            if (Common.IsRequirementEnabled(7500, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R7500");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R4270
-            Site.CaptureRequirementIfAreEqual<byte>(
-                5,
-                resolveRecipientsResponse.ResponseData.Status,
-                4270,
-               @"[In Status(ResolveRecipients)] [The meaning of the status value 5 is] Either an invalid parameter was specified or the range exceeded limits.");
+                // Verify MS-ASCMD requirement: MS-ASCMD_R7500
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    "1",
+                    resolveRecipientsResponse.ResponseData.Status,
+                    7500,
+                    @"[In Appendix A: Product Behavior] Implementation does not limit the number of elements in command requests and not return the specified error if the limit is exceeded. (<17> Section 2.2.3.173: Exchange 2007 SP1 and Exchange 2010 do not limit the number of To elements in command requests.)");
+            }
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5656");
+            if (Common.IsRequirementEnabled(7501, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R7501");
 
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5656
-            Site.CaptureRequirementIfAreEqual<byte>(
-                5,
-                resolveRecipientsResponse.ResponseData.Status,
-                5656,
-               @"[In Limiting Size of Command Requests] In ResolveRecipients (section 2.2.2.13) command request, when the limit value of To element is bigger than 100 (minimum 1, maximum 2,147,483,647), the error returned by server is Status element (section 2.2.3.162.11) value of 5.");
+                // Verify MS-ASCMD requirement: MS-ASCMD_R7501
+                this.Site.CaptureRequirementIfAreNotEqual<string>(
+                    "1",
+                    resolveRecipientsResponse.ResponseData.Status,
+                    7501,
+                    @"[In Appendix A: Product Behavior] Implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. (<17> Section 2.2.3.173: Update Rollup 6 for Exchange 2010 Service Pack 2 (SP2), Exchange 2013, and Exchange 2016 Preview do limit the number of To elements in command requests.)");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4270");
+
+                // Verify MS-ASCMD requirement: MS-ASCMD_R4270
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "5",
+                    resolveRecipientsResponse.ResponseData.Status,
+                    4270,
+                   @"[In Status(ResolveRecipients)] [The meaning of the status value 5 is] Either an invalid parameter was specified or the range exceeded limits.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5656");
+
+                // Verify MS-ASCMD requirement: MS-ASCMD_R5656
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "5",
+                    resolveRecipientsResponse.ResponseData.Status,
+                    5656,
+                   @"[In Limiting Size of Command Requests] In ResolveRecipients (section 2.2.2.13) command request, when the limit value of To element is bigger than 100 (minimum 1, maximum 2,147,483,647), the error returned by server is Status element (section 2.2.3.162.11) value of 5.");
+            }
         }
 
         /// <summary>
@@ -1218,7 +1247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R4298
             Site.CaptureRequirementIfAreEqual<string>(
                 "163",
-                resolveRecipientsResponse.ResponseData.Response.Recipient[0].Availability.Status,
+                resolveRecipientsResponse.ResponseData.Response[0].Recipient[0].Availability.Status,
                 4298,
                 @"[In Status(ResolveRecipients)][The meaning of the status value] 163 [is] Free/busy data could not be retrieved from the server for a given recipient.");
         }
