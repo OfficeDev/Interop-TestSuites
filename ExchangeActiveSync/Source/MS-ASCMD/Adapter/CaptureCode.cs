@@ -11844,20 +11844,6 @@ Opaque data");
 
                 case "Class":
                     {
-                        if (string.Equals(Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "12.1"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R247");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R247
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x09,
-                                token,
-                                "MS-ASWBXML",
-                                247,
-                                @"[In Code Page 6: GetItemEstimate] [Tag name] Class - see note 1 following this table [Token] 0x09 [supports protocol versions] 2.5, 12.0, 12.1");
-                        }
-
                         this.isClassTagInPage6Exist = true;
                         break;
                     }
@@ -12191,33 +12177,11 @@ Opaque data");
 
                 case "Folders":
                     {
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R826");
-
-                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R826
-                        Site.CaptureRequirementIfAreEqual<byte>(
-                            0x05,
-                            token,
-                            "MS-ASWBXML",
-                            826,
-                            @"[In Code Page 7: FolderHierarchy] [Tag name] Folders [Token] 0x05 [supports protocol versions] 2.5, 12.0, 12.1");
-
-                        break;
+                         break;
                     }
 
                 case "Folder":
                     {
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R827");
-
-                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R827
-                        Site.CaptureRequirementIfAreEqual<byte>(
-                            0x06,
-                            token,
-                            "MS-ASWBXML",
-                            827,
-                            @"[In Code Page 7: FolderHierarchy] [Tag name] Folder [Token] 0x06 [supports protocol versions] 2.5, 12.0, 12.1");
-
                         break;
                     }
 
@@ -14915,77 +14879,21 @@ Opaque data");
 
                 case "Forwardees":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R847");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R847
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x15,
-                                token,
-                                "MS-ASWBXML",
-                                847,
-                                @"[In Code Page 21: ComposeMail] [Tag name] Forwardees [Token] 0x15 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "Forwardee":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R848");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R848
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x16,
-                                token,
-                                "MS-ASWBXML",
-                                848,
-                                @"[In Code Page 21: ComposeMail] [Tag name] Forwardee [Token] 0x16 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "ForwardeeName":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R849");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R848
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x17,
-                                token,
-                                "MS-ASWBXML",
-                                849,
-                                @"[In Code Page 21: ComposeMail] [Tag name] ForwardeeName [Token] 0x17 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "ForwardeeEmail":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R850");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R850
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x18,
-                                token,
-                                "MS-ASWBXML",
-                                850,
-                                @"[In Code Page 21: ComposeMail] [Tag name] ForwardeeEmail [Token] 0x18 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
