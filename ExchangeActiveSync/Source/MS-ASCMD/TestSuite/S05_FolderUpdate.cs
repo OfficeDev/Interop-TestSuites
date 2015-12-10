@@ -100,7 +100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S05_TC02_FolderUpdate_Status2()
         {
             // Call method FolderUpdate to rename the Calendar folder.
-            FolderUpdateRequest folderUpdateRequest = Common.CreateFolderUpdateRequest(this.LastFolderSyncKey, this.User1Information.CalendarCollectionId, "Notes", "0");
+            FolderUpdateRequest folderUpdateRequest = Common.CreateFolderUpdateRequest(this.LastFolderSyncKey, ((byte)FolderType.Calendar).ToString(), "Notes", "0");
             FolderUpdateResponse folderUpdateResponse = this.CMDAdapter.FolderUpdate(folderUpdateRequest);
 
             // Add the debug information
