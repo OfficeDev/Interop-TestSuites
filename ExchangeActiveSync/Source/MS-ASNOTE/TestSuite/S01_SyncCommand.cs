@@ -219,7 +219,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 {
                     if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
                     {
-                        note = result.AddElements[0].Note;
+                        note = result.AddElements[i].Note;
                         break;
                     }
                 }
@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 {
                     if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
                     {
-                        note = result.AddElements[0].Note;
+                        note = result.AddElements[i].Note;
                         break;
                     }
                 }
