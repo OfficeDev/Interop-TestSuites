@@ -121,7 +121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S03_TC02_FolderDelete_Status3()
         {
             // Call method FolderDelete to delete a Calendar folder from the server.
-            FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(this.LastFolderSyncKey, ((byte)FolderType.Calendar).ToString());
+            FolderDeleteRequest folderDeleteRequest = Common.CreateFolderDeleteRequest(this.LastFolderSyncKey, this.User1Information.CalendarCollectionId);
             FolderDeleteResponse folderDeleteResponse = this.CMDAdapter.FolderDelete(folderDeleteRequest);
 
             Site.Assert.IsNotNull(folderDeleteResponse.ResponseData, "The FolderDelete element should not be null.");

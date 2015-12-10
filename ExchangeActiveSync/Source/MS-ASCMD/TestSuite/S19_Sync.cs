@@ -2129,6 +2129,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S19_TC27_Sync_Change()
         {
+            Site.Assume.AreEqual<string>("Base64", Common.GetConfigurationPropertyValue("HeaderEncodingType", this.Site), "The device ID should be same across all requests, when the HeaderEncodingType is PlainText.");
             CMDAdapter.ChangeDeviceID(Common.GetConfigurationPropertyValue("DeviceID", this.Site));
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
 
@@ -3094,6 +3095,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S19_TC38_Sync_Delete()
         {
+            Site.Assume.AreEqual<string>("Base64", Common.GetConfigurationPropertyValue("HeaderEncodingType", this.Site), "The device ID should be same across all requests, when the HeaderEncodingType is PlainText.");
+
             // Synchronize the changes in the Contacts folder.
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
 
@@ -3395,6 +3398,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S19_TC40_Sync_Conflict()
         {
+            Site.Assume.AreEqual<string>("Base64", Common.GetConfigurationPropertyValue("HeaderEncodingType", this.Site), "The device ID should be same across all requests, when the HeaderEncodingType is PlainText.");
+
             // Synchronize the changes in the Contacts folder.
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.ContactsCollectionId));
 
