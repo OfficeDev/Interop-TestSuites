@@ -7876,7 +7876,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1016</ns1:REQ_ID>
@@ -7885,7 +7885,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1017</ns1:REQ_ID>
@@ -7894,7 +7894,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1018</ns1:REQ_ID>
@@ -7903,7 +7903,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R729</ns1:REQ_ID>
@@ -7994,7 +7994,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1020</ns1:REQ_ID>
@@ -8003,7 +8003,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1021</ns1:REQ_ID>
@@ -8012,7 +8012,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1022</ns1:REQ_ID>
@@ -8021,7 +8021,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R732</ns1:REQ_ID>
@@ -8030,7 +8030,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6141</ns1:REQ_ID>
@@ -17260,7 +17260,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirements: MS-ASCMD_R5874, MS-ASCMD_R5875.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -24869,7 +24869,7 @@ fractional_seconds  = 7*DIGIT  ; fractional seconds, always to 7 decimal places<
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1758</ns1:REQ_ID>
@@ -37647,7 +37647,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2440</ns1:REQ_ID>
@@ -37656,7 +37656,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2441</ns1:REQ_ID>
@@ -37665,7 +37665,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2442</ns1:REQ_ID>
@@ -37674,7 +37674,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3772</ns1:REQ_ID>
@@ -40458,7 +40458,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5378</ns1:REQ_ID>
@@ -40467,7 +40467,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5379</ns1:REQ_ID>
@@ -40476,7 +40476,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5380</ns1:REQ_ID>
@@ -40485,7 +40485,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5435</ns1:REQ_ID>
@@ -54317,7 +54317,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4703</ns1:REQ_ID>
@@ -54335,7 +54335,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2896</ns1:REQ_ID>
@@ -54344,7 +54344,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2897</ns1:REQ_ID>
@@ -54353,7 +54353,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2898</ns1:REQ_ID>
@@ -54362,7 +54362,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R7420</ns1:REQ_ID>
@@ -61418,15 +61418,6 @@ CheckCRL (section 2.2.3.26).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R247</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 6: GetItemEstimate] [Tag name] Class - see note 1 following this table [Token] 0x09 [supports protocol versions] 2.5, 12.0, 12.1</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R248</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.7</ns1:Doc_Sect>
 		<ns1:Description>[In Code Page 6: GetItemEstimate] [Tag name] CollectionId [Token] 0x0A [supports protocol versions] All</ns1:Description>
@@ -61466,24 +61457,6 @@ CheckCRL (section 2.2.3.26).</ns1:Description>
 		<ns1:REQ_ID>MS-ASWBXML_R825</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.7</ns1:Doc_Sect>
 		<ns1:Description>[In Code Page 6: GetItemEstimate] Note 1: The Class tag in WBXML code page 0 (AirSync) is used instead of the Class tag in WBXML code page 6 with protocol versions 14.0, 14.1, and 16.0.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R826</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 7: FolderHierarchy] [Tag name] Folders [Token] 0x05 [supports protocol versions] 2.5, 12.0, 12.1</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R827</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 7: FolderHierarchy] [Tag name] Folder [Token] 0x06 [supports protocol versions] 2.5, 12.0, 12.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -62456,42 +62429,6 @@ CheckCRL (section 2.2.3.26).</ns1:Description>
 		<ns1:REQ_ID>MS-ASWBXML_R601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.22</ns1:Doc_Sect>
 		<ns1:Description>[In Code Page 21: ComposeMail] [Tag name] Status [Token] 0x12 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R847</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 21: ComposeMail] [Tag name] Forwardees [Token] 0x15 [supports protocol versions] 16.0</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R848</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 21: ComposeMail] [Tag name] Forwardee [Token] 0x16 [supports protocol versions] 16.0</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R849</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 21: ComposeMail] [Tag name] ForwardeeName [Token] 0x17 [supports protocol versions] 16.0</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASWBXML_R850</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1.2.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 21: ComposeMail] [Tag name] ForwardeeEmail [Token] 0x18 [supports protocol versions] 16.0</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

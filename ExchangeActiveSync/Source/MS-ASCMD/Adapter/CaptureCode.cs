@@ -1502,42 +1502,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         #endregion
                     }
                     #endregion
-
-                    #region Capture code for Redirect
-                    if (((Response)autodiscoverResponse.ResponseData.Item).Action.Redirect != null)
-                    {
-                       // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2439");
-
-                        // If the schema validation result is true and Redirect element is not null, this requirement can be verified.
-                        Site.CaptureRequirement(
-                            2439,
-                            @"[In Redirect] Element Redirect in Autodiscover command response (section 2.2.2.1), the parent element is Action (section 2.2.3.6).");
-
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2440");
-
-                        // If the schema validation result is true and Redirect element is not null, this requirement can be verified.
-                        Site.CaptureRequirement(
-                            2440,
-                            @"[In Redirect] None [Element Redirect in Autodiscover command response (section 2.2.2.1) has no child element.]");
-
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2441");
-
-                        // If the schema validation result is true and Redirect element is not null, this requirement can be verified.
-                        Site.CaptureRequirement(
-                            2441,
-                            @"[In Redirect] Element Redirect in Autodiscover command response (section 2.2.2.1), the data type is string ([MS-ASDTYPE] section 2.7).");
-
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2442");
-
-                        // If the schema validation result is true and Redirect element is not null, this requirement can be verified.
-                        Site.CaptureRequirement(
-                            2442,
-                            @"[In Redirect] Element Redirect in Autodiscover command response (section 2.2.2.1), the number allowed is 0...1 (optional).");
-                    }
                     #endregion
 
                     #region Capture Code for Error in Action
@@ -8243,170 +8207,6 @@ OofMessage (section 2.2.3.117)");
                             1000,
                             @"[In Account] Element Account in Settings command UserInformation response (section 2.2.2.17), the data type is container ([MS-ASDTYPE] section 2.2).");
 
-                        #region Capture code for AccountId
-                        if (account.AccountId != null)
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1015");
-
-                            // If the schema validation result is true and AccountId is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1015,
-                                @"[In AccountId(Settings)] Element AccountId in Settings command response (section 2.2.2.17), the parent element is Account (section 2.2.3.2).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1016");
-
-                            // If the schema validation result is true and AccountId is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1016,
-                                @"[In AccountId(Settings)]None[Element AccountId in Settings command response (section 2.2.2.17) has no child element.]");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1017");
-
-                            // If the schema validation result is true and AccountId is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1017,
-                                @"[In AccountId(Settings)] Element AccountId in Settings command response (section 2.2.2.17), the data type is string ([MS-ASDTYPE] section 2.7).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1018");
-
-                            // If the schema validation result is true and AccountId is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1018,
-                                @"[In AccountId(Settings)] Element AccountId in Settings command response (section 2.2.2.17), the number allowed is 0…1 (optional).");
-                        }
-                        #endregion Capture code for AccountId
-
-                        #region Capture code for AccountName
-                        if (account.AccountName != null)
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1019");
-
-                            // If the schema validation result is true and AccountName is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1019,
-                                @"[In AccountName] Element AccountName in Settings command UserInformation response, the parent element is Account (section 2.2.3.2).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1020");
-
-                            // If the schema validation result is true and AccountName is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1020,
-                                @"[In AccountName] None [Element AccountName in Settings command UserInformation has no child element.]");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1021");
-
-                            // If the schema validation result is true and AccountName is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1021,
-                                @"[In AccountName] Element AccountName in Settings command UserInformation response, the data type is string ([MS-ASDTYPE] section 2.7).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1022");
-
-                            // If the schema validation result is true and AccountName is not null, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                1022,
-                                @"[In AccountName] Element AccountName in Settings command UserInformation response, the number allowed is 0…1 (optional).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R732");
-
-                            Site.CaptureRequirementIfIsTrue(
-                                account.AccountName.Length <= 512,
-                                732,
-                                @"[In AccountName] The AccountName element value is a string value up to 512 characters in length.");
-                        }
-                        #endregion Capture code for AccountName
-
-                        #region Capture code for SendDisabled
-                        if (account.SendDisabledSpecified)
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5377");
-
-                            // If the schema validation result is true and SendDisabled is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                5377,
-                                @"[In SendDisabled] Element SendDisabled in Settings command UserInformation response, the parent element is Account (section 2.2.3.2)");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5378");
-
-                            // If the schema validation result is true and SendDisabled is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                5378,
-                                @"[In SendDisabled] None [Element SendDisabled in Settings command UserInformation response has no child element.]");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5379");
-
-                            // If the schema validation result is true and SendDisabled is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                5379,
-                                @"[In SendDisabled] Element SendDisabled in Settings command UserInformation response, the data type is boolean ([MS-ASDTYPE] section 2.1)");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5380");
-
-                            // If the schema validation result is true and SendDisabled is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                5380,
-                                @"[In SendDisabled] Element SendDisabled in Settings command UserInformation response, the number allowed is 0…1 (optional).");
-                        }
-                        #endregion Capture code for SendDisabled
-
-                        #region Capture code for UserDisplayName
-                        if (account.UserDisplayName != null)
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2895");
-
-                            // If the schema validation result is true and UserDisplayName is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                2895,
-                                @"[In UserDisplayName] Element UserDisplayName in Settings command UserInformation response, the parent element is Account (section 2.2.3.2).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2896");
-
-                            // If the schema validation result is true and UserDisplayName is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                2896,
-                                @"[In UserDisplayName] None [Element UserDisplayName in Settings command UserInformation response has no child element.]");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2897");
-
-                            // If the schema validation result is true and UserDisplayName is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                2897,
-                                @"[In UserDisplayName] Element UserDisplayName in Settings command UserInformation response, the data type is string ([MS-ASDTYPE] section 2.7).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2898");
-
-                            // If the schema validation result is true and UserDisplayName is specified, this requirement can be verified.
-                            Site.CaptureRequirement(
-                                2898,
-                                @"[In UserDisplayName] Element UserDisplayName in Settings command UserInformation response, the number allowed is 0…1 (optional).");
-
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4702");
-
-                            Site.CaptureRequirementIfIsTrue(
-                                account.UserDisplayName.Length <= 512,
-                                4702,
-                                @"[In UserDisplayName] The UserDisplayName element value can be up to 512 characters in length.");
-                        }
-                        #endregion Capture code for UserDisplayName
-
                         if (account.EmailAddresses != null)
                         {
                             this.VerifyEmailAddresses(account.EmailAddresses);
@@ -8416,18 +8216,6 @@ OofMessage (section 2.2.3.117)");
                     }
                 }
                 #endregion
-
-                if (hasAccounts && hasEmailAddresses)
-                {
-                    // Add the debug information.
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1756");
-
-                    // If the schema validation result is true, when both EmailAddresses and Accounts exist, this requirement can be verified.
-                    Site.CaptureRequirement(
-                        1756,
-                        @"[In Get] Element Get in Settings command UserInformation response, the child elements are EmailAddresses (section 2.2.3.54), Accounts (section 2.2.3.5).");
-                }
-
                 #endregion Capture code for Get
             }
             #endregion
@@ -11844,20 +11632,6 @@ Opaque data");
 
                 case "Class":
                     {
-                        if (string.Equals(Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "12.1"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R247");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R247
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x09,
-                                token,
-                                "MS-ASWBXML",
-                                247,
-                                @"[In Code Page 6: GetItemEstimate] [Tag name] Class - see note 1 following this table [Token] 0x09 [supports protocol versions] 2.5, 12.0, 12.1");
-                        }
-
                         this.isClassTagInPage6Exist = true;
                         break;
                     }
@@ -12191,33 +11965,11 @@ Opaque data");
 
                 case "Folders":
                     {
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R826");
-
-                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R826
-                        Site.CaptureRequirementIfAreEqual<byte>(
-                            0x05,
-                            token,
-                            "MS-ASWBXML",
-                            826,
-                            @"[In Code Page 7: FolderHierarchy] [Tag name] Folders [Token] 0x05 [supports protocol versions] 2.5, 12.0, 12.1");
-
-                        break;
+                         break;
                     }
 
                 case "Folder":
                     {
-                        // Add the debug information.
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R827");
-
-                        // Verify MS-ASWBXML requirement: MS-ASWBXML_R827
-                        Site.CaptureRequirementIfAreEqual<byte>(
-                            0x06,
-                            token,
-                            "MS-ASWBXML",
-                            827,
-                            @"[In Code Page 7: FolderHierarchy] [Tag name] Folder [Token] 0x06 [supports protocol versions] 2.5, 12.0, 12.1");
-
                         break;
                     }
 
@@ -14915,77 +14667,21 @@ Opaque data");
 
                 case "Forwardees":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R847");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R847
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x15,
-                                token,
-                                "MS-ASWBXML",
-                                847,
-                                @"[In Code Page 21: ComposeMail] [Tag name] Forwardees [Token] 0x15 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "Forwardee":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R848");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R848
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x16,
-                                token,
-                                "MS-ASWBXML",
-                                848,
-                                @"[In Code Page 21: ComposeMail] [Tag name] Forwardee [Token] 0x16 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "ForwardeeName":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R849");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R848
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x17,
-                                token,
-                                "MS-ASWBXML",
-                                849,
-                                @"[In Code Page 21: ComposeMail] [Tag name] ForwardeeName [Token] 0x17 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
                 case "ForwardeeEmail":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-                        {
-                            // Add the debug information.
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R850");
-
-                            // Verify MS-ASWBXML requirement: MS-ASWBXML_R850
-                            Site.CaptureRequirementIfAreEqual<byte>(
-                                0x18,
-                                token,
-                                "MS-ASWBXML",
-                                850,
-                                @"[In Code Page 21: ComposeMail] [Tag name] ForwardeeEmail [Token] 0x18 [supports protocol versions] 16.0");
-                        }
-
                         break;
                     }
 
