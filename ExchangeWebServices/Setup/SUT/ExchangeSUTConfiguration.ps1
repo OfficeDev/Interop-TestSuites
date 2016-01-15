@@ -78,6 +78,7 @@ $MSOXWSTASKUser01Password     = ReadConfigFileNode "$environmentResourceFile" "M
 $Exchange2013                 = "Microsoft Exchange Server 2013"
 $Exchange2010                 = "Microsoft Exchange Server 2010"
 $Exchange2007                 = "Microsoft Exchange Server 2007"
+$Exchange2016                 = "Microsoft Exchange Server 2016"
 
 #-----------------------------------------------------------------------------------
 # <summary>
@@ -332,25 +333,11 @@ $room            = "ResourceMailbox"
 
 $ExchangeVersion = GetExchangeServerVersion
 
+
 #-----------------------------------------------------
 # Add Exchange PowerShell snapin
 #-----------------------------------------------------
-if($ExchangeVersion -ge $Exchange2010)
-{
-    $ExchangeShellSnapIn = "Microsoft.Exchange.Management.PowerShell.E2010"    
-}
-if($ExchangeVersion -eq $Exchange2007)
-{
-    $ExchangeShellSnapIn = "Microsoft.Exchange.Management.PowerShell.Admin"    
-}
-if (@(Get-PSSnapin -Registered|Where-Object {$_.Name -eq $ExchangeShellSnapIn}).Count -eq 1)
-{
-    if (@(Get-PSSnapin|Where-Object {$_.Name -eq $ExchangeShellSnapIn}).Count -eq 0)
-    {
-        Add-PSSnapin $ExchangeShellSnapIn
-    }
-}
-
+AddExchangePSSnapIn
 #-----------------------------------------------------
 # Check whether Exchange server is installed on a domain controller.
 #-----------------------------------------------------
@@ -411,7 +398,7 @@ if($ExchangeVersion -le $Exchange2010)
 {
     CreatePublicFolderDatabase "PublicFolderDatabase" "$sutComputerName"
 }
-elseif($ExchangeVersion -eq $Exchange2013)
+elseif($ExchangeVersion -ge $Exchange2013)
 {
     $publicFolderMailboxInfo = Get-Mailbox -PublicFolder -filter {Name -eq $MSOXWSCOREPublicFolderMailbox}
     if(($publicFolderMailboxInfo -ne $null) -and ($publicFolderMailboxInfo -ne ""))
@@ -507,7 +494,7 @@ AddUserToExchangeAdminGroup $ExchangeVersion $MSOXWSFOLDUser01 $pfAdminGroup
 OutputText "Start Microsoft Exchange Transport service ..."
 StartService "MSExchangeTransport"
 
-if($ExchangeVersion -eq $Exchange2013)
+if($ExchangeVersion -ge $Exchange2013)
 {
     OutputText "Starting the Microsoft Exchange Mailbox Transport Delivery service..."
     StartService "MSExchangeDelivery"
