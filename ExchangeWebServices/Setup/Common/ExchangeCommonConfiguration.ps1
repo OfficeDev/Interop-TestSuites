@@ -143,7 +143,7 @@ function GetExchangeServerVersion
             $version = $item.DisplayVersion
             $ExchangeVersion = $ExchangeServer2016[0]
             $recommendVersion = $ExchangeServer2016[1]
-            #$recommendMinorVersion = $ExchangeServer2016[2]
+            $recommendMinorVersion = $ExchangeServer2016[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
         }       
