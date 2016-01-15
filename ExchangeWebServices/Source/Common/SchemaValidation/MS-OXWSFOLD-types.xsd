@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
@@ -61,6 +61,7 @@
       <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdNameType" minOccurs="0"/>
       <xs:element name="PolicyTag" type="t:RetentionTagType" minOccurs="0"/>
       <xs:element name="ArchiveTag" type="t:RetentionTagType" minOccurs="0"/>
+      <xs:element name="ReplicaList" type="t:ArrayOfStringsType" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="BasePermissionType" abstract="true">
@@ -74,6 +75,15 @@
       <xs:element name="EditItems" type="t:PermissionActionType" minOccurs="0"/>
       <xs:element name="DeleteItems" type="t:PermissionActionType" minOccurs="0"/>
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConsumerCalendarIdType">
+    <xs:complexContent>
+      <xs:extension base="t:BaseFolderIdType">
+        <xs:attribute name="OwnerPuid" type="xs:long" use="required"/>
+        <xs:attribute name="OwnerCid" type="xs:long" use="optional"/>
+        <xs:attribute name="CalendarGuid" type="t:GuidType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="DeleteFolderFieldType">
     <xs:complexContent>
@@ -222,6 +232,7 @@
       <xs:element name="FolderId" type="t:FolderIdType"/>
       <xs:element name="DistinguishedFolderId" type="t:DistinguishedFolderIdType"/>
       <xs:element name="AddressListId" type="t:AddressListIdType"/>
+      <xs:element name="ConsumerCalendarId" type="t:ConsumerCalendarIdType"/>
     </xs:choice>
   </xs:complexType>
 </xs:schema>

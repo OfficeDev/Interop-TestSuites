@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSFOLD-types.xsd"/>
+  <xs:complexType name="UserConfigurationNameType">
+    <xs:complexContent>
+      <xs:extension base="t:TargetFolderIdType">
+        <xs:attribute name="Name" type="t:NonEmptyStringType" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="UserConfigurationDictionaryObjectTypesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DateTime"/>
+      <xs:enumeration value="Boolean"/>
+      <xs:enumeration value="Byte"/>
+      <xs:enumeration value="String"/>
+      <xs:enumeration value="Integer32"/>
+      <xs:enumeration value="UnsignedInteger32"/>
+      <xs:enumeration value="Integer64"/>
+      <xs:enumeration value="UnsignedInteger64"/>
+      <xs:enumeration value="StringArray"/>
+      <xs:enumeration value="ByteArray"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UserConfigurationDictionaryObjectType">
+    <xs:sequence>
+      <xs:element name="Type" type="t:UserConfigurationDictionaryObjectTypesType"/>
+      <xs:element name="Value" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserConfigurationDictionaryEntryType">
+    <xs:sequence>
+      <xs:element name="DictionaryKey" type="t:UserConfigurationDictionaryObjectType"/>
+      <xs:element name="DictionaryValue" type="t:UserConfigurationDictionaryObjectType" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserConfigurationDictionaryType">
+    <xs:sequence>
+      <xs:element name="DictionaryEntry" type="t:UserConfigurationDictionaryEntryType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserConfigurationType">
+    <xs:sequence>
+      <xs:element name="UserConfigurationName" type="t:UserConfigurationNameType"/>
+      <xs:element name="ItemId" type="t:ItemIdType" minOccurs="0"/>
+      <xs:element name="Dictionary" type="t:UserConfigurationDictionaryType" minOccurs="0"/>
+      <xs:element name="XmlData" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="BinaryData" type="xs:base64Binary" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="UserConfigurationPropertyType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Id"/>
+          <xs:enumeration value="Dictionary"/>
+          <xs:enumeration value="XmlData"/>
+          <xs:enumeration value="BinaryData"/>
+          <xs:enumeration value="All"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+</xs:schema>

@@ -4,7 +4,7 @@
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types"
            elementFormDefault="qualified"
-           version="Exchange2013"
+           version="Exchange2016"
            id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>

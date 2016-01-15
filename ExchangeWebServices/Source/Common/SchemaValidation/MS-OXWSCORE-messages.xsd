@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
   <!-- Import common types. -->
   <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCORE-types.xsd"/>
@@ -56,6 +56,7 @@
         <xs:attribute name="DeleteType" type="t:DisposalType" use="required"/>
         <xs:attribute name="SendMeetingCancellations" type="t:CalendarItemCreateOrDeleteOperationType" use="optional"/>
         <xs:attribute name="AffectedTaskOccurrences" type="t:AffectedTaskOccurrencesType" use="optional"/>
+        <xs:attribute name="SuppressReadReceipts" type="xs:boolean" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -83,6 +84,42 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GetItemResponse" type="m:GetItemResponseType"/>
+  <xs:complexType name="GetRemindersResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Reminders" type="t:ArrayOfRemindersType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetRemindersType" mixed="false">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="BeginTime" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="EndTime" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="MaxItems" minOccurs="0" maxOccurs="1">
+            <xs:simpleType>
+              <xs:restriction base="xs:int">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="200"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ReminderType" minOccurs="0" maxOccurs="1">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="All"/>
+                <xs:enumeration value="Current"/>
+                <xs:enumeration value="Old"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="MarkAllItemsAsReadType">
     <xs:complexContent>
       <xs:extension base="m:BaseRequestType">
@@ -143,6 +180,24 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="MoveItem" type="m:MoveItemType"/>
+  <xs:complexType name="PerformReminderActionResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="UpdatedItemIds" type="t:NonEmptyArrayOfItemIdsType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PerformReminderActionType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="ReminderItemActions" type="t:NonEmptyArrayOfReminderItemActionType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="SendItemResponseType">
     <xs:complexContent>
       <xs:extension base="m:BaseResponseMessageType"/>
@@ -177,6 +232,7 @@
         <xs:attribute name="ConflictResolution" type="t:ConflictResolutionType" use="required"/>
         <xs:attribute name="MessageDisposition" type="t:MessageDispositionType" use="optional"/>
         <xs:attribute name="SendMeetingInvitationsOrCancellations" type="t:CalendarItemUpdateOperationType" use="optional"/>
+        <xs:attribute name="SuppressReadReceipts" type="xs:boolean" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

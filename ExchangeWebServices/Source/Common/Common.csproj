@@ -99,6 +99,8 @@
     <None Include="SchemaValidation\MS-OXWSTASK-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSURPT-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSURPT-types.xsd" />
+    <None Include="SchemaValidation\MS-OXWSUSRCFG-messages.xsd" />
+    <None Include="SchemaValidation\MS-OXWSUSRCFG-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSXPROP-types.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

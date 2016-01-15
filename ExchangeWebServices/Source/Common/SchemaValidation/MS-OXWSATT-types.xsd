@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSCONT-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSMSG-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSMTGS-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSPOST-types.xsd"/>
+  <xs:complexType name="ReferenceAttachmentType">
+    <xs:complexContent>
+      <xs:extension base="t:AttachmentType">
+        <xs:sequence>
+          <xs:element name="AttachLongPathName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="ArrayOfAttachmentsType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="ItemAttachment" type="t:ItemAttachmentType"/>
@@ -63,6 +72,9 @@
           <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
           <xs:element name="Task" type="t:TaskType"/>
           <xs:element name="PostItem" type="t:PostItemType"/>
+          <xs:element name="RoleMember" type="t:RoleMemberItemType"/>
+          <xs:element name="Network" type="t:NetworkItemType"/>
+          <xs:element name="Person" type="t:AbchPersonItemType"/>
         </xs:choice>
       </xs:extension>
     </xs:complexContent>

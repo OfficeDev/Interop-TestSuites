@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:include schemaLocation="MS-OXWSCONV-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:complexType name="AggregateOnType">
     <xs:choice>
@@ -22,9 +23,19 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="And" type="t:AndType" substitutionGroup="t:SearchExpression"/>
+  <xs:complexType name="ArrayOfCalendarItemsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="CalendarItem" type="t:CalendarItemType"/>
+    </xs:choice>
+  </xs:complexType>
   <xs:complexType name="ArrayOfGroupedItemsType">
     <xs:choice>
       <xs:element name="GroupedItems" type="t:GroupedItemsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfItemsType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Item" type="t:ItemType"/>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="BaseGroupByType" abstract="true">
@@ -168,6 +179,48 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:simpleType name="InstantSearchItemType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None"/>
+          <xs:enumeration value="MailItem"/>
+          <xs:enumeration value="MailConversation"/>
+          <xs:enumeration value="CalendarItem"/>
+          <xs:enumeration value="Persona"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:complexType name="InstantSearchPayloadType">
+    <xs:sequence>
+      <xs:element name="SearchSessionId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SearchRequestId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ResultType" type="t:InstantSearchResultType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Items" type="t:ArrayOfItemsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Conversations" type="t:ArrayOfConversationsType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CalendarItems" type="t:ArrayOfCalendarItemsType" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="InstantSearchResultType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None"/>
+          <xs:enumeration value="Suggestions"/>
+          <xs:enumeration value="ItemResults"/>
+          <xs:enumeration value="ConversationResults"/>
+          <xs:enumeration value="Refiners"/>
+          <xs:enumeration value="SearchTerms"/>
+          <xs:enumeration value="Errors"/>
+          <xs:enumeration value="QueryStatistics"/>
+          <xs:enumeration value="CalendarItemResults"/>
+          <xs:enumeration value="PersonaResults"/>
+          <xs:enumeration value="SuggestionsPrimer"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
   <xs:complexType name="IsEqualToType">
     <xs:complexContent>
       <xs:extension base="t:TwoOperandExpressionType"/>
@@ -241,6 +294,22 @@
       <xs:element name="FieldOrder" type="t:FieldOrderType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:simpleType name="QueryOptionsType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None"/>
+          <xs:enumeration value="Suggestions"/>
+          <xs:enumeration value="Results"/>
+          <xs:enumeration value="Refiners"/>
+          <xs:enumeration value="SearchTerms"/>
+          <xs:enumeration value="ExplicitSearch"/>
+          <xs:enumeration value="SuggestionsPrimer"/>
+          <xs:enumeration value="AllowFuzzing"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
   <xs:complexType name="RestrictionType">
     <xs:sequence>
       <xs:element ref="t:SearchExpression"/>

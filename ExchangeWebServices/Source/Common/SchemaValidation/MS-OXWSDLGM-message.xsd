@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSDLGM-types.xsd"/>
   <xs:complexType name="AddDelegateResponseMessageType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+      <xs:extension base="tns:BaseDelegateResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="AddDelegateResponse" type="m:AddDelegateResponseMessageType"/>
+  <xs:element name="AddDelegateResponse" type="tns:AddDelegateResponseMessageType"/>
   <xs:complexType name="AddDelegateType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateType">
+      <xs:extension base="tns:BaseDelegateType">
         <xs:sequence>
           <xs:element name="DelegateUsers" type="t:ArrayOfDelegateUserType"/>
           <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
@@ -18,24 +18,24 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="AddDelegate" type="m:AddDelegateType"/>
+  <xs:element name="AddDelegate" type="tns:AddDelegateType"/>
   <xs:complexType name="ArrayOfDelegateUserResponseMessageType">
     <xs:sequence>
-      <xs:element name="DelegateUserResponseMessageType" type="m:DelegateUserResponseMessageType" maxOccurs="unbounded"/>
+      <xs:element name="DelegateUserResponseMessageType" type="tns:DelegateUserResponseMessageType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="BaseDelegateResponseMessageType" abstract="true">
     <xs:complexContent>
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
-          <xs:element name="ResponseMessages" type="m:ArrayOfDelegateUserResponseMessageType" minOccurs="0"/>
+          <xs:element name="ResponseMessages" type="tns:ArrayOfDelegateUserResponseMessageType" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="BaseDelegateType" abstract="true">
     <xs:complexContent>
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element name="Mailbox" type="t:EmailAddressType"/>
         </xs:sequence>
@@ -44,7 +44,7 @@
   </xs:complexType>
   <xs:complexType name="DelegateUserResponseMessageType">
     <xs:complexContent>
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element name="DelegateUser" type="t:DelegateUserType" minOccurs="0"/>
         </xs:sequence>
@@ -53,7 +53,7 @@
   </xs:complexType>
   <xs:complexType name="GetDelegateType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateType">
+      <xs:extension base="tns:BaseDelegateType">
         <xs:sequence>
           <xs:element name="UserIds" type="t:ArrayOfUserIdType" minOccurs="0"/>
         </xs:sequence>
@@ -61,36 +61,36 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetDelegateResponse" type="m:GetDelegateResponseMessageType"/>
+  <xs:element name="GetDelegateResponse" type="tns:GetDelegateResponseMessageType"/>
   <xs:complexType name="GetDelegateResponseMessageType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateResponseMessageType">
+      <xs:extension base="tns:BaseDelegateResponseMessageType">
         <xs:sequence>
           <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetDelegate" type="m:GetDelegateType"/>
+  <xs:element name="GetDelegate" type="tns:GetDelegateType"/>
   <xs:complexType name="RemoveDelegateType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateType">
+      <xs:extension base="tns:BaseDelegateType">
         <xs:sequence>
           <xs:element name="UserIds" type="t:ArrayOfUserIdType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="RemoveDelegate" type="m:RemoveDelegateType"/>
+  <xs:element name="RemoveDelegate" type="tns:RemoveDelegateType"/>
   <xs:complexType name="RemoveDelegateResponseMessageType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+      <xs:extension base="tns:BaseDelegateResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="RemoveDelegateResponse" type="m:RemoveDelegateResponseMessageType"/>
+  <xs:element name="RemoveDelegateResponse" type="tns:RemoveDelegateResponseMessageType"/>
   <xs:complexType name="UpdateDelegateType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateType">
+      <xs:extension base="tns:BaseDelegateType">
         <xs:sequence>
           <xs:element name="DelegateUsers" type="t:ArrayOfDelegateUserType" minOccurs="0"/>
           <xs:element name="DeliverMeetingRequests" type="t:DeliverMeetingRequestsType" minOccurs="0"/>
@@ -98,11 +98,11 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UpdateDelegate" type="m:UpdateDelegateType"/>
+  <xs:element name="UpdateDelegate" type="tns:UpdateDelegateType"/>
   <xs:complexType name="UpdateDelegateResponseMessageType">
     <xs:complexContent>
-      <xs:extension base="m:BaseDelegateResponseMessageType"/>
+      <xs:extension base="tns:BaseDelegateResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UpdateDelegateResponse" type="m:UpdateDelegateResponseMessageType"/>
+  <xs:element name="UpdateDelegateResponse" type="tns:UpdateDelegateResponseMessageType"/>
 </xs:schema>

@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2013" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2015" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="MS-OXWSPERS-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:complexType name="FindPeopleType">
@@ -13,6 +13,10 @@
           <xs:element minOccurs="0" name="SortOrder" type="t:NonEmptyArrayOfFieldOrdersType"/>
           <xs:element minOccurs="0" name="ParentFolderId" type="t:TargetFolderIdType"/>
           <xs:element minOccurs="0" name="QueryString" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="SearchPeopleSuggestionIndex" type="xs:boolean"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TopicQueryString" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Context" type="t:ArrayOfContextProperty"/>
+          <!--<xs:element minOccurs="0" maxOccurs="1" name="QuerySources" type="t:ArrayOfPeopleQuerySource"/>-->
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -24,6 +28,8 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="People" type="t:ArrayOfPeopleType"/>
           <xs:element minOccurs="0" name="TotalNumberOfPeopleInView" type="xs:int"/>
+          <xs:element minOccurs="0" name="FirstMatchingRowIndex" type="xs:int"/>
+          <xs:element minOccurs="0" name="FirstLoadedRowIndex" type="xs:int"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -34,6 +40,8 @@
       <xs:extension base="m:BaseRequestType">
         <xs:sequence>
           <xs:element name="PersonaId" type="t:ItemIdType"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="t:EmailAddressType"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ParentFolderId" type="t:TargetFolderIdType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

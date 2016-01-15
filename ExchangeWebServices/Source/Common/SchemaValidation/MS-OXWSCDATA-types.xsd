@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSMSG-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSFOLD-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSATT-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSDLIST-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSTASK-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSUSRCFG-types.xsd"/>
   <xs:complexType name="AbsoluteMonthlyRecurrencePatternType">
     <xs:complexContent>
       <xs:extension base="t:IntervalRecurrencePatternBaseType">
@@ -64,6 +65,9 @@
         <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
         <xs:element name="Task" type="t:TaskType"/>
         <xs:element name="PostItem" type="t:PostItemType"/>
+        <xs:element name="RoleMember" type="t:RoleMemberItemType"/>
+        <xs:element name="Network" type="t:NetworkItemType"/>
+        <xs:element name="Person" type="t:AbchPersonItemType"/>
       </xs:choice>
     </xs:sequence>
   </xs:complexType>
@@ -113,11 +117,21 @@
   </xs:complexType>
   <xs:complexType name="ConnectingSIDType">
     <xs:choice>
-      <xs:element name="PrincipalName" type="t:NonEmptyStringType"/>
-      <xs:element name="SID" type="t:NonEmptyStringType"/>
-      <xs:element name="PrimarySmtpAddress" type="t:NonEmptyStringType"/>
-      <xs:element name="SmtpAddress" type="t:NonEmptyStringType"/>
+      <xs:element name="PrincipalName" type="t:PrincipalNameType"/>
+      <xs:element name="SID" type="t:SIDType"/>
+      <xs:element name="PrimarySmtpAddress" type="t:PrimarySmtpAddressType"/>
+      <xs:element name="SmtpAddress" type="t:SmtpAddressType"/>
     </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PrincipalNameType">
+    <xs:simpleContent>
+      <xs:extension base="t:NonEmptyStringType"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="SIDType">
+    <xs:simpleContent>
+      <xs:extension base="t:NonEmptyStringType"/>
+    </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="ConstantValueType">
     <xs:attribute name="Value" type="xs:string" use="required"/>
@@ -218,13 +232,16 @@
       <xs:enumeration value="recoverableitemsdeletions"/>
       <xs:enumeration value="recoverableitemsversions"/>
       <xs:enumeration value="recoverableitemspurges"/>
+      <xs:enumeration value="recoverableitemsdiscoveryholds"/>
       <xs:enumeration value="archiveroot"/>
       <xs:enumeration value="archivemsgfolderroot"/>
       <xs:enumeration value="archivedeleteditems"/>
+      <xs:enumeration value="archiveinbox"/>
       <xs:enumeration value="archiverecoverableitemsroot"/>
       <xs:enumeration value="archiverecoverableitemsdeletions"/>
       <xs:enumeration value="archiverecoverableitemsversions"/>
       <xs:enumeration value="archiverecoverableitemspurges"/>
+      <xs:enumeration value="archiverecoverableitemsdiscoveryholds"/>
       <xs:enumeration value="syncissues"/>
       <xs:enumeration value="conflicts"/>
       <xs:enumeration value="localfailures"/>
@@ -237,7 +254,8 @@
       <xs:enumeration value="mycontacts"/>
       <xs:enumeration value="directory"/>
       <xs:enumeration value="imcontactlist"/>
-      <xs:enumeration value="peopleconnect" />
+      <xs:enumeration value="peopleconnect"/>
+      <xs:enumeration value="favorites"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="DistinguishedFolderIdType">
@@ -348,6 +366,8 @@
       <xs:enumeration value="Exchange2010_SP1"/>
       <xs:enumeration value="Exchange2010_SP2"/>
       <xs:enumeration value="Exchange2013"/>
+      <xs:enumeration value="Exchange2013_SP1"/>
+      <xs:enumeration value="Exchange2016"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ExcludesAttributeType">
@@ -470,6 +490,8 @@
       <xs:element name="BaseShape" type="t:DefaultShapeNamesType"/>
       <xs:element name="IncludeMimeContent" type="xs:boolean" minOccurs="0"/>
       <xs:element name="BodyType" type="t:BodyTypeResponseType" minOccurs="0"/>
+      <xs:element name="UniqueBodyType" type="t:BodyTypeResponseType" minOccurs="0"/>
+      <xs:element name="NormalizedBodyType" type="t:BodyTypeResponseType" minOccurs="0"/>
       <xs:element name="FilterHtmlContent" type="xs:boolean" minOccurs="0"/>
       <xs:element name="ConvertHtmlCodePageToUTF8" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="InlineImageUrlTemplate" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -506,6 +528,8 @@
       <xs:enumeration value="PrivateDL"/>
       <xs:enumeration value="Contact"/>
       <xs:enumeration value="PublicFolder"/>
+      <xs:enumeration value="GroupMailbox"/>
+
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ManagementRoleType">
@@ -561,6 +585,9 @@
         <xs:element name="SuppressReadReceipt" type="t:SuppressReadReceiptType"/>
         <xs:element name="PostReplyItem" type="t:PostReplyItemType"/>
         <xs:element name="AcceptSharingInvitation" type="t:AcceptSharingInvitationType"/>
+        <xs:element name="RoleMember" type="t:RoleMemberItemType"/>
+        <xs:element name="Network" type="t:NetworkItemType"/>
+        <xs:element name="Person" type="t:AbchPersonItemType"/>
       </xs:choice>
     </xs:sequence>
   </xs:complexType>
@@ -585,6 +612,14 @@
       <xs:minLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="NormalizedBodyType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="NormalizedBodyType" type="t:BodyTypeType" use="required"/>
+        <xs:attribute name="IsTruncated" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:complexType name="NumberedRecurrenceRangeType">
     <xs:complexContent>
       <xs:extension base="t:RecurrenceRangeBaseType">
@@ -628,6 +663,11 @@
       <xs:enumeration value="Ignore" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="PrimarySmtpAddressType">
+    <xs:simpleContent>
+      <xs:extension base="t:NonEmptyStringType"/>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:complexType name="RecurrencePatternBaseType" abstract="true"/>
   <xs:group name="RecurrencePatternTypes">
     <xs:sequence>
@@ -694,7 +734,7 @@
   </xs:complexType>
   <xs:element name="RequestServerVersion">
     <xs:complexType>
-      <xs:attribute name="Version" type="t:ExchangeVersionType" use="required" fixed="Exchange2013"/>
+      <xs:attribute name="Version" type="t:ExchangeVersionType" use="required" fixed="Exchange2016"/>
       <xs:anyAttribute namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
     </xs:complexType>
   </xs:element>
@@ -743,6 +783,11 @@
       <xs:element name="Mailbox" type="t:EmailAddressType"/>
     </xs:choice>
   </xs:complexType>
+  <xs:complexType name="SmtpAddressType">
+    <xs:simpleContent>
+      <xs:extension base="t:NonEmptyStringType"/>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:complexType name="SuppressReadReceiptType">
     <xs:complexContent>
       <xs:extension base="t:ReferenceItemResponseType"/>
@@ -789,6 +834,7 @@
       <xs:enumeration value="folder:DistinguishedFolderId"/>
       <xs:enumeration value="folder:PolicyTag"/>
       <xs:enumeration value="folder:ArchiveTag"/>
+      <xs:enumeration value="folder:ReplicaList"/>
       <xs:enumeration value="item:ItemId"/>
       <xs:enumeration value="item:ParentFolderId"/>
       <xs:enumeration value="item:ItemClass"/>
@@ -835,7 +881,9 @@
       <xs:enumeration value="item:RetentionDate"/>
       <xs:enumeration value="item:Preview"/>
       <xs:enumeration value="item:NextPredictedAction" />
-      <xs:enumeration value="item:GroupingAction"/>
+      <xs:enumeration value="item:GroupingAction" />
+      <xs:enumeration value="item:PredictedActionReason"/>
+      <xs:enumeration value="item:IsClutter"/>
       <xs:enumeration value="item:RightsManagementLicenseData" />
       <xs:enumeration value="item:BlockStatus" />
       <xs:enumeration value="item:HasBlockedImages" />
@@ -843,6 +891,11 @@
       <xs:enumeration value="item:WebClientEditFormQueryString"/>
       <xs:enumeration value="item:TextBody"/>
       <xs:enumeration value="item:IconIndex"/>
+      <xs:enumeration value="item:MimeContentUTF8"/>
+      <xs:enumeration value="item:Hashtags"/>
+      <xs:enumeration value="item:Mentions"/>
+      <xs:enumeration value="item:MentionedMe"/>
+      <xs:enumeration value="item:PendingSocialActivityTagIds"/>
       <xs:enumeration value="message:ConversationIndex"/>
       <xs:enumeration value="message:ConversationTopic"/>
       <xs:enumeration value="message:InternetMessageId"/>
@@ -859,6 +912,9 @@
       <xs:enumeration value="message:ToRecipients"/>
       <xs:enumeration value="message:CcRecipients"/>
       <xs:enumeration value="message:BccRecipients"/>
+      <xs:enumeration value="message:ApprovalRequestData"/>
+      <xs:enumeration value="message:VotingInformation"/>
+      <xs:enumeration value="message:ReminderMessageData"/>
       <xs:enumeration value="meeting:AssociatedCalendarItemId"/>
       <xs:enumeration value="meeting:IsDelegated"/>
       <xs:enumeration value="meeting:IsOutOfDate"/>
@@ -880,7 +936,6 @@
       <xs:enumeration value="calendar:LegacyFreeBusyStatus"/>
       <xs:enumeration value="calendar:Location"/>
       <xs:enumeration value="calendar:EnhancedLocation"/>
-
       <xs:enumeration value="calendar:When"/>
       <xs:enumeration value="calendar:IsMeeting"/>
       <xs:enumeration value="calendar:IsCancelled"/>
@@ -897,6 +952,7 @@
       <xs:enumeration value="calendar:AdjacentMeetingCount"/>
       <xs:enumeration value="calendar:ConflictingMeetings"/>
       <xs:enumeration value="calendar:AdjacentMeetings"/>
+      <xs:enumeration value="calendar:InboxReminders"/>
       <xs:enumeration value="calendar:Duration"/>
       <xs:enumeration value="calendar:TimeZone"/>
       <xs:enumeration value="calendar:AppointmentReplyTime"/>
@@ -958,6 +1014,7 @@
       <xs:enumeration value="contacts:DirectoryId"/>
       <xs:enumeration value="contacts:DirectReports"/>
       <xs:enumeration value="contacts:EmailAddresses"/>
+      <xs:enumeration value="contacts:AbchEmailAddresses"/>
       <xs:enumeration value="contacts:FileAs"/>
       <xs:enumeration value="contacts:FileAsMapping"/>
       <xs:enumeration value="contacts:Generation"/>
@@ -986,7 +1043,47 @@
       <xs:enumeration value="contacts:WeddingAnniversary"/>
       <xs:enumeration value="contacts:UserSMIMECertificate"/>
       <xs:enumeration value="contacts:HasPicture"/>
+      <xs:enumeration value="contacts:AccountName"/>
+      <xs:enumeration value="contacts:IsAutoUpdateDisabled"/>
+      <xs:enumeration value="contacts:IsMessengerEnabled"/>
+      <xs:enumeration value="contacts:Comment"/>
+      <xs:enumeration value="contacts:ContactShortId"/>
+      <xs:enumeration value="contacts:ContactType"/>
+      <xs:enumeration value="contacts:CreatedBy"/>
+      <xs:enumeration value="contacts:Gender"/>
+      <xs:enumeration value="contacts:IsHidden"/>
+      <xs:enumeration value="contacts:ObjectId"/>
+      <xs:enumeration value="contacts:PassportId"/>
+      <xs:enumeration value="contacts:IsPrivate"/>
+      <xs:enumeration value="contacts:SourceId"/>
+      <xs:enumeration value="contacts:TrustLevel"/>
+      <xs:enumeration value="contacts:Urls"/>
+      <xs:enumeration value="contacts:Cid"/>
+      <xs:enumeration value="contacts:SkypeAuthCertificate"/>
+      <xs:enumeration value="contacts:SkypeContext"/>
+      <xs:enumeration value="contacts:SkypeId"/>
+      <xs:enumeration value="contacts:XboxLiveTag"/>
+      <xs:enumeration value="contacts:SkypeRelationship"/>
+      <xs:enumeration value="contacts:YomiNickname"/>
+      <xs:enumeration value="contacts:InviteFree"/>
+      <xs:enumeration value="contacts:HidePresenceAndProfile"/>
+      <xs:enumeration value="contacts:IsPendingOutbound"/>
+      <xs:enumeration value="contacts:SupportGroupFeeds"/>
+      <xs:enumeration value="contacts:UserTileHash"/>
+      <xs:enumeration value="contacts:UnifiedInbox"/>
+      <xs:enumeration value="contacts:Mris"/>
+      <xs:enumeration value="contacts:Wlid"/>
+      <xs:enumeration value="contacts:AbchContactId"/>
+      <xs:enumeration value="contacts:NotInBirthdayCalendar"/>
+      <xs:enumeration value="contacts:ShellContactType" />
+      <xs:enumeration value="contacts:ImMri" />
+      <xs:enumeration value="contacts:PresenceTrustLevel" />
+      <xs:enumeration value="contacts:OtherMri" />
+      <xs:enumeration value="contacts:ProfileLastChanged" />
+      <xs:enumeration value="contacts:MobileIMEnabled" />
       <xs:enumeration value="distributionlist:Members"/>
+      <xs:enumeration value="contacts:PartnerNetworkProfilePhotoUrl" />
+      <xs:enumeration value="contacts:PartnerNetworkThumbnailPhotoUrl" />
       <xs:enumeration value="postitem:PostedTime"/>
       <xs:enumeration value="conversation:ConversationId"/>
       <xs:enumeration value="conversation:ConversationTopic"/>
@@ -1004,6 +1101,8 @@
       <xs:enumeration value="conversation:GlobalFlagStatus"/>
       <xs:enumeration value="conversation:HasAttachments"/>
       <xs:enumeration value="conversation:GlobalHasAttachments"/>
+      <xs:enumeration value="conversation:HasIrm"/>
+      <xs:enumeration value="conversation:GlobalHasIrm"/>
       <xs:enumeration value="conversation:MessageCount"/>
       <xs:enumeration value="conversation:GlobalMessageCount"/>
       <xs:enumeration value="conversation:UnreadCount"/>
@@ -1020,97 +1119,188 @@
       <xs:enumeration value="conversation:InstanceKey"/>
       <xs:enumeration value="conversation:Preview"/>
       <xs:enumeration value="conversation:NextPredictedAction"/>
-      <xs:enumeration value="conversation:GroupingAction"/>
+      <xs:enumeration value="conversation:GroupingAction" />
       <xs:enumeration value="conversation:IconIndex"/>
       <xs:enumeration value="conversation:GlobalIconIndex"/>
       <xs:enumeration value="conversation:DraftItemIds"/>
-      <xs:enumeration value ="persona:PersonaId" />
-      <xs:enumeration value ="persona:PersonaType" />
-      <xs:enumeration value ="persona:GivenName" />
-      <xs:enumeration value ="persona:CompanyName" />
-      <xs:enumeration value ="persona:Surname" />
-      <xs:enumeration value ="persona:DisplayName" />
-      <xs:enumeration value ="persona:EmailAddress" />
-      <xs:enumeration value ="persona:FileAs" />
-      <xs:enumeration value ="persona:HomeCity" />
-      <xs:enumeration value ="persona:CreationTime" />
-
-
-      <xs:enumeration value ="persona:RelevanceScore" />
-      <xs:enumeration value ="persona:WorkCity" />
-      <xs:enumeration value ="persona:PersonaObjectStatus" />
-      <xs:enumeration value ="persona:FileAsId" />
-      <xs:enumeration value ="persona:DisplayNamePrefix" />
-      <xs:enumeration value ="persona:YomiCompanyName" />
-      <xs:enumeration value ="persona:YomiFirstName" />
-      <xs:enumeration value ="persona:YomiLastName" />
-      <xs:enumeration value ="persona:Title" />
-      <xs:enumeration value ="persona:EmailAddresses" />
-      <xs:enumeration value ="persona:PhoneNumber" />
-      <xs:enumeration value ="persona:ImAddress" />
-      <xs:enumeration value ="persona:ImAddresses" />
-      <xs:enumeration value ="persona:ImAddresses2" />
-      <xs:enumeration value ="persona:ImAddresses3" />
-      <xs:enumeration value ="persona:FolderIds" />
-      <xs:enumeration value ="persona:Attributions" />
-      <xs:enumeration value ="persona:DisplayNames" />
-      <xs:enumeration value ="persona:Initials" />
-      <xs:enumeration value ="persona:FileAses" />
-      <xs:enumeration value ="persona:FileAsIds" />
-      <xs:enumeration value ="persona:DisplayNamePrefixes" />
-      <xs:enumeration value ="persona:GivenNames" />
-      <xs:enumeration value ="persona:MiddleNames" />
-      <xs:enumeration value ="persona:Surnames" />
-      <xs:enumeration value ="persona:Generations" />
-      <xs:enumeration value ="persona:Nicknames" />
-      <xs:enumeration value ="persona:YomiCompanyNames" />
-      <xs:enumeration value ="persona:YomiFirstNames" />
-      <xs:enumeration value ="persona:YomiLastNames" />
-      <xs:enumeration value ="persona:BusinessPhoneNumbers" />
-      <xs:enumeration value ="persona:BusinessPhoneNumbers2" />
-      <xs:enumeration value ="persona:HomePhones" />
-      <xs:enumeration value ="persona:HomePhones2" />
-      <xs:enumeration value ="persona:MobilePhones" />
-      <xs:enumeration value ="persona:MobilePhones2" />
-      <xs:enumeration value ="persona:AssistantPhoneNumbers" />
-      <xs:enumeration value ="persona:CallbackPhones" />
-      <xs:enumeration value ="persona:CarPhones" />
-      <xs:enumeration value ="persona:HomeFaxes" />
-      <xs:enumeration value ="persona:OrganizationMainPhones" />
-      <xs:enumeration value ="persona:OtherFaxes" />
-      <xs:enumeration value ="persona:OtherTelephones" />
-      <xs:enumeration value ="persona:OtherPhones2" />
-      <xs:enumeration value ="persona:Pagers" />
-      <xs:enumeration value ="persona:RadioPhones" />
-      <xs:enumeration value ="persona:TelexNumbers" />
-      <xs:enumeration value ="persona:WorkFaxes" />
-      <xs:enumeration value ="persona:Emails1" />
-      <xs:enumeration value ="persona:Emails2" />
-      <xs:enumeration value ="persona:Emails3" />
-      <xs:enumeration value ="persona:BusinessHomePages" />
-      <xs:enumeration value ="persona:School" />
-      <xs:enumeration value ="persona:PersonalHomePages" />
-      <xs:enumeration value ="persona:OfficeLocations" />
-      <xs:enumeration value ="persona:BusinessAddresses" />
-      <xs:enumeration value ="persona:HomeAddresses" />
-      <xs:enumeration value ="persona:OtherAddresses" />
-      <xs:enumeration value ="persona:Titles" />
-      <xs:enumeration value ="persona:Departments" />
-      <xs:enumeration value ="persona:CompanyNames" />
-      <xs:enumeration value ="persona:Managers" />
-      <xs:enumeration value ="persona:AssistantNames" />
-      <xs:enumeration value ="persona:Professions" />
-      <xs:enumeration value ="persona:SpouseNames" />
-      <xs:enumeration value ="persona:Hobbies" />
-      <xs:enumeration value ="persona:WeddingAnniversaries" />
-      <xs:enumeration value ="persona:Birthdays" />
-      <xs:enumeration value ="persona:Children" />
-      <xs:enumeration value ="persona:Locations" />
-      <xs:enumeration value ="persona:ExtendedProperties" />
-      <xs:enumeration value ="persona:PostalAddress" />
-      <xs:enumeration value ="persona:Bodies" />
+      <xs:enumeration value="conversation:HasClutter"/>
+      <xs:enumeration value="conversation:MentionedMe"/>
+      <xs:enumeration value="conversation:GlobalMentionedMe"/>
+      <xs:enumeration value="person:FullName" />
+      <xs:enumeration value="person:GivenName" />
+      <xs:enumeration value="person:Surname" />
+      <xs:enumeration value="person:PhoneNumber" />
+      <xs:enumeration value="person:SMSNumber" />
+      <xs:enumeration value="person:EmailAddress" />
+      <xs:enumeration value="person:Alias" />
+      <xs:enumeration value="person:Department" />
+      <xs:enumeration value="person:LinkedInProfileLink" />
+      <xs:enumeration value="person:Skills" />
+      <xs:enumeration value="person:ProfessionalBiography" />
+      <xs:enumeration value="person:ManagementChain" />
+      <xs:enumeration value="person:DirectReports" />
+      <xs:enumeration value="person:Peers" />
+      <xs:enumeration value="person:TeamSize" />
+      <xs:enumeration value="person:CurrentJob" />
+      <xs:enumeration value="person:Birthday" />
+      <xs:enumeration value="person:Hometown" />
+      <xs:enumeration value="person:CurrentLocation" />
+      <xs:enumeration value="person:CompanyProfile" />
+      <xs:enumeration value="person:Office" />
+      <xs:enumeration value="person:Headline" />
+      <xs:enumeration value="person:MutualConnections" />
+      <xs:enumeration value="person:Title" />
+      <xs:enumeration value="person:MutualManager" />
+      <xs:enumeration value="person:Insights" />
+      <xs:enumeration value="person:UserProfilePicture" />
+      <xs:enumeration value="persona:PersonaId" />
+      <xs:enumeration value="persona:PersonaType" />
+      <xs:enumeration value="persona:GivenName" />
+      <xs:enumeration value="persona:CompanyName" />
+      <xs:enumeration value="persona:Surname" />
+      <xs:enumeration value="persona:DisplayName" />
+      <xs:enumeration value="persona:EmailAddress" />
+      <xs:enumeration value="persona:FileAs" />
+      <xs:enumeration value="persona:HomeCity" />
+      <xs:enumeration value="persona:CreationTime" />
+      <xs:enumeration value="persona:RelevanceScore" />
+      <xs:enumeration value="persona:RankingWeight" />
+      <xs:enumeration value="persona:WorkCity" />
+      <xs:enumeration value="persona:PersonaObjectStatus" />
+      <xs:enumeration value="persona:FileAsId" />
+      <xs:enumeration value="persona:DisplayNamePrefix" />
+      <xs:enumeration value="persona:YomiCompanyName" />
+      <xs:enumeration value="persona:YomiFirstName" />
+      <xs:enumeration value="persona:YomiLastName" />
+      <xs:enumeration value="persona:Title" />
+      <xs:enumeration value="persona:EmailAddress"/>
+      <xs:enumeration value="persona:EmailAddresses" />
+      <xs:enumeration value="persona:PhoneNumber" />
+      <xs:enumeration value="persona:ImAddress" />
+      <xs:enumeration value="persona:ImAddresses" />
+      <xs:enumeration value="persona:ImAddresses2" />
+      <xs:enumeration value="persona:ImAddresses3" />
+      <xs:enumeration value="persona:FolderIds" />
+      <xs:enumeration value="persona:Attributions" />
+      <xs:enumeration value="persona:DisplayNames" />
+      <xs:enumeration value="persona:Initials" />
+      <xs:enumeration value="persona:FileAses" />
+      <xs:enumeration value="persona:FileAsIds" />
+      <xs:enumeration value="persona:DisplayNamePrefixes" />
+      <xs:enumeration value="persona:GivenNames" />
+      <xs:enumeration value="persona:MiddleNames" />
+      <xs:enumeration value="persona:Surnames" />
+      <xs:enumeration value="persona:Generations" />
+      <xs:enumeration value="persona:Nicknames" />
+      <xs:enumeration value="persona:YomiCompanyNames" />
+      <xs:enumeration value="persona:YomiFirstNames" />
+      <xs:enumeration value="persona:YomiLastNames" />
+      <xs:enumeration value="persona:BusinessPhoneNumbers" />
+      <xs:enumeration value="persona:BusinessPhoneNumbers2" />
+      <xs:enumeration value="persona:HomePhones" />
+      <xs:enumeration value="persona:HomePhones2" />
+      <xs:enumeration value="persona:MobilePhones" />
+      <xs:enumeration value="persona:MobilePhones2" />
+      <xs:enumeration value="persona:AssistantPhoneNumbers" />
+      <xs:enumeration value="persona:CallbackPhones" />
+      <xs:enumeration value="persona:CarPhones" />
+      <xs:enumeration value="persona:HomeFaxes" />
+      <xs:enumeration value="persona:OrganizationMainPhones" />
+      <xs:enumeration value="persona:OtherFaxes" />
+      <xs:enumeration value="persona:OtherTelephones" />
+      <xs:enumeration value="persona:OtherPhones2" />
+      <xs:enumeration value="persona:Pagers" />
+      <xs:enumeration value="persona:RadioPhones" />
+      <xs:enumeration value="persona:TelexNumbers" />
+      <xs:enumeration value="persona:WorkFaxes" />
+      <xs:enumeration value="persona:Emails1" />
+      <xs:enumeration value="persona:Emails2" />
+      <xs:enumeration value="persona:Emails3" />
+      <xs:enumeration value="persona:BusinessHomePages" />
+      <xs:enumeration value="persona:School" />
+      <xs:enumeration value="persona:PersonalHomePages" />
+      <xs:enumeration value="persona:OfficeLocations" />
+      <xs:enumeration value="persona:BusinessAddresses" />
+      <xs:enumeration value="persona:HomeAddresses" />
+      <xs:enumeration value="persona:OtherAddresses" />
+      <xs:enumeration value="persona:Titles" />
+      <xs:enumeration value="persona:Departments" />
+      <xs:enumeration value="persona:CompanyNames" />
+      <xs:enumeration value="persona:Managers" />
+      <xs:enumeration value="persona:AssistantNames" />
+      <xs:enumeration value="persona:Professions" />
+      <xs:enumeration value="persona:SpouseNames" />
+      <xs:enumeration value="persona:Hobbies" />
+      <xs:enumeration value="persona:WeddingAnniversaries" />
+      <xs:enumeration value="persona:Birthdays" />
+      <xs:enumeration value="persona:Children" />
+      <xs:enumeration value="persona:Locations" />
+      <xs:enumeration value="persona:ExtendedProperties" />
+      <xs:enumeration value="persona:PostalAddress" />
+      <xs:enumeration value="persona:Bodies" />
+      <xs:enumeration value="rolemember:MemberType"/>
+      <xs:enumeration value="rolemember:MemberId"/>
+      <xs:enumeration value="rolemember:DisplayName"/>
+      <xs:enumeration value="network:TokenRefreshLastCompleted"/>
+      <xs:enumeration value="network:TokenRefreshLastAttempted"/>
+      <xs:enumeration value="network:SyncEnabled"/>
+      <xs:enumeration value="network:RejectedOffers"/>
+      <xs:enumeration value="network:SessionHandle"/>
+      <xs:enumeration value="network:RefreshTokenExpiry2"/>
+      <xs:enumeration value="network:RefreshToken2"/>
+      <xs:enumeration value="network:PsaLastChanged"/>
+      <xs:enumeration value="network:Offers"/>
+      <xs:enumeration value="network:LastWelcomeContact"/>
+      <xs:enumeration value="network:LastVersionSaved"/>
+      <xs:enumeration value="network:DomainTag"/>
+      <xs:enumeration value="network:FirstAuthErrorDates"/>
+      <xs:enumeration value="network:ErrorOffers"/>
+      <xs:enumeration value="network:ContactSyncSuccess"/>
+      <xs:enumeration value="network:ContactSyncError"/>
+      <xs:enumeration value="network:ClientToken2"/>
+      <xs:enumeration value="network:ClientToken"/>
+      <xs:enumeration value="network:ClientPublishSecret"/>
+      <xs:enumeration value="network:UserEmail"/>
+      <xs:enumeration value="network:AutoLinkSuccess"/>
+      <xs:enumeration value="network:AutoLinkError"/>
+      <xs:enumeration value="network:IsDefault"/>
+      <xs:enumeration value="network:Settings"/>
+      <xs:enumeration value="network:ProfileUrl"/>
+      <xs:enumeration value="network:UserTileUrl"/>
+      <xs:enumeration value="network:DomainId"/>
+      <xs:enumeration value="network:SourceEntryID" />
+      <xs:enumeration value="network:DisplayName" />
+      <xs:enumeration value="network:AccountName" />
+      <xs:enumeration value="abchperson:FavoriteOrder"/>
+      <xs:enumeration value="abchperson:PersonId"/>
+      <xs:enumeration value="abchperson:AntiLinkInfo"/>
+      <xs:enumeration value="abchperson:RelevanceOrder1"/>
+      <xs:enumeration value="abchperson:RelevanceOrder2"/>
+      <xs:enumeration value="abchperson:ContactHandles"/>
+      <xs:enumeration value="abchperson:Categories"/>
+      <xs:enumeration value="booking:ServiceId" />
+      <xs:enumeration value="booking:StaffIds" />
+      <xs:enumeration value="booking:CustomerName" />
+      <xs:enumeration value="booking:CustomerEmail" />
+      <xs:enumeration value="booking:CustomerPhone" />
+      <xs:enumeration value="booking:CustomerId"/>
+      <xs:enumeration value="insight:InsightId"/>
+      <xs:enumeration value="insight:Type"/>
+      <xs:enumeration value="insight:StartTimeUtc"/>
+      <xs:enumeration value="insight:EndTimeUtc"/>
+      <xs:enumeration value="insight:Status"/>
+      <xs:enumeration value="insight:Version"/>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="UniqueBodyType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="UniqueBodyType" type="t:BodyTypeType" use="required"/>
+        <xs:attribute name="IsTruncated" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:complexType name="UserIdType">
     <xs:sequence>
       <xs:element name="SID" type="xs:string" minOccurs="0"/>
