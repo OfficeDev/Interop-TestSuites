@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
-
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
   <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSGTZ-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd" />
-
   <xs:complexType name="GetServerTimeZonesType">
     <xs:complexContent>
       <xs:extension base="m:BaseRequestType">

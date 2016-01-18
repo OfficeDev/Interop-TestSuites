@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2013" id="messages">
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
   <!--    CHANGE THE SCHEMA LOCATION TO REFLECT THE TYPES XSD ASSOCIATED WITH THIS DOCUMENT
-    <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="types.xsd"/>
-    <xs:include/>
--->
+	    <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="types.xsd"/>
+	    <xs:include/>
+	-->
   <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSSRCH-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:complexType name="FindFolderType">
@@ -89,4 +89,31 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:complexType name="PerformInstantSearchRequest">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="SearchSessionId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="ItemType" type="t:InstantSearchItemType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="QueryOptions" type="t:QueryOptionsType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="SearchRequestId" type="xs:long" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="KqlQuery" type="xs:string" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="FolderScope" type="t:ArrayOfFolderIdType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="IsDeepTraversal" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="WaitOnSearchResults" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PerformInstantSearch" type="m:PerformInstantSearchRequest"/>
+  <xs:complexType name="PerformInstantSearchResponse">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="Payload" type="t:InstantSearchPayloadType" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PerformInstantSearchResponse" type="m:PerformInstantSearchResponse"/>
 </xs:schema>

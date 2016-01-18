@@ -1,10 +1,11 @@
-<?xml version="1.0"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2013" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" version="Exchange2016" id="types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:complexType name="ClientAccessTokenRequestType">
     <xs:sequence>
       <xs:element name="Id" type="xs:string"/>
       <xs:element name="TokenType" type="t:ClientAccessTokenTypeType"/>
+      <xs:element minOccurs="0" maxOccurs="1" name="Scope" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ClientAccessTokenType">
@@ -19,6 +20,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="CallerIdentity"/>
       <xs:enumeration value="ExtensionCallback"/>
+      <xs:enumeration value="ScopedToken"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DisableReasonType">

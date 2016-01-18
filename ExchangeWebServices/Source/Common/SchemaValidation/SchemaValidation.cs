@@ -77,7 +77,9 @@ namespace Microsoft.Protocols.TestSuites.Common
             "MS-OXWSTASK-types.xsd",
             "MS-OXWSURPT-messages.xsd",
             "MS-OXWSURPT-types.xsd",
-            "MS-OXWSXPROP-types.xsd"
+            "MS-OXWSXPROP-types.xsd",
+            "MS-OXWSUSRCFG-messages.xsd",
+            "MS-OXWSUSRCFG-types.xsd"
         };
 
         /// <summary>
