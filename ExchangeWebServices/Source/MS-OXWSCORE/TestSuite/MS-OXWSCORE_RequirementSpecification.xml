@@ -6356,16 +6356,8 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2142</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.43</ns1:Doc_Sect>
-		<ns1:Description>[In t:RoleMemberItemType Complex Type] The RoleMemberItemType complex type specifies is intended for internal use only.&lt;89&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2143</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.43</ns1:Doc_Sect>
-		<ns1:Description> [In t:RoleMemberItemType Complex Type] [The complex type "RoleMemberItemType" is defined as:]
+		<ns1:Description>[In t:RoleMemberItemType Complex Type] The RoleMemberItemType complex type specifies is intended for internal use only.&lt;89&gt;
+[In t:RoleMemberItemType Complex Type] [The complex type "RoleMemberItemType" is defined as:]
 xs:complexType name="RoleMemberItemType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:ItemType"&gt;
@@ -6380,7 +6372,8 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2304.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2144</ns1:REQ_ID>
@@ -16667,12 +16660,25 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2304</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the RoleMemberItemType complex type which specifies is intended for internal use only. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the RoleMemberItemType complex type which specifies is intended for internal use only. (Exchange 2016 and above follow this behavior.)
+[In t:RoleMemberItemType Complex Type] [The complex type "RoleMemberItemType" is defined as:]
+xs:complexType name="RoleMemberItemType"&gt;
+   &lt;xs:complexContent&gt;
+     &lt;xs:extension base="t:ItemType"&gt;
+       &lt;xs:sequence&gt;
+         &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
+         &lt;xs:element name="Type" type="t:RoleMemberTypeType" minOccurs="0"/&gt;
+         &lt;xs:element name="MemberId" type="xs:string" minOccurs="0"/&gt;
+       &lt;/xs:sequence&gt;
+     &lt;/xs:extension&gt;
+   &lt;/xs:complexContent&gt;
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2142:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1254</ns1:REQ_ID>
