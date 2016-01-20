@@ -6373,7 +6373,6 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2304.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2144</ns1:REQ_ID>
@@ -6391,7 +6390,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2146</ns1:REQ_ID>
@@ -6409,7 +6408,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2148</ns1:REQ_ID>
@@ -6427,7 +6426,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2150</ns1:REQ_ID>
@@ -7039,16 +7038,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2151</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:RoleMemberTypeType Simple Type] The RoleMemberTypeType simple type is intended for internal use only. &lt;92&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2152</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:RoleMemberTypeType Simple Type] [The type RoleMemberTypeType is defined as follow:]
+		<ns1:Description>[In t:RoleMemberTypeType Simple Type] The RoleMemberTypeType simple type is intended for internal use only. &lt;92&gt;
  &lt;xs:simpleType name="RoleMemberTypeType"&gt;
    &lt;xs:restriction base="xs:string"&gt;
      &lt;xs:enumeration value="None"/&gt;
@@ -7066,12 +7056,11 @@ xs:simpleType name="EmailPositionType"&gt;
      &lt;xs:enumeration value="Domain"/&gt;
      &lt;xs:enumeration value="Partner"
    &lt;/xs:restriction&gt;
- &lt;/xs:simpleType&gt;
-</ns1:Description>
+ &lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2153</ns1:REQ_ID>
@@ -16677,8 +16666,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1254</ns1:REQ_ID>
@@ -16750,7 +16738,25 @@ xs:complexType name="RoleMemberItemType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2306</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the RoleMemberTypeType simple type which is intended for internal use only. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the RoleMemberTypeType simple type which is intended for internal use only. (Exchange 2016 and above follow this behavior.)
+ &lt;xs:simpleType name="RoleMemberTypeType"&gt;
+   &lt;xs:restriction base="xs:string"&gt;
+     &lt;xs:enumeration value="None"/&gt;
+     &lt;xs:enumeration value="Passport"/&gt;
+     &lt;xs:enumeration value="Everyone"/&gt;
+     &lt;xs:enumeration value="Email"/&gt;
+     &lt;xs:enumeration value="Phone"/&gt;
+     &lt;xs:enumeration value="SkypeId"/&gt;
+     &lt;xs:enumeration value="ExternalId"/&gt;
+     &lt;xs:enumeration value="Group"/&gt;
+     &lt;xs:enumeration value="Guid"/&gt;
+     &lt;xs:enumeration value="Role"/&gt;
+     &lt;xs:enumeration value="Service"/&gt;
+     &lt;xs:enumeration value="Circle"/&gt;
+     &lt;xs:enumeration value="Domain"/&gt;
+     &lt;xs:enumeration value="Partner"
+   &lt;/xs:restriction&gt;
+ &lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2151:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
