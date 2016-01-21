@@ -103,6 +103,9 @@
           <xs:element name="OtherMri" type="xs:string" minOccurs="0" />
           <xs:element name="ProfileLastChanged" type="xs:string" minOccurs="0" />
           <xs:element name="MobileImEnabled" type="xs:boolean" minOccurs="0" />
+          <xs:element name="DisplayNamePrefix" type="xs:string" minOccurs="0"/>
+          <xs:element name="YomiGivenName" type="xs:string" minOccurs="0"/>
+          <xs:element name="YomiSurname" type="xs:string" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

@@ -48,11 +48,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             testSite.DefaultProtocolDocShortName = "MS-OXWSCONT";
 
-            // Get the name of common configuration file.
-            string commonConfigFileName = Common.GetConfigurationPropertyValue("CommonConfigurationFileName", testSite);
-
-            // Merge the common configuration
-            Common.MergeGlobalConfig(commonConfigFileName, testSite);
+            Common.MergeConfiguration(testSite);
 
             string userName = Common.GetConfigurationPropertyValue("ContactUserName", testSite);
             string password = Common.GetConfigurationPropertyValue("ContactUserPassword", testSite);
