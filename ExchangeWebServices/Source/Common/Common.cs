@@ -380,7 +380,7 @@ namespace Microsoft.Protocols.TestSuites.Common
                     exchangeServiceBinding.RequestServerVersionValue.Version = ExchangeVersionType.Exchange2016;
                     break;
                 default:
-                    site.Assert.Fail(@"The SUT version ""{0}"" is invalid, the expected value is ""ExchangeServer2007"", ""ExchangeServer2010"" or ""ExchangeServer2013"" or ""ExchangeServer2016"".", sutVersion);
+                    site.Assert.Fail(@"The SUT version ""{0}"" is invalid, the expected value is ""ExchangeServer2007"", ""ExchangeServer2010"", ""ExchangeServer2013"" or ""ExchangeServer2016"".", sutVersion);
                     break;
             }
         }
