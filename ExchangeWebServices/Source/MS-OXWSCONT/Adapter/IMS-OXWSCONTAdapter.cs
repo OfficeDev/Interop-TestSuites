@@ -60,5 +60,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         /// <param name="moveItemRequest">The request of MoveItem operation.</param>
         /// <returns>A response to MoveItem operation request.</returns>
         MoveItemResponseType MoveItem(MoveItemType moveItemRequest);
+
+        /// <summary>
+        /// Retrieves the profile image for a mailbox
+        /// </summary>
+        /// <param name="getUserPhotoRequest">The request of GetUserPhoto operation.</param>
+        /// <returns>A response to GetUserPhoto operation request.</returns>
+        GetUserPhotoResponseMessageType GetUserPhoto(GetUserPhotoType getUserPhotoRequest);
+
+        /// <summary>
+        /// Add a photo to a user's account.
+        /// </summary>
+        /// <param name="setUserPhotoRequest">The request of SetUserPhoto operation.</param>
+        /// <returns>A response to SetUserPhoto operation request.</returns>
+        SetUserPhotoResponseMessageType SetUserPhoto(SetUserPhotoType setUserPhotoRequest);
+
     }
 }
