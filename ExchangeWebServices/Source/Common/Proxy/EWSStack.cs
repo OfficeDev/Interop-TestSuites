@@ -2031,8 +2031,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetUserPhoto", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
-        [return: System.Xml.Serialization.XmlElementAttribute("GetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-        public GetUserPhotoResponseMessageType GetUserPhoto([System.Xml.Serialization.XmlElementAttribute("GetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")] GetUserPhotoType GetUserPhoto1)
+        [return: System.Xml.Serialization.XmlElementAttribute("GetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public GetUserPhotoResponseMessageType GetUserPhoto([System.Xml.Serialization.XmlElementAttribute("GetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetUserPhotoType GetUserPhoto1)
         {
             object[] results = this.Invoke("GetUserPhoto", new object[] {
                     GetUserPhoto1});
@@ -2083,8 +2083,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/SetUserPhoto", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
-        [return: System.Xml.Serialization.XmlElementAttribute("SetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-        public SetUserPhotoResponseMessageType SetUserPhoto([System.Xml.Serialization.XmlElementAttribute("SetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")] SetUserPhotoType SetUserPhoto1)
+        [return: System.Xml.Serialization.XmlElementAttribute("SetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public SetUserPhotoResponseMessageType SetUserPhoto([System.Xml.Serialization.XmlElementAttribute("SetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] SetUserPhotoType SetUserPhoto1)
         {
             object[] results = this.Invoke("SetUserPhoto", new object[] {
                     SetUserPhoto1});
@@ -33745,7 +33745,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoResponseMessageType : ResponseMessageType
     {
 
@@ -34674,7 +34674,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class SetUserPhotoResponseMessageType : BaseResponseMessageType
     {
     }
@@ -34684,7 +34684,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoResponseType : BaseResponseMessageType
     {
     }
@@ -41273,7 +41273,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class SetUserPhotoType : BaseRequestType
     {
 
@@ -41313,7 +41313,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoType : BaseRequestType
     {
 

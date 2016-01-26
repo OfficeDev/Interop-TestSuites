@@ -171,6 +171,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             return moveItemResoponse;
         }
+
+        /// <summary>
+        /// Retrieves the profile image for a mailbox
+        /// </summary>
+        /// <param name="getUserPhotoRequest">The request of GetUserPhoto operation.</param>
+        /// <returns>A response to GetUserPhoto operation request.</returns>
+        public GetUserPhotoResponseMessageType GetUserPhoto(GetUserPhotoType getUserPhotoRequest)
+        {
+            GetUserPhotoResponseMessageType getUserPhotoResponse = this.exchangeServiceBinding.GetUserPhoto(getUserPhotoRequest);
+
+            return getUserPhotoResponse;
+        }
+
+        /// <summary>
+        /// Add a photo to a user's account.
+        /// </summary>
+        /// <param name="setUserPhotoRequest">The request of SetUserPhoto operation.</param>
+        /// <returns>A response to SetUserPhoto operation request.</returns>
+        public SetUserPhotoResponseMessageType SetUserPhoto(SetUserPhotoType setUserPhotoRequest)
+        {
+            SetUserPhotoResponseMessageType setUserPhotoResponse = this.exchangeServiceBinding.SetUserPhoto(setUserPhotoRequest);
+
+            return setUserPhotoResponse;
+        }
         #endregion
     }
 }
