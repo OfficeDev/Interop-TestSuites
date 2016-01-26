@@ -174,6 +174,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     1045,
                     @"[In t:FlagType Complex Type] CompleteDate: An element of type dateTime that represents the completion date.");
             }
+
+            if (Common.IsRequirementEnabled(2280, this.Site))
+            {
+                this.Site.Assert.IsTrue(getItemResponseMessage.Items.Items[0].HasAttachmentsSpecified, "The HasAttachments element should be present.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1621");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1621
+                this.Site.CaptureRequirementIfIsFalse(
+                    getItemResponseMessage.Items.Items[0].HasAttachments,
+                    1621,
+                    @"[In t:ItemType Complex Type] otherwise [HasAttachments is] false, indicates [an item does not have at least one attachment].");
+            }
             #endregion
 
             // Add the debug information
@@ -296,12 +310,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             copyItemRequest.ToFolderId = new TargetFolderIdType();
             copyItemRequest.ToFolderId.Item = distinguishedFolderIdForCopyItem;
 
-            if (Common.IsRequirementEnabled(1230, this.Site))
-            {
-                copyItemRequest.ReturnNewItemIds = true;
-                copyItemRequest.ReturnNewItemIdsSpecified = true;
-            }
-
             copyItemResponse = this.COREAdapter.CopyItem(copyItemRequest);
 
             // Check the operation response.
@@ -407,21 +415,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirement(
                 1600,
                 @"[In m:BaseMoveCopyItemType Complex Type] [The element ""ToFolderId""] Specifies an instance of the TargetFolderIdType complex type that specifies the folder to which the items specified by the ItemIds property are to be copied.");
-
-            if (Common.IsRequirementEnabled(1230, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1604");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1604
-                // The copied item was got successfully and the returned item Id is different with the created item Id, so this requirement can be captured.
-                bool isVerifiedR1604 = this.IsSchemaValidated && copiedItemIds != createdItemIds;
-
-                this.Site.CaptureRequirementIfIsTrue(
-                    isVerifiedR1604,
-                    1604,
-                    @"[In m:BaseMoveCopyItemType Complex Type] [ReturnNewItemIds is] True, indicates the ItemId element is to be returned for new items [when item is copied].");
-            }
             #endregion
         }
 
@@ -452,13 +445,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             distinguishedFolderId.Id = DistinguishedFolderIdNameType.inbox;
             moveItemRequest.ToFolderId = new TargetFolderIdType();
             moveItemRequest.ToFolderId.Item = distinguishedFolderId;
-
-            if (Common.IsRequirementEnabled(1230, this.Site))
-            {
-                moveItemRequest.ReturnNewItemIds = true;
-                moveItemRequest.ReturnNewItemIdsSpecified = true;
-            }
-
             moveItemResponse = this.COREAdapter.MoveItem(moveItemRequest);
 
             // Check the operation response.
@@ -475,18 +461,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  movedItemIds.GetLength(0));
 
             Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
-
-            if (Common.IsRequirementEnabled(1230, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1230");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1230
-                // The ReturnNewItemId was set to true in the MoveItem request and MoveItem operation was executed successfully, so this requirement can be captured.
-                this.Site.CaptureRequirement(
-                    1230,
-                    @"[In Appendix C: Product Behavior] Implementation does introduce the ReturnNewItemIds element. (<32> Section 2.2.4.3: The ReturnNewItemIds element was introduced in Exchange 2010 SP2 (Exchange 2013 and above follow this behavior).)");
-            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R419");
@@ -567,21 +541,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  getItemIds.GetLength(0));
-
-            if (Common.IsRequirementEnabled(1230, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1602");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1602
-                // The moved item was got successfully and the returned item Id is different with the created item Id, so this requirement can be captured.
-                bool isVerifiedR1602 = this.IsSchemaValidated && movedItemIds != createdItemIds;
-
-                this.Site.CaptureRequirementIfIsTrue(
-                    isVerifiedR1602,
-                    1602,
-                    @"[In m:BaseMoveCopyItemType Complex Type] [ReturnNewItemIds is] True, indicates the ItemId element is to be returned for new items [when item is moved].");
-            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R45");
@@ -1620,6 +1579,130 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     1353,
                     @"[In Appendix C: Product Behavior] Implementation does support element ""RetentionDate"" with type ""xs:dateTime"" which specifies the retention date for an item. (Exchange 2013 and above follow this behavior.)");
             }
+
+            if (Common.IsRequirementEnabled(2280, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1314");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1314
+                // The Attachments is set and the item is created successfully, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    1314,
+                    @"[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.43).");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2280");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2280
+                // The Attachments is set and the item is created successfully, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    2280,
+                    @"[In Appendix C: Product Behavior] Implementation does not use the Attachments element. (<52> Section 2.2.4.24:  Exchange 2007, Exchange 2010 and Exchange 2010 SP1 do not use the Attachments element in CreateItem operation request.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1620");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1620
+                this.Site.CaptureRequirementIfIsTrue(
+                    getItems[0].HasAttachmentsSpecified && getItems[0].HasAttachments,
+                    1620,
+                    @"[In t:ItemType Complex Type] [HasAttachments is] True, indicates an item has at least one attachment.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1229");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1229
+                this.Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    1229,
+                    @"[In t:NonEmptyArrayOfAttachmentsType Complex Type] The type [NonEmptyArrayOfAttachmentsType] is defined as follow:
+ <xs:complexType name=""NonEmptyArrayOfAttachmentsType"">
+  <xs:choice
+    minOccurs=""1""
+    maxOccurs=""unbounded""
+  >
+    <xs:element name=""ItemAttachment""
+      type=""t:ItemAttachmentType""
+     />
+    <xs:element name=""FileAttachment""
+      type=""t:FileAttachmentType""
+     />
+  </xs:choice>
+</xs:complexType>");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1633");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1633
+                // The item was created with an item attachment.
+                this.Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    1633,
+                    @"[In t:NonEmptyArrayOfAttachmentsType Complex Type] The element ""ItemAttachment"" is ""t:ItemAttachmentType"" type.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1634");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1634
+                // The item was created with an file attachment.
+                this.Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    1634,
+                    @"[In t:NonEmptyArrayOfAttachmentsType Complex Type] The element ""FileAttachment"" is ""t:FileAttachmentType"" type.");
+            }
+
+            if (Common.IsRequirementEnabled(2285, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2285");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2285
+                this.Site.CaptureRequirementIfIsTrue(
+                    getItems[0].IsAssociatedSpecified,
+                    2285,
+                    @"[In Appendix C: Product Behavior] Implementation does support the IsAssociated element which specifies a value that indicates whether the item is associated with a folder. (Exchange 2010 and above follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1341");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1341
+                // The IsAssociated is returned from server and pass the schema validation, so this requirement can be captured.
+                this.Site.CaptureRequirementIfIsTrue(
+                    getItems[0].IsAssociatedSpecified,
+                    1341,
+                    @"[In t:ItemType Complex Type] The type of IsAssociated is xs:boolean.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1619");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1619
+                this.Site.CaptureRequirementIfIsFalse(
+                    getItems[0].IsAssociated,
+                    1619,
+                    @"[In t:ItemType Complex Type] otherwise [IsAssociated is] false, indicates [the item is associated with a folder].");
+            }
+
+            if (Common.IsRequirementEnabled(2338, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2338");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2338
+                this.Site.CaptureRequirementIfIsNotNull(
+                    getItems[0].WebClientReadFormQueryString,
+                    2338,
+                    @"[In Appendix C: Product Behavior] Implementation does support the WebClientReadFormQueryString element. (Exchange Server 2010 and above follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1342");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1342
+                // The WebClientReadFormQueryString is returned from server and pass the schema validation, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    1342,
+                    @"[In t:ItemType Complex Type] The type of WebClientReadFormQueryString is xs:string.");
+            }
             #endregion
         }
 
@@ -2377,6 +2460,442 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 items[1].NormalizedBody.BodyType1,
                 1683,
                 @"[In Appendix C: Product Behavior] Implementation does support value ""Text"" of ""NormalizedBody"" which specifies the item body as text content. (Exchange 2013 and above follow this behavior.)");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate element ReturnNewItemIds is ignored by server.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC22_ReturnNewItemIdsIsIgnored()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1230, this.Site), "Exchange 2007 does not support the ReturnNewItemIds element.");
+
+            #region Step 1: Create the item.
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIdsForReturnNewItemIdsValueTrue = this.CreateItemWithMinimumElements(item);
+            ItemIdType[] createdItemIdsForReturnNewItemIdsValueFalse = this.CreateItemWithMinimumElements(item);
+            ItemIdType[] createdItemIdsForNoReturnNewItemIds = this.CreateItemWithMinimumElements(item);
+            #endregion
+
+            #region Step 2: Copy the item with ReturnNewItemIds element setting to true.
+            CopyItemType copyItemRequest = new CopyItemType();
+            CopyItemResponseType copyItemResponse = new CopyItemResponseType();
+            copyItemRequest.ItemIds = createdItemIdsForReturnNewItemIdsValueTrue;
+            DistinguishedFolderIdType distinguishedFolderIdForCopyItem = new DistinguishedFolderIdType();
+            distinguishedFolderIdForCopyItem.Id = DistinguishedFolderIdNameType.drafts;
+            copyItemRequest.ToFolderId = new TargetFolderIdType();
+            copyItemRequest.ToFolderId.Item = distinguishedFolderIdForCopyItem;
+            copyItemRequest.ReturnNewItemIds = true;
+            copyItemRequest.ReturnNewItemIdsSpecified = true;
+            copyItemResponse = this.COREAdapter.CopyItem(copyItemRequest);
+            Common.CheckOperationSuccess(copyItemResponse, 1, this.Site);
+            ItemIdType[] copiedItemIdsWithReturnNewItemIdsValueTrue = Common.GetItemIdsFromInfoResponse(copyItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 copiedItemIdsWithReturnNewItemIdsValueTrue.GetLength(0),
+                 "One copied item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 copiedItemIdsWithReturnNewItemIdsValueTrue.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            bool isReturnNewIdsForReturnNewItemIdsTrue = !copiedItemIdsWithReturnNewItemIdsValueTrue[0].ChangeKey.Equals(createdItemIdsForReturnNewItemIdsValueTrue[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !copiedItemIdsWithReturnNewItemIdsValueTrue[0].Id.Equals(createdItemIdsForReturnNewItemIdsValueTrue[0].Id, StringComparison.InvariantCultureIgnoreCase);
+            #endregion
+
+            #region Step 3: Copy the item with ReturnNewItemIds element setting to false.
+            copyItemRequest.ItemIds = createdItemIdsForReturnNewItemIdsValueFalse;
+            copyItemRequest.ReturnNewItemIds = false;
+            copyItemRequest.ReturnNewItemIdsSpecified = true;
+            copyItemResponse = this.COREAdapter.CopyItem(copyItemRequest);
+            Common.CheckOperationSuccess(copyItemResponse, 1, this.Site);
+            ItemIdType[] copiedItemIdsWithReturnNewItemIdsValueFalse = Common.GetItemIdsFromInfoResponse(copyItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 copiedItemIdsWithReturnNewItemIdsValueFalse.GetLength(0),
+                 "One copied item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 copiedItemIdsWithReturnNewItemIdsValueFalse.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            bool isReturnNewIdsForReturnNewItemIdsFalse = !copiedItemIdsWithReturnNewItemIdsValueFalse[0].ChangeKey.Equals(createdItemIdsForReturnNewItemIdsValueFalse[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !copiedItemIdsWithReturnNewItemIdsValueFalse[0].Id.Equals(createdItemIdsForReturnNewItemIdsValueFalse[0].Id, StringComparison.InvariantCultureIgnoreCase);
+            #endregion
+
+            #region Step 4: Copy the item without ReturnNewItemIds element.
+            copyItemRequest.ItemIds = createdItemIdsForNoReturnNewItemIds;
+            copyItemRequest.ReturnNewItemIdsSpecified = false;
+            copyItemResponse = this.COREAdapter.CopyItem(copyItemRequest);
+            Common.CheckOperationSuccess(copyItemResponse, 1, this.Site);
+            ItemIdType[] copiedItemIdsWithoutReturnNewItemIds = Common.GetItemIdsFromInfoResponse(copyItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 copiedItemIdsWithoutReturnNewItemIds.GetLength(0),
+                 "One copied item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 copiedItemIdsWithoutReturnNewItemIds.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            bool isReturnNewIdsForNoReturnNewItemIds = !copiedItemIdsWithoutReturnNewItemIds[0].ChangeKey.Equals(createdItemIdsForNoReturnNewItemIds[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !copiedItemIdsWithoutReturnNewItemIds[0].Id.Equals(createdItemIdsForNoReturnNewItemIds[0].Id, StringComparison.InvariantCultureIgnoreCase);
+
+            Site.Assert.IsTrue(
+                isReturnNewIdsForReturnNewItemIdsTrue == isReturnNewIdsForReturnNewItemIdsFalse
+                && isReturnNewIdsForReturnNewItemIdsFalse == isReturnNewIdsForNoReturnNewItemIds,
+                "New item id should be always returned or not for CopyItem regardless of wheter including ReturnNewItemIds element and the value for it.");
+            #endregion
+
+            #region Step 5: Move the item with ReturnNewItemIds element setting to true.
+            createdItemIdsForReturnNewItemIdsValueTrue = this.CreateItemWithMinimumElements(item);
+            createdItemIdsForReturnNewItemIdsValueFalse = this.CreateItemWithMinimumElements(item);
+            createdItemIdsForNoReturnNewItemIds = this.CreateItemWithMinimumElements(item);
+
+            MoveItemType moveItemRequest = new MoveItemType();
+            moveItemRequest.ItemIds = createdItemIdsForReturnNewItemIdsValueTrue;
+            DistinguishedFolderIdType distinguishedFolderId = new DistinguishedFolderIdType();
+            distinguishedFolderId.Id = DistinguishedFolderIdNameType.inbox;
+            moveItemRequest.ToFolderId = new TargetFolderIdType();
+            moveItemRequest.ToFolderId.Item = distinguishedFolderId;
+            moveItemRequest.ReturnNewItemIds = true;
+            moveItemRequest.ReturnNewItemIdsSpecified = true;
+            MoveItemResponseType moveItemResponse = this.COREAdapter.MoveItem(moveItemRequest);
+            Common.CheckOperationSuccess(moveItemResponse, 1, this.Site);
+            ItemIdType[] movedItemIdsForReturnNewItemIdsValueTrue = Common.GetItemIdsFromInfoResponse(moveItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 movedItemIdsForReturnNewItemIdsValueTrue.GetLength(0),
+                 "One moved item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 movedItemIdsForReturnNewItemIdsValueTrue.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+            this.ExistItemIds.Remove(createdItemIdsForReturnNewItemIdsValueTrue[0]);
+
+            isReturnNewIdsForReturnNewItemIdsTrue = !movedItemIdsForReturnNewItemIdsValueTrue[0].ChangeKey.Equals(createdItemIdsForReturnNewItemIdsValueTrue[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !movedItemIdsForReturnNewItemIdsValueTrue[0].Id.Equals(createdItemIdsForReturnNewItemIdsValueTrue[0].Id, StringComparison.InvariantCultureIgnoreCase);
+            #endregion
+
+            #region Step 6: Move the item with ReturnNewItemIds element setting to false.
+            moveItemRequest.ItemIds = createdItemIdsForReturnNewItemIdsValueFalse;
+            moveItemRequest.ReturnNewItemIds = false;
+            moveItemRequest.ReturnNewItemIdsSpecified = true;
+            moveItemResponse = this.COREAdapter.MoveItem(moveItemRequest);
+            Common.CheckOperationSuccess(moveItemResponse, 1, this.Site);
+            ItemIdType[] movedItemIdsForReturnNewItemIdsValueFalse = Common.GetItemIdsFromInfoResponse(moveItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 movedItemIdsForReturnNewItemIdsValueFalse.GetLength(0),
+                 "One moved item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 movedItemIdsForReturnNewItemIdsValueFalse.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+            this.ExistItemIds.Remove(createdItemIdsForReturnNewItemIdsValueFalse[0]);
+
+            isReturnNewIdsForReturnNewItemIdsFalse = !movedItemIdsForReturnNewItemIdsValueFalse[0].ChangeKey.Equals(createdItemIdsForReturnNewItemIdsValueFalse[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !movedItemIdsForReturnNewItemIdsValueFalse[0].Id.Equals(createdItemIdsForReturnNewItemIdsValueFalse[0].Id, StringComparison.InvariantCultureIgnoreCase);
+            #endregion
+
+            #region Step 7: Move the item without ReturnNewItemIds element.
+            moveItemRequest.ItemIds = createdItemIdsForNoReturnNewItemIds;
+            moveItemRequest.ReturnNewItemIdsSpecified = false;
+            moveItemResponse = this.COREAdapter.MoveItem(moveItemRequest);
+            Common.CheckOperationSuccess(moveItemResponse, 1, this.Site);
+            ItemIdType[] movedItemIdsForNoReturnNewItemIds = Common.GetItemIdsFromInfoResponse(moveItemResponse);
+            Site.Assert.AreEqual<int>(
+                 1,
+                 movedItemIdsForNoReturnNewItemIds.GetLength(0),
+                 "One moved item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 movedItemIdsForReturnNewItemIdsValueFalse.GetLength(0));
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+            this.ExistItemIds.Remove(createdItemIdsForNoReturnNewItemIds[0]);
+
+            isReturnNewIdsForNoReturnNewItemIds = !movedItemIdsForNoReturnNewItemIds[0].ChangeKey.Equals(createdItemIdsForNoReturnNewItemIds[0].ChangeKey, StringComparison.InvariantCultureIgnoreCase)
+                || !movedItemIdsForNoReturnNewItemIds[0].Id.Equals(createdItemIdsForNoReturnNewItemIds[0].Id, StringComparison.InvariantCultureIgnoreCase);
+
+            Site.Assert.IsTrue(
+                isReturnNewIdsForReturnNewItemIdsTrue == isReturnNewIdsForReturnNewItemIdsFalse
+                && isReturnNewIdsForReturnNewItemIdsFalse == isReturnNewIdsForNoReturnNewItemIds,
+                "New item id should be always returned or not for MoveItem regardless of wheter including ReturnNewItemIds element and the value for it.");
+
+            if (Common.IsRequirementEnabled(1230, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1230");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1230
+                // The ReturnNewItemId was set in the MoveItem and CopyItem request and the operations was executed successfully as above, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    1230,
+                    @"[In Appendix C: Product Behavior] Implementation does introduce the ReturnNewItemIds element. (<45> Section 2.2.4.16: The ReturnNewItemIds element was introduced in Microsoft Exchange Server 2010 Service Pack 1 (SP1) (Exchange 2010 SP1 and above follow this behavior).)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R47");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R47
+                // ReturnNewItemIds is ignored by server, this requirement can be covered.
+                this.Site.CaptureRequirement(
+                    47,
+                    @"[In m:BaseMoveCopyItemType Complex Type] [The element ""ReturnNewItemIds""] Specifies a Boolean return value that indicates whether the ItemId element is to be returned for new items.");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate ErrorInvalidPropertySet is returned if WebClientReadFormQueryString is specified in request.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC23_CreateItemWithWebClientReadFormQueryString()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2338, this.Site), "Exchange 2007 does not support the WebClientReadFormQueryString element.");
+
+            #region Step 1: Create the item with setting WebClientReadFormQueryString.
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].WebClientReadFormQueryString = Common.GenerateResourceName(this.Site, "WebClientReadFormQueryString");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2043");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2043
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2043,
+                @"[In t:ItemType Complex Type] This element [WebClientReadFormQueryString] is read-only and may be returned by the server but if specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+
+            #region Step 2: Update created item with setting WebClientReadFormQueryString.
+
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemWebClientReadFormQueryString
+            };
+            setItem.Item1 = new ItemType()
+            {
+                WebClientReadFormQueryString = Common.GenerateResourceName(this.Site, "WebClientReadFormQueryString")
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            // Call UpdateItem to update the body of the created item, by using ItemId in CreateItem response.
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2043");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2043
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2043,
+                @"[In t:ItemType Complex Type] This element [WebClientReadFormQueryString] is read-only and may be returned by the server but if specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate IsAssociated in ItemType is set to true if the item is associated with folder.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC24_CreateItemAssociatedWithFolder()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2285, this.Site), "Exchange 2007 does not support the IsAssociated element.");
+
+            #region Create an user configuration object.
+            // User configuration objects are items that are associated with folders in a mailbox.
+            string userConfiguratioName = Common.GenerateResourceName(this.Site, "UserConfigurationSampleName").Replace("_", string.Empty);
+            bool isSuccess = this.USRCFGSUTControlAdapter.CreateUserConfiguration(
+                Common.GetConfigurationPropertyValue("User1Name", this.Site),
+                Common.GetConfigurationPropertyValue("User1Password", this.Site),
+                Common.GetConfigurationPropertyValue("Domain", this.Site),
+                userConfiguratioName);
+            Site.Assert.IsTrue(isSuccess, "The user configuration object should be created successfully.");
+            #endregion
+
+            #region Find the created user configuration object
+            FindItemType findRequest = new FindItemType();
+            findRequest.ItemShape = new ItemResponseShapeType();
+            findRequest.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
+            findRequest.ParentFolderIds = new BaseFolderIdType[1] {
+                    new DistinguishedFolderIdType() { Id = DistinguishedFolderIdNameType.inbox} };
+            PathToUnindexedFieldType itemSubject = new PathToUnindexedFieldType();
+            itemSubject.FieldURI = UnindexedFieldURIType.itemItemClass;
+            ContainsExpressionType expressionType = new ContainsExpressionType();
+            expressionType.Item = itemSubject;
+            expressionType.ContainmentMode = ContainmentModeType.Substring;
+            expressionType.ContainmentModeSpecified = true;
+            expressionType.ContainmentComparison = ContainmentComparisonType.IgnoreCaseAndNonSpacingCharacters;
+            expressionType.ContainmentComparisonSpecified = true;
+            expressionType.Constant = new ConstantValueType();
+            expressionType.Constant.Value = "IPM.Configuration";
+
+            RestrictionType restriction = new RestrictionType();
+            restriction.Item = expressionType;
+            findRequest.Restriction = restriction;
+            findRequest.Traversal = ItemQueryTraversalType.Associated;
+
+            FindItemResponseType findResponse = this.SRCHAdapter.FindItem(findRequest);
+            ItemType[] foundItems = (((FindItemResponseMessageType)findResponse.ResponseMessages.Items[0]).RootFolder.Item as ArrayOfRealItemsType).Items;
+            ItemType item = null;
+            foreach (ItemType foundItem in foundItems)
+            {
+                if (foundItem.ItemClass.Contains(userConfiguratioName))
+                {
+                    item = foundItem;
+                    break;
+                }
+            }
+            Site.Assert.IsNotNull(item, "The created user configuration object should be found!");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1618");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1618
+            this.Site.CaptureRequirementIfIsTrue(
+                item.IsAssociatedSpecified && item.IsAssociated,
+                1618,
+                @"[In t:ItemType Complex Type] [IsAssociated is] True, indicates this [an item] is an associated item.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate UniqueBody element of ItemType with the successful response returned by GetItem operations for base item.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC25_GetItemWithUniqueBodyEnums()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2290, this.Site), "Exchange 2007 does not support the UniqueBody element.");
+
+            // Define the count of enumerations.
+            int enumCount = 2;
+            BodyTypeResponseType[] bodyTypeResponseTypes = new BodyTypeResponseType[enumCount];
+
+            bodyTypeResponseTypes[0] = BodyTypeResponseType.HTML;
+            bodyTypeResponseTypes[1] = BodyTypeResponseType.Text;
+
+            // Define an item array to store the items got from GetItem operation response.
+            // Each item should contain a BodyTypeResponseType value as its element's value.
+            ItemType[] items = new ItemType[enumCount];
+            for (int i = 0; i < enumCount; i++)
+            {
+                BodyTypeResponseType bodyTypeType = bodyTypeResponseTypes[i];
+
+                #region Step 1: Create the item.
+                ItemType[] createdItems = new ItemType[] { new ItemType() };
+                createdItems[0].Subject = Common.GenerateResourceName(
+                    this.Site,
+                    TestSuiteHelper.SubjectForCreateItem);
+
+                CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+                ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+
+                // One created item should be returned.
+                Site.Assert.AreEqual<int>(
+                     1,
+                     createdItemIds.GetLength(0),
+                     "One created item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                     1,
+                     createdItemIds.GetLength(0));
+                #endregion
+
+                #region Step 2: Get the item.
+                GetItemType getItem = new GetItemType();
+                GetItemResponseType getItemResponse = new GetItemResponseType();
+
+                // The Item properties returned
+                getItem.ItemShape = new ItemResponseShapeType();
+                getItem.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
+                getItem.ItemShape.BodyType = bodyTypeType;
+                getItem.ItemShape.BodyTypeSpecified = true;
+
+                // The item to get
+                getItem.ItemIds = createdItemIds;
+
+                // Set additional properties.
+                getItem.ItemShape.AdditionalProperties = new PathToUnindexedFieldType[]
+                {
+                    new PathToUnindexedFieldType()
+                    { 
+                        FieldURI = UnindexedFieldURIType.itemUniqueBody
+                    }
+                };
+
+                getItemResponse = this.COREAdapter.GetItem(getItem);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+                ItemType[] getItems = Common.GetItemsFromInfoResponse<ItemType>(getItemResponse);
+
+                // One item should be returned.
+                Site.Assert.AreEqual<int>(
+                     1,
+                     getItems.GetLength(0),
+                     "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                     1,
+                     getItems.GetLength(0));
+
+                Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+                // Assert the NormalizedBody elements is not null.
+                Site.Assert.IsNotNull(getItems[0].UniqueBody, "The UniqueBody element of the item should not be null, actual: {0}.", getItems[0].UniqueBody);
+
+                items[i] = getItems[0];
+                #endregion
+            }
+
+            #region Step 3: Verify the UniqueBody element.
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1681");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1681
+            this.Site.CaptureRequirementIfAreEqual<BodyTypeType>(
+                BodyTypeType.HTML,
+                items[0].UniqueBody.BodyType1,
+                1681,
+                @"[In t:ItemType Complex Type] The value  ""HTML"" of ""UniqueBody"" specifies the item body as HTML content.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1682");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1682
+            this.Site.CaptureRequirementIfAreEqual<BodyTypeType>(
+                BodyTypeType.Text,
+                items[1].UniqueBody.BodyType1,
+                1682,
+                @"[In t:ItemType Complex Type] The value ""Text"" of ""UniqueBody"" specifies the item body as text content.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2290");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2290
+            // The element UniqueBody is returned, so this requirement can be captured.
+            this.Site.CaptureRequirement(
+                2290,
+                @"[In Appendix C: Product Behavior] Implementation does support the element ""UniqueBody"" which specifies the body part that is unique to the conversation that an item is part of. (Exchange 2010 and above follow this behavior.)");
             #endregion
         }
         #endregion

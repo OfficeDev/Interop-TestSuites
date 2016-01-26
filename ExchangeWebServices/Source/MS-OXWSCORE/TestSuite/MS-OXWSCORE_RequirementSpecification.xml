@@ -1802,7 +1802,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] [The element "IsSubmitted"] Specifies a Boolean value that indicates whether an item has been submitted to the Outbox folder.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] [The element "IsSubmitted"] Specifies a Boolean value that indicates whether an item has been submitted to the folder which is used for submission. Such as Outbox folder or Drafts folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1816,7 +1816,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1607</ns1:REQ_ID>
@@ -2326,7 +2326,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1620</ns1:REQ_ID>
@@ -2554,16 +2554,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] [The element "WebClientReadFormQueryString"] Specifies a query string that identifies a read form accessible by using a Web browser.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] [The element "WebClientReadFormQueryString"] Specifies a query string that identifies a read form accessible by using a Web browser. &lt;55&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2338.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2041</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] It [WebClientReadFormQueryString] is read-only for client.&lt;55&gt;</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] It [WebClientReadFormQueryString] is read-only for client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2572,12 +2573,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2043</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [WebClientReadFormQueryString] may be returned by the server.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] This element [WebClientReadFormQueryString] is read-only and may be returned by the server but if specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2338.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1343</ns1:REQ_ID>
@@ -2586,7 +2586,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R108</ns1:REQ_ID>
@@ -2595,7 +2595,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2044</ns1:REQ_ID>
@@ -2632,7 +2632,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1681</ns1:REQ_ID>
@@ -3282,7 +3282,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2072</ns1:REQ_ID>
@@ -3300,7 +3300,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2074</ns1:REQ_ID>
@@ -14325,7 +14325,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2329</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [ItemId] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2015:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2015:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14336,7 +14336,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2330</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [ParentFolderId] does not be returned by the implementation.(Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2017:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2017:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14347,7 +14347,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2331</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [DateTimeReceived] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2026:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2026:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14358,7 +14358,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2332</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [Size] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2028:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2028:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14369,7 +14369,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2333</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [DateTimeSent] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2032:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2032:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14380,7 +14380,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2334</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [DateTimeCreated] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2034:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2034:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14391,7 +14391,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2335</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [DisplayTo] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2036:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2036:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14402,7 +14402,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2336</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [EffectiveRights] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2038:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2038:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14413,18 +14413,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2337</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [LastModifiedName] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2040:i, MS-OXWSCORE_R590i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2338</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [WebClientReadFormQueryString] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2043:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2040:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14435,7 +14424,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2339</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [InstanceKey] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2047:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2047:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14446,7 +14435,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2340</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [NormalizedBody] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2049:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2049:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14457,7 +14446,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2341</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [Preview] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2051:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2051:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14468,7 +14457,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2342</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [RightsManagementLicenseData] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2053:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2053:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14479,7 +14468,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2343</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [GroupingAction] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2055:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2055:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14490,7 +14479,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2344</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [BlockStatus] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2059:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2059:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14501,7 +14490,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2345</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [TextBody] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2061:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2061:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14512,9 +14501,30 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R2346</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [IconIndex] does not be returned by the implementation. (Exchange Server 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2063:i, MS-OXWSCORE_R590i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCORE_R2063:i, MS-OXWSCORE_R590:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R2437</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the WebClientReadFormQueryString element. (&lt;55&gt; Section 2.2.4.24:  Exchange 2007 does not support the WebClientReadFormQueryString element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R107:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R2338</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the WebClientReadFormQueryString element. (Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R107:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -15523,7 +15533,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1229</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ReturnNewItemIds element. (&lt;45&gt; Section 2.2.4.16: Exchange 2007, Exchange 2010, and Exchange 2010 SP1 do not include the ReturnNewItemIds element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ReturnNewItemIds element. (&lt;45&gt; Section 2.2.4.16: Exchange 2007 and Exchange 2010 do not include the ReturnNewItemIds element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2011:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15533,7 +15543,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1230</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReturnNewItemIds element. (&lt;45&gt; Section 2.2.4.16: The ReturnNewItemIds element was introduced in Microsoft Exchange Server 2010 Service Pack 1 (SP1) (Exchange 2013 and above follow this behavior).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReturnNewItemIds element. (&lt;45&gt; Section 2.2.4.16: The ReturnNewItemIds element was introduced in Microsoft Exchange Server 2010 Service Pack 1 (SP1) (Exchange 2010 SP1 and above follow this behavior).)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2011:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -16375,8 +16385,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2297</ns1:REQ_ID>
@@ -18760,7 +18769,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1633</ns1:REQ_ID>

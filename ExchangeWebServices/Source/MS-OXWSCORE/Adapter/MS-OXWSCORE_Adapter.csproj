@@ -43,6 +43,8 @@
     <Compile Include="IMS-OXWSCOREAdapter.cs" />
     <Compile Include="MS-OXWSCOREAdapter.cs" />
     <Compile Include="CaptureCode.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-OXWSUSRCFGSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXWSUSRCFGSUTControlAdapter.cs" />
   </ItemGroup>
   <!-- TestSuite drop files-->
   <ItemGroup>
