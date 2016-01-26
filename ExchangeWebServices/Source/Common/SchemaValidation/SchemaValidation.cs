@@ -340,10 +340,13 @@ namespace Microsoft.Protocols.TestSuites.Common
 
                         if (ExchangeServiceBinding.ServiceResponseEvent != null)
                         {
-                            ExchangeServiceBinding.ServiceResponseEvent(
-                                (BaseRequestType)parameters[0],
-                                (BaseResponseMessageType)objArray[0],
-                                this.IsSchemaValidated);
+                            if (objArray[0] is BaseResponseMessageType)
+                            {
+                                ExchangeServiceBinding.ServiceResponseEvent(
+                                    (BaseRequestType)parameters[0],
+                                    (BaseResponseMessageType)objArray[0],
+                                    this.IsSchemaValidated);
+                            }
                         }
                     }
                 }
