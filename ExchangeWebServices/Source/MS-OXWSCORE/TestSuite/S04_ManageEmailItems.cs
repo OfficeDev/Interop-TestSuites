@@ -1503,6 +1503,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1325,
                 @"[In t:ItemType Complex Type] The type of InternetMessageHeaders is t:NonEmptyArrayOfInternetHeadersType (section 2.2.4.12).");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R122");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R122
+            // The schema is validated and InternetMessageHeaders is not null, so this requirement can be captured.
+            this.Site.CaptureRequirement(
+                122,
+                @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] The type [NonEmptyArrayOfInternetHeadersType] is defined as follow:
+<xs:complexType name=""NonEmptyArrayOfInternetHeadersType"">
+  <xs:sequence>
+    <xs:element name=""InternetMessageHeader""
+      type=""t:InternetHeaderType""
+      maxOccurs=""unbounded""
+     />
+  </xs:sequence>
+</xs:complexType>");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20301");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20301
+            // MS-OXWSCORE_R1325 is captured, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                20301,
+                @"[In t:ItemType Complex Type] It [InternetMessageHeaders] can be retrieved by GetItem (section 3.1.4.4) operation.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1367");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1367
+            // The schema is validated and InternetMessageHeaders is not null, so this requirement can be captured.
+            this.Site.CaptureRequirement(
+                1367,
+                @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] The type of InternetMessageHeader is t:InternetHeaderType([MS-OXWSCDATA] section 2.2.4.35).");
+
             foreach (InternetHeaderType internetMessageHeader in getItems.Items.Items[0].InternetMessageHeaders)
             {
                 // Add the debug information
@@ -1529,6 +1564,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     isVerifiedR88,
                     88,
                     @"[In t:ItemType Complex Type] [The element ""InternetMessageHeaders""] Specifies an array of the type InternetHeaderType that represents the collection of all Internet message headers that are contained in an item in a mailbox.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R124");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R124
+                this.Site.CaptureRequirement(
+                    124,
+                    @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] [The element ""InternetMessageHeader""] Specifies a single Internet message header.");
             }
 
             EntityExtractionResultType entityExtractionResult = getItems.Items.Items[0].EntityExtractionResult;

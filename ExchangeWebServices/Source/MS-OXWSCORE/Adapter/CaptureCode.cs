@@ -47,6 +47,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     1006,
                     @"[In Appendix C: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange 2007 and above follow this behavior.)");
             }
+
+            if (transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2001");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2001
+                // When test suite running on HTTP, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    2001,
+                    @"[In Transport] Protocol servers MUST support SOAP over HTTP.");
+            }
         }
         #endregion
 
@@ -1868,6 +1880,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                              />
                             <xs:element name=""AcceptSharingInvitation""
                               type=""t:AcceptSharingInvitationType""
+                             />
+                            <xs:element name=""AddItemToMyCalendar""
+                              type=""t:AddItemToMyCalendarType""
+                             />
+                            <xs:element name=""ProposeNewTime""
+                              type=""t:ProposeNewTimeType""
                              />
                           </xs:choice>
                         </xs:complexType>");

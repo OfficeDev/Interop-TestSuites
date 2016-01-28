@@ -121,6 +121,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  "One calendar item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  getItemIds.GetLength(0));
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2019");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2019
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "IPM.Appointment",
+                ((ItemInfoResponseMessageType)getItemResponse.ResponseMessages.Items[0]).Items.Items[0].ItemClass,
+                2019,
+                @"[In t:ItemType Complex Type] This value is ""IPM.Appointment"" for calendar item.");
             #endregion 
 
             #region Step 4: Get the second copied calendar item success.
@@ -679,6 +689,83 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1617,
                 @"[In t:ItemType Complex Type] otherwise [ReminderIsSet is] false, indicates [a reminder has not been set for an item].");
             #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if invalid ItemClass values are set for Meeting items in the CreateItem request,
+        /// an ErrorObjectTypeChanged response code will be returned in the CreateItem response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC20_CreateMeetingItemWithInvalidItemClass()
+        {
+            #region Step 1: Create the Meeting item with ItemClass set to IPM.DistList.
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            CalendarItemType item = new CalendarItemType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.DistList";
+            DistinguishedFolderIdType folderIdForCreateItems = new DistinguishedFolderIdType();
+            folderIdForCreateItems.Id = DistinguishedFolderIdNameType.calendar;
+            createItemRequest.SavedItemFolderId = new TargetFolderIdType();
+            createItemRequest.SavedItemFolderId.Item = folderIdForCreateItems;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.DistList.");
+            #endregion
+
+            #region Step 2: Create the Meeting item with ItemClass set to IPM.Post.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Post";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Post.");
+            #endregion
+
+            #region Step 3: Create the Meeting item with ItemClass set to IPM.Task.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 3);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Task";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Task.");
+            #endregion
+
+            #region Step 4: Create the Meeting item with ItemClass set to IPM.Contact.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 4);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Contact";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Contact.");
+            #endregion
+
+            #region Step 5: Create the Meeting item with ItemClass set to random string.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 5);
+            createItemRequest.Items.Items[0].ItemClass = Common.GenerateResourceName(this.Site, "ItemClass");
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass is set to a random string.");
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2023");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2023
+            this.Site.CaptureRequirement(
+                2023,
+                @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
 
         /// <summary>

@@ -222,7 +222,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item.RetentionDate = DateTime.Now.AddDays(1);
             }
 
-            if (Common.IsRequirementEnabled(2280, this.Site))
+            if (Common.IsRequirementEnabled(2281, this.Site))
             {
                 FileAttachmentType fileAttachment = new FileAttachmentType();
                 fileAttachment.Name = Common.GenerateResourceName(this.Site, "File attachment name");
@@ -236,6 +236,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
                 item.Attachments[0] = fileAttachment;
                 item.Attachments[1] = itemAttachment;
+            }
+            
+            if (Common.IsRequirementEnabled(2283, this.Site))
+            {
+                item.ReminderNextTimeSpecified = true;
+                item.ReminderNextTime = DateTime.Now.AddMinutes(30);
             }
 
             return item;
@@ -1737,6 +1743,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 21188,
                 @"[In t:ItemResponseShapeType Complex Type] [IncludeMimeContent is] True, specifies the MIME content of an item is returned in a response.");
+
+            if (item is MessageType
+                || item is PostItemType
+                || item is CalendarItemType)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2012
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    2012,
+                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object. ");
+            }
             #endregion
 
             #region Step 3: Get the created item with IncludeMimeContent set to false.
@@ -5112,6 +5132,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 subjectResponse,
                 73,
                 @"[In t:ItemType Complex Type] [The element ""Subject""] Specifies a string value that represents the subject property of items.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R74, the actual subject is '{0}'", subjectResponse);
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R74
+            this.Site.CaptureRequirementIfIsTrue(
+                subjectResponse.Length <= 255,
+                74,
+                @"[In t:ItemType Complex Type] This value [Subject] is limited to 255 characters.");
         }
         #endregion
 
@@ -5340,14 +5369,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R95");
             Site.Log.Add(LogEntryKind.Debug, "The value of reminderMinutesBeforeStartResponse should not be null, actual {0}.", reminderMinutesBeforeStartResponse);
             Site.Log.Add(LogEntryKind.Debug, "The value of ReminderMinutesBeforeStart from response should be consistent with request, expected {0}, actual {1}.", reminderMinutesBeforeStartRequest, reminderMinutesBeforeStartResponse);
+            
+            int reminderMinutesBeforeStartInt;
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R95
-            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest;
+            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null
+                && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest
+                && int.TryParse(reminderMinutesBeforeStartResponse, out reminderMinutesBeforeStartInt);
 
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR95,
                 95,
-                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies a string value that indicates the number of minutes before an event occurs when a reminder is displayed.");
+                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies an int value that indicates the number of minutes before an event occurs when a reminder is displayed.");
         }
         #endregion
 
@@ -5367,6 +5400,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 responseObjects,
                 1328,
                 @"[In t:ItemType Complex Type] The type of ResponseObjects is t:NonEmptyArrayOfResponseObjectsType (section 2.2.4.13).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R91");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R91
+            this.Site.CaptureRequirementIfIsTrue(
+                responseObjects.Length > 0,
+                91,
+                @"[In t:ItemType Complex Type] [The element ""ResponseObjects""] Specifies an array of type ResponseObjectType that contains a collection of all the response objects that are associated with an item.");
         }
         #endregion
 

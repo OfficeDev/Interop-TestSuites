@@ -173,9 +173,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     getItemResponseMessage.Items.Items[0].Flag.CompleteDate.Date.ToString(),
                     1045,
                     @"[In t:FlagType Complex Type] CompleteDate: An element of type dateTime that represents the completion date.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2008");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2008
+                // The FlagStatus element is set to Complete, and StartDate and DueDate elements are not set,
+                // the item is created and gotten successfully, so this requirement can be captured directly.
+                this.Site.CaptureRequirement(
+                    2008,
+                    @"[In t:FlagType Complex Type] if the FlagStatus element is set to Complete, the StartDate and DueDate elements MUST not be set in the request;");
             }
 
-            if (Common.IsRequirementEnabled(2280, this.Site))
+            if (Common.IsRequirementEnabled(2281, this.Site))
             {
                 this.Site.Assert.IsTrue(getItemResponseMessage.Items.Items[0].HasAttachmentsSpecified, "The HasAttachments element should be present.");
 
@@ -621,6 +631,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In m:UpdateItemResponseType Complex Type] The UpdateItemResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).");
 
             UpdateItemResponseMessageType updateItemResponseMessage = updateItemResponse.ResponseMessages.Items[0] as UpdateItemResponseMessageType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R158");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R158
+            this.Site.CaptureRequirementIfIsTrue(
+                updateItemResponseMessage.Items.Items[0].ItemId.Id == createdItemIds[0].Id
+                && updateItemResponseMessage.Items.Items[0].ItemId.ChangeKey != createdItemIds[0].ChangeKey,
+                158,
+                @"[In t:ItemIdType Complex Type] [The attribute ""ChangeKey""] Specifies a change key.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R58");
@@ -1580,7 +1600,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In Appendix C: Product Behavior] Implementation does support element ""RetentionDate"" with type ""xs:dateTime"" which specifies the retention date for an item. (Exchange 2013 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(2280, this.Site))
+            if (Common.IsRequirementEnabled(2281, this.Site))
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1314");
@@ -1592,13 +1612,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.43).");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2280");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2281");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2280
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2281
                 // The Attachments is set and the item is created successfully, so this requirement can be captured.
                 this.Site.CaptureRequirement(
-                    2280,
-                    @"[In Appendix C: Product Behavior] Implementation does not use the Attachments element. (<52> Section 2.2.4.24:  Exchange 2007, Exchange 2010 and Exchange 2010 SP1 do not use the Attachments element in CreateItem operation request.)");
+                    2281,
+                    @"[In Appendix C: Product Behavior] Implementation does use the Attachments element which specifies an array of items or files that are attached to an item. (Exchange 2010 SP2 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1620");
@@ -1702,6 +1722,48 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirement(
                     1342,
                     @"[In t:ItemType Complex Type] The type of WebClientReadFormQueryString is xs:string.");
+            }
+
+            if (Common.IsRequirementEnabled(2283, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2283");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2283
+                this.Site.CaptureRequirementIfIsTrue(
+                    getItems[0].ReminderNextTimeSpecified,
+                    2283,
+                    @"[In Appendix C: Product Behavior] Implementation does support the ReminderNextTime element which specifies the date and time for the next reminder. (Exchange 2013 and above follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1727");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1727
+                // The ReminderNextTime is returned from server and pass the schema validation, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    1727,
+                    @"[In t:ItemType Complex Type] The type of ReminderNextTime is xs:dateTime.");
+            }
+
+            if (Common.IsRequirementEnabled(2288, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2288");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2288
+                this.Site.CaptureRequirementIfIsNotNull(
+                    getItems[0].ConversationId,
+                    2288,
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""ConversationId"" which specifies the ID of the conversation that an item is part of.. (Exchange 2010 and above follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1344");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1344
+                // The ConversationId is returned from server and pass the schema validation, so this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    1344,
+                    @"[In t:ItemType Complex Type] The type of ConversationId is t:ItemIdType.");
             }
             #endregion
         }
@@ -2644,7 +2706,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         /// This test case is intended to validate ErrorInvalidPropertySet is returned if WebClientReadFormQueryString is specified in request.
         /// </summary>
         [TestCategory("MSOXWSCORE"), TestMethod()]
-        public void MSOXWSCORE_S01_TC23_CreateItemWithWebClientReadFormQueryString()
+        public void MSOXWSCORE_S01_TC23_WebClientReadFormQueryStringIsReadOnly()
         {
             Site.Assume.IsTrue(Common.IsRequirementEnabled(2338, this.Site), "Exchange 2007 does not support the WebClientReadFormQueryString element.");
 
@@ -2896,6 +2958,1297 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirement(
                 2290,
                 @"[In Appendix C: Product Behavior] Implementation does support the element ""UniqueBody"" which specifies the body part that is unique to the conversation that an item is part of. (Exchange 2010 and above follow this behavior.)");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if the FlagStatus element is set to Flagged, the CompleteDate element MUST not be set in the request, and the StartDate and DueDate elements MUST be set or unset in pair.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC26_CreateItemWithFlagStatusFlagged()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1271, this.Site), "Exchange 2007 and Exchange 2010 do not support the FlagType complex type.");
+
+            #region Step 1: Create the item, set FlagStatus to Flagged, set element StartDate and DueDate and do not set CompleteDate element.
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 1);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
+            createdItems[0].Flag.StartDateSpecified = true;
+            createdItems[0].Flag.StartDate = DateTime.Now;
+            createdItems[0].Flag.DueDateSpecified = true;
+            createdItems[0].Flag.DueDate = DateTime.Now.AddDays(1);
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+            #endregion
+
+            #region Step 2: Get the item.
+            // Call the GetItem operation.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2002");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2002
+            // FlagStatus element is set to Flagged, CompleteDate element is not set, and StartDate and DueDate elements are set,
+            // the item is created and gotten successfully, so this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                2002,
+                @"[In t:FlagType Complex Type] If the FlagStatus element is set to Flagged, the CompleteDate element MUST not be set in the request, and the StartDate and DueDate elements MUST be set or unset in pair;");
+
+
+            #endregion
+
+            #region Step 3: Create the item, set FlagStatus to Flagged, and do not set StartDate/DueDate/CompleteDate element.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 2);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+            #endregion
+
+            #region Step 2: Get the item.
+            // Call the GetItem operation.
+            getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2002");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2002
+            // FlagStatus element is set to Flagged, and do not set StartDate/DueDate/CompleteDate element,
+            // the item is created and gotten successfully, so this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                2002,
+                @"[In t:FlagType Complex Type] If the FlagStatus element is set to Flagged, the CompleteDate element MUST not be set in the request, and the StartDate and DueDate elements MUST be set or unset in pair;");
+
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if the FlagStatus element is set to NotFlagged, the CompleteDate, StartDate, and DueDate elements MUST not be set in the request.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC27_CreateItemWithFlagStatusNotFlagged()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1271, this.Site), "Exchange 2007 and Exchange 2010 do not support the FlagType complex type.");
+
+            #region Step 1: Create the item.
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.NotFlagged;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+            #endregion
+
+            #region Step 2: Get the item.
+            // Call the GetItem operation.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2005");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2005
+            // FlagStatus element is set to NotFlagged, CompleteDate/StartDate/DueDate element is not set,
+            // the item is created and gotten successfully, so this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                2005,
+                @"[In t:FlagType Complex Type] if the FlagStatus element is set to NotFlagged, the CompleteDate, StartDate, and DueDate elements MUST not be set in the request.");
+
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate ErrorInvalidArgument will be returned if elements in FlagType are not set correctly.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC28_CreateItemWithFlagStatusFailed()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1271, this.Site), "Exchange 2007 and Exchange 2010 do not support the FlagType complex type.");
+
+            #region Step 1: Create the item, set FlagStatus to Flagged, and set CompleteDate element.
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 1);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
+            createdItems[0].Flag.CompleteDateSpecified = true;
+            createdItems[0].Flag.CompleteDate = DateTime.UtcNow;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set the CompleteDate element when the FlagStatus element is set to Flagged.");
+            #endregion
+
+            #region Step 2: Create the item, set FlagStatus to Flagged, and set StartDate but do not set DueDate.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 2);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
+            createdItems[0].Flag.StartDateSpecified = true;
+            createdItems[0].Flag.StartDate = DateTime.Now;
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set the StartDate element but not set DueDate element when the FlagStatus element is set to Flagged.");
+            #endregion
+
+            #region Step 3: Create the item, set FlagStatus to Flagged, and set DueDate but do not set StartDate.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 3);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
+            createdItems[0].Flag.DueDateSpecified = true;
+            createdItems[0].Flag.DueDate = DateTime.Now.AddDays(1);
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set the DueDate element but not set StartDate element when the FlagStatus element is set to Flagged.");
+            #endregion
+
+            #region Step 4: Create the item, set the FlagStatus to Complete, and set the StartDate and DueDate element.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 4);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.Complete;
+            createdItems[0].Flag.CompleteDateSpecified = true;
+            createdItems[0].Flag.CompleteDate = DateTime.UtcNow;
+            createdItems[0].Flag.StartDateSpecified = true;
+            createdItems[0].Flag.StartDate = DateTime.Now;
+            createdItems[0].Flag.DueDateSpecified = true;
+            createdItems[0].Flag.DueDate = DateTime.Now.AddDays(1);
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set StartDate and DueDate element when the FlagStatus element is set to Complete.");
+            #endregion
+
+            #region Step 5: Create the item, set the FlagStatus to NotFlagged, and set the CompleteDate element.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 5);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.NotFlagged;
+            createdItems[0].Flag.CompleteDateSpecified = true;
+            createdItems[0].Flag.CompleteDate = DateTime.UtcNow;
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set CompleteDate element when the FlagStatus element is set to NotFlagged.");
+            #endregion
+
+            #region Step 6: Create the item, set the FlagStatus to NotFlagged, and set the StartDate and DueDate element.
+            createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem, 6);
+
+            createdItems[0].Flag = new FlagType();
+            createdItems[0].Flag.FlagStatus = FlagStatusType.NotFlagged;
+            createdItems[0].Flag.StartDateSpecified = true;
+            createdItems[0].Flag.StartDate = DateTime.Now;
+            createdItems[0].Flag.DueDateSpecified = true;
+            createdItems[0].Flag.DueDate = DateTime.Now.AddDays(1);
+
+            createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidArgument,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorInvalidArgument should be returned if set StartDate and DueDate element when the FlagStatus element is set to NotFlagged.");
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2010");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2010
+            // The requirement has been verified by above steps.
+            this.Site.CaptureRequirement(
+                2010,
+                @"[In t:FlagType Complex Type] Otherwise [If the FlagStatus element is set to Flagged, the CompleteDate element MUST not be set in the request, and the StartDate and DueDate elements MUST be set or unset in pair; if the FlagStatus element is set to Complete, the StartDate and DueDate elements MUST not be set in the request; if the FlagStatus element is set to NotFlagged, the CompleteDate, StartDate, and DueDate elements MUST not be set in the request.], ErrorInvalidArgument ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element ItemId is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC29_ItemIdIsReadOnly()
+        {
+            #region Create an item with setting ItemId
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].ItemId = new ItemIdType();
+            createdItems[0].ItemId.Id = Common.GenerateResourceName(this.Site, "Id");
+            createdItems[0].ItemId.ChangeKey = Common.GenerateResourceName(this.Site, "ChangeKey");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2014");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2014
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2014,
+                @"[In t:ItemType Complex Type] This element [ItemId] is read-only.");
+            #endregion
+
+            #region Update an item with setting ItemId
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemItemId
+            };
+            setItem.Item1 = new ItemType()
+            {
+                ItemId = new ItemIdType()
+                {
+                    Id = Common.GenerateResourceName(this.Site, "Id"),
+                    ChangeKey = Common.GenerateResourceName(this.Site, "ChangeKey")
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2347");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2347
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2347,
+                @"[In t:ItemType Complex Type] but if [ItemId] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element ParentFolderId is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC30_ParentFolderIdIsReadOnly()
+        {
+            #region Create an item with setting ParentFolderId
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].ParentFolderId = new FolderIdType();
+            createdItems[0].ParentFolderId.Id = Common.GenerateResourceName(this.Site, "Id");
+            createdItems[0].ParentFolderId.ChangeKey = Common.GenerateResourceName(this.Site, "ChangeKey");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2016");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2016
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2016,
+                @"[In t:ItemType Complex Type] This element [ParentFolderId] is read-only.");
+            #endregion
+
+            #region Update an item with setting ParentFolderId
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemParentFolderId
+            };
+            setItem.Item1 = new ItemType()
+            {
+                ParentFolderId = new FolderIdType
+                {
+                    Id = Common.GenerateResourceName(this.Site, "Id"),
+                    ChangeKey = Common.GenerateResourceName(this.Site, "ChangeKey")
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2348");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2348
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2348,
+                @"[In t:ItemType Complex Type] but if [ParentFolderId] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element DateTimeReceived is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC31_DateTimeReceivedIsReadOnly()
+        {
+            #region Create an item with setting DateTimeReceived
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].DateTimeReceivedSpecified = true;
+            createdItems[0].DateTimeReceived = DateTime.UtcNow;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2025");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2025
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2025,
+                @"[In t:ItemType Complex Type] This element [DateTimeReceived] is read-only.");
+            #endregion
+
+            #region Update an item with setting DateTimeReceived
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemDateTimeReceived
+            };
+            setItem.Item1 = new ItemType()
+            {
+                DateTimeReceivedSpecified = true,
+                DateTimeReceived = DateTime.UtcNow
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2349");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2349
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2349,
+                @"[In t:ItemType Complex Type] but if [DateTimeReceived] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element Size is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC32_SizeIsReadOnly()
+        {
+            #region Create an item with setting Size
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].SizeSpecified = true;
+            createdItems[0].Size = 10;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2027");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2027
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2027,
+                @"[In t:ItemType Complex Type] This element [Size] is read-only.");
+            #endregion
+
+            #region Update an item with setting Size
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemSize
+            };
+            setItem.Item1 = new ItemType()
+            {
+                Size = 10,
+                SizeSpecified = true
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2272");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2272
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2272,
+                @"[In t:ItemType Complex Type] but if [Size] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element DateTimeSent is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC33_DateTimeSentIsReadOnly()
+        {
+            #region Create an item with setting DateTimeSent
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].DateTimeSentSpecified = true;
+            createdItems[0].DateTimeSent = DateTime.UtcNow;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2031");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2031
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2031,
+                @"[In t:ItemType Complex Type] This element [DateTimeSent] is read-only.");
+            #endregion
+
+            #region Update an item with setting DateTimeSent
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemDateTimeSent
+            };
+            setItem.Item1 = new ItemType()
+            {
+                DateTimeSent = DateTime.UtcNow,
+                DateTimeSentSpecified = true
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2273");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2273
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2273,
+                @"[In t:ItemType Complex Type] but if [DateTimeSent] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element DateTimeCreated is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC34_DateTimeCreatedIsReadOnly()
+        {
+            #region Create an item with setting DateTimeCreated
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].DateTimeCreatedSpecified = true;
+            createdItems[0].DateTimeCreated = DateTime.UtcNow;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2033");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2033
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2033,
+                @"[In t:ItemType Complex Type] This element [DateTimeCreated] is read-only.");
+            #endregion
+
+            #region Update an item with setting DateTimeCreated
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemDateTimeCreated
+            };
+            setItem.Item1 = new ItemType()
+            {
+                DateTimeCreatedSpecified = true,
+                DateTimeCreated = DateTime.UtcNow
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2274");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2274
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2274,
+                @"[In t:ItemType Complex Type] but if [DateTimeCreated] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element DisplayTo is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC35_DisplayToIsReadOnly()
+        {
+            #region Create an item with setting DisplayTo
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].DisplayTo = Common.GetConfigurationPropertyValue("User1Name", this.Site);
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2035");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2035
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2035,
+                @"[In t:ItemType Complex Type] This element [DisplayTo] is read-only.");
+            #endregion
+
+            #region Update an item with setting DisplayTo
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemDisplayTo
+            };
+            setItem.Item1 = new ItemType()
+            {
+                DisplayTo = Common.GetConfigurationPropertyValue("User1Name", this.Site)
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2275");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2275
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2275,
+                @"[In t:ItemType Complex Type] but if [DisplayTo] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element EffectiveRights is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC36_EffectiveRightsIsReadOnly()
+        {
+            #region Create an item with setting EffectiveRights
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].EffectiveRights = new EffectiveRightsType();
+            createdItems[0].EffectiveRights.CreateAssociated = true;
+            createdItems[0].EffectiveRights.CreateContents = true;
+            createdItems[0].EffectiveRights.CreateHierarchy = true;
+            createdItems[0].EffectiveRights.Delete = true;
+            createdItems[0].EffectiveRights.Modify = true;
+            createdItems[0].EffectiveRights.Read = true;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2037");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2037
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2037,
+                @"[In t:ItemType Complex Type] This element [EffectiveRights] is read-only.");
+            #endregion
+
+            #region Update an item with setting EffectiveRights
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemEffectiveRights
+            };
+            setItem.Item1 = new ItemType()
+            {
+                EffectiveRights = new EffectiveRightsType
+                {
+                    CreateAssociated = true,
+                    CreateContents = true,
+                    CreateHierarchy = true,
+                    Delete = true,
+                    Modify = true,
+                    Read = true
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2276");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2276
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2276,
+                @"[In t:ItemType Complex Type] but if [EffectiveRights] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element LastModifiedName is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC37_LastModifiedNameIsReadOnly()
+        {
+            #region Create an item with setting LastModifiedName
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].LastModifiedName = Common.GenerateResourceName(this.Site, "LastModifiedName");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2039");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2039
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2039,
+                @"[In t:ItemType Complex Type] This element [LastModifiedName] is read-only.");
+            #endregion
+
+            #region Update an item with setting LastModifiedName
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemLastModifiedName
+            };
+            setItem.Item1 = new ItemType()
+            {
+                LastModifiedName = Common.GenerateResourceName(this.Site, "LastModifiedName")
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2277");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2277
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2277,
+                @"[In t:ItemType Complex Type] but if [LastModifiedName] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element InstanceKey is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC38_InstanceKeyIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1348, this.Site), "Exchange 2007 and Exchange 2010 do not support the InstanceKey element.");
+
+            #region Create an item with setting InstanceKey
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].InstanceKey = Convert.FromBase64String("AQAAAAAAAQ0BAAAAAAAFKAAAAAA=");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2046");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2046
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2046,
+                @"[In t:ItemType Complex Type] This element [InstanceKey] is read-only.");
+            #endregion
+
+            #region Update an item with setting InstanceKey
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemInstanceKey
+            };
+            setItem.Item1 = new ItemType()
+            {
+                InstanceKey = Convert.FromBase64String("AQAAAAAAAQ0BAAAAAAAFKAAAAAA=")
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2350");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2350
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2350,
+                @"[In t:ItemType Complex Type]but if [InstanceKey] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element NormalizedBody is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC39_NormalizedBodyIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1349, this.Site), "Exchange 2007 and Exchange 2010 do not support the NormalizedBody element.");
+
+            #region Create an item with setting NormalizedBody
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].NormalizedBody = new BodyType();
+            createdItems[0].NormalizedBody.BodyType1 = BodyTypeType.HTML;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2048");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2048
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2048,
+                @"[In t:ItemType Complex Type] This element [NormalizedBody] is read-only.");
+            #endregion
+
+            #region Update an item with setting NormalizedBody
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemNormalizedBody
+            };
+            setItem.Item1 = new ItemType()
+            {
+                NormalizedBody = new BodyType
+                {
+                    BodyType1 = BodyTypeType.HTML
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2351");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2351
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2351,
+                @"[In t:ItemType Complex Type] but if [NormalizedBody] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element Preview is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC40_PreviewIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1354, this.Site), "Exchange 2007 and Exchange 2010 do not support the Preview element.");
+
+            #region Create an item with setting Preview
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].Preview = Common.GenerateResourceName(this.Site, "Preview");
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2050");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2050
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2050,
+                @"[In t:ItemType Complex Type] This element [Preview] is read-only.");
+            #endregion
+
+            #region Update an item with setting Preview
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemPreview
+            };
+            setItem.Item1 = new ItemType()
+            {
+                Preview = Common.GenerateResourceName(this.Site, "Preview")
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2352");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2352
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2352,
+                @"[In t:ItemType Complex Type] but if [Preview] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element TextBody is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC41_TextBodyIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1731, this.Site), "Exchange 2007 and Exchange 2010 do not support the TextBody element.");
+
+            #region Create an item with setting TextBody
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].TextBody = new BodyType();
+            createdItems[0].TextBody.BodyType1 = BodyTypeType.HTML;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2060");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2060
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2060,
+                @"[In t:ItemType Complex Type] This element [TextBody] is read-only.");
+            #endregion
+
+            #region Update an item with setting TextBody
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemTextBody
+            };
+            setItem.Item1 = new ItemType()
+            {
+                TextBody = new BodyType
+                {
+                    BodyType1 = BodyTypeType.HTML
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2356");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2356
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2356,
+                @"[In t:ItemType Complex Type] but if [TextBody] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element IconIndex is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC42_IconIndexIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1917, this.Site), "Exchange 2007 and Exchange 2010 do not support the IconIndex element.");
+
+            #region Create an item with setting IconIndex
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].IconIndexSpecified = true;
+            createdItems[0].IconIndex = IconIndexType.TaskRecur;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2062");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2062
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2062,
+                @"[In t:ItemType Complex Type] This element [IconIndex] is read-only.");
+            #endregion
+
+            #region Update an item with setting IconIndex
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemIconIndex
+            };
+            setItem.Item1 = new ItemType()
+            {
+                IconIndex = IconIndexType.TaskRecur,
+                IconIndexSpecified = true
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2358");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2358
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2358,
+                @"[In t:ItemType Complex Type] but if [IconIndex] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
             #endregion
         }
         #endregion
