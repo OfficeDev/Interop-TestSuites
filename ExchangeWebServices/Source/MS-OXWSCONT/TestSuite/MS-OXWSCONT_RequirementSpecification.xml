@@ -70,7 +70,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>verified by derived requirement: MS-OXWSCONT_R335001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R2</ns1:REQ_ID>
@@ -286,7 +287,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>verified by derived requirement: MS-OXWSCONT_R335002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16007</ns1:REQ_ID>
@@ -1737,7 +1739,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334006</ns1:REQ_ID>
@@ -6010,8 +6012,8 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R30205601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.2 </ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseMessageType] HasChanged element: If the user photo changes, the value will be true.</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R302056:i</ns1:Derived>
+		<ns1:Description>[In GetUserPhotoResponseMessageType] HasChanged element: If the value is true, the user photo has changed.</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R302056:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6020,8 +6022,8 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R30205602</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.2 </ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseMessageType] HasChanged element: If the user photo not changes, the value will be false</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R302056:i</ns1:Derived>
+		<ns1:Description>[In GetUserPhotoResponseMessageType] HasChanged element: If the value is false, the user photo has not changed.</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R302056:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6706,8 +6708,8 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In SetUserPhotoResponseMessageType] This type extends the BaseResponseMessageType complex type, as specified by [MS-OXWSCDATA] section 2.2.4.18.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302126</ns1:REQ_ID>
@@ -6732,6 +6734,28 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R335001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R102:I, MS-OXWSCONT_R335:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R335002</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does specifies an id of a set of people who not be linked together automatically.  (Exchange 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCONT_R16006:I, MS-OXWSCONT_R335:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R336</ns1:REQ_ID>
