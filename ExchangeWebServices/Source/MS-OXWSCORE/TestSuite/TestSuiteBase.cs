@@ -63,6 +63,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         protected IMS_OXWSSRCHAdapter SRCHAdapter { get; private set; }
 
         /// <summary>
+        /// Gets the MS-OXWSUSRCFG SUT control adapter.
+        /// </summary>
+        protected IMS_OXWSUSRCFGSUTControlAdapter USRCFGSUTControlAdapter { get; private set; }
+
+        /// <summary>
         /// Gets the last response get from server.
         /// </summary>
         protected BaseResponseMessageType LastResponse { get; private set; }
@@ -87,6 +92,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.COREAdapter = Site.GetAdapter<IMS_OXWSCOREAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
             this.ITEMIDAdapter = Site.GetAdapter<IMS_OXWSITEMIDAdapter>();
+            this.USRCFGSUTControlAdapter = Site.GetAdapter<IMS_OXWSUSRCFGSUTControlAdapter>();
         }
 
         /// <summary>
@@ -214,6 +220,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             {
                 item.RetentionDateSpecified = true;
                 item.RetentionDate = DateTime.Now.AddDays(1);
+            }
+
+            if (Common.IsRequirementEnabled(2281, this.Site))
+            {
+                FileAttachmentType fileAttachment = new FileAttachmentType();
+                fileAttachment.Name = Common.GenerateResourceName(this.Site, "File attachment name");
+                fileAttachment.Content = Convert.FromBase64String("/9j/4AAQSkZJRgABAQEAYABgAAD/7AARRHVja3kAAQAEAAAARgAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcHBgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgADAAUAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A5j9hnXPH/gy003RdI+KejWVjciO7muPF86y2GiWFu3nahceUJUyEtfOcKroplMZeSJAxH1j+2p8f9L8TfBTw1qvwo8YSSWGr6FB4p1bStWsLi01TVPDl4ZLe21CwkeOJ9yXf2cSQlCfKukdjDvhM34beLf2n/G3wz+B2g+ItA1qbS9Y0bxBm1uIlDFA9vPG6kNkFWQlSp4welZfxG/4K1fHj9ozQj4T8V+N73U9J1u7e7uxLmWU+YYWaGJ5Cxt7fzLeF/s8Hlxbox8mABXNQjVjQnQlVk+zurrRbWSXnbbuedTyvD0ISoQvZ333WnyPqLxp8PG8feIrjU5dG8O60ZWMYuDeW1tjyyUKeWzALtZWGFG3Oe+aK/OP4ja3c+CfiZ4m07TJTbWdvq90iIQJSAsrKMs+WJwo6miuFZRbT2svvX+QoZTQirXf4f5H/2Q==");
+
+                ItemAttachmentType itemAttachment = new ItemAttachmentType();
+                itemAttachment.Name = Common.GenerateResourceName(this.Site, "Item attachment name");
+                itemAttachment.Item = new ItemType();
+                itemAttachment.Item.Subject = Common.GenerateResourceName(this.Site, "Item attachment subject");
+                item.Attachments = new AttachmentType[2];
+
+                item.Attachments[0] = fileAttachment;
+                item.Attachments[1] = itemAttachment;
+            }
+            
+            if (Common.IsRequirementEnabled(2283, this.Site))
+            {
+                item.ReminderNextTimeSpecified = true;
+                item.ReminderNextTime = DateTime.Now.AddMinutes(30);
             }
 
             return item;
@@ -1715,6 +1743,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 21188,
                 @"[In t:ItemResponseShapeType Complex Type] [IncludeMimeContent is] True, specifies the MIME content of an item is returned in a response.");
+
+            if (item is MessageType
+                || item is PostItemType
+                || item is CalendarItemType)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2012
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    2012,
+                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object. ");
+            }
             #endregion
 
             #region Step 3: Get the created item with IncludeMimeContent set to false.
@@ -5090,6 +5132,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 subjectResponse,
                 73,
                 @"[In t:ItemType Complex Type] [The element ""Subject""] Specifies a string value that represents the subject property of items.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R74, the actual subject is '{0}'", subjectResponse);
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R74
+            this.Site.CaptureRequirementIfIsTrue(
+                subjectResponse.Length <= 255,
+                74,
+                @"[In t:ItemType Complex Type] This value [Subject] is limited to 255 characters.");
         }
         #endregion
 
@@ -5318,14 +5369,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R95");
             Site.Log.Add(LogEntryKind.Debug, "The value of reminderMinutesBeforeStartResponse should not be null, actual {0}.", reminderMinutesBeforeStartResponse);
             Site.Log.Add(LogEntryKind.Debug, "The value of ReminderMinutesBeforeStart from response should be consistent with request, expected {0}, actual {1}.", reminderMinutesBeforeStartRequest, reminderMinutesBeforeStartResponse);
+            
+            int reminderMinutesBeforeStartInt;
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R95
-            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest;
+            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null
+                && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest
+                && int.TryParse(reminderMinutesBeforeStartResponse, out reminderMinutesBeforeStartInt);
 
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR95,
                 95,
-                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies a string value that indicates the number of minutes before an event occurs when a reminder is displayed.");
+                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies an int value that indicates the number of minutes before an event occurs when a reminder is displayed.");
         }
         #endregion
 
@@ -5345,6 +5400,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 responseObjects,
                 1328,
                 @"[In t:ItemType Complex Type] The type of ResponseObjects is t:NonEmptyArrayOfResponseObjectsType (section 2.2.4.13).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R91");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R91
+            this.Site.CaptureRequirementIfIsTrue(
+                responseObjects.Length > 0,
+                91,
+                @"[In t:ItemType Complex Type] [The element ""ResponseObjects""] Specifies an array of type ResponseObjectType that contains a collection of all the response objects that are associated with an item.");
         }
         #endregion
 

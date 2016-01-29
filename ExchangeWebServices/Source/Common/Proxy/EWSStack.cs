@@ -125,6 +125,14 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private System.Threading.SendOrPostCallback SetUserPhotoOperationCompleted;
 
+        private System.Threading.SendOrPostCallback CreateUserConfigurationOperationCompleted;
+
+        private System.Threading.SendOrPostCallback DeleteUserConfigurationOperationCompleted;
+
+        private System.Threading.SendOrPostCallback GetUserConfigurationOperationCompleted;
+
+        private System.Threading.SendOrPostCallback UpdateUserConfigurationOperationCompleted;
+
         /// <remarks/>
         public ExchangeServiceBinding()
         {
@@ -312,6 +320,18 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         public event SetUserPhotoCompletedEventHandler SetUserPhotoCompleted;
+
+        /// <remarks/>
+        public event CreateUserConfigurationCompletedEventHandler CreateUserConfigurationCompleted;
+
+        /// <remarks/>
+        public event DeleteUserConfigurationCompletedEventHandler DeleteUserConfigurationCompleted;
+
+        /// <remarks/>
+        public event GetUserConfigurationCompletedEventHandler GetUserConfigurationCompleted;
+
+        /// <remarks/>
+        public event UpdateUserConfigurationCompletedEventHandler UpdateUserConfigurationCompleted;
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
@@ -2011,8 +2031,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetUserPhoto", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
-        [return: System.Xml.Serialization.XmlElementAttribute("GetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-        public GetUserPhotoResponseMessageType GetUserPhoto([System.Xml.Serialization.XmlElementAttribute("GetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")] GetUserPhotoType GetUserPhoto1)
+        [return: System.Xml.Serialization.XmlElementAttribute("GetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public GetUserPhotoResponseMessageType GetUserPhoto([System.Xml.Serialization.XmlElementAttribute("GetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetUserPhotoType GetUserPhoto1)
         {
             object[] results = this.Invoke("GetUserPhoto", new object[] {
                     GetUserPhoto1});
@@ -2063,8 +2083,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/SetUserPhoto", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
-        [return: System.Xml.Serialization.XmlElementAttribute("SetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-        public SetUserPhotoResponseMessageType SetUserPhoto([System.Xml.Serialization.XmlElementAttribute("SetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")] SetUserPhotoType SetUserPhoto1)
+        [return: System.Xml.Serialization.XmlElementAttribute("SetUserPhotoResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public SetUserPhotoResponseMessageType SetUserPhoto([System.Xml.Serialization.XmlElementAttribute("SetUserPhoto", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] SetUserPhotoType SetUserPhoto1)
         {
             object[] results = this.Invoke("SetUserPhoto", new object[] {
                     SetUserPhoto1});
@@ -2108,6 +2128,226 @@ namespace Microsoft.Protocols.TestSuites.Common
             {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SetUserPhotoCompleted(this, new SetUserPhotoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateUserConfigurat" +
+            "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
+        [return: System.Xml.Serialization.XmlElementAttribute("CreateUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public CreateUserConfigurationResponseType CreateUserConfiguration([System.Xml.Serialization.XmlElementAttribute("CreateUserConfiguration", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CreateUserConfigurationType CreateUserConfiguration1)
+        {
+            object[] results = this.Invoke("CreateUserConfiguration", new object[] {
+                    CreateUserConfiguration1});
+            return ((CreateUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public System.IAsyncResult BeginCreateUserConfiguration(CreateUserConfigurationType CreateUserConfiguration1, System.AsyncCallback callback, object asyncState)
+        {
+            return this.BeginInvoke("CreateUserConfiguration", new object[] {
+                    CreateUserConfiguration1}, callback, asyncState);
+        }
+
+        /// <remarks/>
+        public CreateUserConfigurationResponseType EndCreateUserConfiguration(System.IAsyncResult asyncResult)
+        {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((CreateUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public void CreateUserConfigurationAsync(CreateUserConfigurationType CreateUserConfiguration1)
+        {
+            this.CreateUserConfigurationAsync(CreateUserConfiguration1, null);
+        }
+
+        /// <remarks/>
+        public void CreateUserConfigurationAsync(CreateUserConfigurationType CreateUserConfiguration1, object userState)
+        {
+            if ((this.CreateUserConfigurationOperationCompleted == null))
+            {
+                this.CreateUserConfigurationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateUserConfigurationOperationCompleted);
+            }
+            this.InvokeAsync("CreateUserConfiguration", new object[] {
+                    CreateUserConfiguration1}, this.CreateUserConfigurationOperationCompleted, userState);
+        }
+
+        private void OnCreateUserConfigurationOperationCompleted(object arg)
+        {
+            if ((this.CreateUserConfigurationCompleted != null))
+            {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateUserConfigurationCompleted(this, new CreateUserConfigurationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/DeleteUserConfigurat" +
+            "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
+        [return: System.Xml.Serialization.XmlElementAttribute("DeleteUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public DeleteUserConfigurationResponseType DeleteUserConfiguration([System.Xml.Serialization.XmlElementAttribute("DeleteUserConfiguration", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] DeleteUserConfigurationType DeleteUserConfiguration1)
+        {
+            object[] results = this.Invoke("DeleteUserConfiguration", new object[] {
+                    DeleteUserConfiguration1});
+            return ((DeleteUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public System.IAsyncResult BeginDeleteUserConfiguration(DeleteUserConfigurationType DeleteUserConfiguration1, System.AsyncCallback callback, object asyncState)
+        {
+            return this.BeginInvoke("DeleteUserConfiguration", new object[] {
+                    DeleteUserConfiguration1}, callback, asyncState);
+        }
+
+        /// <remarks/>
+        public DeleteUserConfigurationResponseType EndDeleteUserConfiguration(System.IAsyncResult asyncResult)
+        {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((DeleteUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public void DeleteUserConfigurationAsync(DeleteUserConfigurationType DeleteUserConfiguration1)
+        {
+            this.DeleteUserConfigurationAsync(DeleteUserConfiguration1, null);
+        }
+
+        /// <remarks/>
+        public void DeleteUserConfigurationAsync(DeleteUserConfigurationType DeleteUserConfiguration1, object userState)
+        {
+            if ((this.DeleteUserConfigurationOperationCompleted == null))
+            {
+                this.DeleteUserConfigurationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteUserConfigurationOperationCompleted);
+            }
+            this.InvokeAsync("DeleteUserConfiguration", new object[] {
+                    DeleteUserConfiguration1}, this.DeleteUserConfigurationOperationCompleted, userState);
+        }
+
+        private void OnDeleteUserConfigurationOperationCompleted(object arg)
+        {
+            if ((this.DeleteUserConfigurationCompleted != null))
+            {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteUserConfigurationCompleted(this, new DeleteUserConfigurationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetUserConfiguration" +
+            "", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
+        [return: System.Xml.Serialization.XmlElementAttribute("GetUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public GetUserConfigurationResponseMessageType GetUserConfiguration([System.Xml.Serialization.XmlElementAttribute("GetUserConfiguration", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetUserConfigurationType GetUserConfiguration1)
+        {
+            object[] results = this.Invoke("GetUserConfiguration", new object[] {
+                    GetUserConfiguration1});
+            return ((GetUserConfigurationResponseMessageType)(results[0]));
+        }
+
+        /// <remarks/>
+        public System.IAsyncResult BeginGetUserConfiguration(GetUserConfigurationType GetUserConfiguration1, System.AsyncCallback callback, object asyncState)
+        {
+            return this.BeginInvoke("GetUserConfiguration", new object[] {
+                    GetUserConfiguration1}, callback, asyncState);
+        }
+
+        /// <remarks/>
+        public GetUserConfigurationResponseMessageType EndGetUserConfiguration(System.IAsyncResult asyncResult)
+        {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((GetUserConfigurationResponseMessageType)(results[0]));
+        }
+
+        /// <remarks/>
+        public void GetUserConfigurationAsync(GetUserConfigurationType GetUserConfiguration1)
+        {
+            this.GetUserConfigurationAsync(GetUserConfiguration1, null);
+        }
+
+        /// <remarks/>
+        public void GetUserConfigurationAsync(GetUserConfigurationType GetUserConfiguration1, object userState)
+        {
+            if ((this.GetUserConfigurationOperationCompleted == null))
+            {
+                this.GetUserConfigurationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetUserConfigurationOperationCompleted);
+            }
+            this.InvokeAsync("GetUserConfiguration", new object[] {
+                    GetUserConfiguration1}, this.GetUserConfigurationOperationCompleted, userState);
+        }
+
+        private void OnGetUserConfigurationOperationCompleted(object arg)
+        {
+            if ((this.GetUserConfigurationCompleted != null))
+            {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetUserConfigurationCompleted(this, new GetUserConfigurationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateUserConfigurat" +
+            "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
+        [return: System.Xml.Serialization.XmlElementAttribute("UpdateUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
+        public UpdateUserConfigurationResponseType UpdateUserConfiguration([System.Xml.Serialization.XmlElementAttribute("UpdateUserConfiguration", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] UpdateUserConfigurationType UpdateUserConfiguration1)
+        {
+            object[] results = this.Invoke("UpdateUserConfiguration", new object[] {
+                    UpdateUserConfiguration1});
+            return ((UpdateUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public System.IAsyncResult BeginUpdateUserConfiguration(UpdateUserConfigurationType UpdateUserConfiguration1, System.AsyncCallback callback, object asyncState)
+        {
+            return this.BeginInvoke("UpdateUserConfiguration", new object[] {
+                    UpdateUserConfiguration1}, callback, asyncState);
+        }
+
+        /// <remarks/>
+        public UpdateUserConfigurationResponseType EndUpdateUserConfiguration(System.IAsyncResult asyncResult)
+        {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((UpdateUserConfigurationResponseType)(results[0]));
+        }
+
+        /// <remarks/>
+        public void UpdateUserConfigurationAsync(UpdateUserConfigurationType UpdateUserConfiguration1)
+        {
+            this.UpdateUserConfigurationAsync(UpdateUserConfiguration1, null);
+        }
+
+        /// <remarks/>
+        public void UpdateUserConfigurationAsync(UpdateUserConfigurationType UpdateUserConfiguration1, object userState)
+        {
+            if ((this.UpdateUserConfigurationOperationCompleted == null))
+            {
+                this.UpdateUserConfigurationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUpdateUserConfigurationOperationCompleted);
+            }
+            this.InvokeAsync("UpdateUserConfiguration", new object[] {
+                    UpdateUserConfiguration1}, this.UpdateUserConfigurationOperationCompleted, userState);
+        }
+
+        private void OnUpdateUserConfigurationOperationCompleted(object arg)
+        {
+            if ((this.UpdateUserConfigurationCompleted != null))
+            {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UpdateUserConfigurationCompleted(this, new UpdateUserConfigurationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
 
@@ -10434,6 +10674,12 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool mobileImEnabledFieldSpecified;
 
+        private string displayNamePrefixField;
+
+        private string yomiGivenNameField;
+
+        private string yomiSurnameField;
+
         /// <remarks/>
         public string FileAs
         {
@@ -11833,6 +12079,45 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.mobileImEnabledFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public string DisplayNamePrefix
+        {
+            get
+            {
+                return this.displayNamePrefixField;
+            }
+            set
+            {
+                this.displayNamePrefixField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string YomiGivenName
+        {
+            get
+            {
+                return this.yomiGivenNameField;
+            }
+            set
+            {
+                this.yomiGivenNameField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string YomiSurname
+        {
+            get
+            {
+                return this.yomiSurnameField;
+            }
+            set
+            {
+                this.yomiSurnameField = value;
             }
         }
     }
@@ -33460,7 +33745,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoResponseMessageType : ResponseMessageType
     {
 
@@ -34389,7 +34674,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class SetUserPhotoResponseMessageType : BaseResponseMessageType
     {
     }
@@ -34399,7 +34684,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoResponseType : BaseResponseMessageType
     {
     }
@@ -40988,7 +41273,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class SetUserPhotoType : BaseRequestType
     {
 
@@ -41028,7 +41313,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class GetUserPhotoType : BaseRequestType
     {
 
@@ -43943,6 +44228,126 @@ namespace Microsoft.Protocols.TestSuites.Common
             {
                 this.RaiseExceptionIfNecessary();
                 return ((SetUserPhotoResponseMessageType)(this.results[0]));
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    public delegate void CreateUserConfigurationCompletedEventHandler(object sender, CreateUserConfigurationCompletedEventArgs e);
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateUserConfigurationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+    {
+
+        private object[] results;
+
+        internal CreateUserConfigurationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+            base(exception, cancelled, userState)
+        {
+            this.results = results;
+        }
+
+        /// <remarks/>
+        public CreateUserConfigurationResponseType Result
+        {
+            get
+            {
+                this.RaiseExceptionIfNecessary();
+                return ((CreateUserConfigurationResponseType)(this.results[0]));
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    public delegate void DeleteUserConfigurationCompletedEventHandler(object sender, DeleteUserConfigurationCompletedEventArgs e);
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteUserConfigurationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+    {
+
+        private object[] results;
+
+        internal DeleteUserConfigurationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+            base(exception, cancelled, userState)
+        {
+            this.results = results;
+        }
+
+        /// <remarks/>
+        public DeleteUserConfigurationResponseType Result
+        {
+            get
+            {
+                this.RaiseExceptionIfNecessary();
+                return ((DeleteUserConfigurationResponseType)(this.results[0]));
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    public delegate void GetUserConfigurationCompletedEventHandler(object sender, GetUserConfigurationCompletedEventArgs e);
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetUserConfigurationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+    {
+
+        private object[] results;
+
+        internal GetUserConfigurationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+            base(exception, cancelled, userState)
+        {
+            this.results = results;
+        }
+
+        /// <remarks/>
+        public GetUserConfigurationResponseMessageType Result
+        {
+            get
+            {
+                this.RaiseExceptionIfNecessary();
+                return ((GetUserConfigurationResponseMessageType)(this.results[0]));
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    public delegate void UpdateUserConfigurationCompletedEventHandler(object sender, UpdateUserConfigurationCompletedEventArgs e);
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UpdateUserConfigurationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+    {
+
+        private object[] results;
+
+        internal UpdateUserConfigurationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+            base(exception, cancelled, userState)
+        {
+            this.results = results;
+        }
+
+        /// <remarks/>
+        public UpdateUserConfigurationResponseType Result
+        {
+            get
+            {
+                this.RaiseExceptionIfNecessary();
+                return ((UpdateUserConfigurationResponseType)(this.results[0]));
             }
         }
     }

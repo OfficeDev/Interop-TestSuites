@@ -24,7 +24,7 @@
     <!--Set R1776Enabled to true to verify that the implementation does use this UrlEntityType complex type which extends the EntityType complex type, as specified in section 2.2.4.46. Set R1776Enabled to false to disable this requirement.-->
     <Property name="R1776Enabled" value="false" />
     <!--Set R1230Enabled to true to verify that the ReturnNewItemIds element was introduced in implementation, as specified in section 2.2.4.3. Set R1230Enabled to false to disable this requirement.-->
-    <Property name="R1230Enabled" value="false" />
+    <Property name="R1230Enabled" value="true" />
     <!--Set R1054011Enabled to true to verify that the implementation does use the element "MarkAllItemsAsReadResponseMessage" with type "m:ResponseMessageType", which specifies the response message for the MarkAllItemsAsRead operation, as specified in [MS-OXWSCDATA] section 2.2.4.10. Set R1054011Enabled to false to disable this requirement.-->
     <Property name="R1054011Enabled" value="false" />
     <!--Set R132502Enabled to true to verify that the implementation does include the DateTimePrecision element which specifies precision of DateTime values that are returned in responses, as specified in [MS-OXWSCDATA] section 2.2.5.1. Set R132502Enabled to false to disable this requirement.-->
@@ -165,5 +165,19 @@
     <Property name="R1683Enabled" value="false" />
     <!--Set R74Enabled to true to verify that the implementation does support Id Storage Type "MailboxItemMailboxGuidBased", as specified in [MS-OXWSITEMID] section 2.1.3.2.2. Set R74Enabled to false to disable this requirement.-->
     <Property name="R74Enabled" value="true" />
+    <!--Set R2281Enabled to true to verify that the implementation does support Attachments element in ItemType. Set R2281Enabled to false to disable this requirement.-->
+    <Property name="R2281Enabled" value="true" />
+    <!--Set R2285Enabled to true to verify that the implementation does support IsAssociated element in ItemType. Set R2285Enabled to false to disable this requirement.-->
+    <Property name="R2285Enabled" value="true" />
+    <!--Set R2338Enabled to true to verify that the implementation does support WebClientReadFormQueryString element in ItemType. Set R2338Enabled to false to disable this requirement.-->
+    <Property name="R2338Enabled" value="true" />
+    <!--Set R2290Enabled to true to verify that the implementation does support UniqueBody element in ItemType. Set R2290Enabled to false to disable this requirement.-->
+    <Property name="R2290Enabled" value="true" />
+    <!--Set R2283Enabled to true to verify that the implementation does support ReminderNextTime element in ItemType. Set R2283Enabled to false to disable this requirement.-->
+    <Property name="R2283Enabled" value="false" />
+    <!--Set R2288Enabled to true to verify that the implementation does support ConversationId element in ItemType. Set R2288Enabled to false to disable this requirement.-->
+    <Property name="R2288Enabled" value="true" />
+    <!--Set R1881Enabled to true to verify that the implementation does support StoreEntryId element in ItemType. Set R1881Enabled to false to disable this requirement.-->
+    <Property name="R1881Enabled" value="true" />
   </Properties>
 </TestSite>

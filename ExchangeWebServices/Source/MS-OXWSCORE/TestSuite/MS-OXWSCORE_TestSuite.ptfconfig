@@ -9,6 +9,9 @@
     <Adapter xsi:type="managed" name="IMS_OXWSCOREAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSCORE.MS_OXWSCOREAdapter" />
     <Adapter xsi:type="managed" name="IMS_OXWSSRCHAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSCORE.MS_OXWSSRCHAdapter" />
     <Adapter xsi:type="managed" name="IMS_OXWSITEMIDAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSITEMID.MS_OXWSITEMIDAdapter" />
+    <!-- SUT Control Adapter -->
+    <!-- Change the value of the "type" attribute to "interactive" and remove the "adaptertype" attribute, if you need to run the test suite in interactive mode. -->
+    <Adapter xsi:type="managed" name="IMS_OXWSUSRCFGSUTControlAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSCORE.MS_OXWSUSRCFGSUTControlAdapter"/>
   </Adapters>
 
   <!-- Change the defaultprofile value to "Verbose" to see the debug logs, otherwise keep the default value "MinimumLog". -->

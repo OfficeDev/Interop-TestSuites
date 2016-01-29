@@ -83,10 +83,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // One contact item should be returned.
             Site.Assert.AreEqual<int>(
                 1,
-                 getItemIds.GetLength(0),
-                 "One contact item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
-                 1,
-                 getItemIds.GetLength(0));
+                getItemIds.GetLength(0),
+                "One contact item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                1,
+                getItemIds.GetLength(0));
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2018");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2018
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "IPM.Contact",
+                ((ItemInfoResponseMessageType)getItemResponse.ResponseMessages.Items[0]).Items.Items[0].ItemClass,
+                2018,
+                @"[In t:ItemType Complex Type] This value is ""IPM.Contact"" for contact item.");
             #endregion
 
             #region Step 4: Get the second copied contact item success.
@@ -350,6 +360,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         {
             ContactItemType item = new ContactItemType();
             this.TestSteps_VerifyGetItemWithItemResponseShapeType_BodyTypeResponseTypeEnum(item);
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if invalid ItemClass values are set for contact items in the CreateItem request,
+        /// an ErrorObjectTypeChanged response code will be returned in the CreateItem response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S02_TC16_CreateContactItemWithInvalidItemClass()
+        {
+            #region Step 1: Create the contact item with ItemClass set to IPM.Appointment.
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            ContactItemType item = new ContactItemType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Appointment";
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a contact item with ItemClass IPM.Appointment.");
+            #endregion
+
+            #region Step 2: Create the contact item with ItemClass set to IPM.Post.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Post";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a contact item with ItemClass IPM.Post.");
+            #endregion
+
+            #region Step 3: Create the contact item with ItemClass set to IPM.Task.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 3);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Task";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a contact item with ItemClass IPM.Task.");
+            #endregion
+
+            #region Step 4: Create the contact item with ItemClass set to IPM.DistList.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 4);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.DistList";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a contact item with ItemClass IPM.DistList.");
+            #endregion
+
+            #region Step 5: Create the contact item with ItemClass set to random string.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 5);
+            createItemRequest.Items.Items[0].ItemClass = Common.GenerateResourceName(this.Site, "ItemClass");
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a contact item with ItemClass is set to a random string.");
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2023");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2023
+            this.Site.CaptureRequirement(
+                2023,
+                @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
         #endregion
     }

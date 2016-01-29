@@ -91,6 +91,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  "One distribution list type item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  getItemIds.GetLength(0));
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2022");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2022
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "IPM.DistList",
+                ((ItemInfoResponseMessageType)getItemResponse.ResponseMessages.Items[0]).Items.Items[0].ItemClass,
+                2022,
+                @"[In t:ItemType Complex Type] This value is ""IPM.DistList"" for distribution list item.");
             #endregion 
 
             #region Step 4: Get the second copied distribution list type item success.
@@ -378,6 +388,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
             DistributionListType item = new DistributionListType();
             this.TestSteps_VerifyGetItemWithItemResponseShapeType_BodyTypeResponseTypeEnum(item);
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if invalid ItemClass values are set for DistributionLists items in the CreateItem request,
+        /// an ErrorObjectTypeChanged response code will be returned in the CreateItem response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S03_TC16_CreateDistributionListsItemWithInvalidItemClass()
+        {
+            #region Step 1: Create the DistributionLists item with ItemClass set to IPM.Appointment.
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            DistributionListType item = new DistributionListType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Appointment";
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a DistributionLists item with ItemClass IPM.Appointment.");
+            #endregion
+
+            #region Step 2: Create the DistributionLists item with ItemClass set to IPM.Post.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Post";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a DistributionLists item with ItemClass IPM.Post.");
+            #endregion
+
+            #region Step 3: Create the DistributionLists item with ItemClass set to IPM.Task.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 3);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Task";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a DistributionLists item with ItemClass IPM.Task.");
+            #endregion
+
+            #region Step 4: Create the DistributionLists item with ItemClass set to IPM.Contact.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 4);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Contact";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a DistributionLists item with ItemClass IPM.Contact.");
+            #endregion
+
+            #region Step 5: Create the DistributionLists item with ItemClass set to random string.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 5);
+            createItemRequest.Items.Items[0].ItemClass = Common.GenerateResourceName(this.Site, "ItemClass");
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a DistributionLists item with ItemClass is set to a random string.");
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2023");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2023
+            this.Site.CaptureRequirement(
+                2023,
+                @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
         #endregion
     }
