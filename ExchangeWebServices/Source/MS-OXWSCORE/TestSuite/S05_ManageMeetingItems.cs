@@ -769,6 +769,87 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         }
 
         /// <summary>
+        /// This case is intended to validate ProposeNewTime in ResponseObjects for calendar item from successful response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC21_ResponseObjectsProposeNewTime()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2302, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ProposeNewTime element. ");
+
+            #region Organizer sends meeting to attendee.
+            CalendarItemType item = new CalendarItemType();
+            item.RequiredAttendees = new AttendeeType[1];
+            EmailAddressType attendeeEmail = new EmailAddressType();
+            attendeeEmail.EmailAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            AttendeeType attendee = new AttendeeType();
+            attendee.Mailbox = attendeeEmail;
+            item.RequiredAttendees[0] = attendee;
+
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem);
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendOnlyToAll;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+
+            // One created item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 createdItemIds.GetLength(0),
+                 "One created item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 createdItemIds.GetLength(0));
+            #endregion
+
+            #region Attendee gets the meeting request
+            ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.AreEqual<int>(1, findItemIds.Length, "Attendee should receive the meeting request");
+
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(findItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            // Check whether the child elements of ResponseObjects have been returned successfully.
+            ItemInfoResponseMessageType getItems = getItemResponse.ResponseMessages.Items[0] as ItemInfoResponseMessageType;
+            ResponseObjectType[] responseObjects = getItems.Items.Items[0].ResponseObjects;
+            foreach (ResponseObjectType responseObject in responseObjects)
+            {
+                if (responseObject.GetType() == typeof(ProposeNewTimeType))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2302");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2302
+                    // Element ProposeNewTime is returned from server, this requirement can be captured directly.
+                    this.Site.CaptureRequirement(
+                        2302,
+                        @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTime element which specifies the response object that is used to propose a new time. (<82> Section 2.2.4.33:  This element [ProposeNewTime] was introduced in Exchange 2013 SP1.)");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2135");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2135
+                    // Element ProposeNewTime is returned from server and pass schema validation, this requirement can be captured directly.
+                    this.Site.CaptureRequirement(
+                        2135,
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ProposeNewTime is t:ProposeNewTimeType ([MS-OXWSCDATA] section 2.2.4.38).");
+                    break;
+                }
+            }
+            this.CleanItemsSentOut(new string[] { createItemRequest.Items.Items[0].Subject });
+            this.ExistItemIds.Remove(getItems.Items.Items[0].ItemId);
+            #endregion
+        }
+
+        /// <summary>
         /// Create and get a recurring calendar item.
         /// </summary>
         /// <param name="start">The start time of a recurring calendar item</param>

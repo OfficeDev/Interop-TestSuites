@@ -531,7 +531,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     List<ItemIdType> foundItemIds = new List<ItemIdType>();
                     foreach (ItemType foundItem in foundItems)
                     {
-                        if (searchRestriction == null || foundItem.Subject == searchRestriction)
+                        if (searchRestriction == null || foundItem.Subject.Contains(searchRestriction))
                         {
                             foundItemIds.Add(foundItem.ItemId);
                         }
@@ -698,7 +698,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         /// <param name="itemSubjects">The subjects of items which have been sent out to User2.</param>
         protected void CleanItemsSentOut(string[] itemSubjects)
         {
-            ItemIdType[] receivedItemIds = new ItemIdType[itemSubjects.Length];
+            List<ItemIdType> receivedItemIds = new List<ItemIdType>();
 
             for (int i = 0; i < itemSubjects.Length; i++)
             {
@@ -708,24 +708,64 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 Site.Assert.IsNotNull(findItemIds, "Mail item should be available in User2 mailbox.");
                 Site.Assert.AreEqual<int>(1, findItemIds.Length, "There should be only one item with subject {0}.", itemSubjects[i]);
 
-                receivedItemIds[i] = findItemIds[0];
+                receivedItemIds.Add(findItemIds[0]);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R424");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R424
+                // The sent item is found in receiver's mailbox, this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    424,
+                    @"[In SendItem Operation] The SendItem operation sends message items on the server.");
+            }
+
+            for (int i = 0; i < itemSubjects.Length; i++)
+            {
+                // Find items in the Calendar folder of User2 which were sent out by User1 with subject.
+                ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.calendar, itemSubjects[i], "User2");
+
+                if (findItemIds != null)
+                {
+                    receivedItemIds.Add(findItemIds[0]);
+                }
+
             }
 
             // Delete the found items.
             DeleteItemType deleteItemRequest = new DeleteItemType();
-            deleteItemRequest.ItemIds = receivedItemIds;
+            deleteItemRequest.ItemIds = receivedItemIds.ToArray();
             deleteItemRequest.DeleteType = DisposalType.HardDelete;
 
             // AffectedTaskOccurrences indicates whether a task instance or a task master is to be deleted.
             deleteItemRequest.AffectedTaskOccurrencesSpecified = true;
             deleteItemRequest.AffectedTaskOccurrences = AffectedTaskOccurrencesType.AllOccurrences;
 
+            deleteItemRequest.SuppressReadReceipts = true;
+            deleteItemRequest.SuppressReadReceiptsSpecified = true;
+
             // SendMeetingCancellations describes how cancellations are to be handled for deleted meetings.
             deleteItemRequest.SendMeetingCancellationsSpecified = true;
             deleteItemRequest.SendMeetingCancellations = CalendarItemCreateOrDeleteOperationType.SendToNone;
             DeleteItemResponseType deleteItemResponse = this.COREAdapter.DeleteItem(deleteItemRequest);
 
-            Common.CheckOperationSuccess(deleteItemResponse, itemSubjects.Length, this.Site);
+            this.Site.Assert.AreEqual<int>(
+                receivedItemIds.Count,
+                deleteItemResponse.ResponseMessages.Items.GetLength(0),
+                "Expected Item Count: {0}, Actual Item Count: {1}",
+                receivedItemIds.Count,
+                deleteItemResponse.ResponseMessages.Items.GetLength(0));
+
+            foreach (ResponseMessageType responseMessage in deleteItemResponse.ResponseMessages.Items)
+            {
+                this.Site.Assert.AreEqual<ResponseClassType>(
+                        ResponseClassType.Success,
+                        responseMessage.ResponseClass,
+                        string.Format(
+                            "The operation should be successful! Expected response code: {0}, actual response code: {1}",
+                            ResponseCodeType.NoError,
+                            responseMessage.ResponseCode));
+            }
 
             // Switch the credentials to User1.
             this.SwitchUser("User1");
@@ -5741,6 +5781,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         {
             Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
 
+            if (Common.IsRequirementEnabled(1288, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1288");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1288
+                // If the EntityExtractionResultType instance is not null and the schema could be validated successfully, this requirement can be verified.
+                this.Site.CaptureRequirementIfIsNotNull(
+                    entityExtractionResult,
+                    1288,
+                    @"[In Appendix C: Product Behavior] Implementation does support the EntityExtractionResultType complex type specifies the result of an entity extraction. (Exchange 2013 and above follow this behavior.)
+  <xs:complexType name=""EntityExtractionResultType""> 
+  <xs:sequence>
+    <xs:element name=""Addresses"" type=""t:ArrayOfAddressEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""MeetingSuggestions"" type=""t:ArrayOfMeetingSuggestionsType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""TaskSuggestions"" type=""t:ArrayOfTaskSuggestionsType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""EmailAddresses"" type=""t:ArrayOfEmailAddressEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""Contacts"" type=""t:ArrayOfContactsType"" minOccurs=""0"" maxOccurs=""1"" />     
+    <xs:element name=""Urls"" type=""t:ArrayOfUrlEntitiesType"" minOccurs=""0"" maxOccurs=""1"" /> 
+    <xs:element name=""PhoneNumbers"" type=""t:ArrayOfPhoneEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+   </xs:sequence>
+ </xs:complexType>");
+            }
+
             if (Common.IsRequirementEnabled(1350, this.Site))
             {
                 // Add the debug information
@@ -5851,6 +5915,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfAddressEntities[0].Address,
                     1754,
                     @"[In t:AddressEntityType Complex Type] Address: An element of type string , as defined in [XMLSCHEMA2] section 3.2.1, that represents a street address.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1134");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1134
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    address,
+                    arrayOfAddressEntities[0].Address,
+                    1134,
+                    @"[In t:EntityExtractionResultType Complex Type] Addresses: An element of type ArrayOfAddressEntitiesType, as defined in section 2.2.4.2, that represents the address entities returned.");
             }
         }
 
@@ -6174,6 +6248,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfPhoneEntities[0].Type,
                     1770,
                     @"[In t:PhoneEntityType Complex Type] Type: An element of type string that represents the type of phone number, for example, ""Business"" or ""Home"".");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1140");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1140
+                // This requirement can be captured directly after above requirements are captured.
+                this.Site.CaptureRequirement(
+                    1140,
+                    @"[In t:EntityExtractionResultType Complex Type] PhoneNumbers: An element of type ArrayOfPhoneEntitiesType, as defined in section 2.2.4.30, that represents the phone numbers returned.");
             }
         }
 
@@ -6230,6 +6313,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfUrlEntities[0].Url,
                     1777,
                     @"[In t:UrlEntityType Complex Type] URL: An element of type string, as defined in [XMLSCHEMA2] section 3.2.1, that specifies a URL.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1139");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1139
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    url.OriginalString,
+                    arrayOfUrlEntities[0].Url,
+                    1139,
+                    @"[In t:EntityExtractionResultType Complex Type] Urls: An element of type ArrayOfUrlEntitiesType, as defined in section 2.2.4.29, that represents the URLs returned.");
             }
         }
 
@@ -6286,6 +6379,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfEmailAddressEntities[0].EmailAddress,
                     1761,
                     @"[In t:EmailAddressEntityType Complex Type] EmailAddress: An element of type string, as defined in [XMLSCHEMA2] section 3.2.1, that specifies an email address.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1137");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1137
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    emailAddress,
+                    arrayOfEmailAddressEntities[0].EmailAddress,
+                    1137,
+                    @"[In t:EntityExtractionResultType Complex Type] EmailAddresses: An element of type ArrayOfEmailAddressEntitiesType, as defined in section 2.2.4.35, that represents the email addresses returned.");
 
                 this.VerifyEntityType(arrayOfEmailAddressEntities[0]);
             }

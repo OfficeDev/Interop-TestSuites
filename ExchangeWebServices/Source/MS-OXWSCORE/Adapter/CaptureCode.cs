@@ -1150,6 +1150,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     </wsdl:operation>");
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2182");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2182
+            Site.CaptureRequirementIfIsNotNull(
+                moveItemResponse,
+                2182,
+                @" [In tns:MoveItemSoapOut Message] [The MoveItemSoapOut WSDL message is defined as:]
+                   <wsdl:message name=""MoveItemSoapOut"">
+                       <wsdl:part name=""MoveItemResult"" element=""tns:MoveItemResponse""/>
+                       <wsdl:part name=""ServerVersion"" element=""t:ServerVersionInfo""/>
+                   </wsdl:message>");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R414");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R414
