@@ -1088,7 +1088,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R39002</ns1:REQ_ID>
@@ -1484,16 +1484,16 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R81001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R313</ns1:REQ_ID>
@@ -3594,7 +3594,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R229</ns1:REQ_ID>
@@ -5419,9 +5419,9 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In CreateItem] tns:CreateItemSoapIn: The contact (2) item MUST be created in a Contacts folder, or ErrorCannotCreateContactInNonContactFolder ([MS-OXWSCDATA] section 2.2.5.24) will be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302</ns1:REQ_ID>
@@ -5492,6 +5492,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R30200401</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
 		<ns1:Description>[In GetUserPhoto] The protocol server responds with a GetUserPhotoSoapOut response WSDL message</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
@@ -6819,7 +6820,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support element HasPicture. (&lt;4&gt; Section 2.2.4.3:  Exchange 2007 does not support the HasPicture element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R81001:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R81:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6829,7 +6830,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support element HasPicture. (Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R81001:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R81:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7600,7 +7601,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R367</ns1:REQ_ID>

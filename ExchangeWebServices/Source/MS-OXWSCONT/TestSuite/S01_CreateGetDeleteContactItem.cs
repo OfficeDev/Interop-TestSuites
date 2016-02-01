@@ -1015,6 +1015,71 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 @"[In m:ResponseCodeType Simple Type]The value ""ErrorCannotCreateContactInNonContactFolder"" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.");
             #endregion
         }
+
+        /// <summary>
+        /// This test case is intended to validate the failed response returned by CreateItem request which contains HasPicture element in contact item.
+        /// </summary>
+        [TestCategory("MSOXWSCONT"), TestMethod()]
+        public void MSOXWSCONT_S01_TC10_VerifyHasPictureIsReadonly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275002, this.Site), "Implementation does not support the HasPicture element.");
+
+            #region Step 1:Create the contact item.
+            // Call CreateItem operation.
+            ContactItemType item = this.BuildContactItemWithRequiredProperties();
+            item.HasPicture = false;
+            item.HasPictureSpecified = true;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(item);
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                81001,
+                @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<4>");
+            #endregion
+
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the failed response returned by create contact item in folder that is not a Contacts folder.
+        /// </summary>
+        [TestCategory("MSOXWSCONT"), TestMethod()]
+        public void MSOXWSCONT_S01_TC11_VerifyErrorCannotCreateContactInNonContactFolder()
+        {
+            #region Step 1:Create the contact item.
+            // Call CreateItem operation.
+            ContactItemType item = this.BuildContactItemWithRequiredProperties();
+
+            CreateItemType createItemRequest = new CreateItemType();
+
+            #region Config the contact item
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ContactItemType[1];
+
+            // Create a contact item without optional elements.
+            createItemRequest.Items.Items[0] = item;
+
+            // Configure the SavedItemFolderId of CreateItem request to specify that the created item is saved under which folder.
+            createItemRequest.SavedItemFolderId = new TargetFolderIdType()
+            {
+                Item = new DistinguishedFolderIdType()
+                {
+                    Id = DistinguishedFolderIdNameType.inbox,
+                }
+            };
+            #endregion
+
+            // Call CreateItem operation.
+            CreateItemResponseType createItemResponse = this.CONTAdapter.CreateItem(createItemRequest);
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCannotCreateContactInNonContactFolder,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                301001,
+                @"[In CreateItem] tns:CreateItemSoapIn: The contact (2) item MUST be created in a Contacts folder, or ErrorCannotCreateContactInNonContactFolder ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
         #endregion
     }
 }
