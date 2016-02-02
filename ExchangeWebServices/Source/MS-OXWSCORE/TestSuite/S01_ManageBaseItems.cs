@@ -61,6 +61,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Check the operation response.
             Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2169");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2169
+            this.Site.CaptureRequirementIfAreEqual <ResponseClassType>(
+                ResponseClassType.Success,
+                createItemResponse.ResponseMessages.Items[0].ResponseClass,
+                2169,
+                @"[In tns:CreateItemSoapOut Message] If the request is successful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to ""Success"".");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2170");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2170
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.NoError,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2170,
+                @"[In tns:CreateItemSoapOut Message] The ResponseCode element of the CreateItemResponseMessage element is set to ""NoError"".");
+
             ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
 
             // One created item should be returned.
@@ -3286,6 +3306,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 2014,
                 @"[In t:ItemType Complex Type] This element [ItemId] is read-only.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2171");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2171
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                createItemResponse.ResponseMessages.Items[0].ResponseClass,
+                2171,
+                @"[In tns:CreateItemSoapOut Message] If the request is unsuccessful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to ""Error"".");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2172");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2172
+            // MS-OXWSCORE_R2014 is captured, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                2172,
+                @"[In tns:CreateItemSoapOut Message] The ResponseCode element of the CreateItemResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
             #endregion
 
             #region Update an item with setting ItemId
@@ -4249,6 +4288,81 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 updateItemResponse.ResponseMessages.Items[0].ResponseCode,
                 2358,
                 @"[In t:ItemType Complex Type] but if [IconIndex] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the element RightsManagementLicenseData is read-only.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC43_RightsManagementLicenseDataIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1355, this.Site), "Exchange 2007 and Exchange 2010 do not support the RightsManagementLicenseData element.");
+
+            #region Create an item with setting RightsManagementLicenseData
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].RightsManagementLicenseData = new RightsManagementLicenseDataType();
+            createdItems[0].RightsManagementLicenseData.EditAllowedSpecified = true;
+            createdItems[0].RightsManagementLicenseData.EditAllowed = true;
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2052");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2052
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2052,
+                @"[In t:ItemType Complex Type] This element [RightsManagementLicenseData] is read-only.");
+            #endregion
+
+            #region Update an item with setting RightsManagementLicenseData
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemRightsManagementLicenseData
+            };
+            setItem.Item1 = new ItemType()
+            {
+                RightsManagementLicenseData = new RightsManagementLicenseDataType
+                {
+                    EditAllowed = true,
+                    EditAllowedSpecified = true
+                }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2353");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2353
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                2353,
+                @"[In t:ItemType Complex Type] but if [RightsManagementLicenseData] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
             #endregion
         }
         #endregion

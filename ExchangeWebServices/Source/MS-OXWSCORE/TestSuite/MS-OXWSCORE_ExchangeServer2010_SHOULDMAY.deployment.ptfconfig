@@ -179,5 +179,15 @@
     <Property name="R2288Enabled" value="true" />
     <!--Set R1881Enabled to true to verify that the implementation does support StoreEntryId element in ItemType. Set R1881Enabled to false to disable this requirement.-->
     <Property name="R1881Enabled" value="true" />
+    <!--Set R1355Enabled to true to verify that the implementation does support RightsManagementLicenseData element. Set R1355Enabled to false to disable this requirement.-->
+    <Property name="R1355Enabled" value="false" />
+    <!--Set R2311Enabled to true to verify that the implementation does support SuppressReadReceipts element in DeleteItemType. Set R2311Enabled to false to disable this requirement.-->
+    <Property name="R2311Enabled" value="false" />
+    <!--Set R2315Enabled to true to verify that the implementation does support SuppressReadReceipts element in UpdateItemType. Set R2315Enabled to false to disable this requirement.-->
+    <Property name="R2315Enabled" value="false" />
+    <!--Set R2302Enabled to true to verify that the implementation does support ProposeNewTime element. Set R2302Enabled to false to disable this requirement.-->
+    <Property name="R2302Enabled" value="false" />
+    <!--Set R1288Enabled to true to verify that the implementation does support EntityExtractionResultType element. Set R1288Enabled to false to disable this requirement.-->
+    <Property name="R1288Enabled" value="false" />
   </Properties>
 </TestSite>

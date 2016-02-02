@@ -1325,7 +1325,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1308</ns1:REQ_ID>
@@ -2868,7 +2868,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] but if [Preview] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] but if [RightsManagementLicenseData] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3358,7 +3358,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2078</ns1:REQ_ID>
@@ -3376,7 +3376,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2080</ns1:REQ_ID>
@@ -3394,7 +3394,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2082</ns1:REQ_ID>
@@ -3412,7 +3412,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2084</ns1:REQ_ID>
@@ -3430,7 +3430,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2086</ns1:REQ_ID>
@@ -3448,7 +3448,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2088</ns1:REQ_ID>
@@ -3466,7 +3466,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2090</ns1:REQ_ID>
@@ -3484,7 +3484,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2092</ns1:REQ_ID>
@@ -3502,7 +3502,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2094</ns1:REQ_ID>
@@ -3520,7 +3520,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2096</ns1:REQ_ID>
@@ -3538,7 +3538,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2098</ns1:REQ_ID>
@@ -3556,7 +3556,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2100</ns1:REQ_ID>
@@ -3574,7 +3574,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2102</ns1:REQ_ID>
@@ -3592,7 +3592,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2104</ns1:REQ_ID>
@@ -3610,7 +3610,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2106</ns1:REQ_ID>
@@ -3628,7 +3628,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2108</ns1:REQ_ID>
@@ -3646,7 +3646,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2110</ns1:REQ_ID>
@@ -3664,7 +3664,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2112</ns1:REQ_ID>
@@ -3682,7 +3682,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2114</ns1:REQ_ID>
@@ -3700,7 +3700,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2116</ns1:REQ_ID>
@@ -3718,7 +3718,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2118</ns1:REQ_ID>
@@ -3736,7 +3736,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2120</ns1:REQ_ID>
@@ -3754,7 +3754,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2122</ns1:REQ_ID>
@@ -3772,7 +3772,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2124</ns1:REQ_ID>
@@ -3790,7 +3790,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2126</ns1:REQ_ID>
@@ -3808,7 +3808,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2128</ns1:REQ_ID>
@@ -3826,7 +3826,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2130</ns1:REQ_ID>
@@ -3844,7 +3844,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2132</ns1:REQ_ID>
@@ -3986,7 +3986,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R123</ns1:REQ_ID>
@@ -4004,7 +4004,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R124</ns1:REQ_ID>
@@ -4013,7 +4013,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R125</ns1:REQ_ID>
@@ -4293,7 +4293,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2134</ns1:REQ_ID>
@@ -4312,7 +4312,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2136</ns1:REQ_ID>
@@ -5869,7 +5869,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2141</ns1:REQ_ID>
@@ -5884,17 +5884,17 @@
 		<ns1:REQ_ID>MS-OXWSCORE_R1132</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
 		<ns1:Description>[In t:EntityExtractionResultType Complex Type] The EntityExtractionResultType complex type specifies the result of an entity extraction.&lt;49&gt;
- &lt;xs:complexType name="EntityExtractionResultType"&gt;
-    &lt;xs:sequence&gt;
-      &lt;xs:element name="Addresses" type="t:ArrayOfAddressesType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="MeetingSuggestions" type="t:ArrayOfMeetingSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="TaskSuggestions" type="t:ArrayOfTaskSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="EmailAddresses" type="t:ArrayOfExtractedEmailAddresses" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="Contacts" type="t:ArrayOfContactsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="Urls" type="t:ArrayOfUrlsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="PhoneNumbers" type="t:ArrayOfPhonesType" minOccurs="0" maxOccurs="1" /&gt;
-    &lt;/xs:sequence&gt;
-  &lt;/xs:complexType&gt;</ns1:Description>
+ &lt;xs:complexType name="EntityExtractionResultType"&gt; 
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="Addresses" type="t:ArrayOfAddressEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="MeetingSuggestions" type="t:ArrayOfMeetingSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="TaskSuggestions" type="t:ArrayOfTaskSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="EmailAddresses" type="t:ArrayOfEmailAddressEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="Contacts" type="t:ArrayOfContactsType" minOccurs="0" maxOccurs="1" /&gt;     
+    &lt;xs:element name="Urls" type="t:ArrayOfUrlEntitiesType" minOccurs="0" maxOccurs="1" /&gt; 
+    &lt;xs:element name="PhoneNumbers" type="t:ArrayOfPhoneEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+   &lt;/xs:sequence&gt;
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5904,7 +5904,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1134</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In t:EntityExtractionResultType Complex Type] Addresses: An element of type ArrayOfAddressesType, as defined in section 2.2.4.23, that represents the addresses returned.</ns1:Description>
+		<ns1:Description>[In t:EntityExtractionResultType Complex Type] Addresses: An element of type ArrayOfAddressEntitiesType, as defined in section 2.2.4.2, that represents the address entities returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5931,7 +5931,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1137</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In t:EntityExtractionResultType Complex Type] EmailAddresses: An element of type ArrayOfExtractedEmailAddresses, as defined in section 2.2.4.35, that represents the email addresses returned.</ns1:Description>
+		<ns1:Description>[In t:EntityExtractionResultType Complex Type] EmailAddresses: An element of type ArrayOfEmailAddressEntitiesType, as defined in section 2.2.4.35, that represents the email addresses returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5949,7 +5949,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1139</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In t:EntityExtractionResultType Complex Type] Urls: An element of type ArrayOfUrlsType, as defined in section 2.2.4.29, that represents the URLs returned.</ns1:Description>
+		<ns1:Description>[In t:EntityExtractionResultType Complex Type] Urls: An element of type ArrayOfUrlEntitiesType, as defined in section 2.2.4.29, that represents the URLs returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5958,7 +5958,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In t:EntityExtractionResultType Complex Type] PhoneNumbers: An element of type ArrayOfPhonesType, as defined in section 2.2.4.30, that represents the phone numbers returned.</ns1:Description>
+		<ns1:Description>[In t:EntityExtractionResultType Complex Type] PhoneNumbers: An element of type ArrayOfPhoneEntitiesType, as defined in section 2.2.4.30, that represents the phone numbers returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7343,7 +7343,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2168</ns1:REQ_ID>
@@ -8083,7 +8083,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2169</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>If the request is successful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Success". </ns1:Description>
+		<ns1:Description>[In tns:CreateItemSoapOut Message] If the request is successful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Success". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8092,7 +8092,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2170</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>The ResponseCode element of the CreateItemResponseMessage element is set to "NoError".</ns1:Description>
+		<ns1:Description>[In tns:CreateItemSoapOut Message] The ResponseCode element of the CreateItemResponseMessage element is set to "NoError".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8101,7 +8101,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2171</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>If the request is unsuccessful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Description>[In tns:CreateItemSoapOut Message] If the request is unsuccessful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Error". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8110,7 +8110,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2172</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>The ResponseCode element of the CreateItemResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
+		<ns1:Description>[In tns:CreateItemSoapOut Message] The ResponseCode element of the CreateItemResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8935,7 +8935,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1426</ns1:REQ_ID>
@@ -8972,7 +8972,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_2311.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2311.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R346</ns1:REQ_ID>
@@ -10536,7 +10536,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1839</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In m:MarkAsJunkType Complex Type] [When the value of "IsJunk" is] True and [the value of "MoveItem" is] True, the operation adds the sender of the email to the blocked sender list.</ns1:Description>
+		<ns1:Description>[In m:MarkAsJunkType Complex Type] [When the value of "IsJunk" is] True and [the value of "MoveItem" is] True, the operation adds the sender of the email to the blocked sender list and moves the email item to the Junk Email folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11132,11 +11132,11 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R424</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In SendItem Operation] The SendItem operation sends messages and post items on the server.</ns1:Description>
+		<ns1:Description>[In SendItem Operation] The SendItem operation sends message items on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R425</ns1:REQ_ID>
@@ -12341,7 +12341,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2315, MS-OXWSCORE_R2328.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2315.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R520</ns1:REQ_ID>
@@ -15148,8 +15148,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1270</ns1:REQ_ID>
@@ -15451,22 +15450,22 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:REQ_ID>MS-OXWSCORE_R1288</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the EntityExtractionResultType complex type specifies the result of an entity extraction. (Exchange 2013 and above follow this behavior.)
- &lt;xs:complexType name="EntityExtractionResultType"&gt;
-    &lt;xs:sequence&gt;
-      &lt;xs:element name="Addresses" type="t:ArrayOfAddressesType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="MeetingSuggestions" type="t:ArrayOfMeetingSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="TaskSuggestions" type="t:ArrayOfTaskSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="EmailAddresses" type="t:ArrayOfExtractedEmailAddresses" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="Contacts" type="t:ArrayOfContactsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="Urls" type="t:ArrayOfUrlsType" minOccurs="0" maxOccurs="1" /&gt;
-      &lt;xs:element name="PhoneNumbers" type="t:ArrayOfPhonesType" minOccurs="0" maxOccurs="1" /&gt;
-    &lt;/xs:sequence&gt;
-  &lt;/xs:complexType&gt;</ns1:Description>
+  &lt;xs:complexType name="EntityExtractionResultType"&gt; 
+  &lt;xs:sequence&gt;
+    &lt;xs:element name="Addresses" type="t:ArrayOfAddressEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="MeetingSuggestions" type="t:ArrayOfMeetingSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="TaskSuggestions" type="t:ArrayOfTaskSuggestionsType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="EmailAddresses" type="t:ArrayOfEmailAddressEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;xs:element name="Contacts" type="t:ArrayOfContactsType" minOccurs="0" maxOccurs="1" /&gt;     
+    &lt;xs:element name="Urls" type="t:ArrayOfUrlEntitiesType" minOccurs="0" maxOccurs="1" /&gt; 
+    &lt;xs:element name="PhoneNumbers" type="t:ArrayOfPhoneEntitiesType" minOccurs="0" maxOccurs="1" /&gt;
+   &lt;/xs:sequence&gt;
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R1132:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -15679,8 +15678,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1235</ns1:REQ_ID>
@@ -15987,8 +15985,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2293</ns1:REQ_ID>
@@ -16008,8 +16005,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1268</ns1:REQ_ID>
@@ -16761,18 +16757,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2315</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute which is true specifies read receipts are suppressed. (&lt;102&gt; Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2184:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2328</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute which is false specifies read receipts are not suppressed. (&lt;102&gt; Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (&lt;102&gt; Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2184:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
