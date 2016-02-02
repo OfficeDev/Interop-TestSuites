@@ -850,6 +850,146 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         }
 
         /// <summary>
+        /// This test case is intended to validate the CompareOrginalStartTime.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC22_VerifyCompareOriginalStartTime()
+        {
+
+            #region Step 1: Create and get a recurring calendar item.
+            DateTime start = DateTime.Now;
+            int numberOfOccurrences = 5;
+            CalendarItemType calendar = this.CreateAndGetRecurringCalendarItem(start, numberOfOccurrences);
+
+            #endregion
+
+            #region Step 2: Get the first occurrence of the recurring calendar item by OccurrenceItemIdType.
+            // The calendar item to get.
+            OccurrenceItemIdType[] occurrenceItemId = new OccurrenceItemIdType[1];
+            occurrenceItemId[0] = new OccurrenceItemIdType();
+            occurrenceItemId[0].RecurringMasterId = calendar.ItemId.Id;
+            occurrenceItemId[0].ChangeKey = calendar.FirstOccurrence.ItemId.ChangeKey;
+            occurrenceItemId[0].InstanceIndex = 1;
+
+            // Call the GetItem operation.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(occurrenceItemId);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            CalendarItemType[] getCalendarOccurences = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse);
+
+            // One calendar item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 getCalendarOccurences.GetLength(0),
+                 "One calendar item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getCalendarOccurences.GetLength(0));
+
+            ItemIdType[] itemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+            ItemIdId itemIdId = this.ITEMIDAdapter.ParseItemId(itemIds[0]);
+            #endregion
+
+            #region Step 3: Update the start date of the calendar item.
+
+            ItemChangeType itemChange = new ItemChangeType();
+            itemChange.Item = itemIds[0];
+
+            CalendarItemType calendarChange = new CalendarItemType();
+            calendarChange.Start = calendar.Start.AddMinutes(20);
+            calendarChange.StartSpecified = true;
+
+            itemChange.Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItemField = new SetItemFieldType();
+            setItemField.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.calendarStart
+
+            };
+
+            setItemField.Item1 = calendarChange;
+            itemChange.Updates[0] = setItemField;
+
+            UpdateItemResponseType updatedItem = this.CallUpdateItemOperation(DistinguishedFolderIdNameType.calendar, true, new ItemChangeType[] { itemChange });
+
+            #endregion
+
+            SutVersion currentSutVersion = (SutVersion)Enum.Parse(typeof(SutVersion), Common.GetConfigurationPropertyValue("SutVersion", this.Site));
+            if (currentSutVersion.Equals(SutVersion.ExchangeServer2016))
+            {
+                #region Step 4: Get the recurring calendar item by RecurringMasterItemIdRangesType with set CompareOriginalStartTime to true.
+
+                // The calendar item to get.
+                RecurringMasterItemIdRangesType[] recurringMasterItemIdRanges = new RecurringMasterItemIdRangesType[1];
+                recurringMasterItemIdRanges[0] = new RecurringMasterItemIdRangesType();
+
+                // Use the first occurrence item id and change key to form the recurringMasterItemId
+                recurringMasterItemIdRanges[0].Id = calendar.ItemId.Id;
+                recurringMasterItemIdRanges[0].ChangeKey = calendar.ItemId.ChangeKey;
+                recurringMasterItemIdRanges[0].Ranges = new OccurrencesRangeType[1];
+                recurringMasterItemIdRanges[0].Ranges[0] = new OccurrencesRangeType();
+                recurringMasterItemIdRanges[0].Ranges[0].Start = calendar.Start.AddMinutes(10);
+                recurringMasterItemIdRanges[0].Ranges[0].StartSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].End = start.AddDays(5);
+                recurringMasterItemIdRanges[0].Ranges[0].EndSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].Count = 5;
+                recurringMasterItemIdRanges[0].Ranges[0].CountSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTime = true;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTimeSpecified = true;
+
+                // Call the GetItem operation.
+                GetItemResponseType getItemResponse1 = this.CallGetItemOperation(recurringMasterItemIdRanges);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(getItemResponse1, 1, this.Site);
+
+                CalendarItemType[] getCalendarRecurring = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse1);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1697");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1697
+                this.Site.CaptureRequirementIfAreEqual(
+                    5,
+                    getCalendarRecurring.Length,
+                    1697,
+                    @"[In t:OccurrencesRangeType Complex Type] [CompareOriginalStartTime is] True, indicates comparing the specified ranges to an original start time.");
+
+                #endregion
+
+                #region Step 5: Get the recurrence master calendar item by RecurringMasterItemIdRangesType with set CompareOriginalStartTime to false.
+                // The calendar item to get.
+
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTime = false;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTimeSpecified = true;
+
+                // Call the GetItem operation.
+                getItemResponse1 = this.CallGetItemOperation(recurringMasterItemIdRanges);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(getItemResponse1, 1, this.Site);
+
+                getCalendarRecurring = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse1);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1698");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1698
+                this.Site.CaptureRequirementIfAreEqual(
+                    6,
+                    getCalendarRecurring.Length,
+                    1698,
+                    @"[In t:OccurrencesRangeType Complex Type] otherwise [CompareOriginalStartTime is] false, indicates comparing the specified ranges to a pair of start and end values.");
+                #endregion
+            }
+
+            // Clear ExistItemIds for DeleteItem.
+            this.ExistItemIds.Clear();
+            this.ExistItemIds.Add(calendar.ItemId);
+        }
+
+        /// <summary>
         /// Create and get a recurring calendar item.
         /// </summary>
         /// <param name="start">The start time of a recurring calendar item</param>

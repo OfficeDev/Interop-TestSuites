@@ -2398,6 +2398,35 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     {
                         this.CallMoveItemOperation(DistinguishedFolderIdNameType.drafts, findItemIds);
                     }
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1668");
+
+                    // The item[2] is deleted using SoftDelete value, and it cannot be got in step 3 after DeleteItem operation, also it cannot be found in deleteditems folder, this represent the item is moved to the Deleted Items folder.
+                    Site.CaptureRequirementIfIsTrue(
+                        findInDeleteditems[2],
+                        1668,
+                        @"[In m:DeleteItemType Complex Type] The value ""MoveToDeletedItems"" of ""DeleteType"" which specifies that an item or folder is moved to the Deleted Items folder.");
+                }
+                else if (disposalType == DisposalType.SoftDelete)
+                {
+                    // Find the deleted item in deleteditems folder.
+                    ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.recoverableitemsdeletions, createdItems[0].Subject, "User1");
+                    findInDeleteditems[i] = findItemIds != null;
+
+                    if (findInDeleteditems[i])
+                    {
+                        this.CallMoveItemOperation(DistinguishedFolderIdNameType.recoverableitemsdeletions, findItemIds);
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1669");
+
+                        // The item[1] is deleted using SoftDelete value, and it cannot be got in step 3 after DeleteItem operation, also it cannot be found in deleteditems folder, this represent the item is moved to the Recoverable Items folder.
+                        Site.CaptureRequirementIfIsTrue(
+                            findInDeleteditems[1],
+                            1669,
+                            @"[In m:DeleteItemType Complex Type] The value ""SoftDelete"" of ""DeleteType"" which specifies that an item or folder is moved to the dumpster if the dumpster is enabled.");
+
+                    }
                 }
                 else
                 {

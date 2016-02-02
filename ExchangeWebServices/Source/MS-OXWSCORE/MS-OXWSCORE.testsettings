@@ -5,6 +5,7 @@
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetMailboxJunkEmailConfiguration.ps1" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />

@@ -416,6 +416,25 @@ ModifyConfigFileNode $MSOXWSTASKDeploymentFile "UserPassword"     $MSOXWSTASKUse
 
 OutputSuccess "Configuration for the MS-OXWSTASK_TestSuite.deployment.ptfconfig file is complete"
 
+OutputWarning "Add SUT machine to the TrustedHosts configuration setting to ensure WinRM client can process remote calls against SUT machine." 
+$service = "WinRM"
+$serviceStatus = (Get-Service $service).Status
+if($serviceStatus -ne "Running")
+{
+    Start-Service $service
+}
+$originalTrustedHosts = (Get-Item WSMan:\localhost\Client\TrustedHosts -Force).Value
+if ($originalTrustedHosts -ne "*")
+{
+    if ($originalTrustedHosts -eq "")
+    {
+        Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$sutcomputerName" -Force
+    }
+    elseif (!($originalTrustedHosts.split(',') -icontains $sutcomputerName))
+    {
+        Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$originalTrustedHosts,$sutcomputerName" -Force
+    }
+}
 
 #----------------------------------------------------------------------------
 # End script

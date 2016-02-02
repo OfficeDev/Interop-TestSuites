@@ -53,6 +53,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         protected IMS_OXWSCOREAdapter COREAdapter { get; private set; }
 
         /// <summary>
+        /// Gets the MS-OXWSCORE SUT Control Adapter.
+        /// </summary>
+        protected IMS_OXWSCORESUTControlAdapter CORESUTControlAdapter { get; private set; }
+
+        /// <summary>
         /// Gets the MS-OXWSITEMID Adapter.
         /// </summary>
         protected IMS_OXWSITEMIDAdapter ITEMIDAdapter { get; private set; }
@@ -90,6 +95,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             ExchangeServiceBinding.ServiceResponseEvent += new ExchangeServiceBinding.ServiceResponseDelegate(this.ExchangeServiceBinding_ResponseEvent);
             this.InitializeCollection();
             this.COREAdapter = Site.GetAdapter<IMS_OXWSCOREAdapter>();
+            this.CORESUTControlAdapter = this.Site.GetAdapter<IMS_OXWSCORESUTControlAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
             this.ITEMIDAdapter = Site.GetAdapter<IMS_OXWSITEMIDAdapter>();
             this.USRCFGSUTControlAdapter = Site.GetAdapter<IMS_OXWSUSRCFGSUTControlAdapter>();
@@ -1462,6 +1468,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Assert.IsNotNull(
                 item_AllProperties[0].Subject,
                 "The subject element in returned item should not be null.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R59");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R59
+            // The request have get item all properties,
+            // and the responses are successfully,
+            // this requirement can be verified.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                59,
+                @"[In t:DefaultShapeNamesType Simple Type] The value ""AllProperties"" specifies all the properties that are defined for the item or folder.");
+
+
             #endregion
 
             #region Step 3: Get the created item with BaseShape set to IdOnly.
