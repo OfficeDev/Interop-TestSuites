@@ -12,6 +12,8 @@
     <!-- SUT Control Adapter -->
     <!-- Change the value of the "type" attribute to "interactive" and remove the "adaptertype" attribute, if you need to run the test suite in interactive mode. -->
     <Adapter xsi:type="managed" name="IMS_OXWSUSRCFGSUTControlAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSCORE.MS_OXWSUSRCFGSUTControlAdapter"/>
+    <!-- Change the value of the "type" attribute to "interactive" and remove the "scriptdir" attribute, if you need to run the test suite in interactive mode. -->
+    <Adapter xsi:type="powershell" name="IMS_OXWSCORESUTControlAdapter" scriptdir="."/>
   </Adapters>
 
   <!-- Change the defaultprofile value to "Verbose" to see the debug logs, otherwise keep the default value "MinimumLog". -->
