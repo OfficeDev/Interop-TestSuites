@@ -3,7 +3,10 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
+     <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
+     <Property name="R1275114Enabled" value="false"/>
     <!--Set R1275002Enabled to true to implementation does support the HasPicture element. Set R1275002Enabled to false to disable this requirement-->
     <Property name="R1275002Enabled" value="false"/>
+
   </Properties>
 </TestSite>

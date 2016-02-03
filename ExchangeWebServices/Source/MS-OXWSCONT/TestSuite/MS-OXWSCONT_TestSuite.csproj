@@ -55,6 +55,7 @@
     <Compile Include="S04_MoveContactItem.cs" />
     <Compile Include="S05_OperateMultipleContactItems.cs" />
     <Compile Include="S06_OperateContactItemWithOptionalElements.cs" />
+    <Compile Include="S07_SetGetUserPhoto.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -71,6 +72,7 @@
   <!-- Test Suite Drop -->
   <ItemGroup>
     <Content Include="MS-OXWSCONT_RequirementSpecification.xml" />
+    <Content Include="Resources\UserPhoto.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

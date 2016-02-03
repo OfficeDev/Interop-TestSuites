@@ -1826,6 +1826,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             // A flag represents the response contains the item information or not.
             bool hasItemInfo = false;
+            if (response is SetUserPhotoResponseMessageType)
+            {
+                return;
+            }
             foreach (ResponseMessageType responseMessage in response.ResponseMessages.Items)
             {
                 if (responseMessage is ItemInfoResponseMessageType)
@@ -1866,6 +1870,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 }
             }
         }
+
         #endregion
     }
 }

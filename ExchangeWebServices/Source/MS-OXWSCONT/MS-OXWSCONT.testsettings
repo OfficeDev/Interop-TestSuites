@@ -8,6 +8,7 @@
     <DeploymentItem filename="MS-OXWSCONT.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\Resources\UserPhoto.jpg" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
