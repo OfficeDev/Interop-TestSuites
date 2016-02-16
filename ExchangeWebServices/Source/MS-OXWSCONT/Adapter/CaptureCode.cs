@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 {
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
+    using System;
 
     /// <summary>
     /// The class provides methods to verify data/operation format in MS-OXWSCONT.
@@ -839,6 +840,40 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirement(
                 1,
                 @"[In Transport] The SOAP version supported is SOAP 1.1, as specified in [SOAP1.1].");
+        }
+        #endregion
+
+        #region Verify transport related requirements.
+        /// <summary>
+        /// Verify the transport related requirements.
+        /// </summary>
+        private void VerifyTransportType()
+        {
+            // Get the transport type
+            TransportProtocol transport = (TransportProtocol)Enum.Parse(typeof(TransportProtocol), Common.GetConfigurationPropertyValue("TransportType", Site), true);
+            if (Common.IsRequirementEnabled(335001, this.Site) && transport == TransportProtocol.HTTPS)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R335001");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R335001
+                // When test suite running on HTTPS, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    335001,
+                    @"[In Appendix B: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange 2007 and above follow this behavior.)");
+            }
+
+            if (transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R101");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R101
+                // When test suite running on HTTP, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    101,
+                    @"[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616].");
+            }
         }
         #endregion
     }

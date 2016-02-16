@@ -76,6 +76,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify GetItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyGetContactItem(getItemResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -94,6 +95,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify DeleteItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyDeleteContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -112,6 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify CreateItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyCreateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -130,6 +133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify UpdateItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyUpdateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -148,6 +152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify CopyItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyCopyContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -166,6 +171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verify MoveItem operation requirements
 
             this.VerifySoapVersion();
+            this.VerifyTransportType();
             this.VerifyMoveContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -180,6 +186,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         public GetUserPhotoResponseMessageType GetUserPhoto(GetUserPhotoType getUserPhotoRequest)
         {
             GetUserPhotoResponseMessageType getUserPhotoResponse = this.exchangeServiceBinding.GetUserPhoto(getUserPhotoRequest);
+            
+            #region Verifiy GetUserPhoto opreation requirements
+            this.VerifySoapVersion();
+            this.VerifyTransportType();
+            #endregion
 
             return getUserPhotoResponse;
         }
@@ -192,6 +203,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         public SetUserPhotoResponseMessageType SetUserPhoto(SetUserPhotoType setUserPhotoRequest)
         {
             SetUserPhotoResponseMessageType setUserPhotoResponse = this.exchangeServiceBinding.SetUserPhoto(setUserPhotoRequest);
+
+            #region Verifiy SetUserPhoto opreation requirements
+            this.VerifySoapVersion();
+            this.VerifyTransportType();
+            #endregion
 
             return setUserPhotoResponse;
         }
