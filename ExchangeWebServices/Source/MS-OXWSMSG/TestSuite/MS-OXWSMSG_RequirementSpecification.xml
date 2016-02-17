@@ -3,7 +3,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R1500</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>The endpoint (4) URL that is returned by either the Autodiscover Publishing Lookup SOAP-Based Web Service Protocol, as described in [MS-OXWSADISC], or the Autodiscover Publishing and Lookup Protocol, as described in [MS-OXDSCLI], is required to form the HTTP request to the Web server that hosts this protocol.</ns1:Description>
+		<ns1:Description>The endpoint URL that is returned by either the Autodiscover Publishing Lookup SOAP-Based Web Service Protocol,as specified by [MS-OXWSADISC], or the Autodiscover Publishing and Lookup Protocol, as specified by [MS-OXDSCLI], is required to form the HTTP request to the Web server that hosts this protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12,7 +12,25 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R1501</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>The operations that this protocol defines cannot be accessed unless the correct endpoint (4) is identified in the HTTP Web requests that target this protocol.</ns1:Description>
+		<ns1:Description>The operations that this protocol defines cannot be accessed unless the correct endpoint is identified in the HTTP Web requests that target this protocol.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R1501001</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>To access this protocol, all callers are authenticated. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R1501002</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
+		<ns1:Description>This protocol relies on the web server that hosts the application to perform authentication.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -57,7 +75,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] The SOAP version supported is SOAP 1.1.</ns1:Description>
+		<ns1:Description>[In Transport] This protocol uses SOAP 1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -75,11 +93,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R3</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] This protocol relies on the Web server that hosts the application to perform authentication.</ns1:Description>
+		<ns1:Description>[In Transport] This protocol relies on the web server that hosts the application to perform authentication.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R3001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R4</ns1:REQ_ID>
@@ -103,7 +130,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and Web Services Description Language (WSDL), as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -149,15 +176,6 @@
 		<ns1:REQ_ID>MS-OXWSMSG_R12</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Namespaces] The namespace URI of prefix "s" is http://www.w3.org/2001/XMLSchema, which refers to [XMLSCHEMA1].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R13</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The namespace URI of prefix "targetNamespace" is http://schemas.microsoft.com/exchange/services/2006/messages.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -221,7 +239,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R20</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] The MessageType complex type Represents a server e-mail message in a user's mailbox.</ns1:Description>
+		<ns1:Description>[In Complex Types] The MessageType complex type Represents a server email message in a user's mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -230,7 +248,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R21</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type represents a server e-mail message in a mailbox.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type represents a server email message in a mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -239,7 +257,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.8).</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.24).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -318,6 +336,18 @@
           type="t:SingleRecipientType"
           minOccurs="0"
          /&gt;
+        &lt;xs:element name="ApprovalRequestData"
+           type="t:ApprovalRequestDataType" 
+           minOccurs="0"
+          /&gt;
+         &lt;xs:element name="VotingInformation"
+           type="t:VotingInformationType" 
+           minOccurs="0"
+          /&gt;
+         &lt;xs:element name="ReminderMessageData" 
+           type="t:ReminderMessageDataType" 
+           minOccurs="0"
+          /&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -339,7 +369,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The Sender element is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.60) type.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] The Sender element is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.71) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -395,7 +425,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R29</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.9) type.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.11) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -424,7 +454,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R30</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element Specifies a collection of recipients of an e-mail.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element Specifies a collection of recipients of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -460,7 +490,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R33</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] CcRecipients element Specifies a collection of recipients that receive a carbon copy (Cc) of an e-mail.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] CcRecipients element Specifies a collection of recipients that receive a carbon copy (Cc) of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -496,7 +526,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R36</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] BccRecipients element Specifies a collection of recipients that receive a blind carbon copy (Bcc) of an e-mail.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] BccRecipients element Specifies a collection of recipients that receive a blind carbon copy (Bcc) of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -594,15 +624,6 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R44</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [IsDeliveryReceiptRequested element] This element is required when the IsDeliveryReceiptRequested element is specified.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R45</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsDeliveryReceiptRequested element] This is a read/write element.</ns1:Description>
@@ -633,7 +654,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R188</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element is xs:base64Binary ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element is xs:base64Binary ([XMLSCHEMA2] sec 3.2.16) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -642,7 +663,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element Specifies the identifier to the thread to which the message belongs.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element Specifies the position of the message within a conversation. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -660,7 +681,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [ConversationIndex element] This is a read/write element.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] [ConversationIndex element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -768,7 +789,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [InternetMessageId element] This is a read/write element.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] [InternetMessageId element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -795,7 +816,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R60</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [IsRead element] This element is read-only.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] [IsRead element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -832,7 +853,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R62</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] IsResponseRequested element Specifies a Boolean value that indicates whether a response to an e-mail has been requested.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] IsResponseRequested element Specifies a Boolean value that indicates whether a response to an email has been requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -923,7 +944,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R69</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ReplyTo element Specifies a collection of addresses to which replies should be sent.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ReplyTo element Specifies a collection of addresses to send replies to. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -966,6 +987,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R72001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ReceivedBy element] This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R197</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReceivedRepresenting element is t:SingleRecipientType</ns1:Description>
@@ -982,6 +1012,72 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ReceivedRepresenting element] This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element ApprovalRequestData is t:ApprovalRequestDataType ([MS-OXWSMTGS] section 2.2.4.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ApprovalRequestData] Specifies the approval state of an approval request message.&lt;1&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMSG_R182001.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType ([MS-OXWSMTGS] section 2.2.4.39).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [VotingInformation] Specifies voting information on messages that include voting buttons or voting response messages. &lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMSG_R182004.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( [MS-OXWSMTGS] section 2.2.4.33).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ReminderMessageData] Specifies the data in a reminder message. &lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMSG_R182006.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R74</ns1:REQ_ID>
@@ -1054,7 +1150,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R80</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SaveOnly" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.14).</ns1:Description>
+		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SaveOnly" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1081,7 +1177,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is sent.</ns1:Description>
+		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType complex type, the email message item is sent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1090,7 +1186,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R203</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item [is sent] but no copy is saved.</ns1:Description>
+		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType complex type, the email message item [is sent] but no copy is saved.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1108,7 +1204,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R85</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendAndSaveCopy" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is sent.</ns1:Description>
+		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendAndSaveCopy" means when used in the CreateItemType complex type, the email message item is sent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1117,7 +1213,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R204</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendAndSaveCopy" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item [is sent] and a copy is saved in the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.14).</ns1:Description>
+		<ns1:Description>[In t:MessageDispositionType Simple Type] The value "SendAndSaveCopy" means when used in the CreateItemType complex type, the email message item [is sent] and a copy is saved in the TargetFolderIdType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1189,7 +1285,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R93</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExchangeServicePortType Server Details] The E-Mail Message Types Items Web Service Protocol defines a single port type with seven operations.</ns1:Description>
+		<ns1:Description>[In ExchangeServicePortType Server Details] The EMail Message Types Items Web Service Protocol defines a single port type with seven operations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1243,7 +1339,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] CopyItem operation Copies a message on the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] CopyItem operation Copies an email message on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1252,7 +1348,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R100</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] CreateItem operation Creates a message on the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] CreateItem operation Creates an email message on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1261,7 +1357,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R101</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] DeleteItem operation Deletes a message from the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] DeleteItem operation Deletes an email message from the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1270,7 +1366,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetItem operation Gets a message from the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] GetItem operation Gets an email message from the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1279,7 +1375,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] MoveItem operation Moves a message on the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] MoveItem operation Moves an email message on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1288,7 +1384,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R104</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] SendItem operation Sends a message to the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] SendItem operation Sends an email message to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1297,7 +1393,103 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R105</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] UpdateItem operation Updates a message on the server.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] UpdateItem operation Updates an email message on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R164</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] The CopyItem operation copies email messages on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R202</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] The following is the WSDL port type specification of the CopyItem operation. &lt;wsdl:operation name="CopyItem"&gt;
+    &lt;wsdl:input message="tns:CopyItemSoapIn" /&gt;
+    &lt;wsdl:output message="tns:CopyItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R166</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] The following is the WSDL binding specification of the CopyItem operation. &lt;wsdl:operation name="CopyItem"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CopyItem" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:CopyItemSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:CopyItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:CopyItemSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="CopyItemResult" use="literal" /&gt;
+        &lt;soap:header message="tns:CopyItemSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R168</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] The protocol client sends a CopyItemSoapIn request WSDL message, and the protocol server responds with a CopyItemSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R169</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] If the CreateItem WSDL operation request is successful, the server returns a CreateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.2.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R170</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] [A successful CopyItem operation request returns a CopyItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R170001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] If the CreateItem WSDL operation is not successful, it returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R170002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem] [A unsuccessful CopyItem operation request returns a CopyItemResponse element] The ResponseCode element of the CreateItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R171</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In CopyItem]For more information, see CopyItem as described in [MS-OXWSCORE] section 3.1.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1305,8 +1497,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R106</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateItem] The CreateItem operation creates e-mail messages.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] The CreateItem operation creates email messages.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1314,7 +1506,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R107</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateItem] The following is the WSDL port type specification of the CreateItem operation.
 &lt;wsdl:operation name="CreateItem"&gt;
      &lt;wsdl:input message="tns:CreateItemSoapIn" /&gt;
@@ -1327,7 +1519,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R109</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateItem] The following is the WSDL binding specification of the CreateItem operation. &lt;wsdl:operation name="CreateItem"&gt;
     &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CreateItem" /&gt;
     &lt;wsdl:input&gt;
@@ -1349,7 +1541,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R111</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateItem] The protocol client sends a CreateItemSoapIn request WSDL message, and the protocol server responds with a CreateItemSoapOut response WSDL message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1358,8 +1550,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R112</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateItem] A successful CreateItem operation request returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem]If the CreateItem WSDL operation request is successful, the server returns a CreateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.2.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1367,8 +1559,26 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R113</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateItem] [A successful CreateItem operation request returns a CreateItemResponse element] The ResponseCode element of the CreateItemResponse element is set to "NoError".</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] [A successful CreateItem operation request returns a CreateItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R113001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] If the CreateItem WSDL operation is not successful, it returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R113002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateItem] [A unsuccessful CreateItem operation request returns a CreateItemResponse element] The ResponseCode element of the CreateItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1376,7 +1586,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R114</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateItem] For more information, see CreateItem as described in [MS-OXWSCORE] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1384,9 +1594,105 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R147</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] The DeleteItem operation deletes email messages from the server store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R148</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] The following is the WSDL port type specification of the DeleteItem operation. &lt;wsdl:operation name="DeleteItem"&gt;
+    &lt;wsdl:input message="tns:DeleteItemSoapIn" /&gt;
+    &lt;wsdl:output message="tns:DeleteItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] The following is the WSDL binding specification of the DeleteItem operation. &lt;wsdl:operation name="DeleteItem"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/DeleteItem" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:DeleteItemSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:DeleteItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:DeleteItemSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="DeleteItemResult" use="literal" /&gt;
+        &lt;soap:header message="tns:DeleteItemSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R152</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] The protocol client sends a DeleteItemSoapIn request WSDL message, and the protocol server responds with a DeleteItemSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R153</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] If the DeleteItem WSDL operation request is successful, the server returns a DeleteItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.3.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the DeleteItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R154</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] [A successful DeleteItem operation request returns a DeleteItemResponse element] The ResponseCode element, as specified by [MS-OXWSCDATA] section 2.2.4.67, of the DeleteItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R154001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] If the DeleteItem WSDL operation request is not successful, it returns a DeleteItemResponse element with the ResponseClass attribute of the DeleteItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R154002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] [A unsuccessful DeleteItem operation request returns a DeleteItemResponse element] The ResponseCode element of the DeleteItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R155</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteItem] For more information, see DeleteItem as described in [MS-OXWSCORE] section 3.1.4.3.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R115</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] The GetItem operation enables the user to get e-mail messages and to access information about e-mail messages.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] The GetItem operation enables the user to get email messages and to access information about email messages.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1394,7 +1700,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R116</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The following is the WSDL port type specification of the GetItem operation.&lt;wsdl:operation name="GetItem"&gt;
     &lt;wsdl:input message="tns:GetItemSoapIn" /&gt;
     &lt;wsdl:output message="tns:GetItemSoapOut" /&gt;
@@ -1406,7 +1712,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R118</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The following is the WSDL binding specification of the GetItem operation. &lt;wsdl:operation name="GetItem"&gt;
     &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetItem" /&gt;
     &lt;wsdl:input&gt;
@@ -1428,7 +1734,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R120</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The GetItem operation request MUST include the elements[ItemShape and ItemIds] listed in the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1437,7 +1743,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R121</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] ItemShape element Specifies a set of properties to be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1446,7 +1752,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R122</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The child elements[BaseShape, IncludeMimeContent, BodyType, FilterHtmlContent and AdditionalProperties] for this element[ItemShape element] are listed in the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1455,7 +1761,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R123</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] ItemIds element Contains the unique identities of items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1464,7 +1770,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R124</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [ItemIds element] This element includes the Id attribute, which identifies a specific item in the store, and the ChangeKey attribute, which identifies a specific version of an item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1473,7 +1779,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R125</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The child elements[BaseShape, IncludeMimeContent, BodyType, FilterHtmlContent and AdditionalProperties] of the ItemShape element are listed in the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1482,7 +1788,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R126</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The BaseShape child element [in ItemShape element] Identifies the basic configuration of properties to be returned in an item response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1491,7 +1797,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R127</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [The BaseShape child element in ItemShape element] Set this element[BaseShape element] to IdOnly to return only the item ID.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1500,7 +1806,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R198</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [The BaseShape child element in ItemShape element] Set it[BaseShape element] to AllProperties to return all of the properties used by the server to construct a message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1509,7 +1815,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R128</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [The BaseShape child element in ItemShape element] This element MUST be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1518,7 +1824,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R129</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The IncludeMimeContent child element [in ItemShape element] Indicates whether MIME content is included in a returned message or attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1527,7 +1833,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R130</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The BodyType child element [in ItemShape element] Indicates whether a message body is returned as HTML.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1536,7 +1842,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R131</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The FilterHtmlContent child element [in ItemShape element] Indicates whether to filter unsafe HTML content from a message or attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1545,7 +1851,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R132</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The AdditionalProperties child element [in ItemShape element] Identifies additional item properties to be returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1554,7 +1860,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R133</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] The protocol client sends a GetItemSoapIn request WSDL message, and the protocol server responds with a GetItemSoapOut response WSDL message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1563,8 +1869,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R134</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] A successful GetItem operation request returns a GetItemResponse element with the ResponseClass attribute of the GetItemResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] If the GetItem WSDL operation request is successful, the server returns a GetItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.4.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the GetItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1572,8 +1878,26 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R135</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] [A successful GetItem operation request returns a GetItemResponse element] The ResponseCode element of the GetItemResponse element is set to "NoError".</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] [A successful GetItem operation request returns a GetItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the GetItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R135001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] If the GetItem WSDL operation request is not successful, it returns a GetItemResponse element with the ResponseClass attribute of the GetItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R135002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] [A unsuccessful GetItem operation request returns a GetItemResponse element] The ResponseCode element of the GetItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1581,192 +1905,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R199</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] For more information, see GetItem as described in [MS-OXWSCORE] section 3.1.4.2.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R136</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The UpdateItem operation updates e-mail message properties in the server store.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R137</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The following is the WSDL port type specification of the operation. &lt;wsdl:operation name="UpdateItem"&gt;
-    &lt;wsdl:input message="tns:UpdateItemSoapIn" /&gt;
-    &lt;wsdl:output message="tns:UpdateItemSoapOut" /&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R139</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The following is the WSDL binding specification of the UpdateItem operation. &lt;wsdl:operation name="UpdateItem"&gt;
-    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UpdateItem" /&gt;
-    &lt;wsdl:input&gt;
-        &lt;soap:header message="tns:UpdateItemSoapIn" part="Impersonation" use="literal"/&gt;
-        &lt;soap:header message="tns:UpdateItemSoapIn" part="MailboxCulture" use="literal"/&gt;
-        &lt;soap:header message="tns:UpdateItemSoapIn" part="RequestVersion" use="literal"/&gt;
-        &lt;soap:header message="tns:UpdateItemSoapIn" part="TimeZoneContext" use="literal"/&gt;
-        &lt;soap:body parts="request" use="literal" /&gt;
-    &lt;/wsdl:input&gt;
-    &lt;wsdl:output&gt;
-        &lt;soap:body parts="UpdateItemResult" use="literal" /&gt;
-        &lt;soap:header message="tns:UpdateItemSoapOut" part="ServerVersion" use="literal"/&gt;
-    &lt;/wsdl:output&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R141</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The UpdateItem operation modifies a message that has already been created and sent.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R142</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The UpdateItem operation request MAY contain the MessageDispositionType simple type (section 2.2.5.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R200</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The UpdateItem operation request MUST contain the ConflictResolutionType simple type ([MS-OXWSCORE] section 3.1.4.9.4.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R143</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] The protocol client sends an UpdateItemSoapIn request WSDL message, and the protocol server responds with an UpdateItemSoapOut response WSDL message.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R144</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] A successful UpdateItem operation request returns an UpdateItemResponse element with the ResponseClass attribute of the UpdateItemResponseMessage element set to "Success".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R145</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] [A successful UpdateItem operation request returns an UpdateItemResponse element] The ResponseCode element of the UpdateItemResponse element is set to "NoError".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R146</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateItem] For more information, see UpdateItem as described in [MS-OXWSCORE] section 3.1.4.9.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R147</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] The DeleteItem operation deletes e-mail messages from the server store.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R148</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] The following is the WSDL port type specification of the DeleteItem operation. &lt;wsdl:operation name="DeleteItem"&gt;
-    &lt;wsdl:input message="tns:DeleteItemSoapIn" /&gt;
-    &lt;wsdl:output message="tns:DeleteItemSoapOut" /&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R150</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] The following is the WSDL binding specification of the DeleteItem operation. &lt;wsdl:operation name="DeleteItem"&gt;
-    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/DeleteItem" /&gt;
-    &lt;wsdl:input&gt;
-        &lt;soap:header message="tns:DeleteItemSoapIn" part="Impersonation" use="literal"/&gt;
-        &lt;soap:header message="tns:DeleteItemSoapIn" part="MailboxCulture" use="literal"/&gt;
-        &lt;soap:header message="tns:DeleteItemSoapIn" part="RequestVersion" use="literal"/&gt;
-        &lt;soap:body parts="request" use="literal" /&gt;
-    &lt;/wsdl:input&gt;
-    &lt;wsdl:output&gt;
-        &lt;soap:body parts="DeleteItemResult" use="literal" /&gt;
-        &lt;soap:header message="tns:DeleteItemSoapOut" part="ServerVersion" use="literal"/&gt;
-    &lt;/wsdl:output&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R152</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] The protocol client sends a DeleteItemSoapIn request WSDL message, and the protocol server responds with a DeleteItemSoapOut response WSDL message.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R153</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] A successful DeleteItem operation request returns a DeleteItemResponse element with the ResponseClass attribute of the DeleteItemResponseMessage element set to "Success".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R154</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] [A successful DeleteItem operation request returns a DeleteItemResponse element] The ResponseCode element of the DeleteItemResponse element is set to "NoError".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R155</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteItem] For more information, see DeleteItem as described in [MS-OXWSCORE] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1775,7 +1915,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In MoveItem] The MoveItem operation moves one or more e-mail messages to a single destination folder.</ns1:Description>
+		<ns1:Description>[In MoveItem] The MoveItem operation moves one or more email messages to a single destination folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1826,7 +1966,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In MoveItem] A successful MoveItem operation request returns a MoveItemResponse element with the ResponseClass attribute of the MoveItemResponseMessage element set to "Success".</ns1:Description>
+		<ns1:Description>[In MoveItem] If the MoveItem WSDL operation request is successful, the server returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1835,7 +1975,25 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R163</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In MoveItem] [A successful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element of the MoveItemResponse element is set to "NoError".</ns1:Description>
+		<ns1:Description>[In MoveItem] [A successful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the MoveItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R163001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] If the MoveItem WSDL operation request is not successful, it returns a MoveItemResponse element with the ResponseClass attribute of the MoveItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R163002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In MoveItem] [A unsuccessful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element of the MoveItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1851,86 +2009,8 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R164</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] The CopyItem operation copies e-mail messages and puts them in a different folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R202</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] The following is the WSDL port type specification of the CopyItem operation. &lt;wsdl:operation name="CopyItem"&gt;
-    &lt;wsdl:input message="tns:CopyItemSoapIn" /&gt;
-    &lt;wsdl:output message="tns:CopyItemSoapOut" /&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R166</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] The following is the WSDL binding specification of the CopyItem operation. &lt;wsdl:operation name="CopyItem"&gt;
-    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CopyItem" /&gt;
-    &lt;wsdl:input&gt;
-        &lt;soap:header message="tns:CopyItemSoapIn" part="Impersonation" use="literal"/&gt;
-        &lt;soap:header message="tns:CopyItemSoapIn" part="MailboxCulture" use="literal"/&gt;
-        &lt;soap:header message="tns:CopyItemSoapIn" part="RequestVersion" use="literal"/&gt;
-        &lt;soap:body parts="request" use="literal" /&gt;
-    &lt;/wsdl:input&gt;
-    &lt;wsdl:output&gt;
-        &lt;soap:body parts="CopyItemResult" use="literal" /&gt;
-        &lt;soap:header message="tns:CopyItemSoapOut" part="ServerVersion" use="literal"/&gt;
-    &lt;/wsdl:output&gt;
-&lt;/wsdl:operation&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R168</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] The protocol client sends a CopyItemSoapIn request WSDL message, and the protocol server responds with a CopyItemSoapOut response WSDL message.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R169</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] A successful CopyItem operation request returns a CopyItemResponse element with the ResponseClass attribute of the CopyItemResponseMessage element set to "Success".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R170</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] [A successful CopyItem operation request returns a CopyItemResponse element] The ResponseCode element of the CopyItemResponse element is set to "NoError".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R171</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem] For more information, see CopyItem as described in [MS-OXWSCORE] section 3.1.4.1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R172</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] The SendItem operation sends e-mail messages that are located in the server store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1939,7 +2019,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R173</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] The following is the WSDL port type specification of the SendItem operation. &lt;wsdl:operation name="SendItem "&gt;
     &lt;wsdl:input message="tns:SendItemSoapIn" /&gt;
     &lt;wsdl:output message="tns:SendItemSoapOut" /&gt;
@@ -1951,7 +2031,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R175</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] The following is the WSDL binding specification of the SendItem operation. &lt;wsdl:operation name="SendItem"&gt;
     &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/SendItem" /&gt;
     &lt;wsdl:input&gt;
@@ -1972,7 +2052,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R177</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] The protocol client sends a SendItemSoapIn request WSDL message, and the protocol server responds with a SendItemSoapOut response WSDL message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1981,7 +2061,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R178</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] A successful SendItem operation request returns a SendItemResponse element with the ResponseClass attribute of the SendItemResponseMessage element set to "Success".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1990,7 +2070,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R179</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] [A successful SendItem operation request returns a SendItemResponse element] The ResponseCode element of the SendItemResponse element is set to "NoError".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1999,8 +2079,132 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R180</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SendItem] For more information, see SendItem as described in [MS-OXWSCORE] section 3.1.4.8.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R136</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The UpdateItem operation updates email message properties in the server store. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R137</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The following is the WSDL port type specification of the operation. &lt;wsdl:operation name="UpdateItem"&gt;
+    &lt;wsdl:input message="tns:UpdateItemSoapIn" /&gt;
+    &lt;wsdl:output message="tns:UpdateItemSoapOut" /&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R139</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The following is the WSDL binding specification of the UpdateItem operation. &lt;wsdl:operation name="UpdateItem"&gt;
+    &lt;soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UpdateItem" /&gt;
+    &lt;wsdl:input&gt;
+        &lt;soap:header message="tns:UpdateItemSoapIn" part="Impersonation" use="literal"/&gt;
+        &lt;soap:header message="tns:UpdateItemSoapIn" part="MailboxCulture" use="literal"/&gt;
+        &lt;soap:header message="tns:UpdateItemSoapIn" part="RequestVersion" use="literal"/&gt;
+        &lt;soap:header message="tns:UpdateItemSoapIn" part="TimeZoneContext" use="literal"/&gt;
+        &lt;soap:body parts="request" use="literal" /&gt;
+    &lt;/wsdl:input&gt;
+    &lt;wsdl:output&gt;
+        &lt;soap:body parts="UpdateItemResult" use="literal" /&gt;
+        &lt;soap:header message="tns:UpdateItemSoapOut" part="ServerVersion" use="literal"/&gt;
+    &lt;/wsdl:output&gt;
+&lt;/wsdl:operation&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R141</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The UpdateItem operation modifies a message that has already been created and sent.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The UpdateItem operation request MAY contain the MessageDispositionType simple type (section 2.2.5.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R200</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The UpdateItem operation request MUST contain the ConflictResolutionType simple type ([MS-OXWSCORE] section 3.1.4.9.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R143</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] The protocol client sends an UpdateItemSoapIn request WSDL message, and the protocol server responds with an UpdateItemSoapOut response WSDL message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R144</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] If the UpdateItem WSDL operation request is successful, the server returns an UpdateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.9.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the UpdateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "Success". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R145</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] [A successful UpdateItem operation request returns an UpdateItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the UpdateItemResponseMessage element is set to "NoError". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R145001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] If the UpdateItem WSDL operation request is not successful, it returns an UpdateItemResponse element with the ResponseClass attribute of the UpdateItemResponseMessage element set to "Error". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R145002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] [A unsuccessful UpdateItem operation request returns an UpdateItemResponse element] The ResponseCode element of the UpdateItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R146</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateItem] For more information, see UpdateItem as described in [MS-OXWSCORE] section 3.1.4.9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2034,6 +2238,69 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestData element. (&lt;1&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestData element. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73003:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182002</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestData element. (This element was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73003:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182003</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingInformation element. (&lt;2&gt; Section 2.2.4.1:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformation element. This .)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73005:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182004</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the VotingInformation element. (This element was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73005:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182005</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReminderMessageData element. (&lt;3&gt; Section 2.2.4.1:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageData element. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73007:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R182006</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReminderMessageData element. (This element was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R73007:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R163</ns1:REQ_ID>
