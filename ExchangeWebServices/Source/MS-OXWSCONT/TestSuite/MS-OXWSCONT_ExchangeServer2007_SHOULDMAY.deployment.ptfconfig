@@ -69,7 +69,5 @@
      <Property name="R1275108Enabled" value="false"/>
      <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
      <Property name="R1275114Enabled" value="false"/>
-
-
   </Properties>
 </TestSite>
