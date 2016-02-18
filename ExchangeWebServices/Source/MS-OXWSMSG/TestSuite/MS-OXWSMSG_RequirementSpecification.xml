@@ -553,7 +553,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R186</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] IsReadReceiptRequested element is xs:boolean ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] IsReadReceiptRequested element is xs:boolean ([XMLSCHEMA2] sec 3.2.2) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -690,7 +690,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R189</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] ConversationTopic element is xs:string ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Description>[In t:MessageType Complex Type] ConversationTopic element is xs:string ([XMLSCHEMA2] sec 3.2.1) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1020,7 +1020,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73002</ns1:REQ_ID>
@@ -1849,7 +1849,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXWSCDATA_R1193, MS-OXWSCDATA_R21193, MS-OXWSCDATA_R21194.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R132</ns1:REQ_ID>
@@ -2260,7 +2261,7 @@
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2281,7 +2282,7 @@
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2302,7 +2303,7 @@
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2442,7 +2443,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSMSG_R21188, MS-OXWSMSG_R21189.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21188</ns1:REQ_ID>
@@ -2477,6 +2479,36 @@
 		<ns1:REQ_ID>MS-OXWSCDATA_R1197</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "AdditionalProperties" with type "t:NonEmptyArrayOfPathsToElementType" specifies a set of requested additional properties to return in a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R1193</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "FilterHtmlContent" with type "xs:boolean" Specifies whether HTML content filtering is enabled.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSMSG_R21193, MS-OXWSMSG_R21194.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R21193</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemResponseShapeType Complex Type] [FilterHtmlContent is] True, specifies HTML content filtering is enabled.</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R1193:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R21194</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemResponseShapeType Complex Type] otherwise [FilterHtmlContent is] false, specifies [HTML content filtering is not enabled].</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R1193:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
