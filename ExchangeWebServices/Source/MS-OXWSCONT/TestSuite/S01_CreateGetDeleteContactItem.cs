@@ -1038,7 +1038,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 81001,
                 @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<4>");
             #endregion
-
         }
 
         /// <summary>

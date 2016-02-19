@@ -1,9 +1,9 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 {
+    using System;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
-    using System;
-
+    
     /// <summary>
     /// The class provides methods to verify data/operation format in MS-OXWSCONT.
     /// </summary>

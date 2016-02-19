@@ -74,6 +74,5 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         /// <param name="setUserPhotoRequest">The request of SetUserPhoto operation.</param>
         /// <returns>A response to SetUserPhoto operation request.</returns>
         SetUserPhotoResponseMessageType SetUserPhoto(SetUserPhotoType setUserPhotoRequest);
-
     }
 }

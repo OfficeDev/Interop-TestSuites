@@ -46,7 +46,7 @@
             SetUserPhotoType setUserPhotoRequest = new SetUserPhotoType();
             setUserPhotoRequest.Email = emailAddress;
 
-            using(FileStream imageStream=new FileStream("UserPhoto.jpg",FileMode.Open,FileAccess.ReadWrite))
+            using (FileStream imageStream = new FileStream("UserPhoto.jpg", FileMode.Open, FileAccess.ReadWrite))
             {
                 byte[] buffer = new byte[imageStream.Length];
 
@@ -59,6 +59,7 @@
             SetUserPhotoResponseMessageType setUserPhotoResponse = this.CONTAdapter.SetUserPhoto(setUserPhotoRequest);
 
             Site.Assert.IsNotNull(setUserPhotoResponse, "SetUserPhoto operation success.");
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302081");
 
@@ -69,7 +70,6 @@
                 @"[In SetUserPhoto] [The protocol client sends a SetUserPhotoSoapIn request WSDL message] and the protocol server responds with a SetUserPhotoSoapOut response WSDL message.");
   
             #endregion
-           
 
             #region Step 2: Call GetUserPhoto operation to get the photo which is set by step above.
             GetUserPhotoType getUserPhotoRequest = new GetUserPhotoType();
@@ -97,11 +97,9 @@
                 getUserPhotoResponse.ResponseCode,
                 302025,
                 @"[In GetUserPhotoSoapOut] [A successful GetUserPhoto WSDL operation request returns a GetUserPhotoResponse element ] The ResponseCode element of the GetUserPhotoResponse element is set to ""No Error"".");
-
-           
             #endregion
-           
         }
+
         /// <summary>
         /// This test case is intended to validate the UserPhotoSizeType enum value. 
         /// </summary>
@@ -131,6 +129,7 @@
             Site.Assert.IsNotNull(setUserPhotoResponse, "SetUserPhoto operation success.");
 
             #endregion
+
             #region Step 2: Call GetUserPhoto operation to get a photo with specified size:HR48x48.
             GetUserPhotoType getUserPhotoRequest = new GetUserPhotoType();
             getUserPhotoRequest.Email = emailAddress;
@@ -150,6 +149,7 @@
                 @"[In UserPhotoSizeType] HR48x48: Specifies that the image is 48 pixels high and 48 pixels wide.");
 
             #endregion
+
             #region Step 3: Call GetUserPhoto operation to get a photo with specified size:HR64x64.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR64x64;
 
@@ -166,6 +166,7 @@
                 @"[In UserPhotoSizeType] HR64x64: Specifies that the image is 64 pixels high and 64 pixels wide.");
 
             #endregion
+
             #region Step 4: Call GetUserPhoto operation to get a photo with specified size:HR96x96.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR96x96;
 
@@ -182,6 +183,7 @@
                 @"[In UserPhotoSizeType] HR96x96: Specifies that the image is 96 pixels high and 96 pixels wide.");
 
             #endregion
+
             #region Step 6: Call GetUserPhoto operation to get a photo with specified size:HR120x120.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR120x120;
 
@@ -198,6 +200,7 @@
                 @"[In UserPhotoSizeType] HR120x120: Specifies that the image is 120 pixels high and 120 pixels wide.");
 
             #endregion
+
             #region Step 7: Call GetUserPhoto operation to get a photo with specified size:HR240x240.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR240x240;
 
@@ -214,6 +217,7 @@
                 @"[In UserPhotoSizeType] HR240x240: Specifies that the image is 240 pixels high and 240 pixels wide.");
 
             #endregion
+
             #region Step 8: Call GetUserPhoto operation to get a photo with specified size:HR360x360.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR360x360;
 
@@ -230,6 +234,7 @@
                 @"[In UserPhotoSizeType] HR360x360: Specifies that the image is 360 pixels high and 360 pixels wide.");
 
             #endregion
+
             #region Step 9: Call GetUserPhoto operation to get a photo with specified size:HR432x432.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR432x432;
 
@@ -246,6 +251,7 @@
                 @"[In UserPhotoSizeType] HR432x432: Specifies that the image is 432 pixels high and 432 pixels wide.");
 
             #endregion
+
             #region Step 10: Call GetUserPhoto operation to get a photo with specified size:HR504x504.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR504x504;
 
@@ -262,6 +268,7 @@
                 @"[In UserPhotoSizeType] HR504x504: Specifies that the image is 504 pixels high and 504 pixels wide.");
 
             #endregion
+
             #region Step 11: Call GetUserPhoto operation to get a photo with specified size:HR648x648.
             getUserPhotoRequest.SizeRequested = UserPhotoSizeType.HR648x648;
 
@@ -279,6 +286,7 @@
 
             #endregion
         }
+
         /// <summary>
         /// This test case is intended to validate the whether the photo has changed.
         /// </summary>
@@ -308,7 +316,6 @@
             Site.Assert.IsNotNull(setUserPhotoResponse, "SetUserPhoto operation success.");
             #endregion
 
-
             #region Step 2: Call GetUserPhoto operation to get the photo which is set by step above.
             GetUserPhotoType getUserPhotoRequest = new GetUserPhotoType();
             getUserPhotoRequest.Email = emailAddress;
@@ -327,8 +334,6 @@
                 @"[In GetUserPhotoResponseMessageType] HasChanged element: If the value is true, the photo has changed.");
 
             #endregion
-
         }
     }
 }
-

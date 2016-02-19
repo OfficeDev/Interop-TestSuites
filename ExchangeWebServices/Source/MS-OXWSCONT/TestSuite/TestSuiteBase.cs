@@ -1830,6 +1830,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             {
                 return;
             }
+
             foreach (ResponseMessageType responseMessage in response.ResponseMessages.Items)
             {
                 if (responseMessage is ItemInfoResponseMessageType)
