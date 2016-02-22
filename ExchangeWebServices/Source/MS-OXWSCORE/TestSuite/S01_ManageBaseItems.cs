@@ -126,6 +126,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 1037,
                 @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""CreateItemResponseMessage"" with type ""m:ItemInfoResponseMessageType(section 2.2.4.37)"" specifies the response message for the CreateItem operation ([MS-OXWSCORE] section 3.1.4.2).");
+
+            if(Common.IsRequirementEnabled(2119413, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1021");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1021
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    createItemResponseMessage.Items.Items[0],
+                    typeof(MessageType),
+                    "MS-OXWSCDATA",
+                    1021,
+                    @"[In t:ArrayOfRealItemsType Complex Type] All items of type t:ItemType ([MS-OXWSCORE]) MUST be returned as a t:MessageType type.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1020");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1020
+                // MS-OXWSCDATA_R1021 is verified, the type of items is MessageType, and it is not ItemType. So this Requirement is verified directly.
+                this.Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    1020,
+                    @"[In t:ArrayOfRealItemsType Complex Type] This element [Item with type ""t:ItemType ([MS-OXWSCORE] section 2.2.4.8)"" ] MUST NOT be used in response messages.");
+            }            
             #endregion
 
             #region Step 2: Get the item.
@@ -4394,6 +4418,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In t:ItemType Complex Type] but if [RightsManagementLicenseData] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
             #endregion
         }
-        #endregion
+
+        /// <summary>
+        /// This case is intended to validate the response returned by GetItem operation with the ItemShape element in which FilterHtmlContent element exists or is not specified.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S01_TC44_GetItemWithFilterHtmlContent()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2119413, this.Site), "Exchange 2007 do not support the FilterHtmlContent element.");
+
+            ItemType item = new ItemType();
+            this.TestSteps_VerifyGetItemWithItemResponseShapeType_FilterHtmlContentBoolean(item);
+        }
     }
 }

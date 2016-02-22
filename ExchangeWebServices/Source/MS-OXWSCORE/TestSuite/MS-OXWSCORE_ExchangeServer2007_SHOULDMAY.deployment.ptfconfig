@@ -3,6 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
+    <!--Set R2119413Enabled to true to verify that the implementation does support the FilterHtmlContent element. Set R2119413Enabled to false to disable this requirement.-->
+    <Property name="R2119413Enabled" value="false" />
     <!--Set R1290Enabled to true to verify that the implementation does support the MarkAllItemsAsRead operation which marks all items in a folder as read, as specified in section 3.1.4.5. Set R1290Enabled to false to disable this requirement.-->
     <Property name="R1290Enabled" value="false" />
     <!--Set R1271Enabled to true to verify that the implementation does support the FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4.2. Set R1271Enabled to false to disable this requirement.-->
