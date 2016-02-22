@@ -1579,6 +1579,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  item_Default.GetLength(0));
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R61");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R61
+            // The request have get item by Default,
+            // and the responses are successfully,
+            // this requirement can be verified.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                61,
+                @"[In t:DefaultShapeNamesType Simple Type] The value ""Default"" specifies a set of properties that are defined as the default for the item or folder.");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1185");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1185
@@ -1989,6 +2001,96 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 21196,
                 @"[In t:ItemResponseShapeType Complex Type] otherwise [ConvertHtmlCodePageToUTF8 is] false, specifies [the item HTML body is not converted to UTF8].");
+            #endregion
+        }
+
+        /// <summary>
+        /// Verify the responses returned by GetItem operation with the ItemShape element in which FilterHtmlContent element exists or is not specified.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be gotten.</param>
+        protected void TestSteps_VerifyGetItemWithItemResponseShapeType_FilterHtmlContentBoolean<T>(T item)
+            where T : ItemType, new()
+        {
+            GetItemType getItem = new GetItemType();
+
+            #region Step 1: Create an item.
+            // Create item and return the item id.
+            getItem.ItemIds = this.CreateItemForSpecificItemType(item);
+            #endregion
+
+            #region Step 3: Get the created item with FilterHtmlContent set to true.
+            getItem.ItemShape = new ItemResponseShapeType();
+            getItem.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
+
+            // Set the FilterHtmlContent property.
+            getItem.ItemShape.FilterHtmlContent = true;
+            getItem.ItemShape.FilterHtmlContentSpecified = true;
+
+            GetItemResponseType getItemResponse_FilterHtmlContentTrue = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_FilterHtmlContentTrue, 1, this.Site);
+
+            T[] item_FilterHtmlContentTrue = Common.GetItemsFromInfoResponse<T>(getItemResponse_FilterHtmlContentTrue);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 item_FilterHtmlContentTrue.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 item_FilterHtmlContentTrue.GetLength(0));
+
+            Site.Assert.IsNotNull(
+                item_FilterHtmlContentTrue[0].Body,
+                "The body element in returned item should not be null.");
+
+            bool FilterHtmlContent = item_FilterHtmlContentTrue[0].Body.Value.Contains("</script>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21193");
+
+            // Verify MS-OXWSCDATA_R21193.
+            Site.CaptureRequirementIfIsFalse(
+                FilterHtmlContent,
+                "MS-OXWSCDATA",
+                21193,
+                @"[In t:ItemResponseShapeType Complex Type] [FilterHtmlContent is] True, specifies HTML content filtering is enabled.");
+
+            #endregion
+
+            #region Step 4: Get the created item with FilterHtmlContent set to false.
+            getItem.ItemShape.FilterHtmlContent = false;
+            getItem.ItemShape.FilterHtmlContentSpecified = true;
+            GetItemResponseType getItemResponse_FilterHtmlContentFalse = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_FilterHtmlContentFalse, 1, this.Site);
+
+            T[] item_FilterHtmlContentFalse = Common.GetItemsFromInfoResponse<T>(getItemResponse_FilterHtmlContentFalse);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 item_FilterHtmlContentFalse.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 item_FilterHtmlContentFalse.GetLength(0));
+
+            Site.Assert.IsNotNull(
+                item_FilterHtmlContentFalse[0].Body,
+                "The body element in returned item should not be null.");
+
+            FilterHtmlContent = item_FilterHtmlContentFalse[0].Body.Value.Contains("</script>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21194");
+
+            // Verify MS-OXWSCDATA_R21193.
+            Site.CaptureRequirementIfIsTrue(
+                FilterHtmlContent,
+                "MS-OXWSCDATA",
+                21194,
+                @"[In t:ItemResponseShapeType Complex Type] otherwise [FilterHtmlContent is] false, specifies [HTML content filtering is not enabled].");
             #endregion
         }
 
