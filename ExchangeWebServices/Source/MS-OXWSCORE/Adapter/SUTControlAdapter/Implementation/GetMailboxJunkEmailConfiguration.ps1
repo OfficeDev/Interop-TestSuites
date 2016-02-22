@@ -23,4 +23,4 @@ $result = Get-MailboxJunkEmailConfiguration $UserName | select BlockedSendersAnd
 
     Remove-PSSession $session
 return $BlockSender
-} -ArgumentList $SutComputerName, $UserName, $Password, $UserName
+} -ArgumentList $SutComputerName, $Admin, $Password, $UserName
