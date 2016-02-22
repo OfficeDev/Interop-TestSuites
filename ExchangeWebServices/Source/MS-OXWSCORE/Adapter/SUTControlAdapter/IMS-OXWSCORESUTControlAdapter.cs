@@ -8,11 +8,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
     public interface IMS_OXWSCORESUTControlAdapter : IAdapter
     {
         /// <summary>
-        /// Sets junk email sender to blocked sender list.
+        /// Gets junk email sender in blocked sender list.
         /// </summary>
-        /// <param name="itemSenter">The sender of mailbox.</param>
-        [MethodHelp("Log on to the server (serverComputerName) with the specified user account (userName, userPassword, userDomain), " +
-            "and set junk email sender to blocked sender list. ")]
-        string GetMailboxJunkEmailConfiguration();
+        /// <param name="Organizer">The use account of organizer.</param>
+
+        [MethodHelp("Get junk email sender in blocked sender list of the use account (Organizer). ")]
+        string GetMailboxJunkEmailConfiguration(string Organizer);
     }
 }

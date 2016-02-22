@@ -827,8 +827,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, The operation moves the email item to the Junk Email folder. ");
             
             string blockedSender = null;
-
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            string Organizer = Common.GetConfigurationPropertyValue("User1Name", this.Site);
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(Organizer);
 
             bool isInBlockedSender = blockedSender.Contains(itemSender);
 
