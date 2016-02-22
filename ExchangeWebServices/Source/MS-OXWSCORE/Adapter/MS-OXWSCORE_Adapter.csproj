@@ -44,6 +44,7 @@
     <Compile Include="MS-OXWSCOREAdapter.cs" />
     <Compile Include="CaptureCode.cs" />
     <Compile Include="SUTControlAdapter\Implementation\MS-OXWSUSRCFGSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXWSCORESUTControlAdapter.cs" />
     <Compile Include="SUTControlAdapter\IMS-OXWSUSRCFGSUTControlAdapter.cs" />
   </ItemGroup>
   <!-- TestSuite drop files-->
@@ -56,6 +57,9 @@
       <Project>{25713b82-15a0-465b-9ba3-dbb6b3076b5e}</Project>
       <Name>MS-OXWSITEMID_Adapter</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\GetMailboxJunkEmailConfiguration.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

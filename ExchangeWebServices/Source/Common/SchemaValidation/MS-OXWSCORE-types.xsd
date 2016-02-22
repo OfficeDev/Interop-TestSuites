@@ -171,6 +171,12 @@
       <xs:element name="HasBlockedImages" type="xs:boolean" minOccurs="0" />
       <xs:element name="TextBody" type="t:BodyType" minOccurs="0"/>
       <xs:element name="IconIndex" type="t:IconIndexType" minOccurs="0"/>
+      <xs:element name="SearchKey" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="SortKey" type="xs:long" minOccurs="0"/>
+      <xs:element name="Hashtags" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="Mentions" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+      <xs:element name="MentionedMe" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="PendingSocialActivityTagIds" type="t:ArrayOfStringsType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="MimeContentType">
@@ -331,6 +337,7 @@
         <xs:sequence>
           <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
           <xs:element name="Type" type="t:RoleMemberTypeType" minOccurs="0"/>
+          <xs:element name="RoleMemberTypeSpecified" type="xs:boolean" minOccurs="0"/>
           <xs:element name="MemberId" type="xs:string" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>

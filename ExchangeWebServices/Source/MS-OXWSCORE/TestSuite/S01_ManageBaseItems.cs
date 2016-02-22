@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2169");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2169
-            this.Site.CaptureRequirementIfAreEqual <ResponseClassType>(
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                 ResponseClassType.Success,
                 createItemResponse.ResponseMessages.Items[0].ResponseClass,
                 2169,
@@ -1239,13 +1239,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 pathToUnindexedFields.Add(pathToUnindexedField);
             }
 
-            if (Common.IsRequirementEnabled(1729, this.Site))
-            {
-                PathToUnindexedFieldType pathToUnindexedField = new PathToUnindexedFieldType();
-                pathToUnindexedField.FieldURI = UnindexedFieldURIType.itemGroupingAction;
-                pathToUnindexedFields.Add(pathToUnindexedField);
-            }
-
             if (Common.IsRequirementEnabled(1731, this.Site))
             {
                 PathToUnindexedFieldType pathToUnindexedField = new PathToUnindexedFieldType();
@@ -1406,9 +1399,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
             // Verify the Preview.
             this.VerifyPreview(getItems[0].Preview, getItems[0].Body.Value);
-
-            // Verify the GroupingAction.
-            this.VerifyGroupingAction(getItems[0].GroupingAction);
 
             // Verify the TextBody.
             this.VerifyTextBody(getItems[0].TextBody);
@@ -2398,6 +2388,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     {
                         this.CallMoveItemOperation(DistinguishedFolderIdNameType.drafts, findItemIds);
                     }
+
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1668");
 
@@ -2425,7 +2416,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             findInDeleteditems[1],
                             1669,
                             @"[In m:DeleteItemType Complex Type] The value ""SoftDelete"" of ""DeleteType"" which specifies that an item or folder is moved to the dumpster if the dumpster is enabled.");
-
                     }
                 }
                 else
@@ -2845,8 +2835,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             FindItemType findRequest = new FindItemType();
             findRequest.ItemShape = new ItemResponseShapeType();
             findRequest.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
-            findRequest.ParentFolderIds = new BaseFolderIdType[1] {
-                    new DistinguishedFolderIdType() { Id = DistinguishedFolderIdNameType.inbox} };
+            findRequest.ParentFolderIds = new BaseFolderIdType[1]
+            {
+                new DistinguishedFolderIdType() { Id = DistinguishedFolderIdNameType.inbox }
+            };
             PathToUnindexedFieldType itemSubject = new PathToUnindexedFieldType();
             itemSubject.FieldURI = UnindexedFieldURIType.itemItemClass;
             ContainsExpressionType expressionType = new ContainsExpressionType();
@@ -2874,6 +2866,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     break;
                 }
             }
+
             Site.Assert.IsNotNull(item, "The created user configuration object should be found!");
 
             // Add the debug information
@@ -3022,7 +3015,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             ItemType[] createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 1);
+                TestSuiteHelper.SubjectForCreateItem,
+                1);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
@@ -3068,14 +3062,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2002,
                 @"[In t:FlagType Complex Type] If the FlagStatus element is set to Flagged, the CompleteDate element MUST not be set in the request, and the StartDate and DueDate elements MUST be set or unset in pair;");
 
-
             #endregion
 
             #region Step 3: Create the item, set FlagStatus to Flagged, and do not set StartDate/DueDate/CompleteDate element.
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 2);
+                TestSuiteHelper.SubjectForCreateItem,
+                2);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
@@ -3189,7 +3183,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             ItemType[] createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 1);
+                TestSuiteHelper.SubjectForCreateItem,
+                1);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
@@ -3207,7 +3202,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 2);
+                TestSuiteHelper.SubjectForCreateItem,
+                2);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
@@ -3225,7 +3221,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 3);
+                TestSuiteHelper.SubjectForCreateItem,
+                3);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Flagged;
@@ -3243,7 +3240,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 4);
+                TestSuiteHelper.SubjectForCreateItem,
+                4);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.Complete;
@@ -3265,7 +3263,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 5);
+                TestSuiteHelper.SubjectForCreateItem,
+                5);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.NotFlagged;
@@ -3283,7 +3282,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             createdItems = new ItemType[] { new ItemType() };
             createdItems[0].Subject = Common.GenerateResourceName(
                 this.Site,
-                TestSuiteHelper.SubjectForCreateItem, 6);
+                TestSuiteHelper.SubjectForCreateItem,
+                6);
 
             createdItems[0].Flag = new FlagType();
             createdItems[0].Flag.FlagStatus = FlagStatusType.NotFlagged;

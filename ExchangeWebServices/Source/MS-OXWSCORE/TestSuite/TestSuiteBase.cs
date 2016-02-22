@@ -468,7 +468,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                         bodyField.SetValue(obj, body, null);
                     }
 
-                    items.Add((ItemType)obj);
+                    // RoleMemberItemType and NetworkItemType are for internal use only.
+                    // AbchPersonItemType is covered in MS-OXWSCONT
+                    if (type != typeof(RoleMemberItemType)
+                        && type != typeof(NetworkItemType)
+                        && type != typeof(AbchPersonItemType))
+                    {
+                        items.Add((ItemType)obj);
+                    }
                 }
             }
 
@@ -668,7 +675,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Configure the Impersonation SOAP header and add it to the soapHeaders list.
             ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
             impersonation.ConnectingSID = new ConnectingSIDType();
-            impersonation.ConnectingSID.Item = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            SmtpAddressType smtpAddress = new SmtpAddressType();
+            smtpAddress.Value = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            impersonation.ConnectingSID.Item = smtpAddress;
             soapHeaders.Add("ExchangeImpersonation", impersonation);
 
             // Configure the MailboxCulture SOAP header and add it to the soapHeaders list.
@@ -702,7 +711,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         /// Clean all items which have been sent out to User2.
         /// </summary>
         /// <param name="itemSubjects">The subjects of items which have been sent out to User2.</param>
-        protected void CleanItemsSentOut(string[] itemSubjects)
+        /// <param name="isCalendarChecked">Indicates whether need to check the Calendar folder.</param>
+        protected void CleanItemsSentOut(string[] itemSubjects, bool isCalendarChecked = false)
         {
             List<ItemIdType> receivedItemIds = new List<ItemIdType>();
 
@@ -726,16 +736,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In SendItem Operation] The SendItem operation sends message items on the server.");
             }
 
-            for (int i = 0; i < itemSubjects.Length; i++)
+            if (isCalendarChecked)
             {
-                // Find items in the Calendar folder of User2 which were sent out by User1 with subject.
-                ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.calendar, itemSubjects[i], "User2");
-
-                if (findItemIds != null)
+                for (int i = 0; i < itemSubjects.Length; i++)
                 {
-                    receivedItemIds.Add(findItemIds[0]);
-                }
+                    // Find items in the Calendar folder of User2 which were sent out by User1 with subject.
+                    ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.calendar, itemSubjects[i], "User2");
 
+                    if (findItemIds != null)
+                    {
+                        receivedItemIds.Add(findItemIds[0]);
+                    }
+                }
             }
 
             // Delete the found items.
@@ -1480,8 +1492,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 59,
                 @"[In t:DefaultShapeNamesType Simple Type] The value ""AllProperties"" specifies all the properties that are defined for the item or folder.");
-
-
+            
             #endregion
 
             #region Step 3: Get the created item with BaseShape set to IdOnly.
@@ -6800,29 +6811,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     isVerifyR1354,
                     1354,
                     @"[In Appendix C: Product Behavior] Implementation does support element name ""Preview"" with type ""xs:string"" which specifies the first 256 characters of the body of a message for preview without opening the message. (Exchange 2013 and above follow this behavior.)");
-            }
-        }
-        #endregion
-
-        #region GroupingAction Structure
-        /// <summary>
-        /// Verify the GroupingAction structure
-        /// </summary>
-        /// <param name="groupingAction">An PredictedMessageActionType instance of groupingAction.</param>
-        protected void VerifyGroupingAction(PredictedMessageActionType groupingAction)
-        {
-            if (Common.IsRequirementEnabled(1729, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1729");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1729
-                // if the element is not null, and the schema is validated,
-                // this requirement can be validated.
-                Site.CaptureRequirementIfIsNotNull(
-                    groupingAction,
-                    1729,
-                    @"[In Appendix C: Product Behavior] Implementation does support element name ""GroupingAction"" with type ""t:PredictedMessageActionType"" which specifies that the next predicted action is grouping items. (Exchange 2013 and above follow this behavior.)");
             }
         }
         #endregion

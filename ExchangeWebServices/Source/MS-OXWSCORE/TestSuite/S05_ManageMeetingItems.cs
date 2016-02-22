@@ -844,18 +844,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     break;
                 }
             }
+
             this.CleanItemsSentOut(new string[] { createItemRequest.Items.Items[0].Subject });
             this.ExistItemIds.Remove(getItems.Items.Items[0].ItemId);
             #endregion
         }
 
         /// <summary>
-        /// This test case is intended to validate the CompareOrginalStartTime.
+        /// This test case is intended to validate the CompareOriginalStartTime.
         /// </summary>
         [TestCategory("MSOXWSCORE"), TestMethod()]
         public void MSOXWSCORE_S05_TC22_VerifyCompareOriginalStartTime()
         {
-
             #region Step 1: Create and get a recurring calendar item.
             DateTime start = DateTime.Now;
             int numberOfOccurrences = 5;
@@ -905,7 +905,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             setItemField.Item = new PathToUnindexedFieldType()
             {
                 FieldURI = UnindexedFieldURIType.calendarStart
-
             };
 
             setItemField.Item1 = calendarChange;
@@ -959,8 +958,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 #endregion
 
                 #region Step 5: Get the recurrence master calendar item by RecurringMasterItemIdRangesType with set CompareOriginalStartTime to false.
-                // The calendar item to get.
 
+                // The calendar item to get.
                 recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTime = false;
                 recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTimeSpecified = true;
 

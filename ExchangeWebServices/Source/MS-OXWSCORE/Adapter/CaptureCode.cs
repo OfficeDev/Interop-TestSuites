@@ -752,6 +752,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             foreach (ItemInfoResponseMessageType info in getItemResponse.ResponseMessages.Items)
             {
                 this.VerifyItemInfoResponseMessageType(info);
+
+                if (Common.IsRequirementEnabled(2313, this.Site)
+                    && this.exchangeServiceBinding.TimeZoneContext != null
+                    && this.exchangeServiceBinding.TimeZoneContext.TimeZoneDefinition != null
+                    && this.exchangeServiceBinding.TimeZoneContext.TimeZoneDefinition.Id == "Pacific Standard Time")
+                {
+                    string innerXml = this.exchangeServiceBinding.LastRawResponseXml.CreateNavigator().InnerXml;
+                    string temp = innerXml.Substring(innerXml.IndexOf("DateTimeCreated"));
+                    string dateTimeCreated = temp.Substring(temp.IndexOf(">") + 1, temp.IndexOf("<") - temp.IndexOf(">") - 1);
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R361");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R361
+                    Site.CaptureRequirementIfIsTrue(
+                        dateTimeCreated.Contains(System.TimeZoneInfo.ConvertTimeBySystemTimeZoneId(info.Items.Items[0].DateTimeCreated, "Pacific Standard Time").GetDateTimeFormats('s')[0]),
+                        361,
+                        @"[In tns:GetItemSoapIn Message] [The part ""TimeZoneContext""] Specifies a SOAP header that identifies the time zone to be used for all responses from the server.");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2313");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2313
+                    Site.CaptureRequirementIfIsTrue(
+                        dateTimeCreated.Contains(System.TimeZoneInfo.ConvertTimeBySystemTimeZoneId(info.Items.Items[0].DateTimeCreated, "Pacific Standard Time").GetDateTimeFormats('s')[0]),
+                        2313,
+                        @"[In Appendix C: Product Behavior] Implementation does convert the times in GetItem response even if the TimeZoneContext SOAP header is set in request. (Exchange 2010 and above follow this behavior.) ");
+                }
             }
 
             // Add the debug information

@@ -129,8 +129,6 @@
     <Property name="R2149909Enabled" value="false" />
     <!--Set R1502Enabled to true to verify that the implementation does support FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4. Set R1502Enabled to false to disable this requirement.-->
     <Property name="R1502Enabled" value="false" />
-    <!--Set R1729Enabled to true to verify that the implementation does support element name "GroupingAction" with type "t:PredictedMessageActionType" which specifies that the next predicted action is grouping items, as specified in section 2.2.4.8. Set R1729Enabled to false to disable this requirement.-->
-    <Property name="R1729Enabled" value="false" />
     <!--Set R1731Enabled to true to verify that the implementation does support element name "TextBody" with type "t:BodyType" which specifies the text body of the item, as specified in section 2.2.4.8. Set R1731Enabled to false to disable this requirement.-->
     <Property name="R1731Enabled" value="false" />
     <!--Set R1746Enabled to true to verify that the implementation does use the EntityType complex type in which entities are text found in certain parts of a message, such as the subject or the body, as specified in section 2.2.4.38. Set R1746Enabled to false to disable this requirement.-->
@@ -189,5 +187,7 @@
     <Property name="R2302Enabled" value="false" />
     <!--Set R1288Enabled to true to verify that the implementation does support EntityExtractionResultType element. Set R1288Enabled to false to disable this requirement.-->
     <Property name="R1288Enabled" value="false" />
+    <!--Set R2313Enabled to true to verify that the implementation does convert the times to the specified time zone in GetItem response even if the TimeZoneContext SOAP header is set in request. Set R2313Enabled to false to disable this requirement.-->
+    <Property name="R2313Enabled" value="false" />
   </Properties>
 </TestSite>

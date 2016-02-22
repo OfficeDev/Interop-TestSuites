@@ -826,11 +826,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1920,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, The operation moves the email item to the Junk Email folder. ");
             
-            string BlockedSender = null;
+            string blockedSender = null;
 
-            BlockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
 
-            bool isInBlockedSender = BlockedSender.Contains(itemSender);
+            bool isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1839");
@@ -862,8 +862,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1921,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False,The email item is not moved.");
 
-            BlockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
-            isInBlockedSender = BlockedSender.Contains(itemSender);
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1840");
@@ -895,8 +895,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1922,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] True, The operation moves the email item back to the Inbox folder.");
 
-            BlockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
-            isInBlockedSender = BlockedSender.Contains(itemSender);
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1841");
@@ -928,8 +928,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1923,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] False, The email item is not moved.");
 
-            BlockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
-            isInBlockedSender = BlockedSender.Contains(itemSender);
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1842");
@@ -1958,7 +1958,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             subjects.Add(createItemRequest.Items.Items[0].Subject);
             this.ExistItemIds.Clear();
             this.ExistItemIds.Add(findItemIds[0]);
-            this.CleanItemsSentOut(subjects.ToArray());
+            this.CleanItemsSentOut(subjects.ToArray(), true);
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2315");

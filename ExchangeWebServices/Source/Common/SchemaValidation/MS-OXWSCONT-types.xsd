@@ -24,6 +24,7 @@
           <xs:element name="FileAs" type="xs:string" minOccurs="0"/>
           <xs:element name="FileAsMapping" type="t:FileAsMappingType" minOccurs="0"/>
           <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="PersonalNotes" type="xs:string" minOccurs="0"/>
           <xs:element name="GivenName" type="xs:string" minOccurs="0"/>
           <xs:element name="Initials" type="xs:string" minOccurs="0"/>
           <xs:element name="MiddleName" type="xs:string" minOccurs="0"/>
@@ -143,7 +144,7 @@
       <xs:extension base="t:ItemType">
         <xs:sequence>
           <xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/>
-          <xs:element name="PersonId" type="t:GuidType" minOccurs="0"/>
+          <xs:element name="PersonIdGuid" type="t:GuidType" minOccurs="0"/>
           <xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/>
           <xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
           <xs:element name="RelevanceOrder1" type="xs:string" minOccurs="0"/>

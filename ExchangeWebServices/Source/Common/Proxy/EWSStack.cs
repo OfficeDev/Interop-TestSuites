@@ -8590,6 +8590,22 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool iconIndexFieldSpecified;
 
+        private byte[] searchKeyField;
+
+        private long sortKeyField;
+
+        private bool sortKeyFieldSpecified;
+
+        private string[] hashtagsField;
+
+        private EmailAddressType[] mentionsField;
+
+        private bool mentionedMeField;
+
+        private bool mentionedMeFieldSpecified;
+
+        private string[] pendingSocialActivityTagIdsField;
+
         /// <remarks/>
         public MimeContentType MimeContent
         {
@@ -9672,6 +9688,116 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.iconIndexFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary")]
+        public byte[] SearchKey
+        {
+            get
+            {
+                return this.searchKeyField;
+            }
+            set
+            {
+                this.searchKeyField = value;
+            }
+        }
+
+        /// <remarks/>
+        public long SortKey
+        {
+            get
+            {
+                return this.sortKeyField;
+            }
+            set
+            {
+                this.sortKeyField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool SortKeySpecified
+        {
+            get
+            {
+                return this.sortKeyFieldSpecified;
+            }
+            set
+            {
+                this.sortKeyFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("String", IsNullable = false)]
+        public string[] Hashtags
+        {
+            get
+            {
+                return this.hashtagsField;
+            }
+            set
+            {
+                this.hashtagsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Mailbox", IsNullable = false)]
+        public EmailAddressType[] Mentions
+        {
+            get
+            {
+                return this.mentionsField;
+            }
+            set
+            {
+                this.mentionsField = value;
+            }
+        }
+
+        /// <remarks/>
+        public bool MentionedMe
+        {
+            get
+            {
+                return this.mentionedMeField;
+            }
+            set
+            {
+                this.mentionedMeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool MentionedMeSpecified
+        {
+            get
+            {
+                return this.mentionedMeFieldSpecified;
+            }
+            set
+            {
+                this.mentionedMeFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("String", IsNullable = false)]
+        public string[] PendingSocialActivityTagIds
+        {
+            get
+            {
+                return this.pendingSocialActivityTagIdsField;
+            }
+            set
+            {
+                this.pendingSocialActivityTagIdsField = value;
             }
         }
     }
