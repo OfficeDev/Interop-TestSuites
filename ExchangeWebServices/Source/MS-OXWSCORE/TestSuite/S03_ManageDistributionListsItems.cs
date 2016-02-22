@@ -397,6 +397,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         [TestCategory("MSOXWSCORE"), TestMethod()]
         public void MSOXWSCORE_S03_TC16_CreateDistributionListsItemWithInvalidItemClass()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(19241, this.Site), "Exchange 2007 doesn't support MS-OXWSDLIST");
+
             #region Step 1: Create the DistributionLists item with ItemClass set to IPM.Appointment.
             CreateItemType createItemRequest = new CreateItemType();
             createItemRequest.Items = new NonEmptyArrayOfAllItemsType();

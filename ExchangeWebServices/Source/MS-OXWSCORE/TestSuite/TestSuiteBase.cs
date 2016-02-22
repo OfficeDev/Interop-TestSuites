@@ -99,6 +99,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
             this.ITEMIDAdapter = Site.GetAdapter<IMS_OXWSITEMIDAdapter>();
             this.USRCFGSUTControlAdapter = Site.GetAdapter<IMS_OXWSUSRCFGSUTControlAdapter>();
+            this.ClearSoapHeaders();
         }
 
         /// <summary>
