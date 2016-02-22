@@ -862,7 +862,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1921,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False,The email item is not moved.");
 
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(Organizer);
             isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
@@ -895,7 +895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1922,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] True, The operation moves the email item back to the Inbox folder.");
 
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(Organizer);
             isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
@@ -928,7 +928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1923,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] False, The email item is not moved.");
 
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration();
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(Organizer);
             isInBlockedSender = blockedSender.Contains(itemSender);
 
             // Add the debug information
