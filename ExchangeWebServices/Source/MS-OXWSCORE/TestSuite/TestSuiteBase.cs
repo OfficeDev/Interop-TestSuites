@@ -759,8 +759,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             deleteItemRequest.AffectedTaskOccurrencesSpecified = true;
             deleteItemRequest.AffectedTaskOccurrences = AffectedTaskOccurrencesType.AllOccurrences;
 
-            deleteItemRequest.SuppressReadReceipts = true;
-            deleteItemRequest.SuppressReadReceiptsSpecified = true;
+            if (Common.IsRequirementEnabled(2311, this.Site))
+            {
+                deleteItemRequest.SuppressReadReceipts = true;
+                deleteItemRequest.SuppressReadReceiptsSpecified = true;
+            }
 
             // SendMeetingCancellations describes how cancellations are to be handled for deleted meetings.
             deleteItemRequest.SendMeetingCancellationsSpecified = true;
