@@ -4430,5 +4430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             ItemType item = new ItemType();
             this.TestSteps_VerifyGetItemWithItemResponseShapeType_FilterHtmlContentBoolean(item);
         }
+
+        #endregion
     }
 }

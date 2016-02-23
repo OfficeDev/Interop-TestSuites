@@ -676,7 +676,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Configure the Impersonation SOAP header and add it to the soapHeaders list.
             ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
             impersonation.ConnectingSID = new ConnectingSIDType();
-            SmtpAddressType smtpAddress = new SmtpAddressType();
+            PrimarySmtpAddressType smtpAddress = new PrimarySmtpAddressType();
             smtpAddress.Value = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
             impersonation.ConnectingSID.Item = smtpAddress;
             soapHeaders.Add("ExchangeImpersonation", impersonation);
