@@ -4,6 +4,7 @@
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS.runsettings" />

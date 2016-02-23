@@ -53,6 +53,7 @@
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_TestSuite.ptfconfig" />
