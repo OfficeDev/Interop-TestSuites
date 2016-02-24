@@ -669,7 +669,16 @@
 		<ns1:REQ_ID>MS-OXWSMTGS_R1018</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In t:AddItemToMyCalendarType Complex Type] This type [AddItemToMyCalendarType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.65).
- &lt;xs:complexType name="ProposeNewTimeType"&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1343</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:AddItemToMyCalendarType Complex Type] [its schema is] &lt;xs:complexType name="ProposeNewTimeType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:ResponseObjectType"/&gt;
    &lt;/xs:complexContent&gt;
@@ -683,8 +692,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1019</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalRequestDataType complex type represents an approval request message. &lt;21&gt;
- &lt;xs:complexType name="ApprovalRequestDataType"&gt;
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalRequestDataType complex type represents an approval request message. &lt;21&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1326.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1344</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] [its schema is] &lt;xs:complexType name="ApprovalRequestDataType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="IsUndecidedApprovalRequest" type="xs:boolean" minOccurs="0"/&gt;
      &lt;xs:element name="ApprovalDecision" type="xs:int" minOccurs="0"/&gt;
@@ -695,8 +713,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1326.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1020</ns1:REQ_ID>
@@ -724,12 +741,14 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1023, MS-OXWSMTGS_R1024.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1023</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] [IsUndecidedApprovalRequest:] True, this approval request is awaiting a moderator to approve the request.</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R1022:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -740,6 +759,7 @@
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] [IsUndecidedApprovalRequest:] False, this approval request is awaiting a moderator
  to reject the request.</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R1022:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -802,8 +822,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1031</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfInboxReminderType] The ArrayOfInboxReminderType complex type specifies an array of inbox reminders.&lt;22&gt;
- &lt;xs:complexType name="ArrayOfInboxReminderType"&gt;
+		<ns1:Description>[In t:ArrayOfInboxReminderType] The ArrayOfInboxReminderType complex type specifies an array of inbox reminders.&lt;22&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1328.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1345</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfInboxReminderType] [its schema is] &lt;xs:complexType name="ArrayOfInboxReminderType"&gt;
   &lt;xs:sequence&gt;
        &lt;xs:element name="InboxReminder" 
             type="t:InboxReminderType" minOccurs="0" maxOccurs="unbounded"/&gt;
@@ -812,8 +841,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1328.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1032</ns1:REQ_ID>
@@ -845,12 +873,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1035</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>The ArrayOfRemindersType complex type specifies an array of reminders.&lt;23&gt;
- &lt;xs:complexType name="ArrayOfRemindersType"&gt;
-   &lt;xs:sequence&gt;
-     &lt;xs:element name="Reminder" type="t:ReminderType" minOccurs="0" maxOccurs="unbounded"/&gt;
-   &lt;/xs:sequence&gt;
- &lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] The ArrayOfRemindersType complex type specifies an array of reminders.&lt;23&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -858,9 +881,22 @@
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1330.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1346</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfRemindersType] [its schema is] &lt;xs:complexType name="ArrayOfRemindersType"&gt;
+   &lt;xs:sequence&gt;
+     &lt;xs:element name="Reminder" type="t:ReminderType" minOccurs="0" maxOccurs="unbounded"/&gt;
+   &lt;/xs:sequence&gt;
+ &lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>The following table describes the child element [Reminder] of the ArrayOfRemindersType complex type.</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] The following table describes the child element [Reminder] of the ArrayOfRemindersType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -869,7 +905,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1037</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfInboxReminderType] The type of InboxReminder is t:InboxReminderType (section 2.2.4.17).</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] The type of InboxReminder is t:InboxReminderType (section 2.2.4.17).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -878,7 +914,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1038</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfInboxReminderType] InboxReminder:  An inbox reminder.</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] InboxReminder:  An inbox reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -887,8 +923,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1039</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfVotingOptionDataType Complex Type] The ArrayOfVotingOptionDataType complex type specifies an array of voting options.&lt;24&gt;
- &lt;xs:complexType name="ArrayOfVotingOptionDataType"&gt;
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType Complex Type] The ArrayOfVotingOptionDataType complex type specifies an array of voting options.&lt;24&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1332.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1347</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType Complex Type] [its schema is] &lt;xs:complexType name="ArrayOfVotingOptionDataType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="VotingOptionData" type="t:VotingOptionDataType" minOccurs="0" maxOccurs="unbounded"/&gt;
    &lt;/xs:sequence&gt;
@@ -896,8 +941,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1332.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1040</ns1:REQ_ID>
@@ -1124,21 +1168,21 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R145</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In t:CalendarFolderType Complex Type]SharingEffectiveRights: Specifies the permissions a user has to view items in a Calendar folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R1046</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In t:CalendarFolderType Complex Type]SharingEffectiveRights: This element is read-only.&lt;27&gt;</ns1:Description>
+		<ns1:Description>[In t:CalendarFolderType Complex Type]SharingEffectiveRights: Specifies the permissions a user has to view items in a Calendar folder.&lt;27&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1338.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1046</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In t:CalendarFolderType Complex Type]SharingEffectiveRights: This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R146</ns1:REQ_ID>
@@ -2838,7 +2882,16 @@
 		<ns1:REQ_ID>MS-OXWSMTGS_R1055</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersResponseMessageType Complex Type] This [typeGetRemindersResponseMessageType complex type] extends the ResponseMessageType ([MS-OXWSCDATA] section 2.2.4.64).
- &lt;xs:complexType name="GetRemindersResponseMessageType"&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1348</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetRemindersResponseMessageType Complex Type] [its shcema is] &lt;xs:complexType name="GetRemindersResponseMessageType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="m:ResponseMessageType"&gt;
        &lt;xs:sequence&gt;
@@ -2846,8 +2899,7 @@
        &lt;/xs:sequence&gt;
      &lt;/xs:extension&gt;
    &lt;/xs:complexContent&gt;
- &lt;/xs:complexType&gt;
-</ns1:Description>
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2883,8 +2935,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1059</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.17</ns1:Doc_Sect>
-		<ns1:Description>[In t:InboxReminderType] The InboxReminderType complex type specifies an inbox reminder.&lt;42&gt;
- &lt;xs:complexType name="InboxReminderType"&gt;
+		<ns1:Description>[In t:InboxReminderType] The InboxReminderType complex type specifies an inbox reminder.&lt;42&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1278.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1349</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.17</ns1:Doc_Sect>
+		<ns1:Description>[In t:InboxReminderType] [its schema is] &lt;xs:complexType name="InboxReminderType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="Id" type="t:GuidType" minOccurs="0" maxOccurs="1"/&gt;
      &lt;xs:element name="ReminderOffset" type="xs:int" minOccurs="0" maxOccurs="1"/&gt;
@@ -2899,8 +2960,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1278.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1060</ns1:REQ_ID>
@@ -3043,7 +3103,16 @@
 		<ns1:REQ_ID>MS-OXWSMTGS_R1072</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.18</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type] This type [GetRemindersType complex type] extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.16).
- &lt;xs:complexType name="GetRemindersType" mixed="false"&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1350</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.18</ns1:Doc_Sect>
+		<ns1:Description>[In m:GetRemindersType Complex Type] [its schema is] &lt;xs:complexType name="GetRemindersType" mixed="false"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="m:BaseRequestType"&gt;
        &lt;xs:sequence&gt;
@@ -3146,7 +3215,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1081</ns1:REQ_ID>
@@ -3167,7 +3236,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R259</ns1:REQ_ID>
@@ -3565,7 +3634,16 @@
 		<ns1:REQ_ID>MS-OXWSMTGS_R1084</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
 		<ns1:Description>[In t:MeetingRegistrationResponseObjectType Complex Type] This type extends the :WellKnownResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.73). 
- &lt;xs:complexType name="MeetingRegistrationResponseObjectType"&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1351</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.21</ns1:Doc_Sect>
+		<ns1:Description>[In t:MeetingRegistrationResponseObjectType Complex Type] [its schema is] &lt;xs:complexType name="MeetingRegistrationResponseObjectType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:WellKnownResponseObjectType"&gt;
        &lt;xs:sequence&gt;
@@ -3574,8 +3652,7 @@
        &lt;/xs:sequence&gt;
      &lt;/xs:extension&gt;
    &lt;/xs:complexContent&gt;
- &lt;/xs:complexType&gt;
-</ns1:Description>
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5050,8 +5127,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1092</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type] The NonEmptyArrayOfReminderItemActionType complex type specifies an array of reminder actions and new reminder times for items.&lt;68&gt;
- &lt;xs:complexType name="NonEmptyArrayOfReminderItemActionType"&gt;
+		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type] The NonEmptyArrayOfReminderItemActionType complex type specifies an array of reminder actions and new reminder times for items.&lt;68&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1286.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1352</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type] [its schema is] &lt;xs:complexType name="NonEmptyArrayOfReminderItemActionType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="ReminderItemAction" type="t:ReminderItemActionType" minOccurs="1" maxOccurs="unbounded"/&gt;
    &lt;/xs:sequence&gt;
@@ -5059,8 +5145,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1286.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1093</ns1:REQ_ID>
@@ -5348,7 +5433,16 @@
 		<ns1:REQ_ID>MS-OXWSMTGS_R1097</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.30</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionResponseMessageType ComplexType] This type [PerformReminderActionResponseMessageType] extends the ResponseMessageType, as specified in [MS-OXWSCDATA] section 2.2.4.64.
- &lt;xs:complexType name="PerformReminderActionResponseMessageType"&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1353</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.30</ns1:Doc_Sect>
+		<ns1:Description>[In m:PerformReminderActionResponseMessageType ComplexType] [its schema is] &lt;xs:complexType name="PerformReminderActionResponseMessageType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="m:ResponseMessageType"&gt;
        &lt;xs:sequence&gt;
@@ -5356,8 +5450,7 @@
        &lt;/xs:sequence&gt;
      &lt;/xs:extension&gt;
    &lt;/xs:complexContent&gt;
- &lt;/xs:complexType&gt;
-</ns1:Description>
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5402,8 +5495,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1102</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.31</ns1:Doc_Sect>
-		<ns1:Description>[In m:PerformReminderActionType Complex Type] This type [PerformReminderActionType] extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.16).
- &lt;xs:complexType name="PerformReminderActionType"&gt;
+		<ns1:Description>[In m:PerformReminderActionType Complex Type] This type [PerformReminderActionType] extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.16).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1354</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.31</ns1:Doc_Sect>
+		<ns1:Description>[In m:PerformReminderActionType Complex Type] [its schema is] &lt;xs:complexType name="PerformReminderActionType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="m:BaseRequestType"&gt;
        &lt;xs:sequence&gt;
@@ -5411,8 +5512,7 @@
        &lt;/xs:sequence&gt;
      &lt;/xs:extension&gt;
    &lt;/xs:complexContent&gt;
- &lt;/xs:complexType&gt;
-</ns1:Description>
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5458,13 +5558,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.32</ns1:Doc_Sect>
-		<ns1:Description>[In t:ProposeNewTimeType Complex Type] This type [ProposeNewTimeType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.65).
- &lt;xs:complexType name="ProposeNewTimeType"&gt;
+		<ns1:Description>[In t:ProposeNewTimeType Complex Type] This type [ProposeNewTimeType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.65).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1355</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.32</ns1:Doc_Sect>
+		<ns1:Description>[In t:ProposeNewTimeType Complex Type] [its schema is] &lt;xs:complexType name="ProposeNewTimeType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:ResponseObjectType"/&gt;
    &lt;/xs:complexContent&gt;
- &lt;/xs:complexType&gt;
-</ns1:Description>
+ &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5518,8 +5625,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1108</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.34</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderItemActionType Complex Type] The ReminderItemActionType specifies the action and new reminder time for an item.&lt;73&gt;
- &lt;xs:complexType name="ReminderItemActionType"&gt;
+		<ns1:Description>[In t:ReminderItemActionType Complex Type] The ReminderItemActionType specifies the action and new reminder time for an item.&lt;73&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1294.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1356</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.34</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderItemActionType Complex Type] [its schema is] &lt;xs:complexType name="ReminderItemActionType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="ActionType" type="t:ReminderActionType" minOccurs="1" maxOccurs="1"/&gt;
      &lt;xs:element name="ItemId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/&gt;
@@ -5529,8 +5645,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1294.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1109</ns1:REQ_ID>
@@ -5598,8 +5713,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1116</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.35</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderMessageDataType complex type specifies a reminder message.&lt;74&gt;
- &lt;xs:complexType name="ReminderMessageDataType"&gt;
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderMessageDataType complex type specifies a reminder message.&lt;74&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1296.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1357</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.35</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] [its schema is] &lt;xs:complexType name="ReminderMessageDataType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="ReminderText" type="xs:string" minOccurs="0"/&gt;
      &lt;xs:element name="Location" type="xs:string" minOccurs="0"/&gt;
@@ -5610,8 +5734,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1296.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1117</ns1:REQ_ID>
@@ -5697,8 +5820,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1126</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.36</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderType Complex Type] The ReminderType complex type specifies a reminder object.&lt;75&gt; 
- &lt;xs:complexType name="ReminderType"&gt;
+		<ns1:Description>[In t:ReminderType Complex Type] The ReminderType complex type specifies a reminder object.&lt;75&gt; </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1298.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1358</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.36</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderType Complex Type] [its schema is] &lt;xs:complexType name="ReminderType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="Subject" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
      xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/&gt;
@@ -5714,8 +5846,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1298.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1127</ns1:REQ_ID>
@@ -6187,8 +6318,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1146</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.41</ns1:Doc_Sect>
-		<ns1:Description>[In t:VotingInformationType Complex Type] The VotingInformationType complex type specifies voting information. &lt;77&gt;
- &lt;xs:complexType name="VotingInformationType"&gt;
+		<ns1:Description>[In t:VotingInformationType Complex Type] The VotingInformationType complex type specifies voting information. &lt;77&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1300.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1359</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.41</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type] [its schema is] &lt;xs:complexType name="VotingInformationType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="UserOptions" type="t:ArrayOfVotingOptionDataType" minOccurs="0"/&gt;
      &lt;xs:element name="VotingResponse" type="xs:string" minOccurs="0"/&gt;
@@ -6197,8 +6337,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1300.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1147</ns1:REQ_ID>
@@ -6248,8 +6387,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1152</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.42</ns1:Doc_Sect>
-		<ns1:Description>[In t:VotingOptionDataType Complex Type] The VotingOptionDataType complex type specifies the voting option on a message. &lt;78&gt;
- &lt;xs:complexType name="VotingOptionDataType"&gt;
+		<ns1:Description>[In t:VotingOptionDataType Complex Type] The VotingOptionDataType complex type specifies the voting option on a message. &lt;78&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1302.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1360</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.42</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType Complex Type] [its schema is] &lt;xs:complexType name="VotingOptionDataType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
     &lt;xs:element name="SendPrompt" type="t:SendPromptType" minOccurs="0"/&gt;
@@ -6258,8 +6406,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1302.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1153</ns1:REQ_ID>
@@ -7177,8 +7324,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1161</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:EmailReminderChangeType] The EmailReminderChangeType simple type specifies the type of the change.&lt;85&gt;
- &lt;xs:simpleType name="EmailReminderChangeType"&gt;
+		<ns1:Description>[In t:EmailReminderChangeType] The EmailReminderChangeType simple type specifies the type of the change.&lt;85&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1310.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1361</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderChangeType] [its schema is] &lt;xs:simpleType name="EmailReminderChangeType"&gt;
    &lt;xs:restriction base="xs:string"&gt;
     &lt;xs:enumeration value="None"/&gt;
     &lt;xs:enumeration value="Added"/&gt;
@@ -7189,8 +7345,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1310.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1162</ns1:REQ_ID>
@@ -7240,9 +7395,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1167</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In t:EmailReminderSendOption] The EmailReminderSendOption simple type specifies the send options for the reminder.&lt;86&gt;
- 
- &lt;xs:simpleType name="EmailReminderSendOption"&gt;
+		<ns1:Description>[In t:EmailReminderSendOption] The EmailReminderSendOption simple type specifies the send options for the reminder.&lt;86&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1312.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1362</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] [its schema is] &lt;xs:simpleType name="EmailReminderSendOption"&gt;
    &lt;xs:restriction base="xs:string"&gt;
      &lt;xs:enumeration value="NotSet"/&gt;
      &lt;xs:enumeration value="User"/&gt;
@@ -7254,8 +7417,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1312.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1168</ns1:REQ_ID>
@@ -7613,8 +7775,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1175</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderActionType Simple Type] The ReminderActionType simple type specifies the reminder action.&lt;91&gt;
- &lt;xs:simpleType name="ReminderActionType"&gt;
+		<ns1:Description>[In t:ReminderActionType Simple Type] The ReminderActionType simple type specifies the reminder action.&lt;91&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1314.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1363</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.12</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderActionType Simple Type] [its schema is] &lt;xs:simpleType name="ReminderActionType"&gt;
    &lt;xs:restriction base="xs:string"&gt;
      &lt;xs:enumeration value="Dismiss"/&gt;
      &lt;xs:enumeration value="Snooze"/&gt;
@@ -7623,8 +7794,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1314.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1176</ns1:REQ_ID>
@@ -7656,8 +7826,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1179</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderGroupType Simple Type] The ReminderGroupType simple type specifies whether the reminder is for a calendar item or a task.&lt;92&gt;
- &lt;xs:simpleType name="ReminderGroupType"&gt;
+		<ns1:Description>[In t:ReminderGroupType Simple Type] The ReminderGroupType simple type specifies whether the reminder is for a calendar item or a task.&lt;92&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1316.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1364</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.13</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderGroupType Simple Type] [its schema is] &lt;xs:simpleType name="ReminderGroupType"&gt;
    &lt;xs:restriction base="xs:string"&gt;
      &lt;xs:enumeration value="Calendar"/&gt;
      &lt;xs:enumeration value="Task"/&gt;
@@ -7666,8 +7845,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1316.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1180</ns1:REQ_ID>
@@ -7803,8 +7981,17 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1183</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.15</ns1:Doc_Sect>
-		<ns1:Description>[In t:SendPromptType Simple Type] The SendPromptType simple type specifies the prompt behavior associated with a voting option.&lt;93&gt;
- &lt;xs:simpleType name="SendPromptType"&gt;
+		<ns1:Description>[In t:SendPromptType Simple Type] The SendPromptType simple type specifies the prompt behavior associated with a voting option.&lt;93&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1318.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1365</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.15</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type] [its schema is] &lt;xs:simpleType name="SendPromptType"&gt;
    &lt;xs:restriction base="xs:string"&gt;
      &lt;xs:enumeration value="None"/&gt;
      &lt;xs:enumeration value="Send"/&gt;
@@ -7814,8 +8001,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1318.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1184</ns1:REQ_ID>
@@ -9336,8 +9522,19 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1241</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] ErrorMessageDispositionRequired:This error code MUST be returned under the following conditions: 
-§ When the item that is being created or updated is a MessageType object. 
-§ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyAcceptItemType response objects.</ns1:Description>
+When the item that is being created or updated is a MessageType object. 
+[For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyAcceptItemType response objects.]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1342</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] ErrorMessageDispositionRequired:This error code MUST be returned under the following conditions: 
+[When the item that is being created or updated is a MessageType object. ]
+For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyAcceptItemType response objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
