@@ -905,7 +905,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1037</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfRemindersType] The type of InboxReminder is t:InboxReminderType (section 2.2.4.17).</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] The type of Reminder is t:ReminderType (section 2.2.4.34).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -914,7 +914,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1038</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfRemindersType] InboxReminder:  An inbox reminder.</ns1:Description>
+		<ns1:Description>[In t:ArrayOfRemindersType] Reminder:  A reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
