@@ -127,28 +127,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1037,
                 @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""CreateItemResponseMessage"" with type ""m:ItemInfoResponseMessageType(section 2.2.4.37)"" specifies the response message for the CreateItem operation ([MS-OXWSCORE] section 3.1.4.2).");
 
-            if(Common.IsRequirementEnabled(2119413, this.Site))
+            if (Common.IsRequirementEnabled(102000000, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1021");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R102000000");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1021
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R102000000
                 this.Site.CaptureRequirementIfIsInstanceOfType(
                     createItemResponseMessage.Items.Items[0],
                     typeof(MessageType),
                     "MS-OXWSCDATA",
-                    1021,
-                    @"[In t:ArrayOfRealItemsType Complex Type] All items of type t:ItemType ([MS-OXWSCORE]) MUST be returned as a t:MessageType type.");
-
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1020");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1020
-                // MS-OXWSCDATA_R1021 is verified, the type of items is MessageType, and it is not ItemType. So this Requirement is verified directly.
-                this.Site.CaptureRequirement(
-                    "MS-OXWSCDATA",
-                    1020,
-                    @"[In t:ArrayOfRealItemsType Complex Type] This element [Item with type ""t:ItemType ([MS-OXWSCORE] section 2.2.4.8)"" ] MUST NOT be used in response messages.");
+                    102000000,
+                    @"[In Appendix C: Product Behavior] Implementation does return the items of type t:ItemType as a t:MessageType type. (Exchange 2013 and above follow this behavior.)");
             }            
             #endregion
 
@@ -2424,22 +2414,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 }
                 else if (disposalType == DisposalType.SoftDelete)
                 {
-                    // Find the deleted item in deleteditems folder.
-                    ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.recoverableitemsdeletions, createdItems[0].Subject, "User1");
-                    findInDeleteditems[i] = findItemIds != null;
-
-                    if (findInDeleteditems[i])
+                    if(Common.IsRequirementEnabled(1462, this.Site))
                     {
-                        this.CallMoveItemOperation(DistinguishedFolderIdNameType.recoverableitemsdeletions, findItemIds);
+                        // Find the deleted item in deleteditems folder.
+                        ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.recoverableitemsdeletions, createdItems[0].Subject, "User1");
+                        findInDeleteditems[i] = findItemIds != null;
+
+                        if (findInDeleteditems[i])
+                        {
+                            this.CallMoveItemOperation(DistinguishedFolderIdNameType.recoverableitemsdeletions, findItemIds);
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1669");
+
+                            // The item[1] is deleted using SoftDelete value, and it cannot be got in step 3 after DeleteItem operation, also it cannot be found in deleteditems folder, this represent the item is moved to the Recoverable Items folder.
+                            Site.CaptureRequirementIfIsTrue(
+                                findInDeleteditems[1],
+                                1669,
+                                @"[In m:DeleteItemType Complex Type] The value ""SoftDelete"" of ""DeleteType"" which specifies that an item or folder is moved to the dumpster if the dumpster is enabled.");
+                        }
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1669");
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1462");
 
-                        // The item[1] is deleted using SoftDelete value, and it cannot be got in step 3 after DeleteItem operation, also it cannot be found in deleteditems folder, this represent the item is moved to the Recoverable Items folder.
-                        Site.CaptureRequirementIfIsTrue(
-                            findInDeleteditems[1],
-                            1669,
-                            @"[In m:DeleteItemType Complex Type] The value ""SoftDelete"" of ""DeleteType"" which specifies that an item or folder is moved to the dumpster if the dumpster is enabled.");
+                        // Verified MS-OXWSCDATA_R1462.
+                        Site.CaptureRequirementIfIsNotNull(
+                            DistinguishedFolderIdNameType.recoverableitemsdeletions,
+                            1462,
+                            @"[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (<88> Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)");
                     }
                 }
                 else
