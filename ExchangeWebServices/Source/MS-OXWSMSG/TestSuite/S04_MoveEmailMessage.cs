@@ -99,7 +99,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             string userName = Common.GetConfigurationPropertyValue("Sender", this.Site);
             string password = Common.GetConfigurationPropertyValue("SenderPassword", this.Site);
             string domain = Common.GetConfigurationPropertyValue("Domain", this.Site);
-            bool findItemInDrafts = this.SRCHSUTControlAdapter.IsItemAvailableAfterMoveOrDelete(userName, password, domain, "drafts", this.Subject, "itemSubject");
+            bool findItemInDrafts = this.IsItemAvailableAfterMoveOrDelete(userName, password, domain, "drafts", this.Subject, "itemSubject");
             Site.Assert.IsFalse(findItemInDrafts, "The item should not be found in the drafts folder of Sender.");
             
             bool findItemInJunkemail = this.SearchItems(Role.Sender, "junkemail", this.Subject, "itemSubject");
@@ -152,6 +152,79 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             DeleteItemResponseType deleteItemResponse = this.MSGAdapter.DeleteItem(deleteItemRequest);
             Site.Assert.IsTrue(this.VerifyResponse(deleteItemResponse), @"Server should return success for deleting the email messages.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify the related requirements about the server behavior when moving E-mail message unsuccessful.
+        /// </summary>
+        [TestCategory("MSOXWSMSG"), TestMethod()]
+        public void MSOXWSMSG_S04_TC02_MoveMessageUnsuccessful()
+        {
+            #region Create message
+            CreateItemType createItemRequest = GetCreateItemType(MessageDispositionType.SaveOnly, DistinguishedFolderIdNameType.drafts);
+            CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.IsTrue(this.VerifyCreateItemResponse(createItemResponse, MessageDispositionType.SaveOnly), @"Server should return success for creating the email messages.");
+            this.infoItems = TestSuiteHelper.GetInfoItemsInResponse(createItemResponse);
+            this.firstItemOfFirstInfoItem = TestSuiteHelper.GetItemTypeItemFromInfoItemsByIndex(this.infoItems, 0, 0);
+
+            // Save the ItemId of message responseMessageItem got from the createItem response.
+            ItemIdType itemIdType = new ItemIdType();
+            Site.Assert.IsNotNull(this.firstItemOfFirstInfoItem.ItemId, @"The ItemId property of the first item should not be null.");
+            itemIdType.Id = this.firstItemOfFirstInfoItem.ItemId.Id;
+            itemIdType.ChangeKey = this.firstItemOfFirstInfoItem.ItemId.ChangeKey;
+            #endregion
+
+            #region Delete the message created
+            DeleteItemType deleteItemRequest = new DeleteItemType
+            {
+                ItemIds = new ItemIdType[]
+                {
+                   this.firstItemOfFirstInfoItem.ItemId
+                }
+            };
+
+            DeleteItemResponseType deleteItemResponse = this.MSGAdapter.DeleteItem(deleteItemRequest);
+            Site.Assert.IsTrue(this.VerifyResponse(deleteItemResponse), @"Server should return success for deleting the email messages.");
+            #endregion
+
+            #region Move message
+            MoveItemType moveItemRequest = new MoveItemType
+            {
+                ItemIds = new ItemIdType[]
+                {
+                    itemIdType
+                },
+
+                // Set target folder to junk email folder.
+                ToFolderId = new TargetFolderIdType
+                {
+                    Item = new DistinguishedFolderIdType
+                    {
+                        Id = DistinguishedFolderIdNameType.junkemail
+                    }
+                }
+            };
+
+            MoveItemResponseType moveItemResponse = this.MSGAdapter.MoveItem(moveItemRequest);
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R163001");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                moveItemResponse.ResponseMessages.Items[0].ResponseClass,
+                163001,
+                @"[In MoveItem] If the MoveItem WSDL operation request is not successful, it returns a MoveItemResponse element with the ResponseClass attribute of the MoveItemResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R163002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                System.Enum.IsDefined(typeof(ResponseCodeType), moveItemResponse.ResponseMessages.Items[0].ResponseCode),
+                163002,
+                @"[In MoveItem] [A unsuccessful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element of the MoveItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.");
+
             #endregion
         }
         #endregion
