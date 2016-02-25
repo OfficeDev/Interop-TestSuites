@@ -521,10 +521,13 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-OXWSATT_R43001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In t:AttachmentIdType Complex Type][The RootItemId attribute] The store item is an item in the server store.</ns1:Description>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R44</ns1:REQ_ID>
@@ -1134,7 +1137,8 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318014.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R349</ns1:REQ_ID>
@@ -1351,7 +1355,7 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318008.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318009.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R99007</ns1:REQ_ID>
@@ -1439,6 +1443,17 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSATT_R104002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
 		<ns1:Description>[t:ReferenceAttachmentType Complex Type]This type extends the AttachmentType complex type (section 2.2.4.4). &lt;8&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318011.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R104003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[t:ReferenceAttachmentType Complex Type] [The ReferenceAttachmentType Complex Type is defined as follow:]
 &lt;xs:complexType name="ReferenceAttachmentType"&gt;
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:AttachmentType"&gt;
@@ -1457,8 +1472,7 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318011.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R104004</ns1:REQ_ID>
@@ -3760,7 +3774,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement:MS-OXWSATT_R311, MS-OXWSATT_R3111.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements:MS-OXWSATT_R311, MS-OXWSATT_R3111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R311</ns1:REQ_ID>
@@ -3770,7 +3784,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R55001, MS-OXWSATT_R55002, MS-OXWSATT_R55003, MS-OXWSATT_R552.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSATT_R55001, MS-OXWSATT_R55002, MS-OXWSATT_R55003, MS-OXWSATT_R552.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R3111</ns1:REQ_ID>
@@ -3808,7 +3822,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318013</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318013.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R479</ns1:REQ_ID>
@@ -3818,7 +3832,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R479001, MS-OXWSATT_R479002</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSATT_R479001, MS-OXWSATT_R479002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R479001</ns1:REQ_ID>
@@ -3890,7 +3904,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return ErrorInvalidItemForOperationCreateItemAttachment response code as specified in [MS-OXWSCDATA] section 2.2.5.24, when the item attachment is MeetingMessage, MeetingRequest, MeetingResponse or MeetingCancellation.(Exchange 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSATT_R78001,MS-OXWSATT_R1:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSATT_R78001:i,MS-OXWSATT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3901,6 +3915,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not suport IsInline element. (&lt;1&gt; Section 2.2.4.4:  The IsInline element is not supported in Exchange 2007.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R343:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3910,6 +3925,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does suport IsInline element. (Exchange 2010 and above follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R343:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3920,6 +3936,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318004</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not suport IsContactPhoto element. (&lt;2&gt; Section 2.2.4.5:  The IsContactPhoto element is not supported in Exchange 2007.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R346:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3929,6 +3946,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318005</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does suport IsContactPhoto element. (Exchange 2010 and above follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R346:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3936,27 +3954,10 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSATT_R318006</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return a generic ItemType item.(&lt;3&gt; Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSATT_R318007</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a generic ItemType item. (The initial release Exchange 2007 follow this behavior).</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318014</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a MessageType item.(&lt;3&gt; Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R81:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3967,6 +3968,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318008</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Person element. (&lt;6&gt; Section 2.2.4.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Person element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R99006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3976,6 +3978,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318009</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R99006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3985,7 +3988,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318010</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReferenceAttachmentType complextype. (&lt;8&gt; Section 2.2.4.8:  Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ReferenceAttachmentType complex type. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReferenceAttachmentType complex type. (&lt;8&gt; Section 2.2.4.8:  Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ReferenceAttachmentType complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R104002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3994,7 +3998,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318011</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReferenceAttachmentType complextype. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReferenceAttachmentType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R104002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4005,6 +4010,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318012</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the FilterHtmlContent element. (&lt;9&gt; Section 3.1.4.3.3.3:  The FilterHtmlContent element is not supported in Exchange 2007.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4014,6 +4020,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R318013</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the FilterHtmlContent element. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4024,6 +4031,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R55001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior]  Implementation does return MIME content.(&lt;10&gt; Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2),  If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R311:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4034,6 +4042,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R55002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return MIME content. (&lt;10&gt; Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R311:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4044,6 +4053,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R55003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior]Implementation does return MIME content. (&lt;10&gt; Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R311:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4054,6 +4064,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R552</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return MIME content. (&lt;10&gt; Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes [IPM.Note, IPM.Post, IPM.Appointment], the GetAttachmentResponseMessage element MUST return an ErrorUnsupportedMimeConversion response code as specified in [MS-OXWSCDATA] section 2.2.5.24.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R311:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4064,6 +4075,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R55004</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return MIME content. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R311:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
