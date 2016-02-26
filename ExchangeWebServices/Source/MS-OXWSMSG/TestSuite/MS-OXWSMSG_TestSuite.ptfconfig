@@ -9,7 +9,7 @@
     <Adapter xsi:type="managed" name="IMS_OXWSMSGAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMSG.MS_OXWSMSGAdapter"/>
     <!-- SUT Control Adapter -->
     <!-- Change the value of the "type" attribute to "interactive" and remove the "adaptertype" attribute, if you need to run the test suite in interactive mode. -->
-    <Adapter xsi:type="managed" name="IMS_OXWSSRCHSUTControlAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMSG.MS_OXWSSRCHSUTControlAdapter"/>
+    <Adapter xsi:type="managed" name="IMS_OXWSSRCHAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMSG.MS_OXWSSRCHAdapter"/>
     <Adapter xsi:type="managed" name="IMS_OXWSMSGSUTControlAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMSG.MS_OXWSMSGSUTControlAdapter"/>
   </Adapters>
 

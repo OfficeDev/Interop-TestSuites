@@ -902,6 +902,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         <xs:enumeration value=""PublicFolder""/>
     </xs:restriction>
 </xs:simpleType>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1428001");
+
+            Site.CaptureRequirementIfIsTrue(
+                Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false,
+                "MS-OXWSCDATA",
+                1428001,
+                @"[In Appendix C: Product Behavior]<53> Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.");
         }
     }
 }
