@@ -145,6 +145,78 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.Assert.IsTrue(this.VerifyMultipleResponse(deleteItemResponse), @"Server should return success for deleting the email messages.");
             #endregion
         }
+
+        /// <summary>
+        /// This test case is used to verify the related requirements about the server behavior when copying E-mail message unsuccessful.
+        /// </summary>
+        [TestCategory("MSOXWSMSG"), TestMethod()]
+        public void MSOXWSMSG_S03_TC02_CopyMessageUnsuccessful()
+        {
+            #region Create message
+            CreateItemType createItemRequest = GetCreateItemType(MessageDispositionType.SaveOnly, DistinguishedFolderIdNameType.drafts);
+            CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.IsTrue(this.VerifyCreateItemResponse(createItemResponse, MessageDispositionType.SaveOnly), @"Server should return success for creating the email messages.");
+            this.infoItems = TestSuiteHelper.GetInfoItemsInResponse(createItemResponse);
+            this.firstItemOfFirstInfoItem = TestSuiteHelper.GetItemTypeItemFromInfoItemsByIndex(this.infoItems, 0, 0);
+
+            // Save the ItemId of message responseMessageItem got from the createItem response.
+            ItemIdType itemIdType = new ItemIdType();
+            Site.Assert.IsNotNull(this.firstItemOfFirstInfoItem.ItemId, @"The ItemId property of the first item should not be null.");
+            itemIdType.Id = this.firstItemOfFirstInfoItem.ItemId.Id;
+            itemIdType.ChangeKey = this.firstItemOfFirstInfoItem.ItemId.ChangeKey;
+            #endregion
+
+            #region Delete the message created
+            DeleteItemType deleteItemRequest = new DeleteItemType
+            {
+                ItemIds = new ItemIdType[]
+                {
+                   this.firstItemOfFirstInfoItem.ItemId
+                }
+            };
+
+            DeleteItemResponseType deleteItemResponse = this.MSGAdapter.DeleteItem(deleteItemRequest);
+            Site.Assert.IsTrue(this.VerifyResponse(deleteItemResponse), @"Server should return success for deleting the email messages.");
+            #endregion
+
+            #region Copy message deleted
+            CopyItemType copyItemRequest = new CopyItemType
+            {
+                ItemIds = new ItemIdType[]
+                {
+                    itemIdType
+                },
+
+                // Save the copy message to inbox folder.
+                ToFolderId = new TargetFolderIdType
+                {
+                    Item = new DistinguishedFolderIdType
+                    {
+                        Id = DistinguishedFolderIdNameType.inbox
+                    }
+                }
+            };
+
+            CopyItemResponseType copyItemResponse = this.MSGAdapter.CopyItem(copyItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R170001");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                copyItemResponse.ResponseMessages.Items[0].ResponseClass,
+                170001,
+                @"[In CopyItem] If the CreateItem WSDL operation is not successful, it returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R170002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                System.Enum.IsDefined(typeof(ResponseCodeType), copyItemResponse.ResponseMessages.Items[0].ResponseCode),
+                170002,
+                @"[In CopyItem] [A unsuccessful CopyItem operation request returns a CopyItemResponse element] The ResponseCode element of the CreateItemResponseMessage element is set to one of the common errors defined in [MS-OXWSCDATA] section 2.2.5.24.");
+            #endregion
+        }
         #endregion
     }
 }
