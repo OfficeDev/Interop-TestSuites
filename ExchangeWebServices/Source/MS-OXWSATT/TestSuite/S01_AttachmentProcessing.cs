@@ -200,6 +200,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 446,
                 @"[In t:RootItemIdType Complex Type][The RootItemChangeKey attribute] Identifies the new change key of the root item of an attachment.");
 
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R510001");
+
+            // If R443 and R446 are verified, then R510001 will be verified.
+            this.Site.CaptureRequirement(
+                510001,
+                @"[In Complex Types] [Complex type name] RootItemIdType Identifies the root item of a deleted attachment. ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R509");
+
+            this.Site.CaptureRequirementIfIsNotNull(
+                deleteAttachmentResponseMessage,
+                509,
+                @"[In Complex Types] [Complex type name]DeleteAttachmentResponseMessageType
+Contains the status and result of a single DeleteAttachment operation.");
             this.VerifyDeleteAttachmentSuccessfulResponse(deleteAttachmentResponse);
         }
 
@@ -209,6 +225,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         [TestCategory("MSOXWSATT"), TestMethod()]
         public void MSOXWSATT_S01_TC02_ProcessMessageTypeItemAttachment()
         {
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false, "Exchange 2007 does not use the FilterHtmlContent element.");
+
             #region Step 1 Create an item attachment, which contains a MessageType item as the child item, on an item.
 
             // Create an item attachment by CreateAttachment operation.
@@ -227,8 +245,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             #endregion
 
             #region Step 2 Get the item attachment created in step 1 by the GetAttachment operation.
+            GetAttachmentType getAttachmentRequest = new GetAttachmentType()
+            {
+                AttachmentIds = new AttachmentIdType[] { createdAttachmentId },
+                AttachmentShape = new AttachmentResponseShapeType()
+                {
+                    BodyType = BodyTypeResponseType.Text,
+                    BodyTypeSpecified = true,
+                    IncludeMimeContent = true,
+                    IncludeMimeContentSpecified = true,
+                }
+            };
 
-            GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Text, true, createdAttachmentId);
+            GetAttachmentResponseType getAttachmentResponse = this.ATTAdapter.GetAttachment(getAttachmentRequest);
             AttachmentInfoResponseMessageType getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
 
             // Check the response.
@@ -362,7 +391,65 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
 
             this.VerifyGetAttachmentSuccessfulResponse(getAttachmentResponse);
 
-            #region Step 3 Delete the item attachment created in step 1 by the DeleteAttachment operation.
+            #region Step 3 Get the item attachment created in step 1 by the GetAttachment operation with FilterHtmlContent is false.
+            getAttachmentRequest = new GetAttachmentType()
+            {
+                AttachmentIds = new AttachmentIdType[] { createdAttachmentId },
+
+                AttachmentShape = new AttachmentResponseShapeType()
+                {
+                    BodyType = BodyTypeResponseType.HTML,
+                    BodyTypeSpecified = true,
+                    IncludeMimeContent = true,
+                    IncludeMimeContentSpecified = true,
+                    FilterHtmlContent = false,
+                    FilterHtmlContentSpecified = true,
+                }
+            };
+
+            getAttachmentResponse = this.ATTAdapter.GetAttachment(getAttachmentRequest);
+            getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+            MessageType message = ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item as MessageType;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R479002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                 message.Body.Value.Contains("<script>alert('Alert!');</script>"),
+                 479002,
+                 @"[In t:AttachmentResponseShapeType Complex Type][The FilterHtmlContent element] A text value of ""false"" indicates that potentially unsafe HTML content is not to be filtered from the attachment.");
+            #endregion
+
+            #region Step 4 Get the item attachment created in step 1 by the GetAttachment operation with FilterHtmlContent is true.
+            getAttachmentRequest = new GetAttachmentType()
+            {
+                AttachmentIds = new AttachmentIdType[] { createdAttachmentId },
+
+                AttachmentShape = new AttachmentResponseShapeType()
+                {
+                    BodyType = BodyTypeResponseType.HTML,
+                    BodyTypeSpecified = true,
+                    IncludeMimeContent = true,
+                    IncludeMimeContentSpecified = true,
+                    FilterHtmlContent = true,
+                    FilterHtmlContentSpecified = true,
+                }
+            };
+
+            getAttachmentResponse = this.ATTAdapter.GetAttachment(getAttachmentRequest);
+            getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+            message = ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item as MessageType;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R479001");
+
+            this.Site.CaptureRequirementIfIsFalse(
+                 message.Body.Value.Contains("<script>alert('Alert!');</script>"),
+                 479001,
+                 @"[In t:AttachmentResponseShapeType Complex Type][The FilterHtmlContent element] A text value of ""true"" indicates that potentially unsafe HTML content is to be filtered from the attachment.");
+            #endregion
+            
+            #region Step 5 Delete the item attachment created in step 1 by the DeleteAttachment operation.
 
             DeleteAttachmentResponseType deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
             DeleteAttachmentResponseMessageType deleteAttachmentResponseMessage = deleteAttachmentResponse.ResponseMessages.Items[0] as DeleteAttachmentResponseMessageType;
@@ -734,12 +821,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         [TestCategory("MSOXWSATT"), TestMethod()]
         public void MSOXWSATT_S01_TC07_ProcessMultipleAttachments()
         {
-            #region Configure SOAP header
-
-            this.ConfigureSOAPHeader();
-
-            #endregion
-
             #region Step 1 Create 2 attachments on an item.
 
             // Create a file attachment by CreateAttachment operation.
@@ -894,6 +975,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 3111,
                 @"[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of ""false"" indicates that the attachment doesn't contain MIME content.");
 
+            if (Common.IsRequirementEnabled(318014, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318014");
+
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item,
+                    typeof(MessageType),
+                    318014,
+                    @"[In Appendix C: Product Behavior] Implementation does return a MessageType item.(<3> Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)");
+            }
+
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R527");
 
@@ -1037,6 +1130,326 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 @"[In DeleteAttachment Operation] It [the item attachment] exists as an attachment to an item or another attachment.");
 
             this.VerifyDeleteAttachmentSuccessfulResponse(deleteAttachmentResponse);
+        }
+
+        /// <summary>
+        /// This test case is designed to verify ErrorInvalidItemForOperationCreateItemAttachment response code.
+        /// </summary>
+        [TestCategory("MSOXWSATT"), TestMethod()]
+        public void MSOXWSATT_S01_TC10_CallErrorInvalidItemForOperationCreateItemAttachment()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(318001, this.Site), "Implementation does not return ErrorInvalidItemForOperationCreateItemAttachment response code.");
+
+            #region Step 1 Create an item attachment, which contains a MeetingMessage item as the child item, on an item.
+            // Create an item attachment by CreateAttachment operation.
+            CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.MeetingMessageAttachemnt);
+            AttachmentInfoResponseMessageType createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidItemForOperationCreateItemAttachment, createAttachmentResponse.ResponseMessages.Items[0].ResponseCode, "Server should return ErrorInvalidItemForOperationCreateItemAttachment error.");
+            #endregion
+
+            #region Step 2 Create an item attachment, which contains a MeetingRequest item as the child item, on an item.
+            // Create an item attachment by CreateAttachment operation.
+            createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.MeetingRequestAttachment);
+            createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidItemForOperationCreateItemAttachment, createAttachmentResponse.ResponseMessages.Items[0].ResponseCode, "Server should return ErrorInvalidItemForOperationCreateItemAttachment error.");
+            #endregion
+
+            #region Step 3 Create an item attachment, which contains a MeetingResponse item as the child item, on an item.
+            // Create an item attachment by CreateAttachment operation.
+            createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.MeetingResponseAttachment);
+            createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidItemForOperationCreateItemAttachment, createAttachmentResponse.ResponseMessages.Items[0].ResponseCode, "Server should return ErrorInvalidItemForOperationCreateItemAttachment error.");
+            #endregion
+
+            #region Step 4 Create an item attachment, which contains a MeetingCancellation item as the child item, on an item.
+            // Create an item attachment by CreateAttachment operation.
+            createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.MeetingCancellationAttachment);
+            createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidItemForOperationCreateItemAttachment, createAttachmentResponse.ResponseMessages.Items[0].ResponseCode, "Server should return ErrorInvalidItemForOperationCreateItemAttachment error.");
+            #endregion
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318001");
+
+            // If the steps above are passed, then the R318001 will be verified. 
+            this.Site.CaptureRequirement(
+                318001,
+                @"[In Appendix C: Product Behavior] Implementation does return ErrorInvalidItemForOperationCreateItemAttachment response code as specified in [MS-OXWSCDATA] section 2.2.5.24, when the item attachment is MeetingMessage, MeetingRequest, MeetingResponse or MeetingCancellation.(Exchange 2007 and above follow this behavior.)");
+        }
+
+        /// <summary>
+        /// This test case is designed to test proccess ReferenceAttachmentType attachment.
+        /// </summary>
+        [TestCategory("MSOXWSATT"), TestMethod()]
+        public void MSOXWSATT_S01_TC11_ProcessReferenceAttachment()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(318011, this.Site), "Exchange 2007 and Exchange 2010 do not introduce the ReferenceAttachmentType complex type.");
+
+            #region Step 1 Create a reference attachment.
+
+            // Create a file attachment by CreateAttachment operation.
+            CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.ReferenceAttachment);
+            AttachmentInfoResponseMessageType createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(createAttachmentResponse, 1, this.Site);
+
+            // Gets the ID of the created attachment.
+            AttachmentType createdAttachment = createAttachmentInfoResponse.Attachments[0];
+            AttachmentIdType createdAttachmentId = createdAttachment.AttachmentId;
+            #endregion
+
+            #region Step 2 Get the reference attachment created in step 1 by the GetAttachment operation.
+
+            GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Text, false, createdAttachmentId);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getAttachmentResponse, 1, this.Site);
+            AttachmentInfoResponseMessageType getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R38002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                getAttachmentInfoResponse.Attachments.Length == 1,
+                38002,
+                @"[In t:ArrayOfAttachmentsType Complex Type] [The ReferenceAttachment element ] Specifies an reference that is attached to another item");
+
+            ReferenceAttachmentType attachmentInRequest = this.Attachments[0] as ReferenceAttachmentType;
+            ReferenceAttachmentType attachmentInResponse = getAttachmentInfoResponse.Attachments[0] as ReferenceAttachmentType;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104006");
+
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                attachmentInRequest.AttachLongPathName,
+                attachmentInResponse.AttachLongPathName,
+                104006,
+                @"[t:ReferenceAttachmentType Complex Type] [The AttachLongPathName element] Specifies the URL of the attachment.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104008");
+
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                attachmentInRequest.ProviderType,
+                attachmentInResponse.ProviderType,
+                104008,
+                @"[t:ReferenceAttachmentType Complex Type] [The ProviderType element] Specifies the provider type.");
+
+             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104012");
+
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                attachmentInRequest.AttachmentThumbnailUrl,
+                attachmentInResponse.AttachmentThumbnailUrl,
+                104012,
+                @"[t:ReferenceAttachmentType Complex Type] [The AttachmentThumbnailUrl element] Specifies the Url of the thumbnail of the attachment.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104014");
+
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                attachmentInRequest.AttachmentPreviewUrl,
+                attachmentInResponse.AttachmentPreviewUrl,
+                104014,
+                @"[t:ReferenceAttachmentType Complex Type] [The AttachmentPreviewUrl element] Specifies the Url of the attachment preview.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104016");
+
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                attachmentInRequest.PermissionType,
+                attachmentInResponse.PermissionType,
+                104016,
+                @"[t:ReferenceAttachmentType Complex Type] [The PermissionType element] Specifies the permission type.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104018");
+
+            this.Site.CaptureRequirementIfAreEqual<bool>(
+                attachmentInResponse.AttachmentIsFolder,
+                attachmentInResponse.AttachmentIsFolder,
+                104018,
+                @"[t:ReferenceAttachmentType Complex Type] [The AttachmentIsFolder element] Specifies that the attachment is a folder.");
+            #endregion
+
+            #region Step 3 Delete the reference attachment created in step 1 by the DeleteAttachment operation.
+
+            DeleteAttachmentResponseType deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
+            DeleteAttachmentResponseMessageType deleteAttachmentResponseMessage = deleteAttachmentResponse.ResponseMessages.Items[0] as DeleteAttachmentResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteAttachmentResponse, 1, this.Site);
+
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test proccess none child element on an item.
+        /// </summary>
+        [TestCategory("MSOXWSATT"), TestMethod()]
+        public void MSOXWSATT_S01_TC12_ProcessNoneChildItemAttachment()
+        {
+            #region Step 1 Create a person attachment on an item.
+
+            // Create a file attachment by CreateAttachment operation.
+            CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.NoneChildAttachment);
+            AttachmentInfoResponseMessageType createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R78002");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorMissingItemForCreateItemAttachment,
+                createAttachmentResponse.ResponseMessages.Items[0].ResponseCode,
+                78002,
+                @"If none of the child elements of ItemAttachmentType is specified in the CreateAttachment request, the server MUST return an ErrorMissingItemForCreateItemAttachment response code as specified in [MS-OXWSCDATA] section 2.2.5.24.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R145001");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                createAttachmentResponse.ResponseMessages.Items[0].ResponseClass,
+                145001,
+                @"[In CreateAttachment Operation] If the request is unsuccessful, the CreateAttachment operation returns a CreateAttachmentResponse element with the ResponseClass attribute of the CreateAttachmentResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R145002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                System.Enum.IsDefined(typeof(ResponseCodeType), createAttachmentResponse.ResponseMessages.Items[0].ResponseCode),
+                145002,
+                @"[In CreateAttachment Operation] [A unsuccessful CreateAttachment operation request returns a CreateAttachmentResponse element] The ResponseCode element of the CreateAttachmentResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to verify call GetAttachment and DeleteAttachment unsuccessful.
+        /// </summary>
+        [TestCategory("MSOXWSATT"), TestMethod()]
+        public void MSOXWSATT_S01_TC13_GetAndDeleteUnsuccessful()
+        {
+            #region Step 1 Create a file attachment on an item.
+            // Create a file attachment by CreateAttachment operation.
+            CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.FileAttachment);
+            AttachmentInfoResponseMessageType createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(createAttachmentResponse, 1, this.Site);
+
+            // Gets the ID of the created attachment.
+            AttachmentType createdAttachment = createAttachmentInfoResponse.Attachments[0];
+            AttachmentIdType createdAttachmentId = createdAttachment.AttachmentId;
+            #endregion
+
+            #region Step 2 Delete the file attachment created in step 1 by the DeleteAttachment operation.
+            DeleteAttachmentResponseType deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
+            DeleteAttachmentResponseMessageType deleteAttachmentResponseMessage = deleteAttachmentResponse.ResponseMessages.Items[0] as DeleteAttachmentResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteAttachmentResponse, 1, this.Site);
+            #endregion
+
+            #region Step 3 Get the file attachment deleted in step 2 by the GetAttachment operation.
+            GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Text, false, createdAttachmentId);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R474001");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                getAttachmentResponse.ResponseMessages.Items[0].ResponseClass,
+                474001,
+                @"[In tns:GetAttachmentSoapOut Message] If the request is unsuccessful, the GetAttachment operation returns a GetAttachmentResponse element with the ResponseClass attribute of the GetAttachmentResponseMessage element set to ""Error"". ");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R474002");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                System.Enum.IsDefined(typeof(ResponseCodeType), getAttachmentResponse.ResponseMessages.Items[0].ResponseCode),
+                474002,
+                @"[In tns:GetAttachmentSoapOut Message] [A unsuccessful GetAttachment operation request returns a GetAttachmentResponse element ] The ResponseCode element of the GetAttachmentResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
+            #endregion
+
+            #region Step 4 Delete the file attachment deleted in step 2 by the DeleteAttachment operation.
+
+            deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R465001");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                deleteAttachmentResponse.ResponseMessages.Items[0].ResponseClass,
+                465001,
+                @"[In tns:DeleteAttachmentSoapOut Message] If the request is unsuccessful, the DeleteAttachment operation returns a DeleteAttachmentResponse element with the ResponseClass attribute of the DeleteAttachmentResponseMessage element set to ""Error"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R465002");
+            
+            this.Site.CaptureRequirementIfIsTrue(
+                System.Enum.IsDefined(typeof(ResponseCodeType), deleteAttachmentResponse.ResponseMessages.Items[0].ResponseCode),
+                465002,
+                @"[In tns:DeleteAttachmentSoapOut Message] [A unsuccessful DeleteAttachment operation request returns a DeleteAttachmentResponse element] The ResponseCode element of the DeleteAttachmentResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to verify the requirements related with ErrorUnsupportedMimeConversion response code.
+        /// </summary>
+        [TestCategory("MSOXWSATT"), TestMethod()]
+        public void MSOXWSATT_S01_TC14_GetUnsupportedMimeConversionAttachment()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(552, this.Site), "Implementation does return ErrorUnsupportedMimeConversion response code when the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes.");
+
+            #region Step 1 Create a Task attachment on an item.
+            // Create a file attachment by CreateAttachment operation.
+            CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.TaskAttachment);
+            AttachmentInfoResponseMessageType createAttachmentInfoResponse = createAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(createAttachmentResponse, 1, this.Site);
+
+            // Gets the ID of the created attachment.
+            AttachmentType createdAttachment = createAttachmentInfoResponse.Attachments[0];
+            AttachmentIdType createdAttachmentId = createdAttachment.AttachmentId;
+            #endregion
+
+            #region Step 2 Get the Task attahcment and the IncludeMimeContent element is set to true.
+            GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Text, true, createdAttachmentId);
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R552");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorUnsupportedMimeConversion,
+                getAttachmentResponse.ResponseMessages.Items[0].ResponseCode,
+                552,
+                @"[In Appendix C: Product Behavior] Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes [IPM.Note, IPM.Post, IPM.Appointment], the GetAttachmentResponseMessage element MUST return an ErrorUnsupportedMimeConversion response code as specified in [MS-OXWSCDATA] section 2.2.5.24.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R713");
+
+            // If R443 and R446 are verified, then R510001 will be verified.
+            this.Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                713,
+                @"[In m:ResponseCodeType Simple Type] The value ""ErrorUnsupportedMimeConversion"" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.");
+             #endregion
+
+            #region Step 3 Delete the attachment created in step 1 by the DeleteAttachment operation.
+
+            DeleteAttachmentResponseType deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
+            DeleteAttachmentResponseMessageType deleteAttachmentResponseMessage = deleteAttachmentResponse.ResponseMessages.Items[0] as DeleteAttachmentResponseMessageType;
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteAttachmentResponse, 1, this.Site);
+            #endregion
         }
 
         #endregion

@@ -38,6 +38,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         /// <summary>
         /// Identifies the attachment is a post type item attachment.
         /// </summary>
-        PostAttachment
+        PostAttachment,
+
+        /// <summary>
+        ///  Identifies the attachment is a MeetingMessage type item attachment.
+        /// </summary>
+        MeetingMessageAttachemnt,
+
+        /// <summary>
+        /// Identifies the attachment is a MeetingRequest type item attachment.
+        /// </summary>
+        MeetingRequestAttachment,
+
+        /// <summary>
+        /// Identifies the attachment is a MeetingResponse type item attachment.
+        /// </summary>
+        MeetingResponseAttachment,
+
+        /// <summary>
+        /// Identifies the attachment is a MeetingCancellation type item attachment.
+        /// </summary>
+        MeetingCancellationAttachment,
+
+        /// <summary>
+        /// Identifies the attachment is a Person type item attachment.
+        /// </summary>
+        PersonAttachment,
+
+        /// <summary>
+        /// Identifies the attachment is a reference attachment.
+        /// </summary>
+        ReferenceAttachment,
+
+        /// <summary>
+        /// Identifies the none clild element in item attachment.
+        /// </summary>
+        NoneChildAttachment,
     }
 }
