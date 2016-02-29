@@ -1021,6 +1021,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         [TestCategory("MSOXWSMSG"), TestMethod()]
         public void MSOXWSMSG_S01_TC07_GetMessageWithFilterHtmlContent()
         {
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false, "Exchange 2007 does not use the FilterHtmlContent element.");
+
             #region Create a message with html body
             #region Define a CreateItem request
             string unsafeHtmlContent = "<html><body><b>Bold</b><script>alert('Alert!');</script></body></html>";
