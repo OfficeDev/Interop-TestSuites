@@ -27,18 +27,18 @@
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_TestSuite.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCORE\TestSuite\MS-OXWSCORE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCORE\TestSuite\MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_TestSuite.ptfconfig" />
-    <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_TestSuite.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_RequirementSpecification.xml" />
-    <DeploymentItem filename="MS-OXWSCONT\TestSuite\MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
@@ -53,9 +53,10 @@
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_RequirementSpecification.xml" />
-    <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSCONT\TestSuite\MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_TestSuite.deployment.ptfconfig" />
@@ -86,4 +87,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

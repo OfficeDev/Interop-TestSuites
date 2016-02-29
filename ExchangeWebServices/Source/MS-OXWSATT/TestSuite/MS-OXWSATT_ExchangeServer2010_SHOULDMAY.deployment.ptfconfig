@@ -7,5 +7,13 @@
     <Property name="R318Enabled" value="true"/>
     <!-- Set R550Enabled to true to verify that the implementation does return MIME content for attachments of IPM.Contact, as specified in section 3.1.4.3.3.3. When the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type. Set R550Enabled to false to disable this requirement.-->
     <Property name="R550Enabled" value="false"/>
+    <!-- Set R318011Enabled to true to verify that the implementation does introduce the ReferenceAttachmentType complex type. Set R318011Enabled to false to disable this requirement.-->
+    <Property name="R318011Enabled" value="false"/>
+    <!-- Set R318001Enabled to true to verify that the implementation does return ErrorInvalidItemForOperationCreateItemAttachment response code as specified in [MS-OXWSCDATA] section 2.2.5.24, when the item attachment is MeetingMessage, MeetingRequest, MeetingResponse or MeetingCancellation. Set R318001Enabled to false to disable this requirement.-->
+    <Property name="R318001Enabled" value="true"/>
+    <!-- Set R318014Enabled to true to verify that the implementation does return a MessageType item. Set R318014Enabled to false to disable this requirement.-->
+    <Property name="R318014Enabled" value="true"/>
+    <!-- Set R552Enabled to true to verify that the implementation does return ErrorUnsupportedMimeConversion response code when the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes [IPM.Note, IPM.Post, IPM.Appointment. Set R552Enabled to false to disable this requirement.-->
+    <Property name="R552Enabled" value="false"/>
   </Properties>
 </TestSite>

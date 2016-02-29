@@ -27,6 +27,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         /// </summary>
         protected ItemIdType ItemId { get; private set; }
 
+        /// <summary>
+        /// Gets the array of attachments in CreateAttachment request.
+        /// </summary>
+        protected AttachmentType[] Attachments { get; private set; }
         #endregion
 
         #region Test case initialize and clean up
@@ -70,7 +74,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         {
             // Configure attachments.
             int attachmentCount = attachmentsType.Length;
-            AttachmentType[] attachments = new AttachmentType[attachmentCount];
+            this.Attachments = new AttachmentType[attachmentCount];
             for (int attachmentIndex = 0; attachmentIndex < attachmentCount; attachmentIndex++)
             {
                 AttachmentType attachment = null;
@@ -90,7 +94,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
 
                     attachment = fileAttachment;
                 }
-                else
+                else if (attachmentsType[attachmentIndex] == AttachmentTypeValue.ReferenceAttachment)
+                {
+                    ReferenceAttachmentType referenceAttachment = new ReferenceAttachmentType()
+                    {
+                        AttachLongPathName = @"http://www.contoso.com/xyz.abc",
+                        ProviderType = "abc",
+                        ProviderEndpointUrl = @"http://www.contoso.com",
+                        AttachmentPreviewUrl = @"http://www.contoso.com/Preview.abc",
+                        AttachmentThumbnailUrl = @"http://www.contoso.com/Thumbnail.abc",
+                        ContentLocation = @"http://www.contoso.com/xyz.abc",
+                        Name = "RefAttachment",
+                        ContentId = Guid.NewGuid().ToString(),
+                        ContentType = "image/jpeg",
+                    };
+
+                    attachment = referenceAttachment;
+                }
+                else 
                 {
                     ItemAttachmentType itemAttachment = new ItemAttachmentType()
                     {
@@ -109,7 +130,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                             break;
 
                         case AttachmentTypeValue.MessageAttachment:
-                            itemAttachment.Item = new MessageType();
+                            itemAttachment.Item = new MessageType() 
+                            {
+                                Body = new BodyType() 
+                                {
+                                    BodyType1 = BodyTypeType.HTML,
+                                    Value = "<html><body><b>Bold</b><script>alert('Alert!');</script></body></html>"
+                                },
+                            };
                             break;
 
                         case AttachmentTypeValue.CalendarAttachment:
@@ -131,12 +159,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                         case AttachmentTypeValue.TaskAttachment:
                             itemAttachment.Item = new TaskType();
                             break;
+
+                        case AttachmentTypeValue.MeetingMessageAttachemnt:
+                            itemAttachment.Item = new MeetingMessageType();
+                            break;
+
+                        case AttachmentTypeValue.MeetingRequestAttachment:
+                            itemAttachment.Item = new MeetingRequestMessageType();
+                            break;
+
+                        case AttachmentTypeValue.MeetingResponseAttachment:
+                            itemAttachment.Item = new MeetingResponseMessageType();
+                            break;
+
+                        case AttachmentTypeValue.MeetingCancellationAttachment:
+                            itemAttachment.Item = new MeetingCancellationMessageType();
+                            break;
+                        
+                        case AttachmentTypeValue.PersonAttachment:
+                            itemAttachment.Item = new AbchPersonItemType()
+                            {
+                                AntiLinkInfo = "",
+                                PersonId = Guid.NewGuid().ToString(),
+                                ContactHandles = new AbchPersonContactHandle[] { 
+                                    new AbchPersonContactHandle(),
+                                },
+                                ContactCategories = new string[] { 
+                                    "test category"
+                                },
+                            };
+                            break;
                     }
 
                     attachment = itemAttachment;
                 }
 
-                attachments[attachmentIndex] = attachment;
+                this.Attachments[attachmentIndex] = attachment;
             }
 
             CreateAttachmentType createAttachmentRequest = new CreateAttachmentType()
@@ -145,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 {
                     Id = parentItemId
                 },
-                Attachments = attachments
+                Attachments = this.Attachments
             };
 
             return this.ATTAdapter.CreateAttachment(createAttachmentRequest);
@@ -201,34 +259,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             };
 
             return this.ATTAdapter.DeleteAttachment(deleteAttachmentRequest);
-        }
-
-        /// <summary>
-        /// Configure the SOAP header before calling operations.
-        /// </summary>
-        protected void ConfigureSOAPHeader()
-        {
-            // Configure mailbox culture value.
-            MailboxCultureType mailboxCulture = new MailboxCultureType();
-            string culture = Common.GetConfigurationPropertyValue("MailboxCulture", this.Site);
-            mailboxCulture.Value = culture;
-
-            // Set the value of ExchangeImpersonation.
-            ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
-            impersonation.ConnectingSID = new ConnectingSIDType();
-            impersonation.ConnectingSID.Item = Common.GetConfigurationPropertyValue("UserName", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
-
-            // Configure time zone value.
-            TimeZoneDefinitionType timezoneDefin = new TimeZoneDefinitionType();
-            timezoneDefin.Id = "Eastern Standard Time";
-            TimeZoneContextType timezoneContext = new TimeZoneContextType();
-            timezoneContext.TimeZoneDefinition = timezoneDefin;
-
-            Dictionary<string, object> headerValues = new Dictionary<string, object>();
-            headerValues.Add("MailboxCulture", mailboxCulture);
-            headerValues.Add("ExchangeImpersonation", impersonation);
-            headerValues.Add("TimeZoneContext", timezoneContext);
-            this.ATTAdapter.ConfigureSOAPHeader(headerValues);
         }
 
         /// <summary>
