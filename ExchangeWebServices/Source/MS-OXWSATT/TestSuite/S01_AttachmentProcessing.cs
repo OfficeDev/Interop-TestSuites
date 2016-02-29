@@ -1268,7 +1268,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 @"[t:ReferenceAttachmentType Complex Type] [The PermissionType element] Specifies the permission type.");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104016");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104018");
 
             this.Site.CaptureRequirementIfAreEqual<bool>(
                 attachmentInResponse.AttachmentIsFolder,
@@ -1368,7 +1368,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 @"[In tns:GetAttachmentSoapOut Message] If the request is unsuccessful, the GetAttachment operation returns a GetAttachmentResponse element with the ResponseClass attribute of the GetAttachmentResponseMessage element set to ""Error"". ");
             
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R474001");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R474002");
 
             this.Site.CaptureRequirementIfIsTrue(
                 System.Enum.IsDefined(typeof(ResponseCodeType), getAttachmentResponse.ResponseMessages.Items[0].ResponseCode),
@@ -1405,7 +1405,7 @@ Contains the status and result of a single DeleteAttachment operation.");
         [TestCategory("MSOXWSATT"), TestMethod()]
         public void MSOXWSATT_S01_TC14_GetUnsupportedMimeConversionAttachment()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(552, this.Site), "Exchange 2007 and Exchange 2010 do not introduce the ReferenceAttachmentType complex type.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(552, this.Site), "Implementation does return ErrorUnsupportedMimeConversion response code when the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes.");
 
             #region Step 1 Create a Task attachment on an item.
             // Create a file attachment by CreateAttachment operation.
@@ -1424,7 +1424,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Text, true, createdAttachmentId);
             
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R474001");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R552");
 
             this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorUnsupportedMimeConversion,

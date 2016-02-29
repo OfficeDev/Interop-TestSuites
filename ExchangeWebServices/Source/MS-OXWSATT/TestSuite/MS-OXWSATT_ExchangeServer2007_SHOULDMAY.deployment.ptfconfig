@@ -13,7 +13,7 @@
     <Property name="R318001Enabled" value="true"/>
     <!-- Set R318014Enabled to true to verify that the implementation does return a MessageType item. Set R318014Enabled to false to disable this requirement.-->
     <Property name="R318014Enabled" value="true"/>
-     <!-- Set R552Enabled to true to verify that the implementation does return ErrorUnsupportedMimeConversion response code when the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes [IPM.Note, IPM.Post, IPM.Appointment. Set R552Enabled to false to disable this requirement.-->
+     <!-- Set R552Enabled to true to verify that the implementation does return ErrorUnsupportedMimeConversion response code when the IncludeMimeContent element is set to true and the attachment is not one of the accepted item classes. Set R552Enabled to false to disable this requirement.-->
     <Property name="R552Enabled" value="true"/>
   </Properties>
 </TestSite>

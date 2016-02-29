@@ -8714,6 +8714,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -18003,6 +18004,22 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string attachLongPathNameField;
 
+        private string providerTypeField;
+
+        private string providerEndpointUrlField;
+
+        private string attachmentThumbnailUrlField;
+
+        private string attachmentPreviewUrlField;
+
+        private int permissionTypeField;
+
+        private bool permissionTypeFieldSpecified;
+
+        private bool attachmentIsFolderField;
+
+        private bool attachmentIsFolderFieldSpecified;
+
         /// <remarks/>
         public string AttachLongPathName
         {
@@ -18013,6 +18030,112 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.attachLongPathNameField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string ProviderType
+        {
+            get
+            {
+                return this.providerTypeField;
+            }
+            set
+            {
+                this.providerTypeField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string ProviderEndpointUrl
+        {
+            get
+            {
+                return this.providerEndpointUrlField;
+            }
+            set
+            {
+                this.providerEndpointUrlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string AttachmentThumbnailUrl
+        {
+            get
+            {
+                return this.attachmentThumbnailUrlField;
+            }
+            set
+            {
+                this.attachmentThumbnailUrlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public string AttachmentPreviewUrl
+        {
+            get
+            {
+                return this.attachmentPreviewUrlField;
+            }
+            set
+            {
+                this.attachmentPreviewUrlField = value;
+            }
+        }
+
+        /// <remarks/>
+        public int PermissionType
+        {
+            get
+            {
+                return this.permissionTypeField;
+            }
+            set
+            {
+                this.permissionTypeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PermissionTypeSpecified
+        {
+            get
+            {
+                return this.permissionTypeFieldSpecified;
+            }
+            set
+            {
+                this.permissionTypeFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        public bool AttachmentIsFolder
+        {
+            get
+            {
+                return this.attachmentIsFolderField;
+            }
+            set
+            {
+                this.attachmentIsFolderField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AttachmentIsFolderSpecified
+        {
+            get
+            {
+                return this.attachmentIsFolderFieldSpecified;
+            }
+            set
+            {
+                this.attachmentIsFolderFieldSpecified = value;
             }
         }
     }
@@ -22577,6 +22700,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -33823,6 +33947,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -41061,6 +41186,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -41560,6 +41686,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
