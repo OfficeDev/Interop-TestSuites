@@ -143,6 +143,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         protected IMS_OXWSSRCHAdapter SRCHAdapter { get; private set; }
 
         /// <summary>
+        /// Gets the MS-OXWSFOLD protocol adapter.
+        /// </summary>
+        protected IMS_OXWSFOLDAdapter FOLDAdapter { get; private set; }
+
+        /// <summary>
         /// Gets the value of Location element.
         /// </summary>
         protected string Location
@@ -360,6 +365,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             base.TestInitialize();
             this.MTGSAdapter = Site.GetAdapter<IMS_OXWSMTGSAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
+            this.FOLDAdapter = Site.GetAdapter<IMS_OXWSFOLDAdapter>();
 
             #region Get property values
             this.domain = Common.GetConfigurationPropertyValue("Domain", this.Site);
@@ -1122,6 +1128,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarEndTimeZoneId });
                     }
                 }
+
+                if (Common.IsRequirementEnabled(696, this.Site)
+                    || Common.IsRequirementEnabled(697, this.Site)
+                    || Common.IsRequirementEnabled(707, this.Site)
+                    || Common.IsRequirementEnabled(80011, this.Site))
+                {
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarEnhancedLocation });
+                }
+
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetingCount });
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetingCount });
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetings });
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetings });
 
                 if (additionalProperties.Count > 0)
                 {

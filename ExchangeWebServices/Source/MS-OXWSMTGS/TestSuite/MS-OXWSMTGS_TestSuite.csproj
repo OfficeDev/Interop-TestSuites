@@ -34,6 +34,7 @@
     <Reference Include="Microsoft.Protocols.TestTools" />
     <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
@@ -63,6 +64,7 @@
     <Compile Include="S02_UpdateCalendarRelatedItem.cs" />
     <Compile Include="S03_CopyCalendarRelatedItem.cs" />
     <Compile Include="S04_MoveCalendarRelatedItem.cs" />
+    <Compile Include="S06_CalendarFolderPermission.cs" />
     <Compile Include="TestSuiteBase.cs" />
   </ItemGroup>
   <!-- Test Suite Dorp -->

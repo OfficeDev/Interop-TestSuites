@@ -69,5 +69,23 @@
     <Property name="R80048Enabled" value="false" />
     <!--Set R80049Enabled to true to verify that the implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. Set R80049Enabled to false to disable this requirement.-->
     <Property name="R80049Enabled" value="false" />
+    <!--Set R696Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in CalendarItemType. Set R696Enabled to false to disable this requirement.-->
+    <Property name="R696Enabled" value="false" />
+    <!--Set R697Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item. Set R697Enabled to false to disable this requirement.-->
+    <Property name="R697Enabled" value="false" />
+    <!--Set R707Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in MeetingRequestMessageType. Set R707Enabled to false to disable this requirement.-->
+    <Property name="R707Enabled" value="false" />
+    <!--Set R80011Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in MeetingResponseMessageType. Set R80011Enabled to false to disable this requirement.-->
+    <Property name="R80011Enabled" value="false" />
+    <!--Set R1292Enabled to true to verify that the implementation does support the ProposeNewTimeType complex type which specifies a response to a new time proposal. Set R1292Enabled to false to disable this requirement.-->
+    <Property name="R1292Enabled" value="false" />
+    <!--Set R1334Enabled to true to verify that the implementation does support the ProposedStart element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1334Enabled to false to disable this requirement.-->
+    <Property name="R1334Enabled" value="false" />
+    <!--Set R1336Enabled to true to verify that the implementation does support the ProposedEnd element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1336Enabled to false to disable this requirement.-->
+    <Property name="R1336Enabled" value="false" />
+    <!--Set R1284Enabled to true to verify that the implementation does support the MeetingRegistrationResponseObjectType complex type which specifies a response to a meeting registration request. Set R1284Enabled to false to disable this requirement.-->
+    <Property name="R1284Enabled" value="false" />
+    <!--Set R1282Enabled to true to verify that the implementation does support ResponseType if the recipient has not yet responded to the meeting request. Set R1282Enabled to false to disable this requirement.-->
+    <Property name="R1282Enabled" value="false" />
   </Properties>
 </TestSite>

@@ -54,6 +54,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             calendarItem.IsAllDayEventSpecified = true;
             calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.OOF;
             calendarItem.LegacyFreeBusyStatusSpecified = true;
+
+            if (Common.IsRequirementEnabled(697, this.Site))
+            {
+                calendarItem.EnhancedLocation = new EnhancedLocationType();
+                calendarItem.EnhancedLocation.DisplayName = Common.GenerateResourceName(this.Site, "Enhanced Location");
+                calendarItem.EnhancedLocation.Annotation = Common.GenerateResourceName(this.Site, "Enhanced Location Annotation");
+                calendarItem.EnhancedLocation.PostalAddress = new PersonaPostalAddressType();
+                calendarItem.EnhancedLocation.PostalAddress.LocationSource = LocationSourceType.PhonebookServices;
+                calendarItem.EnhancedLocation.PostalAddress.LocationSourceSpecified = true;
+            }
             #endregion
 
             #region Organizer creates the single calendar item
@@ -73,6 +83,70 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             ItemIdType deletedItem = calendar.ItemId;
 
             #region Capture Code
+            if (Common.IsRequirementEnabled(696, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R696");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R696
+                this.Site.CaptureRequirementIfIsNotNull(
+                    calendar.EnhancedLocation,
+                    696,
+                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhance location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(697, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R697");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R697
+                // The EnhancedLocationType complex type element is returned and passes schema validation, this requirement can be captured.
+                this.Site.CaptureRequirementIfIsNotNull(
+                    calendar.EnhancedLocation,
+                    697,
+                    @"[In Appendix C: Product Behavior] Implementation does support the EnhancedLocationType complex type specifies enhanced location information. (Exchange 2013 and above follow this behavior.)
+                      <xs:complexType name=""EnhancedLocationType"">
+                          <xs:sequence>
+                              <xs:element name=""DisplayName"" type=""xs:string""/>
+                              <xs:element name=""Annotation"" type=""xs:string"" minOccurs=""0""/>
+                              <xs:element name=""PostalAddress"" type=""t:PersonaPostalAddressType"" minOccurs=""0""/>
+                          </xs:sequence>
+                      </xs:complexType>");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R542");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R542
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    calendarItem.EnhancedLocation.DisplayName,
+                    calendar.EnhancedLocation.DisplayName,
+                    542,
+                    @"[In t:EnhancedLocationType Complex Type] DisplayName: An element of type string, as defined in [XMLSCHEMA2] section 3.2.1, that represents the display name of the calendar item.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R543");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R543
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    calendarItem.EnhancedLocation.Annotation,
+                    calendar.EnhancedLocation.Annotation,
+                    543,
+                    @"[In t:EnhancedLocationType Complex Type] Annotation: An element of type string that represents a note on the calendar item.");
+
+                this.Site.Assert.IsTrue(calendar.EnhancedLocation.PostalAddress.LocationSourceSpecified, "LocationSource element in PostalAddress in EnhancedLocation of the calendar should be returned.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R544");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R544
+                this.Site.CaptureRequirementIfAreEqual<LocationSourceType>(
+                    calendarItem.EnhancedLocation.PostalAddress.LocationSource,
+                    calendar.EnhancedLocation.PostalAddress.LocationSource,
+                    544,
+                    @"[In t:EnhancedLocationType Complex Type] PostalAddress: An element of type PersonaPostalAddressType, as defined in [MS-OXWSPERS] section 2.2.4.18, that represents the postal address of the individual associated with a persona.");
+            }
+
             bool isChecked = false;
 
             // Add the debug information
@@ -203,7 +277,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meetingItem.When = string.Format("{0} to {1}", meetingItem.Start.ToString(), meetingItem.End.ToString());
             meetingItem.IsAllDayEvent = true;
             meetingItem.IsAllDayEventSpecified = true;
-            meetingItem.IsResponseRequested = false;
+            meetingItem.IsResponseRequested = true;
             meetingItem.IsResponseRequestedSpecified = true;
             meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
             meetingItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
@@ -231,11 +305,88 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             ItemIdType meetingId = item.Items.Items[0].ItemId;
             #endregion
 
+            #region Organizer gets the created meeting
+            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
+            Site.Assert.IsNotNull(meetingRequest, "The meeting request message should be found in organizer's Sent Items folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+            #endregion
+
             #region Attendee gets the meeting request message in the inbox and calendar folders respectively
             MeetingRequestMessageType request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(request, "The meeting request message should be found in attendee's Inbox folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
 
             #region Capture Code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R299");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R299
+            this.Site.CaptureRequirementIfIsNull(
+                request.When,
+                299,
+                @"[In t:MeetingRequestMessageType Complex Type] When: Provides information about when the meeting occurs and is not populated to attendee's mailbox.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R319");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R319
+            this.Site.CaptureRequirementIfIsNull(
+                request.When,
+                319,
+                @"[In t:MeetingRequestMessageType Complex Type] Resources: Represents a scheduled resource for the meeting and is not populated to attendee's mailbox.");
+
+            if (Common.IsRequirementEnabled(1282, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1282");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R1282
+                this.Site.CaptureRequirementIfIsTrue(
+                    request.ResponseTypeSpecified,
+                    1282,
+                    @"[In Appendix C: Product Behavior] Implementation does support ResponseType if the recipient has not yet responded to the meeting request. (Exchange 2007, Exchange 2013 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1292, this.Site))
+            {
+                foreach (ResponseObjectType responseObject in request.ResponseObjects)
+                {
+                    if (responseObject.GetType() == typeof(ProposeNewTimeType))
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1292");
+
+                        // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R1292
+                        // Element ProposeNewTime is returned from server, this requirement can be captured directly.
+                        this.Site.CaptureRequirement(
+                            1292,
+                            @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTimeType complex type which specifies a response to a new time proposal. (This type was introduced in Exchange 2016.)");
+
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1107");
+
+                        // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R1107
+                        // Element ProposeNewTime is returned from server and passes schema validation, this requirement can be captured directly.
+                        this.Site.CaptureRequirement(
+                            1107,
+                            @"[In t:ProposeNewTimeType Complex Type] This type [ProposeNewTimeType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.65).");
+
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1355");
+
+                        // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R1355
+                        // Element ProposeNewTime is returned from server and passes schema validation, this requirement can be captured directly.
+                        this.Site.CaptureRequirement(
+                            1355,
+                            @"[In t:ProposeNewTimeType Complex Type] [its schema is] <xs:complexType name=""ProposeNewTimeType"">
+                          <xs:complexContent>
+                              <xs:extension base=""t:ResponseObjectType""/>
+                              </xs:complexContent>
+                          </xs:complexType>");
+                        break;
+                    }
+                }
+            }
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R488");
 
@@ -270,6 +421,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             AcceptItemType acceptItem = new AcceptItemType();
             acceptItem.ReferenceItemId = new ItemIdType();
             acceptItem.ReferenceItemId.Id = request.ItemId.Id;
+            if (Common.IsRequirementEnabled(1284, this.Site))
+            {
+                acceptItem.ProposedStart = DateTime.Now;
+                acceptItem.ProposedStartSpecified = true;
+                acceptItem.ProposedEnd = DateTime.Now.AddHours(1);
+                acceptItem.ProposedEndSpecified = true;
+            }
 
             CalendarItemType calendar = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(calendar, "The meeting should be found in attendee's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
@@ -283,6 +441,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 calendar.LegacyFreeBusyStatus,
                 16504,
                 @"[In t:CalendarItemType Complex Type] The LegacyFreeBusyStatus which value is ""Tentative"" specifies the status as tentative.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1047");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1047
+            this.Site.CaptureRequirementIfIsNull(
+                calendar.When,
+                1047,
+                @"[In t:CalendarItemType Complex Type] [When] is not populated to attendee's mailbox.");
             #endregion
 
             #region Attendee calls CreateItem to accept the meeting request with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
@@ -303,6 +470,63 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 response.ItemClass,
                 489,
                 "[In CreateItem Operation] This operation [CreateItem] can be used to create meeting response messages.");
+            #endregion
+
+            #region Organizer gets the calendar in the Calendar folder
+            calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R139");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R139
+            this.Site.CaptureRequirementIfAreEqual<ResponseTypeType>(
+                ResponseTypeType.Accept,
+                calendar.RequiredAttendees[0].ResponseType,
+                139,
+                "[In t:AttendeeType Complex Type]ResponseType: Specifies the meeting invitation response received for by the meeting organizer from a meeting attendee.");
+            
+            if (Common.IsRequirementEnabled(1334, this.Site))
+            {
+                this.Site.Assert.IsTrue(calendar.RequiredAttendees[0].ProposedStartSpecified, "ProposedStart element in AttendeeType should be returned.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1334");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1334
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    acceptItem.ProposedStart.ToString(),
+                    calendar.RequiredAttendees[0].ProposedStart.ToString(),
+                    1334,
+                    "[In Appendix C: Product Behavior] Implementation does support the ProposedStart element which specifies the proposed start date and time of the meeting. (This type was introduced in Exchange 2013 SP1.)");
+            }
+
+            if (Common.IsRequirementEnabled(1336, this.Site))
+            {
+                this.Site.Assert.IsTrue(calendar.RequiredAttendees[0].ProposedEndSpecified, "ProposedEnd element in AttendeeType should be returned.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1336");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1336
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    acceptItem.ProposedEnd.ToString(),
+                    calendar.RequiredAttendees[0].ProposedEnd.ToString(),
+                    1336,
+                    "[In Appendix C: Product Behavior] Implementation does support the ProposedEnd element which specifies the proposed end date and time of the meeting. (This type was introduced in Exchange 2013 SP1.)");
+            }
+
+            if (Common.IsRequirementEnabled(1284, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1284");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1284
+                // Elements in MeetingRegistrationResponseObjectType are set in request and the operation calls successfully,
+                // so this requirement can be captured directly.
+                this.Site.CaptureRequirement(
+                    1284,
+                    "[In Appendix C: Product Behavior] Implementation does support the MeetingRegistrationResponseObjectType complex type which specifies a response to a meeting registration request. (This type was introduced in Exchange 2013 SP1.)");
+            }
             #endregion
 
             #region Organizer deletes the meeting with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
@@ -605,6 +829,56 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(item, "Tentatively accept the meeting should be successful.");
             #endregion
 
+            #region Attendee gets the calendar items
+            CalendarItemType calendarFromOrganizer = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            ItemInfoResponseMessageType itemInfo = this.GetSingleCalendarItem(Role.Attendee, calendarFromOrganizer.ItemId);
+            calendarFromOrganizer = itemInfo.Items.Items[0] as CalendarItemType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R193");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R193
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                calendarFromOrganizer.ConflictingMeetingCount,
+                193,
+                @"[In t:CalendarItemType Complex Type] ConflictingMeetingCount: Specifies the number of meetings that conflict with the calendar item.");
+            
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R195");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R195
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                calendarFromOrganizer.AdjacentMeetingCount,
+                195,
+                @"[In t:CalendarItemType Complex Type] AdjacentMeetingCount: Indicates the total number of calendar items that are adjacent to a meeting time.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R197");
+
+            Site.Assert.AreEqual<int>(1, calendarFromOrganizer.ConflictingMeetings.Items.Length, "There should be 1 conflict meeting.");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R197
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                conflictCalendar.Subject,
+                calendarFromOrganizer.ConflictingMeetings.Items[0].Subject,
+                197,
+                @"[In t:CalendarItemType Complex Type] ConflictingMeetings: Indicates all calendar items that conflict with a meeting time.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R199");
+
+            Site.Assert.AreEqual<int>(1, calendarFromOrganizer.AdjacentMeetings.Items.Length, "There should be 1 adjacent meeting.");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R199
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                adjacentCalendar.Subject,
+                calendarFromOrganizer.AdjacentMeetings.Items[0].Subject,
+                199,
+                @"[In t:CalendarItemType Complex Type] AdjacentMeetings: Indicates all calendar items that are adjacent to a meeting time.");
+            #endregion
+
             #region Organizer gets the meeting response message from his Inbox folder
             MeetingResponseMessageType response = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Resp", meetingItem.UID) as MeetingResponseMessageType;
             Site.Assert.IsNotNull(response, "Organizer should receive the meeting response message after attendee tentatively accept the meeting.");
@@ -898,7 +1172,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.RoomEmailAddress.ToLower(),
                 createdCalendarItem.Resources[0].Mailbox.EmailAddress.ToLower(),
                 191,
-                @"[In t:CalendarItemType Complex Type] Resources: Specifies a scheduled resource for a meeting.");
+                @"[In t:CalendarItemType Complex Type] Resources: Specifies a scheduled resource for a meeting and is not populated to attendee's mailbox.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R209");
@@ -1050,6 +1324,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 receivedRequest.MeetingRequestWasSent,
                 762,
                 @"[In t:MeetingRequestMessageType Complex Type] [MeetingRequestWasSent is] True, if a meeting request has been sent to requested attendees.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R763");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R763
+            this.Site.CaptureRequirementIfIsTrue(
+                receivedRequest.MeetingRequestWasSent,
+                763,
+                @"[In t:MeetingRequestMessageType Complex Type]This element [MeetingRequestWasSent] is always ""true"".");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R309");
@@ -1289,6 +1572,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 calendar.AppointmentReplyTime,
                 205,
                 @"[In t:CalendarItemType Complex Type] AppointmentReplyTime: Specifies the date and time that an attendee replied to a meeting request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R191");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R191
+            this.Site.CaptureRequirementIfIsNull(
+                calendar.Resources,
+                191,
+                @"[In t:CalendarItemType Complex Type] Resources: Specifies a scheduled resource for a meeting and is not populated to attendee's mailbox.");
             #endregion
 
             #region Organizer gets and checks the meeting response from attendeeType
@@ -1409,6 +1701,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meeting.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
             meeting.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
             meeting.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
+            if (Common.IsRequirementEnabled(697, this.Site))
+            {
+                meeting.EnhancedLocation = new EnhancedLocationType();
+                meeting.EnhancedLocation.DisplayName = Common.GenerateResourceName(this.Site, "Enhanced Location");
+                meeting.EnhancedLocation.Annotation = Common.GenerateResourceName(this.Site, "Enhanced Location Annotation");
+                meeting.EnhancedLocation.PostalAddress = new PersonaPostalAddressType();
+                meeting.EnhancedLocation.PostalAddress.LocationSource = LocationSourceType.PhonebookServices;
+                meeting.EnhancedLocation.PostalAddress.LocationSourceSpecified = true;
+            }
             #endregion
 
             #region Create the meeting and sends it to all attendees
@@ -1436,6 +1737,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(receivedRequest, "The meeting request message should exist in attendee's inbox folder.");
 
             #region Capture Code
+            if (Common.IsRequirementEnabled(707, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R707");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R707
+                this.Site.CaptureRequirementIfIsNotNull(
+                    receivedRequest.EnhancedLocation,
+                    707,
+                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhanced location information. (Exchange 2013 and above follow this behavior.)");
+            }
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35500");
 
@@ -1519,6 +1832,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(response, "Organizer should receive the meeting response message after attendee declines the meeting.");
 
             #region Capture Code
+            if (Common.IsRequirementEnabled(80011, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80011");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80011
+                this.Site.CaptureRequirementIfIsNotNull(
+                    response.EnhancedLocation,
+                    80011,
+                    @"[In Appendix C: Product Behavior] Implementation does support the EnhancedLocation, which is an element of type EnhancedLocationType, as defined in section 2.2.4.10, that represents additional location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
+            }
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R83");
 
@@ -1529,15 +1854,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 83,
                 @"[In t:ResponseTypeType Simple Type] Decline: Indicates that the recipient declined the meeting.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R139");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R139
-            this.Site.CaptureRequirementIfAreEqual<ResponseTypeType>(
-                ResponseTypeType.Decline,
-                response.ResponseType,
-                139,
-                @"[In t:AttendeeType Complex Type]ResponseType: Specifies the meeting invitation response received for by the meeting organizer from a meeting attendee.");
             #endregion
 
             CancelCalendarItemType cancelMeetingItem = new CancelCalendarItemType();
@@ -1570,6 +1886,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meetingResponse.ItemClass,
                 490,
                 @"[In CreateItem Operation] This operation [CreateItem] can be used to create meeting cancellation messages.");
+
+            if (Common.IsRequirementEnabled(697, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80003");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80003
+                this.Site.CaptureRequirementIfIsNotNull(
+                    meetingResponse.EnhancedLocation,
+                    80003,
+                    @"[In t:MeetingCancellationMessageType Complex Type] EnhancedLocation: An element of type EnhancedLocationType, as defined in section 2.2.4.10, that specifies additional location information for a calendar item.");
+            }
 
             #region Verify the child elements of MeetingResponseMessageType
             if (Common.IsRequirementEnabled(900, this.Site))
