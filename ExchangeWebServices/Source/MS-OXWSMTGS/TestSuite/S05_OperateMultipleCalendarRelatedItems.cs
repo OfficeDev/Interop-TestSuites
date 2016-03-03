@@ -90,6 +90,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(
                 this.DeleteMultipleCalendarItems(Role.Organizer, calendarIds, CalendarItemCreateOrDeleteOperationType.SendToNone),
                 "Organizer should delete multiple calendar items successfully.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1207");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1207
+            // This requirement can be captured after above assert.
+            Site.CaptureRequirement(
+                1207,
+                @"[In Messages] A successful DeleteItem operation returns a DeleteItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.3.2.2, with the ResponseClass attribute of the DeleteItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1208");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1208
+            // This requirement can be captured after above assert.
+            Site.CaptureRequirement(
+                1208,
+                @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the DeleteItemResponseMessage element is set to ""NoError"".");
             #endregion
         }
 
@@ -116,6 +134,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(calendars, "The calendars should be created successfully.");
             Site.Assert.IsTrue(calendars.Length == 2, "There should be only two calendars created.");
 
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1198");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1198
+            // The calendars are gotten successfully, it means the calendars are created successfully.
+            Site.CaptureRequirement(
+                1198,
+                @"[In Messages] A successful CreateItem operation returns a CreateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.2.2.2, with the ResponseClass attribute of the CreateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1199");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1199
+            // The calendars are gotten successfully, it means the calendars are created successfully.
+            Site.CaptureRequirement(
+                1199,
+                @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the CreateItemResponseMessage element is set to ""NoError"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1217");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1217
+            // The calendars are gotten successfully, this requirement can be captured.
+            Site.CaptureRequirement(
+                1217,
+                @"[In Messages] A successful GetItem operation returns a GetItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.4.2.2, with the ResponseClass attribute of the GetItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1218");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1218
+            // The calendars are gotten successfully, this requirement can be captured.
+            Site.CaptureRequirement(
+                1218,
+                @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the GetItemResponseMessage element is set to ""NoError"".");
+
             ItemIdType[] calendarIds = new ItemIdType[] { calendars[0].Items.Items[0].ItemId, calendars[1].Items.Items[0].ItemId };
             #endregion
 
@@ -136,6 +190,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(
                 this.UpdateMultipleCalendarItems(Role.Organizer, itemsChangeInfo.ToArray(), CalendarItemUpdateOperationType.SendToNone),
                 "Server should return success for updating multiple calendar items.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1235");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1235
+            // The updated calendars are gotten successfully, this requirement can be captured.
+            Site.CaptureRequirement(
+                1235,
+                @"[In Messages] A successful UpdateItem operation returns an UpdateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.9.2.2, with the ResponseClass attribute of the UpdateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1236");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1236
+            // The updated calendars are gotten successfully, this requirement can be captured.
+            Site.CaptureRequirement(
+                1236,
+                @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the UpdateItemResponseMessage element is set to ""NoError"".");
             #endregion
 
             #region Verify the Location elements of the two calendar items are updated

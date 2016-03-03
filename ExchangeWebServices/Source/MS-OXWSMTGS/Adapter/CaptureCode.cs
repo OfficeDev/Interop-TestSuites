@@ -1774,6 +1774,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
 
+            if (meetingRequestMessage.ModifiedOccurrences != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R344");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R344
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    344,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+            }
+
+            if (meetingRequestMessage.DeletedOccurrences != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R346");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R346
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    346,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
+            }
+
             if (meetingRequestMessage.ConferenceTypeSpecified)
             {
                 // Add the debug information

@@ -48,8 +48,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             calendarItem.ConferenceTypeSpecified = true;
             calendarItem.AllowNewTimeProposal = false;
             calendarItem.AllowNewTimeProposalSpecified = true;
-            calendarItem.IsOnlineMeeting = false;
-            calendarItem.IsOnlineMeetingSpecified = true;
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                calendarItem.IsOnlineMeeting = false;
+                calendarItem.IsOnlineMeetingSpecified = true;
+            }
             calendarItem.IsAllDayEvent = true;
             calendarItem.IsAllDayEventSpecified = true;
             calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.OOF;
@@ -170,15 +173,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 720,
                 @"[In t:CalendarItemType Complex Type] [IsAllDayEvent is] True if a calendar item or meeting request represents an all-day event.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R747");
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R747");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R747
-            isChecked = calendar.IsOnlineMeetingSpecified && !calendar.IsOnlineMeeting;
-            this.Site.CaptureRequirementIfIsTrue(
-                isChecked,
-                747,
-                @"[In t:CalendarItemType Complex Type] otherwise [if the meeting is not online], [IsOnlineMeeting is] false.");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R747
+                isChecked = calendar.IsOnlineMeetingSpecified && !calendar.IsOnlineMeeting;
+                this.Site.CaptureRequirementIfIsTrue(
+                    isChecked,
+                    747,
+                    @"[In t:CalendarItemType Complex Type] otherwise [if the meeting is not online], [IsOnlineMeeting is] false.");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R745");
@@ -282,8 +288,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
             meetingItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
             meetingItem.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
-            meetingItem.IsOnlineMeeting = true;
-            meetingItem.IsOnlineMeetingSpecified = true;
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                meetingItem.IsOnlineMeeting = true;
+                meetingItem.IsOnlineMeetingSpecified = true;
+            }
             meetingItem.AllowNewTimeProposal = true;
             meetingItem.AllowNewTimeProposalSpecified = true;
             meetingItem.ConferenceType = 1;
@@ -303,6 +312,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 "The meeting request message should be saved to organizer's Sent Items folder after call CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
 
             ItemIdType meetingId = item.Items.Items[0].ItemId;
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            if (Common.IsRequirementEnabled(1282, this.Site))
+            {
+                Site.Assert.IsTrue(calendarInOrganizer.RequiredAttendees[0].ResponseTypeSpecified, "Element ResponseType should be present.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R79");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R79
+                this.Site.CaptureRequirementIfAreEqual<ResponseTypeType>(
+                    ResponseTypeType.Unknown,
+                    calendarInOrganizer.RequiredAttendees[0].ResponseType,
+                    79,
+                    @"[In t:ResponseTypeType Simple Type] Unknown: Indicates that the recipient's response to the meeting is unknown.");
+            }
             #endregion
 
             #region Organizer gets the created meeting
@@ -407,15 +434,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 28504,
                 @"[In t:MeetingRequestMessageType Complex Type] The IntendedFreeBusyStatus which value is ""Tentative"" specifies the status as tentative.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35501");
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35501");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35501
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                meetingItem.ConferenceType,
-                request.ConferenceType,
-                35501,
-                @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""1"" describes the type of conferencing is presentation");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35501
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    meetingItem.ConferenceType,
+                    request.ConferenceType,
+                    35501,
+                    @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""1"" describes the type of conferencing is presentation");
+            }
             #endregion
 
             AcceptItemType acceptItem = new AcceptItemType();
@@ -450,6 +480,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 calendar.When,
                 1047,
                 @"[In t:CalendarItemType Complex Type] [When] is not populated to attendee's mailbox.");
+
+            if (Common.IsRequirementEnabled(1282, this.Site))
+            {
+                Site.Assert.IsTrue(calendar.MyResponseTypeSpecified, "Element MyResponseType should be present.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "VerifyMS-OXWSMTGS_R84");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R84
+                this.Site.CaptureRequirementIfAreEqual<ResponseTypeType>(
+                    ResponseTypeType.NoResponseReceived,
+                    calendar.MyResponseType,
+                    84,
+                    @"[In t:ResponseTypeType Simple Type] NoResponseReceived: Indicates that the recipient has not yet responded to the meeting request.");
+            }
             #endregion
 
             #region Attendee calls CreateItem to accept the meeting request with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
@@ -527,6 +572,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     1284,
                     "[In Appendix C: Product Behavior] Implementation does support the MeetingRegistrationResponseObjectType complex type which specifies a response to a meeting registration request. (This type was introduced in Exchange 2013 SP1.)");
             }
+
+            request = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
+            Site.Assert.IsTrue(request.IsDelegatedSpecified, "Element IsDelegated should be present.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R749");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R749
+            this.Site.CaptureRequirementIfIsFalse(
+                request.IsDelegated,
+                749,
+                "[In t:MeetingMessageType Complex Type]otherwise [if a meeting was not handled by an account that has delegate access], [IsDelegated is] false.");
             #endregion
 
             #region Organizer deletes the meeting with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
@@ -967,8 +1024,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meeting.IsAllDayEventSpecified = true;
             meeting.IsResponseRequested = true;
             meeting.IsResponseRequestedSpecified = true;
-            meeting.IsOnlineMeeting = true;
-            meeting.IsOnlineMeetingSpecified = true;
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                meeting.IsOnlineMeeting = true;
+                meeting.IsOnlineMeetingSpecified = true;
+            }
             meeting.ConferenceType = 2;
             meeting.ConferenceTypeSpecified = true;
             meeting.AllowNewTimeProposal = true;
@@ -1214,14 +1274,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 743,
                 @"[In t:CalendarItemType Complex Type] [ConferenceType: Valid values include:] 2: chat");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R746");
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R746");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R746
-            this.Site.CaptureRequirementIfIsTrue(
-                createdCalendarItem.IsOnlineMeeting,
-                746,
-                @"[In t:CalendarItemType Complex Type] [IsOnlineMeeting is] True, if the meeting is online.");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R746
+                this.Site.CaptureRequirementIfIsTrue(
+                    createdCalendarItem.IsOnlineMeeting,
+                    746,
+                    @"[In t:CalendarItemType Complex Type] [IsOnlineMeeting is] True, if the meeting is online.");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R233");
@@ -1463,14 +1526,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 736,
                 @"[In t:CalendarItemType Complex Type] [IsResponseRequested is] True, if a response to an item is requested.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R766");
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R766");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R766
-            this.Site.CaptureRequirementIfIsTrue(
-                receivedRequest.IsOnlineMeeting,
-                766,
-                @"[In t:MeetingRequestMessageType Complex Type] [IsOnlineMeeting is] True, if the meeting is online.");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R766
+                this.Site.CaptureRequirementIfIsTrue(
+                    receivedRequest.IsOnlineMeeting,
+                    766,
+                    @"[In t:MeetingRequestMessageType Complex Type] [IsOnlineMeeting is] True, if the meeting is online.");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35502");
@@ -1693,8 +1759,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meeting.ConferenceTypeSpecified = true;
             meeting.AllowNewTimeProposal = false;
             meeting.AllowNewTimeProposalSpecified = true;
-            meeting.IsOnlineMeeting = false;
-            meeting.IsOnlineMeetingSpecified = true;
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                meeting.IsOnlineMeeting = false;
+                meeting.IsOnlineMeetingSpecified = true;
+            }
             meeting.LegacyFreeBusyStatus = LegacyFreeBusyType.Free;
             meeting.LegacyFreeBusyStatusSpecified = true;
 
@@ -1759,14 +1828,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 35500,
                 @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""0"" (zero) describes the type of conferencing is video conference");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R767");
+            if (Common.IsRequirementEnabled(2301, this.Site))
+            {
+                Site.Assert.IsTrue(receivedRequest.IsOnlineMeetingSpecified, "The element IsOnlineMeeting should be present.");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R767
-            this.Site.CaptureRequirementIfIsFalse(
-                receivedRequest.IsOnlineMeeting,
-                767,
-                @"[In t:MeetingRequestMessageType Complex Type] otherwise [if the meeting is not online], [IsOnlineMeeting is] false.");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R767");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R767
+                this.Site.CaptureRequirementIfIsFalse(
+                    receivedRequest.IsOnlineMeeting,
+                    767,
+                    @"[In t:MeetingRequestMessageType Complex Type] otherwise [if the meeting is not online], [IsOnlineMeeting is] false.");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R28501");
@@ -2143,6 +2217,366 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #region Clean up organizer's deleteditems and sentitems folder, and attendee's inbox, calendar and deleteditems folders.
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
             this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to verify DeletedOccurrences and ModifiedOccurrences in MeetingRequestMessageType.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC17_UpdateAndDeleteoccurrenceOfRecurringMeeting()
+        {
+            #region Organizer creates a recurring meeting
+            // Verify DailyRecurrencePatternType and NumberedRecurrenceRangeType.
+            DailyRecurrencePatternType dailyPattern = new DailyRecurrencePatternType();
+            NumberedRecurrenceRangeType numberedRange = new NumberedRecurrenceRangeType();
+            numberedRange.NumberOfOccurrences = this.NumberOfOccurrences;
+
+            // Define a recurring meeting.
+            CalendarItemType meetingItem = this.DefineRecurringMeeting(dailyPattern, numberedRange);
+            Site.Assert.IsNotNull(meetingItem, "The meeting item should be created.");
+
+            // Create the recurring meeting.
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(item, "The recurring meeting should be created successfully.");
+            #endregion
+
+            #region Attendee gets the meeting request
+            MeetingRequestMessageType request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
+            Site.Assert.IsNotNull(request, "The meeting request message should be found in attendee's Inbox folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendOnlyToAll.");
+            #endregion
+
+            #region Attendee accepts the meeting request
+            AcceptItemType acceptItem = new AcceptItemType();
+            acceptItem.ReferenceItemId = new ItemIdType();
+            acceptItem.ReferenceItemId.Id = request.ItemId.Id;
+            item = this.CreateSingleCalendarItem(Role.Attendee, acceptItem, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(item, "Accept the meeting request should be successful.");
+            #endregion
+
+            #region Organizer gets the calendar item
+            CalendarItemType calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(item, "The calendar item should be found in organizer's Calendar folder.");
+            #endregion
+
+            #region Organizer deletes one of the occurrences of the recurring meeting
+            OccurrenceItemIdType occurrenceId = new OccurrenceItemIdType();
+            occurrenceId.RecurringMasterId = calendar.ItemId.Id;
+            occurrenceId.InstanceIndex = 1;
+
+            DeleteItemType deleteItemRequest = new DeleteItemType();
+            deleteItemRequest.ItemIds = new BaseItemIdType[] { occurrenceId };
+            deleteItemRequest.DeleteType = DisposalType.HardDelete;
+            deleteItemRequest.SendMeetingCancellations = CalendarItemCreateOrDeleteOperationType.SendOnlyToAll;
+            deleteItemRequest.SendMeetingCancellationsSpecified = true;
+            DeleteItemResponseType deleteItemResponse = this.MTGSAdapter.DeleteItem(deleteItemRequest);
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+
+            calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendar, "The calendar item should exist.");
+            #endregion
+
+            #region Organizer updates one of the occurrences of the recurring meeting
+            occurrenceId = new OccurrenceItemIdType();
+            occurrenceId.RecurringMasterId = calendar.ItemId.Id;
+            occurrenceId.ChangeKey = calendar.ItemId.ChangeKey;
+            occurrenceId.InstanceIndex = 2;
+            UpdateItemType updateItemRequest = new UpdateItemType();
+            updateItemRequest.ItemChanges = new ItemChangeType[1];
+            updateItemRequest.SendMeetingInvitationsOrCancellations = CalendarItemUpdateOperationType.SendToAllAndSaveCopy;
+            updateItemRequest.SendMeetingInvitationsOrCancellationsSpecified = true;
+            updateItemRequest.MessageDisposition = MessageDispositionType.SendAndSaveCopy;
+            updateItemRequest.MessageDispositionSpecified = true;
+            updateItemRequest.ConflictResolution = ConflictResolutionType.AlwaysOverwrite;
+            updateItemRequest.ItemChanges[0] = new ItemChangeType();
+            updateItemRequest.ItemChanges[0].Item = occurrenceId;
+            SetItemFieldType setItemField = new SetItemFieldType();
+            PathToUnindexedFieldType pathToUnindexed = new PathToUnindexedFieldType();
+            pathToUnindexed.FieldURI = UnindexedFieldURIType.calendarLocation;
+            setItemField.Item = pathToUnindexed;
+            setItemField.Item1 = new CalendarItemType() { Location = this.LocationUpdate };
+            updateItemRequest.ItemChanges[0].Updates = new ItemChangeDescriptionType[] { setItemField };
+            UpdateItemResponseType updateItemResponse = this.MTGSAdapter.UpdateItem(updateItemRequest);
+            Common.CheckOperationSuccess(updateItemResponse, 1, this.Site);
+            #endregion
+
+            #region Organizer gets the udpated calendar item
+            calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            #endregion
+
+            #region Organizer updates the calendar item
+            updateItemRequest.ItemChanges[0].Item = calendar.ItemId;
+            string locationUpdated = Common.GenerateResourceName(this.Site, "NewLocation");
+            setItemField.Item1 = new CalendarItemType() { Location = locationUpdated };
+            updateItemRequest.ItemChanges[0].Updates = new ItemChangeDescriptionType[] { setItemField };
+
+            updateItemResponse = this.MTGSAdapter.UpdateItem(updateItemRequest);
+            Common.CheckOperationSuccess(updateItemResponse, 1, this.Site);
+            #endregion
+
+            #region Attendee gets the updated meeting request
+            request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, locationUpdated, meetingItem.UID, UnindexedFieldURIType.calendarLocation) as MeetingRequestMessageType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R345");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R345
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                request.ModifiedOccurrences.Length,
+                345,
+                @"[In t:MeetingRequestMessageType Complex Type] ModifiedOccurrences: Contains an array of recurring meeting item occurrences that have been modified so that they are different from the original instances of the recurrence master item.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R347");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R347
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                request.DeletedOccurrences.Length,
+                347,
+                @"[In t:MeetingRequestMessageType Complex Type] DeletedOccurrences: Contains an array of deleted occurrences of a recurring meeting item.");
+            #endregion
+
+            #region Clean up organizer's deleteditems and sentitems folder, and attendee's inbox, calendar and deleteditems folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarDurationIsTooLong will be returned if duration of a calendar item exceeds five years.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC18_CreateItemErrorCalendarDurationIsTooLong()
+        {
+            #region Define a calendar item
+            int timeInterval = this.TimeInterval;
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = DateTime.Now.AddHours(timeInterval);
+            calendarItem.StartSpecified = true;
+            calendarItem.End = calendarItem.Start.AddYears(6);
+            calendarItem.EndSpecified = true;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { calendarItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+            CreateItemResponseType response = this.MTGSAdapter.CreateItem(createItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1200");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1200
+            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                response.ResponseMessages.Items[0].ResponseClass,
+                1200,
+                @"[In Messages] If the request is unsuccessful, the CreateItem operation returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1203");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1203
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarDurationIsTooLong,
+                response.ResponseMessages.Items[0].ResponseCode,
+                1203,
+                @"[In Messages] ErrorCalendarDurationIsTooLong: Specifies that the item duration of a calendar item exceeds five years.");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarEndDateIsEarlierThanStartDate will be returned if the end date/time is earlier than the start date/time.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC19_CreateItemErrorCalendarEndDateIsEarlierThanStartDate()
+        {
+            #region Define a calendar item
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = DateTime.Now.AddHours(1);
+            calendarItem.StartSpecified = true;
+            calendarItem.End = calendarItem.Start.AddHours(-1);
+            calendarItem.EndSpecified = true;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { calendarItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+            CreateItemResponseType response = this.MTGSAdapter.CreateItem(createItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1204");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1204
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarEndDateIsEarlierThanStartDate,
+                response.ResponseMessages.Items[0].ResponseCode,
+                1204,
+                @"[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time must be changed so that it is greater than the start date/time.");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarInvalidDayForWeeklyRecurrence will be returned if invalid values of Day, WeekDay, and WeekendDay were used to specify the weekly recurrence.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC20_CreateItemErrorCalendarInvalidDayForWeeklyRecurrence()
+        {
+            #region Define a calendar item
+            int timeInterval = this.TimeInterval;
+            DateTime startTime = DateTime.Now.AddHours(timeInterval);
+
+            WeeklyRecurrencePatternType pattern = new WeeklyRecurrencePatternType();
+            pattern.DaysOfWeek = "Random";
+            IntervalRecurrencePatternBaseType patternIntervalRecurrence = pattern as IntervalRecurrencePatternBaseType;
+            patternIntervalRecurrence.Interval = this.PatternInterval;
+            RecurrenceType recurrence = new RecurrenceType();
+            recurrence.Item = patternIntervalRecurrence;
+            EndDateRecurrenceRangeType endDateRange = new EndDateRecurrenceRangeType();
+            DateTime startDate = startTime.AddMonths(1);
+            endDateRange.StartDate = new DateTime(startDate.Year, startDate.Month, startDate.Day, 0, 0, 0, DateTimeKind.Utc);
+            endDateRange.EndDate = endDateRange.StartDate.AddMonths(8);
+            recurrence.Item1 = endDateRange;
+
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = startTime;
+            calendarItem.StartSpecified = true;
+            timeInterval++;
+            calendarItem.End = startTime.AddHours(timeInterval);
+            calendarItem.EndSpecified = true;
+            calendarItem.Location = this.Location;
+            calendarItem.Recurrence = new RecurrenceType();
+            calendarItem.Recurrence = recurrence;
+            calendarItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            calendarItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { calendarItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+            CreateItemResponseType response = this.MTGSAdapter.CreateItem(createItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1205");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1205
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarInvalidDayForWeeklyRecurrence,
+                response.ResponseMessages.Items[0].ResponseCode,
+                1205,
+                @"[In Messages] ErrorCalendarInvalidDayForWeeklyRecurrence: Specifies that invalid values of Day, WeekDay, and WeekendDay were used to specify the weekly recurrence.");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test ErrorSendMeetingCancellationsRequired will be returned if the SendMeetingCancellations property is missing from the DeleteItem request.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC21_DeleteItemErrorSendMeetingCancellationsRequired()
+        {
+            #region Define a recurring calendar item
+            DateTime startTime = DateTime.Now;
+
+            DailyRecurrencePatternType pattern = new DailyRecurrencePatternType();
+            pattern.Interval = this.PatternInterval;
+
+            NumberedRecurrenceRangeType range = new NumberedRecurrenceRangeType();
+            range.NumberOfOccurrences = this.NumberOfOccurrences;
+            range.StartDate = startTime;
+
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = startTime;
+            calendarItem.StartSpecified = true;
+            calendarItem.End = startTime.AddHours(this.TimeInterval);
+            calendarItem.EndSpecified = true;
+            calendarItem.Recurrence = new RecurrenceType();
+            calendarItem.Recurrence.Item = pattern;
+            calendarItem.Recurrence.Item1 = range;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, calendarItem, CalendarItemCreateOrDeleteOperationType.SendToNone);
+
+            OccurrenceItemIdType occurrenceItemId = new OccurrenceItemIdType();
+            occurrenceItemId.ChangeKey = item.Items.Items[0].ItemId.ChangeKey;
+            occurrenceItemId.RecurringMasterId = item.Items.Items[0].ItemId.Id;
+            occurrenceItemId.InstanceIndex = this.InstanceIndex;
+            #endregion
+
+            #region Get the targeted occurrence item
+            ItemInfoResponseMessageType getItem = this.GetSingleCalendarItem(Role.Organizer, occurrenceItemId);
+            Site.Assert.IsNotNull(getItem, @"Get the occurrence should be successful.");
+
+            RecurringMasterItemIdType invalidRecurringMasterItemId = new RecurringMasterItemIdType();
+            invalidRecurringMasterItemId.ChangeKey = getItem.Items.Items[0].ItemId.ChangeKey;
+            invalidRecurringMasterItemId.OccurrenceId = getItem.Items.Items[0].ItemId.Id;
+            #endregion
+
+            #region Delete the occurrence
+            DeleteItemType deleteItemRequest = new DeleteItemType();
+            deleteItemRequest.ItemIds = new BaseItemIdType[] { occurrenceItemId };
+            deleteItemRequest.DeleteType = DisposalType.HardDelete;
+            DeleteItemResponseType deleteItemResponse = this.MTGSAdapter.DeleteItem(deleteItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1209");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1209
+            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                deleteItemResponse.ResponseMessages.Items[0].ResponseClass,
+                1209,
+                @"[In Messages] If the request is unsuccessful, the DeleteItem operation returns a DeleteItemResponse element with the ResponseClass attribute of the DeleteItemResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1213");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1213
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorSendMeetingCancellationsRequired,
+                deleteItemResponse.ResponseMessages.Items[0].ResponseCode,
+                1213,
+                @"[In Messages] ErrorSendMeetingCancellationsRequired: Occurs during a DeleteItem call, when the SendMeetingCancellations property is missing from the request and the item to delete is a calendar item. ");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
             #endregion
         }
         #endregion

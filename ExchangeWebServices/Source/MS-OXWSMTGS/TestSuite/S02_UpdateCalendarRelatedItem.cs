@@ -587,6 +587,153 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test if the meeting request is an updated meeting request and the attendee has not yet responded to the 
+        /// original meeting request, FullUpdate will be returned for MeetingRequestTypeType.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S02_TC09_MeetingRequestTypeFullUpdate()
+        {
+            #region Organizer creates the meeting and sends it to attendee.
+            CalendarItemType meeting = new CalendarItemType();
+            meeting.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meeting.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
+            meeting.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
+            meeting.Subject = this.Subject;
+            meeting.UID = Guid.NewGuid().ToString();
+            meeting.Location = this.Location;
+            meeting.IsResponseRequested = true;
+            meeting.IsResponseRequestedSpecified = true;
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meeting, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+            #endregion
+
+            #region Organizer updates the meeting.
+            CalendarItemType calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meeting.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendar, "The calendar should be created successfully.");
+
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.Location = this.LocationUpdate;
+            AdapterHelper locationChangeInfo = new AdapterHelper();
+            locationChangeInfo.FieldURI = UnindexedFieldURIType.calendarLocation;
+            locationChangeInfo.Item = new CalendarItemType() { Location = this.LocationUpdate };
+            locationChangeInfo.ItemId = calendar.ItemId;
+            UpdateItemResponseMessageType itemOfLocationUpdate = this.UpdateSingleCalendarItem(Role.Organizer, locationChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(itemOfLocationUpdate, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Attendee gets the meeting request.
+            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meeting.UID) as MeetingRequestMessageType;
+            Site.Assert.IsNotNull(meetingRequest, "The meeting request should exist.");
+            Site.Assert.AreEqual<string>(this.LocationUpdate, meetingRequest.Location, "Location in meeting request message should be updated.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R484");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R484
+            this.Site.CaptureRequirementIfAreEqual<MeetingRequestTypeType>(
+                MeetingRequestTypeType.FullUpdate,
+                meetingRequest.MeetingRequestType,
+                484,
+                @"[In t:MeetingRequestTypeType Simple Type] FullUpdate: Identifies the meeting request as an updated meeting request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R485");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R485
+            // Attendee does not response the meeting request and FullUpdate is returned, this requirement can be captured.
+            this.Site.CaptureRequirementIfAreEqual<MeetingRequestTypeType>(
+                MeetingRequestTypeType.FullUpdate,
+                meetingRequest.MeetingRequestType,
+                485,
+                @"[In t:MeetingRequestTypeType Simple Type] This value [FullUpdate] indicates that the attendee has not yet responded to the original meeting request.");
+            #endregion
+
+            #region Clean up organizer's calendar folder, and attendee's inbox and calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test if the meeting request is an updated meeting request and the attendee had previously accepted or 
+        /// tentatively accepted the original meeting request, InformationalUpdate will be returned for MeetingRequestTypeType.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S02_TC10_MeetingRequestTypeInformationalUpdate()
+        {
+            #region Organizer creates the meeting and sends it to attendee.
+            CalendarItemType meeting = new CalendarItemType();
+            meeting.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meeting.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
+            meeting.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
+            meeting.Subject = this.Subject;
+            meeting.UID = Guid.NewGuid().ToString();
+            meeting.Location = this.Location;
+            meeting.IsResponseRequested = true;
+            meeting.IsResponseRequestedSpecified = true;
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meeting, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+            #endregion
+
+            #region Attendee accepts the meeting request.
+            MeetingRequestMessageType request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meeting.UID) as MeetingRequestMessageType;
+            Site.Assert.IsNotNull(request, "The meeting request message should be found in attendee's Inbox folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendOnlyToAll.");
+
+            AcceptItemType acceptItem = new AcceptItemType();
+            acceptItem.ReferenceItemId = new ItemIdType();
+            acceptItem.ReferenceItemId.Id = request.ItemId.Id;
+            item = this.CreateSingleCalendarItem(Role.Attendee, acceptItem, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(item, "Accept the meeting request should be successful.");
+            #endregion
+
+            #region Organizer updates the meeting.
+            CalendarItemType calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meeting.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendar, "The calendar should be created successfully.");
+
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.Location = this.LocationUpdate;
+            AdapterHelper locationChangeInfo = new AdapterHelper();
+            locationChangeInfo.FieldURI = UnindexedFieldURIType.calendarLocation;
+            locationChangeInfo.Item = new CalendarItemType() { Location = this.LocationUpdate };
+            locationChangeInfo.ItemId = calendar.ItemId;
+            UpdateItemResponseMessageType itemOfLocationUpdate = this.UpdateSingleCalendarItem(Role.Organizer, locationChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(itemOfLocationUpdate, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Attendee gets the meeting request.
+            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meeting.UID) as MeetingRequestMessageType;
+            Site.Assert.IsNotNull(meetingRequest, "The meeting request should exist.");
+            Site.Assert.AreEqual<string>(this.LocationUpdate, meetingRequest.Location, "Location in meeting request message should be updated.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R71");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R71
+            this.Site.CaptureRequirementIfAreEqual<MeetingRequestTypeType>(
+                MeetingRequestTypeType.InformationalUpdate,
+                meetingRequest.MeetingRequestType,
+                71,
+                @"[In t:MeetingRequestTypeType Simple Type] InformationUpdate: Identifies the meeting request as an updated meeting request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R587");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R587
+            // Attendee has accepted the meeting and InformationalUpdate is returned, this requirement can be captured.
+            this.Site.CaptureRequirementIfAreEqual<MeetingRequestTypeType>(
+                MeetingRequestTypeType.InformationalUpdate,
+                meetingRequest.MeetingRequestType,
+                587,
+                @"[In t:MeetingRequestTypeType Simple Type] This value [InformationUpdate] indicates that the attendee had previously accepted or tentatively accepted the original meeting request.");
+            #endregion
+
+            #region Clean up organizer's inbox and calendar folders, and attendee's deleted items and calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.deleteditems, DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
         #endregion
 
         #region Private methods

@@ -87,5 +87,7 @@
     <Property name="R1284Enabled" value="false" />
     <!--Set R1282Enabled to true to verify that the implementation does support ResponseType if the recipient has not yet responded to the meeting request. Set R1282Enabled to false to disable this requirement.-->
     <Property name="R1282Enabled" value="true" />
+    <!--Set R2301Enabled to true to verify that the implementation does support the IsOnlineMeeting element. Set R2301Enabled to false to disable this requirement.-->
+    <Property name="R2301Enabled" value="true" />
   </Properties>
 </TestSite>

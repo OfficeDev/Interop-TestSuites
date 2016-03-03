@@ -475,6 +475,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.SwitchMTGSUser(role);
             CopyItemResponseType response = this.MTGSAdapter.CopyItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the CopyItem operation should succeed.");
+            
+            foreach (ResponseMessageType responseMessage in response.ResponseMessages.Items)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1188");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1188    
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    responseMessage.ResponseClass,
+                    1188,
+                    @"[In Messages] A successful CopyItem operation returns a CopyItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.1.2.2, with the ResponseClass attribute of the CopyItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"".");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1189");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1189
+                Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.NoError,
+                    responseMessage.ResponseCode,
+                    1189,
+                    @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the CopyItemResponseMessage element is set to ""NoError"".");
+            }
 
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
@@ -513,6 +536,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.SwitchMTGSUser(role);
             MoveItemResponseType response = this.MTGSAdapter.MoveItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the MoveItem operation should succeed.");
+
+            foreach (ResponseMessageType item in response.ResponseMessages.Items)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1226");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1226
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    item.ResponseClass,
+                    1226,
+                    @"[In Messages] A successful MoveItem operation returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "'Success"". ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1227");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1227
+                Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.NoError,
+                    item.ResponseCode,
+                    1227,
+                    @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the MoveItemResponseMessage element is set to ""NoError"".");
+            }
 
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
@@ -668,11 +714,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
         /// <param name="uid">The UID, which the target calendar item contains.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return an instance of ItemType; otherwise, return null.</returns>
-        protected ItemType SearchSingleItem(Role role, DistinguishedFolderIdNameType folder, string value, string uid)
+        protected ItemType SearchSingleItem(Role role, DistinguishedFolderIdNameType folder, string value, string uid, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             // Find items in a specified folder
-            ItemIdType[] items = this.SearchItemIds(role, folder, value);
+            ItemIdType[] items = this.SearchItemIds(role, folder, value, fieldURI);
             if (items == null || items.Length == 0)
             {
                 return null;
@@ -899,8 +946,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// </summary>
         /// <param name="folderType">The type of folder to search.</param>
         /// <param name="value">A string that specifies the value for a search restriction.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>An instance of FindItemType type.</returns>
-        private static FindItemType GetFindItemType(DistinguishedFolderIdNameType folderType, string value)
+        private static FindItemType GetFindItemType(DistinguishedFolderIdNameType folderType, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             FindItemType findRequest = new FindItemType();
 
@@ -920,10 +968,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Specifies a search restriction or query
-            PathToUnindexedFieldType itemClass = new PathToUnindexedFieldType();
-            itemClass.FieldURI = UnindexedFieldURIType.itemItemClass;
+            PathToUnindexedFieldType indexedField = new PathToUnindexedFieldType();
+            indexedField.FieldURI = fieldURI;
             ContainsExpressionType expressionType = new ContainsExpressionType();
-            expressionType.Item = itemClass;
+            expressionType.Item = indexedField;
 
             // Specify that the comparison is between the substring of the property value and the constant.
             expressionType.ContainmentMode = ContainmentModeType.Substring;
@@ -1226,10 +1274,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="role">The role used to communicate with Exchange Web Service.</param>
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return all ItemIds of the items found in the specified folder; otherwise, return null.</returns>
-        private ItemIdType[] SearchItemIds(Role role, DistinguishedFolderIdNameType folder, string value)
+        private ItemIdType[] SearchItemIds(Role role, DistinguishedFolderIdNameType folder, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
-            FindItemResponseType findItemResponse = this.SearchItems(role, folder, value);
+            FindItemResponseType findItemResponse = this.SearchItems(role, folder, value, fieldURI);
 
             if (findItemResponse != null)
             {
@@ -1247,15 +1296,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="role">The role used to communicate with Exchange Web Service.</param>
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return a response of FindItemResponseType; otherwise, return null.</returns>
-        private FindItemResponseType SearchItems(Role role, DistinguishedFolderIdNameType folder, string value)
+        private FindItemResponseType SearchItems(Role role, DistinguishedFolderIdNameType folder, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             FindItemResponseType findResponse = null;
             int counter = 0;
             bool isValid = true;
 
             // Find the meeting request message in Inbox folder of the attendeeType.
-            FindItemType findRequest = GetFindItemType(folder, value);
+            FindItemType findRequest = GetFindItemType(folder, value, fieldURI);
             this.SwitchSRCHUser(role);
             while (counter < this.UpperBound)
             {
