@@ -14,8 +14,8 @@
     <!-- Set R37811002Enabled to true to verify that implementation dose include Delete element. Set R37811002Enabled to false to disable this requirement.-->
     <Property name="R37811002Enabled" value="true"/>
     <!-- Set R37811004Enabled to true to verify that Implementation dose return a MessageType complex type. Set R37811004Enabled to false to disable this requirement.-->
-    <Property name="R37811004Enabled" value="false"/>
+    <Property name="R37811004Enabled" value="true"/>
     <!-- Set R37811006Enabled to true to verify that Implementation dose support the Person element. Set R37811006Enabled to false to disable this requirement.-->
-    <Property name="R37811006Enabled" value="false"/>
+    <Property name="R37811006Enabled" value="true"/>
   </Properties>
 </TestSite>
