@@ -89,5 +89,15 @@
     <Property name="R1282Enabled" value="true" />
     <!--Set R2301Enabled to true to verify that the implementation does support the IsOnlineMeeting element. Set R2301Enabled to false to disable this requirement.-->
     <Property name="R2301Enabled" value="true" />
+    <!--Set R1338Enabled to true to verify that the implementation does support the SharingEffectiveRights element. Set R1338Enabled to false to disable this requirement.-->
+    <Property name="R1338Enabled" value="false" />
+    <!--Set R715Enabled to true to verify that the implementation does support complex type "MeetingTimeZone" in CalendarItemType. Set R715Enabled to false to disable this requirement.-->
+    <Property name="R715Enabled" value="true" />
+    <!--Set R706Enabled to true to verify that the implementation does support complex type "MeetingTimeZone" in MeetingRequestMessageType. Set R706Enabled to false to disable this requirement.-->
+    <Property name="R706Enabled" value="true" />
+    <!--Set R654Enabled to true to verify that the implementation does support complex type TimeZoneType. Set R654Enabled to false to disable this requirement.-->
+    <Property name="R654Enabled" value="true" />
+    <!--Set R12052Enabled to true to verify that the implementation does support the ErrorCalendarInvalidDayForWeeklyRecurrence to specify that invalid values of Day, WeekDay, and WeekendDay were used to specify the weekly recurrence. Set R12052Enabled to false to disable this requirement.-->
+    <Property name="R12052Enabled" value="false" />
   </Properties>
 </TestSite>

@@ -229,6 +229,64 @@ function CheckExchangeInstalledOnDCOrNot
     }
 }
 
+#----------------------------------------------------------------------------------------------------------------------------------------
+# <summary>
+# Add delegate of mailbox user to another mailbox user. 
+# </summary>
+# <param name="mainMailboxUser">The name of mailbox user that will grant the delegate permission.</param>
+# <param name="mainMailboxUserPassword">The password of the mailbox user.</param>
+# <param name="delegateMailboxUser">The name of the mailbox user that will be assigned the delegate permission.</param>
+# <param name="sutComputerName">The name of the server that the Microsoft Exchange Server installed on.</param>
+# <param name="domainName">The name of the domain.</param>
+# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
+#--------------------------------------------------------------------------------------------------------------------------------
+function AddDelegateForMaiboxUser
+{
+    param(
+    [string]$mainMailboxUser,
+    [string]$mainMailboxUserPassword,
+    [string]$delegateMailboxUser,
+    [string]$sutComputerName,
+    [string]$domainName,
+    [string]$ExchangeVersion
+    )
+	
+    $currentPath= & {Split-Path $MyInvocation.scriptName}
+    $dllPath = $currentPath.SubString(0,$currentPath.LastIndexOf("\")+1) +"SUT"
+
+
+    if(!(Test-Path "$dllPath\MS_OXWSDLGM_ServerAdapter.dll"))
+    {
+        Output "The file MS_OXWSDLGM_ServerAdapter.dll is not found, the case related with delegate can not be tested." "Red"
+    }
+    else
+    {
+        $asm=[Reflection.Assembly]::LoadFrom("$dllpath\MS_OXWSDLGM_ServerAdapter.dll")
+        $delegateInstance = New-Object Microsoft.Protocols.TestSuites.OXWSDLGM.OXWSDLGMAdapter
+        if($ExchangeVersion -eq $Exchange2007)
+        {
+            $version = "Exchange2007_SP3"
+        }   
+        elseif($ExchangeVersion -ge $Exchange2010)
+        {
+            $version = "Exchange2010_SP3"
+        }
+        $delegateInfo= $delegateInstance.AddDelegate($mainMailboxUser, $mainMailboxUserPassword, $delegateMailboxUser, "Https", $sutComputerName, "/ews/exchange.asmx", $domainName, $version)
+        if($delegateInfo -eq "NoError")
+        {
+            Output "Added the delegate of mailbox user $mainMailboxUser to mailbox user $delegateMailboxUser successfully." "Green"
+        }
+        elseif($delegateInfo.contains("DelegateAlreadyExists"))
+        {
+            Output "The delegate of mailbox user $mainMailboxUser has already been set to mailbox user $delegateMailboxUser." "Yellow"
+        }
+	    else
+        {
+            throw "Failed to add the delegate of mailbox user $mainMailboxUser to $delegateMailboxUser."
+        }  
+    }
+}
+
 #-----------------------------------------------------------------------------------
 # <summary>
 # Check if one Mailbox User already exists in the server. 

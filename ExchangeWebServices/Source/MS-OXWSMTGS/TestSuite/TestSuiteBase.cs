@@ -36,6 +36,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         private string attendeePassword;
 
         /// <summary>
+        /// The name of the user that delegate user exists.
+        /// </summary>
+        private string delegateUser;
+
+        /// <summary>
+        /// The corresponding password of the delegate user.
+        /// </summary>
+        private string delegatePassword;
+
+        /// <summary>
         /// The wait time for meeting request, meeting response or meeting cancellation message to be received.
         /// </summary>
         private int waitTime;
@@ -69,6 +79,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// The email address of the user whose role is attendeeType of a meeting.
         /// </summary>
         private string attendeeEmailAddress;
+
+        /// <summary>
+        /// The email address of the user that delegate user exists.
+        /// </summary>
+        private string delegateEmailAddress;
 
         /// <summary>
         /// The email address of the resource.
@@ -196,6 +211,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
+        /// The name of the user that delegate user exists.
+        /// </summary>
+        protected string DelegateUser
+        {
+            get { return this.delegateUser; }
+        }
+
+        /// <summary>
+        /// The corresponding password of the delegate user.
+        /// </summary>
+        protected string DelegatePassword
+        {
+            get { return this.delegatePassword; }
+        }
+
+        /// <summary>
         /// Gets the wait time for meeting request, meeting response or meeting cancellation message to be received.
         /// </summary>
         protected int WaitTime
@@ -250,6 +281,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             get { return this.attendeeEmailAddress; }
         }
+
+        /// <summary>
+        /// The email address of the user that delegate user exists.
+        /// </summary>
+        protected string DelegateEmailAddress
+        {
+            get { return this.delegateEmailAddress; }
+        }
+
 
         /// <summary>
         /// Gets the email address of the resource.
@@ -377,9 +417,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.organizerPassword = Common.GetConfigurationPropertyValue("OrganizerPassword", this.Site);
             this.attendee = Common.GetConfigurationPropertyValue("AttendeeName", this.Site);
             this.attendeePassword = Common.GetConfigurationPropertyValue("AttendeePassword", this.Site);
+            this.delegateUser = Common.GetConfigurationPropertyValue("DelegateName", this.Site);
+            this.delegatePassword = Common.GetConfigurationPropertyValue("DelegatePassword", this.Site);
             this.locationUpdate = Common.GetConfigurationPropertyValue("LocationUpdate", this.Site);
             this.organizerEmailAddress = this.organizer + "@" + this.domain;
             this.attendeeEmailAddress = this.attendee + "@" + this.domain;
+            this.delegateEmailAddress = this.delegateUser + "@" + this.domain;
             this.roomEmailAddress = Common.GetConfigurationPropertyValue("RoomName", this.Site) + "@" + this.domain;
             this.waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
             
@@ -547,7 +590,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     ResponseClassType.Success,
                     item.ResponseClass,
                     1226,
-                    @"[In Messages] A successful MoveItem operation returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to "'Success"". ");
+                    @"[In Messages] A successful MoveItem operation returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1227");
@@ -785,6 +828,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 case Role.Attendee:
                     this.MTGSAdapter.SwitchUser(this.Attendee, this.AttendeePassword, this.Domain);
                     break;
+                case Role.Delegate:
+                    this.MTGSAdapter.SwitchUser(this.DelegateUser, this.DelegatePassword, this.Domain);
+                    break;
             }
         }
 
@@ -801,6 +847,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     break;
                 case Role.Attendee:
                     this.SRCHAdapter.SwitchUser(this.Attendee, this.AttendeePassword, this.Domain);
+                    break;
+                case Role.Delegate:
+                    this.SRCHAdapter.SwitchUser(this.DelegateUser, this.DelegatePassword, this.Domain);
                     break;
             }
         }
@@ -1184,11 +1233,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 {
                     additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarEnhancedLocation });
                 }
-
-                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetingCount });
-                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetingCount });
-                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetings });
-                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetings });
 
                 if (additionalProperties.Count > 0)
                 {

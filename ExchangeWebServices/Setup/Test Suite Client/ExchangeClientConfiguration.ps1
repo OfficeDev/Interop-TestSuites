@@ -62,6 +62,8 @@ $MSOXWSMTGSUser02             = ReadConfigFileNode "$environmentResourceFile" "M
 $MSOXWSMTGSUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02Password"
 $MSOXWSMTGSRoom01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01"
 $MSOXWSMTGSRoom01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01Password"
+$MSOXWSMTGSUser03             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03"
+$MSOXWSMTGSUser03Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03Password"
 
 $MSOXWSSYNCUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01"
 $MSOXWSSYNCUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01Password"
@@ -367,12 +369,18 @@ $step++
 OutputWarning "$step.Find the property `"AttendeePassword`", and set the value as $MSOXWSMTGSUser02Password"
 $step++
 OutputWarning "$step.Find the property `"RoomName`", and set the value as $MSOXWSMTGSRoom01"
+$step++
+OutputWarning "$step.Find the property `"DelegateName`", and set the value as $MSOXWSMTGSUser03"
+$step++
+OutputWarning "$step.Find the property `"DelegatePassword`", and set the value as $MSOXWSMTGSUser03Password"
 
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "OrganizerName"       $MSOXWSMTGSUser01
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "OrganizerPassword"   $MSOXWSMTGSUser01Password
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "AttendeeName"        $MSOXWSMTGSUser02
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "AttendeePassword"    $MSOXWSMTGSUser02Password
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "RoomName"            $MSOXWSMTGSRoom01
+ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "DelegateName"        $MSOXWSMTGSUser03
+ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "DelegatePassword"    $MSOXWSMTGSUser03Password
 
 OutputSuccess "Configuration for the MS-OXWSMTGS_TestSuite.deployment.ptfconfig file is complete"
 

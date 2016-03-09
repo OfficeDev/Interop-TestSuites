@@ -2139,6 +2139,45 @@
 
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test element SharingEffectiveRights is read only.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S06_TC11_SharingEffectiveRightsIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1338, this.Site), "Exchange 2007 does not support the SharingEffectiveRights element.");
+
+            #region Organizer creates a calendar folder with setting SharingEffectiveRights element.
+            
+            // Switch to user organizer.
+            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
+
+            CalendarPermissionSetType calendarPermissionSet = new CalendarPermissionSetType();
+            calendarPermissionSet.CalendarPermissions = new CalendarPermissionType[1];
+            calendarPermissionSet.CalendarPermissions[0] = new CalendarPermissionType();
+            calendarPermissionSet.CalendarPermissions[0].CalendarPermissionLevel = CalendarPermissionLevelType.Owner;
+            calendarPermissionSet.CalendarPermissions[0].UserId = new UserIdType();
+            calendarPermissionSet.CalendarPermissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("AttendeeName", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "CustomFolderByOrganizer" }, new string[] { "IPF.Appointment" }, null);
+            ((CalendarFolderType)createFolderRequest.Folders[0]).PermissionSet = calendarPermissionSet;
+            ((CalendarFolderType)createFolderRequest.Folders[0]).SharingEffectiveRights = CalendarPermissionReadAccessType.FullDetails;
+            ((CalendarFolderType)createFolderRequest.Folders[0]).SharingEffectiveRightsSpecified = true;
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1046");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1046
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPropertySet,
+                createFolderResponse.ResponseMessages.Items[0].ResponseCode,
+                1046,
+                @"[In t:CalendarFolderType Complex Type]SharingEffectiveRights: This element is read-only.");
+            #endregion
+        }
+
         #endregion
 
         /// <summary>
