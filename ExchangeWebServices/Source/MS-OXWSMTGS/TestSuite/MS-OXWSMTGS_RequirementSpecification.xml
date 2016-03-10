@@ -4408,7 +4408,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R3311.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R332</ns1:REQ_ID>
@@ -4610,7 +4611,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R3541.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R355</ns1:REQ_ID>
@@ -7660,7 +7662,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R7512.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R80031</ns1:REQ_ID>
@@ -10941,6 +10944,69 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R7511</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R75:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R7512</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R75:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3541</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support ConferenceType in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R354:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3542</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support ConferenceType in MeetingRequestMessageType. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R354:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3311</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support TimeZone in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R331:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3312</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support TimeZone in MeetingRequestMessageType. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R331:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R686</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Recurrence element. (&lt;63&gt; Section 2.2.4.23:  Exchange 2007 and Exchange 2010 do not support the Recurrence element.)</ns1:Description>
@@ -12028,6 +12094,16 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R885</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.25</ns1:Doc_Sect>
+		<ns1:Description>[In t:UnindexedFieldURIType Simple Type] The value "calendar:ConflictingMeetingCount" specifies the ConflictingMeetingCount property.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCDATA_R8852.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R995</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:AbsoluteMonthlyRecurrencePatternType Complex Type] The type [AbsoluteMonthlyRecurrencePatternType] is defined as follow:
@@ -12563,6 +12639,27 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R8851</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support value "calendar:ConflictingMeetingCount" specifies the ConflictingMeetingCount property. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R885:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R8852</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value "calendar:ConflictingMeetingCount" specifies the ConflictingMeetingCount property. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R885:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R2049</ns1:REQ_ID>

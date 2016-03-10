@@ -41,6 +41,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC01_CalendarPermissionLevelOwner()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Owner permission to attendee.
 
             // Switch to user organizer.
@@ -64,7 +71,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -500,21 +507,6 @@
                 isVerifiedR96,
                 96,
                 @"[In t:CalendarPermissionLevelType Simple Type] Owner: The user can create, read, edit, and delete all items in the folder, and create subfolders.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -524,6 +516,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC02_CalendarPermissionLevelAuthor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Author permission to attendee.
 
             // Switch to user organizer.
@@ -547,7 +546,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -688,21 +687,6 @@
                 isVerifiedR88,
                 88,
                 @"[In t:CalendarPermissionLevelType Simple Type] Author: The user can create and read all items in the folder, and edit and delete only items that the user creates.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -712,6 +696,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC03_CalendarPermissionLevelContributor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Contributor permission to attendee.
 
             // Switch to user organizer.
@@ -735,7 +726,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -850,7 +841,7 @@
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R486");
 
             // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R486
-            bool isVerifiedR486 = canCreateOwnItem && canReadOwnItem && !canUpdateOwnItem && !canDeleteOwnItem && !canReadNotOwnItem
+            bool isVerifiedR486 = canCreateOwnItem && !canReadOwnItem && !canUpdateOwnItem && !canDeleteOwnItem && !canReadNotOwnItem
                 && !canUpdateNotOwnItem && !canDeleteNotOwnItem && !canCreateSubFolder;
 
             Site.Assert.IsTrue(
@@ -884,20 +875,6 @@
                 isVerifiedR486,
                 487,
                 @"[In t:CalendarPermissionLevelType Simple Type] Contributor: The user can create items in the folder.");
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -907,6 +884,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC04_CalendarPermissionLevelEditor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Editor permission to attendee.
 
             // Switch to user organizer.
@@ -930,7 +914,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1071,20 +1055,6 @@
                 isVerifiedR91,
                 91,
                 @"[In t:CalendarPermissionLevelType Simple Type] Editor: The user can create, read, edit and delete all items in the folder.");
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1094,6 +1064,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC05_CalendarPermissionLevelNone()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant None permission to attendee.
 
             // Switch to user organizer.
@@ -1117,7 +1094,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1237,21 +1214,6 @@
                 folderInfo.PermissionSet.CalendarPermissions[2].ReadItemsSpecified && folderInfo.PermissionSet.CalendarPermissions[2].ReadItems == CalendarPermissionReadAccessType.None,
                 104,
                 @"[In t:CalendarPermissionReadAccessType Simple Type] None: The user does not have permission to view items in the calendar.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1261,6 +1223,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC06_CalendarPermissionLevelReviewer()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Reviewer permission to attendee.
 
             // Switch to user organizer.
@@ -1284,7 +1253,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1391,20 +1360,6 @@
                 isVerifiedR100,
                 100,
                 @"[In t:CalendarPermissionLevelType Simple Type] Reviewer: The user can read all items in the folder.");
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1414,6 +1369,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC07_CalendarPermissionLevelCustom()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant Custom permission to attendee.
 
             // Switch to user organizer.
@@ -1451,7 +1413,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1559,21 +1521,6 @@
                 isVerifiedR90,
                 90,
                 @"[In t:CalendarPermissionLevelType Simple Type] Custom: The user has custom access permissions on the folder.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1583,6 +1530,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC08_CalendarPermissionLevelNoneditingAuthor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant NoneditingAuthor permission to attendee.
 
             // Switch to user organizer.
@@ -1606,7 +1560,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1747,21 +1701,6 @@
                 isVerifiedR95,
                 95,
                 @"[In t:CalendarPermissionLevelType Simple Type] NoneditingAuthor: The user can create and read all items in the folder, and delete only items that the user creates.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1771,6 +1710,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC09_CalendarPermissionLevelPublishingAuthor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant PublishingAuthor permission to attendee.
 
             // Switch to user organizer.
@@ -1794,7 +1740,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -1935,21 +1881,6 @@
                 isVerifiedR98,
                 98,
                 @"[In t:CalendarPermissionLevelType Simple Type] PublishingAuthor: The user can create and read all items in the folder, edit and delete only items that the user creates, and create subfolders.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -1959,6 +1890,13 @@
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S06_TC10_CalendarPermissionLevelPublishingEditor()
         {
+            this.MTGSAdapter = new MS_OXWSMTGSAdapter();
+            this.MTGSAdapter.Initialize(this.Site);
+            this.SRCHAdapter = new MS_OXWSSRCHAdapter();
+            this.SRCHAdapter.Initialize(this.Site);
+            this.FOLDAdapter = new MS_OXWSFOLDAdapter();
+            this.FOLDAdapter.Initialize(this.Site);
+
             #region Organizer creates a calendar folder in the inbox folder and grant PublishingEditor permission to attendee.
 
             // Switch to user organizer.
@@ -1982,7 +1920,7 @@
 
             // Save the new created folder's folder id.
             FolderIdType newFolderIdByOrganizer = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-
+            this.FolderToDelete = newFolderIdByOrganizer;
             #endregion
 
             #region Organizer gets the new created folder.
@@ -2123,21 +2061,6 @@
                 isVerifiedR99,
                 99,
                 @"[In t:CalendarPermissionLevelType Simple Type] PublishingEditor: The user can create, read, edit, and delete all items in the folder, and create subfolders.");
-
-            #region Delete the created folder
-
-            this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
-
-            // DeleteFolder request.
-            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderIdByOrganizer);
-
-            // Delete the specified folder.
-            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
-
-            #endregion
         }
 
         /// <summary>
@@ -2344,32 +2267,6 @@
             }
 
             return createFolderRequest;
-        }
-
-        /// <summary>
-        /// Generate the request message for operation "DeleteFolder".
-        /// </summary>
-        /// <param name="deleteType">How folders are to be deleted.</param>
-        /// <param name="folderIds">An array of folder identifier of the folders need to be deleted</param>
-        /// <returns>Delete folder request instance that will send to server.</returns>
-        protected DeleteFolderType GetDeleteFolderRequest(DisposalType deleteType, params BaseFolderIdType[] folderIds)
-        {
-            Site.Assert.IsNotNull(folderIds, "Folders id should not be null!");
-            Site.Assert.AreNotEqual<int>(0, folderIds.Length, "Folders id should contains at least one Id!");
-            DeleteFolderType deleteFolderRequest = new DeleteFolderType();
-
-            // Specify the delete type.
-            deleteFolderRequest.DeleteType = deleteType;
-            int folderCount = folderIds.Length;
-
-            // Set the request's folderId field.
-            deleteFolderRequest.FolderIds = new BaseFolderIdType[folderCount];
-            for (int folderIdIndex = 0; folderIdIndex < folderCount; folderIdIndex++)
-            {
-                deleteFolderRequest.FolderIds[folderIdIndex] = folderIds[folderIdIndex];
-            }
-
-            return deleteFolderRequest;
         }
     }
 }

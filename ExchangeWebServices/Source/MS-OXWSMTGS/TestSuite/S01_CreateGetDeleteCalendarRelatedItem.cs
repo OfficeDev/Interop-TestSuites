@@ -208,6 +208,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 745,
                 @"[In t:CalendarItemType Complex Type] otherwise [if a new meeting time can not be proposed for a meeting by an attendee], [AllowNewTimeProposal is] false.");
 
+            Site.Assert.IsTrue(calendar.ConferenceTypeSpecified, "Element ConferenceType in CalendarItemType should be present.");
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R516");
 
@@ -298,8 +300,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             meetingItem.IsResponseRequested = true;
             meetingItem.IsResponseRequestedSpecified = true;
             meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
-            meetingItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
-            meetingItem.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
+            meetingItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
             if (Common.IsRequirementEnabled(2301, this.Site))
             {
                 meetingItem.IsOnlineMeeting = true;
@@ -347,6 +348,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #region Organizer gets the created meeting
             MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(meetingRequest, "The meeting request message should be found in organizer's Sent Items folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R317");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R317
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                this.RoomEmailAddress.ToLower(),
+                meetingRequest.OptionalAttendees[0].Mailbox.EmailAddress.ToLower(),
+                317,
+                @"[In t:MeetingRequestMessageType Complex Type] OptionalAttendees: Represents attendees who are not required to attend the meeting.");
             #endregion
 
             #region Attendee gets the meeting request message in the inbox and calendar folders respectively
@@ -446,7 +457,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 28504,
                 @"[In t:MeetingRequestMessageType Complex Type] The IntendedFreeBusyStatus which value is ""Tentative"" specifies the status as tentative.");
 
-            if (Common.IsRequirementEnabled(2301, this.Site))
+            if (Common.IsRequirementEnabled(3541, this.Site))
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35501");
@@ -1688,17 +1699,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     receivedRequest.IsOnlineMeeting,
                     766,
                     @"[In t:MeetingRequestMessageType Complex Type] [IsOnlineMeeting is] True, if the meeting is online.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R363");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R363
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    meeting.NetShowUrl.ToLower(),
+                    receivedRequest.NetShowUrl.ToLower(),
+                    363,
+                    @"[In t:MeetingRequestMessageType Complex Type] NetShowUrl: Specifies the URL for an online meeting.");
             }
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35502");
+            if (Common.IsRequirementEnabled(3541, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35502");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35502
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                meeting.ConferenceType,
-                receivedRequest.ConferenceType,
-                35502,
-                @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""2"" describes the type of conferencing is chat");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35502
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    meeting.ConferenceType,
+                    receivedRequest.ConferenceType,
+                    35502,
+                    @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""2"" describes the type of conferencing is chat");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R361");
@@ -1709,16 +1733,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 receivedRequest.MeetingWorkspaceUrl.ToLower(),
                 361,
                 @"[In t:MeetingRequestMessageType Complex Type] MeetingWorkspaceUrl: Contains the URL for the Meeting Workspace that is included in the meeting item.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R363");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R363
-            this.Site.CaptureRequirementIfAreEqual<string>(
-                meeting.NetShowUrl.ToLower(),
-                receivedRequest.NetShowUrl.ToLower(),
-                363,
-                @"[In t:MeetingRequestMessageType Complex Type] NetShowUrl: Specifies the URL for an online meeting.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R315");
@@ -1732,16 +1746,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 isVerifyMeetingRequiredAttendees,
                 315,
                 @"[In t:MeetingRequestMessageType Complex Type] RequiredAttendees: Represents attendees that are required to attend the meeting.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R317");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R317
-            this.Site.CaptureRequirementIfAreEqual<string>(
-                this.OrganizerEmailAddress.ToLower(),
-                receivedRequest.OptionalAttendees[0].Mailbox.EmailAddress.ToLower(),
-                317,
-                @"[In t:MeetingRequestMessageType Complex Type] OptionalAttendees: Represents attendees who are not required to attend the meeting.");
 
             if (Common.IsRequirementEnabled(708, this.Site))
             {
@@ -1970,15 +1974,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhanced location information. (Exchange 2013 and above follow this behavior.)");
             }
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35500");
+            if (Common.IsRequirementEnabled(3541, this.Site))
+            {
+                Site.Assert.IsTrue(receivedRequest.ConferenceTypeSpecified, "Element ConferenceType in MeetingRequestMessageType should be present.");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35500
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                meeting.ConferenceType,
-                receivedRequest.ConferenceType,
-                35500,
-                @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""0"" (zero) describes the type of conferencing is video conference");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35500");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35500
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    meeting.ConferenceType,
+                    receivedRequest.ConferenceType,
+                    35500,
+                    @"[In t:MeetingRequestMessageType Complex Type] The value of ""ConferenceType"" is ""0"" (zero) describes the type of conferencing is video conference");
+            }
 
             if (Common.IsRequirementEnabled(2301, this.Site))
             {
@@ -2015,14 +2024,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 329,
                 @"[In t:MeetingRequestMessageType Complex Type] Duration: Represents the duration of the meeting.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R331");
+            if (Common.IsRequirementEnabled(3311, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R3311");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R331
-            this.Site.CaptureRequirementIfIsNotNull(
-                receivedRequest.TimeZone,
-                331,
-                @"[In t:MeetingRequestMessageType Complex Type] TimeZone: Provides a text description of a time zone.");
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R3311
+                this.Site.CaptureRequirementIfIsNotNull(
+                    receivedRequest.TimeZone,
+                    3311,
+                    @"[In Appendix C: Product Behavior] Implementation does support TimeZone in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R335");
@@ -2779,6 +2791,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC22_MeetingRequestTypePrincipalWantsCopy()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(7512, this.Site), "Exchange 2007 does not support PrincipalWantsCopy for MeetingRequestTypeType.");
+
             #region Organizer creates the meeting and sends it to attendee.
             CalendarItemType meeting = new CalendarItemType();
             meeting.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.DelegateEmailAddress) };
@@ -2798,14 +2812,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(request, "The meeting request message should be found in attendee's Inbox folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendOnlyToAll.");
             
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R75");
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R7512");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R75
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R7512
             this.Site.CaptureRequirementIfAreEqual<MeetingRequestTypeType>(
                 MeetingRequestTypeType.PrincipalWantsCopy,
                 request.MeetingRequestType,
-                75,
-                @"[In t:MeetingRequestTypeType Simple Type] PrincipalWantsCopy: Indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate and this copy is informational.");
+                7512,
+                @"[In Appendix C: Product Behavior] Implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. (Exchange 2010 and above follow this behavior.)");
             #endregion
 
             #region Clean up organizer's calendar folders, attendee's inbox folder and delegate user's inbox folder.
@@ -2973,6 +2987,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 item,
                 494,
                 @"[In CreateItem Operation] This operation [CreateItem] can be used to create meetings.");
+
+            item = this.GetSingleCalendarItem(Role.Organizer, item.Items.Items[0].ItemId);
+            CalendarItemType calendar = item.Items.Items[0] as CalendarItemType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R742");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R742
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                meetingItem.ConferenceType,
+                calendar.ConferenceType,
+                742,
+                @"[In t:CalendarItemType Complex Type] [ConferenceType: Valid values include:] 1: presentation");
             #endregion
 
             #region Step2: Attendee gets and verifies the recurring meeting request
@@ -3012,10 +3039,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     request.Recurrence,
                     903,
                     @"[In Appendix C: Product Behavior] Implementation does support Recurrence which is a RecurrenceType element that represents the recurrence of the calendar item. (Exchange 2013 and above follow this behavior.)");
-
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R28503");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R28503");
 
             // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R28503
             this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
@@ -3037,7 +3064,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             }
 
             // Verify the calendar item
-            CalendarItemType calendar = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            calendar = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(calendar, "The calendar item to be verified should exist in Attendee's Calendar folder.");
 
             ItemInfoResponseMessageType getItem = this.GetSingleCalendarItem(Role.Attendee, calendar.FirstOccurrence.ItemId);
@@ -3054,15 +3081,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In t:CalendarItemTypeType Simple Type] Occurrence: Specifies that the item is an occurrence of a recurring calendar item.");
 
             #region Capture Code for CalendarItemType
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R742");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R742
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                meetingItem.ConferenceType,
-                calendar.ConferenceType,
-                742,
-                @"[In t:CalendarItemType Complex Type] [ConferenceType: Valid values include:] 1: presentation");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R744");

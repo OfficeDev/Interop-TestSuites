@@ -150,17 +150,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <summary>
         /// Gets the MS-OXWSMTGS protocol adapter.
         /// </summary>
-        protected IMS_OXWSMTGSAdapter MTGSAdapter { get; private set; }
+        protected IMS_OXWSMTGSAdapter MTGSAdapter { get; set; }
 
         /// <summary>
         /// Gets the MS-OXWSSRCH protocol adapter which used to supply FindItem method.
         /// </summary>
-        protected IMS_OXWSSRCHAdapter SRCHAdapter { get; private set; }
+        protected IMS_OXWSSRCHAdapter SRCHAdapter { get; set; }
 
         /// <summary>
         /// Gets the MS-OXWSFOLD protocol adapter.
         /// </summary>
-        protected IMS_OXWSFOLDAdapter FOLDAdapter { get; private set; }
+        protected IMS_OXWSFOLDAdapter FOLDAdapter { get; set; }
 
         /// <summary>
         /// Gets the value of Location element.
@@ -378,6 +378,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             get { return this.messageDisposition; }
         }
+
+        /// <summary>
+        /// Record the folder id to be deleted.
+        /// </summary>
+        protected FolderIdType FolderToDelete
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Static methods
@@ -396,7 +405,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
         #endregion
 
-        #region Test case initialize
+        #region Test case initialize and clean up
         /// <summary>
         ///  Initialize the test suite.
         /// </summary>
@@ -435,6 +444,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.baseShape = DefaultShapeNamesType.AllProperties;
             this.messageDisposition = MessageDispositionType.SendAndSaveCopy;
             this.legacyFreeBusy = LegacyFreeBusyType.Busy;
+            this.FolderToDelete = null;
 
             #region The upper bound of request loop
             if (!int.TryParse(Common.GetConfigurationPropertyValue("RetryCount", this.Site), out this.upperBound))
@@ -443,6 +453,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             }
             #endregion
             #endregion
+        }
+
+        /// <summary>
+        /// Clean up the environment.
+        /// </summary>
+        protected override void TestCleanup()
+        {
+            if (this.FolderToDelete != null)
+            {
+                this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
+
+                // DeleteFolder request.
+                DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, this.FolderToDelete);
+
+                // Delete the specified folder.
+                DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+                // Check the response.
+                Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+            }
+
+            base.TestCleanup();
         }
         #endregion
 
@@ -747,6 +779,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             GetItemResponseType response = this.MTGSAdapter.GetItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The invocation to GetItem operation should be successful.");
 
+            if (Common.IsRequirementEnabled(8852, this.Site))
+            {
+                foreach (ResponseMessageType responseMsg in response.ResponseMessages.Items)
+                {
+                    if (responseMsg.ResponseClass == ResponseClassType.Success)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R8852");
+
+                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R8852
+                        // calendar:ConflictingMeetingCount is included in the request and the operation executes successfully, this requirement can be captured.
+                        this.Site.CaptureRequirement(
+                            "MS-OXWSCDATA",
+                            8852,
+                            @"[In Appendix C: Product Behavior] Implementation does support value ""calendar:ConflictingMeetingCount"" specifies the ConflictingMeetingCount property. (Exchange 2010 and above follow this behavior.)");
+                    }
+                }
+            }
+
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
 
@@ -888,6 +939,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     this.CleanupFolder(role, DistinguishedFolderIdNameType.deleteditems);
                 }
             }
+        }
+
+        /// <summary>
+        /// Generate the request message for operation "DeleteFolder".
+        /// </summary>
+        /// <param name="deleteType">How folders are to be deleted.</param>
+        /// <param name="folderIds">An array of folder identifier of the folders need to be deleted</param>
+        /// <returns>Delete folder request instance that will send to server.</returns>
+        protected DeleteFolderType GetDeleteFolderRequest(DisposalType deleteType, params BaseFolderIdType[] folderIds)
+        {
+            Site.Assert.IsNotNull(folderIds, "Folders id should not be null!");
+            Site.Assert.AreNotEqual<int>(0, folderIds.Length, "Folders id should contains at least one Id!");
+            DeleteFolderType deleteFolderRequest = new DeleteFolderType();
+
+            // Specify the delete type.
+            deleteFolderRequest.DeleteType = deleteType;
+            int folderCount = folderIds.Length;
+
+            // Set the request's folderId field.
+            deleteFolderRequest.FolderIds = new BaseFolderIdType[folderCount];
+            for (int folderIdIndex = 0; folderIdIndex < folderCount; folderIdIndex++)
+            {
+                deleteFolderRequest.FolderIds[folderIdIndex] = folderIds[folderIdIndex];
+            }
+
+            return deleteFolderRequest;
         }
         #endregion
 
@@ -1232,6 +1309,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     || Common.IsRequirementEnabled(80011, this.Site))
                 {
                     additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarEnhancedLocation });
+                }
+
+                if (Common.IsRequirementEnabled(8852, this.Site))
+                {
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetingCount });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetingCount });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetings });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetings });
                 }
 
                 if (additionalProperties.Count > 0)

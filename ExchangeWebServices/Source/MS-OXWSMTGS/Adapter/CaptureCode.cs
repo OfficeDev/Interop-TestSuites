@@ -1798,18 +1798,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
             }
 
-            if (meetingRequestMessage.ConferenceTypeSpecified)
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R354");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R354
-                Site.CaptureRequirementIfIsTrue(
-                    isSchemaValidated,
-                    354,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of ConferenceType is xs:int.");
-            }
-
             if (meetingRequestMessage.IsOnlineMeetingSpecified)
             {
                 // Add the debug information

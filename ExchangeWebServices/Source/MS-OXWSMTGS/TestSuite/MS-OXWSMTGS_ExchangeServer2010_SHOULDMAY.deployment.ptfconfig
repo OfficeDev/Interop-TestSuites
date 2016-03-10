@@ -99,5 +99,13 @@
     <Property name="R654Enabled" value="false" />
     <!--Set R12052Enabled to true to verify that the implementation does support the ErrorCalendarInvalidDayForWeeklyRecurrence to specify that invalid values of Day, WeekDay, and WeekendDay were used to specify the weekly recurrence. Set R12052Enabled to false to disable this requirement.-->
     <Property name="R12052Enabled" value="false" />
+    <!--Set R3541Enabled to true to verify that the implementation does support ConferenceType in MeetingRequestMessageType. Set R3541Enabled to false to disable this requirement.-->
+    <Property name="R3541Enabled" value="true" />
+    <!--Set R3311Enabled to true to verify that the implementation does support TimeZone in MeetingRequestMessageType. Set R3311Enabled to false to disable this requirement.-->
+    <Property name="R3311Enabled" value="true" />
+    <!--Set R3311Enabled to true to verify that the implementation does support value "calendar:ConflictingMeetingCount" specifies the ConflictingMeetingCount property. Set R3311Enabled to false to disable this requirement.-->
+    <Property name="R8852Enabled" value="true" />
+    <!--Set R7512Enabled to true to verify that the implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. Set R7512Enabled to false to disable this requirement.-->
+    <Property name="R7512Enabled" value="false" />
   </Properties>
 </TestSite>
