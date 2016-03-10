@@ -3398,7 +3398,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose include Delete element. (All other versions of Exchange include this element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include Delete element. (Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R87:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3409,7 +3409,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose not support the ItemType complex type. (&lt;2&gt; Section 3.1.4.2.3.3:  Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, and Exchange 2013 do not support the ItemType complex type. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ItemType complex type. (&lt;2&gt; Section 3.1.4.2.3.3:  Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, and Exchange 2013 do not support the ItemType complex type. )</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R155:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3419,7 +3419,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811004</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R155:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3430,7 +3430,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811005</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose not support the Person element. (&lt;5&gt; Section 3.1.4.2.3.3:  Exchange 2007, Exchange 2010. and Exchange 2013 do not support the Person element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Person element. (&lt;5&gt; Section 3.1.4.2.3.3:  Exchange 2007, Exchange 2010. and Exchange 2013 do not support the Person element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R1752006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3440,7 +3440,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811006</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose support the Person element. (Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R1752006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3451,7 +3451,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811007</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose not support the SyncScope element. (&lt;7&gt; Section 3.1.4.2.3.8:  Exchange 2007 does not support the SyncScope element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SyncScope element. (&lt;7&gt; Section 3.1.4.2.3.8:  Exchange 2007 does not support the SyncScope element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39223:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3461,7 +3461,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811008</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation dose support the SyncScope element. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SyncScope element. (Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39223:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
