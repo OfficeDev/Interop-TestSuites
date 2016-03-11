@@ -47,7 +47,7 @@
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="E:\GitHub\Interop-TestSuites-EWS\ExchangeWebServices\Source\MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="ExchangeServerEWSProtocolTestSuites.runsettings" />
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
@@ -89,5 +89,4 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
-  <Properties />
 </TestSettings>
