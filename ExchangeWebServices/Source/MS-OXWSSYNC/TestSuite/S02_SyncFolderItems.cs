@@ -2014,7 +2014,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isDistributionListCreated,
                 37811006,
-                @"[In Appendix C: Product Behavior] Implementation dose support the Person element. (Exchange 2016 follow this behavior.)");
+                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.

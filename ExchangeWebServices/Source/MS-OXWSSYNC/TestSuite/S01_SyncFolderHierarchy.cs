@@ -255,7 +255,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 Site.CaptureRequirementIfIsTrue(
                     isFolderDeleted,
                     37811002,
-                    @"[In Appendix C: Product Behavior] Implementation dose include Delete element. (All other versions of Exchange include this element.)");
+                    @"[In Appendix C: Product Behavior] Implementation does include Delete element. (Exchange 2010 and above follow this behavior)");
             #endregion
             }
         }
