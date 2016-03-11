@@ -75,7 +75,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidDailyRegeneration,
                 70,
-                @"[In t:DailyRegeneratingPatternType Complex Type] The DailyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+                @"[In t:DailyRegeneratingPatternType Complex Type] The DailyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.3.
                     <xs:complexType name=""DailyRegeneratingPatternType"">
                       <xs:complexContent>
                         <xs:extension
@@ -90,7 +90,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidDailyRegeneration,
                 241,
-                @"[In TaskRecurrencePatternTypes Group] The type of DailyRegeneration is t:DailyRegeneratingPatternType (section 2.2.4.4).");
+                @"[In TaskRecurrencePatternTypes Group] The type of DailyRegeneration is t:DailyRegeneratingPatternType (section 2.2.4.1).");
 
             NumberedRecurrenceRangeType sentNumRange = sentTaskItem.Recurrence.Item1 as NumberedRecurrenceRangeType;
             NumberedRecurrenceRangeType retrievedNumRange = retrievedTaskItemDaily.Recurrence.Item1 as NumberedRecurrenceRangeType;
@@ -170,7 +170,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidDailyRecurrence,
                 240,
-                @"[In TaskRecurrencePatternTypes Group] The type of DailyRecurrence is t:DailyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.21).");
+                @"[In TaskRecurrencePatternTypes Group] The type of DailyRecurrence is t:DailyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.24).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1109");
@@ -268,7 +268,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidMonthlyRegeneratingPattern,
                 73,
-                @"[In t:MonthlyRegeneratingPatternType Complex Type] The MonthlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+                @"[In t:MonthlyRegeneratingPatternType Complex Type] The MonthlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.3.
                     <xs:complexType name=""MonthlyRegeneratingPatternType"">
                       <xs:complexContent>
                         <xs:extension
@@ -283,7 +283,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidMonthlyRegeneratingPattern,
                 243,
-                @"[In TaskRecurrencePatternTypes Group] The type of MonthlyRegeneration is t:MonthlyRegeneratingPatternType (section 2.2.4.5).");
+                @"[In TaskRecurrencePatternTypes Group] The type of MonthlyRegeneration is t:MonthlyRegeneratingPatternType (section 2.2.4.2).");
 
             NoEndRecurrenceRangeType sentNoEndDateRange = sentTaskItem.Recurrence.Item1 as NoEndRecurrenceRangeType;
             NoEndRecurrenceRangeType retrievedNoEndDateRange = retrievedTaskItemMonthly.Recurrence.Item1 as NoEndRecurrenceRangeType;
@@ -359,7 +359,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidWeeklyRegeneratingPattern,
                 78,
-                @"[In t:WeeklyRegeneratingPatternType Complex Type] The WeeklyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+                @"[In t:WeeklyRegeneratingPatternType Complex Type] The WeeklyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.3.
                     <xs:complexType name=""WeeklyRegeneratingPatternType"">
                       <xs:complexContent>
                         <xs:extension
@@ -434,7 +434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidYearlyRegeneratingPattern,
                 81,
-                @"[In t:YearlyRegeneratingPatternType Complex Type] The YearlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.6.
+                @"[In t:YearlyRegeneratingPatternType Complex Type] The YearlyRegeneratingPatternType complex type extends the RegeneratingPatternBaseType complex type, as specified in section 2.2.4.3.
                     <xs:complexType name=""YearlyRegeneratingPatternType"">
                       <xs:complexContent>
                         <xs:extension
@@ -509,7 +509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidRelativeYearlyRecurrence,
                 235,
-                @"[In TaskRecurrencePatternTypes Group] The type of RelativeYearlyRecurrence is t:RelativeYearlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.53).");
+                @"[In TaskRecurrencePatternTypes Group] The type of RelativeYearlyRecurrence is t:RelativeYearlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.63).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1259");
@@ -755,7 +755,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidRelativeMonthlyRecurrence,
                 237,
-                @"[In TaskRecurrencePatternTypes Group] The type of RelativeMonthlyRecurrence is t:RelativeMonthlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.52).");
+                @"[In TaskRecurrencePatternTypes Group] The type of RelativeMonthlyRecurrence is t:RelativeMonthlyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.62).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1255");
@@ -984,7 +984,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.CaptureRequirementIfIsTrue(
                 isValidWeeklyRecurrence,
                 239,
-                @"[In TaskRecurrencePatternTypes Group] The type of WeeklyRecurrence is t:WeeklyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.64).");
+                @"[In TaskRecurrencePatternTypes Group] The type of WeeklyRecurrence is t:WeeklyRecurrencePatternType ([MS-OXWSCDATA] section 2.2.4.77).");
 
             if (isR1489Implementated)
             {
