@@ -533,6 +533,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     @"[In t:AttendeeType Complex Type] The type of LastResponseTime is xs:dateTime ([XMLSCHEMA2]).");
             }
 
+            if (attendee.ProposedStartSpecified)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1042");
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1042,
+                    @"[In t:AttendeeType Complex Type] The type of ProposedStart is xs:dateTime.");
+            }
+
+            if (attendee.ProposedEndSpecified)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1044");
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1044,
+                    @"[In t:AttendeeType Complex Type] The type of ProposedEnd is xs:dateTime.");
+            }
+
             // Verify child element EmailAddressType.
             this.VerifyEmailAddressType(attendee.Mailbox, isSchemaValidated);
 
@@ -622,6 +644,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
       </xs:extension>
     </xs:complexContent>
   </xs:complexType> ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R509");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R509
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                509,
+                @"[In t:CalendarItemType Complex Type] This complex type extends the ItemType complex type, as specified in [MS-OXWSCORE] section 2.2.4.8.");
 
             if (calendarItem.UID != null)
             {
@@ -898,6 +929,54 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     isSchemaValidated,
                     200,
                     @"[In t:CalendarItemType Complex Type] The type of Duration is xs:string.");
+            }
+
+            if (calendarItem.ConflictingMeetingCountSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R192");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R192
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    192,
+                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetingCount is xs:int ([XMLSCHEMA2]).");
+            }
+
+            if (calendarItem.ConflictingMeetings != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R196");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R196
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    196,
+                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetings is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.42).");
+            }
+
+            if (calendarItem.AdjacentMeetings != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R198");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R198
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    198,
+                    @"[In t:CalendarItemType Complex Type] The type of AdjacentMeetings is t:NonEmptyArrayOfAllItemsType.");
+            }
+
+            if (calendarItem.AdjacentMeetingCountSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R194");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R194
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    194,
+                    @"[In t:CalendarItemType Complex Type] The type of AdjacentMeetingCount is xs:int.");
             }
 
             if (calendarItem.TimeZone != null)
@@ -1374,6 +1453,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 </xs:complexType>");
 
             #region Verify MeetingRequestMessageType structure
+
+            if (meetingRequestMessage.Resources != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R318");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R318
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    318,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of Resources is t:NonEmptyArrayOfAttendeesType.");
+            }
+
             if (meetingRequestMessage.MeetingRequestTypeSpecified)
             {
                 // Add the debug information
@@ -1682,16 +1774,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
 
-            if (meetingRequestMessage.ConferenceTypeSpecified)
+            if (meetingRequestMessage.ModifiedOccurrences != null)
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R354");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R344");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R354
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R344
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
-                    354,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of ConferenceType is xs:int.");
+                    344,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+            }
+
+            if (meetingRequestMessage.DeletedOccurrences != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R346");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R346
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    346,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
             }
 
             if (meetingRequestMessage.IsOnlineMeetingSpecified)

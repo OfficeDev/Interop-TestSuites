@@ -36,6 +36,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         private string attendeePassword;
 
         /// <summary>
+        /// The name of the user that delegate user exists.
+        /// </summary>
+        private string delegateUser;
+
+        /// <summary>
+        /// The corresponding password of the delegate user.
+        /// </summary>
+        private string delegatePassword;
+
+        /// <summary>
         /// The wait time for meeting request, meeting response or meeting cancellation message to be received.
         /// </summary>
         private int waitTime;
@@ -69,6 +79,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// The email address of the user whose role is attendeeType of a meeting.
         /// </summary>
         private string attendeeEmailAddress;
+
+        /// <summary>
+        /// The email address of the user that delegate user exists.
+        /// </summary>
+        private string delegateEmailAddress;
 
         /// <summary>
         /// The email address of the resource.
@@ -135,12 +150,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <summary>
         /// Gets the MS-OXWSMTGS protocol adapter.
         /// </summary>
-        protected IMS_OXWSMTGSAdapter MTGSAdapter { get; private set; }
+        protected IMS_OXWSMTGSAdapter MTGSAdapter { get; set; }
 
         /// <summary>
         /// Gets the MS-OXWSSRCH protocol adapter which used to supply FindItem method.
         /// </summary>
-        protected IMS_OXWSSRCHAdapter SRCHAdapter { get; private set; }
+        protected IMS_OXWSSRCHAdapter SRCHAdapter { get; set; }
+
+        /// <summary>
+        /// Gets the MS-OXWSFOLD protocol adapter.
+        /// </summary>
+        protected IMS_OXWSFOLDAdapter FOLDAdapter { get; set; }
 
         /// <summary>
         /// Gets the value of Location element.
@@ -188,6 +208,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         protected string AttendeePassword
         {
             get { return this.attendeePassword; }
+        }
+
+        /// <summary>
+        /// The name of the user that delegate user exists.
+        /// </summary>
+        protected string DelegateUser
+        {
+            get { return this.delegateUser; }
+        }
+
+        /// <summary>
+        /// The corresponding password of the delegate user.
+        /// </summary>
+        protected string DelegatePassword
+        {
+            get { return this.delegatePassword; }
         }
 
         /// <summary>
@@ -245,6 +281,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             get { return this.attendeeEmailAddress; }
         }
+
+        /// <summary>
+        /// The email address of the user that delegate user exists.
+        /// </summary>
+        protected string DelegateEmailAddress
+        {
+            get { return this.delegateEmailAddress; }
+        }
+
 
         /// <summary>
         /// Gets the email address of the resource.
@@ -333,6 +378,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             get { return this.messageDisposition; }
         }
+
+        /// <summary>
+        /// Record the folder id to be deleted.
+        /// </summary>
+        protected FolderIdType FolderToDelete
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Static methods
@@ -351,7 +405,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
         #endregion
 
-        #region Test case initialize
+        #region Test case initialize and clean up
         /// <summary>
         ///  Initialize the test suite.
         /// </summary>
@@ -360,6 +414,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             base.TestInitialize();
             this.MTGSAdapter = Site.GetAdapter<IMS_OXWSMTGSAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
+            this.FOLDAdapter = Site.GetAdapter<IMS_OXWSFOLDAdapter>();
 
             #region Get property values
             this.domain = Common.GetConfigurationPropertyValue("Domain", this.Site);
@@ -371,9 +426,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.organizerPassword = Common.GetConfigurationPropertyValue("OrganizerPassword", this.Site);
             this.attendee = Common.GetConfigurationPropertyValue("AttendeeName", this.Site);
             this.attendeePassword = Common.GetConfigurationPropertyValue("AttendeePassword", this.Site);
+            this.delegateUser = Common.GetConfigurationPropertyValue("DelegateName", this.Site);
+            this.delegatePassword = Common.GetConfigurationPropertyValue("DelegatePassword", this.Site);
             this.locationUpdate = Common.GetConfigurationPropertyValue("LocationUpdate", this.Site);
             this.organizerEmailAddress = this.organizer + "@" + this.domain;
             this.attendeeEmailAddress = this.attendee + "@" + this.domain;
+            this.delegateEmailAddress = this.delegateUser + "@" + this.domain;
             this.roomEmailAddress = Common.GetConfigurationPropertyValue("RoomName", this.Site) + "@" + this.domain;
             this.waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
             
@@ -386,6 +444,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.baseShape = DefaultShapeNamesType.AllProperties;
             this.messageDisposition = MessageDispositionType.SendAndSaveCopy;
             this.legacyFreeBusy = LegacyFreeBusyType.Busy;
+            this.FolderToDelete = null;
 
             #region The upper bound of request loop
             if (!int.TryParse(Common.GetConfigurationPropertyValue("RetryCount", this.Site), out this.upperBound))
@@ -394,6 +453,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             }
             #endregion
             #endregion
+        }
+
+        /// <summary>
+        /// Clean up the environment.
+        /// </summary>
+        protected override void TestCleanup()
+        {
+            if (this.FolderToDelete != null)
+            {
+                this.FOLDAdapter.SwitchUser(this.Organizer, this.OrganizerPassword, this.Domain);
+
+                // DeleteFolder request.
+                DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, this.FolderToDelete);
+
+                // Delete the specified folder.
+                DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+                // Check the response.
+                Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+            }
+
+            base.TestCleanup();
         }
         #endregion
 
@@ -469,6 +550,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.SwitchMTGSUser(role);
             CopyItemResponseType response = this.MTGSAdapter.CopyItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the CopyItem operation should succeed.");
+            
+            foreach (ResponseMessageType responseMessage in response.ResponseMessages.Items)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1188");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1188    
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    responseMessage.ResponseClass,
+                    1188,
+                    @"[In Messages] A successful CopyItem operation returns a CopyItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.1.2.2, with the ResponseClass attribute of the CopyItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"".");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1189");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1189
+                Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.NoError,
+                    responseMessage.ResponseCode,
+                    1189,
+                    @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the CopyItemResponseMessage element is set to ""NoError"".");
+            }
 
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
@@ -507,6 +611,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.SwitchMTGSUser(role);
             MoveItemResponseType response = this.MTGSAdapter.MoveItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the MoveItem operation should succeed.");
+
+            foreach (ResponseMessageType item in response.ResponseMessages.Items)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1226");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1226
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    item.ResponseClass,
+                    1226,
+                    @"[In Messages] A successful MoveItem operation returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1227");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1227
+                Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.NoError,
+                    item.ResponseCode,
+                    1227,
+                    @"[In Messages] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.43, of the MoveItemResponseMessage element is set to ""NoError"".");
+            }
 
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
@@ -652,6 +779,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             GetItemResponseType response = this.MTGSAdapter.GetItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The invocation to GetItem operation should be successful.");
 
+            if (Common.IsRequirementEnabled(8852, this.Site))
+            {
+                foreach (ResponseMessageType responseMsg in response.ResponseMessages.Items)
+                {
+                    if (responseMsg.ResponseClass == ResponseClassType.Success)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R8852");
+
+                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R8852
+                        // calendar:ConflictingMeetingCount is included in the request and the operation executes successfully, this requirement can be captured.
+                        this.Site.CaptureRequirement(
+                            "MS-OXWSCDATA",
+                            8852,
+                            @"[In Appendix C: Product Behavior] Implementation does support value ""calendar:ConflictingMeetingCount"" specifies the ConflictingMeetingCount property. (Exchange 2010 and above follow this behavior.)");
+                    }
+                }
+            }
+
             return GetItemInfoResponseMessageItems(response.ResponseMessages.Items);
         }
 
@@ -662,11 +808,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
         /// <param name="uid">The UID, which the target calendar item contains.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return an instance of ItemType; otherwise, return null.</returns>
-        protected ItemType SearchSingleItem(Role role, DistinguishedFolderIdNameType folder, string value, string uid)
+        protected ItemType SearchSingleItem(Role role, DistinguishedFolderIdNameType folder, string value, string uid, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             // Find items in a specified folder
-            ItemIdType[] items = this.SearchItemIds(role, folder, value);
+            ItemIdType[] items = this.SearchItemIds(role, folder, value, fieldURI);
             if (items == null || items.Length == 0)
             {
                 return null;
@@ -732,6 +879,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 case Role.Attendee:
                     this.MTGSAdapter.SwitchUser(this.Attendee, this.AttendeePassword, this.Domain);
                     break;
+                case Role.Delegate:
+                    this.MTGSAdapter.SwitchUser(this.DelegateUser, this.DelegatePassword, this.Domain);
+                    break;
             }
         }
 
@@ -748,6 +898,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     break;
                 case Role.Attendee:
                     this.SRCHAdapter.SwitchUser(this.Attendee, this.AttendeePassword, this.Domain);
+                    break;
+                case Role.Delegate:
+                    this.SRCHAdapter.SwitchUser(this.DelegateUser, this.DelegatePassword, this.Domain);
                     break;
             }
         }
@@ -786,6 +939,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     this.CleanupFolder(role, DistinguishedFolderIdNameType.deleteditems);
                 }
             }
+        }
+
+        /// <summary>
+        /// Generate the request message for operation "DeleteFolder".
+        /// </summary>
+        /// <param name="deleteType">How folders are to be deleted.</param>
+        /// <param name="folderIds">An array of folder identifier of the folders need to be deleted</param>
+        /// <returns>Delete folder request instance that will send to server.</returns>
+        protected DeleteFolderType GetDeleteFolderRequest(DisposalType deleteType, params BaseFolderIdType[] folderIds)
+        {
+            Site.Assert.IsNotNull(folderIds, "Folders id should not be null!");
+            Site.Assert.AreNotEqual<int>(0, folderIds.Length, "Folders id should contains at least one Id!");
+            DeleteFolderType deleteFolderRequest = new DeleteFolderType();
+
+            // Specify the delete type.
+            deleteFolderRequest.DeleteType = deleteType;
+            int folderCount = folderIds.Length;
+
+            // Set the request's folderId field.
+            deleteFolderRequest.FolderIds = new BaseFolderIdType[folderCount];
+            for (int folderIdIndex = 0; folderIdIndex < folderCount; folderIdIndex++)
+            {
+                deleteFolderRequest.FolderIds[folderIdIndex] = folderIds[folderIdIndex];
+            }
+
+            return deleteFolderRequest;
         }
         #endregion
 
@@ -893,8 +1072,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// </summary>
         /// <param name="folderType">The type of folder to search.</param>
         /// <param name="value">A string that specifies the value for a search restriction.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>An instance of FindItemType type.</returns>
-        private static FindItemType GetFindItemType(DistinguishedFolderIdNameType folderType, string value)
+        private static FindItemType GetFindItemType(DistinguishedFolderIdNameType folderType, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             FindItemType findRequest = new FindItemType();
 
@@ -914,10 +1094,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Specifies a search restriction or query
-            PathToUnindexedFieldType itemClass = new PathToUnindexedFieldType();
-            itemClass.FieldURI = UnindexedFieldURIType.itemItemClass;
+            PathToUnindexedFieldType indexedField = new PathToUnindexedFieldType();
+            indexedField.FieldURI = fieldURI;
             ContainsExpressionType expressionType = new ContainsExpressionType();
-            expressionType.Item = itemClass;
+            expressionType.Item = indexedField;
 
             // Specify that the comparison is between the substring of the property value and the constant.
             expressionType.ContainmentMode = ContainmentModeType.Substring;
@@ -1123,6 +1303,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     }
                 }
 
+                if (Common.IsRequirementEnabled(696, this.Site)
+                    || Common.IsRequirementEnabled(697, this.Site)
+                    || Common.IsRequirementEnabled(707, this.Site)
+                    || Common.IsRequirementEnabled(80011, this.Site))
+                {
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarEnhancedLocation });
+                }
+
+                if (Common.IsRequirementEnabled(8852, this.Site))
+                {
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetingCount });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetingCount });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarConflictingMeetings });
+                    additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.calendarAdjacentMeetings });
+                }
+
                 if (additionalProperties.Count > 0)
                 {
                     getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
@@ -1207,10 +1403,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="role">The role used to communicate with Exchange Web Service.</param>
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return all ItemIds of the items found in the specified folder; otherwise, return null.</returns>
-        private ItemIdType[] SearchItemIds(Role role, DistinguishedFolderIdNameType folder, string value)
+        private ItemIdType[] SearchItemIds(Role role, DistinguishedFolderIdNameType folder, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
-            FindItemResponseType findItemResponse = this.SearchItems(role, folder, value);
+            FindItemResponseType findItemResponse = this.SearchItems(role, folder, value, fieldURI);
 
             if (findItemResponse != null)
             {
@@ -1228,15 +1425,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <param name="role">The role used to communicate with Exchange Web Service.</param>
         /// <param name="folder">The folder to search.</param>
         /// <param name="value">The string to search.</param>
+        /// <param name="fieldURI">The property to find.</param>
         /// <returns>If the operation succeeds, return a response of FindItemResponseType; otherwise, return null.</returns>
-        private FindItemResponseType SearchItems(Role role, DistinguishedFolderIdNameType folder, string value)
+        private FindItemResponseType SearchItems(Role role, DistinguishedFolderIdNameType folder, string value, UnindexedFieldURIType fieldURI = UnindexedFieldURIType.itemItemClass)
         {
             FindItemResponseType findResponse = null;
             int counter = 0;
             bool isValid = true;
 
             // Find the meeting request message in Inbox folder of the attendeeType.
-            FindItemType findRequest = GetFindItemType(folder, value);
+            FindItemType findRequest = GetFindItemType(folder, value, fieldURI);
             this.SwitchSRCHUser(role);
             while (counter < this.UpperBound)
             {

@@ -66,6 +66,8 @@ $MSOXWSMTGSUser02             = ReadConfigFileNode "$environmentResourceFile" "M
 $MSOXWSMTGSUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02Password"
 $MSOXWSMTGSRoom01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01"
 $MSOXWSMTGSRoom01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01Password"
+$MSOXWSMTGSUser03             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03"
+$MSOXWSMTGSUser03Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03Password"
 
 $MSOXWSSYNCUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01"
 $MSOXWSSYNCUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01Password"
@@ -393,6 +395,13 @@ CreateMailboxUser  $MSOXWSMTGSRoom01  $MSOXWSMTGSRoom01Password       $mailboxDa
 CreateMailboxUser  $MSOXWSSYNCUser01  $MSOXWSSYNCUser01Password       $mailboxDatabaseName $domain
 CreateMailboxUser  $MSOXWSSYNCUser02  $MSOXWSSYNCUser02Password       $mailboxDatabaseName $domain
 CreateMailboxUser  $MSOXWSTASKUser01  $MSOXWSTASKUser01Password       $mailboxDatabaseName $domain
+CreateMailboxUser  $MSOXWSMTGSUser03  $MSOXWSMTGSUser03Password       $mailboxDatabaseName $domain
+
+#-------------------------------------------------------------
+# Add delegate for specified mailbox user
+#--------------------------------------------------------------
+OutputText "Add delegate of mailbox user $MSOXWSMTGSUser03 to mailbox user $MSOXWSMTGSUser02."
+AddDelegateForMaiboxUser $MSOXWSMTGSUser03 $MSOXWSMTGSUser03Password $MSOXWSMTGSUser02 $sutComputerName $domain $ExchangeVersion
 
 if($ExchangeVersion -le $Exchange2010)
 {

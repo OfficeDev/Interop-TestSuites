@@ -13,6 +13,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <summary>
         /// Represent the attendee of a meeting.
         /// </summary>
-        Attendee
+        Attendee,
+
+        /// <summary>
+        /// Represent an user that there's delegate user for him
+        /// </summary>
+        Delegate
     }
 }

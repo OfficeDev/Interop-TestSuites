@@ -69,5 +69,43 @@
     <Property name="R80048Enabled" value="true" />
     <!--Set R80049Enabled to true to verify that the implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. Set R80049Enabled to false to disable this requirement.-->
     <Property name="R80049Enabled" value="true" />
+    <!--Set R696Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in CalendarItemType. Set R696Enabled to false to disable this requirement.-->
+    <Property name="R696Enabled" value="true" />
+    <!--Set R697Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item. Set R697Enabled to false to disable this requirement.-->
+    <Property name="R697Enabled" value="true" />
+    <!--Set R707Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in MeetingRequestMessageType. Set R707Enabled to false to disable this requirement.-->
+    <Property name="R707Enabled" value="true" />
+    <!--Set R80011Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in MeetingResponseMessageType. Set R80011Enabled to false to disable this requirement.-->
+    <Property name="R80011Enabled" value="true" />
+    <!--Set R1292Enabled to true to verify that the implementation does support the ProposeNewTimeType complex type which specifies a response to a new time proposal. Set R1292Enabled to false to disable this requirement.-->
+    <Property name="R1292Enabled" value="false" />
+    <!--Set R1334Enabled to true to verify that the implementation does support the ProposedStart element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1334Enabled to false to disable this requirement.-->
+    <Property name="R1334Enabled" value="false" />
+    <!--Set R1336Enabled to true to verify that the implementation does support the ProposedEnd element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1336Enabled to false to disable this requirement.-->
+    <Property name="R1336Enabled" value="false" />
+    <!--Set R1284Enabled to true to verify that the implementation does support the MeetingRegistrationResponseObjectType complex type which specifies a response to a meeting registration request. Set R1284Enabled to false to disable this requirement.-->
+    <Property name="R1284Enabled" value="true" />
+    <!--Set R1282Enabled to true to verify that the implementation does support ResponseType if the recipient has not yet responded to the meeting request. Set R1282Enabled to false to disable this requirement.-->
+    <Property name="R1282Enabled" value="true" />
+    <!--Set R2301Enabled to true to verify that the implementation does support the IsOnlineMeeting element. Set R2301Enabled to false to disable this requirement.-->
+    <Property name="R2301Enabled" value="true" />
+    <!--Set R1338Enabled to true to verify that the implementation does support the SharingEffectiveRights element. Set R1338Enabled to false to disable this requirement.-->
+    <Property name="R1338Enabled" value="true" />
+    <!--Set R715Enabled to true to verify that the implementation does support complex type "MeetingTimeZone" in CalendarItemType. Set R715Enabled to false to disable this requirement.-->
+    <Property name="R715Enabled" value="false" />
+    <!--Set R706Enabled to true to verify that the implementation does support complex type "MeetingTimeZone" in MeetingRequestMessageType. Set R706Enabled to false to disable this requirement.-->
+    <Property name="R706Enabled" value="false" />
+    <!--Set R654Enabled to true to verify that the implementation does support complex type TimeZoneType. Set R654Enabled to false to disable this requirement.-->
+    <Property name="R654Enabled" value="false" />
+    <!--Set R12052Enabled to true to verify that the implementation does support the ErrorCalendarInvalidDayForWeeklyRecurrence to specify that invalid values of Day, WeekDay, and WeekendDay were used to specify the weekly recurrence. Set R12052Enabled to false to disable this requirement.-->
+    <Property name="R12052Enabled" value="false" />
+    <!--Set R3541Enabled to true to verify that the implementation does support ConferenceType in MeetingRequestMessageType. Set R3541Enabled to false to disable this requirement.-->
+    <Property name="R3541Enabled" value="true" />
+    <!--Set R3311Enabled to true to verify that the implementation does support TimeZone in MeetingRequestMessageType. Set R3311Enabled to false to disable this requirement.-->
+    <Property name="R3311Enabled" value="true" />
+    <!--Set R3311Enabled to true to verify that the implementation does support value "calendar:ConflictingMeetingCount" specifies the ConflictingMeetingCount property. Set R3311Enabled to false to disable this requirement.-->
+    <Property name="R8852Enabled" value="true" />
+    <!--Set R7512Enabled to true to verify that the implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. Set R7512Enabled to false to disable this requirement.-->
+    <Property name="R7512Enabled" value="true" />
   </Properties>
 </TestSite>

@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="IMS-OXWSFOLDAdapter.cs" />
     <Compile Include="IMS-OXWSMTGSAdapter.cs" />
+    <Compile Include="MS-OXWSFOLDAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IMS-OXWSSRCHAdapter.cs" />
     <Compile Include="MS-OXWSMTGSAdapter.cs" />
