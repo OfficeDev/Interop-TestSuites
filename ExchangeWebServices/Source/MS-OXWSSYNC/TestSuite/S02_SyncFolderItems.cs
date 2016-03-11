@@ -1539,7 +1539,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     ResponseCodeType.NoError,
                     responseMessage.ResponseCode,
                     37811008,
-                    @"[In Appendix C: Product Behavior] Implementation dose support the SyncScope element. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the SyncScope element. (Exchange 2010 and above follow this behavior.)");
             }
 
             // Assert the changes in response is not null
@@ -1643,7 +1643,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     ResponseCodeType.NoError,
                     responseMessage.ResponseCode,
                     37811008,
-                    @"[In Appendix C: Product Behavior] Implementation dose support the SyncScope element. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the SyncScope element. (Exchange 2010 and above follow this behavior.)");
             }
 
             // Assert the changes in response is not null
@@ -1894,7 +1894,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                     typeof(MessageType),
                     37811004,
-                    @"[In Appendix C: Product Behavior] Implementation dose return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)");
+                    @"[In Appendix C: Product Behavior] Implementation does return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)");
             }
             #endregion
 
@@ -2055,7 +2055,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isDistributionListUpdated,
                 37811006,
-                @"[In Appendix C: Product Behavior] Implementation dose support the Person element. (Exchange 2016 follow this behavior.)");
+                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
             #endregion
 
             #region Step 6. Client invokes DeleteItem operation to delete the DistributionListType item which updated in Step 4.
