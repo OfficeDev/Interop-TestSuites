@@ -239,23 +239,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one FolderType folder was deleted in previous step, so the count of ItemsElementName array in SyncFolderHierarchy responseMessage.Changes should be 1.");
 
             bool isFolderDeleted = (changes.ItemsElementName[0] == ItemsChoiceType.Delete) && (changes.Items[0].GetType() == typeof(SyncFolderHierarchyDeleteType));
+            if (Common.IsRequirementEnabled(37811002, this.Site))
+            {
+                // If the ItemsElementName is Delete and the item type in changes is SyncFolderHierarchyDeleteType, it indicates a folder has been deleted on server and synced on client. 
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXWSSYNC_R87. Expected value: ItemsElementName: {0}, change items type: {1}; actual value: ItemsElementName: {2}, change items type: {3}",
+                    ItemsChoiceType.Delete,
+                    typeof(SyncFolderHierarchyDeleteType),
+                    changes.ItemsElementName[0],
+                    changes.Items[0].GetType());
 
-            // If the ItemsElementName is Delete and the item type in changes is SyncFolderHierarchyDeleteType, it indicates a folder has been deleted on server and synced on client. 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXWSSYNC_R87. Expected value: ItemsElementName: {0}, change items type: {1}; actual value: ItemsElementName: {2}, change items type: {3}",
-                ItemsChoiceType.Delete,
-                typeof(SyncFolderHierarchyDeleteType),
-                changes.ItemsElementName[0],
-                changes.Items[0].GetType());
-
-            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R87
-            Site.CaptureRequirementIfIsTrue(
-                isFolderDeleted,
-                87,
-                @"[In t:SyncFolderHierarchyChangesType Complex Type] [The element Delete] specifies a folder that has been deleted from the server and has to be deleted from the client.");
+                // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R37811002
+                Site.CaptureRequirementIfIsTrue(
+                    isFolderDeleted,
+                    37811002,
+                    @"[In Appendix C: Product Behavior] Implementation does include Delete element. (Exchange 2010 and above follow this behavior)");
             #endregion
+            }
         }
 
         /// <summary>
