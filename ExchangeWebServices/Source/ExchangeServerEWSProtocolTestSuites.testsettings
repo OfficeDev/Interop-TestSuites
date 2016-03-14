@@ -9,6 +9,7 @@
     <DeploymentItem filename="Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCONT\TestSuite\Resources\UserPhoto.jpg" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCORE\TestSuite\MS-OXWSCORE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
