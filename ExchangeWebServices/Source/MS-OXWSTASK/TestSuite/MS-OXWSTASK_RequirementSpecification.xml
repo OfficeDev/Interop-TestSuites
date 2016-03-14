@@ -439,7 +439,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R38</ns1:REQ_ID>
@@ -609,11 +609,20 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R45</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] ChangeCount: Specifies an integer value that specifies the version of a task.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] ChangeCount: Specifies an integer value that specifies the number of times the task has changed since it was created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSTASK_R45001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:TaskType Complex Type] ChangeCount: This element is read-only for the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R217</ns1:REQ_ID>
@@ -649,7 +658,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R219</ns1:REQ_ID>
@@ -692,9 +701,9 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [Delegator] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R222</ns1:REQ_ID>
@@ -729,8 +738,8 @@ xs:dateTime.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [IsAssignmentEditable] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -776,9 +785,9 @@ xs:dateTime.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [[IsComplete] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R225</ns1:REQ_ID>
@@ -823,9 +832,9 @@ xs:dateTime.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [IsRecurring] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R226</ns1:REQ_ID>
@@ -841,8 +850,8 @@ xs:dateTime.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [IsTeamTask] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -877,8 +886,8 @@ xs:dateTime.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] Once the task item is created, this property is read-only for the client.&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -977,9 +986,9 @@ t:TaskStatusType (section 2.2.5.2).</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [StatusDescription] is read-only for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R234</ns1:REQ_ID>
@@ -1006,8 +1015,7 @@ t:TaskStatusType (section 2.2.5.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSTASK_R67004, MS-OXWSTASK_R67005, MS-OXWSTASK_R67006,  MS-OXWSTASK_R67007,  MS-OXWSTASK_R67008.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R67002</ns1:REQ_ID>
@@ -1016,8 +1024,7 @@ t:TaskStatusType (section 2.2.5.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSTASK_R67004, MS-OXWSTASK_R67005, MS-OXWSTASK_R67006,  MS-OXWSTASK_R67007,  MS-OXWSTASK_R67008.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R67003</ns1:REQ_ID>
@@ -1025,58 +1032,8 @@ t:TaskStatusType (section 2.2.5.2).</ns1:Description>
 		<ns1:Description>[In t:TaskType Complex Type] For example, if PercentComplete is 100, CompleteDate is January 1, 2007, and Status is NotStarted, and the properties are streamed in that order, the effect will be to set the Status of the task to NotStarted, the CompleteDate to null, and PercentComplete to 0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R67004</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] For example, if PercentComplete is 100, and CompleteDate is null and the properties are streamed in that order, the effect will be to set the CompleteDate to null, and PercentComplete to 0.</ns1:Description>
-		<ns1:Derived>MS-OXWSTASK_R67001:c, MS-OXWSTASK_R67002:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R67005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] For example, if PercentComplete is 100, Status is NotStarted,  and the properties are streamed in that order, the effect will be to set the Status of the task to NotStarted, and PercentComplete to 0.</ns1:Description>
-		<ns1:Derived>MS-OXWSTASK_R67001:c, MS-OXWSTASK_R67002:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R67006</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] For example, if Status is Completed, PercentComplete is 0 ,  and the properties are streamed in that order, the effect will be to set the Status of the task to NotStarted, and PercentComplete to 0.</ns1:Description>
-		<ns1:Derived>MS-OXWSTASK_R67001:c, MS-OXWSTASK_R67002:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R67007</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] For example, if CompleteDate is  January 1, 2007, and PercentComplete is 0 and the properties are streamed in that order, the effect will be to set the CompleteDate to null, and PercentComplete to 0.</ns1:Description>
-		<ns1:Derived>MS-OXWSTASK_R67001:c, MS-OXWSTASK_R67002:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R67008</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] For example, if Status is Completed, CompleteDate is null, and the properties are streamed in that order, the effect will be to set the Status of the task to NotStarted, the CompleteDate to null.</ns1:Description>
-		<ns1:Derived>MS-OXWSTASK_R67001:c, MS-OXWSTASK_R67002:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R76</ns1:REQ_ID>
@@ -2144,7 +2101,7 @@ name="TaskDelegateStateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R207</ns1:REQ_ID>
@@ -2793,7 +2750,7 @@ name="TaskDelegateStateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1261</ns1:REQ_ID>
@@ -2820,7 +2777,7 @@ name="TaskDelegateStateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1263</ns1:REQ_ID>
