@@ -575,9 +575,9 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskType Complex Type] This element [AssignedTime] is read-only for the  client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R215</ns1:REQ_ID>
