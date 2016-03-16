@@ -90,8 +90,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     request[i].ItemShape.InlineImageUrlTemplate = "Test Template";
                 }
 
-                // Configure the SOAP header to cover the case that the header contains all optional parts before calling operations.
-                //this.ConfigureSOAPHeader();
             }
 
             this.VerifySyncFolderItemsOperation(request, true);

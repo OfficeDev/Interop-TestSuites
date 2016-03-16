@@ -366,8 +366,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
         {
             SyncFolderHierarchyType request = TestSuiteHelper.CreateSyncFolderHierarchyRequest();
 
-            // Configure the SOAP header to cover the case that the header contains all optional parts before calling operations.
-            //this.ConfigureSOAPHeader();
             SyncFolderHierarchyResponseType response = this.SYNCAdapter.SyncFolderHierarchy(request);
             SyncFolderHierarchyResponseMessageType responseMessage = TestSuiteHelper.EnsureResponse<SyncFolderHierarchyResponseMessageType>(response);
 

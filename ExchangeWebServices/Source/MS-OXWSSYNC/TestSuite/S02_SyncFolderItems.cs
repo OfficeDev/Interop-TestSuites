@@ -1961,7 +1961,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
         [TestCategory("MSOXWSSYNC"), TestMethod()]
         public void MSOXWSSYNC_S02_TC11_SyncFolderItems_AbchPersonItemType()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(37811006, this.Site), "Implementation does support the Person element.");
+                Site.Assume.IsTrue(Common.IsRequirementEnabled(37811006, this.Site), "Implementation does support the Person element.");
            
                 #region Step 1. Client invokes SyncFolderItems operation to get initial syncState of contacts folder.
                 DistinguishedFolderIdNameType contactFolder = DistinguishedFolderIdNameType.contacts;
