@@ -1301,6 +1301,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 isVerifiedR8101010,
                 8101010,
                 @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101012");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R8101010
+            bool isVerifiedR8101012 = allFoldersInformation.Folders[0].EffectiveRights.Read == false && !this.CanReadOwnedItem && !this.CanReadNotOwnedItem;
+
+            Site.Assert.IsTrue(
+                isVerifiedR8101012,
+                "Modify expected to be \"false\" and actual is {0};\n" +
+                "Can read owned item expected to be \"false\" and actual is {1};\n" +
+                "Can read not owned item expected to be \"false\" and actual is {2};\n ",
+                allFoldersInformation.Folders[0].EffectiveRights.Read,
+                this.CanReadOwnedItem,
+                this.CanReadNotOwnedItem);
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR8101012,
+                8101012,
+                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Read of EffectiveRights indicates a client can not read a folder or item.");
         }
 
         /// <summary>

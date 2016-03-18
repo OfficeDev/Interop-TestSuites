@@ -45,6 +45,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // CreateFolder request.
             CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
 
+            //Get DisplayName in the request.
+            string displayName = createFolderRequest.Folders[0].DisplayName;
+
             // Create a new folder.
             CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
 
@@ -58,12 +61,40 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #endregion
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R71021");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R71021
+            //displayNames is not null, so this requirement can be verified directly.
+            this.Site.CaptureRequirementIfIsNotNull(
+                displayName,
+                71021,
+                @"[In t:BaseFolderType Complex Type]This element[DisplayName] is required in a CreateFolder operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R7102");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R7102
+            //MS-OXWSFOLD_71021 is verified, so this requirement can be verified directly.
+            this.Site.CaptureRequirement(
+                7102,
+                @"[In t:BaseFolderType Complex Type]This element[DisplayName] can be present.");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R216");
 
             // Parent folder already exists and folder can be created this requirement can be captured.
             this.Site.CaptureRequirement(
                 216,
                 @"[In CreateFolder Operation]Before a folder can be created, the parent folder MUST already exist.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R67");
+
+            // FolderId is not set during folder creation and if it exists in the response, this requirement can be verified.
+            this.Site.CaptureRequirementIfIsNotNull(
+                newFolderId,
+                67,
+                @"[In t:BaseFolderType Complex Type]This element[FolderId] can be present and cannot be set during folder creation.");
 
             #region Create an item
 
@@ -195,6 +226,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ((FolderType)((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0]).ParentFolderId.Id,
                 252,
                 @"[In m:CreateFolderType Complex Type]ParentFolderId is the identifier of the folder that will contain the newly created folder. ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R6802");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R6802
+            this.Site.CaptureRequirementIfIsNotNull(
+                ((FolderInfoResponseMessageType)getInboxFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId.Id,
+                6802,
+                @"[In t:BaseFolderType Complex Type]This element[ParentFolderId] can be present and cannot be set during folder creation.");
+
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R7201");
@@ -1397,6 +1438,417 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 findItemID,
                 34303,
                 @"[In m:DeleteFolderType Complex Type ]DeleteType which value is SoftDelete specifies that a folder is moved to the dumpster if the dumpster is enabled.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies RenameOrMoveIsTrue.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC17_VerifyRenameOrMoveTrue()
+        {
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false, "Exchange 2007 does not use the RenameOrMove element.");
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2010") == false, "Exchange 2010 does not use the RenameOrMove element.");
+
+            #region Create a new managed folder
+           
+            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName1", this.Site));
+
+            // Add an email address into request.
+            EmailAddressType mailBox = new EmailAddressType()
+            {
+                EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+            };
+
+            createManagedFolderRequest.Mailbox = mailBox;
+
+            // Create the specified managed folder.
+            CreateManagedFolderResponseType createManagedFolderResponse = this.FOLDAdapter.CreateManagedFolder(createManagedFolderRequest);
+            
+            // Check the response.
+            Common.CheckOperationSuccess(createManagedFolderResponse, 1, this.Site);
+
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createManagedFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+
+            // Save the new created managed folder's folder id.
+            this.NewCreatedFolderIds.Add(newFolderId);
+            #endregion
+
+            #region Get the new created managed folder to verify ManagedFolderInformationType
+
+            // GetFolder request.
+            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the specified managed folder.
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getFolderResponse, 1, this.Site);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10711");
+
+            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10711
+            this.Site.CaptureRequirementIfAreEqual(
+                0,
+                ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation.StorageQuota,
+                10711,
+                @"[In t:ManagedFolderInformationType Complex Type][HasQuota]A value of ""false"" indicates that the StorageQuota property was not serialized into the SOAP response.");
+            #endregion
+
+            #region Update Folder Operation.
+
+            // UpdateFolder request.
+            UpdateFolderType updateFolderRequest = this.GetUpdateFolderRequest("Folder", "SetFolderField", newFolderId);
+
+            // Update the specific folder's properties.
+            UpdateFolderResponseType updateFolderResponse = this.FOLDAdapter.UpdateFolder(updateFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(updateFolderResponse, 1, this.Site);
+
+            string updateNameInRequest = ((SetFolderFieldType)updateFolderRequest.FolderChanges[0].Updates[0]).Item1.DisplayName;
+            #endregion
+
+            #region Get the updated folder.
+
+            // GetFolder request.
+            GetFolderType getUpdatedFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the updated folder.
+            GetFolderResponseType getUpdateFolderResponse = this.FOLDAdapter.GetFolder(getUpdatedFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getUpdateFolderResponse, 1, this.Site);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1052");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1052
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Success,
+                getUpdateFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                1052,
+                @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""true"" indicates that the managed folder can be renamed [or moved].");
+
+            #endregion
+
+            #region Move the new created folder to the inbox folder
+
+            // MoveFolder request.
+            MoveFolderType moveFolderRequest = new MoveFolderType();
+
+            // Set the request's folderId field.
+            moveFolderRequest.FolderIds = new BaseFolderIdType[1];
+            moveFolderRequest.FolderIds[0] = newFolderId;
+
+            // Set the request's destFolderId field.
+            DistinguishedFolderIdType toFolderId = new DistinguishedFolderIdType();
+            toFolderId.Id = DistinguishedFolderIdNameType.inbox;
+            moveFolderRequest.ToFolderId = new TargetFolderIdType();
+            moveFolderRequest.ToFolderId.Item = toFolderId;
+
+            // Move the specified folder.
+            MoveFolderResponseType moveFolderResponse = this.FOLDAdapter.MoveFolder(moveFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(moveFolderResponse, 1, this.Site);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10521");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10521
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Success,
+                moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                10521,
+                @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""true"" indicates that the managed folder can be [renamed or] moved.");
+            #endregion
+
+            #region Delete the created folders.
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, new FolderIdType[] { newFolderId});
+
+            // Delete the specified child folders.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies RenameOrMoveIsFalse.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC18_VerifyRenameOrMoveFalse()
+        {
+            #region Create a new managed folder
+
+            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName1", this.Site));
+
+            // Add an email address into request.
+            EmailAddressType mailBox = new EmailAddressType()
+            {
+                EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+            };
+
+            createManagedFolderRequest.Mailbox = mailBox;
+
+            // Create the specified managed folder.
+            CreateManagedFolderResponseType createManagedFolderResponse = this.FOLDAdapter.CreateManagedFolder(createManagedFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createManagedFolderResponse, 1, this.Site);
+
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createManagedFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+
+            // Save the new created managed folder's folder id.
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Get the new created managed folder to verify ManagedFolderInformationType
+
+            // GetFolder request.
+            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the specified managed folder.
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getFolderResponse, 1, this.Site);
+
+            #endregion
+
+            #region Get the new created managed folder's parent folder
+
+            FolderIdType parentFolderId = ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ParentFolderId;
+
+            // GetFolder request.
+            GetFolderType getParentFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, parentFolderId);
+
+            // Get the specified managed folder's parent folder.
+            GetFolderResponseType getParentFolderResponse = this.FOLDAdapter.GetFolder(getParentFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getParentFolderResponse, 1, this.Site);
+            #endregion
+
+            #region Move the new created folder to the inbox folder
+
+            // MoveFolder request.
+            MoveFolderType moveFolderRequest = new MoveFolderType();
+
+            // Set the request's folderId field.
+            moveFolderRequest.FolderIds = new BaseFolderIdType[1];
+            moveFolderRequest.FolderIds[0] = parentFolderId;
+
+            // Set the request's destFolderId field.
+            DistinguishedFolderIdType toFolderId = new DistinguishedFolderIdType();
+            toFolderId.Id = DistinguishedFolderIdNameType.inbox;
+            moveFolderRequest.ToFolderId = new TargetFolderIdType();
+            moveFolderRequest.ToFolderId.Item = toFolderId;
+
+            // Move the specified folder.
+            MoveFolderResponseType moveFolderResponse = this.FOLDAdapter.MoveFolder(moveFolderRequest);
+
+            // Check the response.
+            Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Error, moveFolderResponse.ResponseMessages.Items[0].ResponseClass, "Managed folder should not be moved");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R80");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R80
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                105111,
+                @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""false"" indicates that the managed folder cannot be [renamed or] moved.");
+           #endregion
+
+            #region Update Folder Operation.
+
+            // UpdateFolder request.
+            UpdateFolderType updateFolderRequest = this.GetUpdateFolderRequest("Folder", "SetFolderField", parentFolderId);
+
+            // Update the specific folder's properties.
+            UpdateFolderResponseType updateFolderResponse = this.FOLDAdapter.UpdateFolder(updateFolderRequest);
+
+            Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Error, updateFolderResponse.ResponseMessages.Items[0].ResponseClass, "Managed folder should not be updated");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10511");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10511
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                10511,
+                @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""false"" indicates that the managed folder cannot be renamed [or moved].");
+            #endregion
+
+            #region Delete the created folders.
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, new FolderIdType[] { newFolderId });
+
+            // Delete the specified child folders.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies StorageQuota not set.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC19_VerifyStorageQuotaNotSet()
+        {
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2013") == false, "Exchange 2013 does not use the StorageQuota element.");
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2016") == false, "Exchange 2016 does not use the StorageQuota element.");
+
+            #region Create a new managed folder
+
+            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName1", this.Site));
+
+            // Add an email address into request.
+            EmailAddressType mailBox = new EmailAddressType()
+            {
+                EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+            };
+
+            createManagedFolderRequest.Mailbox = mailBox;
+            this.FOLDSUTControlAdapter.DoNotSetManagedFolderStoreQuota(createManagedFolderRequest.FolderNames[0]);
+
+            // Create the specified managed folder.
+            CreateManagedFolderResponseType createManagedFolderResponse = this.FOLDAdapter.CreateManagedFolder(createManagedFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createManagedFolderResponse, 1, this.Site);
+
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createManagedFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+
+            // Save the new created managed folder's folder id.
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Get the new created managed folder to verify ManagedFolderInformationType
+
+            // GetFolder request.
+            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the specified managed folder.
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getFolderResponse, 1, this.Site);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10711");
+
+            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10711
+            this.Site.CaptureRequirementIfAreEqual(
+                0,
+                ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation.StorageQuota,
+                10711,
+                @"[In t:ManagedFolderInformationType Complex Type][HasQuota]A value of ""false"" indicates that the StorageQuota property was not serialized into the SOAP response.");
+            #endregion
+
+            #region Delete the created folders.
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, new FolderIdType[] { newFolderId });
+
+            // Delete the specified child folders.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies StorageQuota set.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC20_VerifyStorageQuotaSet()
+        {
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2013") == false, "Exchange 2013 does not use the StorageQuota element.");
+            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2016") == false, "Exchange 2016 does not use the StorageQuota element.");
+
+            #region Create a new managed folder
+
+            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName1", this.Site));
+
+            // Add an email address into request.
+            EmailAddressType mailBox = new EmailAddressType()
+            {
+                EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+            };
+
+            createManagedFolderRequest.Mailbox = mailBox;
+            this.FOLDSUTControlAdapter.SetManagedFolderStoreQuota(createManagedFolderRequest.FolderNames[0]);
+
+            // Create the specified managed folder.
+            CreateManagedFolderResponseType createManagedFolderResponse = this.FOLDAdapter.CreateManagedFolder(createManagedFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createManagedFolderResponse, 1, this.Site);
+
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createManagedFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+
+            // Save the new created managed folder's folder id.
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Get the new created managed folder to verify ManagedFolderInformationType
+
+            // GetFolder request.
+            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the specified managed folder.
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getFolderResponse, 1, this.Site);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1072");
+
+            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1072
+            this.Site.CaptureRequirementIfIsTrue(
+                ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation.HasQuota,
+                1072,
+                @"[In t:ManagedFolderInformationType Complex Type][HasQuota]A value of ""true"" indicates that the StorageQuota property was serialized into the SOAP response.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1121");
+
+            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1121
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                100,
+                ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation.StorageQuota,
+                1121,
+                @"[In t:ManagedFolderInformationType Complex Type]StorageQuota is the storage quota for a managed folder.");
+            #endregion
+
+            #region Delete the created folders.
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, new FolderIdType[] { newFolderId });
+
+            // Delete the specified child folders.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
             #endregion
         }
         #endregion

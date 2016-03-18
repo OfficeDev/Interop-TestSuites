@@ -86,6 +86,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         #region Properties
 
         /// <summary>
+        /// Gets the MS-OXWSFOLD SUT Control Adapter.
+        /// </summary>
+        protected IMS_OXWSFOLDSUTControlAdapter FOLDSUTControlAdapter { get; private set; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether a subfolder can be created..
         /// </summary>
         protected bool CanCreateSubFolder
@@ -229,6 +234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.newCreatedFolderIds = new Collection<FolderIdType>();
             this.newCreatedItemIds = new Collection<ItemIdType>();
             this.FOLDAdapter = Site.GetAdapter<IMS_OXWSFOLDAdapter>();
+            this.FOLDSUTControlAdapter = this.Site.GetAdapter<IMS_OXWSFOLDSUTControlAdapter>();
             this.COREAdapter = Site.GetAdapter<IMS_OXWSCOREAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
             this.InitialPermissionVariables();

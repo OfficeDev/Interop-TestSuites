@@ -38,6 +38,7 @@
     <Compile Include="MS-OXWSCOREAdapter.cs" />
     <Compile Include="IMS-OXWSCOREAdapter.cs" />
     <Compile Include="MS-OXWSFOLDAdapter.cs" />
+    <Compile Include="SUTControlAdapter\IMS-OXWSFOLDSUTControlAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Protocols.TestTools" />
@@ -54,6 +55,11 @@
       <Project>{719F410B-0D1A-46F2-80A7-D5D91CF8E915}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\DoNotSetManagedFolderStoreQuota.ps1" />
+    <None Include="SUTControlAdapter\Implementation\SetManagedFolderStoreQuota.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
