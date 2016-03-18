@@ -577,7 +577,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R215</ns1:REQ_ID>
@@ -703,7 +703,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R222</ns1:REQ_ID>
@@ -2745,8 +2745,8 @@ name="TaskDelegateStateType"&gt;
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1260</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
-		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DaysOfWeek" with type "t:DayOfWeekType" specifies the days of the week that are used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.63</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DaysOfWeek" with type "t:DayOfWeekType" specifies the days of the week that are used in a relative yearly recurrence pattern. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2754,7 +2754,7 @@ name="TaskDelegateStateType"&gt;
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1261</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.63</ns1:Doc_Sect>
 		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] This element [DaysOfWeek] MUST be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2772,8 +2772,8 @@ name="TaskDelegateStateType"&gt;
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1262</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.53</ns1:Doc_Sect>
-		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" with type "t:DayOfWeekIndexType" specifies the week that is used in a relative monthly recurrence pattern.</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.63</ns1:Doc_Sect>
+		<ns1:Description>[In t:RelativeYearlyRecurrencePatternType Complex Type] The element "DayOfWeekIndex" with type "t:DayOfWeekIndexType" specifies the week that is used in a relative yearly recurrence pattern.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

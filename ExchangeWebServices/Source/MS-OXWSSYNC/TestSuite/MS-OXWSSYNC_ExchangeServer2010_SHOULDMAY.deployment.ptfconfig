@@ -13,9 +13,13 @@
     <Property name="R37811Enabled" value="true"/>
     <!-- Set R37811002Enabled to true to verify that implementation dose include Delete element. Set R37811002Enabled to false to disable this requirement.-->
     <Property name="R37811002Enabled" value="true"/>
-    <!-- Set R37811004Enabled to true to verify that Implementation dose return a MessageType complex type. Set R37811004Enabled to false to disable this requirement.-->
+    <!-- Set R37811004Enabled to true to verify that implementation dose return a MessageType complex type. Set R37811004Enabled to false to disable this requirement.-->
     <Property name="R37811004Enabled" value="false"/>
-    <!-- Set R37811006Enabled to true to verify that Implementation dose support the Person element. Set R37811006Enabled to false to disable this requirement.-->
+    <!-- Set R37811006Enabled to true to verify that implementation dose support the Person element. Set R37811006Enabled to false to disable this requirement.-->
     <Property name="R37811006Enabled" value="false"/>
+    <!-- Set R1752003Enabled to true to verify that implementation dose support the NetworkItemType element. Set R1752003Enabled to false to disable this requirement.-->
+    <Property name="R1752003Enabled" value="false"/>
+    <!-- Set R1752001Enabled to true to verify that implementation dose support the RoleMemberItemType element. Set R1752001Enabled to false to disable this requirement.-->
+    <Property name="R1752001Enabled" value="false"/>
   </Properties>
 </TestSite>

@@ -590,6 +590,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                 1264,
                 @"[In t:RelativeYearlyRecurrencePatternType Complex Type] The element ""Month"" with type ""t:MonthNamesType"" specifies the month when a yearly recurring item occurs.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1262");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1262                
+            this.Site.CaptureRequirementIfAreEqual<DayOfWeekIndexType>(
+                sentRecurPattern.DayOfWeekIndex,
+                retrievedRecurPattern.DayOfWeekIndex,
+                "MS-OXWSCDATA",
+                1262,
+                @"[In t:RelativeYearlyRecurrencePatternType Complex Type] The element ""DayOfWeekIndex"" with type ""t:DayOfWeekIndexType"" specifies the days of the week that are used in a relative yearly recurrence pattern.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1260");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1260                
+            this.Site.CaptureRequirementIfAreEqual<String>(
+                sentRecurPattern.DaysOfWeek,
+                retrievedRecurPattern.DaysOfWeek,
+                "MS-OXWSCDATA",
+                1260,
+                @"[In t:RelativeYearlyRecurrencePatternType Complex Type] The element ""DayOfWeekIndex"" with type ""t:DayOfWeekIndexType"" specifies the week that is used in a relative monthly recurrence pattern.");
+
             // Verify the TaskRecurrencePatternTypes.
             this.VerifyTaskRecurrencePatternTypes(isValidRelativeYearlyRecurrence);
 
@@ -1329,6 +1351,62 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This delete response status should be success!", null);
             #endregion
         }
+
+        /// <summary>
+        /// This test case is used to validate the CompleteDate has the same effect as PercentComplete or Status.
+        /// </summary>
+        [TestCategory("MSOXWSTASK"), TestMethod()]
+        public void MSOXWSTASK_S01_TC13_VerifyTaskPercentComplete()
+        {
+            #region Client calls CreateItem to create a task item which sets the task Status to NotStarted.
+
+            // Create a task and save the item id.
+            string subject = Common.GenerateResourceName(this.Site, "This is a task");
+            TaskType taskNew = TestSuiteHelper.DefineTaskItem(subject, null);
+            taskNew.CompleteDate = DateTime.UtcNow.Date;
+            taskNew.CompleteDateSpecified = true;
+            taskNew.Status = TaskStatusType.NotStarted;
+            taskNew.StatusSpecified = true;
+            taskNew.PercentComplete = 100;
+            taskNew.PercentCompleteSpecified = true;
+            ItemIdType[] createItemIdsFirst = this.CreateTasks(taskNew);
+            Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This create response status should be success!", null);
+            ItemIdType createItemIdFirst = createItemIdsFirst[0];
+            #endregion
+
+            #region Client calls GetItem to get the task item created in above step.
+            TaskType[] taskItems = this.GetTasks(createItemIdFirst);
+            Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This get response status should be success!", null);
+            TaskType taskItem = taskItems[0];
+            #endregion
+
+            //Verify the CompleteDateSpecified is false and PercentComplete equal 0.0 for capture R67001 and R67002.
+            Site.Assert.IsFalse(taskItem.CompleteDateSpecified, "The CompleteDateSpecified should be false which specific the CompleteDate element is null.");
+            Site.Assert.AreEqual<double>(0.0, taskItem.PercentComplete, "The value of the PercentComplete should be 0.0.");
+            
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67001");
+
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67001
+            Site.CaptureRequirement(
+                    67001,
+                    @"[In t:TaskType Complex Type] Setting CompleteDate has the same effect as setting PercentComplete to 100 or Status to Completed.");
+                
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67002");
+
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67002
+            Site.CaptureRequirement(
+                    67002,
+                    @"[In t:TaskType Complex Type] In a request that sets at least two of these properties, the last processed property will determine the value that is set for these elements.");          
+            
+            #region Client calls DeleteItem to delete the task item created in the previous steps.
+            this.DeleteTasks(createItemIdFirst);
+            Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This delete response status should be success!", null);
+            #endregion
+        }
+
+
 
         #endregion
 

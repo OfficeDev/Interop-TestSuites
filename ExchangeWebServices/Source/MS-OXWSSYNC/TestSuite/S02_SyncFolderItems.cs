@@ -1961,134 +1961,136 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
         [TestCategory("MSOXWSSYNC"), TestMethod()]
         public void MSOXWSSYNC_S02_TC11_SyncFolderItems_AbchPersonItemType()
         {
-            #region Step 1. Client invokes SyncFolderItems operation to get initial syncState of contacts folder.
-            DistinguishedFolderIdNameType contactFolder = DistinguishedFolderIdNameType.contacts;
-            SyncFolderItemsType request = this.CreateSyncFolderItemsRequestWithoutOptionalElements(contactFolder, DefaultShapeNamesType.AllProperties);
-            SyncFolderItemsResponseType response = this.SYNCAdapter.SyncFolderItems(request);
-            SyncFolderItemsResponseMessageType responseMessage = TestSuiteHelper.EnsureResponse<SyncFolderItemsResponseMessageType>(response);
-            #endregion
+                Site.Assume.IsTrue(Common.IsRequirementEnabled(37811006, this.Site), "Implementation does support the Person element.");
+           
+                #region Step 1. Client invokes SyncFolderItems operation to get initial syncState of contacts folder.
+                DistinguishedFolderIdNameType contactFolder = DistinguishedFolderIdNameType.contacts;
+                SyncFolderItemsType request = this.CreateSyncFolderItemsRequestWithoutOptionalElements(contactFolder, DefaultShapeNamesType.AllProperties);
+                SyncFolderItemsResponseType response = this.SYNCAdapter.SyncFolderItems(request);
+                SyncFolderItemsResponseMessageType responseMessage = TestSuiteHelper.EnsureResponse<SyncFolderItemsResponseMessageType>(response);
+                #endregion
 
-            #region Step 2. Client invokes CreateItem to create a DistributionListType item and get its ID.
-            AbchPersonItemType distributionList = new AbchPersonItemType();
-            BaseItemIdType[] itemIds = this.CreateItem(contactFolder, distributionList);
-            #endregion
+                #region Step 2. Client invokes CreateItem to create a DistributionListType item and get its ID.
+                AbchPersonItemType distributionList = new AbchPersonItemType();
+                BaseItemIdType[] itemIds = this.CreateItem(contactFolder, distributionList);
+                #endregion
 
-            #region Step 3. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 2.
-            responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+                #region Step 3. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 2.
+                responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
 
-            // Assert the changes in response is not null
-            Site.Assert.IsNotNull(responseMessage.Changes, "There is one item created on server, so the changes between server and client should not be null");
-            SyncFolderItemsChangesType changes = responseMessage.Changes;
+                // Assert the changes in response is not null
+                Site.Assert.IsNotNull(responseMessage.Changes, "There is one item created on server, so the changes between server and client should not be null");
+                SyncFolderItemsChangesType changes = responseMessage.Changes;
 
-            // Assert both the Items and ItemsElementName are not null
-            Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item created on server.");
-            Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item created on server.");
-            Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one ABchPersonItemtype item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
+                // Assert both the Items and ItemsElementName are not null
+                Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item created on server.");
+                Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item created on server.");
+                Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one ABchPersonItemtype item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
+                
+                // If the type of item in SyncFolderItems response is AbchPersonItemType, then requirement MS-OXWSSYNC_R1752005 can be captured.
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R1752005");
 
-            // If the type of item in SyncFolderItems response is AbchPersonItemType, then requirement MS-OXWSSYNC_R1752005 can be captured.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R1752005");
+                // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R1752005
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
+                    typeof(AbchPersonItemType),
+                    1752005,
+                    @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of  Person is t:AbchPersonItemType ([MS-OXWSCONT] section 2.2.4.1)");
 
-            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R1752005
-            Site.CaptureRequirementIfIsInstanceOfType(
-                (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
-                typeof(AbchPersonItemType),
-                1752005,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of  Person is t:AbchPersonItemType ([MS-OXWSCONT] section 2.2.4.1)");
+                bool isDistributionListCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
+                            (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(AbchPersonItemType);
 
-            bool isDistributionListCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
-                        (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(AbchPersonItemType);
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXWSSYNC_R37811006. Expected value: ItemsElementName: {0}, item type: {1}; actual value: ItemsElementName: {2}, item type: {3}",
+                    ItemsChoiceType1.Create,
+                    typeof(AbchPersonItemType),
+                    changes.ItemsElementName[0],
+                    (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType());
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXWSSYNC_R37811006. Expected value: ItemsElementName: {0}, item type: {1}; actual value: ItemsElementName: {2}, item type: {3}",
-                ItemsChoiceType1.Create,
-                typeof(AbchPersonItemType),
-                changes.ItemsElementName[0],
-                (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType());
+                // If the ItemsElementName of Changes is Create and the type of Item is AbchPersonItemType, it indicates a AbchPersonItemType list 
+                // has been created on server and synced on client, then requirement MS-OXWSSYNC_R37811006 can be captured.
+                // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R37811006
+                Site.CaptureRequirementIfIsTrue(
+                    isDistributionListCreated,
+                    37811006,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
+                #endregion               
 
-            // If the ItemsElementName of Changes is Create and the type of Item is AbchPersonItemType, it indicates a AbchPersonItemType list 
-            // has been created on server and synced on client, then requirement MS-OXWSSYNC_R37811006 can be captured.
-            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R37811006
-            Site.CaptureRequirementIfIsTrue(
-                isDistributionListCreated,
-                37811006,
-                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
-            #endregion
+                #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.
+                // Generate a new item subject
+                string newItemSubject = Common.GenerateResourceName(this.Site, contactFolder + "NewItemSubject");
+                this.UpdateItemSubject(itemIds, newItemSubject);
+                #endregion
 
-            #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.
-            // Generate a new item subject
-            string newItemSubject = Common.GenerateResourceName(this.Site, contactFolder + "NewItemSubject");
-            this.UpdateItemSubject(itemIds, newItemSubject);
-            #endregion
+                #region Step 5. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 4 and verify related requirements.
+                responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
 
-            #region Step 5. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 4 and verify related requirements.
-            responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+                // Assert the changes in response is not null
+                Site.Assert.IsNotNull(responseMessage.Changes, "There is one item updated on server, so the changes between server and client should not be null");
+                changes = responseMessage.Changes;
 
-            // Assert the changes in response is not null
-            Site.Assert.IsNotNull(responseMessage.Changes, "There is one item updated on server, so the changes between server and client should not be null");
-            changes = responseMessage.Changes;
+                // Assert both the Items and ItemsElementName are not null
+                Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item updated on server.");
+                Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item updated on server.");
 
-            // Assert both the Items and ItemsElementName are not null
-            Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item updated on server.");
-            Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item updated on server.");
+                Site.Assert.AreEqual<int>(1, changes.Items.Length, "Just one AbchPersonItemType item was updated in previous step, so the count of Items array in responseMessage.Changes should be 1.");
+                Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one AbchPersonItemType item was updated in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
+                
+                bool isDistributionListUpdated = changes.ItemsElementName[0] == ItemsChoiceType1.Update
+                    && (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(AbchPersonItemType);
 
-            Site.Assert.AreEqual<int>(1, changes.Items.Length, "Just one AbchPersonItemType item was updated in previous step, so the count of Items array in responseMessage.Changes should be 1.");
-            Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one AbchPersonItemType item was updated in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXWSSYNC_R37811006. Expected value: ItemsElementName: {0}, item type: {1}; actual value: ItemsElementName: {2}, item type: {3}",
+                    ItemsChoiceType1.Update,
+                    typeof(AbchPersonItemType),
+                    changes.ItemsElementName[0],
+                    (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType());
 
-            bool isDistributionListUpdated = changes.ItemsElementName[0] == ItemsChoiceType1.Update
-                && (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(AbchPersonItemType);
+                // If the ItemsElementName of Changes is Update and the type of Item is DistributionListType, it indicates a distribution list 
+                // has been updated on server and synced on client, then requirement MS-OXWSSYNC_R37811006 can be captured.
+                // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R37811006
+                Site.CaptureRequirementIfIsTrue(
+                    isDistributionListUpdated,
+                    37811006,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
+                #endregion
+                
+                #region Step 6. Client invokes DeleteItem operation to delete the DistributionListType item which updated in Step 4.
+                this.DeleteItem(itemIds);
+                #endregion
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXWSSYNC_R37811006. Expected value: ItemsElementName: {0}, item type: {1}; actual value: ItemsElementName: {2}, item type: {3}",
-                ItemsChoiceType1.Update,
-                typeof(AbchPersonItemType),
-                changes.ItemsElementName[0],
-                (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType());
+                #region Step 7. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 6.
+                responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
 
-            // If the ItemsElementName of Changes is Update and the type of Item is DistributionListType, it indicates a distribution list 
-            // has been updated on server and synced on client, then requirement MS-OXWSSYNC_R37811006 can be captured.
-            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R37811006
-            Site.CaptureRequirementIfIsTrue(
-                isDistributionListUpdated,
-                37811006,
-                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior.)");
-            #endregion
+                // Assert the changes in response is not null
+                Site.Assert.IsNotNull(responseMessage.Changes, "There is one item deleted on server, so the changes between server and client should not be null");
+                changes = responseMessage.Changes;
 
-            #region Step 6. Client invokes DeleteItem operation to delete the DistributionListType item which updated in Step 4.
-            this.DeleteItem(itemIds);
-            #endregion
+                // Assert both the Items and ItemsElementName are not null
+                Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item deleted on server.");
+                Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item deleted on server.");
 
-            #region Step 7. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 6.
-            responseMessage = this.GetResponseMessage(contactFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+                // Assert both the length of responseMessage.Changes.ItemsElementName and responseMessage.Changes.Items are 1.
+                Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one AbchPersonItemType item was deleted in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
 
-            // Assert the changes in response is not null
-            Site.Assert.IsNotNull(responseMessage.Changes, "There is one item deleted on server, so the changes between server and client should not be null");
-            changes = responseMessage.Changes;
+                // Assert the ItemsElementName is Delete.
+                Site.Assert.IsTrue(
+                    changes.ItemsElementName[0] == ItemsChoiceType1.Delete,
+                    string.Format("The responseMessage.Changes.ItemsElementName should be 'Delete', the actual value is '{0}'", changes.ItemsElementName[0]));
 
-            // Assert both the Items and ItemsElementName are not null
-            Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item deleted on server.");
-            Site.Assert.IsNotNull(changes.Items, "There should be item information returned in SyncFolderItems response since there is one item deleted on server.");
+                Site.Assert.AreEqual<int>(1, changes.Items.Length, "Just one AbchPersonItemType item was deleted in previous step, so the count of Items array in responseMessage.Changes should be 1.");
 
-            // Assert both the length of responseMessage.Changes.ItemsElementName and responseMessage.Changes.Items are 1.
-            Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one AbchPersonItemType item was deleted in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
-
-            // Assert the ItemsElementName is Delete.
-            Site.Assert.IsTrue(
-                changes.ItemsElementName[0] == ItemsChoiceType1.Delete,
-                string.Format("The responseMessage.Changes.ItemsElementName should be 'Delete', the actual value is '{0}'", changes.ItemsElementName[0]));
-
-            Site.Assert.AreEqual<int>(1, changes.Items.Length, "Just one AbchPersonItemType item was deleted in previous step, so the count of Items array in responseMessage.Changes should be 1.");
-
-            // Assert the Items is an instance of SyncFolderItemsDeleteType.
-            Site.Assert.IsTrue(
-                changes.Items[0].GetType() == typeof(SyncFolderItemsDeleteType),
-                string.Format("The responseMessage.Changes.Items should be an instance of '{0}'.", typeof(SyncFolderItemsDeleteType)));
-            #endregion
-     
+                // Assert the Items is an instance of SyncFolderItemsDeleteType.
+                Site.Assert.IsTrue(
+                    changes.Items[0].GetType() == typeof(SyncFolderItemsDeleteType),
+                    string.Format("The responseMessage.Changes.Items should be an instance of '{0}'.", typeof(SyncFolderItemsDeleteType)));
+                #endregion
+            
         }
         #endregion
 
