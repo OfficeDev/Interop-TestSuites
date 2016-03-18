@@ -1352,6 +1352,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             #endregion
         }
 
+        /// <summary>
+        /// This test case is used to validate the CompleteDate has the same effect as PercentComplete or Status.
+        /// </summary>
         [TestCategory("MSOXWSTASK"), TestMethod()]
         public void MSOXWSTASK_S01_TC13_VerifyTaskPercentComplete()
         {
@@ -1377,26 +1380,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             TaskType taskItem = taskItems[0];
             #endregion
 
-            //Verify the CompleteDateSpecified==false and PercentComplete=0.0 for capture R67001 and R67002
-            if ((taskItem.CompleteDateSpecified == false) && (taskItem.PercentComplete == 0))
-            {
-                // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67001");
+            //Verify the CompleteDateSpecified is false and PercentComplete equal 0.0 for capture R67001 and R67002.
+            Site.Assert.IsFalse(taskItem.CompleteDateSpecified, "The CompleteDateSpecified should be false which specific the CompleteDate element is null.");
+            Site.Assert.AreEqual<double>(0.0, taskItem.PercentComplete, "The value of the PercentComplete should be 0.0.");
+            
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67001");
 
-                // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67001
-                Site.CaptureRequirement(
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67001
+            Site.CaptureRequirement(
                     67001,
                     @"[In t:TaskType Complex Type] Setting CompleteDate has the same effect as setting PercentComplete to 100 or Status to Completed.");
                 
-                // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67002");
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R67002");
 
-                // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67002
-                Site.CaptureRequirement(
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R67002
+            Site.CaptureRequirement(
                     67002,
-                    @"[In t:TaskType Complex Type] In a request that sets at least two of these properties, the last processed property will determine the value that is set for these elements.");
-
-            }
+                    @"[In t:TaskType Complex Type] In a request that sets at least two of these properties, the last processed property will determine the value that is set for these elements.");          
             
             #region Client calls DeleteItem to delete the task item created in the previous steps.
             this.DeleteTasks(createItemIdFirst);
