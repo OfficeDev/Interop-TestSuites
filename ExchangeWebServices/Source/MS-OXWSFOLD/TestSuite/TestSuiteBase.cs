@@ -1015,7 +1015,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Set the value of ExchangeImpersonation.
             ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
             impersonation.ConnectingSID = new ConnectingSIDType();
-            impersonation.ConnectingSID.Item = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            PrimarySmtpAddressType address = new PrimarySmtpAddressType();
+            address.Value = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            impersonation.ConnectingSID.Item = address;
 
             // Set time zone value.
             TimeZoneDefinitionType timezoneDefin = new TimeZoneDefinitionType();
