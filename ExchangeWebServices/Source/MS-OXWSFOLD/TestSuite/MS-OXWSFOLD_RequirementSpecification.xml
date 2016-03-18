@@ -633,7 +633,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R59</ns1:REQ_ID>
@@ -1398,61 +1398,21 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R8402</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]DistinguishedFolderId specifies an identifier for a folder that can be referenced by name.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In t:BaseFolderType Complex Type]DistinguishedFolderId specifies an identifier for a folder that can be referenced by name.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R84021</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a Folder, CalendarFolder, ContactsFolder, or TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R28402.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R84021</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a Folder, CalendarFolder, ContactsFolder, or TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R84022</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a Folder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R84021:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R84023</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a CalendarFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R84021:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R84024</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a ContactsFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R84021:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R84025</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]This element [DistinguishedFolderId] only supports "conversationhistory", "adminauditlogs", and "recoverableitemsroot" when it is present in a TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation.</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R84021:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R8403</ns1:REQ_ID>
@@ -3291,7 +3251,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1202</ns1:REQ_ID>
@@ -3300,7 +3260,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1203</ns1:REQ_ID>
@@ -3309,7 +3269,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R120301</ns1:REQ_ID>
@@ -3319,7 +3279,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R120302</ns1:REQ_ID>
@@ -3329,7 +3289,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R549</ns1:REQ_ID>
@@ -9685,14 +9645,13 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R18402</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the DistinguishedFolderId element in the BaseFolderType complex type. (&lt;2&gt; Section 2.2.4.5:  Exchange 2007 and Exchange 2010 do not support the DistinguishedFolderId element in the BaseFolderType complex type.)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R8402:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not suppport "conversationhistory", "adminauditlogs", and "recoverableitemsroot" for DistinguishedFolderId when it is present in a Folder, CalendarFolder, ContactsFolder, or TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation. (&lt;2&gt; Section 2.2.4.5:  Exchange 2007 and Exchange 2010 do not support the DistinguishedFolderId element in the BaseFolderType complex type.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R84021:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9701,8 +9660,8 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R28402</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the DistinguishedFolderId element in the BaseFolderType complex type. (Exchange 2013 and above follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R8402:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does suppport "conversationhistory", "adminauditlogs", and "recoverableitemsroot" for DistinguishedFolderId when it is present in a Folder, CalendarFolder, ContactsFolder, or TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation. (Exchange 2013 and above follow this behavior)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R84021:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9727,7 +9686,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5662</ns1:REQ_ID>
@@ -9747,7 +9706,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R840611</ns1:REQ_ID>
@@ -10444,7 +10403,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R59</ns1:REQ_ID>
@@ -10661,7 +10620,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R216</ns1:REQ_ID>
@@ -10670,7 +10629,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R217</ns1:REQ_ID>
