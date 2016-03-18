@@ -13,5 +13,11 @@
     <Property name="R55501Enabled" value="true" />
     <!--Set R1462Enabled to true to verify that the implementation does include the enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. Set R1462Enabled to false to disable this requirement.-->
     <Property name="R1462Enabled" value="false" />
+    <!--Set R54911Enabled to true to verify that implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom". Set R54911Enabled to false to disable this requirement.-->
+    <Property name="R54911Enabled" value="true" />
+    <!--Set R1531Enabled to true to verify that implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. Set R1531Enabled to false to disable this requirement.-->
+    <Property name="R1531Enabled" value="false" />
+    <!--Set R1532Enabled to true to verify that implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder but cannot read any items in the folder. Set R1532Enabled to false to disable this requirement.-->
+    <Property name="R1532Enabled" value="true" />
   </Properties>
 </TestSite>

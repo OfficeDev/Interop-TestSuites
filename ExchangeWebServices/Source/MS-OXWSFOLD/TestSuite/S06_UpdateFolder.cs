@@ -634,7 +634,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ResponseClassType.Error,
                 updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
                 4645,
-                @"[In UpdateFolder Operation]An unsuccessful UpdateFolder operation request returns an UpdateFolderResponse element with the ResponseClass attribute of the UpdateFolderResponseMessage element set to ""Error"."");
+                @"[In UpdateFolder Operation]An unsuccessful UpdateFolder operation request returns an UpdateFolderResponse element with the ResponseClass attribute of the UpdateFolderResponseMessage element set to ""Error"".");
             #endregion
         }
         #endregion

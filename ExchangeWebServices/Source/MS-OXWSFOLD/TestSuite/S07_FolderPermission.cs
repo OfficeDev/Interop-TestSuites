@@ -1945,6 +1945,124 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 157,
                 @"[In t:PermissionReadAccessType Simple Type]The value None means the user does not have permission to read items in the folder.");
         }
+
+        /// <summary>
+        /// This test case verifies requirements related to folder permission anyone field other than UserId field is set, and the PermissionLevel field is not set to "Custom".
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S07_TC15_FolderPermissionLevelNotCustom()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(54911, this.Site), @"Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".");
+
+            #region Switch to User1
+            this.SwitchUser(Common.GetConfigurationPropertyValue("User1Name", this.Site), Common.GetConfigurationPropertyValue("User1Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
+            #endregion
+
+            #region Create a folder in the User1's inbox folder, and enable Contributor permission for User2
+            // Configure permission set.
+            PermissionSetType permissionSet = new PermissionSetType();
+            permissionSet.Permissions = new PermissionType[1];
+            permissionSet.Permissions[0] = new PermissionType();
+            permissionSet.Permissions[0].UserId = new UserIdType();
+            permissionSet.Permissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            // Set the field CanCreateSubFolders to 'true', and the PermissionLevel field is not set to 'Custom'
+            permissionSet.Permissions[0].CanCreateSubFolders = true;
+            permissionSet.Permissions[0].CanCreateSubFoldersSpecified = true;
+            permissionSet.Permissions[0].PermissionLevel = new PermissionLevelType();
+            permissionSet.Permissions[0].PermissionLevel = PermissionLevelType.Contributor;
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, new PermissionSetType[] { permissionSet });
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R54911");
+
+            // CanCreateSubFolders is set and the PermissionLevel field is not set to 'Custom', the expected ResponseCode is ErrorInvalidPermissionSettings
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPermissionSettings,
+                createFolderResponse.ResponseMessages.Items[0].ResponseCode,
+                54911,
+                @"[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"". (<7> Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".)");
+        }
+
+        /// <summary>
+        /// This test case verifies requirements related to folder permission, the PermissionLevel field is set to "Contributor".
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S07_TC16_FolderPermissionLevelContributor()
+        {
+            #region Switch to User1
+            this.SwitchUser(Common.GetConfigurationPropertyValue("User1Name", this.Site), Common.GetConfigurationPropertyValue("User1Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
+            #endregion
+
+            #region Create a folder in the User1's inbox folder, and enable Contributor permission for User2
+            // Configure permission set.
+            PermissionSetType permissionSet = new PermissionSetType();
+            permissionSet.Permissions = new PermissionType[1];
+            permissionSet.Permissions[0] = new PermissionType();
+            permissionSet.Permissions[0].UserId = new UserIdType();
+            permissionSet.Permissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            permissionSet.Permissions[0].PermissionLevel = new PermissionLevelType();
+            permissionSet.Permissions[0].PermissionLevel = PermissionLevelType.Contributor;
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, new PermissionSetType[] { permissionSet });
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+            #endregion
+
+            #region Switch to User2
+            this.SwitchUser(Common.GetConfigurationPropertyValue("User2Name", this.Site), Common.GetConfigurationPropertyValue("User2Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
+            #endregion
+
+            #region Create an item in the folder created in step 1 with User2's credential
+            string itemName = Common.GenerateResourceName(this.Site, "Test Mail");
+
+            // Create an item in the new created folder.
+            ItemIdType itemInFolder = this.CreateItem(Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site), newFolderId.Id, itemName);
+            Site.Assert.IsNotNull(itemInFolder, "Item should be created successfully!");
+            #endregion
+
+            #region Read the new item
+            bool canReadItem = this.GetItem(itemInFolder);
+            #endregion
+
+            if (Common.IsRequirementEnabled(1531, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1531");
+
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1531, if User2 can read the item, this capture can be verified.
+                this.Site.CaptureRequirementIfIsTrue(
+                    canReadItem,
+                    1531,
+                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (<9> Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)");
+            }
+
+            if (Common.IsRequirementEnabled(1532, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1532");
+
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1531, if User2 can not read the item, this capture can be verified.
+                this.Site.CaptureRequirementIfIsFalse(
+                    canReadItem,
+                    1532,
+                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder but cannot read any items in the folder. (Exchange 2007 and Exchange 2010 follow this behavior.)");
+            }
+        }
         #endregion
     }
 }

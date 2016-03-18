@@ -2320,7 +2320,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R53019</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSFOLD_R53020</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
 		<ns1:Description>[In t:ConsumerCalendarIdType Complex Type]The CalendarGuid specifies the GUID  of the calendar.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10504,7 +10504,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R83</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSCDATA_R8301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.&lt;88&gt;
     </ns1:Description>
@@ -10647,7 +10647,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1462</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (&lt;88&gt; Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCDATA_R83:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCDATA_R8301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
