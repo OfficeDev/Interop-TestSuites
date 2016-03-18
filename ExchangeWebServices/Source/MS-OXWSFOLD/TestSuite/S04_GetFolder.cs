@@ -79,7 +79,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 foldersResponseInfo.Folders[0],
                 typeof(CalendarFolderType),
                 29,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.3).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R2901");
@@ -197,7 +197,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsNotNull(
                 foldersResponseInfo,
                 96,
-                @"[In m:FolderInfoResponseMessageType Complex Type]The type of element Folders is t:ArrayOfFoldersType (section 2.2.4.1).");
+                @"[In m:FolderInfoResponseMessageType Complex Type]The type of element Folders is t:ArrayOfFoldersType (section 2.2.4.2).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R9602");
@@ -256,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 allFolders.Folders[0],
                 typeof(ContactsFolderType),
                 31,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element ContactsFolder is t:ContactsFolderType ([MS-OXWSCONT] section 3.1.4.1.2.2).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element ContactsFolder is t:ContactsFolderType ([MS-OXWSCONT] section 3.1.4.1.1.6).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R3301");
@@ -318,7 +318,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsNotNull(
                 folderInfo.FolderId,
                 66,
-                @"[In t:BaseFolderType Complex Type]The type of element FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).");
+                @"[In t:BaseFolderType Complex Type]The type of element FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.36).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R6602");
@@ -473,7 +473,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 allFolders.Folders[0],
                 typeof(TasksFolderType),
                 35,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element TasksFolder is t:TasksFolderType ([MS-OXWSTASK] section 2.2.4.2).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element TasksFolder is t:TasksFolderType ([MS-OXWSTASK] section 2.2.4.5).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R3501");

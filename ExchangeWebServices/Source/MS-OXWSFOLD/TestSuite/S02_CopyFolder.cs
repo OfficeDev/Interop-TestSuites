@@ -253,6 +253,64 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 55501,
                 @"[In Appendix C: Product Behavior] Implementation does support the CopyFolder operation if either the source folder or the destination folder is a public folder.(Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
         }
+
+        /// <summary>
+        /// This test case verifies requirements related to copying folder failed.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S02_TC04_CopyFolderFailed()
+        {
+            #region Create a new folder in the inbox folder
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Delete the created folder
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderId);
+
+            // Delete the specified folder.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            // The folder has been deleted, so its folder id has disappeared.
+            this.NewCreatedFolderIds.Remove(newFolderId);
+
+            #endregion
+
+            #region Copy the deleted folder
+            // CopyFolder request.
+            CopyFolderType copyFolderRequest = this.GetCopyFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), newFolderId);
+
+            // Copy the "drafts" folder.
+            CopyFolderResponseType copyFolderResponse = this.FOLDAdapter.CopyFolder(copyFolderRequest);
+
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R185223");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                copyFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                185223,
+                @"[In CopyFolder Operation]An unsuccessful CopyFolder operation request returns a CopyFolderResponse element with the ResponseClass attribute of the CopyFolderResponseMessage element set to ""Error"".");
+            #endregion
+        }
         #endregion
     }
 }

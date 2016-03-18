@@ -334,6 +334,68 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
 
             #endregion
         }
+
+        /// <summary>
+        /// This test case verifies requirements related to move folder failed.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S03_TC03_MoveFolderFailed()
+        {
+            #region Create a new folder in the inbox folder
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Delete the created folder
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderId);
+
+            // Delete the specified folder.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            // The folder has been deleted, so its folder id has disappeared.
+            this.NewCreatedFolderIds.Remove(newFolderId);
+
+            #endregion
+
+            #region Move the deleted folder
+            MoveFolderType moveFolderRequest = new MoveFolderType();
+            moveFolderRequest.FolderIds = new BaseFolderIdType[1];
+            moveFolderRequest.FolderIds[0] = newFolderId;
+            DistinguishedFolderIdType toFolderId = new DistinguishedFolderIdType();
+            toFolderId.Id = DistinguishedFolderIdNameType.inbox;
+            moveFolderRequest.ToFolderId = new TargetFolderIdType();
+            moveFolderRequest.ToFolderId.Item = toFolderId;
+
+            // Move the specified folder.
+            MoveFolderResponseType moveFolderResponse = this.FOLDAdapter.MoveFolder(moveFolderRequest);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R4315");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                4315,
+                @"[In MoveFolder Operation]An unsuccessful MoveFolder operation request returns a MoveFolderResponse element with the ResponseClass attribute of the MoveFolderResponseMessage element set to ""Error"".");
+            #endregion
+        }
         #endregion
     }
 }

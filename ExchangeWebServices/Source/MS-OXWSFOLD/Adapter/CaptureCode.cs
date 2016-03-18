@@ -452,7 +452,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 198,
-                @"[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R199");
@@ -593,7 +593,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 236,
-                @"[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R237");
@@ -819,7 +819,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 285,
-                @"[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R2851");
@@ -947,7 +947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 326,
-                @"[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R327");
@@ -1087,7 +1087,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 364,
-                @"[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R365");
@@ -1208,36 +1208,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     </xs:complexType>");
             }
 
-            if (allFolders.Folders[0] is CalendarFolderType && ((CalendarFolderType)allFolders.Folders[0]).PermissionSet != null)
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R143");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R143
-                this.Site.CaptureRequirementIfIsTrue(
-                    isSchemaValidated,
-                    "MS-OXWSMTGS",
-                    143,
-                    @"[In t:CalendarFolderType Complex Type] [its schema is] <xs:complexType name=""CalendarFolderType"">
-                        <xs:complexContent>
-                        <xs:extension
-                            base=""t:BaseFolderType""
-                        >
-                            <xs:sequence>
-                            <xs:element name=""SharingEffectiveRights""
-                                type=""t:CalendarPermissionReadAccessType""
-                                minOccurs=""0""
-                                />
-                            <xs:element name=""PermissionSet""
-                                type=""t:CalendarPermissionSetType""
-                                minOccurs=""0""
-                                />
-                            </xs:sequence>
-                        </xs:extension>
-                        </xs:complexContent>
-                    </xs:complexType>");
-            }
-
             if ((allFolders.Folders[0] is FolderType && ((FolderType)allFolders.Folders[0]).PermissionSet != null) || (allFolders.Folders[0] is ContactsFolderType && ((ContactsFolderType)allFolders.Folders[0]).PermissionSet != null) || (allFolders.Folders[0] is TasksFolderType && ((TasksFolderType)allFolders.Folders[0]).PermissionSet != null))
             {
                 // Add the debug information
@@ -1329,7 +1299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     118,
-                    @"[In t:PermissionSetType Complex Type]The type of element Permissions is t:ArrayOfPermissionsType ([MS-OXWSCDATA] section 2.2.4.7).");
+                    @"[In t:PermissionSetType Complex Type]The type of element Permissions is t:ArrayOfPermissionsType ([MS-OXWSCDATA] section 2.2.4.9).");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R121");
@@ -1589,7 +1559,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 405,
-                @"[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R406");
@@ -1956,7 +1926,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 448,
-                @"[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R449");
@@ -2097,7 +2067,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 483,
-                @"[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R484");

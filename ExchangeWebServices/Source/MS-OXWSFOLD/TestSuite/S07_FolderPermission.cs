@@ -223,7 +223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Permission is set and schema is verified in adapter so this requirement can be captured.
             this.Site.CaptureRequirement(
                 98,
-                @"[In t:FolderType Complex Type]The type of element PermissionSet is t:PermissionSetType (section 2.2.4.12).");
+                @"[In t:FolderType Complex Type]The type of element PermissionSet is t:PermissionSetType (section 2.2.4.14).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R9802");
@@ -1944,85 +1944,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 isVerifiedR157,
                 157,
                 @"[In t:PermissionReadAccessType Simple Type]The value None means the user does not have permission to read items in the folder.");
-        }
-
-        /// <summary>
-        /// This test case verifies requirements related to calendar folder permission.
-        /// </summary>
-        [TestCategory("MSOXWSFOLD"), TestMethod()]
-        public void MSOXWSFOLD_S07_TC15_CalendarFolderPermission()
-        {
-            #region Switch to User1
-
-            this.SwitchUser(Common.GetConfigurationPropertyValue("User1Name", this.Site), Common.GetConfigurationPropertyValue("User1Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
-
-            #endregion
-
-            #region Create a folder in the User1's inbox folder, and enable Owner permission for User2
-
-            // Configure permission set.
-            CalendarPermissionSetType calendarPermissioinSet = new CalendarPermissionSetType();
-            calendarPermissioinSet.CalendarPermissions = new CalendarPermissionType[1];
-            calendarPermissioinSet.CalendarPermissions[0] = new CalendarPermissionType();
-            calendarPermissioinSet.CalendarPermissions[0].CalendarPermissionLevel = CalendarPermissionLevelType.Owner;
-            calendarPermissioinSet.CalendarPermissions[0].UserId = new UserIdType();
-            calendarPermissioinSet.CalendarPermissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
-
-            // CreateFolder request.
-            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.Appointment" }, null);
-            ((CalendarFolderType)createFolderRequest.Folders[0]).PermissionSet = calendarPermissioinSet;
-
-            // Create a new folder.
-            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
-
-            // Save the new created folder's folder id.
-            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
-            this.NewCreatedFolderIds.Add(newFolderId);
-
-            #endregion
-
-            #region Get the new created folder with User1's credential
-
-            // GetFolder request.
-            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
-            getFolderRequest.FolderShape.AdditionalProperties = new BasePathToElementType[]
-                    {
-                        new PathToUnindexedFieldType()
-                        {
-                            FieldURI = UnindexedFieldURIType.folderPermissionSet
-                        }
-                    };
-
-            // Get the new created folder.
-            GetFolderResponseType getFolderResopnse = this.FOLDAdapter.GetFolder(getFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(getFolderResopnse, 1, this.Site);
-
-            #endregion
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R146");
-
-            // PermissionSet value is set and schema is validated in adapter, so this requirement can be captured.
-            this.Site.CaptureRequirement(
-                "MS-OXWSMTGS",
-                146,
-                @"[In t:CalendarFolderType Complex Type] The type of PermissionSet is t:CalendarPermissionSetType (section 2.2.4.5).");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R147");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R147
-            this.Site.CaptureRequirementIfAreEqual<CalendarPermissionLevelType>(
-                CalendarPermissionLevelType.Owner,
-                ((CalendarFolderType)((FolderInfoResponseMessageType)getFolderResopnse.ResponseMessages.Items[0]).Folders[0]).PermissionSet.CalendarPermissions[2].CalendarPermissionLevel,
-                "MS-OXWSMTGS",
-                147,
-                @"[In t:CalendarFolderType Complex Type]PermissionSet: Specifies all permissions that are configured for a Calendar folder.");
         }
         #endregion
     }

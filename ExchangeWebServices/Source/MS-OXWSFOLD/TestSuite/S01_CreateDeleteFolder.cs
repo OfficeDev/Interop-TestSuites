@@ -163,7 +163,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0],
                 typeof(FolderType),
                 28,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element Folder is t:FolderType (section 2.2.4.10).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element Folder is t:FolderType (section 2.2.4.12).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R2802");
@@ -221,6 +221,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirement(
                 5900,
                 @"[In t:BaseFolderType Complex Type]This property[TotalCount] is returned in a response.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R42101");
+
+            // "AllProperties" is set in request, and the operation executes successfully, this requirement can be covered.
+            this.Site.CaptureRequirement(
+                42101,
+                @"[In t:DefaultShapeNamesType Simple Type] A value of ""AllProperties"" [in DefaultShapeNamesType] specifies all the properties that are defined for the AllProperties shape to include in the response.");
 
             #region Delete the created folder
 
@@ -386,6 +394,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 deleteFolderResponse.ResponseMessages.Items[0].ResponseClass,
                 308,
                 @"[In DeleteFolder Operation]This operation cannot delete default folders, such as the Inbox folder or the Deleted Items folder.");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R31045.");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R31045
+            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                deleteFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                31045,
+                @"[In DeleteFolder Operation]An unsuccessful DeleteFolder operation request returns a DeleteFolderResponse element with the ResponseClass attribute of the DeleteFolderResponseMessage element set to ""Error"".");
         }
 
         /// <summary>
@@ -767,6 +785,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 "MS-OXWSCDATA",
                 301,
                 @"[In m:ResponseCodeType Simple Type] [The value ""ErrorDuplicateInputFolderNames"" represent ] Occurs when there are duplicate folder names in the array that was passed to the CreateManagedFolder method.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R26993");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSFOLD_R26993
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                createManagedFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                26993,
+                @"[In CreateManagedFolder Operation]An unsuccessful CreateManagedFolder operation request returns a CreateManagedFolderResponse element with the ResponseClass attribute of the CreateManagedFolderResponseMessage element set to ""Error"".");
         }
 
         /// <summary>
@@ -795,14 +823,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #region Get the new created folders.
 
             // GetFolder request.
-            GetFolderType getNewFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, new FolderIdType[] { newFolderId1, newFolderId2 });
+            GetFolderType getNewFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.Default, new FolderIdType[] { newFolderId1, newFolderId2 });
 
             // Get the new created child folders.
             GetFolderResponseType getInboxFolderResponse = this.FOLDAdapter.GetFolder(getNewFolderRequest);
 
             // Check the response.
             Common.CheckOperationSuccess(getInboxFolderResponse, 2, this.Site);
+            
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R42102");
 
+            // "Default" is set in request, and the operation executes successfully, this requirement can be covered.
+            this.Site.CaptureRequirement(
+                42102,
+                @"[In t:DefaultShapeNamesType Simple Type] A value of ""Default"" [in DefaultShapeNamesType] specifies a set of properties that are defined as the default for the item or folder to include in the response.");
             #endregion
 
             #region Delete the created folders.
@@ -1105,6 +1140,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 73,
                 @"[In t:BaseFolderType Complex Type]This property[TotalCount] MUST be read-only for a client.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R22203");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R22203
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                createFolderResponseWithTotalCount.ResponseMessages.Items[0].ResponseClass,
+                22203,
+                @"[In CreateFolder Operation]An unsuccessful CreateFolder operation request returns a CreateFolderResponse element with the ResponseClass attribute of the CreateFolderResponseMessage element set to ""Error"".");
+
             #endregion
 
             #region Create a new folder with ChildFolderCount in the inbox folder
@@ -1206,6 +1251,152 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 83,
                 @"[In t:BaseFolderType Complex Type]This property[EffectiveRights] MUST be read-only for a client.");
 
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies requirements related to get folder failed elements.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC15_GetFolderFailed()
+        {
+            #region Create a new folder in the inbox folder
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Delete the created folder
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderId);
+
+            // Delete the specified folder.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            // The folder has been deleted, so its folder id has disappeared.
+            this.NewCreatedFolderIds.Remove(newFolderId);
+
+            #endregion
+
+            #region Get the deleted folder
+            GetFolderType getFolderRequest = this.GetGetFolderRequest( DefaultShapeNamesType.AllProperties, newFolderId);
+
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R38645");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                getFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                38645,
+                @"[In GetFolder Operation]An unsuccessful GetFolder operation request returns a GetFolderResponse element with the ResponseClass attribute of the GetFolderResponseMessage element set to ""Error"".");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case verifies requirements related to soft delete a folder in Inbox.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S01_TC16_SoftDeleteFolder()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(5664, this.Site), "Exchange Server 2007 and the initial release version of Exchange Server 2010 do not support EmptyFolder operation");
+
+            #region Create a new folder in the inbox folder
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Create an item
+
+            string itemName = Common.GenerateResourceName(this.Site, "Test Mail");
+
+            // Create an item in the new created folder.
+            ItemIdType itemId = this.CreateItem(Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site), newFolderId.Id, itemName);
+            Site.Assert.IsNotNull(itemId, "Item should be created successfully!");
+
+            #endregion
+
+            #region Get the new created folder
+
+            // GetFolder request.
+            GetFolderType getNewFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
+
+            // Get the new created folder.
+            GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getNewFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(getFolderResponse, 1, this.Site);
+
+            #endregion
+
+            #region Delete the created folder
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.SoftDelete, newFolderId);
+
+            // Delete the specified folder.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            // The folder has been deleted, so its folder id has disappeared.
+            this.NewCreatedFolderIds.Remove(newFolderId);
+
+            #endregion
+
+            #region Get the folder again to see whether it's been deleted.
+
+            // Get the new created folder.
+            GetFolderResponseType getDeletedFolderResponse = this.FOLDAdapter.GetFolder(getNewFolderRequest);
+
+            // Check the length.
+            Site.Assert.AreEqual<ResponseClassType>(
+                 ResponseClassType.Error,
+                 getDeletedFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                 "The folder should be deleted successfully.");
+            #endregion
+
+            #region Find in recoverableitemsdeletions
+            ItemIdType findItemID = this.FindItem(DistinguishedFolderIdNameType.recoverableitemsdeletions.ToString(), itemName);
+            Site.Assert.IsNotNull(findItemID, "The item in folder which is soft deleted should be found.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R34303");
+
+            // The item exists in the delete folder is found, this requirement can be captured.
+            this.Site.CaptureRequirementIfIsNotNull(
+                findItemID,
+                34303,
+                @"[In m:DeleteFolderType Complex Type ]DeleteType which value is SoftDelete specifies that a folder is moved to the dumpster if the dumpster is enabled.");
             #endregion
         }
         #endregion
