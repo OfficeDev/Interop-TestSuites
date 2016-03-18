@@ -94,7 +94,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
             Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This create response status should be success!", null);
             ItemIdType createItemId = createItemIds[0];
             #endregion
-
+         
             #region Client call GetItem operation to get the task item.
             TaskType[] retrievedTaskItems = this.GetTasks(createItemId);
             Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Success, (ResponseClassType)this.ResponseClass[0], "This get response status should be success!", null);
@@ -193,6 +193,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                 retrievedTaskItem.TotalWork,
                 67,
                 @"[In t:TaskType Complex Type] TotalWork: Specifies an integer value that represents the total amount of work that is associated with a task.");
+            
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R45");
+
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R45
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                sentTaskItem.ChangeCount+1,
+                retrievedTaskItem.ChangeCount,
+                45,
+                @"[In t:TaskType Complex Type] ChangeCount: Specifies an integer value that specifies the number of times the task has changed since it was created.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R48");
+
+            // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R48
+            this.Site.CaptureRequirementIfAreEqual<DateTime>(
+                sentTaskItem.CompleteDate.Date,
+                retrievedTaskItem.CompleteDate.Date,
+                48,
+                @"[In t:TaskType Complex Type] CompleteDate: Specifies an instance of the DateTime structure that represents the date on which a task was completed.");
 
             #endregion
 
