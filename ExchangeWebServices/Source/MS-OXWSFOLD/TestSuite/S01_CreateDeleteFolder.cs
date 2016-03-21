@@ -1679,7 +1679,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Error,
                     updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     1051111,
-                    @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""false"" indicates that the managed folder cannot be renamed [or moved].");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be renamed. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
         }
