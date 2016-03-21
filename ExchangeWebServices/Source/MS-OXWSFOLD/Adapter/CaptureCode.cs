@@ -1808,7 +1808,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R112");
 
-                    // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R114
+                    // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R112
                     this.Site.CaptureRequirementIfIsTrue(
                         isSchemaValidated,
                         112,
