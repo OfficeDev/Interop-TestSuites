@@ -1624,7 +1624,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #region Move the new created folder to the inbox folder
             ManagedFolderInformationType managedFolderInformation = ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation;
 
-            if (Common.IsRequirementEnabled(105211, this.Site))
+            if (Common.IsRequirementEnabled(1051112, this.Site))
             {
                 // MoveFolder request.
                 MoveFolderType moveFolderRequest = new MoveFolderType();
@@ -1648,19 +1648,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 Site.Assert.IsTrue(managedFolderInformation.CanRenameOrMoveSpecified && !managedFolderInformation.CanRenameOrMove, "The CanRenameOrMove element should be present!");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R105111");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1051112");
 
-                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R105111
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1051112
                 this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Error,
                     moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
-                    105111,
-                    @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""false"" indicates that the managed folder cannot be [renamed or] moved.");
-            }
+                    1051112,
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2013 and above follow this behavior.)");
+                }
             #endregion
 
             #region Update Folder Operation.
-            if (Common.IsRequirementEnabled(105212, this.Site))
+            if (Common.IsRequirementEnabled(1051111, this.Site))
             {
                 // UpdateFolder request.
                 UpdateFolderType updateFolderRequest = this.GetUpdateFolderRequest("Folder", "SetFolderField", parentFolderId);
@@ -1672,13 +1672,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 managedFolderInformation = ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation;
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10511");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1051111");
 
-                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10511
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1051111
                 this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Error,
                     updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
-                    10511,
+                    1051111,
                     @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""false"" indicates that the managed folder cannot be renamed [or moved].");
             }
             #endregion
