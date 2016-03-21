@@ -2889,7 +2889,29 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1052</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "true" indicates that the managed folder can be renamed or moved.</ns1:Description>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "true" indicates that the managed folder can be renamed [or moved].</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1051:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R105211.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R10521</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "true" indicates that the managed folder can be [renamed or] moved.</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1051:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R105212.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R10511</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "false" indicates that the managed folder cannot be renamed [or moved].</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R1051:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2897,9 +2919,9 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R10511</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSFOLD_R105111</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "false" indicates that the managed folder cannot be renamed or moved.</ns1:Description>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of "false" indicates that the managed folder cannot be [renamed or] moved.</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R1051:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3115,7 +3137,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R1121111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R113</ns1:REQ_ID>
@@ -9615,6 +9638,39 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R105211</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] [CanRenameOrMove]A value of "true" indicates that the managed folder can be renamed [or moved]. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1152:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R105212</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] [CanRenameOrMove]A value of "true" indicates that the managed folder can be [renamed or] moved. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R11521:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R1121111</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does use StorageQuota which is the storage quota for a managed folder. (Exchange Server 2010 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1121:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R3008</ns1:REQ_ID>

@@ -1803,6 +1803,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     111,
                     @"[In t:ManagedFolderInformationType Complex Type]The type of element Comment is xs:string.");
 
+                if (allFolders.Folders[0].ManagedFolderInformation.StorageQuotaSpecified == true)
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R112");
+
+                    // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R114
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        112,
+                        @"[In t:ManagedFolderInformationType Complex Type]The type of element StorageQuota is xs:int [XMLSCHEMA2].");
+                }
+
                 if (allFolders.Folders[0].ManagedFolderInformation.FolderSizeSpecified == true)
                 {
                     // Add the debug information
