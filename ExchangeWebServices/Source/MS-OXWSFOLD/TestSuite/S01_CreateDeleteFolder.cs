@@ -1523,7 +1523,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Success,
                     getUpdateFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     105211,
-                    @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""true"" indicates that the managed folder can be renamed [or moved].");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""true"" for CanRenameOrMove to indicate that the managed folder can be renamed. (Exchange 2013 and above follow this behavior.)");
                 #endregion
             }
             #endregion
@@ -1558,7 +1558,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Success,
                     moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     105212,
-                    @"[In t:ManagedFolderInformationType Complex Type][CanRenameOrMove]A value of ""true"" indicates that the managed folder can be [renamed or] moved.");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""true"" for CanRenameOrMove to indicate that the managed folder can be moved. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
         }

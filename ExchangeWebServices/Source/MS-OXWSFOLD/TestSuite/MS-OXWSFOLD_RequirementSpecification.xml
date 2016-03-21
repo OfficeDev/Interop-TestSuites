@@ -9642,7 +9642,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R105211</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be renamed. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be renamed. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R1152:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9653,7 +9653,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R105212</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be moved. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be moved. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R11521:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
