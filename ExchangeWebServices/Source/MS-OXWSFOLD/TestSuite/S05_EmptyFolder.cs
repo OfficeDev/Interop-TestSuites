@@ -409,6 +409,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         [TestCategory("MSOXWSFOLD"), TestMethod()]
         public void MSOXWSFOLD_S05_TC04_EmptyPublicFolderFailed()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(5664, this.Site), "Exchange Server 2007 and the initial release version of Exchange Server 2010 do not support EmptyFolder operation");
+
             #region Create a new folder in the inbox folder
 
             // CreateFolder request.
@@ -462,6 +464,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         [TestCategory("MSOXWSFOLD"), TestMethod()]
         public void MSOXWSFOLD_S05_TC05_SoftEmptyFolder()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(5664, this.Site), "Exchange Server 2007 and the initial release version of Exchange Server 2010 do not support EmptyFolder operation");
             Site.Assume.IsTrue(Common.IsRequirementEnabled(1462, this.Site), "Exchange 2007 does not include enumeration value recoverableitemsdeletions");
 
             #region Create a new folder in the inbox folder
