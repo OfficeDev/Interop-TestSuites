@@ -6031,27 +6031,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressEntitiesType complex type which specifies an array of address entities. (Exchange 2013 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(1753, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1753");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1753
-                this.Site.CaptureRequirementIfIsNotNull(
-                    arrayOfAddressEntities,
-                    1753,
-                    @"[In Appendix C: Product Behavior] Implementation does use the AddressEntityType complex type which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
-                    <xs:complexType name=""AddressEntityType"">
-                      <xs:complexContent>
-                        <xs:extension base=""t:EntityType"">
-                          <xs:sequence>
-                            <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
-                          </xs:sequence>
-                        </xs:extension>
-                      </xs:complexContent>
-                    </xs:complexType>. ");
-            }
-
             if (Common.IsRequirementEnabled(1714, this.Site))
             {
                 // Add the debug information

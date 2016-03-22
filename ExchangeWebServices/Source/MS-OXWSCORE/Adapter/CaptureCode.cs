@@ -2692,16 +2692,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     Site.CaptureRequirementIfIsNotNull(
                         entityExtractionResult.Addresses[0],
                         1753,
-                        @"[In Appendix C: Product Behavior] Implementation does use this type [AddressEntityType complex type] which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
-                            <xs:complexType name=""AddressEntityType"">
-                              <xs:complexContent>
-                                <xs:extension base=""t:EntityType"">
-                                  <xs:sequence>
-                                    <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
-                                  </xs:sequence>
-                                </xs:extension>
-                              </xs:complexContent>
-                            </xs:complexType>");
+                        @"[In Appendix C: Product Behavior] Implementation does use the AddressEntityType complex type which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
+                        <xs:complexType name=""AddressEntityType"">
+                          <xs:complexContent>
+                            <xs:extension base=""t:EntityType"">
+                              <xs:sequence>
+                                <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
+                              </xs:sequence>
+                            </xs:extension>
+                          </xs:complexContent>
+                        </xs:complexType>. ");
 
                     this.VerifyEntityType(entityExtractionResult.Addresses[0]);
                 }
