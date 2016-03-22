@@ -1454,7 +1454,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsFalse(
                 getItems[0].IsSubmitted,
                 1607,
-                @"[In t:ItemType Complex Type] otherwise [IsSubmitted is] false, indicates [an item has not been submitted to the Outbox folder].");
+                @"[In t:ItemType Complex Type] otherwise [IsSubmitted is] false, indicates [an item has not been submitted to the folder].");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1321");
@@ -1706,16 +1706,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     getItems[0].IsAssociatedSpecified,
                     2285,
                     @"[In Appendix C: Product Behavior] Implementation does support the IsAssociated element which specifies a value that indicates whether the item is associated with a folder. (Exchange 2010 and above follow this behavior.)");
-
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1341");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1341
-                // The IsAssociated is returned from server and pass the schema validation, so this requirement can be captured.
-                this.Site.CaptureRequirementIfIsTrue(
-                    getItems[0].IsAssociatedSpecified,
-                    1341,
-                    @"[In t:ItemType Complex Type] The type of IsAssociated is xs:boolean.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1619");
@@ -2216,7 +2206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // The DateTimePrecision SOAP header is set in request and the schema is validated, so this requirement can be captured.
                 this.Site.CaptureRequirement(
                     1256,
-                    @"[In Appendix C: Product Behavior] Implementation does introduce the DateTimePrecision SOAP header. (<79> Section 3.1.4.4.1.1:  The DateTimePrecision SOAP header was introduced in Exchange 2010 SP2 (Exchange 2013 Preview and above follow this behavior).)");
+                    @"[In Appendix C: Product Behavior] Implementation does introduce the DateTimePrecision SOAP header. (<98> Section 3.1.4.4.1.1:  The DateTimePrecision SOAP header was introduced in Microsoft Exchange Server 2010 Service Pack 2 (SP2). (Exchange 2013 Preview and above follow this behavior).)");
             }
 
             if (Common.IsRequirementEnabled(1816, this.Site))
@@ -2414,7 +2404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 }
                 else if (disposalType == DisposalType.SoftDelete)
                 {
-                    if(Common.IsRequirementEnabled(1462, this.Site))
+                    if (Common.IsRequirementEnabled(1462, this.Site))
                     {
                         // Find the deleted item in deleteditems folder.
                         ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.recoverableitemsdeletions, createdItems[0].Subject, "User1");
@@ -2440,6 +2430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                         // Verified MS-OXWSCDATA_R1462.
                         Site.CaptureRequirementIfIsNotNull(
                             DistinguishedFolderIdNameType.recoverableitemsdeletions,
+                            "MS-OXWSCDATA",
                             1462,
                             @"[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (<88> Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)");
                     }
@@ -2902,7 +2893,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirementIfIsTrue(
                 item.IsAssociatedSpecified && item.IsAssociated,
                 1618,
-                @"[In t:ItemType Complex Type] [IsAssociated is] True, indicates this [an item] is an associated item.");
+                @"[In t:ItemType Complex Type] [IsAssociated is] True, indicates the item is associated with a folder.");
             #endregion
         }
 

@@ -1495,7 +1495,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirement(
                 "MS-OXWSCDATA",
                 59,
-                @"[In t:DefaultShapeNamesType Simple Type] The value ""AllProperties"" specifies all the properties that are defined for the item or folder.");
+                @"[In t:DefaultShapeNamesType Simple Type] The value ""AllProperties"" specifies all the properties that are defined for the AllProperties shape.");
             
             #endregion
 
@@ -2046,14 +2046,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item_FilterHtmlContentTrue[0].Body,
                 "The body element in returned item should not be null.");
 
-            bool FilterHtmlContent = item_FilterHtmlContentTrue[0].Body.Value.Contains("</script>");
+            bool filterHtmlContent = item_FilterHtmlContentTrue[0].Body.Value.Contains("</script>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21193");
 
             // Verify MS-OXWSCDATA_R21193.
             Site.CaptureRequirementIfIsFalse(
-                FilterHtmlContent,
+                filterHtmlContent,
                 "MS-OXWSCDATA",
                 21193,
                 @"[In t:ItemResponseShapeType Complex Type] [FilterHtmlContent is] True, specifies HTML content filtering is enabled.");
@@ -2081,17 +2081,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item_FilterHtmlContentFalse[0].Body,
                 "The body element in returned item should not be null.");
 
-            FilterHtmlContent = item_FilterHtmlContentFalse[0].Body.Value.Contains("</script>");
+            filterHtmlContent = item_FilterHtmlContentFalse[0].Body.Value.Contains("</script>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21194");
 
             // Verify MS-OXWSCDATA_R21193.
             Site.CaptureRequirementIfIsTrue(
-                FilterHtmlContent,
+                filterHtmlContent,
                 "MS-OXWSCDATA",
                 21194,
                 @"[In t:ItemResponseShapeType Complex Type] otherwise [FilterHtmlContent is] false, specifies [HTML content filtering is not enabled].");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R2119413");
+
+            // Verify MS-OXWSCDATA_R2119413.
+            // This requirement can be captured after above steps.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                2119413,
+                @"[In Appendix C: Product Behavior] Implementation does support the FilterHtmlContent element. (Exchange 2010 and above follow this behavior.)");
             #endregion
         }
 
@@ -6018,7 +6028,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddressEntities,
                     1712,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressEntitiesTypeType complex type which specifies an array of address entities. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressEntitiesType complex type which specifies an array of address entities. (Exchange 2013 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1753, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1753");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1753
+                this.Site.CaptureRequirementIfIsNotNull(
+                    arrayOfAddressEntities,
+                    1753,
+                    @"[In Appendix C: Product Behavior] Implementation does use the AddressEntityType complex type which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
+                    <xs:complexType name=""AddressEntityType"">
+                      <xs:complexContent>
+                        <xs:extension base=""t:EntityType"">
+                          <xs:sequence>
+                            <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
+                          </xs:sequence>
+                        </xs:extension>
+                      </xs:complexContent>
+                    </xs:complexType>. ");
             }
 
             if (Common.IsRequirementEnabled(1714, this.Site))
@@ -6031,7 +6062,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddressEntities[0],
                     1714,
-                    @"[In Appendix C: Product Behavior] Implementation does support AddressEntityType complex type which specifies an address entity. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the AddressEntityType complex type which specifies an address entity. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1750");
@@ -6197,7 +6228,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfContacts,
                     1507,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfContactsType complex type which specifies an array of contacts. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the ArrayOfContactsType complex type which specifies an array of contacts. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1508, this.Site))
@@ -6210,7 +6241,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfContacts,
                     1508,
-                    @"[In Appendix C: Product Behavior] Implementation does support ContactType complex type which specifies the type of a contact. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfContactsType complex type which specifies the type of a contact. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1097");
@@ -6482,7 +6513,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfEmailAddressEntities,
                     1716,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfEmailAddressEntitiesType complex type which specifies an array of email address entities. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1718, this.Site))
@@ -6880,7 +6911,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddresses,
                     1503,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1080");

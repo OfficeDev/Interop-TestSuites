@@ -839,7 +839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirementIfIsTrue(
                 isInBlockedSender,
                 1839,
-                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, the operation adds the sender of the email to the blocked sender list.");
+                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, the operation adds the sender of the email to the blocked sender list and moves the email item to the Junk Email folder.");
 
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = true;

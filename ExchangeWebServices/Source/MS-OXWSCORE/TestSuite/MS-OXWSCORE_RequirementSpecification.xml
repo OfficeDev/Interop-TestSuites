@@ -247,7 +247,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1699.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R23</ns1:REQ_ID>
@@ -274,7 +275,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1689.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1022</ns1:REQ_ID>
@@ -429,7 +431,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSCORE_R1882.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R37</ns1:REQ_ID>
@@ -719,7 +722,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1691.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1039</ns1:REQ_ID>
@@ -1510,7 +1514,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2024</ns1:REQ_ID>
@@ -2007,7 +2011,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20301</ns1:VerificationComment>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXWSCORE_R20301.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R20301</ns1:REQ_ID>
@@ -2504,21 +2508,21 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] The type of IsAssociated is xs:boolean.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R106</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] [The element "IsAssociated"] Specifies a value that indicates whether the item is associated with a folder. &lt;54&gt;</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] The type of IsAssociated is xs:boolean.&lt;54&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2285.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R106</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemType Complex Type] [The element "IsAssociated"] Specifies a value that indicates whether the item is associated with a folder. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1618</ns1:REQ_ID>
@@ -2660,7 +2664,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verifed by derived requirement: MS-OXWSCORE_R2290.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2290.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1047</ns1:REQ_ID>
@@ -2782,7 +2786,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1351.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1053</ns1:REQ_ID>
@@ -2792,7 +2797,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1053.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1352.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1054</ns1:REQ_ID>
@@ -2885,7 +2890,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1655, MS-OXWSCORE_R1656, MS-OXWSCORE_R1657, MS-OXWSCORE_R1658, MS-OXWSCORE_R1659, MS-OXWSCORE_R1660, MS-OXWSCORE_R1661.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1728</ns1:REQ_ID>
@@ -3132,7 +3138,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1692.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1359</ns1:REQ_ID>
@@ -3952,7 +3959,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1694.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R121</ns1:REQ_ID>
@@ -4481,7 +4489,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1695.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1073</ns1:REQ_ID>
@@ -4526,7 +4535,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1697</ns1:REQ_ID>
@@ -4661,7 +4670,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1883.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1736</ns1:REQ_ID>
@@ -5981,7 +5991,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1289.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1740</ns1:REQ_ID>
@@ -7342,7 +7353,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>verified by derived requirement: MS-OXWSCORE_R2308.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2308.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R221</ns1:REQ_ID>
@@ -8867,7 +8878,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1667, MS-OXWSCORE_R1668.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1667, MS-OXWSCORE_R1668, MS-OXWSCORE_R1669.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1667</ns1:REQ_ID>
@@ -9185,7 +9196,7 @@ xs:simpleType name="EmailPositionType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R2313.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2313.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1432</ns1:REQ_ID>
@@ -13617,7 +13628,8 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2327.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2207</ns1:REQ_ID>
@@ -14876,8 +14888,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1854</ns1:REQ_ID>
@@ -14948,7 +14959,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -15571,16 +15582,6 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2286</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the WebClientReadFormQueryString element. (&lt;55&gt; Section 2.2.4.24:  Exchange 2007 does not support the WebClientReadFormQueryString element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2041:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2287</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ConversationId element. (&lt;56&gt; Section 2.2.4.24:  Exchange 2007 do not support the ConversationId element.)</ns1:Description>
@@ -15837,8 +15838,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1267</ns1:REQ_ID>
@@ -16403,8 +16403,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2303</ns1:REQ_ID>
@@ -16571,17 +16570,6 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Derived>MS-OXWSCORE_R2168:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2309</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the DistributionListType item in the CreateItem operation. (&lt;95&gt; Section 3.1.4.2.3.2:  Exchange 2007 does not support the DistributionListType item in the CreateItem operation.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R300:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -16909,7 +16897,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1679, MS-OXWSCORE_R1349.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1679, MS-OXWSCORE_R1681, MS-OXWSCORE_R1349.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R23</ns1:REQ_ID>
@@ -16919,7 +16907,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1680, MS-OXWSCORE_R1683.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R1680, MS-OXWSCORE_R1682, MS-OXWSCORE_R1683.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R2103</ns1:REQ_ID>
@@ -17028,6 +17016,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1669.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R83</ns1:REQ_ID>
@@ -17223,7 +17212,8 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSCDATA_R23005.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R18904</ns1:REQ_ID>
@@ -18408,7 +18398,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21193</ns1:REQ_ID>
@@ -18863,7 +18853,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] This element [Item with type "t:ItemType ([MS-OXWSCORE] section 2.2.4.8)" ] does not be used in response messages. (&lt;7&gt; Section 2.2.4.10:  Exchange 2007 and Exchange 2010 do not return the items of type t:ItemType as a t:MessageType type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1020:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
@@ -18873,7 +18863,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return the items of type t:ItemType as a t:MessageType type. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1020:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
