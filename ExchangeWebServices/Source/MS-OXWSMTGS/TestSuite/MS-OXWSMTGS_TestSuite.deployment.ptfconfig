@@ -44,6 +44,8 @@
     <Property name="SubjectUpdate" value="subject update" />
     <!-- The LocationUpdate property specifies the updated value of the location used in the UpdateItem operation. -->
     <Property name="LocationUpdate" value="meeting room 2" />
+    <!-- The WaitTime property specifies the time interval (in milliseconds) to find a message item after it has been created. Depending on your hardware environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="WaitTime" value="2000" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>
