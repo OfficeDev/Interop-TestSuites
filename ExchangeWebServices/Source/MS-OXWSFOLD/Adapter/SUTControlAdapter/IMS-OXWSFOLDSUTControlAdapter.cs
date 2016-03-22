@@ -10,15 +10,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         /// <summary>
         /// Sets managed folder's storeQuota value.
         /// </summary>
-        /// <param name="ManagedFolderName">The managedFolder name of the user.</param>
-        [MethodHelp("Sets managed folder's storeQuota value with the managed folder name (ManagedFolderName).")]
-        string SetManagedFolderStoreQuota(string ManagedFolderName);
+        /// <param name="managedFolderName">The managedFolder name of the user.</param>
+        [MethodHelp("Sets managed folder's storeQuota value with the managed folder name (managedFolderName).")]
+        string SetManagedFolderStoreQuota(string managedFolderName);
 
         /// <summary>
         /// Do not set managed folder's storeQuota value.
         /// </summary>
         /// <param name="ManagedFolderName">The managedFolder name of the user.</param>
-        [MethodHelp("Do not set managed folder's storeQuota value with the managed folder name (ManagedFolderName).")]
-        string DoNotSetManagedFolderStoreQuota(string ManagedFolderName);
+        [MethodHelp("Do not set managed folder's storeQuota value with the managed folder name (managedFolderName).")]
+        string DoNotSetManagedFolderStoreQuota(string managedFolderName);
     }
 }

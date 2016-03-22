@@ -299,8 +299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
 
             // Copy the "drafts" folder.
             CopyFolderResponseType copyFolderResponse = this.FOLDAdapter.CopyFolder(copyFolderRequest);
-
-
+            
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R185223");
 

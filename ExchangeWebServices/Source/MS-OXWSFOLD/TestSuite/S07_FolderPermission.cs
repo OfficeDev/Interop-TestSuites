@@ -1985,6 +1985,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             permissionSet.Permissions[0] = new PermissionType();
             permissionSet.Permissions[0].UserId = new UserIdType();
             permissionSet.Permissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+
             // Set the field CanCreateSubFolders to 'true', and the PermissionLevel field is not set to 'Custom'
             permissionSet.Permissions[0].CanCreateSubFolders = true;
             permissionSet.Permissions[0].CanCreateSubFoldersSpecified = true;

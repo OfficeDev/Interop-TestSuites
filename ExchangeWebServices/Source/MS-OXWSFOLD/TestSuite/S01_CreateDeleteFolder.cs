@@ -45,7 +45,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // CreateFolder request.
             CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
 
-            //Get DisplayName in the request.
+            // Get DisplayName in the request.
             string displayName = createFolderRequest.Folders[0].DisplayName;
 
             // Create a new folder.
@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R71021");
 
             // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R71021
-            //displayNames is not null, so this requirement can be verified directly.
+            // displayNames is not null, so this requirement can be verified directly.
             this.Site.CaptureRequirementIfIsNotNull(
                 displayName,
                 71021,
@@ -74,7 +74,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R7102");
 
             // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R7102
-            //MS-OXWSFOLD_71021 is verified, so this requirement can be verified directly.
+            // MS-OXWSFOLD_71021 is verified, so this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 7102,
                 @"[In t:BaseFolderType Complex Type]This element[DisplayName] can be present.");
@@ -235,8 +235,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ((FolderType)((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0]).ParentFolderId.Id,
                 6802,
                 @"[In t:BaseFolderType Complex Type]This element[ParentFolderId] can be present and cannot be set during folder creation.");
-
-
+            
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R7201");
 
@@ -1335,7 +1334,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #endregion
 
             #region Get the deleted folder
-            GetFolderType getFolderRequest = this.GetGetFolderRequest( DefaultShapeNamesType.AllProperties, newFolderId);
+            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
 
             GetFolderResponseType getFolderResponse = this.FOLDAdapter.GetFolder(getFolderRequest);
 
@@ -1732,7 +1731,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R10711");
 
-            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10711
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R10711
             this.Site.CaptureRequirementIfAreEqual(
                 0,
                 managedFolderInformation.StorageQuota,
@@ -1794,7 +1793,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1072");
 
-            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1072
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1072
             this.Site.CaptureRequirementIfIsTrue(
                 managedFolderInformation.HasQuota,
                 1072,
@@ -1805,7 +1804,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1121111");
 
-            //Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1121
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1121
             this.Site.CaptureRequirementIfAreEqual<int>(
                 100,
                 managedFolderInformation.StorageQuota,
