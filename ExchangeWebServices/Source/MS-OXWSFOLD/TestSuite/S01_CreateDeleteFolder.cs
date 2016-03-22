@@ -1622,7 +1622,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #endregion
 
             #region Move the new created folder to the inbox folder
-            ManagedFolderInformationType managedFolderInformation = ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation;
+            ManagedFolderInformationType managedFolderInformation = ((FolderInfoResponseMessageType)getParentFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation;
 
             if (Common.IsRequirementEnabled(1051112, this.Site))
             {
