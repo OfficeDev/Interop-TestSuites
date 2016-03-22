@@ -148,17 +148,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
         #region Properties
         /// <summary>
-        /// Gets the MS-OXWSMTGS protocol adapter.
+        /// Gets or sets the MS-OXWSMTGS protocol adapter.
         /// </summary>
         protected IMS_OXWSMTGSAdapter MTGSAdapter { get; set; }
 
         /// <summary>
-        /// Gets the MS-OXWSSRCH protocol adapter which used to supply FindItem method.
+        /// Gets or sets the MS-OXWSSRCH protocol adapter which used to supply FindItem method.
         /// </summary>
         protected IMS_OXWSSRCHAdapter SRCHAdapter { get; set; }
 
         /// <summary>
-        /// Gets the MS-OXWSFOLD protocol adapter.
+        /// Gets or sets the MS-OXWSFOLD protocol adapter.
         /// </summary>
         protected IMS_OXWSFOLDAdapter FOLDAdapter { get; set; }
 
@@ -211,7 +211,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// The name of the user that delegate user exists.
+        /// Gets the name of the user that delegate user exists.
         /// </summary>
         protected string DelegateUser
         {
@@ -219,7 +219,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// The corresponding password of the delegate user.
+        /// Gets the corresponding password of the delegate user.
         /// </summary>
         protected string DelegatePassword
         {
@@ -283,13 +283,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// The email address of the user that delegate user exists.
+        /// Gets the email address of the user that delegate user exists.
         /// </summary>
         protected string DelegateEmailAddress
         {
             get { return this.delegateEmailAddress; }
         }
-
 
         /// <summary>
         /// Gets the email address of the resource.
@@ -380,7 +379,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// Record the folder id to be deleted.
+        /// Gets or sets the folder id to be deleted.
         /// </summary>
         protected FolderIdType FolderToDelete
         {
