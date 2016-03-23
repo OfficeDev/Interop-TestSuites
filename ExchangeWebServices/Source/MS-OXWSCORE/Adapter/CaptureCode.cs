@@ -1963,20 +1963,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             </xs:extension>
                           </xs:complexContent>
                         </xs:complexType>");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1424");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1424
-                // The schema is validated and the ItemId is not null, so this requirement can be captured.
-                Site.CaptureRequirement(
-                "MS-OXWSCDATA",
-                1424,
-                @"[In t:BaseItemIdType Complex Type] 
-                    The type [BaseItemIdType] is defined as follow:
-                    <xs:complexType name=""BaseItemIdType""
-                      abstract=""true""
-                     />");
             }
 
             if (item.ImportanceSpecified)
@@ -3722,17 +3708,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             {
                 this.VerifyResponseMessageType(message);
             }
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1085");
-
-            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1085
-            // BaseItemIdType is not used directly in the schema of each operations,
-            // if schema is validated, this requirement can be captured directly.
-            Site.CaptureRequirement(
-                "MS-OXWSCDATA",
-                1085,
-                "[In t:BaseItemIdType Complex Type] The BaseItemIdType type MUST NOT be sent in a SOAP message because it is an abstract type.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1091");

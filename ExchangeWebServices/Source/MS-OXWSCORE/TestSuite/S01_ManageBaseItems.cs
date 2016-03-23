@@ -4409,6 +4409,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 updateItemResponse.ResponseMessages.Items[0].ResponseCode,
                 2353,
                 @"[In t:ItemType Complex Type] but if [RightsManagementLicenseData] specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1355");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1355
+            // Server handles the element RightsManagementLicenseData and returns ErrorInvalidPropertySet, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                1355,
+                @"[In Appendix C: Product Behavior] Implementation does support element ""RightsManagementLicenseData"" with type ""t:RightsManagementLicenseDataType (section 2.2.4.37)"" which specifies rights management license data. (Exchange 2013 and above follow this behavior.)");
             #endregion
         }
 
