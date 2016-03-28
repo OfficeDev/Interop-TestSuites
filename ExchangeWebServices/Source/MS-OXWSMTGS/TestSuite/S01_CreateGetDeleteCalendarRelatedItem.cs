@@ -53,6 +53,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 calendarItem.IsOnlineMeeting = false;
                 calendarItem.IsOnlineMeetingSpecified = true;
             }
+			
             calendarItem.IsAllDayEvent = true;
             calendarItem.IsAllDayEventSpecified = true;
             calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.OOF;
@@ -306,6 +307,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meetingItem.IsOnlineMeeting = true;
                 meetingItem.IsOnlineMeetingSpecified = true;
             }
+			
             meetingItem.AllowNewTimeProposal = true;
             meetingItem.AllowNewTimeProposalSpecified = true;
             meetingItem.ConferenceType = 1;
@@ -1201,6 +1203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meeting.IsOnlineMeeting = true;
                 meeting.IsOnlineMeetingSpecified = true;
             }
+			
             meeting.ConferenceType = 2;
             meeting.ConferenceTypeSpecified = true;
             meeting.AllowNewTimeProposal = true;
@@ -1947,6 +1950,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meeting.IsOnlineMeeting = false;
                 meeting.IsOnlineMeetingSpecified = true;
             }
+			
             meeting.LegacyFreeBusyStatus = LegacyFreeBusyType.Free;
             meeting.LegacyFreeBusyStatusSpecified = true;
 
@@ -2812,7 +2816,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// This test case is designed to test MeetingRequestType PincipalWantsCopy indicates that the meeting request belongs to
+        /// This test case is designed to test MeetingRequestType PrincipalWantsCopy indicates that the meeting request belongs to
         /// a principal who has forwarded meeting messages to a delegate and this copy is informational.
         /// </summary>
         [TestCategory("MSOXWSMTGS"), TestMethod()]
