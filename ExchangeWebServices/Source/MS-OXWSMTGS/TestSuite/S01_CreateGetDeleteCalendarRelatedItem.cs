@@ -53,7 +53,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 calendarItem.IsOnlineMeeting = false;
                 calendarItem.IsOnlineMeetingSpecified = true;
             }
-
             calendarItem.IsAllDayEvent = true;
             calendarItem.IsAllDayEventSpecified = true;
             calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.OOF;
@@ -307,7 +306,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meetingItem.IsOnlineMeeting = true;
                 meetingItem.IsOnlineMeetingSpecified = true;
             }
-
             meetingItem.AllowNewTimeProposal = true;
             meetingItem.AllowNewTimeProposalSpecified = true;
             meetingItem.ConferenceType = 1;
@@ -733,6 +731,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         654,
                         @"[In Appendix C: Product Behavior] Implementation does support the TimeZoneType complex type. (<17> Section 2.2.4: Only Exchange 2007 supports the TimeZoneType complex type.)");
                 }
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1053");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1053
+                this.Site.CaptureRequirementIfIsNotNull(
+                    calendar.MeetingTimeZone,
+                    1053,
+                    @"[In t:CalendarItemType Complex Type] This element [MeetingTimeZone] is returned only if the value of the CalendarItemType element is RecurringMaster.");
 
                 TimeZoneType timeZone = calendar.MeetingTimeZone;
 
@@ -1194,7 +1201,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meeting.IsOnlineMeeting = true;
                 meeting.IsOnlineMeetingSpecified = true;
             }
-
             meeting.ConferenceType = 2;
             meeting.ConferenceTypeSpecified = true;
             meeting.AllowNewTimeProposal = true;
@@ -1442,6 +1448,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             if (Common.IsRequirementEnabled(2301, this.Site))
             {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2301");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2301
+                this.Site.CaptureRequirementIfIsNotNull(
+                    createdCalendarItem.IsOnlineMeeting,
+                    2301,
+                    @"[In Appendix C: Product Behavior] Implementation does support the IsOnlineMeeting element. (Exchange 2007, Exchange 2010 and Exchange 2013 support the IsOnlineMeeting element.)");
+
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R746");
 
@@ -1717,6 +1732,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if (Common.IsRequirementEnabled(3541, this.Site))
             {
                 // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R3541");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R3541
+                this.Site.CaptureRequirementIfIsNotNull(
+                    receivedRequest.ConferenceType,
+                    3541,
+                    @"[In Appendix C: Product Behavior] Implementation does support ConferenceType in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)");
+
+                // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35502");
 
                 // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R35502
@@ -1923,7 +1947,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 meeting.IsOnlineMeeting = false;
                 meeting.IsOnlineMeetingSpecified = true;
             }
-
             meeting.LegacyFreeBusyStatus = LegacyFreeBusyType.Free;
             meeting.LegacyFreeBusyStatusSpecified = true;
 
@@ -2789,7 +2812,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
-        /// This test case is designed to test MeetingRequestType PrincipalWantsCopy indicates that the meeting request belongs to
+        /// This test case is designed to test MeetingRequestType PincipalWantsCopy indicates that the meeting request belongs to
         /// a principal who has forwarded meeting messages to a delegate and this copy is informational.
         /// </summary>
         [TestCategory("MSOXWSMTGS"), TestMethod()]

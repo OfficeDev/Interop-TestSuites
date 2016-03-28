@@ -107,5 +107,7 @@
     <Property name="R8852Enabled" value="false" />
     <!--Set R7512Enabled to true to verify that the implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. Set R7512Enabled to false to disable this requirement.-->
     <Property name="R7512Enabled" value="false" />
+    <!--Set R911Enabled to true to verify that the implementation does support the TimeZoneType complex type. Set R911Enabled to false to disable this requirement.-->
+    <Property name="R911Enabled" value="true" />
   </Properties>
 </TestSite>

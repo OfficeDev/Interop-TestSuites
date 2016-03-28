@@ -1097,6 +1097,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.VerifyNonEmptyArrayOfDeletedOccurrencesType(calendarItem.DeletedOccurrences, isSchemaValidated);
             }
 
+            if(calendarItem.MeetingTimeZone != null && Common.IsRequirementEnabled(911, this.Site))
+            {
+                this.VerifyTimeZoneType(calendarItem.MeetingTimeZone, isSchemaValidated);
+            }
+
             if (calendarItem.RecurrenceIdSpecified == true)
             {
                 // Add the debug information
@@ -1131,18 +1136,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     isSchemaValidated,
                     228,
                     @"[In t:CalendarItemType Complex Type] The type of AllowNewTimeProposal is xs:boolean.");
-            }
-
-            if (calendarItem.IsOnlineMeetingSpecified)
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R230");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R230
-                Site.CaptureRequirementIfIsTrue(
-                    isSchemaValidated,
-                    230,
-                    @"[In t:CalendarItemType Complex Type] The type of IsOnlineMeeting is xs:boolean.");
             }
 
             if (calendarItem.MeetingWorkspaceUrl != null)
@@ -1526,6 +1519,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     isSchemaValidated,
                     296,
                     @"[In t:MeetingRequestMessageType Complex Type] The type of Location is xs:string ([XMLSCHEMA2]).");
+            }
+
+            if (!string.IsNullOrEmpty(meetingRequestMessage.When))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R298");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R298
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    298,
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of When is xs:string.");
             }
 
             if (meetingRequestMessage.IsMeetingSpecified)
@@ -1932,6 +1937,147 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             {
                 this.VerifyDeletedOccurrenceInfoType(isSchemaValidated);
             }
+        }
+
+        /// <summary>
+        /// Verify TimeZoneType structure.
+        /// </summary>
+        /// <param name="timeZoneType">Represents the time zone of the location where a meeting is hosted</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyTimeZoneType(TimeZoneType timeZoneType, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R911");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R911
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             911,
+             @"[In Appendix C: Product Behavior] Implementation does support the TimeZoneType complex type which does not represent the time zone of the location where a meeting is hosted. 
+<xs:complexType name=""TimeZoneType"">
+  <xs:sequence
+    minOccurs=""0""
+  >
+    <xs:element name=""BaseOffset""
+      type=""xs:duration""
+     />
+    <xs:sequence
+      minOccurs=""0""
+    >
+      <xs:element name=""Standard""
+        type=""t:TimeChangeType""
+       />
+      <xs:element name=""Daylight""
+        type=""t:TimeChangeType""
+       />
+    </xs:sequence>
+  </xs:sequence>
+  <xs:attribute name=""TimeZoneName""
+    type=""xs:string""
+    use=""optional""
+  />
+</xs:complexType> (<76> Section 2.2.4.40:  Only Exchange 2007 supports the TimeZoneType complex type.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R406");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R406
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             406,
+             @"[In t:TimeZoneType Complex Type] The type of BaseOffset is xs:duration ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R408");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R408
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             408,
+             @"[In t:TimeZoneType Complex Type] The type of Standard is t:TimeChangeType (section 2.2.4.23).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R410");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R410
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             410,
+             @"[In t:TimeZoneType Complex Type] The type of Daylight is t:TimeChangeType.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R584");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R584
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             584,
+             @"[In t:TimeZoneType Complex Type] The type of TimeZoneName is xs:string ([XMLSCHEMA2]).");
+
+            if(timeZoneType != null)
+            {
+                this.VerifyTimeChangeType(isSchemaValidated);
+            }
+        }
+
+       /// <summary>
+        /// Verify TimeChangeType structure.
+        /// </summary>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyTimeChangeType( bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R397");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R397
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             397,
+             @"[In t:TimeChangeType Complex Type] [its schema is] <xs:complexType name=""TimeChangeType"">
+  <xs:sequence>
+    <xs:element name=""Offset""
+      type=""xs:duration""
+     />
+    <xs:group
+      minOccurs=""0""
+      ref=""t:TimeChangePatternTypes""
+     />
+    <xs:element name=""Time""
+      type=""xs:time""
+     />
+  </xs:sequence>
+  <xs:attribute name=""TimeZoneName""
+    type=""xs:string""
+    use=""optional""
+   />
+</xs:complexType>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R398");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R398
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             398,
+             @"[In t:TimeChangeType Complex Type] The type of Offset is xs:duration ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R400");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R400
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             400,
+             @"[In t:TimeChangeType Complex Type] The type of Time is xs:time ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R402");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R402
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             402,
+             @"[In t:TimeChangeType Complex Type] The type of TimeZoneName is xs:string ([XMLSCHEMA2]).");
         }
 
         /// <summary>
