@@ -364,6 +364,70 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 280,
                 @"[In tns:CreateItemSoapOut Message] [The part ""ServerVersion""] Specifies a SOAP header that identifies the server version for the response to a CreateItem operation request.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R83");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R83
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                "MS-OXWSCDATA",
+                83,
+                @"[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.
+                <xs:simpleType name=""DistinguishedFolderIdNameType"">
+                    <xs:restriction base=""xs:string"">
+                        <xs:enumeration value=""calendar""/>
+                        <xs:enumeration value=""contacts""/>
+                        <xs:enumeration value=""deleteditems""/>
+                        <xs:enumeration value=""drafts""/>
+                        <xs:enumeration value=""inbox""/>
+                        <xs:enumeration value=""journal""/>
+                        <xs:enumeration value=""junkemail""/>
+                        <xs:enumeration value=""msgfolderroot""/>
+                        <xs:enumeration value=""notes""/>
+                        <xs:enumeration value=""outbox""/>
+                        <xs:enumeration value=""publicfoldersroot""/>
+                        <xs:enumeration value=""root""/>
+                        <xs:enumeration value=""searchfolders""/>
+                        <xs:enumeration value=""sentitems""/>
+                        <xs:enumeration value=""tasks""/>
+                        <xs:enumeration value=""voicemail""/>
+                        <xs:enumeration value=""recoverableitemsroot""/>
+                        <xs:enumeration value=""recoverableitemsdeletions""/>
+                        <xs:enumeration value=""recoverableitemsversions""/>
+                        <xs:enumeration value=""recoverableitemspurges""/>
+                        <xs:enumeration value=""archiveroot""/>
+                        <xs:enumeration value=""archivemsgfolderroot""/>
+                        <xs:enumeration value=""archivedeleteditems""/>
+                        <xs:enumeration value=""archiverecoverableitemsroot""/>
+                        <xs:enumeration value=""archiverecoverableitemsdeletions""/>
+                        <xs:enumeration value=""archiverecoverableitemsversions""/>
+                        <xs:enumeration value=""archiverecoverableitemspurges""/>
+                        <xs:enumeration value=""syncissues""/>
+                        <xs:enumeration value=""conflicts""/>
+                        <xs:enumeration value=""localfailures""/>
+                        <xs:enumeration value=""serverfailures""/>
+                        <xs:enumeration value=""recipientcache""/>
+                        <xs:enumeration value=""quickcontacts""/>
+                        <xs:enumeration value=""conversationhistory""/>
+                        <xs:enumeration value=""adminauditlogs""/>
+                        <xs:enumeration value=""todosearch""/>
+                        <xs:enumeration value=""mycontacts""/>
+                        <xs:enumeration value=""directory"" />
+                        <xs:enumeration value=""imcontactlist""/>
+                        <xs:enumeration value=""peopleconnect"" />
+                    </xs:restriction>
+                </xs:simpleType>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4000");
+
+            // Verified MS-OXWSCDATA_R4000.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                "MS-OXWSCDATA",
+                4000,
+                @"[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)");
+
             // Verify the BaseResponseMessageType schema.
             this.VerifyBaseResponseMessageType(createItemResponse);
 

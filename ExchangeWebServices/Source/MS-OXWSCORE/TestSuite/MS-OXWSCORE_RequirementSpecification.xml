@@ -15814,7 +15814,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16996,7 +16996,7 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R1669.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R83</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSCDATA_R8301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.&lt;88&gt;
     </ns1:Description>
@@ -17004,7 +17004,60 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCDATA_R1462.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCDATA_R4000.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R83</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Description>[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.
+&lt;xs:simpleType name="DistinguishedFolderIdNameType"&gt;
+    &lt;xs:restriction base="xs:string"&gt;
+        &lt;xs:enumeration value="calendar"/&gt;
+        &lt;xs:enumeration value="contacts"/&gt;
+        &lt;xs:enumeration value="deleteditems"/&gt;
+        &lt;xs:enumeration value="drafts"/&gt;
+        &lt;xs:enumeration value="inbox"/&gt;
+        &lt;xs:enumeration value="journal"/&gt;
+        &lt;xs:enumeration value="junkemail"/&gt;
+        &lt;xs:enumeration value="msgfolderroot"/&gt;
+        &lt;xs:enumeration value="notes"/&gt;
+        &lt;xs:enumeration value="outbox"/&gt;
+        &lt;xs:enumeration value="publicfoldersroot"/&gt;
+        &lt;xs:enumeration value="root"/&gt;
+        &lt;xs:enumeration value="searchfolders"/&gt;
+        &lt;xs:enumeration value="sentitems"/&gt;
+        &lt;xs:enumeration value="tasks"/&gt;
+        &lt;xs:enumeration value="voicemail"/&gt;
+        &lt;xs:enumeration value="recoverableitemsroot"/&gt;
+        &lt;xs:enumeration value="recoverableitemsdeletions"/&gt;
+        &lt;xs:enumeration value="recoverableitemsversions"/&gt;
+        &lt;xs:enumeration value="recoverableitemspurges"/&gt;
+        &lt;xs:enumeration value="archiveroot"/&gt;
+        &lt;xs:enumeration value="archivemsgfolderroot"/&gt;
+        &lt;xs:enumeration value="archivedeleteditems"/&gt;
+        &lt;xs:enumeration value="archiverecoverableitemsroot"/&gt;
+        &lt;xs:enumeration value="archiverecoverableitemsdeletions"/&gt;
+        &lt;xs:enumeration value="archiverecoverableitemsversions"/&gt;
+        &lt;xs:enumeration value="archiverecoverableitemspurges"/&gt;
+        &lt;xs:enumeration value="syncissues"/&gt;
+        &lt;xs:enumeration value="conflicts"/&gt;
+        &lt;xs:enumeration value="localfailures"/&gt;
+        &lt;xs:enumeration value="serverfailures"/&gt;
+        &lt;xs:enumeration value="recipientcache"/&gt;
+        &lt;xs:enumeration value="quickcontacts"/&gt;
+        &lt;xs:enumeration value="conversationhistory"/&gt;
+        &lt;xs:enumeration value="adminauditlogs"/&gt;
+        &lt;xs:enumeration value="todosearch"/&gt;
+        &lt;xs:enumeration value="mycontacts"/&gt;
+        &lt;xs:enumeration value="directory" /&gt;
+        &lt;xs:enumeration value="imcontactlist"/&gt;
+        &lt;xs:enumeration value="peopleconnect" /&gt;
+    &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R3004</ns1:REQ_ID>
@@ -18982,11 +19035,21 @@ xs:complexType name="RoleMemberItemType"&gt;
 		<ns1:REQ_ID>MS-OXWSCDATA_R1462</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (&lt;88&gt; Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCDATA_R83:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCDATA_R8301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R4000</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R8301:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>

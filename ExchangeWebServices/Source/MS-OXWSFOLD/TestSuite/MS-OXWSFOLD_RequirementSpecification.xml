@@ -1226,7 +1226,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R810107, MS-OXWSFOLD_R810108, MS-OXWSFOLD_R810109, MS-OXWSFOLD_R8101010, MS-OXWSFOLD_R8101011.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R810107, MS-OXWSFOLD_R810108, MS-OXWSFOLD_R810109, MS-OXWSFOLD_R8101010, MS-OXWSFOLD_R8101011, MS-OXWSFOLD_R8101012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R810101</ns1:REQ_ID>
@@ -1411,8 +1411,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R28402.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R8403</ns1:REQ_ID>
@@ -1421,8 +1420,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R840301.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R8404</ns1:REQ_ID>
@@ -1440,8 +1438,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R840501.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R8406</ns1:REQ_ID>
@@ -1459,8 +1456,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R840612.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R84062</ns1:REQ_ID>
@@ -2884,7 +2880,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R1052, MS-OXWSFOLD_R10521, MS-OXWSFOLD_R10511, MS-OXWSFOLD_R105111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1052</ns1:REQ_ID>
@@ -3314,7 +3311,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R549</ns1:REQ_ID>
@@ -6572,7 +6569,7 @@ indicates that the user has permission to perform the action on all items in the
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R34301, MS-OXWSFOLD_R34302.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R34301, MS-OXWSFOLD_R34302, MS-OXWSFOLD_R34303.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R34301</ns1:REQ_ID>
@@ -6611,8 +6608,7 @@ indicates that the user has permission to perform the action on all items in the
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R3440.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R345</ns1:REQ_ID>
@@ -7133,7 +7129,7 @@ tns:EmptyFolder (section 3.1.4.5.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R37801, MS-OXWSFOLD_R37802.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R37801, MS-OXWSFOLD_R37802, MS-OXWSFOLD_R37803.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R37801</ns1:REQ_ID>
@@ -7814,7 +7810,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R42103, MS-OXWSFOLD_R42104, MS-OXWSFOLD_R42105.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R42101, MS-OXWSFOLD_R42102, MS-OXWSFOLD_R42103, MS-OXWSFOLD_R42104, MS-OXWSFOLD_R42105.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R42101</ns1:REQ_ID>
@@ -9708,26 +9704,6 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R56611</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AddressListIdtype complex type. (&lt;1&gt; Section 2.2.4.1:  Exchange 2007 and Exchange 2010 do not support the AddressListIdType complex type.)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R13004:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R130041</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the AddressListIdtype complex type. (Exchange Server 2013 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R13004:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R18402</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not suppport "conversationhistory", "adminauditlogs", and "recoverableitemsroot" for DistinguishedFolderId when it is present in a Folder, CalendarFolder, ContactsFolder, or TasksFolder element of NonEmptyArrayOfFoldersType complex type in CreateFolder operation. (&lt;2&gt; Section 2.2.4.5:  Exchange 2007 and Exchange 2010 do not support the DistinguishedFolderId element in the BaseFolderType complex type.)</ns1:Description>
@@ -9745,8 +9721,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5661</ns1:REQ_ID>
@@ -9806,8 +9781,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R54911</ns1:REQ_ID>
@@ -10272,7 +10246,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R8101011.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R8101011, MS-OXWSFOLD_R8101012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1137</ns1:REQ_ID>
@@ -10493,6 +10467,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R42101.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R61</ns1:REQ_ID>
@@ -10502,6 +10477,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R42102.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R62</ns1:REQ_ID>
@@ -10541,6 +10517,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R34303, MS-OXWSFOLD_R37803.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R8301</ns1:REQ_ID>
@@ -10551,7 +10528,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCDATA_R1462.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCDATA_R4000.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R83</ns1:REQ_ID>
@@ -10690,7 +10667,17 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R4000</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCDATA_R8301:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>

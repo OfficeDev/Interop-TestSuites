@@ -2404,7 +2404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 }
                 else if (disposalType == DisposalType.SoftDelete)
                 {
-                    if (Common.IsRequirementEnabled(1462, this.Site))
+                    if (Common.IsRequirementEnabled(4000, this.Site))
                     {
                         // Find the deleted item in deleteditems folder.
                         ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.recoverableitemsdeletions, createdItems[0].Subject, "User1");
@@ -2423,16 +2423,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                                 1669,
                                 @"[In m:DeleteItemType Complex Type] The value ""SoftDelete"" of ""DeleteType"" which specifies that an item or folder is moved to the dumpster if the dumpster is enabled.");
                         }
-
-                        // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1462");
-
-                        // Verified MS-OXWSCDATA_R1462.
-                        Site.CaptureRequirementIfIsNotNull(
-                            DistinguishedFolderIdNameType.recoverableitemsdeletions,
-                            "MS-OXWSCDATA",
-                            1462,
-                            @"[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (<88> Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)");
                     }
                 }
                 else

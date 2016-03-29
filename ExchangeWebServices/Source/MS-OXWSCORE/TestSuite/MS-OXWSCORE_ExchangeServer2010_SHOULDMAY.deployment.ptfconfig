@@ -3,8 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
-    <!--Set R1462Enabled to true to verify that the implementation does include the enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. Set R1462Enabled to false to disable this requirement.-->
-    <Property name="R1462Enabled" value="true" />
+    <!--Set R4000Enabled to true to verify that the implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. Set R4000Enabled to false to disable this requirement.-->
+    <Property name="R4000Enabled" value="true" />
     <!--Set R102000000Enabled to true to verify that the implementation does return the items of type t:ItemType as a t:MessageType type. Set R102000000Enabled to false to disable this requirement.-->
     <Property name="R102000000Enabled" value="false" />
     <!--Set R2119413Enabled to true to verify that the implementation does support the FilterHtmlContent element. Set R2119413Enabled to false to disable this requirement.-->

@@ -9,6 +9,8 @@
     <Adapter xsi:type="managed" name="IMS_OXWSFOLDAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSFOLD.MS_OXWSFOLDAdapter"/>
     <Adapter xsi:type="managed" name="IMS_OXWSCOREAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSFOLD.MS_OXWSCOREAdapter"/>
     <Adapter xsi:type="managed" name="IMS_OXWSSRCHAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSFOLD.MS_OXWSSRCHAdapter"/>
+    <!-- Powershell adapter declaration. The "name" attribute specifies the interface which declares all the adapter operations. The "scriptdir" attribute specifies the directory which contains the Powershell scripts that implement the operations. For each operation declared, a script with the same name and parameters must be available. The corresponding script will be executed when the respective adapter operation from the interface is called. -->
+    <!-- SUT Control Adapter -->
     <!-- Change the value of the "type" attribute to "interactive" and remove the "scriptdir" attribute, if you need to run the test suite in interactive mode. -->
     <Adapter xsi:type="powershell" name="IMS_OXWSFOLDSUTControlAdapter" scriptdir="."/>
   </Adapters>
