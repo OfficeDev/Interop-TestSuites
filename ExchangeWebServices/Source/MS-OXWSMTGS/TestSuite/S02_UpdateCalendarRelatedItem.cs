@@ -650,7 +650,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Attendee gets the meeting request.
-            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meeting.UID) as MeetingRequestMessageType;
+            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, this.LocationUpdate, meeting.UID, UnindexedFieldURIType.calendarLocation) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(meetingRequest, "The meeting request should exist.");
             Site.Assert.AreEqual<string>(this.LocationUpdate, meetingRequest.Location, "Location in meeting request message should be updated.");
 
@@ -676,9 +676,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In t:MeetingRequestTypeType Simple Type] This value [FullUpdate] indicates that the attendee has not yet responded to the original meeting request.");
             #endregion
 
-            #region Clean up organizer's calendar folder, and attendee's inbox and calendar folders.
+            #region Clean up organizer's calendar folder, and attendee's inbox, calendar and deleted items folders.
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
-            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
 
