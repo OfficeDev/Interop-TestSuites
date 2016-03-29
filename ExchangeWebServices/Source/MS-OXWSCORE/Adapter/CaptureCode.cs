@@ -418,15 +418,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     </xs:restriction>
                 </xs:simpleType>");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4000");
+            if (Common.IsRequirementEnabled(4000, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4000");
 
-            // Verified MS-OXWSCDATA_R4000.
-            Site.CaptureRequirementIfIsTrue(
-                isSchemaValidated,
-                "MS-OXWSCDATA",
-                4000,
-                @"[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)");
+                // Verified MS-OXWSCDATA_R4000.
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    "MS-OXWSCDATA",
+                    4000,
+                    @"[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)");
+            }
 
             // Verify the BaseResponseMessageType schema.
             this.VerifyBaseResponseMessageType(createItemResponse);

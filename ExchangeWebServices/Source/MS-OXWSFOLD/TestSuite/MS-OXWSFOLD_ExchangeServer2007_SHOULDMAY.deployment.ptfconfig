@@ -29,6 +29,5 @@
     <Property name="R1051112Enabled" value="false" />
     <!--Set R1121111Enabled to true to verify that implementation does use the StorageQuota which is the storage quota for a managed folder. Set R1121111Enabled to false to disable this requirement.-->
     <Property name="R1121111Enabled" value="false" />
-    
   </Properties>
 </TestSite>
