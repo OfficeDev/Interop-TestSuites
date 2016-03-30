@@ -225,7 +225,7 @@ Contains the status and result of a single DeleteAttachment operation.");
         [TestCategory("MSOXWSATT"), TestMethod()]
         public void MSOXWSATT_S01_TC02_ProcessMessageTypeItemAttachment()
         {
-            Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false, "Exchange 2007 does not use the FilterHtmlContent element.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(318013, this.Site), "Exchange 2007 does not use the FilterHtmlContent element.");
 
             #region Step 1 Create an item attachment, which contains a MessageType item as the child item, on an item.
 
@@ -272,7 +272,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             Site.CaptureRequirementIfIsNotNull(
                 ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
                 55001,
-                @"[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note. ");
+                @"[In Appendix C: Product Behavior]  Implementation does return MIME content.(<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2),  If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note.)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R202");
@@ -283,7 +283,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 202,
-                @"[In DeleteAttachment Operation] Before an attachment can be deleted, the item MUST be retrieved from the server.");
+                @"[In DeleteAttachment Operation] Before an item attachment can be deleted, it MUST be retrieved from the server.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R416");
@@ -447,6 +447,14 @@ Contains the status and result of a single DeleteAttachment operation.");
                  message.Body.Value.Contains("<script>alert('Alert!');</script>"),
                  479001,
                  @"[In t:AttachmentResponseShapeType Complex Type][The FilterHtmlContent element] A text value of ""true"" indicates that potentially unsafe HTML content is to be filtered from the attachment.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318013"); 
+
+            // If step above all pass, R318013 will be verified.
+            this.Site.CaptureRequirement(
+                318013,
+                @"[In Appendix C: Product Behavior] Implementation does support the FilterHtmlContent element. (Exchange 2010 and above follow this behavior.)");
             #endregion
             
             #region Step 5 Delete the item attachment created in step 1 by the DeleteAttachment operation.
@@ -513,7 +521,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             Site.CaptureRequirementIfIsNotNull(
                 ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
                 55003,
-                @"[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment. ");
+                @"[In Appendix C: Product Behavior]Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment.)");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R311");
@@ -545,7 +553,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 350,
-                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.4)");
+                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R85");
@@ -642,7 +650,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoWithoutMimeResponse.ResponseClass,
                 351,
-                @"[In t:ItemAttachmentType Complex Type][The type of Contact element is] t:ContactItemType ([MS-OXWSCONT] section 2.2.4.2)");
+                @"[In t:ItemAttachmentType Complex Type][The type of Contact element is] t:ContactItemType ([MS-OXWSCONT] section 2.2.4.3)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R554");
@@ -710,7 +718,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 356,
-                @"[In t:ItemAttachmentType Complex Type][The type of Task element is] t:TaskType ([MS-OXWSTASK] section 2.2.4.3)");
+                @"[In t:ItemAttachmentType Complex Type][The type of Task element is] t:TaskType ([MS-OXWSTASK] section 2.2.4.6)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R97");
@@ -777,7 +785,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             Site.CaptureRequirementIfIsNotNull(
                 ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
                 55002,
-                @"[In t:AttachmentResponseShapeType Complex Type] If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post. ");
+                @"[In Appendix C: Product Behavior] Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post.)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R357");
@@ -930,7 +938,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentAfterDeleteInfo1.ResponseClass,
                 467,
-                @"[In m:DeleteAttachmentType Complex Type][The AttachmentIds element] Contains the items or files that are attached to an item in the server store to be deleted.");
+                @"[In m:DeleteAttachmentType Complex Type][The AttachmentIds element] Contains the identifiers of the items or files that are attached to an item in the server store to be deleted.");
         }
 
         /// <summary>
@@ -1127,7 +1135,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             Site.CaptureRequirementIfIsTrue(
                 isR20001Verified,
                 20001,
-                @"[In DeleteAttachment Operation] It [the item attachment] exists as an attachment to an item or another attachment.");
+                @"[In DeleteAttachment Operation] It [the item attachment] exists as an attachment on an item or another attachment.");
 
             this.VerifyDeleteAttachmentSuccessfulResponse(deleteAttachmentResponse);
         }
@@ -1472,7 +1480,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                             ResponseClassType.Success,
                             createAttachmentInfoResponse.ResponseClass,
                             144,
-                            @"[In CreateAttachment Operation] A successful CreateAttachment operation request returns a CreateAttachmentResponse element with the ResponseClass attribute of the CreateAttachmentResponseMessage element set to ""Success"".");
+                            @"[In CreateAttachment Operation] If the request is successful, the CreateAttachment operation returns a CreateAttachmentResponse element with the ResponseClass attribute of the CreateAttachmentResponseMessage element set to ""Success"". ");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R145");
@@ -1532,7 +1540,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                             ResponseClassType.Success,
                             getAttachmentInfoResponse.ResponseClass,
                             259,
-                            @"[In GetAttachment Operation] A successful GetAttachment operation request returns a GetAttachmentResponse element with the ResponseClass attribute of the GetAttachmentResponseMessage element set to ""Success"".");
+                            @"[In GetAttachment Operation]  If the request is successful, the GetAttachment operation returns a GetAttachmentResponse element with the ResponseClass attribute of the GetAttachmentResponseMessage element set to ""Success"". ");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R260");
