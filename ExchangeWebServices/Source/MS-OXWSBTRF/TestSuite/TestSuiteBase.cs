@@ -316,8 +316,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     this.IsSchemaValidated,
                     2110,
-                    @"[In tns:ExportItemsSoapOut Message][If the request is unsuccessful]The ResponseCode element of the ExportItemsResponseMessage 
-                    element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.");
+                    @"[In tns:ExportItemsSoapOut Message][If the request is unsuccessful]The ResponseCode element of the ExportItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
             }
         }
 
@@ -434,9 +433,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     this.IsSchemaValidated,
                     2010,
-                    @"[In tns:UploadItemsSoapOut Message][If the request UploadItems request is unsuccessful]
-                    The ResponseCode element of the UploadItemsResponseMessage element is set to a value of the 
-                    ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.");
+                    @"[In tns:UploadItemsSoapOut Message][If the request UploadItems request is unsuccessful]The ResponseCode element of the UploadItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
             }
         }
 
