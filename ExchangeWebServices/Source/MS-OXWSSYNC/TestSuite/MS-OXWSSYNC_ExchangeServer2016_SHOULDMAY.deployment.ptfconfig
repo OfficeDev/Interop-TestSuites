@@ -20,6 +20,6 @@
     <!-- Set R1752003Enabled to true to verify that implementation dose support the NetworkItemType element. Set R1752003Enabled to false to disable this requirement.-->
     <Property name="R1752003Enabled" value="true"/>
     <!-- Set R1752001Enabled to true to verify that implementation dose support the RoleMemberItemType element. Set R1752001Enabled to false to disable this requirement.-->
-    <Property name="R1752001nabled" value="true"/>
+    <Property name="R1752001Enabled" value="true"/>
   </Properties>
 </TestSite>
