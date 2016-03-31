@@ -123,7 +123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     253,
-                    @"[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.5.10).");
+                    @"[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).");
 
                 // Add debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R254");
@@ -262,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     249,
-                    @"[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.5.10).");
+                    @"[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).");
 
                 // Add debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R250");
@@ -350,7 +350,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 168,
-                @"[In m:ExportItemsResponseMessageType Complex Type]The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).");
+                @"[In m:ExportItemsResponseMessageType Complex Type]The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
 
             // Add debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R70");
@@ -1036,7 +1036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 199,
-                @"[In m:UploadItemsResponseMessageType Complex Type]The Type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).");
+                @"[In m:UploadItemsResponseMessageType Complex Type]The Type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
 
             // Add debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R201");
