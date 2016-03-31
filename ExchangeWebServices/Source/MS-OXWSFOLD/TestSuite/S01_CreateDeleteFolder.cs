@@ -1654,7 +1654,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Error,
                     moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     1051112,
-                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior.)");
                 }
             #endregion
 
@@ -1668,7 +1668,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 UpdateFolderResponseType updateFolderResponse = this.FOLDAdapter.UpdateFolder(updateFolderRequest);
 
                 Site.Assert.AreEqual<ResponseClassType>(ResponseClassType.Error, updateFolderResponse.ResponseMessages.Items[0].ResponseClass, "Managed folder should not be updated");
-                managedFolderInformation = ((FolderInfoResponseMessageType)getFolderResponse.ResponseMessages.Items[0]).Folders[0].ManagedFolderInformation;
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1051111");
@@ -1678,7 +1677,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Error,
                     updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     1051111,
-                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be renamed. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be renamed. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior.)");
             }
             #endregion
         }

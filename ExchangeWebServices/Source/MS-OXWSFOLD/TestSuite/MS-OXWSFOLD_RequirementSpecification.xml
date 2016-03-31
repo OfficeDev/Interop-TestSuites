@@ -2913,7 +2913,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R1051111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2924,7 +2924,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R1051112.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9662,7 +9662,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1051111</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be renamed. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be renamed. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R10511:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9673,7 +9673,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1051112</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R105111:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
