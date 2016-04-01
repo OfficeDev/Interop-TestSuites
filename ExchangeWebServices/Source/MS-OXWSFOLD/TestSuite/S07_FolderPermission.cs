@@ -686,7 +686,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101011,
                 8101011,
-                @"[In t:BaseFolderType Complex Type] Value "true" of the element Read of EffectiveRights indicates a client can read a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Read of EffectiveRights indicates a client can read a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R810109");
