@@ -588,7 +588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 80,
-                @"OXWSMSG_R80[In t:MessageDispositionType Simple Type] The value ""SaveOnly"" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).");
+                @"[In t:MessageDispositionType Simple Type] The value ""SaveOnly"" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).");
             #endregion
 
             #region Sender sends the created message
