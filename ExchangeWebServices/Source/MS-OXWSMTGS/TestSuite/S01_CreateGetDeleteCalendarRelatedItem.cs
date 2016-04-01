@@ -382,7 +382,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             // Verify MS-OXWSCORE requirement: MS-OXWSMTGS_R319
             this.Site.CaptureRequirementIfIsNull(
-                request.When,
+                request.Resources,
                 319,
                 @"[In t:MeetingRequestMessageType Complex Type] Resources: Represents a scheduled resource for the meeting and is not populated to attendee's mailbox.");
 
@@ -411,7 +411,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Element ProposeNewTime is returned from server, this requirement can be captured directly.
                         this.Site.CaptureRequirement(
                             1292,
-                            @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTimeType complex type which specifies a response to a new time proposal. (This type was introduced in Exchange 2016.)");
+                            @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTimeType which specifies a response to a new time proposal. (This type was introduced in Exchange 2013 SP1.)");
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1107");
@@ -1519,13 +1519,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if (Common.IsRequirementEnabled(80048, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R800480");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80048");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R800480
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80048
                 this.Site.CaptureRequirementIfIsTrue(
                     createdCalendarItem.IsOrganizer && createdCalendarItem.IsOrganizerSpecified,
-                    800480,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which is true specifying the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    80048,
+                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
             #endregion
@@ -2349,7 +2349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(meetingItem, "The meeting item should be created.");
 
             // Create the recurring meeting.
-            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
             Site.Assert.IsNotNull(item, "The recurring meeting should be created successfully.");
             #endregion
 
@@ -2394,6 +2394,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Organizer deletes the recurring meeting
+            MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
+
             CalendarItemType recurringCalendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(recurringCalendar, "The meeting should exist in the organizer's calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendOnlyToAll.");
 
@@ -3051,13 +3053,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if (Common.IsRequirementEnabled(80048, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R800481");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80048");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R800481
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80048
                 this.Site.CaptureRequirementIfIsFalse(
                     request.IsOrganizer,
-                    800481,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which is false specifying the current user is not the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    80048,
+                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(903, this.Site))

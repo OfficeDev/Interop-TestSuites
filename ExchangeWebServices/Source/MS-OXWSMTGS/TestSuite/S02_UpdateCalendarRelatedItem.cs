@@ -157,13 +157,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if (Common.IsRequirementEnabled(80049, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R800491");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80049");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R800491
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80049
                 this.Site.CaptureRequirementIfIsFalse(
                     meetingRequest.IsOrganizer,
-                    800491,
-                    "[In Appendix C: Product Behavior] Implementation does support complex type IsOrganizer ,which is false specifying the current user is not the organizer of the meeting. (Exchange 2013 and above follow this behavior.)");
+                    80049,
+                    "[In Appendix C: Product Behavior] Implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(718, this.Site))
@@ -512,13 +512,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if (Common.IsRequirementEnabled(80049, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R800490");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80049");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R800490
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80049
                 this.Site.CaptureRequirementIfIsTrue(
                     response.IsOrganizer,
-                    800490,
-                    "[In Appendix C: Product Behavior] Implementation does support complex type IsOrganizer ,which is true specifying the current user is the organizer of the meeting. (Exchange 2013 and above follow this behavior.)");
+                    80049,
+                    "[In Appendix C: Product Behavior] Implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(909, this.Site))
