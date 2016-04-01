@@ -138,7 +138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseClassType.Success,
                 this.infoItems[0].ResponseClass,
                 144,
-                @"[In UpdateItem] A successful UpdateItem operation request returns an UpdateItemResponse element with the ResponseClass attribute of the UpdateItemResponseMessage element set to ""Success"".");
+                @"[In UpdateItem] If the UpdateItem WSDL operation request is successful, the server returns an UpdateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.9.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the UpdateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
             Site.Assert.IsNotNull(this.infoItems[0].ResponseCode, @"The ResponseCode property of the first item of infoItems instance should not be null.");
             
@@ -150,7 +150,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseCodeType.NoError,
                 this.infoItems[0].ResponseCode,
                 145,
-                @"[In UpdateItem] [A successful UpdateItem operation request returns an UpdateItemResponse element] The ResponseCode element of the UpdateItemResponse element is set to ""NoError"".");
+                @"[In UpdateItem] [A successful UpdateItem operation request returns an UpdateItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the UpdateItemResponseMessage element is set to ""NoError"". ");
             #endregion
             #endregion
 

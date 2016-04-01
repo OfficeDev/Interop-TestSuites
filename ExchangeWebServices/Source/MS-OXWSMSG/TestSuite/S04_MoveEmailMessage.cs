@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseClassType.Success,
                 this.infoItems[0].ResponseClass,
                 162,
-                @"[In MoveItem] A successful MoveItem operation request returns a MoveItemResponse element with the ResponseClass attribute of the MoveItemResponseMessage element set to ""Success"".");
+                @"[In MoveItem] If the MoveItem WSDL operation request is successful, the server returns a MoveItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.7.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the MoveItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
             Site.Assert.IsNotNull(this.infoItems[0].ResponseCode, @"The ResponseCode property of the first item of infoItems instance should not be null.");
 
@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseCodeType.NoError,
                 this.infoItems[0].ResponseCode,
                 163,
-                @"[In MoveItem] [A successful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element of the MoveItemResponse element is set to ""NoError"".");
+                @"[In MoveItem] [A successful MoveItem operation request returns a MoveItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the MoveItemResponseMessage element is set to ""NoError"". ");
             #endregion
             #endregion
 

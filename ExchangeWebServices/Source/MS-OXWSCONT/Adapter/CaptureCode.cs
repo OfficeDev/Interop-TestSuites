@@ -872,7 +872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 // When test suite running on HTTP, if there are no exceptions or error messages returned from server, this requirement will be captured.
                 Site.CaptureRequirement(
                     101,
-                    @"[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616].");
+                    @"[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616]. ");
             }
         }
         #endregion
