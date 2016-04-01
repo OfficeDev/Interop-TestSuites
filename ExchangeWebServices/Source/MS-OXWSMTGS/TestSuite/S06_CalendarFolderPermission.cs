@@ -874,7 +874,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR486,
                 487,
-                @"[In t:CalendarPermissionLevelType Simple Type] Contributor: The user can create items in the folder.");
+                @"[In t:CalendarPermissionLevelType Simple Type] Contributor: The contents of the folder do not appear.");
         }
 
         /// <summary>
@@ -2098,6 +2098,15 @@
                 createFolderResponse.ResponseMessages.Items[0].ResponseCode,
                 1046,
                 @"[In t:CalendarFolderType Complex Type]SharingEffectiveRights: This element is read-only.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1338");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1338
+            // Server handles the SharingEffectiveRights element, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                1338,
+                @"[In Appendix C: Product Behavior] Implementation does support the SharingEffectiveRights element. (Exchange 2010 and above follow this behavior.)");
             #endregion
         }
 

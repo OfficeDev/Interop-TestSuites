@@ -78,7 +78,7 @@
     <!--Set R80011Enabled to true to verify that the Implementation does support the EnhancedLocationType complex type which specifies additional location information for a calendar item in MeetingResponseMessageType. Set R80011Enabled to false to disable this requirement.-->
     <Property name="R80011Enabled" value="true" />
     <!--Set R1292Enabled to true to verify that the implementation does support the ProposeNewTimeType complex type which specifies a response to a new time proposal. Set R1292Enabled to false to disable this requirement.-->
-    <Property name="R1292Enabled" value="false" />
+    <Property name="R1292Enabled" value="true" />
     <!--Set R1334Enabled to true to verify that the implementation does support the ProposedStart element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1334Enabled to false to disable this requirement.-->
     <Property name="R1334Enabled" value="false" />
     <!--Set R1336Enabled to true to verify that the implementation does support the ProposedEnd element which specifies the proposed start date and time of the meeting in AttendeeType. Set R1336Enabled to false to disable this requirement.-->

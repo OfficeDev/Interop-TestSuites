@@ -489,21 +489,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 135,
-                @"[In t:AttendeeType Complex Type] [its schema is] <xs:complexType name=""AttendeeType"">
-  <xs:sequence>
-    <xs:element name=""Mailbox""
-      type=""t:EmailAddressType""
-     />
-    <xs:element name=""ResponseType""
-      type=""t:ResponseTypeType"" 
-      minOccurs=""0""
-     />
-    <xs:element name=""LastResponseTime""
-      type=""xs:dateTime"" 
-      minOccurs=""0""
-     />
-  </xs:sequence>
-</xs:complexType>");
+                @"[In t:AttendeeType Complex Type] [its schema is]  <xs:complexType name=""AttendeeType"">
+                   <xs:sequence>
+                     <xs:element name=""Mailbox""
+                       type=""t:EmailAddressType""
+                      />
+                     <xs:element name=""ResponseType""
+                       type=""t:ResponseTypeType""
+                       minOccurs=""0""
+                      />
+                     <xs:element name=""LastResponseTime""
+                       type=""xs:dateTime""
+                       minOccurs=""0""                
+                      />
+                     <xs:element name=""ProposedStart""
+                       type=""xs:dateTime"" 
+                       minOccurs=""0""
+                      />
+                     <xs:element name=""ProposedEnd"" 
+                       type=""xs:dateTime"" 
+                       minOccurs=""0""
+                      />
+                   </xs:sequence>
+                 </xs:complexType>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R136");
@@ -579,71 +587,72 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 isSchemaValidated,
                 149,
                 @"[In t:CalendarItemType Complex Type] [its schema is]
-<xs:complexType name=""CalendarItemType"">
-    <xs:complexContent>
-      <xs:extension base=""t:ItemType"">
-        <xs:sequence>
-          <!-- iCalendar properties -->
-          <xs:element name=""UID"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""RecurrenceId"" type=""xs:dateTime"" minOccurs=""0""/>
-          <xs:element name=""DateTimeStamp"" type=""xs:dateTime"" minOccurs=""0""/>
-          <!-- Single and Occurrence only -->
-          <xs:element name=""Start"" type=""xs:dateTime"" minOccurs=""0""/>
-          <xs:element name=""End"" type=""xs:dateTime"" minOccurs=""0""/>
-          <!-- Occurrence only -->
-          <xs:element name=""OriginalStart"" type=""xs:dateTime"" minOccurs=""0""/>
-          <xs:element name=""IsAllDayEvent"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""LegacyFreeBusyStatus"" type=""t:LegacyFreeBusyType"" minOccurs=""0""/>
-          <xs:element name=""Location"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""When"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""IsMeeting"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""IsCancelled"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""IsRecurring"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""MeetingRequestWasSent"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""IsResponseRequested"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""CalendarItemType"" type=""t:CalendarItemTypeType"" minOccurs=""0""/>
-          <xs:element name=""MyResponseType"" type=""t:ResponseTypeType"" minOccurs=""0""/>
-          <xs:element name=""Organizer"" type=""t:SingleRecipientType"" minOccurs=""0""/>
-          <xs:element name=""RequiredAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
-          <xs:element name=""OptionalAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
-          <xs:element name=""Resources"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
-          <!-- Conflicting and adjacent meetings -->
-          <xs:element name=""ConflictingMeetingCount"" type=""xs:int"" minOccurs=""0""/>
-          <xs:element name=""AdjacentMeetingCount"" type=""xs:int"" minOccurs=""0""/>
-          <xs:element name=""ConflictingMeetings"" type=""t:NonEmptyArrayOfAllItemsType"" minOccurs=""0""/>
-          <xs:element name=""AdjacentMeetings"" type=""t:NonEmptyArrayOfAllItemsType"" minOccurs=""0""/>
-          <xs:element name=""Duration"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""TimeZone"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""AppointmentReplyTime"" type=""xs:dateTime"" minOccurs=""0""/>
-          <xs:element name=""AppointmentSequenceNumber"" type=""xs:int"" minOccurs=""0""/>
-          <xs:element name=""AppointmentState"" type=""xs:int"" minOccurs=""0""/>
-          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
-          <xs:element name=""Recurrence"" type=""t:RecurrenceType"" minOccurs=""0""/>
-          <xs:element name=""FirstOccurrence"" type=""t:OccurrenceInfoType"" minOccurs=""0""/>
-          <xs:element name=""LastOccurrence"" type=""t:OccurrenceInfoType"" minOccurs=""0""/>
-          <xs:element name=""ModifiedOccurrences"" type=""t:NonEmptyArrayOfOccurrenceInfoType"" minOccurs=""0""/>
-          <xs:element name=""DeletedOccurrences"" type=""t:NonEmptyArrayOfDeletedOccurrencesType"" minOccurs=""0""/>
-          <xs:element name=""MeetingTimeZone"" type=""t:TimeZoneType"" minOccurs=""0""/>
-          <xs:element name=""StartTimeZone"" type=""t:TimeZoneDefinitionType"" minOccurs=""0""/>
-          <xs:element name=""EndTimeZone"" type=""t:TimeZoneDefinitionType"" minOccurs=""0""/>
-          <xs:element name=""ConferenceType"" type=""xs:int"" minOccurs=""0""/>
-          <xs:element name=""AllowNewTimeProposal"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""IsOnlineMeeting"" type=""xs:boolean"" minOccurs=""0""/>
-          <xs:element name=""MeetingWorkspaceUrl"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""NetShowUrl"" type=""xs:string"" minOccurs=""0""/>
-          <xs:element name=""EnhancedLocation"" type=""t:EnhancedLocationType"" minOccurs=""0""/>
-          <xs:element name=""StartWallClock"" type=""xs:dateTime"" minOccurs=""0"" maxOccurs=""1""/>
-          <xs:element name=""EndWallClock"" type=""xs:dateTime"" minOccurs=""0"" maxOccurs=""1""/>
-          <xs:element name=""StartTimeZoneId"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
-          <xs:element name=""EndTimeZoneId"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
-          <xs:element name=""IntendedFreeBusyStatus"" type=""t:LegacyFreeBusyType"" minOccurs=""0"" />
-          <xs:element name=""JoinOnlineMeetingUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1"" />
-          <xs:element name=""OnlineMeetingSettings"" type=""t:OnlineMeetingSettingsType"" minOccurs=""0"" maxOccurs=""1""/>
-          <xs:element name=""IsOrganizer"" type=""xs:boolean"" minOccurs=""0""/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType> ");
+                <xs:complexType name=""CalendarItemType"">
+                    <xs:complexContent>
+                      <xs:extension base=""t:ItemType"">
+                        <xs:sequence>
+                          <!-- iCalendar properties -->
+                          <xs:element name=""UID"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""RecurrenceId"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <xs:element name=""DateTimeStamp"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <!-- Single and Occurrence only -->
+                          <xs:element name=""Start"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <xs:element name=""End"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <!-- Occurrence only -->
+                          <xs:element name=""OriginalStart"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <xs:element name=""IsAllDayEvent"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""LegacyFreeBusyStatus"" type=""t:LegacyFreeBusyType"" minOccurs=""0""/>
+                          <xs:element name=""Location"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""When"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""IsMeeting"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""IsCancelled"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""IsRecurring"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""MeetingRequestWasSent"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""IsResponseRequested"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""CalendarItemType"" type=""t:CalendarItemTypeType"" minOccurs=""0""/>
+                          <xs:element name=""MyResponseType"" type=""t:ResponseTypeType"" minOccurs=""0""/>
+                          <xs:element name=""Organizer"" type=""t:SingleRecipientType"" minOccurs=""0""/>
+                          <xs:element name=""RequiredAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
+                          <xs:element name=""OptionalAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
+                           <xs:element name=""Resources"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
+                           <xs:element name=""InboxReminders"" type=""t:ArrayOfInboxReminderType"" minOccurs=""0""/>
+                          <!-- Conflicting and adjacent meetings -->
+                          <xs:element name=""ConflictingMeetingCount"" type=""xs:int"" minOccurs=""0""/>
+                          <xs:element name=""AdjacentMeetingCount"" type=""xs:int"" minOccurs=""0""/>
+                          <xs:element name=""ConflictingMeetings"" type=""t:NonEmptyArrayOfAllItemsType"" minOccurs=""0""/>
+                          <xs:element name=""AdjacentMeetings"" type=""t:NonEmptyArrayOfAllItemsType"" minOccurs=""0""/>
+                          <xs:element name=""Duration"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""TimeZone"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""AppointmentReplyTime"" type=""xs:dateTime"" minOccurs=""0""/>
+                          <xs:element name=""AppointmentSequenceNumber"" type=""xs:int"" minOccurs=""0""/>
+                          <xs:element name=""AppointmentState"" type=""xs:int"" minOccurs=""0""/>
+                          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
+                          <xs:element name=""Recurrence"" type=""t:RecurrenceType"" minOccurs=""0""/>
+                          <xs:element name=""FirstOccurrence"" type=""t:OccurrenceInfoType"" minOccurs=""0""/>
+                          <xs:element name=""LastOccurrence"" type=""t:OccurrenceInfoType"" minOccurs=""0""/>
+                          <xs:element name=""ModifiedOccurrences"" type=""t:NonEmptyArrayOfOccurrenceInfoType"" minOccurs=""0""/>
+                          <xs:element name=""DeletedOccurrences"" type=""t:NonEmptyArrayOfDeletedOccurrencesType"" minOccurs=""0""/>
+                          <xs:element name=""MeetingTimeZone"" type=""t:TimeZoneType"" minOccurs=""0""/>
+                          <xs:element name=""StartTimeZone"" type=""t:TimeZoneDefinitionType"" minOccurs=""0""/>
+                          <xs:element name=""EndTimeZone"" type=""t:TimeZoneDefinitionType"" minOccurs=""0""/>
+                          <xs:element name=""ConferenceType"" type=""xs:int"" minOccurs=""0""/>
+                          <xs:element name=""AllowNewTimeProposal"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""IsOnlineMeeting"" type=""xs:boolean"" minOccurs=""0""/>
+                          <xs:element name=""MeetingWorkspaceUrl"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""NetShowUrl"" type=""xs:string"" minOccurs=""0""/>
+                          <xs:element name=""EnhancedLocation"" type=""t:EnhancedLocationType"" minOccurs=""0""/>
+                          <xs:element name=""StartWallClock"" type=""xs:dateTime"" minOccurs=""0"" maxOccurs=""1""/>
+                          <xs:element name=""EndWallClock"" type=""xs:dateTime"" minOccurs=""0"" maxOccurs=""1""/>
+                          <xs:element name=""StartTimeZoneId"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+                          <xs:element name=""EndTimeZoneId"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+                          <xs:element name=""IntendedFreeBusyStatus"" type=""t:LegacyFreeBusyType"" minOccurs=""0"" />
+                          <xs:element name=""JoinOnlineMeetingUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1"" />
+                          <xs:element name=""OnlineMeetingSettings"" type=""t:OnlineMeetingSettingsType"" minOccurs=""0"" maxOccurs=""1""/>
+                          <xs:element name=""IsOrganizer"" type=""xs:boolean"" minOccurs=""0""/>
+                        </xs:sequence>
+                      </xs:extension>
+                    </xs:complexContent>
+                  </xs:complexType>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R509");
@@ -1519,18 +1528,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     isSchemaValidated,
                     296,
                     @"[In t:MeetingRequestMessageType Complex Type] The type of Location is xs:string ([XMLSCHEMA2]).");
-            }
-
-            if (!string.IsNullOrEmpty(meetingRequestMessage.When))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R298");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R298
-                Site.CaptureRequirementIfIsTrue(
-                    isSchemaValidated,
-                    298,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of When is xs:string.");
             }
 
             if (meetingRequestMessage.IsMeetingSpecified)
