@@ -219,7 +219,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 EmailAddressKeyType.EmailAddress1,
                 contacts[0].EmailAddresses[0].Key,
                 124,
-                @"[In t:EmailAddressKeyType Simple Type] EmailAddress1: Identifies the first e-mail address for the contact.");
+                @"[In t:EmailAddressKeyType Simple Type] EmailAddress1: Identifies the first e-mail address for the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R125");
@@ -229,7 +229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 EmailAddressKeyType.EmailAddress2,
                 contacts[1].EmailAddresses[0].Key,
                 125,
-                @"[In t:EmailAddressKeyType Simple Type] EmailAddress2: Identifies the second e-mail address for the contact.");
+                @"[In t:EmailAddressKeyType Simple Type] EmailAddress2: Identifies the second e-mail address for the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R126");
@@ -239,7 +239,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 EmailAddressKeyType.EmailAddress3,
                 contacts[2].EmailAddresses[0].Key,
                 126,
-                @"[In t:EmailAddressKeyType Simple Type] EmailAddress3: Identifies the third e-mail address for the contact.");
+                @"[In t:EmailAddressKeyType Simple Type] EmailAddress3: Identifies the third e-mail address for the contact (2).");
             #endregion
         }
 
@@ -338,7 +338,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR130,
                 130,
-                @"[In t:FileAsMappingType Simple Type] None: Indicates that the FileAs value is not constructed from other contact's properties, but is represented by a string, saved ""as is"".");
+                @"[In t:FileAsMappingType Simple Type] None: Indicates that the FileAs value is not constructed from properties of other contacts (2), but is represented by a string, saved ""as is"".  ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R133, Expected result: FileAsMapping is {0}, FileAs is {1}. Actual result: FileAsMapping is {2}, FileAs is {3}", requestItems[3].FileAsMapping, requestItems[3].CompanyName, contacts[3].FileAsMapping, contacts[3].FileAs);

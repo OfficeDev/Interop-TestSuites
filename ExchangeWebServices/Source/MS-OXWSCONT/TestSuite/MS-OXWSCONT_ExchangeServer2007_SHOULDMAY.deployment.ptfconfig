@@ -9,8 +9,6 @@
      <Property name="R1275002Enabled" value="false"/>
      <!--Set R335001Enabled to true to implementation does use secure communications via HTTPS, as defined in [RFC2818]. Set R335001Enabled to false to disable this requirement-->
      <Property name="R335001Enabled" value="true"/>
-     <!--Set R1275002Enabled to true to implementation does support element HasPicture. Set R1275002Enabled to false to disable this requirement-->
-     <Property name="R1275002Enabled" value="false"/>
      <!--Set R1275004Enabled to true to implementation does use AccountName element. Set R1275004Enabled to false to disable this requirement-->
      <Property name="R1275004Enabled" value="false"/>
      <!--Set R1275006Enabled to true to implementation does use the IsAutoUpdateDisabled element. Set R1275006Enabled to false to disable this requirement-->
@@ -67,7 +65,5 @@
      <Property name="R1275106Enabled" value="false"/>
      <!--Set R1275108Enabled to true to implementation does use  the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
      <Property name="R1275108Enabled" value="false"/>
-     <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
-     <Property name="R1275114Enabled" value="false"/>
   </Properties>
 </TestSite>

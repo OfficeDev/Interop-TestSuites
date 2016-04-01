@@ -71,7 +71,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>verified by derived requirement: MS-OXWSCONT_R335001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R335001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R2</ns1:REQ_ID>
@@ -224,7 +224,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16002</ns1:REQ_ID>
@@ -889,7 +889,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>verified by derived requirement: MS-OXWSCONT_R19.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSCONT_R19.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R20</ns1:REQ_ID>
@@ -1484,6 +1484,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R81001</ns1:REQ_ID>
@@ -1709,7 +1710,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275003.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275004.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334003</ns1:REQ_ID>
@@ -1728,7 +1729,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275005.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275006.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334005</ns1:REQ_ID>
@@ -2025,7 +2026,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275035.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275036.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334037</ns1:REQ_ID>
@@ -2626,7 +2627,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19002</ns1:REQ_ID>
@@ -2734,7 +2735,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19013</ns1:REQ_ID>
@@ -2785,7 +2786,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19017</ns1:REQ_ID>
@@ -2874,7 +2875,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19026</ns1:REQ_ID>
@@ -3290,7 +3291,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R218003</ns1:REQ_ID>
@@ -3308,7 +3309,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R219</ns1:REQ_ID>
@@ -5999,8 +6000,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requriement: MS-OXWSCONT_R30205601, MS-OXWSCONT_R30205602.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R30205601</ns1:REQ_ID>
@@ -7520,7 +7520,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275113</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SetUserPhoto operation. (&lt;60&gt; Section 3.1.4.8:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the SetUserPhoto operation.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R302078:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R302077:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7530,100 +7530,12 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275114</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SetUserPhoto operation. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R302078:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R302077:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R163</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.18</ns1:Doc_Sect>
-		<ns1:Description>[In t:MailboxTypeType Simple Type] The type [MailboxTypeType] is defined as follow:
-&lt;xs:simpleType name="MailboxTypeType"&gt;
-  &lt;xs:restriction base="xs:string"&gt;
-    &lt;xs:enumeration value="Unknown"/&gt;
-    &lt;xs:enumeration value="OneOff"/&gt;
-    &lt;xs:enumeration value="Contact"/&gt;
-    &lt;xs:enumeration value="Mailbox"/&gt;
-    &lt;xs:enumeration value="PrivateDL"/&gt;
-    &lt;xs:enumeration value="PublicDL"/&gt;
-    &lt;xs:enumeration value="PublicFolder"/&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R188</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyStringType Simple Type] The NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R189</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyStringType Simple Type] The type [NonEmptyStringType] is defined as follow:
-&lt;xs:simpleType name="NonEmptyStringType"&gt;
-  &lt;xs:restriction base="xs:string"&gt;
-    &lt;xs:minLength value="1"/&gt;
-  &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R262</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type]The value "ErrorCannotCreateContactInNonContactFolder" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R367</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailAddress" specifies that an invalid e-mail address was provided for a contact.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R368</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailIndex" specifies that an invalid e-mail index value was provided for an e-mail entry.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R368001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorCannotCreateContactInNonContactFolder" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCDATA_R368002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailIndex" specifies that an invalid e-mail index value was provided for an e-mail entry.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R368004</ns1:REQ_ID>
@@ -7903,5 +7815,93 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R163</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.18</ns1:Doc_Sect>
+		<ns1:Description>[In t:MailboxTypeType Simple Type] The type [MailboxTypeType] is defined as follow:
+&lt;xs:simpleType name="MailboxTypeType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:enumeration value="Unknown"/&gt;
+    &lt;xs:enumeration value="OneOff"/&gt;
+    &lt;xs:enumeration value="Contact"/&gt;
+    &lt;xs:enumeration value="Mailbox"/&gt;
+    &lt;xs:enumeration value="PrivateDL"/&gt;
+    &lt;xs:enumeration value="PublicDL"/&gt;
+    &lt;xs:enumeration value="PublicFolder"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R188</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyStringType Simple Type] The NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R189</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyStringType Simple Type] The type [NonEmptyStringType] is defined as follow:
+&lt;xs:simpleType name="NonEmptyStringType"&gt;
+  &lt;xs:restriction base="xs:string"&gt;
+    &lt;xs:minLength value="1"/&gt;
+  &lt;/xs:restriction&gt;
+&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R262</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type]The value "ErrorCannotCreateContactInNonContactFolder" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R367</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailAddress" specifies that an invalid e-mail address was provided for a contact.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailIndex" specifies that an invalid e-mail index value was provided for an e-mail entry.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R368001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorCannotCreateContactInNonContactFolder" specifies that an attempt was made to create a contact in a folder other than the Contacts folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCDATA_R368002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorInvalidContactEmailIndex" specifies that an invalid e-mail index value was provided for an e-mail entry.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 </ns1:ReqTable>
