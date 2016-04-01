@@ -1231,34 +1231,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #endregion
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R153");
-
-            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R153
-            bool isVerifiedR153 = !this.CanCreateSubFolder && this.CanCreateItem && !this.CanEditOwnedItem && !this.CanDeleteOwnedItem && !this.CanReadNotOwnedItem && !this.CanEditNotOwnedItem && !this.CanDeleteNotOwnedItem;
-
-            Site.Assert.IsTrue(
-                isVerifiedR153,
-                "Can create subfolder expected to be \"false\" and actual is {0};\n" +
-                "Can create item expected to be \"true\" and actual is {1};\n" +
-                "Can edit owned item expected to be \"false\" and actual is {2};\n" +
-                "Can delete owned item expected to be \"false\" and actual is {3};\n" +
-                "Can read not owned item expected to be \"false\" and actual is {4};\n" +
-                "Can edit not owned item expected to be \"false\" and actual is {5};\n" +
-                "Can delete not owned item expected to be \"false\" and actual is {6};\n ",
-                this.CanCreateSubFolder,
-                this.CanCreateItem,
-                this.CanEditOwnedItem,
-                this.CanDeleteOwnedItem,
-                this.CanReadNotOwnedItem,
-                this.CanEditNotOwnedItem,
-                this.CanDeleteNotOwnedItem);
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR153,
-                153,
-                @"[In t:PermissionLevelType Simple Type]The value Contributor means the user can create items in the folder. The contents of the folder do not appear.");
-
-            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R810108");
 
             // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R810108

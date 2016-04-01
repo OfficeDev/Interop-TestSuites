@@ -7,8 +7,6 @@
     <Property name="R3008Enabled" value="true" />
     <!--Set R5664Enabled to true to verify that implementation does support EmptyFolder operation, as specified in section 3.1.4.5. Set R5664Enabled to false to disable this requirement.-->
     <Property name="R5664Enabled" value="true" />
-    <!--Set R3440Enabled to true to verify that implementation does support EmptyFolder operation for use with non-public folders, as specified in section 3.1.4.5. Set R3440Enabled to false to disable this requirement.-->
-    <Property name="R3440Enabled" value="false" />
     <!--Set R55501Enabled to true to verify that implementation does support CopyFolder operation for use with public folders, as specified in section 3.1.4.1. Set R55501Enabled to false to disable this requirement.-->
     <Property name="R55501Enabled" value="true" />
     <!--Set R4000Enabled to true to verify that the implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. Set R4000Enabled to false to disable this requirement.-->
