@@ -121,7 +121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMessageTypeItemCreated,
                 1571,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Message] specifies a message to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Message] specifies a message to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the subject of the item that created in Step 2.
@@ -181,7 +181,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMessageUpdated,
                 1572,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Message] specifies a message to  update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Message] specifies a message to  update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes UpdateItem operation to change the IsRead property of the item that updated in Step 4.
@@ -314,7 +314,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(MeetingRequestMessageType),
                 166,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingRequest is t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.13).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingRequest is t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.22).");
 
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one MeetingRequestMessageType item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
             bool isMeetingRequestCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
@@ -335,7 +335,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingRequestCreated,
                 1671,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the subject of the item that created in Step 2.
@@ -376,7 +376,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingRequestUpdated,
                 1672,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to update in the client message store.");
 
             // Call GetItem operation to get the parent folder Id of the item that in SyncFolderItems response.
             GetItemType getItemRequest = new GetItemType();
@@ -463,7 +463,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changesAfterUpdateReadFlag.Items[0] as SyncFolderItemsReadFlagType).ItemId.Id,
                 (changesAfterDelete.Items[0] as SyncFolderItemsDeleteType).ItemId.Id,
                 184,
-                @"[In t:SyncFolderItemsDeleteType Complex Type] [The element ItemId] specifies the identifier of the item to delete from the client data store.");
+                @"[In t:SyncFolderItemsDeleteType Complex Type] [The element ItemId] specifies the identifier of the item to delete from the client message store.");
 
             bool isIncrementalSync = changesAfterDelete.ItemsElementName[0] == ItemsChoiceType1.Delete && responseMessage.SyncState != null;
 
@@ -475,7 +475,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isIncrementalSync,
                 504,
-                @"[In Abstract Data Model]  If the SyncState element of the SyncFolderItemsType complex type (section 3.1.4.2.3.1) is included in a SyncFolderItems operation (section 3.1.4.2), the server MUST return incremental synchronization information from the last synchronization request. ");
+                @"[In Abstract Data Model]  If the SyncState element of the SyncFolderItemsType complex type (section 3.1.4.2.3.8) is included in a SyncFolderItems operation (section 3.1.4.2), the server MUST return incremental synchronization information from the last synchronization request.");
             #endregion
 
             #region Step 10 Clean up the mailbox of attendee.
@@ -544,7 +544,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(MeetingResponseMessageType),
                 168,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingResponse is t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.14).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingResponse is t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.23).");
 
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one MeetingResponseMessageType item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
             bool isMeetingResponseCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
@@ -565,7 +565,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingResponseCreated,
                 1691,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingResponse] specifies a meeting response message to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingResponse] specifies a meeting response message to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the item which created in Step 2.
@@ -607,7 +607,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingResponseUpdated,
                 1692,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingResponse] specifies a meeting response message to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingResponse] specifies a meeting response message to update in the client message store.");
 
             bool isIdOnly = Common.IsIdOnly((XmlElement)this.SYNCAdapter.LastRawResponseXml, "t:MeetingResponse", "t:ItemId");
 
@@ -726,7 +726,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(MeetingCancellationMessageType),
                 170,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingCancellation is t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.11).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingCancellation is t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.19).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R1951");
@@ -759,7 +759,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingCancellationCreated,
                 1711,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element MeetingCancellation] specifies a meeting cancellation message to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element MeetingCancellation] specifies a meeting cancellation message to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the item which created in Step 2.
@@ -801,7 +801,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isMeetingCancellationUpdated,
                 1712,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element MeetingCancellation] specifies a meeting cancellation message to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element MeetingCancellation] specifies a meeting cancellation message to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes UpdateItem operations to change the IsRead property of the item which updated in Step 4.
@@ -974,7 +974,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(TaskType),
                 172,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of Task is t:TaskType ([MS-OXWSTASK] section 2.2.4.3).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type]The type of Task is t:TaskType ([MS-OXWSTASK] section 2.2.4.6).");
 
             Site.Assert.AreEqual<int>(
                 1,
@@ -999,7 +999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isTaskTypeItemCreated,
                 1731,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element Task] specifies a task to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element Task] specifies a task to create in the client message store.");
 
             // If MS-OXWSSYNC_R37809 is enabled, then verify this requirement
             if (Common.IsRequirementEnabled(37809, this.Site))
@@ -1064,7 +1064,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isTaskItemUpdated,
                 1732,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element Task] specifies a task to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element Task] specifies a task to update in the client message store.");
             #endregion
 
             #region Step 8. Client invokes DeleteItem operation to delete the TaskType item which updated in Step 6.
@@ -1193,7 +1193,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(ContactItemType),
                 160,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of Contact is t:ContactItemType ([MS-OXWSCONT] section 2.2.4.2).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of Contact is t:ContactItemType ([MS-OXWSCONT] section 2.2.4.3).");
 
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one ContactItemType item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
             bool isContactItemCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
@@ -1214,7 +1214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isContactItemCreated,
                 1611,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Contact] specifies a contact to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Contact] specifies a contact to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.
@@ -1255,7 +1255,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isContactItemUpdated,
                 1612,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Contact] specifies a contact to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Contact] specifies a contact to update in the client message store.");
 
             // Call SyncFolderItems again without SyncState to verify that all synchronization is returned.
             SyncFolderItemsType requestWithoutSyncState = this.CreateSyncFolderItemsRequestWithoutOptionalElements(contactFolder, DefaultShapeNamesType.AllProperties);
@@ -1287,7 +1287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R382
             Site.CaptureRequirement(
                 382,
-                @"[In m:SyncFolderItemsType Complex Type] If this element [SyncState] is not specified, all synchronization information is returned.");
+                @"[In m:SyncFolderItemsType Complex Type] If this element [SyncState] is not specified, If this element is not specified, all items in their current state are returned as if the items have never been synchronized. ");
             #endregion
 
             #region Step 6. Client invokes DeleteItem operation to delete the ContactItemType item which updated in Step 4.
@@ -1399,7 +1399,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isPostItemCreated,
                 1751,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element PostItem] specifies a post item to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element PostItem] specifies a post item to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.
@@ -1458,7 +1458,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isPostItemUpdated,
                 1752,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element PostItem] specifies a post item to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element PostItem] specifies a post item to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteItem operation to delete the PostItemType item which updated in Step 4.
@@ -1561,7 +1561,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changesWithNormalItems.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
                 typeof(CalendarItemType),
                 158,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of CalendarItem is t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.4).");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type]  The type of CalendarItem is t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9).");
 
             // If the value of SyncScope is set to 'NormalItems', there should be only items in the folder returned and the value of IsAssociated property of the items in the folder should be false
             Site.Assert.IsFalse(
@@ -1622,7 +1622,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isCalendarItemCreated,
                 1591,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element CalendarItem] specifies a calendar item to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element CalendarItem] specifies a calendar item to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation update the created item which created in Step 2.
@@ -1675,7 +1675,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isCalendarItemUpdated,
                 1592,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element CalendarItem] specifies a calendar item to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type][The element CalendarItem] specifies a calendar item to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteItem operation to delete the CalendarItemType item which updated in Step 4.
@@ -1769,7 +1769,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isDistributionListCreated,
                 1631,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element DistributionList] specifies a distribution list to create in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element DistributionList] specifies a distribution list to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the created item which created in Step 2.
@@ -1810,7 +1810,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isDistributionListUpdated,
                 1632,
-                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element DistributionList] specifies a distribution list to update in the client data store.");
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element DistributionList] specifies a distribution list to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteItem operation to delete the DistributionListType item which updated in Step 4.

@@ -129,7 +129,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 48,
-                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] The type of Changes is t:SyncFolderHierarchyChangesType (section 2.2.4.1).");
+                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] The type of Changes is t:SyncFolderHierarchyChangesType (section 3.1.4.1.3.1).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R447");
@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             83,
-                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Create is t:SyncFolderHierarchyCreateOrUpdateType (section 2.2.4.2).");
+                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Create is t:SyncFolderHierarchyCreateOrUpdateType (section 3.1.4.1.3.2).");
                     }
 
                     // If the change is updated, verify MS-OXWSSYNC_R448 and requirements in update operation.
@@ -281,7 +281,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             116,
-                            @"[In t:SyncFolderHierarchyDeleteType Complex Type] The type of FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).");
+                            @"[In t:SyncFolderHierarchyDeleteType Complex Type] The type of FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.36).");
                     }
                 }
             }
