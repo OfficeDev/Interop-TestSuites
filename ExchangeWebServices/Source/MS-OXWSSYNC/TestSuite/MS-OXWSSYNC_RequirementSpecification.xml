@@ -1481,8 +1481,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R2601, MS-OXWSSYNC_R2602.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R2601</ns1:REQ_ID>
@@ -1538,8 +1537,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R2631, MS-OXWSSYNC_R2632.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R2631</ns1:REQ_ID>
@@ -2455,7 +2453,8 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSSYNC_R37811010.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R1752002</ns1:REQ_ID>
@@ -2473,7 +2472,8 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSSYNC_R37811012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R1752004</ns1:REQ_ID>
@@ -3069,8 +3069,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R3831, MS-OXWSSYNC_R3832.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R3832</ns1:REQ_ID>
@@ -3127,8 +3126,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R3861, MS-OXWSSYNC_R3862.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R3861</ns1:REQ_ID>
@@ -3214,7 +3212,6 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements:MS-OXWSSYNC_R39223, MS-OXWSSYNC_R39224.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R39223</ns1:REQ_ID>
@@ -3323,7 +3320,6 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R348</ns1:REQ_ID>
@@ -3428,6 +3424,48 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R37811009</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the RoleMember element. (&lt;3&gt; Section 3.1.4.2.3.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the RoleMember element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R1752001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R37811010</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the RoleMember element. (Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R1752001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R37811011</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Network element. (&lt;4&gt; Section 3.1.4.2.3.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Network element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R1752003:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R37811012</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Network element. (Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R1752003:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811005</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Person element. (&lt;5&gt; Section 3.1.4.2.3.3:  Exchange 2007, Exchange 2010. and Exchange 2013 do not support the Person element.)</ns1:Description>
@@ -3452,7 +3490,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811007</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SyncScope element. (&lt;7&gt; Section 3.1.4.2.3.8:  Exchange 2007 does not support the SyncScope element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39223:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39224:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3462,7 +3500,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811008</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SyncScope element. (Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39223:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSSYNC_R39223:i, MS-OXWSSYNC_R39224:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3489,7 +3527,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-OXWSSYNC_R2571, MS-OXWSSYNC_R3781.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R2571, MS-OXWSSYNC_R3781.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R61</ns1:REQ_ID>
@@ -3499,6 +3537,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSSYNC_R2572, MS-OXWSSYNC_R3782.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R62</ns1:REQ_ID>
@@ -4258,6 +4297,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSSYNC_R3787.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1194</ns1:REQ_ID>
@@ -4267,6 +4307,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSSYNC_R37801.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R149902</ns1:REQ_ID>

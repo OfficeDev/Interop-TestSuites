@@ -120,7 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isFolderCreated,
                 10010,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element Folder] specifies a regular folder to create in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element Folder] specifies a regular folder to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateFolder operation to change the second level folder's name.
@@ -167,7 +167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item,
                 typeof(FolderType),
                 99,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of Folder is t:FolderType ([MS-OXWSFOLD] section 3.1.4.1.3.2).");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of Folder is t:FolderType ([MS-OXWSFOLD] section 2.2.4.12).");
 
             bool isFolderNameUpdated = changes.ItemsElementName[0] == ItemsChoiceType.Update &&
                 (changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item.DisplayName == newFolderName;
@@ -206,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isFolderUpdated,
                 10020,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element Folder] specifies a regular folder to update in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element Folder] specifies a regular folder to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteFolder operation to delete the second level folder that created in step 2.
@@ -255,7 +255,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 Site.CaptureRequirementIfIsTrue(
                     isFolderDeleted,
                     37811002,
-                    @"[In Appendix C: Product Behavior] Implementation does include Delete element. (Exchange 2010 and above follow this behavior)");
+                    @"[In Appendix C: Product Behavior] Implementation does include Delete element. (Exchange 2010 and above follow this behavior.)");
             #endregion
             }
         }
@@ -336,7 +336,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isCalendarFolderCreated,
                 1021,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element CalendarFolder] specifies a calendar folder to create in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element CalendarFolder] specifies a calendar folder to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateFolder operation to change the second level folder's name.
@@ -393,7 +393,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item,
                 typeof(CalendarFolderType),
                 101,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of CalendarFolder element is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.3).");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of CalendarFolder element is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).");
 
             bool isCalendarFolderUpdated = (changes.ItemsElementName[0] == ItemsChoiceType.Update) &&
                 ((changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item.GetType() == typeof(CalendarFolderType));
@@ -413,7 +413,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isCalendarFolderUpdated,
                 1022,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element CalendarFolder] specifies a calendar folder to update in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element CalendarFolder] specifies a calendar folder to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteFolder operation to delete the second level folder that created in step 2.
@@ -452,7 +452,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isIncrementalSync,
                 503,
-                @"[In Abstract Data Model] If the optional SyncState element of the SyncFolderHierarchyType complex type (section 3.1.4.1.3.1) is included in a SyncFolderHierarchy operation (section 3.1.4.1) request, the server MUST return incremental synchronization information from the last synchronization request. ");
+                @"[In Abstract Data Model] If the optional SyncState element of the SyncFolderHierarchyType complex type (section 3.1.4.1.3.6) is included in a SyncFolderHierarchy operation (section 3.1.4.1) request, the server MUST return incremental synchronization information from the last synchronization request.");
             #endregion
         }
 
@@ -532,7 +532,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isContactsFolderCreated,
                 1041,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element ContactsFolder] specifies a contacts folder to create in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element ContactsFolder] specifies a contacts folder to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateFolder operation to change the second level folder's name.
@@ -577,7 +577,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changesAfterUpdateFolder.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item,
                 typeof(ContactsFolderType),
                 103,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of ContactsFolder is t:ContactsFolderType ([MS-OXWSCONT] section 3.1.4.1.2.2).");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of ContactsFolder is t:ContactsFolderType ([MS-OXWSCONT] section 3.1.4.1.1.6).");
 
             bool isContactsFolderUpdated = (changesAfterUpdateFolder.ItemsElementName[0] == ItemsChoiceType.Update) &&
                 ((changesAfterUpdateFolder.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item.GetType() == typeof(ContactsFolderType));
@@ -597,7 +597,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isContactsFolderUpdated,
                 1042,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element ContactsFolder] specifies a contacts folder to update in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element ContactsFolder] specifies a contacts folder to update in the client message store.");
 
             bool isLastFolderIncluded = responseMessage.IncludesLastFolderInRange &&
                 ((changesAfterUpdateFolder.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item.GetType() == typeof(ContactsFolderType));
@@ -616,7 +616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isLastFolderIncluded,
                 4601,
-                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] True indicates the last folder to synchronize is included in the response.");
+                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] If this element is included in the response, the value is always ""true"".");
             #endregion
 
             #region Step 6. Client invokes FindAndDeleteSubFolder to delete the second level folder that created in step 2.
@@ -656,7 +656,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changesAfterUpdateFolder.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item.FolderId.Id,
                 (changesAfterDeleteFolder.Items[0] as SyncFolderHierarchyDeleteType).FolderId.Id,
                 117,
-                @"[In t:SyncFolderHierarchyDeleteType Complex Type] [The element FolderId] specifies the identifier of the folder to delete from the client data store.");
+                @"[In t:SyncFolderHierarchyDeleteType Complex Type] [The element FolderId] specifies the identifier of the folder to delete from the client message store.");
             #endregion
         }
 
@@ -743,7 +743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isTasksFolderCreated,
                 1081,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element TasksFolder] specifies a tasks folder to create in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element TasksFolder] specifies a tasks folder to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateFolder to change the second level folder's name.
@@ -794,7 +794,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item,
                 typeof(TasksFolderType),
                 107,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of TasksFolder is  t:TasksFolderType ([MS-OXWSTASK] section 2.2.4.2).");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of TasksFolder is  t:TasksFolderType ([MS-OXWSTASK] section 2.2.4.5).");
 
             // If the AdditionalProperties element is included in SyncFolderHierarchy request and the FieldURI is point to folder display name, 
             // the additional property DisplayName should be returned in response, then requirement MS-OXWSSYNC_R2574 and MS-OXWSSYNC_R2575 can be captured.
@@ -834,7 +834,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isContactsFolderUpdated,
                 1082,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element TasksFolder] specifies a tasks folder to update in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element TasksFolder] specifies a tasks folder to update in the client message store.");
             #endregion
 
             #region Step 6. Client invokes DeleteFolder to delete the second level folder that created in step 2.
@@ -1002,7 +1002,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 (changes.Items[0] as SyncFolderHierarchyCreateOrUpdateType).Item,
                 typeof(SearchFolderType),
                 105,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of SearchFolder is t:SearchFolderType ([MS-OXWSSRCH] section 2.2.4.26).");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of SearchFolder is t:SearchFolderType ([MS-OXWSSRCH] section 2.2.4.32).");
 
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one SearchFolderType folder was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
             bool isSearchFolderCreated = changes.ItemsElementName[0] == ItemsChoiceType.Create &&
@@ -1022,7 +1022,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isSearchFolderCreated,
                 1061,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element SearchFolder] specifies a search folder to create in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element SearchFolder] specifies a search folder to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateFolder to change the folder's name.
@@ -1076,7 +1076,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isSearchFolderUpdated,
                 1062,
-                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element SearchFolder] specifies a search folder to update in the client data store.");
+                @"[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] [The element SearchFolder] specifies a search folder to update in the client message store.");
 
             // In SyncFolderHierarchy request, the SyncFolderId is set to "searchfolders", if the item in Changes.Items[0] of SyncFolderHierarchy response is SearchFolderType,
             // then requirement MS-OXWSSYNC_R259 can be captured.
@@ -1128,7 +1128,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R262
             Site.CaptureRequirement(
                 262,
-                @"[In m:SyncFolderHierarchyType Complex Type] If this element [SyncState] is not specified, all synchronization information is returned.");
+                @"[In m:SyncFolderHierarchyType Complex Type] If this element [SyncState] is not specified, all items in their current state are returned as if the items have never been synchronized. ");
             #endregion
 
             #region Step 6. Client invokes DeleteFolder to delete the folder that created in step 2.
