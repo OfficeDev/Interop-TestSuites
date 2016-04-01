@@ -21,7 +21,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // According to the implementation of adapter, the message is formatted as SOAP 1.1. If the operation is invoked successfully, then this requirement can be verified.
             Site.CaptureRequirement(
                 1,
-                @"[In Transport] The SOAP version supported is SOAP 1.1.");
+                @"[In Transport] This protocol uses SOAP 1.1.");
         }
 
         /// <summary>
@@ -673,7 +673,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     22,
-                    @"[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.8).");
+                    @"[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.24).");
+
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R23");
@@ -907,7 +908,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1428001");
 
             Site.CaptureRequirementIfIsTrue(
-                Common.GetConfigurationPropertyValue("SutVersion", this.Site).Equals("ExchangeServer2007") == false,
+                Common.IsRequirementEnabled(1428001, Site),
                 "MS-OXWSCDATA",
                 1428001,
                 @"[In Appendix C: Product Behavior]<53> Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.");

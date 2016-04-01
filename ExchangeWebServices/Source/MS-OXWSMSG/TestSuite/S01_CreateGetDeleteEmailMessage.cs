@@ -162,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseClassType.Success,
                 this.infoItems[0].ResponseClass,
                 112,
-                @"[In CreateItem] A successful CreateItem operation request returns a CreateItemResponse element with the ResponseClass attribute of the CreateItemResponseMessage element set to ""Success"".");
+                @"[In CreateItem]If the CreateItem WSDL operation request is successful, the server returns a CreateItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.2.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R113");
@@ -172,7 +172,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseCodeType.NoError,
                 this.infoItems[0].ResponseCode,
                 113,
-                @"[In CreateItem] [A successful CreateItem operation request returns a CreateItemResponse element] The ResponseCode element of the CreateItemResponse element is set to ""NoError"".");
+                @"[In CreateItem] [A successful CreateItem operation request returns a CreateItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the CreateItemResponseMessage element is set to ""NoError"". ");
             #endregion
 
             #region Get the created message via itemIdType in above steps
@@ -219,7 +219,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseClassType.Success,
                 this.infoItems[0].ResponseClass,
                 134,
-                @"[In GetItem] A successful GetItem operation request returns a GetItemResponse element with the ResponseClass attribute of the GetItemResponseMessage element set to ""Success"".");
+                @"[In GetItem] If the GetItem WSDL operation request is successful, the server returns a GetItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.4.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the GetItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R135");
@@ -229,7 +229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseCodeType.NoError,
                 this.infoItems[0].ResponseCode,
                 135,
-                @"[In GetItem] [A successful GetItem operation request returns a GetItemResponse element] The ResponseCode element of the GetItemResponse element is set to ""NoError"".");
+                @"[In GetItem] [A successful GetItem operation request returns a GetItemResponse element] The ResponseCode element, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the GetItemResponseMessage element is set to ""NoError"". ");
 
             bool isVerifiedR198 = Common.IsIdOnly((XmlElement)this.MSGAdapter.LastRawResponseXml, "t:Message", "t:ItemId");
 
@@ -267,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // Each user has his own EmailAddress, if the above assert is passed, the following requirements can be captured directly. 
             this.Site.CaptureRequirement(
                 30,
-                @"[In t:MessageType Complex Type] ToRecipients element Specifies a collection of recipients of an e-mail.");
+                @"[In t:MessageType Complex Type] ToRecipients element Specifies a collection of recipients of an email.");
 
             Site.Assert.AreEqual<string>(this.Recipient2.ToLower(), messageItem.CcRecipients[0].EmailAddress.ToLower(), "The EmailAddress of the CcRecipients element in GetItem response should be equal with the settings");
 
@@ -277,7 +277,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // Each user has his own EmailAddress, if the above assert is passed, the following requirements can be captured directly.
             this.Site.CaptureRequirement(
                 33,
-                @"[In t:MessageType Complex Type] CcRecipients element Specifies a collection of recipients that receive a carbon copy (Cc) of an e-mail.");
+                @"[In t:MessageType Complex Type] CcRecipients element Specifies a collection of recipients that receive a carbon copy (Cc) of an email.");
 
             Site.Assert.AreEqual<string>(this.MeetingRoom.ToLower(), messageItem.BccRecipients[0].EmailAddress.ToLower(), "The EmailAddress of the BccRecipients element in GetItem response should be equal with the settings");
 
@@ -287,7 +287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // Each user has his own EmailAddress, if the above assert is passed, the following requirements can be captured directly.
             this.Site.CaptureRequirement(
                 36,
-                @"[In t:MessageType Complex Type] BccRecipients element Specifies a collection of recipients that receive a blind carbon copy (Bcc) of an e-mail.");
+                @"[In t:MessageType Complex Type] BccRecipients element Specifies a collection of recipients that receive a blind carbon copy (Bcc) of an email.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R42");
@@ -367,7 +367,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // Each user has his own EmailAddress, if the above assert is passed, the following requirements can be captured directly.
             this.Site.CaptureRequirement(
                 69,
-                @"[In t:MessageType Complex Type] ReplyTo element Specifies a collection of addresses to which replies should be sent.");
+                @"[In t:MessageType Complex Type] ReplyTo element Specifies a collection of addresses to send replies to. ");
             #endregion
 
             #region Verify the requirements about the read/write element of MessageType
@@ -526,7 +526,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseClassType.Success,
                 deleteItemResponse.ResponseMessages.Items[0].ResponseClass,
                 153,
-                @"[In DeleteItem] A successful DeleteItem operation request returns a DeleteItemResponse element with the ResponseClass attribute of the DeleteItemResponseMessage element set to ""Success"".");
+                @"[In DeleteItem] If the DeleteItem WSDL operation request is successful, the server returns a DeleteItemResponse element, as specified in [MS-OXWSCORE] section 3.1.4.3.2.2, with the ResponseClass attribute, as specified in [MS-OXWSCDATA] section 2.2.4.67, of the DeleteItemResponseMessage element, as specified in [MS-OXWSCDATA] section 2.2.4.12, set to ""Success"". ");
 
             Site.Assert.IsNotNull(deleteItemResponse.ResponseMessages.Items[0].ResponseCode, @"The ResponseCode property of the first item of the array of InfoItems should not be null.");
 
@@ -538,7 +538,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 ResponseCodeType.NoError,
                 deleteItemResponse.ResponseMessages.Items[0].ResponseCode,
                 154,
-                @"[In DeleteItem] [A successful DeleteItem operation request returns a DeleteItemResponse element] The ResponseCode element of the DeleteItemResponse element is set to ""NoError"".");
+                @"[In DeleteItem] [A successful DeleteItem operation request returns a DeleteItemResponse element] The ResponseCode element, as specified by [MS-OXWSCDATA] section 2.2.4.67, of the DeleteItemResponseMessage element is set to ""NoError"". ");
             #endregion
             #endregion
         }
@@ -588,7 +588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 80,
-                "[In t:MessageDispositionType Simple Type] The value \"SaveOnly\" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.14).");
+                @"OXWSMSG_R80[In t:MessageDispositionType Simple Type] The value ""SaveOnly"" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).");
             #endregion
 
             #region Sender sends the created message
@@ -685,7 +685,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsFalse(
                 findItemResult,
                 203,
-                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item [is sent] but no copy is saved.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType complex type, the email message item [is sent] but no copy is saved.");
             #endregion
 
             #region Recipient1 verifies if the message has been received
@@ -699,7 +699,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 83,
-                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is sent.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType complex type, the email message item is sent.");
             #endregion
 
             #region Recipient1 find the the message that has been received
@@ -790,7 +790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 204,
-                @"[In t:MessageDispositionType Simple Type] The value ""SendAndSaveCopy"" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item [is sent] and a copy is saved in the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.14).");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendAndSaveCopy"" means when used in the CreateItemType complex type, the email message item [is sent] and a copy is saved in the TargetFolderIdType complex type.");
             #endregion
 
             #region Recipient1 verifies if the message has been received
@@ -805,7 +805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 85,
-                @"[In t:MessageDispositionType Simple Type] The value ""SendAndSaveCopy"" means when used in the CreateItemType element ([MS-OXWSCORE] section 3.1.4.2.2.1), the e-mail message item is sent.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendAndSaveCopy"" means when used in the CreateItemType complex type, the email message item is sent.");
             #endregion
 
             #region Clean up Sender's inbox folder and Recipient1's inbox folder
