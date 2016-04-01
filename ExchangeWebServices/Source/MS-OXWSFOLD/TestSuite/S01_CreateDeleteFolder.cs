@@ -1654,7 +1654,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                     ResponseClassType.Error,
                     moveFolderResponse.ResponseMessages.Items[0].ResponseClass,
                     1051112,
-                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support value of ""false"" for CanRenameOrMove to indicate that the managed folder can not be moved. (Exchange 2007, Exchange 2010 and Exchange2013 follow this behavior)");
                 }
             #endregion
 

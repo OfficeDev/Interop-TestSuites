@@ -101,7 +101,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsNotNull(
                 folderInfo.EffectiveRights,
                 81,
-                @"[In t:BaseFolderType Complex Type]The type of element EffectiveRights is t:EffectiveRightsType ([MS-OXWSCDATA] section 2.2.4.25).");
+                @"[In t:BaseFolderType Complex Type]The type of element EffectiveRights is t:EffectiveRightsType ([MS-OXWSCDATA] section 2.2.4.29).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R5934");
@@ -218,7 +218,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ResponseClassType.Success,
                 getCalendarFolderResponse.ResponseMessages.Items[0].ResponseClass,
                 8401,
-                @"[In t:BaseFolderType Complex Type]The type of element DistinguishedFolderId is t:DistinguishedFolderIdNameType ([MS-OXWSCDATA] section 2.2.3.10).");
+                @"[In t:BaseFolderType Complex Type]The type of element DistinguishedFolderId is t:DistinguishedFolderIdNameType ([MS-OXWSCDATA] section 2.2.5.10).");
 
             #endregion
         }

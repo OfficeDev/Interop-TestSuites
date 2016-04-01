@@ -664,8 +664,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810107,
                 810107,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Delete of EffectiveRights indicates a client can delete a folder or item.");
-
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Delete of EffectiveRights indicates a client can delete a folder or item.");
+            
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101011");
 
@@ -686,7 +686,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101011,
                 8101011,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Read of EffectiveRights indicates a client can read a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R810109");
@@ -708,7 +708,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810109,
                 810109,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Modify of EffectiveRights indicates a client can modify a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Modify of EffectiveRights indicates a client can modify a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1182");
@@ -1250,7 +1250,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810108,
                 810108,
-                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Delete of EffectiveRights indicates a client cannot delete a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Delete of EffectiveRights indicates a client cannot delete a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101010");
@@ -1272,7 +1272,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101010,
                 8101010,
-                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101012");
@@ -1292,7 +1292,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101012,
                 8101012,
-                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Read of EffectiveRights indicates a client can not read a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Read of EffectiveRights indicates a client can not read a folder or item.");
         }
 
         /// <summary>
