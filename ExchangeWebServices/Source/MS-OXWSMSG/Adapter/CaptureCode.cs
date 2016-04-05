@@ -675,7 +675,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                     22,
                     @"[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.24).");
 
-
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R23");
 

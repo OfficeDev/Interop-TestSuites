@@ -5,8 +5,12 @@
   <Properties>
     <!-- Set R318Enabled to true to verify that the implementation uses secure communications via HTTPS, defined in [RFC2818], as specified in section 2.1. Set R318Enabled to false to disable this requirement.-->
     <Property name="R318Enabled" value="true"/>
-    <!-- Set R550Enabled to true to verify that the implementation does return MIME content for attachments of IPM.Contact, as specified in section 3.1.4.3.3.3. When the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type. Set R550Enabled to false to disable this requirement.-->
-    <Property name="R550Enabled" value="true"/>
+    <!-- Set R55001Enabled to true to verify that the implementation does return MIME content for attachments of IPM.Note. When the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type. Set R55001Enabled to false to disable this requirement.-->
+    <Property name="R55001Enabled" value="true"/>
+    <!-- Set R55002Enabled to true to verify that the implementation does return MIME content for attachments of IPM.Post. When the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type. Set R55002Enabled to false to disable this requirement.-->
+    <Property name="R55002Enabled" value="true"/>
+    <!-- Set R55003Enabled to true to verify that the implementation does return MIME content for attachments of IPM.Appointment. When the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type. Set R55003Enabled to false to disable this requirement.-->
+    <Property name="R55003Enabled" value="true"/>
     <!-- Set R318011Enabled to true to verify that the implementation does introduce the ReferenceAttachmentType complex type. Set R318011Enabled to false to disable this requirement.-->
     <Property name="R318011Enabled" value="true"/>
     <!-- Set R318001Enabled to true to verify that the implementation does return ErrorInvalidItemForOperationCreateItemAttachment response code as specified in [MS-OXWSCDATA] section 2.2.5.24, when the item attachment is MeetingMessage, MeetingRequest, MeetingResponse or MeetingCancellation. Set R318001Enabled to false to disable this requirement.-->
@@ -21,8 +25,6 @@
     <Property name="R318005Enabled" value="true"/>
     <!-- Set R318009Enabled to true to verify that the implementation does support the Person element. Set R318009Enabled to false to disable this requirement.-->
     <Property name="R318009Enabled" value="true"/>
-    <!-- Set R318009Enabled to true to verify that the implementation does introduce the ReferenceAttachmentType complex type. Set R318009Enabled to false to disable this requirement.-->
-    <Property name="R318011Enabled" value="true"/>
     <!-- Set R318013Enabled to true to verify that the implementation does support the FilterHtmlContent element. Set R318013Enabled to false to disable this requirement.-->
     <Property name="R318013Enabled" value="true"/>
   </Properties>

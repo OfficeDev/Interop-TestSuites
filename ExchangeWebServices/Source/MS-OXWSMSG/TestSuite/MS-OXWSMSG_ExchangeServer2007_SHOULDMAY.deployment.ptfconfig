@@ -5,12 +5,6 @@
   <Properties>
     <!--Set R183Enabled to true to verify that the implementation does uses secure communications via HTTPS, as defined in [RFC2818]. Set R183Enabled to false to disable this requirement.-->
     <Property name="R183Enabled" value="true" />
-    <!--Set R_R182002Enabled to true to verify that the implementation does introduce the ApprovalRequestData element. Set R182002Enabled to false to disable this requirement.-->
-    <Property name="R182002Enabled" value="false" />
-    <!--Set R_R182004Enabled to true to verify that the implementation does introduce the VotingInformation element. Set R182004Enabled to false to disable this requirement.-->
-    <Property name="_R182004Enabled" value="false" />
-    <!--Set _R182006Enabled to true to verify that the implementation does introduce the ReminderMessageData element. Set R182006Enabled to false to disable this requirement.-->
-    <Property name="_R182006Enabled" value="false" />
     <!--Set R1428001Enabled to true to verify that the implementation return the MailboxType element in the GetItem operation. Set R1428001Enabled to false to disable this requirement.-->
     <Property name="R1428001Enabled" value="false" />
   </Properties>

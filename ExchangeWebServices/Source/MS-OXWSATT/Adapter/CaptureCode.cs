@@ -959,16 +959,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                             isSchemaValidated,
                             318003,
                             @"[In Appendix C: Product Behavior] Implementation does suport IsInline element. (Exchange 2010 and above follow this behavior).");
-
-
-                        // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R343");
-
-                        // Verify MS-OXWSATT requirement: MS-OXWSATT_R343
-                        Site.CaptureRequirementIfIsTrue(
-                            isSchemaValidated,
-                            343,
-                            @"[In t:AttachmentType Complex Type][The type of IsInline element is] xs:Boolean ([XMLSCHEMA2]).");
                     }
                 }
 
