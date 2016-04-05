@@ -1359,6 +1359,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             foreach (ItemInfoResponseMessageType item in infoItems)
             {
+                if (item == null || item.Items == null || item.Items.Items == null)
+                {
+                    continue;
+                }
+
                 if (item.Items.Items[0] is CalendarItemType)
                 {
                     CalendarItemType calendar = item.Items.Items[0] as CalendarItemType;
