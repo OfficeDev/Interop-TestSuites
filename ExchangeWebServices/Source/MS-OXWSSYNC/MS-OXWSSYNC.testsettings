@@ -7,9 +7,9 @@
     <DeploymentItem filename="TestSuite\MS-OXWSSYNC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSSYNC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-OXWSSYNC_TestSuite.ptfconfig" />
-    <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSSYNC_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
@@ -34,4 +34,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
