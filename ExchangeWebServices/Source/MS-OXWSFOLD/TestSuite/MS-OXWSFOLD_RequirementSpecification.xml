@@ -2881,7 +2881,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSFOLD_R1052, MS-OXWSFOLD_R10521, MS-OXWSFOLD_R10511, MS-OXWSFOLD_R105111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1052</ns1:REQ_ID>
