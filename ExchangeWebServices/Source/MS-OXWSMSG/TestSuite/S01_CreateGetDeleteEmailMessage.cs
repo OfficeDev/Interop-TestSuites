@@ -588,7 +588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 80,
-                "[In t:MessageDispositionType Simple Type] The value "SaveOnly" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).");
+                @"[In t:MessageDispositionType Simple Type] The value ""SaveOnly"" means when used in the CreateItemType complex type ([MS-OXWSCORE] section 3.1.4.2.3.2), the email message item is saved in the folder that is specified by the TargetFolderIdType complex type ([MS-OXWSFOLD] section 2.2.4.16).");
             #endregion
 
             #region Sender sends the created message
@@ -685,7 +685,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsFalse(
                 findItemResult,
                 203,
-                @"[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType complex type, the email message item [is sent] but no copy is saved.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType complex type, the email message item [is sent] but no copy is saved.");
             #endregion
 
             #region Recipient1 verifies if the message has been received
@@ -699,7 +699,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 83,
-                @"[In t:MessageDispositionType Simple Type] The value "SendOnly" means when used in the CreateItemType complex type, the email message item is sent.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendOnly"" means when used in the CreateItemType complex type, the email message item is sent.");
             #endregion
 
             #region Recipient1 find the the message that has been received
@@ -805,7 +805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.CaptureRequirementIfIsTrue(
                 findItemResult,
                 85,
-                @"[In t:MessageDispositionType Simple Type] The value "SendAndSaveCopy" means when used in the CreateItemType complex type, the email message item is sent.");
+                @"[In t:MessageDispositionType Simple Type] The value ""SendAndSaveCopy"" means when used in the CreateItemType complex type, the email message item is sent.");
             #endregion
 
             #region Clean up Sender's inbox folder and Recipient1's inbox folder
