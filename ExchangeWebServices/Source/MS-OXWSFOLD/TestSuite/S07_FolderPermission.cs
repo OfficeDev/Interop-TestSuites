@@ -223,7 +223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Permission is set and schema is verified in adapter so this requirement can be captured.
             this.Site.CaptureRequirement(
                 98,
-                @"[In t:FolderType Complex Type]The type of element PermissionSet is t:PermissionSetType (section 2.2.4.12).");
+                @"[In t:FolderType Complex Type]The type of element PermissionSet is t:PermissionSetType (section 2.2.4.14).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R9802");
@@ -664,8 +664,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810107,
                 810107,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Delete of EffectiveRights indicates a client can delete a folder or item.");
-
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Delete of EffectiveRights indicates a client can delete a folder or item.");
+            
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101011");
 
@@ -686,7 +686,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101011,
                 8101011,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Read of EffectiveRights indicates a client can read a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Read of EffectiveRights indicates a client can read a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R810109");
@@ -708,7 +708,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810109,
                 810109,
-                @"[In t:EffectiveRights Complex Type] Value ""true"" of the element Modify of EffectiveRights indicates a client can modify a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""true"" of the element Modify of EffectiveRights indicates a client can modify a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1182");
@@ -1231,34 +1231,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             #endregion
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R153");
-
-            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R153
-            bool isVerifiedR153 = !this.CanCreateSubFolder && this.CanCreateItem && !this.CanEditOwnedItem && !this.CanDeleteOwnedItem && !this.CanReadNotOwnedItem && !this.CanEditNotOwnedItem && !this.CanDeleteNotOwnedItem;
-
-            Site.Assert.IsTrue(
-                isVerifiedR153,
-                "Can create subfolder expected to be \"false\" and actual is {0};\n" +
-                "Can create item expected to be \"true\" and actual is {1};\n" +
-                "Can edit owned item expected to be \"false\" and actual is {2};\n" +
-                "Can delete owned item expected to be \"false\" and actual is {3};\n" +
-                "Can read not owned item expected to be \"false\" and actual is {4};\n" +
-                "Can edit not owned item expected to be \"false\" and actual is {5};\n" +
-                "Can delete not owned item expected to be \"false\" and actual is {6};\n ",
-                this.CanCreateSubFolder,
-                this.CanCreateItem,
-                this.CanEditOwnedItem,
-                this.CanDeleteOwnedItem,
-                this.CanReadNotOwnedItem,
-                this.CanEditNotOwnedItem,
-                this.CanDeleteNotOwnedItem);
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR153,
-                153,
-                @"[In t:PermissionLevelType Simple Type]The value Contributor means the user can create items in the folder. The contents of the folder do not appear.");
-
-            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R810108");
 
             // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R810108
@@ -1278,7 +1250,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR810108,
                 810108,
-                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Delete of EffectiveRights indicates a client cannot delete a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Delete of EffectiveRights indicates a client cannot delete a folder or item.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101010");
@@ -1300,7 +1272,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR8101010,
                 8101010,
-                @"[In t:EffectiveRights Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Modify of EffectiveRights indicates a client can not modify a folder or item.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R8101012");
+
+            // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R8101010
+            bool isVerifiedR8101012 = allFoldersInformation.Folders[0].EffectiveRights.Read == false && !this.CanReadOwnedItem && !this.CanReadNotOwnedItem;
+
+            Site.Assert.IsTrue(
+                isVerifiedR8101012,
+                "Modify expected to be \"false\" and actual is {0};\n" +
+                "Can read owned item expected to be \"false\" and actual is {1};\n" +
+                "Can read not owned item expected to be \"false\" and actual is {2};\n ",
+                allFoldersInformation.Folders[0].EffectiveRights.Read,
+                this.CanReadOwnedItem,
+                this.CanReadNotOwnedItem);
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifiedR8101012,
+                8101012,
+                @"[In t:BaseFolderType Complex Type] Value ""false"" of the element Read of EffectiveRights indicates a client can not read a folder or item.");
         }
 
         /// <summary>
@@ -1947,30 +1939,71 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         }
 
         /// <summary>
-        /// This test case verifies requirements related to calendar folder permission.
+        /// This test case verifies requirements related to folder permission anyone field other than UserId field is set, and the PermissionLevel field is not set to "Custom".
         /// </summary>
         [TestCategory("MSOXWSFOLD"), TestMethod()]
-        public void MSOXWSFOLD_S07_TC15_CalendarFolderPermission()
+        public void MSOXWSFOLD_S07_TC15_FolderPermissionLevelNotCustom()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(54911, this.Site), @"Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".");
+
             #region Switch to User1
-
             this.SwitchUser(Common.GetConfigurationPropertyValue("User1Name", this.Site), Common.GetConfigurationPropertyValue("User1Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
-
             #endregion
 
-            #region Create a folder in the User1's inbox folder, and enable Owner permission for User2
-
+            #region Create a folder in the User1's inbox folder, and enable Contributor permission for User2
             // Configure permission set.
-            CalendarPermissionSetType calendarPermissioinSet = new CalendarPermissionSetType();
-            calendarPermissioinSet.CalendarPermissions = new CalendarPermissionType[1];
-            calendarPermissioinSet.CalendarPermissions[0] = new CalendarPermissionType();
-            calendarPermissioinSet.CalendarPermissions[0].CalendarPermissionLevel = CalendarPermissionLevelType.Owner;
-            calendarPermissioinSet.CalendarPermissions[0].UserId = new UserIdType();
-            calendarPermissioinSet.CalendarPermissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            PermissionSetType permissionSet = new PermissionSetType();
+            permissionSet.Permissions = new PermissionType[1];
+            permissionSet.Permissions[0] = new PermissionType();
+            permissionSet.Permissions[0].UserId = new UserIdType();
+            permissionSet.Permissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+
+            // Set the field CanCreateSubFolders to 'true', and the PermissionLevel field is not set to 'Custom'
+            permissionSet.Permissions[0].CanCreateSubFolders = true;
+            permissionSet.Permissions[0].CanCreateSubFoldersSpecified = true;
+            permissionSet.Permissions[0].PermissionLevel = new PermissionLevelType();
+            permissionSet.Permissions[0].PermissionLevel = PermissionLevelType.Contributor;
 
             // CreateFolder request.
-            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.Appointment" }, null);
-            ((CalendarFolderType)createFolderRequest.Folders[0]).PermissionSet = calendarPermissioinSet;
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, new PermissionSetType[] { permissionSet });
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R54911");
+
+            // CanCreateSubFolders is set and the PermissionLevel field is not set to 'Custom', the expected ResponseCode is ErrorInvalidPermissionSettings
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorInvalidPermissionSettings,
+                createFolderResponse.ResponseMessages.Items[0].ResponseCode,
+                54911,
+                @"[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"". (<7> Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".)");
+        }
+
+        /// <summary>
+        /// This test case verifies requirements related to folder permission, the PermissionLevel field is set to "Contributor".
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S07_TC16_FolderPermissionLevelContributor()
+        {
+            #region Switch to User1
+            this.SwitchUser(Common.GetConfigurationPropertyValue("User1Name", this.Site), Common.GetConfigurationPropertyValue("User1Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
+            #endregion
+
+            #region Create a folder in the User1's inbox folder, and enable Contributor permission for User2
+            // Configure permission set.
+            PermissionSetType permissionSet = new PermissionSetType();
+            permissionSet.Permissions = new PermissionType[1];
+            permissionSet.Permissions[0] = new PermissionType();
+            permissionSet.Permissions[0].UserId = new UserIdType();
+            permissionSet.Permissions[0].UserId.PrimarySmtpAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            permissionSet.Permissions[0].PermissionLevel = new PermissionLevelType();
+            permissionSet.Permissions[0].PermissionLevel = PermissionLevelType.Contributor;
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, new PermissionSetType[] { permissionSet });
 
             // Create a new folder.
             CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
@@ -1981,48 +2014,47 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Save the new created folder's folder id.
             FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
             this.NewCreatedFolderIds.Add(newFolderId);
-
             #endregion
 
-            #region Get the new created folder with User1's credential
-
-            // GetFolder request.
-            GetFolderType getFolderRequest = this.GetGetFolderRequest(DefaultShapeNamesType.AllProperties, newFolderId);
-            getFolderRequest.FolderShape.AdditionalProperties = new BasePathToElementType[]
-                    {
-                        new PathToUnindexedFieldType()
-                        {
-                            FieldURI = UnindexedFieldURIType.folderPermissionSet
-                        }
-                    };
-
-            // Get the new created folder.
-            GetFolderResponseType getFolderResopnse = this.FOLDAdapter.GetFolder(getFolderRequest);
-
-            // Check the response.
-            Common.CheckOperationSuccess(getFolderResopnse, 1, this.Site);
-
+            #region Switch to User2
+            this.SwitchUser(Common.GetConfigurationPropertyValue("User2Name", this.Site), Common.GetConfigurationPropertyValue("User2Password", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
             #endregion
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R146");
+            #region Create an item in the folder created in step 1 with User2's credential
+            string itemName = Common.GenerateResourceName(this.Site, "Test Mail");
 
-            // PermissionSet value is set and schema is validated in adapter, so this requirement can be captured.
-            this.Site.CaptureRequirement(
-                "MS-OXWSMTGS",
-                146,
-                @"[In t:CalendarFolderType Complex Type] The type of PermissionSet is t:CalendarPermissionSetType (section 2.2.4.5).");
+            // Create an item in the new created folder.
+            ItemIdType itemInFolder = this.CreateItem(Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site), newFolderId.Id, itemName);
+            Site.Assert.IsNotNull(itemInFolder, "Item should be created successfully!");
+            #endregion
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R147");
+            #region Read the new item
+            bool canReadItem = this.GetItem(itemInFolder);
+            #endregion
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R147
-            this.Site.CaptureRequirementIfAreEqual<CalendarPermissionLevelType>(
-                CalendarPermissionLevelType.Owner,
-                ((CalendarFolderType)((FolderInfoResponseMessageType)getFolderResopnse.ResponseMessages.Items[0]).Folders[0]).PermissionSet.CalendarPermissions[2].CalendarPermissionLevel,
-                "MS-OXWSMTGS",
-                147,
-                @"[In t:CalendarFolderType Complex Type]PermissionSet: Specifies all permissions that are configured for a Calendar folder.");
+            if (Common.IsRequirementEnabled(1531, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1531");
+
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1531, if User2 can read the item, this capture can be verified.
+                this.Site.CaptureRequirementIfIsTrue(
+                    canReadItem,
+                    1531,
+                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (<9> Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)");
+            }
+
+            if (Common.IsRequirementEnabled(1532, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1532");
+
+                // Verify MS-OXWSFOLD requirement: MS-OXWSFOLD_R1531, if User2 can not read the item, this capture can be verified.
+                this.Site.CaptureRequirementIfIsFalse(
+                    canReadItem,
+                    1532,
+                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder but cannot read any items in the folder. (Exchange 2007 and Exchange 2010 follow this behavior.)");
+            }
         }
         #endregion
     }

@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             {
                                 Body = new BodyType()
                                 {
-                                    Value = TestSuiteHelper.BodyForBaseItem + index
+                                    Value = string.Format(@"{0}{1}_{2}", "body", index, DateTime.Now.ToString("HHmmss_ffffff"))
                                 }
                             }
                         }

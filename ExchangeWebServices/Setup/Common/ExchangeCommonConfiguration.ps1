@@ -99,6 +99,7 @@ function GetExchangeServerVersion
     $ExchangeServer2007             = "$global:Exchange2007",   "8.3.83.6",      "SP3"
     $ExchangeServer2010             = "$global:Exchange2010",   "14.3.123.4",    "SP3"
     $ExchangeServer2013             = "$global:Exchange2013",   "15.0.847.32",   "SP1"
+    $ExchangeServer2016             = "$global:Exchange2016",     "15.1.280.0",   ""
     $ExchangeVersion                = "Unknown Version"
     
     OutputText "Trying to get the Exchange server version; please wait ..."
@@ -136,7 +137,16 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2013[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }        
+        }  
+        if($item.DisplayName.StartsWith($ExchangeServer2016[0]))
+        {
+            $version = $item.DisplayVersion
+            $ExchangeVersion = $ExchangeServer2016[0]
+            $recommendVersion = $ExchangeServer2016[1]
+            $recommendMinorVersion = $ExchangeServer2016[2]
+            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
+            break
+        }       
     }
     if ($ExchangeVersion -eq "Unknown Version")
     {
@@ -216,6 +226,64 @@ function CheckExchangeInstalledOnDCOrNot
             exit 0
         }
         
+    }
+}
+
+#----------------------------------------------------------------------------------------------------------------------------------------
+# <summary>
+# Add delegate of mailbox user to another mailbox user. 
+# </summary>
+# <param name="mainMailboxUser">The name of mailbox user that will grant the delegate permission.</param>
+# <param name="mainMailboxUserPassword">The password of the mailbox user.</param>
+# <param name="delegateMailboxUser">The name of the mailbox user that will be assigned the delegate permission.</param>
+# <param name="sutComputerName">The name of the server that the Microsoft Exchange Server installed on.</param>
+# <param name="domainName">The name of the domain.</param>
+# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
+#--------------------------------------------------------------------------------------------------------------------------------
+function AddDelegateForMaiboxUser
+{
+    param(
+    [string]$mainMailboxUser,
+    [string]$mainMailboxUserPassword,
+    [string]$delegateMailboxUser,
+    [string]$sutComputerName,
+    [string]$domainName,
+    [string]$ExchangeVersion
+    )
+	
+    $currentPath= & {Split-Path $MyInvocation.scriptName}
+    $dllPath = $currentPath.SubString(0,$currentPath.LastIndexOf("\")+1) +"SUT"
+
+
+    if(!(Test-Path "$dllPath\MS_OXWSDLGM_ServerAdapter.dll"))
+    {
+        Output "The file MS_OXWSDLGM_ServerAdapter.dll is not found, the case related with delegate can not be tested." "Red"
+    }
+    else
+    {
+        $asm=[Reflection.Assembly]::LoadFrom("$dllpath\MS_OXWSDLGM_ServerAdapter.dll")
+        $delegateInstance = New-Object Microsoft.Protocols.TestSuites.OXWSDLGM.OXWSDLGMAdapter
+        if($ExchangeVersion -eq $Exchange2007)
+        {
+            $version = "Exchange2007_SP3"
+        }   
+        elseif($ExchangeVersion -ge $Exchange2010)
+        {
+            $version = "Exchange2010_SP3"
+        }
+        $delegateInfo= $delegateInstance.AddDelegate($mainMailboxUser, $mainMailboxUserPassword, $delegateMailboxUser, "Https", $sutComputerName, "/ews/exchange.asmx", $domainName, $version)
+        if($delegateInfo -eq "NoError")
+        {
+            Output "Added the delegate of mailbox user $mainMailboxUser to mailbox user $delegateMailboxUser successfully." "Green"
+        }
+        elseif($delegateInfo.contains("DelegateAlreadyExists"))
+        {
+            Output "The delegate of mailbox user $mainMailboxUser has already been set to mailbox user $delegateMailboxUser." "Yellow"
+        }
+	    else
+        {
+            throw "Failed to add the delegate of mailbox user $mainMailboxUser to $delegateMailboxUser."
+        }  
     }
 }
 
@@ -1024,6 +1092,7 @@ function GetExchangeServerVersionOnSUT
         $Exchange2007 = "Microsoft Exchange Server 2007", "ExchangeServer2007"
         $Exchange2010 = "Microsoft Exchange Server 2010", "ExchangeServer2010"
         $Exchange2013 = "Microsoft Exchange Server 2013", "ExchangeServer2013"
+        $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"
              
         $ExchangeVersion  = "Unknown Version"
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -1048,22 +1117,29 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2013[1]
                 break
-            }        
+            }  
+            if($item.DisplayName.StartsWith($Exchange2016[0]))
+            {
+                $ExchangeVersion = $Exchange2016[1]
+                break
+            }      
         }    
         return $ExchangeVersion
     }
-
-    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013")
+    ,
+    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016")
     if($ExchangeVersions -notcontains $sutVersion )
     {
         OutputWarning "Cannot get the Exchange version automatically."
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
-                               '3: Microsoft Exchange Server 2013')   
+                               '3: Microsoft Exchange Server 2013',
+                               '4: Microsoft Exchange Server 2016')   
         OutputQuestion "Select the Exchange version: "
         OutputQuestion ($sutVersionChoices[0])
         OutputQuestion ($sutVersionChoices[1])
         OutputQuestion ($sutVersionChoices[2])
+        OutputQuestion ($sutVersionChoices[3])
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
         Switch ($sutVersion)
@@ -1071,6 +1147,7 @@ function GetExchangeServerVersionOnSUT
             "1" { $sutVersion = $ExchangeVersions[0]; break }
             "2" { $sutVersion = $ExchangeVersions[1]; break }
             "3" { $sutVersion = $ExchangeVersions[2]; break }
+            "4" { $sutVersion = $ExchangeVersions[3]; break }
         }
     }
     else
@@ -1083,4 +1160,5 @@ function GetExchangeServerVersionOnSUT
 $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
+$global:Exchange2016 = "Microsoft Exchange Server 2016"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")

@@ -77,7 +77,9 @@ namespace Microsoft.Protocols.TestSuites.Common
             "MS-OXWSTASK-types.xsd",
             "MS-OXWSURPT-messages.xsd",
             "MS-OXWSURPT-types.xsd",
-            "MS-OXWSXPROP-types.xsd"
+            "MS-OXWSXPROP-types.xsd",
+            "MS-OXWSUSRCFG-messages.xsd",
+            "MS-OXWSUSRCFG-types.xsd"
         };
 
         /// <summary>
@@ -338,10 +340,13 @@ namespace Microsoft.Protocols.TestSuites.Common
 
                         if (ExchangeServiceBinding.ServiceResponseEvent != null)
                         {
-                            ExchangeServiceBinding.ServiceResponseEvent(
-                                (BaseRequestType)parameters[0],
-                                (BaseResponseMessageType)objArray[0],
-                                this.IsSchemaValidated);
+                            if (objArray[0] is BaseResponseMessageType)
+                            {
+                                ExchangeServiceBinding.ServiceResponseEvent(
+                                    (BaseRequestType)parameters[0],
+                                    (BaseResponseMessageType)objArray[0],
+                                    this.IsSchemaValidated);
+                            }
                         }
                     }
                 }

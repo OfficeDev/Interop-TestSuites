@@ -310,7 +310,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 allPropertyOfSearchFolder.Folders[0],
                 typeof(SearchFolderType),
                 33,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element SearchFolder is t:SearchFolderType ([MS-OXWSSRCH] section 2.2.4.26).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element SearchFolder is t:SearchFolderType ([MS-OXWSSRCH] section 2.2.3.26).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R3302");
@@ -582,6 +582,60 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirement(
                 9101,
                 @"[In t:FolderChangeType Complex Type]DistinguishedFolderId specifies an identifier for a distinguished folder.");
+        }
+
+        /// <summary>
+        /// This test case verifies requirements related to update folder failed.
+        /// </summary>
+        [TestCategory("MSOXWSFOLD"), TestMethod()]
+        public void MSOXWSFOLD_S06_TC07_UpdateFolderFailed()
+        {
+            #region Create a new folder in the inbox folder
+
+            // CreateFolder request.
+            CreateFolderType createFolderRequest = this.GetCreateFolderRequest(DistinguishedFolderIdNameType.inbox.ToString(), new string[] { "Custom Folder" }, new string[] { "IPF.MyCustomFolderClass" }, null);
+
+            // Create a new folder.
+            CreateFolderResponseType createFolderResponse = this.FOLDAdapter.CreateFolder(createFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(createFolderResponse, 1, this.Site);
+
+            // Save the new created folder's folder id.
+            FolderIdType newFolderId = ((FolderInfoResponseMessageType)createFolderResponse.ResponseMessages.Items[0]).Folders[0].FolderId;
+            this.NewCreatedFolderIds.Add(newFolderId);
+
+            #endregion
+
+            #region Delete the created folder
+
+            // DeleteFolder request.
+            DeleteFolderType deleteFolderRequest = this.GetDeleteFolderRequest(DisposalType.HardDelete, newFolderId);
+
+            // Delete the specified folder.
+            DeleteFolderResponseType deleteFolderResponse = this.FOLDAdapter.DeleteFolder(deleteFolderRequest);
+
+            // Check the response.
+            Common.CheckOperationSuccess(deleteFolderResponse, 1, this.Site);
+
+            // The folder has been deleted, so its folder id has disappeared.
+            this.NewCreatedFolderIds.Remove(newFolderId);
+
+            #endregion
+
+            #region Move the deleted folder
+            UpdateFolderType updateFolderRequest = this.GetUpdateFolderRequest("Folder", "SetFolderField", newFolderId);
+            UpdateFolderResponseType updateFolderResponse = this.FOLDAdapter.UpdateFolder(updateFolderRequest);
+            
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R4645");
+
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
+                4645,
+                @"[In UpdateFolder Operation]An unsuccessful UpdateFolder operation request returns an UpdateFolderResponse element with the ResponseClass attribute of the UpdateFolderResponseMessage element set to ""Error"".");
+            #endregion
         }
         #endregion
     }

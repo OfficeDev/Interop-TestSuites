@@ -8,6 +8,7 @@
     <!-- Protocol Adapter -->
     <Adapter xsi:type="managed" name="IMS_OXWSMTGSAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMTGS.MS_OXWSMTGSAdapter" />
     <Adapter xsi:type="managed" name="IMS_OXWSSRCHAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMTGS.MS_OXWSSRCHAdapter" />
+    <Adapter xsi:type="managed" name="IMS_OXWSFOLDAdapter" adaptertype="Microsoft.Protocols.TestSuites.MS_OXWSMTGS.MS_OXWSFOLDAdapter" />
   </Adapters>
 
   <!-- Change the defaultprofile value to "Verbose" to see the debug logs, otherwise keep the default value "MinimumLog". -->

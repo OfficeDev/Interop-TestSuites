@@ -2,12 +2,17 @@
 <TestSettings name="MS-OXWSCONT" id="6f34cecb-9a0b-4979-b94f-187ae43011d5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXWSCONT test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXWSCONT_RequirementSpecification.xml" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="MS-OXWSCONT.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\Resources\UserPhoto.jpg" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

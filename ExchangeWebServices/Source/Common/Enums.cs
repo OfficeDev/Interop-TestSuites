@@ -34,7 +34,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// The SUT is Exchange Server 2013 SP1
         /// </summary>
-        ExchangeServer2013
+        ExchangeServer2013,
+
+        /// <summary>
+        /// The SUT is Exchange Server 2016
+        /// </summary>
+        ExchangeServer2016
     }
 
     /// <summary> 

@@ -32,7 +32,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 553,
-                @"[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R542");
@@ -230,7 +230,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 383,
-                @"[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R465");
@@ -373,7 +373,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 387,
-                @"[In m:DeleteAttachmentResponseMessageType Complex Type][The type of RootItemId element is] t:RootItemIdType (section 2.2.4.9).");
+                @"[In m:DeleteAttachmentResponseMessageType Complex Type][The type of RootItemId element is] t:RootItemIdType (section 3.1.4.2.3.4)).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R240");
@@ -529,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 396,
-                @"[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R395");
@@ -646,14 +646,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 298,
-                @"[In m:GetAttachmentResponseType Complex Type] The GetAttachmentResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).
-                     <xs:complexType name=""GetAttachmentResponseType"">
-                      <xs:complexContent>
-                        <xs:extension
-                          base=""m:BaseResponseMessageType""
-                         />
-                      </xs:complexContent>
-                    </xs:complexType>");
+                @"[In m:GetAttachmentResponseType Complex Type] The GetAttachmentResponseType complex type extends the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.18).
+ <xs:complexType name=""GetAttachmentResponseType"">
+  <xs:complexContent>
+    <xs:extension
+      base=""m:BaseResponseMessageType""
+     />
+  </xs:complexContent>
+</xs:complexType>");
 
             AttachmentInfoResponseMessageType attachmentInfo = (AttachmentInfoResponseMessageType)getAttachmentResponse.ResponseMessages.Items[0];
             if (attachmentInfo.Attachments.Length > 0)
@@ -736,9 +736,69 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                             347,
                             @"[In t:FileAttachmentType Complex Type][The type of Content element is] xs:base64Binary ([XMLSCHEMA2]).");
                     }
+
+                    if (Common.IsRequirementEnabled(318005, this.Site))
+                    {
+                        if (fileAttachment.IsContactPhotoSpecified == true)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318005");
+
+                            // Verify MS-OXWSATT requirement: MS-OXWSATT_R318005
+                            this.Site.CaptureRequirementIfIsTrue(
+                                isSchemaValidated,
+                                318005,
+                                @"[In Appendix C: Product Behavior] Implementation does suport IsContactPhoto element. (Exchange 2010 and above follow this behavior).");
+                        }
+                    }
                 }
 
                 AttachmentType attachment = attachmentInfo.Attachments[0];
+
+                if (Common.IsRequirementEnabled(318011, this.Site))
+                {
+                    if (attachment is ReferenceAttachmentType)
+                    {
+                        ReferenceAttachmentType refAttach = attachment as ReferenceAttachmentType;
+                        this.verifyReferenceAttachmentType(isSchemaValidated, refAttach);
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318011");
+
+                        // Verify MS-OXWSATT requirement: MS-OXWSATT_R318011
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isSchemaValidated,
+                            318011,
+                            @"[In Appendix C: Product Behavior] Implementation does introduce the ReferenceAttachmentType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)");
+                    }
+                }
+                if (attachment is ItemAttachmentType)
+                {
+                    ItemAttachmentType itemAttachment = attachment as ItemAttachmentType;
+                    if (Common.IsRequirementEnabled(318009, this.Site))
+                    {
+                        if (itemAttachment.Item is AbchPersonItemType)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318009");
+
+                            // Verify MS-OXWSATT requirement: MS-OXWSATT_R318009
+                            this.Site.CaptureRequirementIfIsTrue(
+                                isSchemaValidated,
+                                318009,
+                                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior).");
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R99005");
+
+                            // Verify MS-OXWSATT requirement: MS-OXWSATT_R99005
+                            this.Site.CaptureRequirementIfIsTrue(
+                                isSchemaValidated,
+                                99005,
+                                @"[In t:ItemAttachmentType Complex Type] [The type of Person element is] t:AbchPersonItemType ([MS-OXWSCONT] section 2.2.4.1)");
+                        }
+                    }
+                }
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55");
@@ -887,14 +947,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                         @"[In t:AttachmentType Complex Type][The type of LastModifiedTime element is] xs:dateTime ([XMLSCHEMA2]).");
                 }
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R343");
+                if (Common.IsRequirementEnabled(318003, this.Site))
+                {
+                    if (attachment.IsInlineSpecified == true)
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R318003");
 
-                // Verify MS-OXWSATT requirement: MS-OXWSATT_R343
-                Site.CaptureRequirementIfIsTrue(
-                    isSchemaValidated,
-                    343,
-                    @"[In t:AttachmentType Complex Type][The type of IsInline element is] xs:Boolean ([XMLSCHEMA2]).");
+                        // Verify MS-OXWSATT requirement: MS-OXWSATT_R318003
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isSchemaValidated,
+                            318003,
+                            @"[In Appendix C: Product Behavior] Implementation does suport IsInline element. (Exchange 2010 and above follow this behavior).");
+                    }
+                }
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R49");
@@ -905,20 +971,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     49,
-                    @"[In m:AttachmentInfoResponseMessageType Complex Type] The AttachmentInfoResponseMessageType complex type extends the ResponseMessageType complex type, ([MS-OXWSCDATA] section 2.2.4.57).
-                    <xs:complexType name=""AttachmentInfoResponseMessageType"">
-                      <xs:complexContent>
-                        <xs:extension
-                          base=""m:ResponseMessageType""
-                        >
-                          <xs:sequence>
-                            <xs:element name=""Attachments""
-                              type=""t:ArrayOfAttachmentsType""
-                             />
-                          </xs:sequence>
-                        </xs:extension>
-                      </xs:complexContent>
-                    </xs:complexType>");
+                    @"[In m:AttachmentInfoResponseMessageType Complex Type] The AttachmentInfoResponseMessageType complex type extends the ResponseMessageType complex type, ([MS-OXWSCDATA] section 2.2.4.67).
+<xs:complexType name=""AttachmentInfoResponseMessageType"">
+  <xs:complexContent>
+    <xs:extension
+      base=""m:ResponseMessageType""
+    >
+      <xs:sequence>
+        <xs:element name=""Attachments""
+          type=""t:ArrayOfAttachmentsType""
+         />
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+</xs:complexType>");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R335");
@@ -952,19 +1018,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                     isSchemaValidated,
                     33,
                     @"[In t:ArrayOfAttachmentsType Complex Type][The ArrayOfAttachmentsType Complex Type is defined as follow:]
-                    <xs:complexType name=""ArrayOfAttachmentsType"">
-                        <xs:choice
-                        minOccurs=""0""
-                        maxOccurs=""unbounded""
-                        >
-                        <xs:element name=""ItemAttachment""
-                            type=""t:ItemAttachmentType""
-                            />
-                        <xs:element name=""FileAttachment""
-                            type=""t:FileAttachmentType""
-                            />
-                        </xs:choice>
-                    </xs:complexType>");
+                        <xs:complexType name=""ArrayOfAttachmentsType"">
+                          <xs:choice
+                            minOccurs=""0""
+                            maxOccurs=""unbounded""
+                          >
+                            <xs:element name=""ItemAttachment""
+                              type=""t:ItemAttachmentType""
+                             />
+                            <xs:element name=""FileAttachment""
+                              type=""t:FileAttachmentType""
+                             />
+                            <xs:element name=""ReferenceAttachment"" 
+                               type=""t:ReferenceAttachmentType""
+                        />
+                          </xs:choice>
+                        </xs:complexType>");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R331");
@@ -1021,6 +1090,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
         <xs:element name=""PostItem""
           type=""t:PostItemType""
          />
+        <xs:element name=""RoleMember"" 
+           type=""t:RoleMemberItemType""
+          />
+         <xs:element name=""Network"" 
+           type=""t:NetworkItemType""
+          />
+         <xs:element name=""Person"" 
+           type=""t:AbchPersonItemType""
+          />
+         <xs:element name=""Booking""
+           type=""t:BookingItemType""
+          />
       </xs:choice>
     </xs:extension>
   </xs:complexContent>
@@ -1102,6 +1183,145 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 Site.CaptureRequirement(
                     318,
                     @"[In Appendix C: Product Behavior]Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange Server 2007 and above follow this behavior. )");
+            }
+
+            if (Common.IsRequirementEnabled(318, this.Site) && transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R5001");
+
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R5001
+                // Because Adapter uses SOAP and HTTP to communicate with server, if server returned data without exception, this requirement has been captured.
+                this.Site.CaptureRequirement(
+                    5001,
+                    @"[In Transport] This protocol MUST support SOAP over HTTP, as specified in [RFC2616]. ");
+            }
+        }
+
+        /// <summary>
+        /// Verify the ReferenceAttachmentType related requirements.
+        /// </summary>
+        private void verifyReferenceAttachmentType(bool isSchemaValidated,ReferenceAttachmentType referenceAttachment)
+        {
+            if (referenceAttachment != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R38001");
+
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R38001
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    38001,
+                    @"[In t:ArrayOfAttachmentsType Complex Type][The type of element ReferenceAttachment is] t:ReferenceAttachmentType (section 2.2.4.8).");
+
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R441");
+
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R441
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    104003,
+                    @"[t:ReferenceAttachmentType Complex Type] [The ReferenceAttachmentType Complex Type is defined as follow:]
+<xs:complexType name=""ReferenceAttachmentType"">
+   <xs:complexContent>
+     <xs:extension base=""t:AttachmentType"">
+       <xs:sequence>
+         <xs:element name=""AttachLongPathName"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+         <xs:element name=""ProviderType"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+      <xs:element name=""ProviderEndpointUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+      <xs:element name=""AttachmentThumbnailUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+      <xs:element name=""AttachmentPreviewUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1""/>
+      <xs:element name=""PermissionType"" type=""xs:int"" minOccurs=""0"" maxOccurs=""1""/>
+      <xs:element name=""AttachmentIsFolder"" type=""xs:boolean"" minOccurs=""0"" maxOccurs=""1""/>
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>");
+
+                if (!string.IsNullOrEmpty(referenceAttachment.AttachLongPathName))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104005");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104005
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104005,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of AttachLongPathName element is] xs:string([XMLSCHEMA2])");
+                }
+
+                if (!string.IsNullOrEmpty(referenceAttachment.ProviderType))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104007");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104007
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104007,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of ProviderType element is] xs:string.");
+                }
+
+                if (!string.IsNullOrEmpty(referenceAttachment.ProviderEndpointUrl))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104009");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104009
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104009,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of ProviderEndpointUrl element is] xs:string.");
+                }
+
+                if (!string.IsNullOrEmpty(referenceAttachment.AttachmentThumbnailUrl))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104011");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104011
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104011,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of AttachmentThumbnailUrl element is] xs:string.");
+                }
+
+                if (!string.IsNullOrEmpty(referenceAttachment.AttachmentPreviewUrl))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104013");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104013
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104013,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of AttachmentPreviewUrl element is] xs:string.");
+                }
+
+                if (referenceAttachment.PermissionTypeSpecified == true)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104015");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104015
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104015,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of PermissionType element is] xs:int([XMLSCHEMA2] ).");
+                }
+
+                if (referenceAttachment.AttachmentIsFolderSpecified == true)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R104017");
+
+                    // Verify MS-OXWSATT requirement: MS-OXWSATT_R104017
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isSchemaValidated,
+                        104017,
+                        @"[t:ReferenceAttachmentType Complex Type] [The type of AttachmentIsFolder element is] xs:Boolean([XMLSCHEMA2] )");
+                }
             }
         }
     }

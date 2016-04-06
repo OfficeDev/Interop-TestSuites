@@ -5,5 +5,7 @@
   <Properties>
     <!--Set R183Enabled to true to verify that the implementation does uses secure communications via HTTPS, as defined in [RFC2818]. Set R183Enabled to false to disable this requirement.-->
     <Property name="R183Enabled" value="true" />
+    <!--Set R1428001Enabled to true to verify that the implementation return the MailboxType element in the GetItem operation. Set R1428001Enabled to false to disable this requirement.-->
+    <Property name="R1428001Enabled" value="false" />
   </Properties>
 </TestSite>

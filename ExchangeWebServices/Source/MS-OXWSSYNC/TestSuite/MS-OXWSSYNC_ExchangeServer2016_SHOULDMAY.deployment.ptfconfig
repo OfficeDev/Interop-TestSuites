@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R20003Enabled to true to verify that implementation does support SOAP over HTTPS, as specified in [RFC2818]. Set R20003Enabled to false to disable this requirement.-->
+    <Property name="R20003Enabled" value="true"/>
+    <!-- Set R37809Enabled to true to verify that implementation does use the InlineImageUrlTemplate element. The InlineImageUrlTemplate element which is sub element of ItemShape specifies the name of the template for the inline image URL as specified in section 2.2.4.38 of MS-OXWSCDATA. Set R37809Enabled to false to disable this requirement.-->
+    <Property name="R37809Enabled" value="true"/>
+    <!-- Set R37811008Enabled to true to verify that the implementation does support the SyncScope element. Set R37811008Enabled to false to disable this requirement.-->
+    <Property name="R37811008Enabled" value="true"/>
+    <!-- Set R37811Enabled to true to verify that implementation does support DistributionList with type t:DistributionListType ([MS-OXWSDLIST] section 2.2.4.3), as specified in section 7 of MS-OXWSDLIST. Set R37811Enabled to false to disable this requirement.-->
+    <Property name="R37811Enabled" value="true"/>
+    <!-- Set R37811002Enabled to true to verify that implementation dose include Delete element. Set R37811002Enabled to false to disable this requirement.-->
+    <Property name="R37811002Enabled" value="true"/>
+    <!-- Set R37811004Enabled to true to verify that implementation dose return a MessageType complex type. Set R37811004Enabled to false to disable this requirement.-->
+    <Property name="R37811004Enabled" value="true"/>
+    <!-- Set R37811006Enabled to true to verify that implementation dose support the Person element. Set R37811006Enabled to false to disable this requirement.-->
+    <Property name="R37811006Enabled" value="true"/>
+    <!-- Set R1752003Enabled to true to verify that implementation dose support the NetworkItemType element. Set R1752003Enabled to false to disable this requirement.-->
+    <Property name="R1752003Enabled" value="true"/>
+    <!-- Set R1752001Enabled to true to verify that implementation dose support the RoleMemberItemType element. Set R1752001Enabled to false to disable this requirement.-->
+    <Property name="R1752001Enabled" value="true"/>
+  </Properties>
+</TestSite>

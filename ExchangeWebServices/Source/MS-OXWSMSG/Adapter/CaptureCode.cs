@@ -21,7 +21,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // According to the implementation of adapter, the message is formatted as SOAP 1.1. If the operation is invoked successfully, then this requirement can be verified.
             Site.CaptureRequirement(
                 1,
-                @"[In Transport] The SOAP version supported is SOAP 1.1.");
+                @"[In Transport] This protocol uses SOAP 1.1.");
         }
 
         /// <summary>
@@ -42,6 +42,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirement(
                     183,
                     @"[In Appendix C: Product Behavior] Implementation does uses secure communications via HTTPS, as defined in [RFC2818]. (The Exchange 2007 and above follow this behavior.)");
+            }
+
+            if (transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R3001");
+
+                 // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R3001
+                // Because Adapter uses HTTP communicate with server, if server returned data without exception, this requirement has been captured.
+                Site.CaptureRequirement(
+                    3001,
+                    @"[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616].");
             }
         }
 
@@ -420,7 +432,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     25,
-                    @"[In t:MessageType Complex Type] The Sender element is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.60) type.");
+                    @"[In t:MessageType Complex Type] The Sender element is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.71) type.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1292");
@@ -449,7 +461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     29,
-                    @"[In t:MessageType Complex Type] ToRecipients element is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.9) type.");
+                    @"[In t:MessageType Complex Type] ToRecipients element is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.11) type.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1033");
@@ -505,7 +517,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     186,
-                    @"[In t:MessageType Complex Type] IsReadReceiptRequested element is xs:boolean ([XMLSCHEMA2]) type.");
+                    @"[In t:MessageType Complex Type] IsReadReceiptRequested element is xs:boolean ([XMLSCHEMA2] sec 3.2.2) type.");
             }
 
             if (messageItem.IsDeliveryReceiptRequestedSpecified)
@@ -529,7 +541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     188,
-                    @"[In t:MessageType Complex Type] ConversationIndex element is xs:base64Binary ([XMLSCHEMA2]) type.");
+                    @"[In t:MessageType Complex Type] ConversationIndex element is xs:base64Binary ([XMLSCHEMA2] sec 3.2.16) type.");
             }
 
             if (messageItem.ConversationTopic != null)
@@ -541,9 +553,45 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     189,
-                    @"[In t:MessageType Complex Type] ConversationTopic element is xs:string ([XMLSCHEMA2]) type.");
+                    @"[In t:MessageType Complex Type] ConversationTopic element is xs:string ([XMLSCHEMA2] sec 3.2.1) type.");
             }
 
+            if (messageItem.ApprovalRequestData != null && Common.IsRequirementEnabled(182002, Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73002");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R73002
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    73002,
+                    @"[In t:MessageType Complex Type] The type of child element ApprovalRequestData is t:ApprovalRequestDataType ([MS-OXWSMTGS] section 2.2.4.3).");
+            }
+
+            if (messageItem.VotingInformation != null && Common.IsRequirementEnabled(182004, Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73004");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R73004
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    73004,
+                    @"[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType ([MS-OXWSMTGS] section 2.2.4.39)."); 
+            }
+
+            if (messageItem.ReminderMessageData != null && Common.IsRequirementEnabled(182006, Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73006");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R73006
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    73006,
+                    @"[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( [MS-OXWSMTGS] section 2.2.4.33).");  
+            }
+            
             if (messageItem.From != null)
             {
                 // Add the debug information
@@ -625,7 +673,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     22,
-                    @"[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.8).");
+                    @"[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.24).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R23");
@@ -704,6 +752,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
           type=""t:SingleRecipientType""
           minOccurs=""0""
          />
+        <xs:element name=""ApprovalRequestData""
+	          type=""t:ApprovalRequestDataType"" 
+	          minOccurs=""0""
+	     />
+	     <xs:element name=""VotingInformation""
+	          type=""t:VotingInformationType"" 
+	          minOccurs=""0""
+	     />
+	     <xs:element name=""ReminderMessageData"" 
+	          type=""t:ReminderMessageDataType"" 
+	          minOccurs=""0""
+	     />
       </xs:sequence>
     </xs:extension>
   </xs:complexContent>
@@ -842,6 +902,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         <xs:enumeration value=""PublicFolder""/>
     </xs:restriction>
 </xs:simpleType>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1428001");
+
+            Site.CaptureRequirementIfIsTrue(
+                Common.IsRequirementEnabled(1428001, Site),
+                "MS-OXWSCDATA",
+                1428001,
+                @"[In Appendix C: Product Behavior]<53> Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.");
         }
     }
 }

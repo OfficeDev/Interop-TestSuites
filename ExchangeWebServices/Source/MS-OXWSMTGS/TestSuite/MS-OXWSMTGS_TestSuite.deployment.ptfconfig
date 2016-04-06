@@ -17,6 +17,10 @@
     <Property name="AttendeePassword" value="Password01!"/>
     <!-- The RoomName property specifies the name of a meeting room. -->
     <Property name="RoomName" value="MSOXWSMTGS_Room01" />
+    <!-- The DelegateName property specifies the name for a user that user specified in AttendeeName property is delegate for him. -->
+    <Property name="DelegateName" value="MSOXWSMTGS_User03"/>
+    <!-- The DelegatePassword property specifies the password for the user specified in the DelegateName property. The property value is case-sensitive. -->
+    <Property name="DelegatePassword" value="Password01!"/>
     <!-- SUT section ends. -->
 
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
@@ -40,6 +44,8 @@
     <Property name="SubjectUpdate" value="subject update" />
     <!-- The LocationUpdate property specifies the updated value of the location used in the UpdateItem operation. -->
     <Property name="LocationUpdate" value="meeting room 2" />
+    <!-- The WaitTime property specifies the time interval (in milliseconds) to find a message item after it has been created. Depending on your hardware environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="WaitTime" value="2000" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>

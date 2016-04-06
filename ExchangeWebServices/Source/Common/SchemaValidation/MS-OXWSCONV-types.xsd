@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="types" elementFormDefault="qualified" version="Exchange2013" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="types" elementFormDefault="qualified" version="Exchange2016" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSEDISC-types.xsd"/>
   <xs:complexType name="ArrayOfItemClassType">
@@ -89,6 +89,12 @@
       <xs:element name="GlobalIconIndex" type="t:IconIndexType" minOccurs="0"/>
       <!-- Maps to ConversationItemSchema.ConversationDraftItemIds-->
       <xs:element name="DraftItemIds" type="t:NonEmptyArrayOfBaseItemIdsType" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationHasIrm-->
+      <xs:element name="HasIrm" type="xs:boolean" minOccurs="0"/>
+      <!-- Maps to ConversationItemSchema.ConversationGlobalHasIrm-->
+      <xs:element name="GlobalHasIrm" type="xs:boolean" minOccurs="0"/>
+      <!-- Key on which the data got sorted during search operation-->
+      <xs:element name="SortKey" type="xs:long" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ArrayOfConversationsType">
@@ -162,9 +168,12 @@
       <xs:enumeration value="TaskActive"/>
       <xs:enumeration value="TaskOverdue"/>
       <xs:enumeration value="TaskCompleted"/>
+
       <xs:enumeration value="Suggestions"/>
       <xs:enumeration value="SuggestionsRespond"/>
       <xs:enumeration value="SuggestionsDelete"/>
+      <xs:enumeration value="NoClutter"/>
+      <xs:enumeration value="Clutter"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

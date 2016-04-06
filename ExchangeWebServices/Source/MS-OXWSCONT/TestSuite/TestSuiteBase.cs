@@ -563,7 +563,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.DisplayName,
                 responseContactItem.DisplayName,
                 25,
-                @"[In t:ContactItemType Complex Type] DisplayName element: Contains the display name of a contact.");
+                @"[In t:ContactItemType Complex Type] DisplayName element: Contains the display name of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R26");
@@ -582,7 +582,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.GivenName,
                 responseContactItem.GivenName,
                 27,
-                @"[In t:ContactItemType Complex Type] GivenName element: Contains the given name for a contact.");
+                @"[In t:ContactItemType Complex Type] GivenName element: Contains the given name for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R28");
@@ -601,7 +601,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Initials,
                 responseContactItem.Initials,
                 29,
-                @"[In t:ContactItemType Complex Type] Initials element: Contains the initials for a contact.");
+                @"[In t:ContactItemType Complex Type] Initials element: Contains the initials for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R30");
@@ -620,7 +620,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.MiddleName,
                 responseContactItem.MiddleName,
                 31,
-                @"[In t:ContactItemType Complex Type] MiddleName element: Represents the middle name of a contact.");
+                @"[In t:ContactItemType Complex Type] MiddleName element: Represents the middle name of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R32");
@@ -639,7 +639,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Nickname,
                 responseContactItem.Nickname,
                 33,
-                @"[In t:ContactItemType Complex Type] Nickname element: Represents the nickname of a contact.");
+                @"[In t:ContactItemType Complex Type] Nickname element: Represents the nickname of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R36");
@@ -658,7 +658,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.CompanyName,
                 responseContactItem.CompanyName,
                 37,
-                @"[In t:ContactItemType Complex Type] CompanyName element: Contains the company name that is associated with a contact.");
+                @"[In t:ContactItemType Complex Type] CompanyName element: Contains the company name that is associated with a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R44");
@@ -677,7 +677,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.AssistantName,
                 responseContactItem.AssistantName,
                 45,
-                @"[In t:ContactItemType Complex Type] AssistantName element: Contains the name of the assistant for the contact.");
+                @"[In t:ContactItemType Complex Type] AssistantName element: Contains the name of the assistant for the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R46");
@@ -686,7 +686,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 responseContactItem.BirthdaySpecified,
                 46,
-                @"[In t:ContactItemType Complex Type] The type of the element of Birthday is xs:dateTime [XMLSCHEMA2]");
+                @"[In t:ContactItemType Complex Type] The type of the element of Birthday is xs:dateTime [XMLSCHEMA2].");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R47");
@@ -696,7 +696,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Birthday,
                 responseContactItem.Birthday,
                 47,
-                @"[In t:ContactItemType Complex Type] Birthday element: Represents the birthday of the contact.");
+                @"[In t:ContactItemType Complex Type] Birthday element: Represents the birthday of the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R56");
@@ -715,7 +715,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Department,
                 responseContactItem.Department,
                 57,
-                @"[In t:ContactItemType Complex Type] Department element: Contains the work department for the contact.");
+                @"[In t:ContactItemType Complex Type] Department element: Contains the work department for the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R58");
@@ -734,7 +734,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Generation,
                 responseContactItem.Generation,
                 59,
-                @"[In t:ContactItemType Complex Type] Generation element: Contains a generational abbreviation that follows the full name of a contact.");
+                @"[In t:ContactItemType Complex Type] Generation element: Contains a generational abbreviation that follows the full name of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R62");
@@ -753,7 +753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.JobTitle,
                 responseContactItem.JobTitle,
                 63,
-                @"[In t:ContactItemType Complex Type] JobTitle element: Contains the job title of a contact.");
+                @"[In t:ContactItemType Complex Type] JobTitle element: Contains the job title of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R64");
@@ -772,7 +772,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Manager,
                 responseContactItem.Manager,
                 65,
-                @"[In t:ContactItemType Complex Type] Manager element: Represents the manager of a contact.");
+                @"[In t:ContactItemType Complex Type] Manager element: Represents the manager of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R66");
@@ -791,7 +791,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Mileage,
                 responseContactItem.Mileage,
                 67,
-                @"[In t:ContactItemType Complex Type] Mileage element: Represents the mileage for a contact.");
+                @"[In t:ContactItemType Complex Type] Mileage element: Represents the mileage for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R68");
@@ -810,7 +810,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.OfficeLocation,
                 responseContactItem.OfficeLocation,
                 69,
-                @"[In t:ContactItemType Complex Type] OfficeLocation element: Represents the office location of a contact.");
+                @"[In t:ContactItemType Complex Type] OfficeLocation element: Represents the office location of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R72");
@@ -829,7 +829,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Profession,
                 responseContactItem.Profession,
                 73,
-                @"[In t:ContactItemType Complex Type] Profession element: Represents the profession of a contact.");
+                @"[In t:ContactItemType Complex Type] Profession element: Represents the profession of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R74");
@@ -848,7 +848,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.SpouseName,
                 responseContactItem.SpouseName,
                 75,
-                @"[In t:ContactItemType Complex Type] SpouseName element: Represents the name of the spouse/partner of a contact.");
+                @"[In t:ContactItemType Complex Type] SpouseName element: Represents the name of the spouse/partner of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R76");
@@ -867,7 +867,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Surname,
                 responseContactItem.Surname,
                 77,
-                @"[In t:ContactItemType Complex Type] Surname element: Contains the surname of a contact.");
+                @"[In t:ContactItemType Complex Type] Surname element: Contains the surname of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R78");
@@ -886,7 +886,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.WeddingAnniversary,
                 responseContactItem.WeddingAnniversary,
                 79,
-                @"[In t:ContactItemType Complex Type] WeddingAnniversary element: Contains the wedding anniversary date of a contact.");
+                @"[In t:ContactItemType Complex Type] WeddingAnniversary element: Contains the wedding anniversary date of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R22");
@@ -895,7 +895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 responseContactItem.FileAsMappingSpecified,
                 22,
-                @"[In t:ContactItemType Complex Type] The type of the element of FileAsMapping is t:FileAsMappingType (section 3.1.4.1.1.2)");
+                @"[In t:ContactItemType Complex Type] The type of the element of FileAsMapping is t:FileAsMappingType (section 3.1.4.1.2.4)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R34");
@@ -904,7 +904,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.CompleteName,
                 34,
-                @"[In t:ContactItemType Complex Type] The type of the element of CompleteName is t:CompleteNameType (section 3.1.4.1.2.1)");
+                @"[In t:ContactItemType Complex Type] The type of the element of CompleteName is t:CompleteNameType (section 3.1.4.1.1.5)");
 
             // Verify the CompleteNameType element of ContactItemType Complex Type.
             this.VerifyCompleteNameTypeComplexType(responseContactItem, requestContactItem);
@@ -916,7 +916,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.EmailAddresses,
                 38,
-                @"[In t:ContactItemType Complex Type] The type of the element of EmailAddresses is t:EmailAddressDictionaryType (section 3.1.4.1.2.5)");
+                @"[In t:ContactItemType Complex Type] The type of the element of EmailAddresses is t:EmailAddressDictionaryType (section3.1.4.1.1.11)");
 
             // Verify the EmailAddressDictionaryType element of ContactItemType Complex Type.
             this.VerifyEmailAddressDictionaryTypeComplexType(responseContactItem.EmailAddresses, requestContactItem.EmailAddresses);
@@ -928,7 +928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.PhysicalAddresses,
                 40,
-                @"[In t:ContactItemType Complex Type] The type of the element of PhysicalAddresses is t:EmailAddressDictionaryType");
+                @"[In t:ContactItemType Complex Type] The type of the element of PhysicalAddresses is t:PhysicalAddressDictionaryType (section 3.1.4.1.1.17).");
 
             this.VerifylPhysicalAddressDictionaryTypeComplexType(responseContactItem.PhysicalAddresses, requestContactItem.PhysicalAddresses);
 
@@ -939,7 +939,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.PhoneNumbers,
                 42,
-                @"[In t:ContactItemType Complex Type] The type of the element of PhoneNumbers is t:EmailAddressDictionaryType");
+                @"[In t:ContactItemType Complex Type] The type of the element of PhoneNumbers is t:PhoneNumberDictionaryType (section 3.1.4.1.1.15).");
 
             // Verify the PhoneNumberDictionaryType element of ContactItemType Complex Type.
             this.VerifyPhoneNumberDictionaryTypeComplexType(responseContactItem.PhoneNumbers, requestContactItem.PhoneNumbers);
@@ -951,7 +951,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.BusinessHomePage,
                 48,
-                @"[In t:ContactItemType Complex Type] The type of the element of BusinessHomePage is xs:anyURI [XMLSCHEMA2]");
+                @"[In t:ContactItemType Complex Type] The type of the element of BusinessHomePage is xs:anyURI [XMLSCHEMA2].");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R49");
@@ -961,7 +961,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.BusinessHomePage,
                 responseContactItem.BusinessHomePage,
                 49,
-                @"[In t:ContactItemType Complex Type] BusinessHomePage element: Contains the business home page Uniform Resource Identifier (URI) of a contact.");
+                @"[In t:ContactItemType Complex Type] BusinessHomePage element: Contains the business home page Uniform Resource Identifier (URI) of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R60");
@@ -970,7 +970,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.ImAddresses,
                 60,
-                @"[In t:ContactItemType Complex Type] The type of the element of ImAddresses is t:ImAddressDictionaryType (section 3.1.4.1.2.7)");
+                @"[In t:ContactItemType Complex Type] The type of the element of ImAddresses is t:ImAddressDictionaryType (section 3.1.4.1.1.13).");
 
             // Verify the ImAddressDictionaryType element of ContactItemType Complex Type.
             this.VerifyImAddressDictionaryTypeComplexType(responseContactItem.ImAddresses, requestContactItem.ImAddresses);
@@ -982,7 +982,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 responseContactItem.PostalAddressIndexSpecified,
                 70,
-                @"[In t:ContactItemType Complex Type] The type of the element of PostalAddressIndex is t:PhysicalAddressIndexType (section 3.1.4.1.1.5)");
+                @"[In t:ContactItemType Complex Type] The type of the element of PostalAddressIndex is t:PhysicalAddressIndexType (section 3.1.4.1.2.7)");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R71");
@@ -992,7 +992,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.PostalAddressIndex,
                 responseContactItem.PostalAddressIndex,
                 71,
-                @"[In t:ContactItemType Complex Type] PostalAddressIndex element: Represents the index of one of the physical addresses, which is a contact's mailing address.");
+                @"[In t:ContactItemType Complex Type] PostalAddressIndex element: Represents the index of one of the physical addresses, which is a contact's (2) mailing address.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R177");
@@ -1001,7 +1001,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R177 is captured based on R70 and R61, so if both of them are captured successfully, R177 can be captured.
             this.Site.CaptureRequirement(
                 177,
-                @"[t:PhysicalAddressIndexType Simple Type] The PhysicalAddressIndexType complex type identifies the display types for physical addresses.");
+                @"[t:PhysicalAddressIndexType Simple Type] The PhysicalAddressIndexType simple  type identifies the display types for physical addresses.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R50");
@@ -1010,7 +1010,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.Children,
                 50,
-                @"[In t:ContactItemType Complex Type] The type of the element of Children is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.11)");
+                @"[In t:ContactItemType Complex Type] The type of the element of Children is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
 
             Site.Assert.AreEqual<int>(
                 1,
@@ -1026,7 +1026,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Children[0],
                 responseContactItem.Children[0],
                 51,
-                @"[In t:ContactItemType Complex Type] Children element: Contains the names of children for the contact.");
+                @"[In t:ContactItemType Complex Type] Children element: Contains the names of children for the contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R52");
@@ -1051,7 +1051,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Companies[0],
                 responseContactItem.Companies[0],
                 53,
-                @"[In t:ContactItemType Complex Type] Companies element: Contains the names of companies that are associated with a contact.");
+                @"[In t:ContactItemType Complex Type] Companies element: Contains the names of companies that are associated with a contact (2).");
         }
 
         #endregion
@@ -1074,7 +1074,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 this.IsSchemaValidated,
                 227,
-                @"[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:EmailAddressKeyType (section 3.1.4.1.1.1)");
+                @"[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:EmailAddressKeyType (section 3.1.4.1.2.3).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R228");
@@ -1084,7 +1084,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestEmailAddressDictionaryEntryType.Key,
                 responseEmailAddressDictionaryEntryType.Key,
                 228,
-                @"[In t:EmailAddressDictionaryEntryType Complex Type] Key attribute: Contains a value that identifies an e-mail address that is associated with a contact.");
+                @"[In t:EmailAddressDictionaryEntryType Complex Type] Key attribute: Contains a value that identifies an e-mail address that is associated with a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R225");
@@ -1093,7 +1093,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R225 is captured based on R227 and R228, so if both of them are captured successfully, R225 also should be captured.
             this.Site.CaptureRequirement(
                 225,
-                @"[In t:EmailAddressDictionaryEntryType Complex Type] The EmailAddressDictionaryEntryType complex type represents an e-mail address that is associated with a contact.");
+                @"[In t:EmailAddressDictionaryEntryType Complex Type] The EmailAddressDictionaryEntryType complex type represents an e-mail address that is associated with a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R238");
@@ -1102,7 +1102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R238 is captured in the same condition with R228, so if R228 is captured successfully, R238 also should be captured.
             this.Site.CaptureRequirement(
                 238,
-                @"[In t:EmailAddressDictionaryType Complex Type] Entry element: Represents an e-mail address that is associated with a contact.");
+                @"[In t:EmailAddressDictionaryType Complex Type] Entry element: Represents an e-mail address that is associated with a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R39");
@@ -1111,7 +1111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R39 is captured in the same condition with R228, so if R228 is captured successfully, R39 also should be captured.
             this.Site.CaptureRequirement(
                 39,
-                @"[In t:ContactItemType Complex Type] EmailAddress element: Contains e-mail addresses that are associated with a contact.");
+                @"[In t:ContactItemType Complex Type] EmailAddress element: Contains e-mail addresses that are associated with a contact (2).");
         }
         #endregion
 
@@ -1139,7 +1139,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR237,
                     237,
-                    @"[In t:EmailAddressDictionaryType Complex Type] The type of the element of Entry is t:EmailAddressDictionaryEntryType (section 3.1.4.1.2.4)");
+                    @"[In t:EmailAddressDictionaryType Complex Type] The type of the element of Entry is t:EmailAddressDictionaryEntryType (section 3.1.4.1.1.10)");
             }
 
             // Add the debug information
@@ -1171,7 +1171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 this.IsSchemaValidated,
                 241,
-                @"[In t:ImAddressDictionaryEntryType Complex Type] The type of the attribute of key is t:ImAddressKeyType (section 3.1.4.1.1.3)");
+                @"[In t:ImAddressDictionaryEntryType Complex Type] The type of the attribute of key is t:ImAddressKeyType (3.1.4.1.2.5)");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R242");
@@ -1181,7 +1181,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestInstantMessageAddressDictionaryEntry.Key,
                 responseInstantMessageAddressDictionaryEntry.Key,
                 242,
-                @"[In t:ImAddressDictionaryEntryType Complex Type] t:ImAddressKeyType attribute: Represents the instant messaging addresses for a contact.");
+                @"[In t:ImAddressDictionaryEntryType Complex Type] t:ImAddressKeyType attribute: Represents the instant messaging addresses for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R239");
@@ -1190,7 +1190,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R239 is captured based on R241 and R242, so if both of them are captured successfully, R239 also should be captured.
             this.Site.CaptureRequirement(
                 239,
-                @"[In t:ImAddressDictionaryEntryType Complex Type] The ImAddressDictionaryEntryType complex type represents a collection of instant messaging addresses for a contact.");
+                @"[In t:ImAddressDictionaryEntryType Complex Type] The ImAddressDictionaryEntryType complex type represents a collection of instant messaging addresses for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R61");
@@ -1199,7 +1199,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R61 is captured in the same condition with R242, so if R242 is captured successfully, R61 also should be captured.
             this.Site.CaptureRequirement(
                 61,
-                @"[In t:ContactItemType Complex Type] ImAddresses element: Contains instant messaging addresses for a contact.");
+                @"[In t:ContactItemType Complex Type] ImAddresses element: Contains instant messaging addresses for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R246");
@@ -1208,7 +1208,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R246 is captured in the same condition with R242, so if R242 is captured successfully, R246 also should be captured.
             this.Site.CaptureRequirement(
                 246,
-                @"[In t:ImAddressDictionaryType Complex Type] Entry child element: Represents a collection of instant messaging addresses for a contact.");
+                @"[In t:ImAddressDictionaryType Complex Type] Entry child element: Represents a collection of instant messaging addresses for a contact (2).");
         }
         #endregion
 
@@ -1236,7 +1236,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR245,
                     245,
-                    @"[In t:ImAddressDictionaryType Complex Type] The type of the child element of Entry is t:ImAddressDictionaryEntryType (section 3.1.4.1.2.8)");
+                    @"[In t:ImAddressDictionaryType Complex Type] The type of the child element of Entry is t:ImAddressDictionaryEntryType (3.1.4.1.1.14)");
             }
 
             // Add the debug information
@@ -1246,7 +1246,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // R243 can be captured directly after each instant messaging address entry is validated.
             this.Site.CaptureRequirement(
                 243,
-                @"[In t:ImAddressDictionaryType Complex Type] The ImAddressDictionaryType complex type contains instant messaging addresses for a contact.");
+                @"[In t:ImAddressDictionaryType Complex Type] The ImAddressDictionaryType complex type contains instant messaging addresses for a contact (2).");
         }
         #endregion
 
@@ -1268,7 +1268,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 this.IsSchemaValidated,
                 249,
-                @"[In t:PhoneNumberDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhoneNumberKeyType (section 3.1.4.1.1.4)");
+                @"[In t:PhoneNumberDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhoneNumberKeyType (3.1.4.1.2.6).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R250");
@@ -1278,7 +1278,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhoneNumberDictionaryEntryType.Key,
                 responsePhoneNumberDictionaryEntryType.Key,
                 250,
-                @"[In t:PhoneNumberDictionaryEntryType Complex Type] Key attribute: Represents types of telephone numbers for a contact.");
+                @"[In t:PhoneNumberDictionaryEntryType Complex Type] Key attribute: Represents types of telephone numbers for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R247");
@@ -1287,7 +1287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R247 is captured based on R249 and R250, so if both of them are captured successfully, R247 also should be captured.
             this.Site.CaptureRequirement(
                 247,
-                @"[In t:PhoneNumberDictionaryEntryType Complex Type] The PhoneNumberDictionaryEntryType complex type contains a telephone number for a contact.");
+                @"[In t:PhoneNumberDictionaryEntryType Complex Type] The PhoneNumberDictionaryEntryType complex type contains a telephone number for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R43");
@@ -1296,7 +1296,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R43 is captured in the same condition with R250, so if R250 is captured successfully, R43 also should be captured.
             this.Site.CaptureRequirement(
                 43,
-                @"[In t:ContactItemType Complex Type] PhoneNumbers element: Represents a collection of telephone numbers for a contact.");
+                @"[In t:ContactItemType Complex Type] PhoneNumbers element: Represents a collection of telephone numbers for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R254");
@@ -1305,7 +1305,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R254 is captured in the same condition with R250, so if R250 is captured successfully, R254 also should be captured.
             this.Site.CaptureRequirement(
                 254,
-                @"[In t:PhoneNumberDictionaryType Complex Type] Entry child element: Contains a telephone number for a contact.");
+                @"[In t:PhoneNumberDictionaryType Complex Type] Entry child element: Contains a telephone number for a contact (2).");
         }
         #endregion
 
@@ -1333,7 +1333,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR253,
                     253,
-                    @"[In t:PhoneNumberDictionaryType Complex Type] The type of the child element of Entry is t:PhoneNumberDictionaryEntryType (section 3.1.4.1.2.8)");
+                    @"[In t:PhoneNumberDictionaryType Complex Type] The type of the child element of Entry is t:PhoneNumberDictionaryEntryType (3.1.4.1.1.14).");
             }
 
             // Add the debug information
@@ -1343,7 +1343,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // R251 can be captured directly after each telephone number entry is validated.
             this.Site.CaptureRequirement(
                 251,
-                @"[In t:PhoneNumberDictionaryType Complex Type] The PhoneNumberDictionaryType complex type represents telephone numbers for a contact.");
+                @"[In t:PhoneNumberDictionaryType Complex Type] The PhoneNumberDictionaryType complex type represents telephone numbers for a contact (2).");
         }
         #endregion
 
@@ -1376,7 +1376,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.Street,
                 responsePhysicalAddressDictionaryEntryType.Street,
                 258,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] Street child element: Contains the street address for a contact item.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] Street child element: Contains the street address for a contact (2) item.");
 
             Site.Assert.IsNotNull(responsePhysicalAddressDictionaryEntryType.City, "The City of the PhysicalAddressDictionaryEntryType element from response should not be null.");
 
@@ -1397,7 +1397,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.City,
                 responsePhysicalAddressDictionaryEntryType.City,
                 260,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] City child element: Contains the city name for a contact item.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] City child element: Contains the city name for a contact (2) item.");
 
             Site.Assert.IsNotNull(responsePhysicalAddressDictionaryEntryType.State, "The State of the PhysicalAddressDictionaryEntryType element from response should not be null.");
 
@@ -1418,7 +1418,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.State,
                 responsePhysicalAddressDictionaryEntryType.State,
                 262,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] State child element: Contains the state for a contact item.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] State child element: Contains the state for a contact (2) item.");
 
             Site.Assert.IsNotNull(responsePhysicalAddressDictionaryEntryType.CountryOrRegion, "The CountryOrRegion of the PhysicalAddressDictionaryEntryType element from response should not be null.");
 
@@ -1439,7 +1439,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.CountryOrRegion,
                 responsePhysicalAddressDictionaryEntryType.CountryOrRegion,
                 264,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] CountryOrRegion child element: Contains the country or region for a contact item.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] CountryOrRegion child element: Contains the country or region for a contact (2) item.");
 
             Site.Assert.IsNotNull(responsePhysicalAddressDictionaryEntryType.PostalCode, "The PostalCode of the PhysicalAddressDictionaryEntryType element from response should not be null.");
 
@@ -1460,7 +1460,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.PostalCode,
                 responsePhysicalAddressDictionaryEntryType.PostalCode,
                 266,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] PostalCode child element: Contains the postal code for a contact item.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] PostalCode child element: Contains the postal code for a contact (2) item.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R267");
@@ -1470,7 +1470,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 this.IsSchemaValidated,
                 267,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhysicalAddressKeyType (section 3.1.4.1.1.6)");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] The type of the attribute of Key is t:PhysicalAddressKeyType (section 3.1.4.1.2.8)");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R268");
@@ -1480,7 +1480,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestPhysicalAddressDictionaryEntryType.Key,
                 responsePhysicalAddressDictionaryEntryType.Key,
                 268,
-                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] Key attribute: Identifies the types of physical addresses for a contact.");
+                @"[In t:PhysicalAddressDictionaryEntryType Complex Type] Key attribute: Identifies the types of physical addresses for a contact (2).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R184");
@@ -1489,7 +1489,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R184 is captured based on R267 and R268, so if both of them are captured successfully, R184 can be captured.
             this.Site.CaptureRequirement(
                 184,
-                @"[In t:PhysicalAddressKeyType Simple Type] The PhysicalAddressKeyType simple type identifies the types of physical addresses for a contact.");
+                @"[In t:PhysicalAddressKeyType Simple Type] The PhysicalAddressKeyType simple type identifies the types of physical addresses for a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R255");
@@ -1544,7 +1544,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR271,
                     271,
-                    @"[In t:PhysicalAddressDictionaryType Complex Type] The type of the child element of entry is t:PhysicalAddressDictionaryEntryType (section 3.1.4.1.2.10)");
+                    @"[In t:PhysicalAddressDictionaryType Complex Type] The type of the child element of entry is t:PhysicalAddressDictionaryEntryType (section 3.1.4.1.1.16).");
             }
 
             // Add the debug information
@@ -1554,7 +1554,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // R269 can be captured directly after each physical address entry is validated.
             this.Site.CaptureRequirement(
                 269,
-                @"[In t:PhysicalAddressDictionaryType Complex Type] The PhysicalAddressDictionaryType complex type contains physical addresses that are associated with a contact.");
+                @"[In t:PhysicalAddressDictionaryType Complex Type] The PhysicalAddressDictionaryType complex type contains physical addresses that are associated with a contact (2).");
         }
         #endregion
 
@@ -1587,7 +1587,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.ExtendedProperty[0].Item as string,
                 responseContactItem.CompleteName.Title,
                 194,
-                @"[In t:CompleteNameType Complex Type] Title element: Contains the title of a contact.");
+                @"[In t:CompleteNameType Complex Type] Title element: Contains the title of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.FirstName, "The FirstName of CompleteName from response contact item should not be null.");
 
@@ -1618,7 +1618,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.GivenName,
                 responseContactItem.CompleteName.FirstName,
                 196,
-                @"[In t:CompleteNameType Complex Type] FirstName element: Contains the first name of a contact.");
+                @"[In t:CompleteNameType Complex Type] FirstName element: Contains the first name of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.MiddleName, "The MiddleName of CompleteName from response contact item should not be null.");
 
@@ -1639,7 +1639,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.MiddleName,
                 responseContactItem.CompleteName.MiddleName,
                 198,
-                @"[In t:CompleteNameType Complex Type] MiddleName element: Contains the middle name of a contact.");
+                @"[In t:CompleteNameType Complex Type] MiddleName element: Contains the middle name of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.LastName, "The LastName of CompleteName from response contact item should not be null.");
 
@@ -1670,7 +1670,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Surname,
                 responseContactItem.CompleteName.LastName,
                 200,
-                @"[In t:CompleteNameType Complex Type] LastName element: Contains the last name of a contact.");
+                @"[In t:CompleteNameType Complex Type] LastName element: Contains the last name of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.Suffix, "The Suffix of CompleteName from response contact item should not be null.");
 
@@ -1701,7 +1701,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Generation,
                 responseContactItem.CompleteName.Suffix,
                 202,
-                @"[In t:CompleteNameType Complex Type] Suffix element: Contains a suffix to a contact's name.");
+                @"[In t:CompleteNameType Complex Type] Suffix element: Contains a suffix to a contact's (2) name.");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.Initials, "The Initials of CompleteName from response contact item should not be null.");
 
@@ -1722,7 +1722,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Initials,
                 responseContactItem.CompleteName.Initials,
                 204,
-                @"[In t:CompleteNameType Complex Type] Initials element: Contains the initials of a contact.");
+                @"[In t:CompleteNameType Complex Type] Initials element: Contains the initials of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.FullName, "The FullName of CompleteName from response contact item should not be null.");
 
@@ -1754,7 +1754,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Nickname,
                 responseContactItem.CompleteName.Nickname,
                 208,
-                @"[In t:CompleteNameType Complex Type] Nickname element: Contains the nickname of a contact.");
+                @"[In t:CompleteNameType Complex Type] Nickname element: Contains the nickname of a contact (2).");
 
             Site.Assert.IsNotNull(responseContactItem.CompleteName.YomiFirstName, "The YomiFirstName of CompleteName from response contact item should not be null.");
 
@@ -1805,7 +1805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Because R35 is captured based on R194, R196, R198, R200, R202, R204, R208, R210 and R212, so if all of them are captured successfully, R35 can be captured.
             this.Site.CaptureRequirement(
                 35,
-                @"[In t:ContactItemType Complex Type] CompleteName element: Represents the complete name of a contact.");
+                @"[In t:ContactItemType Complex Type] CompleteName element: Represents the complete name of a contact (2).");
         }
         #endregion
         #endregion
@@ -1826,6 +1826,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             // A flag represents the response contains the item information or not.
             bool hasItemInfo = false;
+            if (response is SetUserPhotoResponseMessageType)
+            {
+                return;
+            }
+
             foreach (ResponseMessageType responseMessage in response.ResponseMessages.Items)
             {
                 if (responseMessage is ItemInfoResponseMessageType)
@@ -1866,6 +1871,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 }
             }
         }
+
         #endregion
     }
 }

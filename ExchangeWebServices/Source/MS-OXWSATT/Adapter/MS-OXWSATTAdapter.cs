@@ -73,7 +73,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             this.VerifySoapVersion();
             this.VerifyTransportType();
             this.VerifyServerVersionInfo(this.exchangeServiceBinding.IsSchemaValidated);
-            this.VerifyCreateAttachmentResponse(createAttachmentResponse, this.exchangeServiceBinding.IsSchemaValidated);
+            if (createAttachmentResponse.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyCreateAttachmentResponse(createAttachmentResponse, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return createAttachmentResponse;
         }
 

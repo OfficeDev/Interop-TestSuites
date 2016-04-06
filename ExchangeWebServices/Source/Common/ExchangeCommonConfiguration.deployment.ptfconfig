@@ -7,12 +7,17 @@
     <!-- The Domain property specifies the domain name. -->
     <Property name="Domain" value="contoso.com" />
     <!-- The SUTComputerName property specifies the name of the SUT. -->
-    <Property name="SutComputerName" value="SUT01" />
+    <Property name="SutComputerName" value="OI-D1-E14SP3DS" />
+    <!-- The SUTComputerName property specifies the login name of the SUT. -->
+    <Property name="UserName" value="pettest" />
+    <!-- The SUTComputerName property specifies the password of the SUT. -->
+    <Property name="Password" value="Password01!" />
     <!-- The SutVersion property specifies the version of the SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product. 
          The supported values are:
          "ExchangeServer2007" (Microsoft® Exchange Server 2007 Service Pack 3 (SP3))
          "ExchangeServer2010" (Microsoft® Exchange Server 2010 Service Pack 3 (SP3))
-         "ExchangeServer2013" (Microsoft® Exchange Server 2013 Service Pack 1 (SP1)). -->
+         "ExchangeServer2013" (Microsoft® Exchange Server 2013 Service Pack 1 (SP1))
+         "ExchangeServer2016" (Microsoft® Exchange Server 2016 Preview). -->
     <Property name="SutVersion" value="ExchangeServer2010"/>
     <!-- The ServiceUrl property specifies the format of an SUT service Uniform Resource Locator (URL). The property value is composed of property names "TransportType", "SutComputerName", "Domain" and "AppendingURL".
          [TransportType] will be replaced with the actual value of TransportType property;
@@ -23,7 +28,7 @@
     <!-- The AppendingURL property specifies an appending URL of a specific SUT service for the ServiceUrl property. The value "EWS/Exchange.asmx" indicates Exchange Web Service (EWS). -->
     <Property name="AppendingURL" value="EWS/Exchange.asmx" />
     <!-- SUT section ends. -->
-
+    
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The TransportType property specifies the transport used to transfer messages between the client and the server.
            The supported values are:

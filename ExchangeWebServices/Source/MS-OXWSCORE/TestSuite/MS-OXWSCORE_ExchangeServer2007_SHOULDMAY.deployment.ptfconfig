@@ -3,6 +3,12 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
+    <!--Set R4000Enabled to true to verify that the implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. Set R4000Enabled to false to disable this requirement.-->
+    <Property name="R4000Enabled" value="false" /> 
+    <!--Set R102000000Enabled to true to verify that the implementation does return the items of type t:ItemType as a t:MessageType type. Set R102000000Enabled to false to disable this requirement.-->
+    <Property name="R102000000Enabled" value="false" />
+    <!--Set R2119413Enabled to true to verify that the implementation does support the FilterHtmlContent element. Set R2119413Enabled to false to disable this requirement.-->
+    <Property name="R2119413Enabled" value="false" />
     <!--Set R1290Enabled to true to verify that the implementation does support the MarkAllItemsAsRead operation which marks all items in a folder as read, as specified in section 3.1.4.5. Set R1290Enabled to false to disable this requirement.-->
     <Property name="R1290Enabled" value="false" />
     <!--Set R1271Enabled to true to verify that the implementation does support the FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4.2. Set R1271Enabled to false to disable this requirement.-->
@@ -129,8 +135,6 @@
     <Property name="R2149909Enabled" value="false" />
     <!--Set R1502Enabled to true to verify that the implementation does support FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4. Set R1502Enabled to false to disable this requirement.-->
     <Property name="R1502Enabled" value="false" />
-    <!--Set R1729Enabled to true to verify that the implementation does support element name "GroupingAction" with type "t:PredictedMessageActionType" which specifies that the next predicted action is grouping items, as specified in section 2.2.4.8. Set R1729Enabled to false to disable this requirement.-->
-    <Property name="R1729Enabled" value="false" />
     <!--Set R1731Enabled to true to verify that the implementation does support element name "TextBody" with type "t:BodyType" which specifies the text body of the item, as specified in section 2.2.4.8. Set R1731Enabled to false to disable this requirement.-->
     <Property name="R1731Enabled" value="false" />
     <!--Set R1746Enabled to true to verify that the implementation does use the EntityType complex type in which entities are text found in certain parts of a message, such as the subject or the body, as specified in section 2.2.4.38. Set R1746Enabled to false to disable this requirement.-->
@@ -165,5 +169,29 @@
     <Property name="R1683Enabled" value="false" />
     <!--Set R74Enabled to true to verify that the implementation does support Id Storage Type "MailboxItemMailboxGuidBased", as specified in [MS-OXWSITEMID] section 2.1.3.2.2. Set R74Enabled to false to disable this requirement.-->
     <Property name="R74Enabled" value="true" />
+    <!--Set R2281Enabled to true to verify that the implementation does support Attachments element in ItemType. Set R2281Enabled to false to disable this requirement.-->
+    <Property name="R2281Enabled" value="false" />
+    <!--Set R2285Enabled to true to verify that the implementation does support IsAssociated element in ItemType. Set R2285Enabled to false to disable this requirement.-->
+    <Property name="R2285Enabled" value="false" />
+    <!--Set R2338Enabled to true to verify that the implementation does support WebClientReadFormQueryString element in ItemType. Set R2338Enabled to false to disable this requirement.-->
+    <Property name="R2338Enabled" value="false" />
+    <!--Set R2290Enabled to true to verify that the implementation does support UniqueBody element in ItemType. Set R2290Enabled to false to disable this requirement.-->
+    <Property name="R2290Enabled" value="false" />
+    <!--Set R2283Enabled to true to verify that the implementation does support ReminderNextTime element in ItemType. Set R2283Enabled to false to disable this requirement.-->
+    <Property name="R2283Enabled" value="false" />
+    <!--Set R2288Enabled to true to verify that the implementation does support ConversationId element in ItemType. Set R2288Enabled to false to disable this requirement.-->
+    <Property name="R2288Enabled" value="false" />
+    <!--Set R1355Enabled to true to verify that the implementation does support RightsManagementLicenseData element. Set R1355Enabled to false to disable this requirement.-->
+    <Property name="R1355Enabled" value="false" />
+    <!--Set R2311Enabled to true to verify that the implementation does support SuppressReadReceipts element in DeleteItemType. Set R2311Enabled to false to disable this requirement.-->
+    <Property name="R2311Enabled" value="false" />
+    <!--Set R2315Enabled to true to verify that the implementation does support SuppressReadReceipts element in UpdateItemType. Set R2315Enabled to false to disable this requirement.-->
+    <Property name="R2315Enabled" value="false" />
+    <!--Set R2302Enabled to true to verify that the implementation does support ProposeNewTime element. Set R2302Enabled to false to disable this requirement.-->
+    <Property name="R2302Enabled" value="false" />
+    <!--Set R1288Enabled to true to verify that the implementation does support EntityExtractionResultType element. Set R1288Enabled to false to disable this requirement.-->
+    <Property name="R1288Enabled" value="false" />
+    <!--Set R2313Enabled to true to verify that the implementation does convert the times to the specified time zone in GetItem response even if the TimeZoneContext SOAP header is set in request. Set R2313Enabled to false to disable this requirement.-->
+    <Property name="R2313Enabled" value="false" />
   </Properties>
 </TestSite>

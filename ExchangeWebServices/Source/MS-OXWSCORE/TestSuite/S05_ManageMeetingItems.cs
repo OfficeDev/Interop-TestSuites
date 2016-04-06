@@ -121,6 +121,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  "One calendar item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  getItemIds.GetLength(0));
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2019");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2019
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "IPM.Appointment",
+                ((ItemInfoResponseMessageType)getItemResponse.ResponseMessages.Items[0]).Items.Items[0].ItemClass,
+                2019,
+                @"[In t:ItemType Complex Type] This value is ""IPM.Appointment"" for calendar item.");
             #endregion 
 
             #region Step 4: Get the second copied calendar item success.
@@ -679,6 +689,303 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1617,
                 @"[In t:ItemType Complex Type] otherwise [ReminderIsSet is] false, indicates [a reminder has not been set for an item].");
             #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate if invalid ItemClass values are set for Meeting items in the CreateItem request,
+        /// an ErrorObjectTypeChanged response code will be returned in the CreateItem response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC20_CreateMeetingItemWithInvalidItemClass()
+        {
+            #region Step 1: Create the Meeting item with ItemClass set to IPM.DistList.
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            CalendarItemType item = new CalendarItemType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.DistList";
+            DistinguishedFolderIdType folderIdForCreateItems = new DistinguishedFolderIdType();
+            folderIdForCreateItems.Id = DistinguishedFolderIdNameType.calendar;
+            createItemRequest.SavedItemFolderId = new TargetFolderIdType();
+            createItemRequest.SavedItemFolderId.Item = folderIdForCreateItems;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.DistList.");
+            #endregion
+
+            #region Step 2: Create the Meeting item with ItemClass set to IPM.Post.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Post";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Post.");
+            #endregion
+
+            #region Step 3: Create the Meeting item with ItemClass set to IPM.Task.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 3);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Task";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Task.");
+            #endregion
+
+            #region Step 4: Create the Meeting item with ItemClass set to IPM.Contact.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 4);
+            createItemRequest.Items.Items[0].ItemClass = "IPM.Contact";
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass IPM.Contact.");
+            #endregion
+
+            #region Step 5: Create the Meeting item with ItemClass set to random string.
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 5);
+            createItemRequest.Items.Items[0].ItemClass = Common.GenerateResourceName(this.Site, "ItemClass");
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorObjectTypeChanged,
+                createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                "ErrorObjectTypeChanged should be returned if create a Meeting item with ItemClass is set to a random string.");
+            #endregion
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2023");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2023
+            this.Site.CaptureRequirement(
+                2023,
+                @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
+        }
+
+        /// <summary>
+        /// This case is intended to validate ProposeNewTime in ResponseObjects for calendar item from successful response.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC21_ResponseObjectsProposeNewTime()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2302, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ProposeNewTime element. ");
+
+            #region Organizer sends meeting to attendee.
+            CalendarItemType item = new CalendarItemType();
+            item.RequiredAttendees = new AttendeeType[1];
+            EmailAddressType attendeeEmail = new EmailAddressType();
+            attendeeEmail.EmailAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            AttendeeType attendee = new AttendeeType();
+            attendee.Mailbox = attendeeEmail;
+            item.RequiredAttendees[0] = attendee;
+
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem);
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendOnlyToAll;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+
+            // One created item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 createdItemIds.GetLength(0),
+                 "One created item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 createdItemIds.GetLength(0));
+            #endregion
+
+            #region Attendee gets the meeting request
+            ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.AreEqual<int>(1, findItemIds.Length, "Attendee should receive the meeting request");
+
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(findItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            // Check whether the child elements of ResponseObjects have been returned successfully.
+            ItemInfoResponseMessageType getItems = getItemResponse.ResponseMessages.Items[0] as ItemInfoResponseMessageType;
+            ResponseObjectType[] responseObjects = getItems.Items.Items[0].ResponseObjects;
+            foreach (ResponseObjectType responseObject in responseObjects)
+            {
+                if (responseObject.GetType() == typeof(ProposeNewTimeType))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2302");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2302
+                    // Element ProposeNewTime is returned from server, this requirement can be captured directly.
+                    this.Site.CaptureRequirement(
+                        2302,
+                        @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTime element which specifies the response object that is used to propose a new time. (<82> Section 2.2.4.33:  This element [ProposeNewTime] was introduced in Exchange 2013 SP1.)");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2135");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2135
+                    // Element ProposeNewTime is returned from server and pass schema validation, this requirement can be captured directly.
+                    this.Site.CaptureRequirement(
+                        2135,
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ProposeNewTime is t:ProposeNewTimeType ([MS-OXWSCDATA] section 2.2.4.38).");
+                    break;
+                }
+            }
+
+            this.CleanItemsSentOut(new string[] { createItemRequest.Items.Items[0].Subject });
+            this.ExistItemIds.Remove(getItems.Items.Items[0].ItemId);
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the CompareOriginalStartTime.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S05_TC22_VerifyCompareOriginalStartTime()
+        {
+            #region Step 1: Create and get a recurring calendar item.
+            DateTime start = DateTime.Now;
+            int numberOfOccurrences = 5;
+            CalendarItemType calendar = this.CreateAndGetRecurringCalendarItem(start, numberOfOccurrences);
+
+            #endregion
+
+            #region Step 2: Get the first occurrence of the recurring calendar item by OccurrenceItemIdType.
+            // The calendar item to get.
+            OccurrenceItemIdType[] occurrenceItemId = new OccurrenceItemIdType[1];
+            occurrenceItemId[0] = new OccurrenceItemIdType();
+            occurrenceItemId[0].RecurringMasterId = calendar.ItemId.Id;
+            occurrenceItemId[0].ChangeKey = calendar.FirstOccurrence.ItemId.ChangeKey;
+            occurrenceItemId[0].InstanceIndex = 1;
+
+            // Call the GetItem operation.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(occurrenceItemId);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            CalendarItemType[] getCalendarOccurences = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse);
+
+            // One calendar item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 getCalendarOccurences.GetLength(0),
+                 "One calendar item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getCalendarOccurences.GetLength(0));
+
+            ItemIdType[] itemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+            ItemIdId itemIdId = this.ITEMIDAdapter.ParseItemId(itemIds[0]);
+            #endregion
+
+            #region Step 3: Update the start date of the calendar item.
+
+            ItemChangeType itemChange = new ItemChangeType();
+            itemChange.Item = itemIds[0];
+
+            CalendarItemType calendarChange = new CalendarItemType();
+            calendarChange.Start = calendar.Start.AddMinutes(20);
+            calendarChange.StartSpecified = true;
+
+            itemChange.Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItemField = new SetItemFieldType();
+            setItemField.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.calendarStart
+            };
+
+            setItemField.Item1 = calendarChange;
+            itemChange.Updates[0] = setItemField;
+
+            UpdateItemResponseType updatedItem = this.CallUpdateItemOperation(DistinguishedFolderIdNameType.calendar, true, new ItemChangeType[] { itemChange });
+
+            #endregion
+
+            SutVersion currentSutVersion = (SutVersion)Enum.Parse(typeof(SutVersion), Common.GetConfigurationPropertyValue("SutVersion", this.Site));
+            if (currentSutVersion.Equals(SutVersion.ExchangeServer2016))
+            {
+                #region Step 4: Get the recurring calendar item by RecurringMasterItemIdRangesType with set CompareOriginalStartTime to true.
+
+                // The calendar item to get.
+                RecurringMasterItemIdRangesType[] recurringMasterItemIdRanges = new RecurringMasterItemIdRangesType[1];
+                recurringMasterItemIdRanges[0] = new RecurringMasterItemIdRangesType();
+
+                // Use the first occurrence item id and change key to form the recurringMasterItemId
+                recurringMasterItemIdRanges[0].Id = calendar.ItemId.Id;
+                recurringMasterItemIdRanges[0].ChangeKey = calendar.ItemId.ChangeKey;
+                recurringMasterItemIdRanges[0].Ranges = new OccurrencesRangeType[1];
+                recurringMasterItemIdRanges[0].Ranges[0] = new OccurrencesRangeType();
+                recurringMasterItemIdRanges[0].Ranges[0].Start = calendar.Start.AddMinutes(10);
+                recurringMasterItemIdRanges[0].Ranges[0].StartSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].End = start.AddDays(5);
+                recurringMasterItemIdRanges[0].Ranges[0].EndSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].Count = 5;
+                recurringMasterItemIdRanges[0].Ranges[0].CountSpecified = true;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTime = true;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTimeSpecified = true;
+
+                // Call the GetItem operation.
+                GetItemResponseType getItemResponse1 = this.CallGetItemOperation(recurringMasterItemIdRanges);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(getItemResponse1, 1, this.Site);
+
+                CalendarItemType[] getCalendarRecurring = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse1);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1697");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1697
+                this.Site.CaptureRequirementIfAreEqual(
+                    5,
+                    getCalendarRecurring.Length,
+                    1697,
+                    @"[In t:OccurrencesRangeType Complex Type] [CompareOriginalStartTime is] True, indicates comparing the specified ranges to an original start time.");
+
+                #endregion
+
+                #region Step 5: Get the recurrence master calendar item by RecurringMasterItemIdRangesType with set CompareOriginalStartTime to false.
+
+                // The calendar item to get.
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTime = false;
+                recurringMasterItemIdRanges[0].Ranges[0].CompareOriginalStartTimeSpecified = true;
+
+                // Call the GetItem operation.
+                getItemResponse1 = this.CallGetItemOperation(recurringMasterItemIdRanges);
+
+                // Check the operation response.
+                Common.CheckOperationSuccess(getItemResponse1, 1, this.Site);
+
+                getCalendarRecurring = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse1);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1698");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1698
+                this.Site.CaptureRequirementIfAreEqual(
+                    6,
+                    getCalendarRecurring.Length,
+                    1698,
+                    @"[In t:OccurrencesRangeType Complex Type] otherwise [CompareOriginalStartTime is] false, indicates comparing the specified ranges to a pair of start and end values.");
+                #endregion
+            }
+
+            // Clear ExistItemIds for DeleteItem.
+            this.ExistItemIds.Clear();
+            this.ExistItemIds.Add(calendar.ItemId);
         }
 
         /// <summary>

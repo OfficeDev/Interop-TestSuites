@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/messages" schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:complexType name="CompleteNameType">
     <xs:sequence>
@@ -23,6 +24,7 @@
           <xs:element name="FileAs" type="xs:string" minOccurs="0"/>
           <xs:element name="FileAsMapping" type="t:FileAsMappingType" minOccurs="0"/>
           <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="PersonalNotes" type="xs:string" minOccurs="0"/>
           <xs:element name="GivenName" type="xs:string" minOccurs="0"/>
           <xs:element name="Initials" type="xs:string" minOccurs="0"/>
           <xs:element name="MiddleName" type="xs:string" minOccurs="0"/>
@@ -30,6 +32,7 @@
           <xs:element name="CompleteName" type="t:CompleteNameType" minOccurs="0"/>
           <xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
           <xs:element name="EmailAddresses" type="t:EmailAddressDictionaryType" minOccurs="0"/>
+          <xs:element name="AbchEmailAddresses" type="t:AbchEmailAddressDictionaryType" minOccurs="0"/>
           <xs:element name="PhysicalAddresses" type="t:PhysicalAddressDictionaryType" minOccurs="0"/>
           <xs:element name="PhoneNumbers" type="t:PhoneNumberDictionaryType" minOccurs="0"/>
           <xs:element name="AssistantName" type="xs:string" minOccurs="0"/>
@@ -62,9 +65,100 @@
           <xs:element name="DirectoryId" type="xs:string" minOccurs="0" />
           <xs:element name="ManagerMailbox" type="t:SingleRecipientType" minOccurs="0" />
           <xs:element name="DirectReports" type="t:ArrayOfRecipientsType" minOccurs="0" />
+          <xs:element name="AccountName" type="xs:string" minOccurs="0"/>
+          <xs:element name="IsAutoUpdateDisabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsMessengerEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Comment" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContactShortId" type="xs:int" minOccurs="0"/>
+          <xs:element name="ContactType" type="xs:string" minOccurs="0"/>
+          <xs:element name="Gender" type="xs:string" minOccurs="0"/>
+          <xs:element name="IsHidden" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="ObjectId" type="xs:string" minOccurs="0"/>
+          <xs:element name="PassportId" type="xs:long" minOccurs="0"/>
+          <xs:element name="PersonId" type="xs:int" minOccurs="0"/>
+          <xs:element name="IsPrivate" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="SourceId" type="xs:string" minOccurs="0"/>
+          <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
+          <xs:element name="CreatedBy" type="xs:string" minOccurs="0"/>
+          <xs:element name="Urls" type="t:ContactUrlDictionaryType" minOccurs="0"/>
+          <xs:element name="Cid" type="xs:long" minOccurs="0"/>
+          <xs:element name="SkypeAuthCertificate" type="xs:string" minOccurs="0"/>
+          <xs:element name="SkypeContext" type="xs:string" minOccurs="0"/>
+          <xs:element name="SkypeId" type="xs:string" minOccurs="0"/>
+          <xs:element name="SkypeRelationship" type="xs:string" minOccurs="0"/>
+          <xs:element name="YomiNickname" type="xs:string" minOccurs="0"/>
+          <xs:element name="XboxLiveTag" type="xs:string" minOccurs="0"/>
+          <xs:element name="InviteFree" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="HidePresenceAndProfile" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="IsPendingOutbound" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="SupportGroupFeeds" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="UserTileHash" type="xs:string" minOccurs="0"/>
+          <xs:element name="UnifiedInbox" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="Mris" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="Wlid" type="xs:string" minOccurs="0"/>
+          <xs:element name="AbchContactId" type="t:GuidType" minOccurs="0"/>
+          <xs:element name="NotInBirthdayCalendar" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="ShellContactType" type="xs:string" minOccurs="0" />
+          <xs:element name ="ImMri" type="xs:int" minOccurs="0" />
+          <xs:element name="PresenceTrustLevel" type="xs:string" minOccurs="0" />
+          <xs:element name="OtherMri" type="xs:string" minOccurs="0" />
+          <xs:element name="ProfileLastChanged" type="xs:string" minOccurs="0" />
+          <xs:element name="MobileImEnabled" type="xs:boolean" minOccurs="0" />
+          <xs:element name="DisplayNamePrefix" type="xs:string" minOccurs="0"/>
+          <xs:element name="YomiGivenName" type="xs:string" minOccurs="0"/>
+          <xs:element name="YomiSurname" type="xs:string" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AbchEmailAddressDictionaryEntryType">
+    <xs:sequence>
+      <xs:element name="Type" type="t:AbchEmailAddressTypeType" minOccurs="1"/>
+      <xs:element name="Address" type="xs:string" minOccurs="1"/>
+      <xs:element name="IsMessengerEnabled" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Capabilities" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbchEmailAddressDictionaryType">
+    <xs:sequence>
+      <xs:element name="Email" type="t:AbchEmailAddressDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AbchEmailAddressTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Personal"/>
+      <xs:enumeration value="Business"/>
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="Passport"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AbchPersonContactHandle">
+    <xs:sequence>
+      <xs:element name="SourceId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ObjectId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="AccountName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbchPersonItemType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/>
+          <xs:element name="PersonIdGuid" type="t:GuidType" minOccurs="0"/>
+          <xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/>
+          <xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="RelevanceOrder1" type="xs:string" minOccurs="0"/>
+          <xs:element name="RelevanceOrder2" type="xs:string" minOccurs="0"/>
+          <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
+          <xs:element name="FavoriteOrder" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAbchPersonContactHandlesType">
+    <xs:sequence>
+      <xs:element name="ContactHandle" type="t:AbchPersonContactHandle" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ArrayOfBinaryType">
     <xs:sequence>
@@ -77,6 +171,8 @@
         <xs:sequence>
           <xs:element name="SharingEffectiveRights" type="t:PermissionReadAccessType" minOccurs="0"/>
           <xs:element name="PermissionSet" type="t:PermissionSetType" minOccurs="0"/>
+          <xs:element name="SourceId" type="xs:string" minOccurs="0"/>
+          <xs:element name="AccountName" type="xs:string" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -85,6 +181,32 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="ActiveDirectory"/>
       <xs:enumeration value="Store"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContactUrlDictionaryEntryType">
+    <xs:sequence>
+      <xs:element name="Type" type="t:ContactUrlKeyType" minOccurs="1"/>
+      <xs:element name="Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="Address" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ContactUrlDictionaryType">
+    <xs:sequence>
+      <xs:element name="Url" type="t:ContactUrlDictionaryEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ContactUrlKeyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Personal"/>
+      <xs:enumeration value="Business"/>
+      <xs:enumeration value="Attachment"/>
+      <xs:enumeration value="EbcDisplayDefinition"/>
+      <xs:enumeration value="EbcFinalImage"/>
+      <xs:enumeration value="EbcLogo"/>
+      <xs:enumeration value="Feed"/>
+      <xs:enumeration value="Image"/>
+      <xs:enumeration value="InternalMarker"/>
+      <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ContactsViewType">
@@ -191,6 +313,10 @@
       <xs:enumeration value="RadioPhone"/>
       <xs:enumeration value="Telex"/>
       <xs:enumeration value="TtyTddPhone"/>
+      <xs:enumeration value="BusinessMobile"/>
+      <xs:enumeration value="IPPhone"/>
+      <xs:enumeration value="Mms"/>
+      <xs:enumeration value="Msn"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="PhysicalAddressDictionaryEntryType">
@@ -221,6 +347,66 @@
       <xs:enumeration value="Business"/>
       <xs:enumeration value="Home"/>
       <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="GetUserPhotoType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="Email" type="xs:string" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="SizeRequested" type="t:UserPhotoSizeType"
+                minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserPhoto" type="t:GetUserPhotoType"/>
+  <xs:complexType name="GetUserPhotoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="HasChanged" type="xs:boolean"
+                minOccurs="1" maxOccurs="1"/>
+          <xs:element name="PictureData" type="xs:base64Binary"
+                minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GetUserPhotoResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserPhotoResponse" type="t:GetUserPhotoResponseMessageType"/>
+  <xs:complexType name="SetUserPhotoType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="Email" type="t:NonEmptyStringType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="Content" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetUserPhoto" type="t:SetUserPhotoType"/>
+  <xs:complexType name="SetUserPhotoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetUserPhotoResponse" type="t:SetUserPhotoResponseMessageType"/>
+  <xs:simpleType name="UserPhotoSizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HR48x48" />
+      <xs:enumeration value="HR64x64" />
+      <xs:enumeration value="HR96x96" />
+      <xs:enumeration value="HR120x120" />
+      <xs:enumeration value="HR240x240" />
+      <xs:enumeration value="HR360x360" />
+      <xs:enumeration value="HR432x432" />
+      <xs:enumeration value="HR504x504" />
+      <xs:enumeration value="HR648x648" />
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>

@@ -7,9 +7,25 @@
     <Property name="R3008Enabled" value="true" />
     <!--Set R5664Enabled to true to verify that implementation does support EmptyFolder operation, as specified in section 3.1.4.5. Set R5664Enabled to false to disable this requirement.-->
     <Property name="R5664Enabled" value="false" />
-    <!--Set R3440Enabled to true to verify that implementation does support EmptyFolder operation for use with non-public folders, as specified in section 3.1.4.5. Set R3440Enabled to false to disable this requirement.-->
-    <Property name="R3440Enabled" value="false" />
     <!--Set R55501Enabled to true to verify that implementation does support CopyFolder operation for use with public folders, as specified in section 3.1.4.1. Set R55501Enabled to false to disable this requirement.-->
     <Property name="R55501Enabled" value="true" />
+    <!--Set R4000Enabled to true to verify that the implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. Set R4000Enabled to false to disable this requirement.-->
+    <Property name="R4000Enabled" value="false" />
+    <!--Set R54911Enabled to true to verify that implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom". Set R54911Enabled to false to disable this requirement.-->
+    <Property name="R54911Enabled" value="true" />
+    <!--Set R1531Enabled to true to verify that implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. Set R1531Enabled to false to disable this requirement.-->
+    <Property name="R1531Enabled" value="false" />
+    <!--Set R1532Enabled to true to verify that implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder but cannot read any items in the folder. Set R1532Enabled to false to disable this requirement.-->
+    <Property name="R1532Enabled" value="true" />
+    <!--Set R105211Enabled to true to verify that the implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be renamed. Set R105211Enabled to false to disable this requirement.-->
+    <Property name="R105211Enabled" value="false" />
+    <!--Set R105212Enabled to true to verify that the implementation does support value of "true" for CanRenameOrMove to indicate that the managed folder can be moved. Set R105212Enabled to false to disable this requirement.-->
+    <Property name="R105212Enabled" value="false" />
+    <!--Set R105212Enabled to true to verify that the implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be renamed. Set R105212Enabled to false to disable this requirement.-->
+    <Property name="R1051111Enabled" value="true" />
+    <!--Set R105212Enabled to true to verify that the implementation does support value of "false" for CanRenameOrMove to indicate that the managed folder can not be moved. Set R105212Enabled to false to disable this requirement.-->
+    <Property name="R1051112Enabled" value="true" />
+    <!--Set R1121111Enabled to true to verify that implementation does use the StorageQuota which is the storage quota for a managed folder. Set R1121111Enabled to false to disable this requirement.-->
+    <Property name="R1121111Enabled" value="false" />
   </Properties>
 </TestSite>

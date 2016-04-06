@@ -47,6 +47,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     1006,
                     @"[In Appendix C: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange 2007 and above follow this behavior.)");
             }
+
+            if (transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2001");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2001
+                // When test suite running on HTTP, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    2001,
+                    @"[In Transport] Protocol servers MUST support SOAP over HTTP.");
+            }
         }
         #endregion
 
@@ -351,6 +363,73 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirement(
                 280,
                 @"[In tns:CreateItemSoapOut Message] [The part ""ServerVersion""] Specifies a SOAP header that identifies the server version for the response to a CreateItem operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R83");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R83
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                "MS-OXWSCDATA",
+                83,
+                @"[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.
+                <xs:simpleType name=""DistinguishedFolderIdNameType"">
+                    <xs:restriction base=""xs:string"">
+                        <xs:enumeration value=""calendar""/>
+                        <xs:enumeration value=""contacts""/>
+                        <xs:enumeration value=""deleteditems""/>
+                        <xs:enumeration value=""drafts""/>
+                        <xs:enumeration value=""inbox""/>
+                        <xs:enumeration value=""journal""/>
+                        <xs:enumeration value=""junkemail""/>
+                        <xs:enumeration value=""msgfolderroot""/>
+                        <xs:enumeration value=""notes""/>
+                        <xs:enumeration value=""outbox""/>
+                        <xs:enumeration value=""publicfoldersroot""/>
+                        <xs:enumeration value=""root""/>
+                        <xs:enumeration value=""searchfolders""/>
+                        <xs:enumeration value=""sentitems""/>
+                        <xs:enumeration value=""tasks""/>
+                        <xs:enumeration value=""voicemail""/>
+                        <xs:enumeration value=""recoverableitemsroot""/>
+                        <xs:enumeration value=""recoverableitemsdeletions""/>
+                        <xs:enumeration value=""recoverableitemsversions""/>
+                        <xs:enumeration value=""recoverableitemspurges""/>
+                        <xs:enumeration value=""archiveroot""/>
+                        <xs:enumeration value=""archivemsgfolderroot""/>
+                        <xs:enumeration value=""archivedeleteditems""/>
+                        <xs:enumeration value=""archiverecoverableitemsroot""/>
+                        <xs:enumeration value=""archiverecoverableitemsdeletions""/>
+                        <xs:enumeration value=""archiverecoverableitemsversions""/>
+                        <xs:enumeration value=""archiverecoverableitemspurges""/>
+                        <xs:enumeration value=""syncissues""/>
+                        <xs:enumeration value=""conflicts""/>
+                        <xs:enumeration value=""localfailures""/>
+                        <xs:enumeration value=""serverfailures""/>
+                        <xs:enumeration value=""recipientcache""/>
+                        <xs:enumeration value=""quickcontacts""/>
+                        <xs:enumeration value=""conversationhistory""/>
+                        <xs:enumeration value=""adminauditlogs""/>
+                        <xs:enumeration value=""todosearch""/>
+                        <xs:enumeration value=""mycontacts""/>
+                        <xs:enumeration value=""directory"" />
+                        <xs:enumeration value=""imcontactlist""/>
+                        <xs:enumeration value=""peopleconnect"" />
+                    </xs:restriction>
+                </xs:simpleType>");
+
+            if (Common.IsRequirementEnabled(4000, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4000");
+
+                // Verified MS-OXWSCDATA_R4000.
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    "MS-OXWSCDATA",
+                    4000,
+                    @"[In Appendix C: Product Behavior] Implementation does include the DistinguishedFolderIdNameType simple type which specifies well-known folders that can be referenced by name. (Exchange Server 2010 SP1 and above follow this behavior.)");
+            }
 
             // Verify the BaseResponseMessageType schema.
             this.VerifyBaseResponseMessageType(createItemResponse);
@@ -740,6 +819,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             foreach (ItemInfoResponseMessageType info in getItemResponse.ResponseMessages.Items)
             {
                 this.VerifyItemInfoResponseMessageType(info);
+
+                if (Common.IsRequirementEnabled(2313, this.Site)
+                    && this.exchangeServiceBinding.TimeZoneContext != null
+                    && this.exchangeServiceBinding.TimeZoneContext.TimeZoneDefinition != null
+                    && this.exchangeServiceBinding.TimeZoneContext.TimeZoneDefinition.Id == "Pacific Standard Time")
+                {
+                    string innerXml = this.exchangeServiceBinding.LastRawResponseXml.CreateNavigator().InnerXml;
+                    string temp = innerXml.Substring(innerXml.IndexOf("DateTimeCreated"));
+                    string dateTimeCreated = temp.Substring(temp.IndexOf(">") + 1, temp.IndexOf("<") - temp.IndexOf(">") - 1);
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R361");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R361
+                    Site.CaptureRequirementIfIsTrue(
+                        dateTimeCreated.Contains(System.TimeZoneInfo.ConvertTimeBySystemTimeZoneId(info.Items.Items[0].DateTimeCreated, "Pacific Standard Time").GetDateTimeFormats('s')[0]),
+                        361,
+                        @"[In tns:GetItemSoapIn Message] [The part ""TimeZoneContext""] Specifies a SOAP header that identifies the time zone to be used for all responses from the server.");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2313");
+
+                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2313
+                    Site.CaptureRequirementIfIsTrue(
+                        dateTimeCreated.Contains(System.TimeZoneInfo.ConvertTimeBySystemTimeZoneId(info.Items.Items[0].DateTimeCreated, "Pacific Standard Time").GetDateTimeFormats('s')[0]),
+                        2313,
+                        @"[In Appendix C: Product Behavior] Implementation does convert the times in GetItem response even if the TimeZoneContext SOAP header is set in request. (Exchange 2010 and above follow this behavior.) ");
+                }
             }
 
             // Add the debug information
@@ -1136,6 +1243,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                           <soap:header message=""tns:MoveItemSoapOut"" part=""ServerVersion"" use=""literal""/>
                        </wsdl:output>
                     </wsdl:operation>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2182");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2182
+            Site.CaptureRequirementIfIsNotNull(
+                moveItemResponse,
+                2182,
+                @" [In tns:MoveItemSoapOut Message] [The MoveItemSoapOut WSDL message is defined as:]
+                   <wsdl:message name=""MoveItemSoapOut"">
+                       <wsdl:part name=""MoveItemResult"" element=""tns:MoveItemResponse""/>
+                       <wsdl:part name=""ServerVersion"" element=""t:ServerVersionInfo""/>
+                   </wsdl:message>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R414");
@@ -1869,6 +1989,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             <xs:element name=""AcceptSharingInvitation""
                               type=""t:AcceptSharingInvitationType""
                              />
+                            <xs:element name=""AddItemToMyCalendar""
+                              type=""t:AddItemToMyCalendarType""
+                             />
+                            <xs:element name=""ProposeNewTime""
+                              type=""t:ProposeNewTimeType""
+                             />
                           </xs:choice>
                         </xs:complexType>");
 
@@ -1904,20 +2030,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             </xs:extension>
                           </xs:complexContent>
                         </xs:complexType>");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1424");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1424
-                // The schema is validated and the ItemId is not null, so this requirement can be captured.
-                Site.CaptureRequirement(
-                "MS-OXWSCDATA",
-                1424,
-                @"[In t:BaseItemIdType Complex Type] 
-                    The type [BaseItemIdType] is defined as follow:
-                    <xs:complexType name=""BaseItemIdType""
-                      abstract=""true""
-                     />");
             }
 
             if (item.ImportanceSpecified)
@@ -2633,16 +2745,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     Site.CaptureRequirementIfIsNotNull(
                         entityExtractionResult.Addresses[0],
                         1753,
-                        @"[In Appendix C: Product Behavior] Implementation does use this type [AddressEntityType complex type] which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
-                            <xs:complexType name=""AddressEntityType"">
-                              <xs:complexContent>
-                                <xs:extension base=""t:EntityType"">
-                                  <xs:sequence>
-                                    <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
-                                  </xs:sequence>
-                                </xs:extension>
-                              </xs:complexContent>
-                            </xs:complexType>");
+                        @"[In Appendix C: Product Behavior] Implementation does use the AddressEntityType complex type which extends the EntityType complex type, as specified by section 2.2.4.38. (Exchange 2013 and above follow this behavior.)
+                        <xs:complexType name=""AddressEntityType"">
+                          <xs:complexContent>
+                            <xs:extension base=""t:EntityType"">
+                              <xs:sequence>
+                                <xs:element name=""Address"" type=""xs:string"" minOccurs=""0""/>
+                              </xs:sequence>
+                            </xs:extension>
+                          </xs:complexContent>
+                        </xs:complexType>. ");
 
                     this.VerifyEntityType(entityExtractionResult.Addresses[0]);
                 }
@@ -3663,17 +3775,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             {
                 this.VerifyResponseMessageType(message);
             }
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1085");
-
-            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1085
-            // BaseItemIdType is not used directly in the schema of each operations,
-            // if schema is validated, this requirement can be captured directly.
-            Site.CaptureRequirement(
-                "MS-OXWSCDATA",
-                1085,
-                "[In t:BaseItemIdType Complex Type] The BaseItemIdType type MUST NOT be sent in a SOAP message because it is an abstract type.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1091");

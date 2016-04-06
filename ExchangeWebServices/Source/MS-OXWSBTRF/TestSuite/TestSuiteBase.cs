@@ -316,8 +316,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     this.IsSchemaValidated,
                     2110,
-                    @"[In tns:ExportItemsSoapOut Message][If the request is unsuccessful]The ResponseCode element of the ExportItemsResponseMessage 
-                    element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.");
+                    @"[In tns:ExportItemsSoapOut Message][If the request is unsuccessful]The ResponseCode element of the ExportItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
             }
         }
 
@@ -434,9 +433,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     this.IsSchemaValidated,
                     2010,
-                    @"[In tns:UploadItemsSoapOut Message][If the request UploadItems request is unsuccessful]
-                    The ResponseCode element of the UploadItemsResponseMessage element is set to a value of the 
-                    ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.3.23.");
+                    @"[In tns:UploadItemsSoapOut Message][If the request UploadItems request is unsuccessful]The ResponseCode element of the UploadItemsResponseMessage element is set to a value of the ResponseCodeType simple type, as specified in [MS-OXWSCDATA] section 2.2.5.24.");
             }
         }
 
@@ -503,12 +500,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
             {
                 exportItems.ItemIds[i] = new ItemIdType();
                 exportItems.ItemIds[i].Id = this.CreatedItemId[i].Id;
-            }
-
-            if (configureSOAPHeader)
-            {
-                // Configure SOAP header before calling operation.
-                this.ConfigureSOAPHeader();
             }
 
             // Initialize a ExportItemsResponseType instance.
@@ -583,12 +574,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 {
                     uploadItems.Items[i].IsAssociated = isAssociated;
                 }
-            }
-
-            if (configureSOAPHeader)
-            {
-                // Configure SOAP header before calling operation.
-                this.ConfigureSOAPHeader();
             }
 
             // Call UploadItems operation.
@@ -913,27 +898,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
             return getItems;
         }
         #endregion
-
-        /// <summary>
-        /// Configure the SOAP header before calling operations.
-        /// </summary>
-        protected void ConfigureSOAPHeader()
-        {
-            // Set the value of MailboxCulture.
-            MailboxCultureType mailboxCulture = new MailboxCultureType();
-            string culture = Common.GetConfigurationPropertyValue("MailboxCulture", this.Site);
-            mailboxCulture.Value = culture;
-
-            // Set the value of ExchangeImpersonation.
-            ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
-            impersonation.ConnectingSID = new ConnectingSIDType();
-            impersonation.ConnectingSID.Item = Common.GetConfigurationPropertyValue("UserName", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
-
-            Dictionary<string, object> headerValues = new Dictionary<string, object>();
-            headerValues.Add("MailboxCulture", mailboxCulture);
-            headerValues.Add("ExchangeImpersonation", impersonation);
-            this.BTRFAdapter.ConfigureSOAPHeader(headerValues);
-        }
 
         /// <summary>
         /// Handle the server response.

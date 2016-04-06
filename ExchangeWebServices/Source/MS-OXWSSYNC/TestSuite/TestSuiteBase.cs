@@ -366,8 +366,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
         {
             SyncFolderHierarchyType request = TestSuiteHelper.CreateSyncFolderHierarchyRequest();
 
-            // Configure the SOAP header to cover the case that the header contains all optional parts before calling operations.
-            this.ConfigureSOAPHeader();
             SyncFolderHierarchyResponseType response = this.SYNCAdapter.SyncFolderHierarchy(request);
             SyncFolderHierarchyResponseMessageType responseMessage = TestSuiteHelper.EnsureResponse<SyncFolderHierarchyResponseMessageType>(response);
 
@@ -878,6 +876,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     if (!Common.IsRequirementEnabled(37811, this.Site) && type == typeof(DistributionListType))
                     {
                         // Exchange 2007 does not support DistributionListType item, for detailed information refer to MS-OXWSDLIST.
+                        continue;
+                    }
+                    else if (type == typeof(AbchPersonItemType) && !Common.IsRequirementEnabled(37811006, this.Site))
+                    {
+                        //Exchange 2007 2010 2013 not support AbchPersonItemType.
+                        continue;
+                    }
+                    else if (type == typeof(RoleMemberItemType) && !Common.IsRequirementEnabled(1752001, this.Site))
+                    {
+                        //Exchange 2007 2010 2013 not support RoleMemberItemType.
+                        continue;
+                    }
+                    else if (type == typeof(NetworkItemType) && !Common.IsRequirementEnabled(1752003, this.Site))
+                    {
+                        //Exchange 2007 2010 2013 not support NetworkItemType.
                         continue;
                     }
                     else

@@ -41,6 +41,10 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MS-OXWSCONT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCONT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSCONT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
     <None Include="MS-OXWSCONT_TestSuite.ptfconfig" />
   </ItemGroup>
@@ -51,6 +55,7 @@
     <Compile Include="S04_MoveContactItem.cs" />
     <Compile Include="S05_OperateMultipleContactItems.cs" />
     <Compile Include="S06_OperateContactItemWithOptionalElements.cs" />
+    <Compile Include="S07_SetGetUserPhoto.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +72,7 @@
   <!-- Test Suite Drop -->
   <ItemGroup>
     <Content Include="MS-OXWSCONT_RequirementSpecification.xml" />
+    <Content Include="Resources\UserPhoto.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

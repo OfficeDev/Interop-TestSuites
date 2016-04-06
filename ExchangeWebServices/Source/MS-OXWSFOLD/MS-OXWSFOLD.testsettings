@@ -2,15 +2,18 @@
 <TestSettings name="MS-OXWSFOLD" id="6f34cecb-9a0b-4979-b94f-187ae43011d5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXWSFOLD test cases.</Description>
   <Deployment>
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DoNotSetManagedFolderStoreQuota.ps1" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSFOLD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSFOLD_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSFOLD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXWSFOLD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSFOLD_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSFOLD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSFOLD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="MS-OXWSFOLD.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXWSFOLD_RequirementSpecification.xml" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetManagedFolderStoreQuota.ps1" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -33,4 +36,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

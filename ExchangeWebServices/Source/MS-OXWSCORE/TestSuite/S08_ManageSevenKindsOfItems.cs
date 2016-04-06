@@ -52,7 +52,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
 
             // Check the operation response.
-            Common.CheckOperationSuccess(getItemResponse, 7, this.Site);
+            Common.CheckOperationSuccess(getItemResponse, createdItemIds.Length, this.Site);
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
 
@@ -62,7 +62,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             DeleteItemResponseType deleteItemResponse = this.CallDeleteItemOperation();
 
             // Check the operation response.
-            Common.CheckOperationSuccess(deleteItemResponse, 7, this.Site);
+            Common.CheckOperationSuccess(deleteItemResponse, createdItemIds.Length, this.Site);
 
             // Clear ExistItemIds for DeleteItem.
             this.InitializeCollection();
@@ -73,10 +73,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             getItemResponse = this.CallGetItemOperation(getItemIds);
 
             Site.Assert.AreEqual<int>(
-                 7,
+                 createdItemIds.Length,
                  getItemResponse.ResponseMessages.Items.GetLength(0),
                  "Expected Item Count: {0}, Actual Item Count: {1}",
-                 7,
+                 createdItemIds.Length,
                  getItemResponse.ResponseMessages.Items.GetLength(0));
 
             // Check whether the GetItem operation is executed failed with ErrorItemNotFound response code.
@@ -103,72 +103,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Assume.IsTrue(Common.IsRequirementEnabled(19241, this.Site), "Exchange 2007 doesn't support MS-OXWSDLIST");
 
             #region Step 1: Create Items.
-
-            // Initialize items data.
-            object obj;
-            List<ItemType> items = new List<ItemType>();
-            BaseItemIdType[] createdItemIds;
-
-            // Get the ItemType and six extend types which base on ItemType.
-            Assembly assembly = Assembly.GetAssembly(typeof(ItemType));
-            Type[] types = assembly.GetTypes();
-
-            // Initialize the public properties (Subject and Body) which the seven kinds of operation both have.
-            PropertyInfo subjectField;
-            PropertyInfo bodyField;
-            string subject = TestSuiteHelper.SubjectForCreateItem;
-            BodyType body = new BodyType()
-            {
-                Value = TestSuiteHelper.BodyForBaseItem,
-                BodyType1 = BodyTypeType.Text
-            };
-
-            // Set the Subject and Body properties for each type.
-            foreach (Type type in types)
-            {
-                if ((type.BaseType == typeof(ItemType) || type == typeof(ItemType)) && !type.IsAbstract)
-                {
-                    string typeName = type.ToString();
-                    obj = assembly.CreateInstance(typeName);
-                    subjectField = type.GetProperty("Subject");
-                    if (subjectField != null)
-                    {
-                        subjectField.SetValue(obj, Common.GenerateResourceName(this.Site, subject + type.Name), null);
-                    }
-
-                    bodyField = type.GetProperty("Body");
-                    if (bodyField != null)
-                    {
-                        bodyField.SetValue(obj, body, null);
-                    }
-
-                    items.Add((ItemType)obj);
-                }
-            }
-
-            ItemType[] itemTypes = items.ToArray();
-            CreateItemType createRequest = new CreateItemType()
-            {
-                Items = new NonEmptyArrayOfAllItemsType()
-                {
-                    Items = itemTypes
-                }
-            };
-
-            createRequest.MessageDisposition = MessageDispositionType.SaveOnly;
-            createRequest.MessageDispositionSpecified = true;
-            createRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy;
-            createRequest.SendMeetingInvitationsSpecified = true;
-
-            // Call CreateItem to create seven items that contains Subject and Body public elements in the Inbox folder on the server.
-            CreateItemResponseType createResponse = this.COREAdapter.CreateItem(createRequest);
-
-            // Get the create item Ids.
-            createdItemIds = Common.GetItemIdsFromInfoResponse(createResponse);
-
-            // Check the operation response.
-            Common.CheckOperationSuccess(createResponse, 7, this.Site);
-
+            ItemIdType[] createdItemIds = CreateAllTypesItems();
             #endregion
 
             #region Step 2: Copy items.
@@ -176,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             CopyItemResponseType copyItemResponse = this.CallCopyItemOperation(DistinguishedFolderIdNameType.drafts, createdItemIds);
 
             // Check the operation response.
-            Common.CheckOperationSuccess(copyItemResponse, 7, this.Site);
+            Common.CheckOperationSuccess(copyItemResponse, createdItemIds.Length, this.Site);
             #endregion 
 
             this.FindNewItemsInFolder(DistinguishedFolderIdNameType.drafts);
@@ -201,7 +136,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             MoveItemResponseType moveItemResponse = this.CallMoveItemOperation(DistinguishedFolderIdNameType.deleteditems, createdItemIds);
 
             // Check the operation response.
-            Common.CheckOperationSuccess(moveItemResponse, 7, this.Site);
+            Common.CheckOperationSuccess(moveItemResponse, createdItemIds.Length, this.Site);
 
             #endregion 
 
@@ -254,7 +189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 itemChanges);
 
             // Check the operation response.
-            Common.CheckOperationSuccess(updateItemResponse, 7, this.Site);
+            Common.CheckOperationSuccess(updateItemResponse, createdItemIds.Length, this.Site);
 
             #endregion 
         }

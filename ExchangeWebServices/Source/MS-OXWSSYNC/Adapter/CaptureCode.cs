@@ -129,7 +129,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 48,
-                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] The type of Changes is t:SyncFolderHierarchyChangesType (section 2.2.4.1).");
+                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] The type of Changes is t:SyncFolderHierarchyChangesType (section 3.1.4.1.3.1).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R447");
@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             83,
-                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Create is t:SyncFolderHierarchyCreateOrUpdateType (section 2.2.4.2).");
+                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Create is t:SyncFolderHierarchyCreateOrUpdateType (section 3.1.4.1.3.2).");
                     }
 
                     // If the change is updated, verify MS-OXWSSYNC_R448 and requirements in update operation.
@@ -230,7 +230,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             86,
-                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Delete is  t:SyncFolderHierarchyDeleteType (section 2.2.4.3).");
+                            @"[In t:SyncFolderHierarchyChangesType Complex Type] The type of Delete is  t:SyncFolderHierarchyDeleteType (section 3.1.4.1.3.3).");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R450");
@@ -281,7 +281,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             116,
-                            @"[In t:SyncFolderHierarchyDeleteType Complex Type] The type of FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).");
+                            @"[In t:SyncFolderHierarchyDeleteType Complex Type] The type of FolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.36).");
                     }
                 }
             }
@@ -397,7 +397,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     308,
-                    @"[In tns:SyncFolderHierarchySoapOut] The Element/Type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                    @"[In tns:SyncFolderHierarchySoapOut] The Element/Type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R309");
@@ -416,7 +416,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 238,
-                @"[In SyncFolderHierarchy] The ResponseMessages element is specified as an element of the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.16).");
+                @"[In SyncFolderHierarchy] The ResponseMessages element is specified as an element of the BaseResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.18).");
 
             // Verify the requirements in MS-OXWSCDATA.
             this.VerifyRequirementOfOXWSCDATA(syncFoldHierarchyResponseMessage, isSchemaValidated);
@@ -547,7 +547,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             130,
-                            @"[In t:SyncFolderItemsChangesType Complex Type] The type of Create is t:SyncFolderItemsCreateOrUpdateType (section 2.2.4.6).");
+                            @"[In t:SyncFolderItemsChangesType Complex Type] The type of Create is t:SyncFolderItemsCreateOrUpdateType (section 3.1.4.2.3.3).");
                     }
                     else if (itemsElementName == ItemsChoiceType1.Update)
                     {
@@ -608,6 +608,18 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             <xs:element name=""PostItem""
                                 type=""t:PostItemType""
                                 />
+                            <xs:element name=""RoleMember"" 
+                                type=""t:RoleMemberItemType""
+                                />
+                            <xs:element name=""Network"" 
+                                type=""t:NetworkItemType""
+                                />
+                            <xs:element name=""Person""
+                                 type=""t:AbchPersonItemType""
+                                />
+                            <xs:element name=""Booking""
+                               type=""t:BookingItemType""
+                                />
                             </xs:choice>
                         </xs:complexType>");
                         }
@@ -620,7 +632,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 133,
-                                @"[In t:SyncFolderItemsChangesType Complex Type] The type of Delete is t:SyncFolderItemsDeleteType (section 2.2.4.7).");
+                                @"[In t:SyncFolderItemsChangesType Complex Type] The type of Delete is t:SyncFolderItemsDeleteType (section 3.1.4.2.3.4).");
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R183");
@@ -629,7 +641,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 183,
-                                @"[In t:SyncFolderItemsDeleteType Complex Type] The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).");
+                                @"[In t:SyncFolderItemsDeleteType Complex Type] The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R454");
@@ -638,7 +650,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 454,
-                                @"[In t:SyncFolderItemsDeleteType Complex Type] The SyncFolderItemsDeleteType complex type specifies an item to delete from the client data store.
+                                @"[In t:SyncFolderItemsDeleteType Complex Type] The SyncFolderItemsDeleteType complex type specifies an item to delete from the client message store.
                         <xs:complexType name=""SyncFolderItemsDeleteType"">
                           <xs:sequence>
                             <xs:element name=""ItemId""
@@ -656,7 +668,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 135,
-                                @"[In t:SyncFolderItemsChangesType Complex Type] The type of ReadFlagChange is t:SyncFolderItemsReadFlagType (section 2.2.4.8).");
+                                @"[In t:SyncFolderItemsChangesType Complex Type] The type of ReadFlagChange is t:SyncFolderItemsReadFlagType (section 3.1.4.2.3.5).");
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R455");
@@ -693,7 +705,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 193,
-                                @"[In t:SyncFolderItemsReadFlagType Complex Type] The type of ItemID is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.19).");
+                                @"[In t:SyncFolderItemsReadFlagType Complex Type] The type of ItemID is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
                         }
                     }
                 }
@@ -801,7 +813,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     439,
-                    @"[In tns:SyncFolderItemsSoapOut] The Element/type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                    @"[In tns:SyncFolderItemsSoapOut] The Element/type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R440");

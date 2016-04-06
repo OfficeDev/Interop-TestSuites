@@ -94,7 +94,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyGetItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyGetItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 
@@ -115,7 +119,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyCopyItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyCopyItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 
@@ -136,7 +144,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyCreateItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyCreateItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 
@@ -155,7 +167,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             DeleteItemResponseType response = this.exchangeServiceBinding.DeleteItem(request);
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyDeleteItemOperation(this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyDeleteItemOperation(this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 
@@ -176,7 +192,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyMoveItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyMoveItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 
@@ -197,7 +217,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyUpdateItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            if (response.ResponseMessages.Items[0].ResponseClass == ResponseClassType.Success)
+            {
+                this.VerifyUpdateItemOperation(response, this.exchangeServiceBinding.IsSchemaValidated);
+            }
+
             return response;
         }
 

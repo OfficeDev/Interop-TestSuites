@@ -571,7 +571,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Check whether the child elements of ResponseObjects have been returned successfully.
             ItemInfoResponseMessageType getItems = getItemResponse.ResponseMessages.Items[0] as ItemInfoResponseMessageType;
             ResponseObjectType[] responseObjects = getItems.Items.Items[0].ResponseObjects;
-
+ 
             Site.Assert.IsNotNull(responseObjects, "The ResponseObjects should not be null.");
 
             // Receivers could reply, reply all, forward or send read receipt for the received item, so there should be four child elements in ResponseObjects.
@@ -715,6 +715,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             };
 
             string itemSubject = items[0].Subject;
+            string itemSender = items[0].Sender.Item.EmailAddress;
+
             CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, items);
 
             // Check the operation response.
@@ -724,6 +726,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             markAsJunkRequest.ItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
             markAsJunkRequest.IsJunk = true;
             markAsJunkRequest.MoveItem = true;
+
             MarkAsJunkResponseType markAsJunkResponse = this.COREAdapter.MarkAsJunk(markAsJunkRequest);
 
             // Check the operation response.
@@ -822,6 +825,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 foundItems,
                 1920,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, The operation moves the email item to the Junk Email folder. ");
+            
+            string blockedSender = null;
+            string userName = Common.GetConfigurationPropertyValue("User1Name", this.Site);
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+
+            bool isInBlockedSender = blockedSender.Contains(itemSender);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1839");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1839
+            this.Site.CaptureRequirementIfIsTrue(
+                isInBlockedSender,
+                1839,
+                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, the operation adds the sender of the email to the blocked sender list and moves the email item to the Junk Email folder.");
 
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = true;
@@ -844,6 +862,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1921,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False,The email item is not moved.");
 
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+            isInBlockedSender = blockedSender.Contains(itemSender);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1840");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1840
+            this.Site.CaptureRequirementIfIsTrue(
+                isInBlockedSender,
+                1840,
+                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False, the operation adds the sender of the email to the blocked sender list.");
+
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = false;
             markAsJunkRequest.MoveItem = true;
@@ -864,6 +894,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 foundItems,
                 1922,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] True, The operation moves the email item back to the Inbox folder.");
+
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+            isInBlockedSender = blockedSender.Contains(itemSender);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1841");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1841
+            this.Site.CaptureRequirementIfIsFalse(
+                isInBlockedSender,
+                1841,
+                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] True, the operation removes the sender from the blocked sender list.");
 
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = false;
@@ -886,6 +928,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1923,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] False, The email item is not moved.");
 
+            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+            isInBlockedSender = blockedSender.Contains(itemSender);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1842");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1842
+            this.Site.CaptureRequirementIfIsFalse(
+                isInBlockedSender,
+                1842,
+                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] False and [the value of ""MoveItem"" is] False, the operation removes the sender from the blocked sender list.");
+
+            this.ExistItemIds.Clear();
             this.ExistItemIds.Add(foundItems[0]);
             #endregion
         }
@@ -1503,6 +1558,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1325,
                 @"[In t:ItemType Complex Type] The type of InternetMessageHeaders is t:NonEmptyArrayOfInternetHeadersType (section 2.2.4.12).");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R122");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R122
+            // The schema is validated and InternetMessageHeaders is not null, so this requirement can be captured.
+            this.Site.CaptureRequirement(
+                122,
+                @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] The type [NonEmptyArrayOfInternetHeadersType] is defined as follow:
+<xs:complexType name=""NonEmptyArrayOfInternetHeadersType"">
+  <xs:sequence>
+    <xs:element name=""InternetMessageHeader""
+      type=""t:InternetHeaderType""
+      maxOccurs=""unbounded""
+     />
+  </xs:sequence>
+</xs:complexType>");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20301");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20301
+            // MS-OXWSCORE_R1325 is captured, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                20301,
+                @"[In t:ItemType Complex Type] It [InternetMessageHeaders] can be retrieved by GetItem (section 3.1.4.4) operation.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1367");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1367
+            // The schema is validated and InternetMessageHeaders is not null, so this requirement can be captured.
+            this.Site.CaptureRequirement(
+                1367,
+                @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] The type of InternetMessageHeader is t:InternetHeaderType([MS-OXWSCDATA] section 2.2.4.35).");
+
             foreach (InternetHeaderType internetMessageHeader in getItems.Items.Items[0].InternetMessageHeaders)
             {
                 // Add the debug information
@@ -1529,6 +1619,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     isVerifiedR88,
                     88,
                     @"[In t:ItemType Complex Type] [The element ""InternetMessageHeaders""] Specifies an array of the type InternetHeaderType that represents the collection of all Internet message headers that are contained in an item in a mailbox.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R124");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R124
+                this.Site.CaptureRequirement(
+                    124,
+                    @"[In t:NonEmptyArrayOfInternetHeadersType Complex Type] [The element ""InternetMessageHeader""] Specifies a single Internet message header.");
             }
 
             EntityExtractionResultType entityExtractionResult = getItems.Items.Items[0].EntityExtractionResult;
@@ -1664,6 +1762,213 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                         /// </summary>
                         ActiveDirectoryObject = 5,]
                 }");
+        }
+
+        /// <summary>
+        /// This case is intended to validate to delete an item with setting SuppressReadReceipts successfully.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S04_TC24_DeleteItemWithSuppressReadReceipts()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2311, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the SuppressReadReceipts attribute.");
+
+            #region Send an email with setting IsReadReceiptRequested to true.
+
+            MessageType message = new MessageType();
+            message.IsReadReceiptRequestedSpecified = true;
+            message.IsReadReceiptRequested = true;
+            message.ToRecipients = new EmailAddressType[1];
+            EmailAddressType recipient = new EmailAddressType();
+            recipient.EmailAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            message.ToRecipients[0] = recipient;
+            message.From = new SingleRecipientType
+            {
+                Item = new EmailAddressType
+                {
+                    EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+                }
+            };
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { message };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.MessageDisposition = MessageDispositionType.SendOnly;
+            createItemRequest.MessageDispositionSpecified = true;
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            #endregion
+
+            #region Find the email in receiver's inbox.
+
+            ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.IsNotNull(findItemIds, "The receiver should receive the email.");
+
+            #endregion
+
+            #region Delete the found email with setting SuppressReadReceipts to true.
+
+            DeleteItemType deleteItemRequest = new DeleteItemType();
+            deleteItemRequest.ItemIds = findItemIds;
+            deleteItemRequest.DeleteType = DisposalType.HardDelete;
+            deleteItemRequest.SuppressReadReceiptsSpecified = true;
+            deleteItemRequest.SuppressReadReceipts = true;
+            DeleteItemResponseType deleteItemResponse = this.COREAdapter.DeleteItem(deleteItemRequest);
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User1");
+            Site.Assert.IsNull(findItemIds, "The read receipt email should not be received if receiver delete the email with setting SuppressReadReceipts to true.");
+
+            #endregion
+
+            #region Send an email with setting IsReadReceiptRequested to true.
+
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            #endregion
+
+            #region Find the email in receiver's inbox.
+
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.IsNotNull(findItemIds, "The receiver should receive the email.");
+
+            #endregion
+
+            #region Delete the found email with setting SuppressReadReceipts to false.
+
+            deleteItemRequest.ItemIds = findItemIds;
+            deleteItemRequest.SuppressReadReceipts = false;
+            deleteItemResponse = this.COREAdapter.DeleteItem(deleteItemRequest);
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User1");
+            Site.Assert.AreEqual<int>(1, findItemIds.Length, "The read receipt email should be received if receiver delete the email with setting SuppressReadReceipts to false.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2311");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2311
+            // This requirement can be captured directly after above steps.
+            this.Site.CaptureRequirement(
+                2311,
+                @"[In Appendix C: Product Behavior] Implementation does support the SuppressReadReceipts attribute which specifies whether read receipts are suppressed. (Exchange 2013 SP1 and above follow this behavior.)");
+
+            #endregion
+        }
+
+        /// <summary>
+        /// This case is intended to validate to update an item with setting SuppressReadReceipts successfully.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S04_TC25_UpdateItemWithSuppressReadReceipts()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2315, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the SuppressReadReceipts attribute.");
+
+            #region Send an email with setting IsReadReceiptRequested to true.
+
+            MessageType message = new MessageType();
+            message.IsReadReceiptRequestedSpecified = true;
+            message.IsReadReceiptRequested = true;
+            message.ToRecipients = new EmailAddressType[1];
+            EmailAddressType recipient = new EmailAddressType();
+            recipient.EmailAddress = Common.GetConfigurationPropertyValue("User2Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            message.ToRecipients[0] = recipient;
+            message.From = new SingleRecipientType
+            {
+                Item = new EmailAddressType
+                {
+                    EmailAddress = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site)
+                }
+            };
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { message };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 1);
+            createItemRequest.MessageDisposition = MessageDispositionType.SendOnly;
+            createItemRequest.MessageDispositionSpecified = true;
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            #endregion
+
+            #region Find the email in receiver's inbox.
+
+            ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.IsNotNull(findItemIds, "The receiver should receive the email.");
+
+            #endregion
+
+            #region Update the found email with setting SuppressReadReceipts to true.
+
+            ItemChangeType[] itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+            itemChanges[0].Item = findItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItemFiled = new SetItemFieldType();
+            setItemFiled.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.messageIsRead
+            };
+            setItemFiled.Item1 = new MessageType()
+            {
+                IsRead = true,
+                IsReadSpecified = true
+            };
+            itemChanges[0].Updates[0] = setItemFiled;
+            UpdateItemType updateItemType = new UpdateItemType();
+            updateItemType.ItemChanges = itemChanges;
+            updateItemType.ConflictResolution = ConflictResolutionType.AutoResolve;
+            updateItemType.MessageDisposition = MessageDispositionType.SaveOnly;
+            updateItemType.MessageDispositionSpecified = true;
+            updateItemType.SuppressReadReceipts = true;
+            updateItemType.SuppressReadReceiptsSpecified = true;
+            UpdateItemResponseType updateItemResponse = this.COREAdapter.UpdateItem(updateItemType);
+            Common.CheckOperationSuccess(updateItemResponse, 1, this.Site);
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User1");
+            Site.Assert.IsNull(findItemIds, "The read receipt email should not be received if receiver update the email with setting SuppressReadReceipts to true.");
+
+            List<string> subjects = new List<string>();
+            subjects.Add(createItemRequest.Items.Items[0].Subject);
+            this.ExistItemIds.Clear();
+            #endregion
+
+            #region Send an email with setting IsReadReceiptRequested to true.
+
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem, 2);
+            createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            #endregion
+
+            #region Find the email in receiver's inbox.
+
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User2");
+            Site.Assert.IsNotNull(findItemIds, "The receiver should receive the email.");
+
+            #endregion
+
+            #region Update the found email with setting SuppressReadReceipts to false.
+
+            updateItemType.ItemChanges[0].Item = findItemIds[0];
+            updateItemType.SuppressReadReceipts = false;
+            updateItemResponse = this.COREAdapter.UpdateItem(updateItemType);
+            Common.CheckOperationSuccess(updateItemResponse, 1, this.Site);
+            findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.inbox, createItemRequest.Items.Items[0].Subject, "User1");
+            Site.Assert.AreEqual<int>(1, findItemIds.Length, "The read receipt email should not be received if receiver update the email with setting SuppressReadReceipts to true.");
+            subjects.Add(createItemRequest.Items.Items[0].Subject);
+            this.ExistItemIds.Clear();
+            this.ExistItemIds.Add(findItemIds[0]);
+            this.CleanItemsSentOut(subjects.ToArray());
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2315");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2315
+            // This requirement can be captured directly after above steps.
+            this.Site.CaptureRequirement(
+                2315,
+                @"[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (<102> Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)");
+            #endregion
         }
         #endregion
     }

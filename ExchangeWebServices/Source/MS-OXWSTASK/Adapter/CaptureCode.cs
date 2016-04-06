@@ -42,6 +42,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                     212,
                     @"[In Appendix C: Product Behavior] Implementation does use secure communications by means of HTTPS, as defined in [RFC2818]. (Exchange Server 2007 and above follow this behavior.)");
             }
+            if (transport == TransportProtocol.HTTP && Common.IsRequirementEnabled(212001, Site))
+            {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R212001");
+
+                // Verify MS-OXWSTASK requirement: MS-OXWSTASK_R212001
+                // Because the adapter uses SOAP and HTTP to communicate with server, if server returns data without exception, this requirement will be captured.
+                Site.CaptureRequirement(
+                    212001,
+                    @"[In Appendix C: Product Behavior] Implementation does support SOAP over HTTP, as specified in [RFC2616], as a transport means. (Exchange Server 2007 and above follow this behavior.)");
+            
+            }
         }
 
         /// <summary>
@@ -126,7 +138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             213,
-                            @"[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2].");
+                            @"[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2] section 3.3.17.");
                     }
 
                     if (taskItem.BillingInformation != null)
@@ -138,7 +150,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             215,
-                            @"[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2].");
+                            @"[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2] section 3.2.1.");
                     }
 
                     // If the ChangeCountSpecified field of task item is true means ChangeCount is specified, then verify the related requirements about ChangeCount.
@@ -163,7 +175,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             217,
-                            @"[In t:TaskType Complex Type]The type of Companies is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.11).");
+                            @"[In t:TaskType Complex Type]The type of Companies is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
 
                         this.VerifyArrayOfStringsType(isSchemaValidated);
                     }
@@ -251,7 +263,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             224,
-                            @"[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2].");
+                            @"[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2] section 3.2.2.");
                     }
 
                     // If the IsRecurringSpecified field of task item is true means IsRecurring is specified, then verify the related requirements about IsRecurring.
@@ -289,7 +301,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             229,
-                            @"[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2].");
+                            @"[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2] section 3.2.5.");
 
                         // Add the debug information.
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R60");
@@ -312,7 +324,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             230,
-                            @"[In t:TaskType Complex Type] The type of Recurrence is t:TaskRecurrenceType (section 2.2.5.1).");
+                            @"[In t:TaskType Complex Type] The type of Recurrence is t:TaskRecurrenceType (section 2.2.4.4).");
 
                         // Add the debug information.
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R29");
@@ -339,7 +351,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                             Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 209,
-                                @"[In t:RegeneratingPatternBaseType Complex Type] The RegeneratingPatternBaseType complex type extends the IntervalRecurrencePatternBaseType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.36.
+                                @"[In t:RegeneratingPatternBaseType Complex Type] The RegeneratingPatternBaseType complex type extends the IntervalRecurrencePatternBaseType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.42.
                                     <xs:complexType name=""RegeneratingPatternBaseType""
                                       abstract=""true"">
                                       <xs:complexContent>
@@ -817,7 +829,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                     Site.CaptureRequirementIfIsTrue(
                         isSchemaValidated,
                         39,
-                        @"[In t:TaskType Complex Type] The TaskType complex type extends the ItemType complex type, as specified in [MS-OXWSCORE] section 2.2.4.8.
+                        @"[In t:TaskType Complex Type] The TaskType complex type extends the ItemType complex type, as specified in [MS-OXWSCORE] section 2.2.4.24.
                             <xs:complexType name=""TaskType"">
                                 <xs:complexContent>
                                 <xs:extension

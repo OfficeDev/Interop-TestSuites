@@ -53,6 +53,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         protected IMS_OXWSCOREAdapter COREAdapter { get; private set; }
 
         /// <summary>
+        /// Gets the MS-OXWSCORE SUT Control Adapter.
+        /// </summary>
+        protected IMS_OXWSCORESUTControlAdapter CORESUTControlAdapter { get; private set; }
+
+        /// <summary>
         /// Gets the MS-OXWSITEMID Adapter.
         /// </summary>
         protected IMS_OXWSITEMIDAdapter ITEMIDAdapter { get; private set; }
@@ -61,6 +66,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         /// Gets the MS-OXWSSRCH Adapter Instance
         /// </summary>
         protected IMS_OXWSSRCHAdapter SRCHAdapter { get; private set; }
+
+        /// <summary>
+        /// Gets the MS-OXWSUSRCFG SUT control adapter.
+        /// </summary>
+        protected IMS_OXWSUSRCFGSUTControlAdapter USRCFGSUTControlAdapter { get; private set; }
 
         /// <summary>
         /// Gets the last response get from server.
@@ -85,8 +95,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             ExchangeServiceBinding.ServiceResponseEvent += new ExchangeServiceBinding.ServiceResponseDelegate(this.ExchangeServiceBinding_ResponseEvent);
             this.InitializeCollection();
             this.COREAdapter = Site.GetAdapter<IMS_OXWSCOREAdapter>();
+            this.CORESUTControlAdapter = this.Site.GetAdapter<IMS_OXWSCORESUTControlAdapter>();
             this.SRCHAdapter = Site.GetAdapter<IMS_OXWSSRCHAdapter>();
             this.ITEMIDAdapter = Site.GetAdapter<IMS_OXWSITEMIDAdapter>();
+            this.USRCFGSUTControlAdapter = Site.GetAdapter<IMS_OXWSUSRCFGSUTControlAdapter>();
+            this.ClearSoapHeaders();
         }
 
         /// <summary>
@@ -214,6 +227,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             {
                 item.RetentionDateSpecified = true;
                 item.RetentionDate = DateTime.Now.AddDays(1);
+            }
+
+            if (Common.IsRequirementEnabled(2281, this.Site))
+            {
+                FileAttachmentType fileAttachment = new FileAttachmentType();
+                fileAttachment.Name = Common.GenerateResourceName(this.Site, "File attachment name");
+                fileAttachment.Content = Convert.FromBase64String("/9j/4AAQSkZJRgABAQEAYABgAAD/7AARRHVja3kAAQAEAAAARgAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcHBgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgADAAUAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A5j9hnXPH/gy003RdI+KejWVjciO7muPF86y2GiWFu3nahceUJUyEtfOcKroplMZeSJAxH1j+2p8f9L8TfBTw1qvwo8YSSWGr6FB4p1bStWsLi01TVPDl4ZLe21CwkeOJ9yXf2cSQlCfKukdjDvhM34beLf2n/G3wz+B2g+ItA1qbS9Y0bxBm1uIlDFA9vPG6kNkFWQlSp4welZfxG/4K1fHj9ozQj4T8V+N73U9J1u7e7uxLmWU+YYWaGJ5Cxt7fzLeF/s8Hlxbox8mABXNQjVjQnQlVk+zurrRbWSXnbbuedTyvD0ISoQvZ333WnyPqLxp8PG8feIrjU5dG8O60ZWMYuDeW1tjyyUKeWzALtZWGFG3Oe+aK/OP4ja3c+CfiZ4m07TJTbWdvq90iIQJSAsrKMs+WJwo6miuFZRbT2svvX+QoZTQirXf4f5H/2Q==");
+
+                ItemAttachmentType itemAttachment = new ItemAttachmentType();
+                itemAttachment.Name = Common.GenerateResourceName(this.Site, "Item attachment name");
+                itemAttachment.Item = new ItemType();
+                itemAttachment.Item.Subject = Common.GenerateResourceName(this.Site, "Item attachment subject");
+                item.Attachments = new AttachmentType[2];
+
+                item.Attachments[0] = fileAttachment;
+                item.Attachments[1] = itemAttachment;
+            }
+            
+            if (Common.IsRequirementEnabled(2283, this.Site))
+            {
+                item.ReminderNextTimeSpecified = true;
+                item.ReminderNextTime = DateTime.Now.AddMinutes(30);
             }
 
             return item;
@@ -434,7 +469,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                         bodyField.SetValue(obj, body, null);
                     }
 
-                    items.Add((ItemType)obj);
+                    // RoleMemberItemType and NetworkItemType are for internal use only.
+                    // AbchPersonItemType is covered in MS-OXWSCONT
+                    if (type != typeof(RoleMemberItemType)
+                        && type != typeof(NetworkItemType)
+                        && type != typeof(AbchPersonItemType))
+                    {
+                        items.Add((ItemType)obj);
+                    }
                 }
             }
 
@@ -503,7 +545,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     List<ItemIdType> foundItemIds = new List<ItemIdType>();
                     foreach (ItemType foundItem in foundItems)
                     {
-                        if (searchRestriction == null || foundItem.Subject == searchRestriction)
+                        if (searchRestriction == null || foundItem.Subject.Contains(searchRestriction))
                         {
                             foundItemIds.Add(foundItem.ItemId);
                         }
@@ -634,7 +676,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Configure the Impersonation SOAP header and add it to the soapHeaders list.
             ExchangeImpersonationType impersonation = new ExchangeImpersonationType();
             impersonation.ConnectingSID = new ConnectingSIDType();
-            impersonation.ConnectingSID.Item = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            PrimarySmtpAddressType smtpAddress = new PrimarySmtpAddressType();
+            smtpAddress.Value = Common.GetConfigurationPropertyValue("User1Name", this.Site) + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site);
+            impersonation.ConnectingSID.Item = smtpAddress;
             soapHeaders.Add("ExchangeImpersonation", impersonation);
 
             // Configure the MailboxCulture SOAP header and add it to the soapHeaders list.
@@ -668,9 +712,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         /// Clean all items which have been sent out to User2.
         /// </summary>
         /// <param name="itemSubjects">The subjects of items which have been sent out to User2.</param>
-        protected void CleanItemsSentOut(string[] itemSubjects)
+        /// <param name="isCalendarChecked">Indicates whether need to check the Calendar folder.</param>
+        protected void CleanItemsSentOut(string[] itemSubjects, bool isCalendarChecked = false)
         {
-            ItemIdType[] receivedItemIds = new ItemIdType[itemSubjects.Length];
+            List<ItemIdType> receivedItemIds = new List<ItemIdType>();
 
             for (int i = 0; i < itemSubjects.Length; i++)
             {
@@ -680,24 +725,69 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 Site.Assert.IsNotNull(findItemIds, "Mail item should be available in User2 mailbox.");
                 Site.Assert.AreEqual<int>(1, findItemIds.Length, "There should be only one item with subject {0}.", itemSubjects[i]);
 
-                receivedItemIds[i] = findItemIds[0];
+                receivedItemIds.Add(findItemIds[0]);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R424");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R424
+                // The sent item is found in receiver's mailbox, this requirement can be captured.
+                this.Site.CaptureRequirement(
+                    424,
+                    @"[In SendItem Operation] The SendItem operation sends message items on the server.");
+            }
+
+            if (isCalendarChecked)
+            {
+                for (int i = 0; i < itemSubjects.Length; i++)
+                {
+                    // Find items in the Calendar folder of User2 which were sent out by User1 with subject.
+                    ItemIdType[] findItemIds = this.FindItemsInFolder(DistinguishedFolderIdNameType.calendar, itemSubjects[i], "User2");
+
+                    if (findItemIds != null)
+                    {
+                        receivedItemIds.Add(findItemIds[0]);
+                    }
+                }
             }
 
             // Delete the found items.
             DeleteItemType deleteItemRequest = new DeleteItemType();
-            deleteItemRequest.ItemIds = receivedItemIds;
+            deleteItemRequest.ItemIds = receivedItemIds.ToArray();
             deleteItemRequest.DeleteType = DisposalType.HardDelete;
 
             // AffectedTaskOccurrences indicates whether a task instance or a task master is to be deleted.
             deleteItemRequest.AffectedTaskOccurrencesSpecified = true;
             deleteItemRequest.AffectedTaskOccurrences = AffectedTaskOccurrencesType.AllOccurrences;
 
+            if (Common.IsRequirementEnabled(2311, this.Site))
+            {
+                deleteItemRequest.SuppressReadReceipts = true;
+                deleteItemRequest.SuppressReadReceiptsSpecified = true;
+            }
+
             // SendMeetingCancellations describes how cancellations are to be handled for deleted meetings.
             deleteItemRequest.SendMeetingCancellationsSpecified = true;
             deleteItemRequest.SendMeetingCancellations = CalendarItemCreateOrDeleteOperationType.SendToNone;
             DeleteItemResponseType deleteItemResponse = this.COREAdapter.DeleteItem(deleteItemRequest);
 
-            Common.CheckOperationSuccess(deleteItemResponse, itemSubjects.Length, this.Site);
+            this.Site.Assert.AreEqual<int>(
+                receivedItemIds.Count,
+                deleteItemResponse.ResponseMessages.Items.GetLength(0),
+                "Expected Item Count: {0}, Actual Item Count: {1}",
+                receivedItemIds.Count,
+                deleteItemResponse.ResponseMessages.Items.GetLength(0));
+
+            foreach (ResponseMessageType responseMessage in deleteItemResponse.ResponseMessages.Items)
+            {
+                this.Site.Assert.AreEqual<ResponseClassType>(
+                        ResponseClassType.Success,
+                        responseMessage.ResponseClass,
+                        string.Format(
+                            "The operation should be successful! Expected response code: {0}, actual response code: {1}",
+                            ResponseCodeType.NoError,
+                            responseMessage.ResponseCode));
+            }
 
             // Switch the credentials to User1.
             this.SwitchUser("User1");
@@ -1394,6 +1484,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Assert.IsNotNull(
                 item_AllProperties[0].Subject,
                 "The subject element in returned item should not be null.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R59");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R59
+            // The request have get item all properties,
+            // and the responses are successfully,
+            // this requirement can be verified.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                59,
+                @"[In t:DefaultShapeNamesType Simple Type] The value ""AllProperties"" specifies all the properties that are defined for the AllProperties shape.");
+            
             #endregion
 
             #region Step 3: Get the created item with BaseShape set to IdOnly.
@@ -1475,6 +1578,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                  "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  item_Default.GetLength(0));
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R61");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R61
+            // The request have get item by Default,
+            // and the responses are successfully,
+            // this requirement can be verified.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                61,
+                @"[In t:DefaultShapeNamesType Simple Type] The value ""Default"" specifies a set of properties that are defined as the default for the item or folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1185");
@@ -1715,6 +1830,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 21188,
                 @"[In t:ItemResponseShapeType Complex Type] [IncludeMimeContent is] True, specifies the MIME content of an item is returned in a response.");
+
+            if (item is MessageType
+                || item is PostItemType
+                || item is CalendarItemType)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2012
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    2012,
+                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object. ");
+            }
             #endregion
 
             #region Step 3: Get the created item with IncludeMimeContent set to false.
@@ -1873,6 +2002,106 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 "MS-OXWSCDATA",
                 21196,
                 @"[In t:ItemResponseShapeType Complex Type] otherwise [ConvertHtmlCodePageToUTF8 is] false, specifies [the item HTML body is not converted to UTF8].");
+            #endregion
+        }
+
+        /// <summary>
+        /// Verify the responses returned by GetItem operation with the ItemShape element in which FilterHtmlContent element exists or is not specified.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be gotten.</param>
+        protected void TestSteps_VerifyGetItemWithItemResponseShapeType_FilterHtmlContentBoolean<T>(T item)
+            where T : ItemType, new()
+        {
+            GetItemType getItem = new GetItemType();
+
+            #region Step 1: Create an item.
+            // Create item and return the item id.
+            getItem.ItemIds = this.CreateItemForSpecificItemType(item);
+            #endregion
+
+            #region Step 3: Get the created item with FilterHtmlContent set to true.
+            getItem.ItemShape = new ItemResponseShapeType();
+            getItem.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
+
+            // Set the FilterHtmlContent property.
+            getItem.ItemShape.FilterHtmlContent = true;
+            getItem.ItemShape.FilterHtmlContentSpecified = true;
+
+            GetItemResponseType getItemResponse_FilterHtmlContentTrue = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_FilterHtmlContentTrue, 1, this.Site);
+
+            T[] item_FilterHtmlContentTrue = Common.GetItemsFromInfoResponse<T>(getItemResponse_FilterHtmlContentTrue);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 item_FilterHtmlContentTrue.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 item_FilterHtmlContentTrue.GetLength(0));
+
+            Site.Assert.IsNotNull(
+                item_FilterHtmlContentTrue[0].Body,
+                "The body element in returned item should not be null.");
+
+            bool filterHtmlContent = item_FilterHtmlContentTrue[0].Body.Value.Contains("</script>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21193");
+
+            // Verify MS-OXWSCDATA_R21193.
+            Site.CaptureRequirementIfIsFalse(
+                filterHtmlContent,
+                "MS-OXWSCDATA",
+                21193,
+                @"[In t:ItemResponseShapeType Complex Type] [FilterHtmlContent is] True, specifies HTML content filtering is enabled.");
+
+            #endregion
+
+            #region Step 4: Get the created item with FilterHtmlContent set to false.
+            getItem.ItemShape.FilterHtmlContent = false;
+            getItem.ItemShape.FilterHtmlContentSpecified = true;
+            GetItemResponseType getItemResponse_FilterHtmlContentFalse = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_FilterHtmlContentFalse, 1, this.Site);
+
+            T[] item_FilterHtmlContentFalse = Common.GetItemsFromInfoResponse<T>(getItemResponse_FilterHtmlContentFalse);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 item_FilterHtmlContentFalse.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 item_FilterHtmlContentFalse.GetLength(0));
+
+            Site.Assert.IsNotNull(
+                item_FilterHtmlContentFalse[0].Body,
+                "The body element in returned item should not be null.");
+
+            filterHtmlContent = item_FilterHtmlContentFalse[0].Body.Value.Contains("</script>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21194");
+
+            // Verify MS-OXWSCDATA_R21193.
+            Site.CaptureRequirementIfIsTrue(
+                filterHtmlContent,
+                "MS-OXWSCDATA",
+                21194,
+                @"[In t:ItemResponseShapeType Complex Type] otherwise [FilterHtmlContent is] false, specifies [HTML content filtering is not enabled].");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R2119413");
+
+            // Verify MS-OXWSCDATA_R2119413.
+            // This requirement can be captured after above steps.
+            Site.CaptureRequirement(
+                "MS-OXWSCDATA",
+                2119413,
+                @"[In Appendix C: Product Behavior] Implementation does support the FilterHtmlContent element. (Exchange 2010 and above follow this behavior.)");
             #endregion
         }
 
@@ -5090,6 +5319,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 subjectResponse,
                 73,
                 @"[In t:ItemType Complex Type] [The element ""Subject""] Specifies a string value that represents the subject property of items.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R74, the actual subject is '{0}'", subjectResponse);
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R74
+            this.Site.CaptureRequirementIfIsTrue(
+                subjectResponse.Length <= 255,
+                74,
+                @"[In t:ItemType Complex Type] This value [Subject] is limited to 255 characters.");
         }
         #endregion
 
@@ -5318,14 +5556,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R95");
             Site.Log.Add(LogEntryKind.Debug, "The value of reminderMinutesBeforeStartResponse should not be null, actual {0}.", reminderMinutesBeforeStartResponse);
             Site.Log.Add(LogEntryKind.Debug, "The value of ReminderMinutesBeforeStart from response should be consistent with request, expected {0}, actual {1}.", reminderMinutesBeforeStartRequest, reminderMinutesBeforeStartResponse);
+            
+            int reminderMinutesBeforeStartInt;
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R95
-            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest;
+            bool isVerifyR95 = reminderMinutesBeforeStartResponse != null
+                && reminderMinutesBeforeStartResponse == reminderMinutesBeforeStartRequest
+                && int.TryParse(reminderMinutesBeforeStartResponse, out reminderMinutesBeforeStartInt);
 
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR95,
                 95,
-                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies a string value that indicates the number of minutes before an event occurs when a reminder is displayed.");
+                @"[In t:ItemType Complex Type] [The element ""ReminderMinutesBeforeStart""] Specifies an int value that indicates the number of minutes before an event occurs when a reminder is displayed.");
         }
         #endregion
 
@@ -5345,6 +5587,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 responseObjects,
                 1328,
                 @"[In t:ItemType Complex Type] The type of ResponseObjects is t:NonEmptyArrayOfResponseObjectsType (section 2.2.4.13).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R91");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R91
+            this.Site.CaptureRequirementIfIsTrue(
+                responseObjects.Length > 0,
+                91,
+                @"[In t:ItemType Complex Type] [The element ""ResponseObjects""] Specifies an array of type ResponseObjectType that contains a collection of all the response objects that are associated with an item.");
         }
         #endregion
 
@@ -5677,6 +5928,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         {
             Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
 
+            if (Common.IsRequirementEnabled(1288, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1288");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1288
+                // If the EntityExtractionResultType instance is not null and the schema could be validated successfully, this requirement can be verified.
+                this.Site.CaptureRequirementIfIsNotNull(
+                    entityExtractionResult,
+                    1288,
+                    @"[In Appendix C: Product Behavior] Implementation does support the EntityExtractionResultType complex type specifies the result of an entity extraction. (Exchange 2013 and above follow this behavior.)
+  <xs:complexType name=""EntityExtractionResultType""> 
+  <xs:sequence>
+    <xs:element name=""Addresses"" type=""t:ArrayOfAddressEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""MeetingSuggestions"" type=""t:ArrayOfMeetingSuggestionsType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""TaskSuggestions"" type=""t:ArrayOfTaskSuggestionsType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""EmailAddresses"" type=""t:ArrayOfEmailAddressEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+    <xs:element name=""Contacts"" type=""t:ArrayOfContactsType"" minOccurs=""0"" maxOccurs=""1"" />     
+    <xs:element name=""Urls"" type=""t:ArrayOfUrlEntitiesType"" minOccurs=""0"" maxOccurs=""1"" /> 
+    <xs:element name=""PhoneNumbers"" type=""t:ArrayOfPhoneEntitiesType"" minOccurs=""0"" maxOccurs=""1"" />
+   </xs:sequence>
+ </xs:complexType>");
+            }
+
             if (Common.IsRequirementEnabled(1350, this.Site))
             {
                 // Add the debug information
@@ -5753,7 +6028,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddressEntities,
                     1712,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressEntitiesTypeType complex type which specifies an array of address entities. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressEntitiesType complex type which specifies an array of address entities. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1714, this.Site))
@@ -5766,7 +6041,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddressEntities[0],
                     1714,
-                    @"[In Appendix C: Product Behavior] Implementation does support AddressEntityType complex type which specifies an address entity. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the AddressEntityType complex type which specifies an address entity. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1750");
@@ -5787,6 +6062,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfAddressEntities[0].Address,
                     1754,
                     @"[In t:AddressEntityType Complex Type] Address: An element of type string , as defined in [XMLSCHEMA2] section 3.2.1, that represents a street address.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1134");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1134
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    address,
+                    arrayOfAddressEntities[0].Address,
+                    1134,
+                    @"[In t:EntityExtractionResultType Complex Type] Addresses: An element of type ArrayOfAddressEntitiesType, as defined in section 2.2.4.2, that represents the address entities returned.");
             }
         }
 
@@ -5922,7 +6207,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfContacts,
                     1507,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfContactsType complex type which specifies an array of contacts. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the ArrayOfContactsType complex type which specifies an array of contacts. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1508, this.Site))
@@ -5935,7 +6220,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfContacts,
                     1508,
-                    @"[In Appendix C: Product Behavior] Implementation does support ContactType complex type which specifies the type of a contact. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfContactsType complex type which specifies the type of a contact. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1097");
@@ -6110,6 +6395,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfPhoneEntities[0].Type,
                     1770,
                     @"[In t:PhoneEntityType Complex Type] Type: An element of type string that represents the type of phone number, for example, ""Business"" or ""Home"".");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1140");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1140
+                // This requirement can be captured directly after above requirements are captured.
+                this.Site.CaptureRequirement(
+                    1140,
+                    @"[In t:EntityExtractionResultType Complex Type] PhoneNumbers: An element of type ArrayOfPhoneEntitiesType, as defined in section 2.2.4.30, that represents the phone numbers returned.");
             }
         }
 
@@ -6166,6 +6460,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfUrlEntities[0].Url,
                     1777,
                     @"[In t:UrlEntityType Complex Type] URL: An element of type string, as defined in [XMLSCHEMA2] section 3.2.1, that specifies a URL.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1139");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1139
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    url.OriginalString,
+                    arrayOfUrlEntities[0].Url,
+                    1139,
+                    @"[In t:EntityExtractionResultType Complex Type] Urls: An element of type ArrayOfUrlEntitiesType, as defined in section 2.2.4.29, that represents the URLs returned.");
             }
         }
 
@@ -6188,7 +6492,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfEmailAddressEntities,
                     1716,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfEmailAddressEntitiesType complex type which specifies an array of email address entities. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1718, this.Site))
@@ -6222,6 +6526,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     arrayOfEmailAddressEntities[0].EmailAddress,
                     1761,
                     @"[In t:EmailAddressEntityType Complex Type] EmailAddress: An element of type string, as defined in [XMLSCHEMA2] section 3.2.1, that specifies an email address.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1137");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1137
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    emailAddress,
+                    arrayOfEmailAddressEntities[0].EmailAddress,
+                    1137,
+                    @"[In t:EntityExtractionResultType Complex Type] EmailAddresses: An element of type ArrayOfEmailAddressEntitiesType, as defined in section 2.2.4.35, that represents the email addresses returned.");
 
                 this.VerifyEntityType(arrayOfEmailAddressEntities[0]);
             }
@@ -6576,7 +6890,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.CaptureRequirementIfIsNotNull(
                     arrayOfAddresses,
                     1503,
-                    @"[In Appendix C: Product Behavior] Implementation does support ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the ArrayOfAddressesType complex type which specifies an array of addresses. (Exchange 2013 and above follow this behavior.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1080");
@@ -6613,29 +6927,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     isVerifyR1354,
                     1354,
                     @"[In Appendix C: Product Behavior] Implementation does support element name ""Preview"" with type ""xs:string"" which specifies the first 256 characters of the body of a message for preview without opening the message. (Exchange 2013 and above follow this behavior.)");
-            }
-        }
-        #endregion
-
-        #region GroupingAction Structure
-        /// <summary>
-        /// Verify the GroupingAction structure
-        /// </summary>
-        /// <param name="groupingAction">An PredictedMessageActionType instance of groupingAction.</param>
-        protected void VerifyGroupingAction(PredictedMessageActionType groupingAction)
-        {
-            if (Common.IsRequirementEnabled(1729, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1729");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1729
-                // if the element is not null, and the schema is validated,
-                // this requirement can be validated.
-                Site.CaptureRequirementIfIsNotNull(
-                    groupingAction,
-                    1729,
-                    @"[In Appendix C: Product Behavior] Implementation does support element name ""GroupingAction"" with type ""t:PredictedMessageActionType"" which specifies that the next predicted action is grouping items. (Exchange 2013 and above follow this behavior.)");
             }
         }
         #endregion

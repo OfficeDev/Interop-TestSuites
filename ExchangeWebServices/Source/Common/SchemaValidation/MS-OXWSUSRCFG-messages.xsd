@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSUSRCFG-types.xsd"/>
+  <xs:complexType name="CreateUserConfigurationType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="UserConfiguration" type="t:UserConfigurationType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateUserConfiguration" type="m:CreateUserConfigurationType"/>
+  <xs:complexType name="CreateUserConfigurationResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateUserConfigurationResponse" type="m:CreateUserConfigurationResponseType"/>
+  <xs:complexType name="DeleteUserConfigurationType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="UserConfigurationName" type="t:UserConfigurationNameType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserConfiguration" type="m:DeleteUserConfigurationType"/>
+  <xs:complexType name="DeleteUserConfigurationResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserConfigurationResponse" type="m:DeleteUserConfigurationResponseType"/>
+  <xs:complexType name="GetUserConfigurationType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="UserConfigurationName" type="t:UserConfigurationNameType"/>
+          <xs:element name="UserConfigurationProperties" type="t:UserConfigurationPropertyType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserConfiguration" type="m:GetUserConfigurationType"/>
+  <xs:complexType name="GetUserConfigurationResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="UserConfiguration" type="t:UserConfigurationType" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserConfigurationResponse" type="m:GetUserConfigurationResponseMessageType"/>
+  <xs:complexType name="UpdateUserConfigurationType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="UserConfiguration" type="t:UserConfigurationType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateUserConfiguration" type="m:UpdateUserConfigurationType"/>
+  <xs:complexType name="UpdateUserConfigurationResponseType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateUserConfigurationResponse" type="m:UpdateUserConfigurationResponseType"/>
+</xs:schema>

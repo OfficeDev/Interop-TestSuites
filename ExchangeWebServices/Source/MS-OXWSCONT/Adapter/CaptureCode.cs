@@ -1,8 +1,9 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 {
+    using System;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
-
+    
     /// <summary>
     /// The class provides methods to verify data/operation format in MS-OXWSCONT.
     /// </summary>
@@ -162,111 +163,238 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 // the requirement can be validated.
                 Site.CaptureRequirement(
                     19,
-                    @"[In t:ContactItemType Complex Type] The type [ContactItemType] is defined as follow:
-                         <xs:complexType name=""t:ContactItemType"">
-                         <xs:complexContent>
-                          <xs:extension
-                           base=""t:ItemType""
-                          >
-                           <xs:sequence>
-                            <xs:element name=""FileAs""
-                             type=""xs:string""
-                             minOccurs=""0""
-                             />
-                            <xs:element name=""FileAsMapping""
-                             type=""t:FileAsMappingType""
-                             />
-                            <xs:element name=""DisplayName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""GivenName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Initials""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""MiddleName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Nickname""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""CompleteName""
-                             type=""t:CompleteNameType""
-                             />
-                            <xs:element name=""CompanyName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""EmailAddresses""
-                             type=""t:EmailAddressDictionaryType""
-                             />
-                            <xs:element name=""PhysicalAddresses""
-                             type=""t:PhysicalAddressDictionaryType""
-                             />
-                            <xs:element name=""PhoneNumbers""
-                             type=""t:PhoneNumberDictionaryType""
-                             />
-                            <xs:element name=""AssistantName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Birthday""
-                             type=""xs:dateTime""
-                             />
-                            <xs:element name=""BusinessHomePage""
-                             type=""xs:anyURI""
-                             />
-                            <xs:element name=""Children""
-                             type=""t:ArrayOfStringsType""
-                             />
-                            <xs:element name=""Companies""
-                             type=""t:ArrayOfStringsType""
-                             />
-                            <xs:element name=""ContactSource""
-                             type=""t:ContactSourceType""
-                             />
-                            <xs:element name=""Department""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Generation""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""ImAddresses""
-                             type=""t:ImAddressDictionaryType""
-                             />
-                            <xs:element name=""JobTitle""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Manager""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Mileage""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""OfficeLocation""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""PostalAddressIndex""
-                             type=""t:PhysicalAddressIndexType""
-                             />
-                            <xs:element name=""Profession""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""SpouseName""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""Surname""
-                             type=""xs:string""
-                             />
-                            <xs:element name=""WeddingAnniversary""
-                             type=""xs:dateTime""
-                             />
-                            <xs:element name=""HasPicture""
-                             type=""xs:boolean""
-                             />
-                           </xs:sequence>
-                          </xs:extension>
-                         </xs:complexContent>
-                        </xs:complexType>");
+                    @"[In t: ContactItemType Complex Type] The type[ContactItemType] is defined as follow:
+  < xs:complexType name = ""ContactItemType"" >
+   < xs:complexContent >
+     < xs:extension
+       base = ""t: ItemType""
+     >
+       < xs:sequence >
+         < xs:element name = ""FileAs""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""FileAsMapping""
+           type = ""t: FileAsMappingType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""DisplayName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""GivenName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Initials""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""MiddleName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Nickname""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""CompleteName""
+           type = ""t: CompleteNameType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""CompanyName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""EmailAddresses""
+           type = ""t: EmailAddressDictionaryType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""AbchEmailAddresses""
+           type = ""t: AbchEmailAddressDictionaryType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""PhysicalAddresses""
+           type = ""t: PhysicalAddressDictionaryType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""PhoneNumbers""
+           type = ""t: PhoneNumberDictionaryType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""AssistantName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Birthday""
+           type = ""xs: dateTime""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""BusinessHomePage""
+           type = ""xs: anyURI""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Children""
+           type = ""t: ArrayOfStringsType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Companies""
+           type = ""t: ArrayOfStringsType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""ContactSource""
+           type = ""t: ContactSourceType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Department""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Generation""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""ImAddresses""
+           type = ""t: ImAddressDictionaryType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""JobTitle""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Manager""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Mileage""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""OfficeLocation""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""PostalAddressIndex""
+           type = ""t: PhysicalAddressIndexType""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Profession""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""SpouseName""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""Surname""
+           type = ""xs: string""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""WeddingAnniversary""
+           type = ""xs: dateTime""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""HasPicture""
+           type = ""xs: boolean""
+           minOccurs = ""0""
+          />
+         < xs:element name = ""PhoneticFullName""
+           type = ""xs: string""
+           minOccurs = ""0""
+         />
+         < xs:element name = ""PhoneticFirstName""
+           type = ""xs: string""
+           minOccurs = ""0""
+         />
+         < xs:element name = ""PhoneticLastName""
+           type = ""xs: string""
+           minOccurs = ""0""
+         />
+         < xs:element name = ""Alias""
+           type = ""xs: string""
+           minOccurs = ""0""
+         />
+         < xs:element name = ""Notes""
+           type = ""xs: string""
+           minOccurs = ""0""
+         />
+         < xs:element name = ""Photo""
+           type = ""xs: base64Binary""
+           minOccurs = ""0""
+        />
+        < xs:element name = ""UserSMIMECertificate""
+          type = ""t: ArrayOfBinaryType""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""MSExchangeCertificate""
+          type = ""t: ArrayOfBinaryType""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""DirectoryId""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""ManagerMailbox""
+          type = ""t: SingleRecipientType""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""DirectReports""
+          type = ""t: ArrayOfRecipientsType""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""AccountName""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""IsAutoUpdateDisabled""
+          type = ""xs: boolean""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""IsMessengerEnabled""
+          type = ""xs: boolean""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""Comment""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""ContactShortId""
+          type = ""xs: int""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""ContactType""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""Gender""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""IsHidden""
+          type = ""xs: boolean""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""ObjectId""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""PassportId""
+          type = ""xs: long""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""PersonId""
+          type = ""xs: int""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""IsPrivate""
+          type = ""xs: boolean""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""SourceId""
+          type = ""xs: string""
+          minOccurs = ""0""
+        />
+");
             }
 
             if (contactItemType.FileAsMappingSpecified)
@@ -478,30 +606,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                         // the requirement can be validated.
                         Site.CaptureRequirement(
                             226,
-                            @"[In t:EmailAddressDictionaryEntryType Complex Type] The type [EmailAddressDictionaryEntryType] is defined as follow:<xs:complexType>
-                                 <xs:simpleContent>
-                                  <xs:extension
-                                   base=""xs:string""
-                                  >
-                                   <xs:attribute name=""Key""
-                                    type=""t:EmailAddressKeyType""
-                                    use=""required""
-                                    />
-                                   <xs:attribute name=""Name""
-                                    type=""xs:string""
-                                    use=""optional""
-                                    />
-                                   <xs:attribute name=""RoutingType""
-                                    type=""xs:string""
-                                    use=""optional""
-                                    />
-                                   <xs:attribute name=""MailboxType""
-                                    type=""t:MailboxTypeType""
-                                    use=""optional""
-                                    />
-                                  </xs:extension>
-                                 </xs:simpleContent>
-                                </xs:complexType>");
+                            @"[In t: EmailAddressDictionaryEntryType Complex Type] The type[EmailAddressDictionaryEntryType] is defined as follow:
+ < xs:complexType name = ""EmailAddressDictionaryEntryType"" >
+ < xs:simpleContent >
+  < xs:extension
+   base = ""xs: string""
+  >
+   < xs:attribute name = ""Key""
+    type = ""t: EmailAddressKeyType""
+    use = ""required""
+    />
+   < xs:attribute name = ""Name""
+    type = ""xs: string""
+    use = ""optional""
+    />
+   < xs:attribute name = ""RoutingType""
+    type = ""xs: string""
+    use = ""optional""
+    />
+   < xs:attribute name = ""MailboxType""
+    type = ""t: MailboxTypeType""
+    use = ""optional""
+    />
+  </ xs:extension >
+ </ xs:simpleContent >
+</ xs:complexType > ");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R122");
@@ -663,70 +792,79 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                         // and the schema is validated, this requirement can be validated.
                         Site.CaptureRequirement(
                             155,
-                            @"[In t:PhoneNumberKeyType Simple Type] The type [PhoneNumberKeyType] is defined as follow:
-                                <xs:simpleType name=""PhoneNumberKeyType"">
-                                 <xs:restriction
-                                  base=""xs:string""
-                                 >
-                                  <xs:enumeration
-                                   value=""AssistantPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""BusinessFax""
-                                   />
-                                  <xs:enumeration
-                                   value=""BusinessPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""BusinessPhone2""
-                                   />
-                                  <xs:enumeration
-                                   value=""Callback""
-                                   />
-                                  <xs:enumeration
-                                   value=""CarPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""CompanyMainPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""HomeFax""
-                                   />
-                                  <xs:enumeration
-                                   value=""HomePhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""HomePhone2""
-                                   />
-                                  <xs:enumeration
-                                   value=""Isdn""
-                                   />
-                                  <xs:enumeration
-                                   value=""MobilePhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""OtherFax""
-                                   />
-                                  <xs:enumeration
-                                   value=""OtherTelephone""
-                                   />
-                                  <xs:enumeration
-                                   value=""Pager""
-                                   />
-                                  <xs:enumeration
-                                   value=""PrimaryPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""RadioPhone""
-                                   />
-                                  <xs:enumeration
-                                   value=""Telex""
-                                   />
-                                  <xs:enumeration
-                                   value=""TtyTddPhone""
-                                   />
-                                 </xs:restriction>
-                                </xs:simpleType>");
+                            @"[In t: PhoneNumberKeyType Simple Type] The type[PhoneNumberKeyType] is defined as follow:
+< xs:simpleType name = ""PhoneNumberKeyType"" >
+ < xs:restriction
+  base = ""xs: string""
+ >
+  < xs:enumeration
+   value = ""AssistantPhone""
+   />
+  < xs:enumeration
+   value = ""BusinessFax""
+   />
+  < xs:enumeration
+   value = ""BusinessPhone""
+   />
+  < xs:enumeration
+   value = ""BusinessPhone2""
+   />
+  < xs:enumeration
+   value = ""Callback""
+   />
+  < xs:enumeration
+   value = ""CarPhone""
+   />
+  < xs:enumeration
+   value = ""CompanyMainPhone""
+   />
+  < xs:enumeration
+   value = ""HomeFax""
+   />
+  < xs:enumeration
+   value = ""HomePhone""
+   />
+  < xs:enumeration
+   value = ""HomePhone2""
+   />
+  < xs:enumeration
+   value = ""Isdn""
+   />
+  < xs:enumeration
+   value = ""MobilePhone""
+   />
+  < xs:enumeration
+   value = ""OtherFax""
+   />
+  < xs:enumeration
+   value = ""OtherTelephone""
+   />
+  < xs:enumeration
+   value = ""Pager""
+   />
+  < xs:enumeration
+   value = ""PrimaryPhone""
+   />
+  < xs:enumeration
+   value = ""RadioPhone""
+   />
+  < xs:enumeration
+   value = ""Telex""
+   />
+  < xs:enumeration
+   value = ""TtyTddPhone""
+   />
+   < xs:enumeration
+       value = ""BusinessMobile"" />
+     < xs:enumeration
+       value = ""IPPhone"" />
+     < xs:enumeration
+       value = ""Mms"" />
+     < xs:enumeration
+       value = ""Msn"" />
+
+ </ xs:restriction >
+</ xs:simpleType > ");
                     }
                     else
                     {
@@ -839,6 +977,40 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirement(
                 1,
                 @"[In Transport] The SOAP version supported is SOAP 1.1, as specified in [SOAP1.1].");
+        }
+        #endregion
+
+        #region Verify transport related requirements.
+        /// <summary>
+        /// Verify the transport related requirements.
+        /// </summary>
+        private void VerifyTransportType()
+        {
+            // Get the transport type
+            TransportProtocol transport = (TransportProtocol)Enum.Parse(typeof(TransportProtocol), Common.GetConfigurationPropertyValue("TransportType", Site), true);
+            if (Common.IsRequirementEnabled(335001, this.Site) && transport == TransportProtocol.HTTPS)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R335001");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R335001
+                // When test suite running on HTTPS, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    335001,
+                    @"[In Appendix B: Product Behavior] Implementation does use secure communications via HTTPS, as defined in [RFC2818]. (Exchange 2007 and above follow this behavior.)");
+            }
+
+            if (transport == TransportProtocol.HTTP)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R101");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R101
+                // When test suite running on HTTP, if there are no exceptions or error messages returned from server, this requirement will be captured.
+                Site.CaptureRequirement(
+                    101,
+                    @"[In Transport] The protocol MUST support SOAP over HTTP, as specified in [RFC2616]. ");
+            }
         }
         #endregion
     }

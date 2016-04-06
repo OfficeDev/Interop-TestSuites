@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             {
                 request[i] = this.CreateSyncFolderItemsRequestWithoutOptionalElements(this.FolderIdNameType[i], DefaultShapeNamesType.IdOnly);
 
-                if (Common.IsRequirementEnabled(347, this.Site))
+                if (Common.IsRequirementEnabled(37811008, this.Site))
                 {
                     request[i].SyncScopeSpecified = true;
                     request[i].SyncScope = SyncFolderItemsScopeType.NormalItems;
@@ -90,8 +90,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                     request[i].ItemShape.InlineImageUrlTemplate = "Test Template";
                 }
 
-                // Configure the SOAP header to cover the case that the header contains all optional parts before calling operations.
-                this.ConfigureSOAPHeader();
             }
 
             this.VerifySyncFolderItemsOperation(request, true);

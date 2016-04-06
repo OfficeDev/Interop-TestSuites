@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2013" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSURPT-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSMTGS-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSPOST-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSGTZ-types.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCONT-types.xsd"/>
   <xs:complexType name="AppendToItemFieldType">
     <xs:complexContent>
       <xs:extension base="t:ItemChangeDescriptionType">
@@ -18,6 +23,10 @@
           <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
           <xs:element name="Task" type="t:TaskType"/>
           <xs:element name="PostItem" type="t:PostItemType"/>
+          <xs:element name="RoleMember" type="t:RoleMemberItemType"/>
+          <xs:element name="Network" type="t:NetworkItemType"/>
+          <xs:element name="Person" type="t:AbchPersonItemType"/>
+
         </xs:choice>
       </xs:extension>
     </xs:complexContent>
@@ -27,7 +36,6 @@
       <xs:element name="Range" type="t:OccurrencesRangeType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="BaseItemId" type="t:BaseItemIdType"/>
   <xs:complexType name="ChangeDescriptionType" abstract="true">
     <xs:sequence>
       <xs:element ref="t:Path"/>
@@ -155,12 +163,20 @@
       <xs:element name="RetentionDate" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="Preview" type="xs:string" minOccurs="0"/>
       <xs:element name="RightsManagementLicenseData" type="t:RightsManagementLicenseDataType" minOccurs="0" />
+      <!--<xs:element name="PredictedActionReasons" type="t:NonEmptyArrayOfPredictedActionReasonType" minOccurs="0"/>-->
+      <xs:element name="IsClutter" type="xs:boolean" minOccurs="0"/>
       <xs:element name="NextPredictedAction" type="t:PredictedMessageActionType" minOccurs="0" />
       <xs:element name="GroupingAction" type="t:PredictedMessageActionType" minOccurs="0"/>
       <xs:element name="BlockStatus" type="xs:boolean" minOccurs="0" />
       <xs:element name="HasBlockedImages" type="xs:boolean" minOccurs="0" />
       <xs:element name="TextBody" type="t:BodyType" minOccurs="0"/>
       <xs:element name="IconIndex" type="t:IconIndexType" minOccurs="0"/>
+      <xs:element name="SearchKey" type="xs:base64Binary" minOccurs="0"/>
+      <xs:element name="SortKey" type="xs:long" minOccurs="0"/>
+      <xs:element name="Hashtags" type="t:ArrayOfStringsType" minOccurs="0"/>
+      <xs:element name="Mentions" type="t:ArrayOfRecipientsType" minOccurs="0"/>
+      <xs:element name="MentionedMe" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="PendingSocialActivityTagIds" type="t:ArrayOfStringsType" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="MimeContentType">
@@ -169,6 +185,49 @@
         <xs:attribute name="CharacterSet" type="xs:string" use="optional"/>
       </xs:extension>
     </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="MimeContentUTF8Type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="CharacterSet" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="NetworkItemType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="DomainId" type="xs:int" minOccurs="0"/>
+          <xs:element name="DomainTag" type="xs:string" minOccurs="0"/>
+          <xs:element name="UserTileUrl" type="xs:string" minOccurs="0"/>
+          <xs:element name="ProfileUrl" type="xs:string" minOccurs="0"/>
+          <xs:element name="Settings" type="xs:int" minOccurs="0"/>
+          <xs:element name="IsDefault" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="AutoLinkError" type="xs:string" minOccurs="0"/>
+          <xs:element name="AutoLinkSuccess" type="xs:string" minOccurs="0"/>
+          <xs:element name="UserEmail" type="xs:string" minOccurs="0"/>
+          <xs:element name="ClientPublishSecret" type="xs:string" minOccurs="0"/>
+          <xs:element name="ClientToken" type="xs:string" minOccurs="0"/>
+          <xs:element name="ClientToken2" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContactSyncError" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContactSyncSuccess" type="xs:string" minOccurs="0"/>
+          <xs:element name="ErrorOffers" type="xs:int" minOccurs="0"/>
+          <xs:element name="FirstAuthErrorDates" type="xs:string" minOccurs="0"/>
+          <xs:element name="LastVersionSaved" type="xs:int" minOccurs="0"/>
+          <xs:element name="LastWelcomeContact" type="xs:string" minOccurs="0"/>
+          <xs:element name="Offers" type="xs:int" minOccurs="0"/>
+          <xs:element name="PsaLastChanged" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="RefreshToken2" type="xs:string" minOccurs="0"/>
+          <xs:element name="RefreshTokenExpiry2" type="xs:string" minOccurs="0"/>
+          <xs:element name="SessionHandle" type="xs:string" minOccurs="0"/>
+          <xs:element name="RejectedOffers" type="xs:int" minOccurs="0"/>
+          <xs:element name="SyncEnabled" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="TokenRefreshLastAttempted" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="TokenRefreshLastCompleted" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="PsaState" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="NonEmptyArrayOfBaseItemIdsType">
     <xs:choice maxOccurs="unbounded">
@@ -208,6 +267,8 @@
       <xs:element name="SuppressReadReceipt" type="t:SuppressReadReceiptType"/>
       <xs:element name="PostReplyItem" type="t:PostReplyItemType"/>
       <xs:element name="AcceptSharingInvitation" type="t:AcceptSharingInvitationType"/>
+      <xs:element name="AddItemToMyCalendar" type="t:AddItemToMyCalendarType"/>
+      <xs:element name="ProposeNewTime" type="t:ProposeNewTimeType"/>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="OccurrenceItemIdType">
@@ -245,7 +306,8 @@
   </xs:complexType>
   <xs:complexType name="ReferenceItemResponseType">
     <xs:complexContent>
-      <xs:restriction base="t:ResponseObjectType">
+      <xs:restriction
+        base="t:ResponseObjectType">
         <xs:sequence>
           <xs:element name="ReferenceItemId" type="t:ItemIdType" minOccurs="0"/>
         </xs:sequence>
@@ -263,11 +325,33 @@
       </xs:simpleType>
       <xs:simpleType id="ReminderMinutesBeforeStartMarkerType">
         <xs:restriction base="xs:int">
-          <xs:minInclusive value="1525252321"/>
+          <xs:minInclusive value="0"/>
           <xs:maxInclusive value="1525252321"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
+  </xs:simpleType>
+  <xs:complexType name="RoleMemberItemType">
+    <xs:complexContent>
+      <xs:extension base="t:ItemType">
+        <xs:sequence>
+          <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="Type" type="t:RoleMemberTypeType" minOccurs="0"/>
+          <xs:element name="RoleMemberTypeSpecified" type="xs:boolean" minOccurs="0"/>
+          <xs:element name="MemberId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RoleMemberTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="Passport"/>
+      <xs:enumeration value="Everyone"/>
+      <xs:enumeration value="Email"/>
+      <xs:enumeration value="Phone"/>
+      <xs:enumeration value="SkypeId"/>
+    </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="SetItemFieldType">
     <xs:complexContent>
@@ -284,6 +368,9 @@
           <xs:element name="MeetingCancellation" type="t:MeetingCancellationMessageType"/>
           <xs:element name="Task" type="t:TaskType"/>
           <xs:element name="PostItem" type="t:PostItemType"/>
+          <xs:element name="RoleMember" type="t:RoleMemberItemType"/>
+          <xs:element name="Network" type="t:NetworkItemType"/>
+          <xs:element name="Person" type="t:AbchPersonItemType"/>
         </xs:choice>
       </xs:extension>
     </xs:complexContent>
@@ -292,17 +379,17 @@
     <xs:complexContent>
       <xs:restriction base="t:ResponseObjectType">
         <xs:sequence>
-          <xs:element name="Subject" type="xs:string" minOccurs="0"/>
-          <xs:element name="Body" type="t:BodyType" minOccurs="0"/>
-          <xs:element name="ToRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
-          <xs:element name="CcRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
-          <xs:element name="BccRecipients" type="t:ArrayOfRecipientsType" minOccurs="0"/>
-          <xs:element name="IsReadReceiptRequested" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsDeliveryReceiptRequested" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="From" type="t:SingleRecipientType" minOccurs="0"/>
-          <xs:element name="ReferenceItemId" type="t:ItemIdType" minOccurs="0"/>
+          <xs:element name="Subject" type="xs:string" minOccurs="0" />
+          <xs:element name="Body" type="t:BodyType" minOccurs="0" />
+          <xs:element name="ToRecipients" type="t:ArrayOfRecipientsType" minOccurs="0" />
+          <xs:element name="CcRecipients" type="t:ArrayOfRecipientsType" minOccurs="0" />
+          <xs:element name="BccRecipients" type="t:ArrayOfRecipientsType" minOccurs="0" />
+          <xs:element name="IsReadReceiptRequested" type="xs:boolean" minOccurs="0" />
+          <xs:element name="IsDeliveryReceiptRequested" type="xs:boolean" minOccurs="0" />
+          <xs:element name="From" type="t:SingleRecipientType" minOccurs="0" />
+          <xs:element name="ReferenceItemId" type="t:ItemIdType" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute name="ObjectName" type="xs:string" use="prohibited"/>
+        <xs:attribute name="ObjectName" type="xs:string" use="prohibited" />
       </xs:restriction>
     </xs:complexContent>
   </xs:complexType>
@@ -310,7 +397,7 @@
     <xs:complexContent>
       <xs:extension base="t:SmartResponseBaseType">
         <xs:sequence>
-          <xs:element name="NewBodyContent" type="t:BodyType" minOccurs="0"/>
+          <xs:element name="NewBodyContent" type="t:BodyType" minOccurs="0" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

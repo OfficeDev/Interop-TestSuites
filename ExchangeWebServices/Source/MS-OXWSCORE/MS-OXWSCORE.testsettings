@@ -2,15 +2,17 @@
 <TestSettings name="MS-OXWSCORE" id="63eaf2b3-cc44-4a5e-9cce-435b2e775894" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXWSCORE test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetMailboxJunkEmailConfiguration.ps1" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCORE.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

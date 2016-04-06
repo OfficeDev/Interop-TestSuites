@@ -9,5 +9,7 @@
     <Property name="R1489Enabled" value="false"/>
     <!-- Set R4005Enabled to true to verify that the implementation includes FirstDayOfWeek element as specified in [MS-OXWSCDATA] section 2.2.4.64. Set R4005Enabled to false to disable this requirement.-->
     <Property name="R4005Enabled" value="false"/>
+    <!-- Set R212001Enabled to true to verify that the implementation does support SOAP over HTTP, as specified in [RFC2616], as a transport means. Set R212001Enabled to false to disable this requirement.-->
+    <Property name="R212001Enabled" value="true"/>
   </Properties>
 </TestSite>

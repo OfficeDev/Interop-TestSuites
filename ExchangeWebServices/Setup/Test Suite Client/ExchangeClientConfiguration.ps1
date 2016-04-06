@@ -62,6 +62,8 @@ $MSOXWSMTGSUser02             = ReadConfigFileNode "$environmentResourceFile" "M
 $MSOXWSMTGSUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02Password"
 $MSOXWSMTGSRoom01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01"
 $MSOXWSMTGSRoom01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01Password"
+$MSOXWSMTGSUser03             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03"
+$MSOXWSMTGSUser03Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03Password"
 
 $MSOXWSSYNCUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01"
 $MSOXWSSYNCUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01Password"
@@ -147,6 +149,7 @@ OutputQuestion "Select the Exchange Server version"
 OutputQuestion "1: Microsoft Exchange Server 2007"
 OutputQuestion "2: Microsoft Exchange Server 2010"
 OutputQuestion "3: Microsoft Exchange Server 2013"
+OutputQuestion "4: Microsoft Exchange Server 2016"
 
 While (($serverVersion -eq $null) -or ($serverVersion -eq ""))
 { 
@@ -156,6 +159,7 @@ While (($serverVersion -eq $null) -or ($serverVersion -eq ""))
         "1" { $serverVersion = "ExchangeServer2007"; break }
         "2" { $serverVersion = "ExchangeServer2010"; break }
         "3" { $serverVersion = "ExchangeServer2013"; break }
+        "4" { $serverVersion = "ExchangeServer2016"; break }
         default {OutputWarning "Your input is invalid, select the Exchange Server version again"}
     }
 }
@@ -365,12 +369,18 @@ $step++
 OutputWarning "$step.Find the property `"AttendeePassword`", and set the value as $MSOXWSMTGSUser02Password"
 $step++
 OutputWarning "$step.Find the property `"RoomName`", and set the value as $MSOXWSMTGSRoom01"
+$step++
+OutputWarning "$step.Find the property `"DelegateName`", and set the value as $MSOXWSMTGSUser03"
+$step++
+OutputWarning "$step.Find the property `"DelegatePassword`", and set the value as $MSOXWSMTGSUser03Password"
 
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "OrganizerName"       $MSOXWSMTGSUser01
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "OrganizerPassword"   $MSOXWSMTGSUser01Password
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "AttendeeName"        $MSOXWSMTGSUser02
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "AttendeePassword"    $MSOXWSMTGSUser02Password
 ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "RoomName"            $MSOXWSMTGSRoom01
+ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "DelegateName"        $MSOXWSMTGSUser03
+ModifyConfigFileNode $MSOXWSMTGSDeploymentFile "DelegatePassword"    $MSOXWSMTGSUser03Password
 
 OutputSuccess "Configuration for the MS-OXWSMTGS_TestSuite.deployment.ptfconfig file is complete"
 
@@ -414,6 +424,25 @@ ModifyConfigFileNode $MSOXWSTASKDeploymentFile "UserPassword"     $MSOXWSTASKUse
 
 OutputSuccess "Configuration for the MS-OXWSTASK_TestSuite.deployment.ptfconfig file is complete"
 
+OutputWarning "Add SUT machine to the TrustedHosts configuration setting to ensure WinRM client can process remote calls against SUT machine." 
+$service = "WinRM"
+$serviceStatus = (Get-Service $service).Status
+if($serviceStatus -ne "Running")
+{
+    Start-Service $service
+}
+$originalTrustedHosts = (Get-Item WSMan:\localhost\Client\TrustedHosts -Force).Value
+if ($originalTrustedHosts -ne "*")
+{
+    if ($originalTrustedHosts -eq "")
+    {
+        Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$sutcomputerName" -Force
+    }
+    elseif (!($originalTrustedHosts.split(',') -icontains $sutcomputerName))
+    {
+        Set-Item WSMan:\localhost\Client\TrustedHosts -Value "$originalTrustedHosts,$sutcomputerName" -Force
+    }
+}
 
 #----------------------------------------------------------------------------
 # End script

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages">
   <wsdl:types>
-    <xs:schema id="messages" elementFormDefault="qualified" version="Exchange2013" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns="http://schemas.microsoft.com/exchange/services/2006/messages">
+    <xs:schema id="messages" elementFormDefault="qualified" version="Exchange2016" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns="http://schemas.microsoft.com/exchange/services/2006/messages">
       <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCORE-types.xsd"/>
       <xs:include schemaLocation="MS-OXWSCORE-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSFOLD-messages.xsd"/>
@@ -10,9 +10,10 @@
       <xs:include schemaLocation="MS-OXWSSYNC-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSSRCH-messages.xsd" />
       <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd" />
+      <xs:include schemaLocation="MS-OXWSUSRCFG-messages.xsd" />      
       <!-- Add global elements and types from messages.xsd -->
     </xs:schema>
-    <xs:schema id="types" elementFormDefault="qualified" version="Exchange2013" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema id="types" elementFormDefault="qualified" version="Exchange2016" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
       <!-- Add global elements and types from types.xsd -->
     </xs:schema>
@@ -133,6 +134,10 @@
       <wsdl:output message="tns:FindItemSoapOut"/>
     </wsdl:operation>
     <!--Elements from MS-OXWSDLGM.wsdl-->
+    <wsdl:operation name="GetDelegate">
+      <wsdl:input message="tns:GetDelegateSoapIn" />
+      <wsdl:output message="tns:GetDelegateSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AddDelegate">
       <wsdl:input message="tns:AddDelegateSoapIn" />
       <wsdl:output message="tns:AddDelegateSoapOut" />
@@ -140,6 +145,36 @@
     <wsdl:operation name="RemoveDelegate">
       <wsdl:input message="tns:RemoveDelegateSoapIn" />
       <wsdl:output message="tns:RemoveDelegateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDelegate">
+      <wsdl:input message="tns:UpdateDelegateSoapIn" />
+      <wsdl:output message="tns:UpdateDelegateSoapOut" />
+    </wsdl:operation>
+    <!--Elements from MS-OXWSCONT.wsdl-->
+    <wsdl:operation name="GetUserPhoto">
+      <wsdl:input message="tns:GetUserPhotoSoapIn"/>
+      <wsdl:output message="tns:GetUserPhotoSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPhoto">
+      <wsdl:input message="tns:SetUserPhotoSoapIn"/>
+      <wsdl:output message="tns:SetUserPhotoSoapOut"/>
+    </wsdl:operation>
+    <!--Elements from MS-OXWSUSRCFG.wsdl-->
+    <wsdl:operation name="CreateUserConfiguration">
+      <wsdl:input message="tns:CreateUserConfigurationSoapIn"/>
+      <wsdl:output message="tns:CreateUserConfigurationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserConfiguration">
+      <wsdl:input message="tns:DeleteUserConfigurationSoapIn"/>
+      <wsdl:output message="tns:DeleteUserConfigurationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserConfiguration">
+      <wsdl:input message="tns:GetUserConfigurationSoapIn"/>
+      <wsdl:output message="tns:GetUserConfigurationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserConfiguration">
+      <wsdl:input message="tns:UpdateUserConfigurationSoapIn"/>
+      <wsdl:output message="tns:UpdateUserConfigurationSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ExchangeServiceBinding" type="tns:ExchangeServicePortType">
@@ -524,6 +559,19 @@
       </wsdl:output>
     </wsdl:operation>
     <!--Elements from MS-OXWSDLGM.wsdl-->
+    <wsdl:operation name="GetDelegate">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetDelegate" />
+      <wsdl:input>
+        <soap:header message="tns:GetDelegateSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:GetDelegateSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:GetDelegateSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="GetDelegateResult" use="literal" />
+        <soap:header message="tns:GetDelegateSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddDelegate">
       <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/AddDelegate" />
       <wsdl:input>
@@ -548,6 +596,97 @@
       <wsdl:output>
         <soap:body parts="RemoveDelegateResult" use="literal" />
         <soap:header message="tns:RemoveDelegateSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDelegate">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UpdateDelegate" />
+      <wsdl:input>
+        <soap:header message="tns:UpdateDelegateSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:UpdateDelegateSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:UpdateDelegateSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="UpdateDelegateResult" use="literal" />
+        <soap:header message="tns:UpdateDelegateSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--Elements from MS-OXWSCONT.wsdl-->
+    <wsdl:operation name="GetUserPhoto">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetUserPhoto"/>
+      <wsdl:input>
+        <soap:header message="tns:GetUserPhotoSoapIn"
+              part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="GetUserPhotoResult" use="literal"/>
+        <soap:header message="tns:GetUserPhotoSoapOut"
+              part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserPhoto">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/SetUserPhoto"/>
+      <wsdl:input>
+        <soap:header message="tns:SetUserPhotoSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="SetUserPhotoResult" use="literal"/>
+        <soap:header message="tns:SetUserPhotoSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <!--Elements from MS-OXWSUSRCFG.wsdl-->
+    <wsdl:operation name="CreateUserConfiguration">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/CreateUserConfiguration"/>
+      <wsdl:input>
+        <soap:header message="tns:CreateUserConfigurationSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:CreateUserConfigurationSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:CreateUserConfigurationSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="CreateUserConfigurationResult" use="literal"/>
+        <soap:header message="tns:CreateUserConfigurationSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserConfiguration">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/DeleteUserConfiguration"/>
+      <wsdl:input>
+        <soap:header message="tns:DeleteUserConfigurationSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:DeleteUserConfigurationSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:DeleteUserConfigurationSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="DeleteUserConfigurationResult" use="literal"/>
+        <soap:header message="tns:DeleteUserConfigurationSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserConfiguration">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetUserConfiguration"/>
+      <wsdl:input>
+        <soap:header message="tns:GetUserConfigurationSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:GetUserConfigurationSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:GetUserConfigurationSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="GetUserConfigurationResult" use="literal"/>
+        <soap:header message="tns:GetUserConfigurationSoapOut" part="ServerVersion" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserConfiguration">
+      <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/UpdateUserConfiguration"/>
+      <wsdl:input>
+        <soap:header message="tns:UpdateUserConfigurationSoapIn" part="Impersonation" use="literal"/>
+        <soap:header message="tns:UpdateUserConfigurationSoapIn" part="MailboxCulture" use="literal"/>
+        <soap:header message="tns:UpdateUserConfigurationSoapIn" part="RequestVersion" use="literal"/>
+        <soap:body parts="request" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="UpdateUserConfigurationResult" use="literal"/>
+        <soap:header message="tns:UpdateUserConfigurationSoapOut" part="ServerVersion" use="literal"/>
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
@@ -847,6 +986,16 @@
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
   <!--Elements from MS-OXWSDLGM.wsdl-->
+  <wsdl:message name="GetDelegateSoapIn">
+    <wsdl:part name="request" element="tns:GetDelegate" />
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="GetDelegateSoapOut">
+    <wsdl:part name="GetDelegateResult" element="tns:GetDelegateResponse" />
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
   <wsdl:message name="AddDelegateSoapIn">
     <wsdl:part name="request" element="tns:AddDelegate" />
     <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
@@ -865,6 +1014,74 @@
   </wsdl:message>
   <wsdl:message name="RemoveDelegateSoapOut">
     <wsdl:part name="RemoveDelegateResult" element="tns:RemoveDelegateResponse" />
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateDelegateSoapIn">
+    <wsdl:part name="request" element="tns:UpdateDelegate" />
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateDelegateSoapOut">
+    <wsdl:part name="UpdateDelegateResult" element="tns:UpdateDelegateResponse" />
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <!--Elements from MS-OXWSCONT.wsdl-->
+  <wsdl:message name="GetUserPhotoSoapIn">
+    <wsdl:part name="request" element="t:GetUserPhoto"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserPhotoSoapOut">
+    <wsdl:part name="GetUserPhotoResult" element="t:GetUserPhotoResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="SetUserPhotoSoapIn">
+    <wsdl:part name="request" element="t:SetUserPhoto"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="SetUserPhotoSoapOut">
+    <wsdl:part name="SetUserPhotoResult" element="t:SetUserPhotoResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <!--Elements from MS-OXWSUSRCFG.wsdl-->
+  <wsdl:message name="CreateUserConfigurationSoapIn">
+    <wsdl:part name="request" element="tns:CreateUserConfiguration"/>
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="CreateUserConfigurationSoapOut">
+    <wsdl:part name="CreateUserConfigurationResult" element="tns:CreateUserConfigurationResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteUserConfigurationSoapIn">
+    <wsdl:part name="request" element="tns:DeleteUserConfiguration"/>
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteUserConfigurationSoapOut">
+    <wsdl:part name="DeleteUserConfigurationResult" element="tns:DeleteUserConfigurationResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserConfigurationSoapIn">
+    <wsdl:part name="request" element="tns:GetUserConfiguration"/>
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="GetUserConfigurationSoapOut">
+    <wsdl:part name="GetUserConfigurationResult" element="tns:GetUserConfigurationResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateUserConfigurationSoapIn">
+    <wsdl:part name="request" element="tns:UpdateUserConfiguration"/>
+    <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>
+    <wsdl:part name="MailboxCulture" element="t:MailboxCulture"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateUserConfigurationSoapOut">
+    <wsdl:part name="UpdateUserConfigurationResult" element="tns:UpdateUserConfigurationResponse"/>
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
 </wsdl:definitions>

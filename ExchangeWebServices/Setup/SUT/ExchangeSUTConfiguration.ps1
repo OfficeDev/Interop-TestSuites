@@ -66,6 +66,8 @@ $MSOXWSMTGSUser02             = ReadConfigFileNode "$environmentResourceFile" "M
 $MSOXWSMTGSUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02Password"
 $MSOXWSMTGSRoom01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01"
 $MSOXWSMTGSRoom01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01Password"
+$MSOXWSMTGSUser03             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03"
+$MSOXWSMTGSUser03Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03Password"
 
 $MSOXWSSYNCUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01"
 $MSOXWSSYNCUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01Password"
@@ -78,6 +80,7 @@ $MSOXWSTASKUser01Password     = ReadConfigFileNode "$environmentResourceFile" "M
 $Exchange2013                 = "Microsoft Exchange Server 2013"
 $Exchange2010                 = "Microsoft Exchange Server 2010"
 $Exchange2007                 = "Microsoft Exchange Server 2007"
+$Exchange2016                 = "Microsoft Exchange Server 2016"
 
 #-----------------------------------------------------------------------------------
 # <summary>
@@ -332,25 +335,11 @@ $room            = "ResourceMailbox"
 
 $ExchangeVersion = GetExchangeServerVersion
 
+
 #-----------------------------------------------------
 # Add Exchange PowerShell snapin
 #-----------------------------------------------------
-if($ExchangeVersion -ge $Exchange2010)
-{
-    $ExchangeShellSnapIn = "Microsoft.Exchange.Management.PowerShell.E2010"    
-}
-if($ExchangeVersion -eq $Exchange2007)
-{
-    $ExchangeShellSnapIn = "Microsoft.Exchange.Management.PowerShell.Admin"    
-}
-if (@(Get-PSSnapin -Registered|Where-Object {$_.Name -eq $ExchangeShellSnapIn}).Count -eq 1)
-{
-    if (@(Get-PSSnapin|Where-Object {$_.Name -eq $ExchangeShellSnapIn}).Count -eq 0)
-    {
-        Add-PSSnapin $ExchangeShellSnapIn
-    }
-}
-
+AddExchangePSSnapIn
 #-----------------------------------------------------
 # Check whether Exchange server is installed on a domain controller.
 #-----------------------------------------------------
@@ -406,12 +395,19 @@ CreateMailboxUser  $MSOXWSMTGSRoom01  $MSOXWSMTGSRoom01Password       $mailboxDa
 CreateMailboxUser  $MSOXWSSYNCUser01  $MSOXWSSYNCUser01Password       $mailboxDatabaseName $domain
 CreateMailboxUser  $MSOXWSSYNCUser02  $MSOXWSSYNCUser02Password       $mailboxDatabaseName $domain
 CreateMailboxUser  $MSOXWSTASKUser01  $MSOXWSTASKUser01Password       $mailboxDatabaseName $domain
+CreateMailboxUser  $MSOXWSMTGSUser03  $MSOXWSMTGSUser03Password       $mailboxDatabaseName $domain
+
+#-------------------------------------------------------------
+# Add delegate for specified mailbox user
+#--------------------------------------------------------------
+OutputText "Add delegate of mailbox user $MSOXWSMTGSUser03 to mailbox user $MSOXWSMTGSUser02."
+AddDelegateForMaiboxUser $MSOXWSMTGSUser03 $MSOXWSMTGSUser03Password $MSOXWSMTGSUser02 $sutComputerName $domain $ExchangeVersion
 
 if($ExchangeVersion -le $Exchange2010)
 {
     CreatePublicFolderDatabase "PublicFolderDatabase" "$sutComputerName"
 }
-elseif($ExchangeVersion -eq $Exchange2013)
+elseif($ExchangeVersion -ge $Exchange2013)
 {
     $publicFolderMailboxInfo = Get-Mailbox -PublicFolder -filter {Name -eq $MSOXWSCOREPublicFolderMailbox}
     if(($publicFolderMailboxInfo -ne $null) -and ($publicFolderMailboxInfo -ne ""))
@@ -503,11 +499,15 @@ elseif($ExchangeVersion -ge $Exchange2010)
     $pfAdminGroup = "Public Folder Management"
 }
 AddUserToExchangeAdminGroup $ExchangeVersion $MSOXWSFOLDUser01 $pfAdminGroup
-
+if ($ExchangeVersion -eq $Exchange2016)
+{
+    $cONTGroup = "Recipient Management"
+AddUserToExchangeAdminGroup $ExchangeVersion $MSOXWSCONTUser01 $cONTGroup
+}
 OutputText "Start Microsoft Exchange Transport service ..."
 StartService "MSExchangeTransport"
 
-if($ExchangeVersion -eq $Exchange2013)
+if($ExchangeVersion -ge $Exchange2013)
 {
     OutputText "Starting the Microsoft Exchange Mailbox Transport Delivery service..."
     StartService "MSExchangeDelivery"

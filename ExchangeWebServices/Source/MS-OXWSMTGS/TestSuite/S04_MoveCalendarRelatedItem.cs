@@ -291,6 +291,80 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox });
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarCannotMoveOrCopyOccurrence will be returned if move an occurrence of a recurring calendar item.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S04_TC04_MoveItemErrorCalendarCannotMoveOrCopyOccurrence()
+        {
+            #region Define a recurring calendar item
+            DateTime startTime = DateTime.Now;
+
+            DailyRecurrencePatternType pattern = new DailyRecurrencePatternType();
+            pattern.Interval = this.PatternInterval;
+
+            NumberedRecurrenceRangeType range = new NumberedRecurrenceRangeType();
+            range.NumberOfOccurrences = this.NumberOfOccurrences;
+            range.StartDate = startTime;
+
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = startTime;
+            calendarItem.StartSpecified = true;
+            calendarItem.End = startTime.AddHours(this.TimeInterval);
+            calendarItem.EndSpecified = true;
+            calendarItem.Recurrence = new RecurrenceType();
+            calendarItem.Recurrence.Item = pattern;
+            calendarItem.Recurrence.Item1 = range;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, calendarItem, CalendarItemCreateOrDeleteOperationType.SendToNone);
+
+            OccurrenceItemIdType occurrenceItemId = new OccurrenceItemIdType();
+            occurrenceItemId.ChangeKey = item.Items.Items[0].ItemId.ChangeKey;
+            occurrenceItemId.RecurringMasterId = item.Items.Items[0].ItemId.Id;
+            occurrenceItemId.InstanceIndex = this.InstanceIndex;
+            #endregion
+
+            #region Copy one occurrence of the recurring calendar item
+            DistinguishedFolderIdType folderId = new DistinguishedFolderIdType();
+            folderId.Id = DistinguishedFolderIdNameType.drafts;
+            TargetFolderIdType targetFolderId = new TargetFolderIdType();
+            targetFolderId.Item = folderId;
+
+            MoveItemType moveItemRequest = new MoveItemType();
+            moveItemRequest.ItemIds = new BaseItemIdType[] { occurrenceItemId };
+            moveItemRequest.ToFolderId = targetFolderId;
+            MoveItemResponseType response = this.MTGSAdapter.MoveItem(moveItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1228");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1228
+            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                response.ResponseMessages.Items[0].ResponseClass,
+                1228,
+                @"[In Messages] If the request is unsuccessful, the MoveItem operation returns a MoveItemResponse element with the ResponseClass attribute of the MoveItemResponseMessage element set to ""Error"". ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1231");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1231
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarCannotMoveOrCopyOccurrence,
+                response.ResponseMessages.Items[0].ResponseCode,
+                1231,
+                @"[In Messages] ErrorCalendarCannotMoveOrCopyOccurrence: Specifies that an attempt was made to move or copy an occurrence of a recurring calendar item.");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
         #endregion
     }
 }

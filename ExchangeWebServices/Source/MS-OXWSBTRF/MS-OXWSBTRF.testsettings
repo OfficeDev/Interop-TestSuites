@@ -7,6 +7,7 @@
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSBTRF.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSBTRF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />

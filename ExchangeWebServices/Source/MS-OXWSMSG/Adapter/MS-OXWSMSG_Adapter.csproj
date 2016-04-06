@@ -40,10 +40,10 @@
     <Compile Include="Helper\Enums.cs" />
     <Compile Include="Helper\TestSuiteHelper.cs" />
     <Compile Include="IMS-OXWSMSGAdapter.cs" />
+    <Compile Include="IMS-OXWSSRCHAdapter.cs" />
+    <Compile Include="MS-OXWSSRCHAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SUTControlAdapter\Implementation\MS-OXWSMSGSUTControlAdapter.cs" />
-    <Compile Include="SUTControlAdapter\IMS-OXWSSRCHSUTControlAdapter.cs" />
-    <Compile Include="SUTControlAdapter\Implementation\MS-OXWSSRCHSUTControlAdapter.cs" />
     <Compile Include="SUTControlAdapter\IMS-OXWSMSGSUTControlAdapter.cs" />
     <Compile Include="MS-OXWSMSGAdapter.cs" />
     <Compile Include="CaptureCode.cs" />
