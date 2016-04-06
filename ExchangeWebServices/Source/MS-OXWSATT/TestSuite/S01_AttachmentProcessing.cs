@@ -264,15 +264,18 @@ Contains the status and result of a single DeleteAttachment operation.");
             Common.CheckOperationSuccess(getAttachmentResponse, 1, this.Site);
             #endregion
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55001");
+            if (Common.IsRequirementEnabled(55001, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55001");
 
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R55001
-            // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-            Site.CaptureRequirementIfIsNotNull(
-                ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                55001,
-                @"[In Appendix C: Product Behavior]  Implementation does return MIME content.(<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2),  If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note.)");
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R55001
+                // If the MIMEContent of returned attachment is not null, this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
+                    55001,
+                    @"[In Appendix C: Product Behavior]  Implementation does return MIME content.(<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2),  If the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Note.)");
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R202");
@@ -513,25 +516,18 @@ Contains the status and result of a single DeleteAttachment operation.");
             Common.CheckOperationSuccess(getAttachmentResponse, 1, this.Site);
             #endregion
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55003");
+            if (Common.IsRequirementEnabled(55003, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55003");
 
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R55003
-            // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-            Site.CaptureRequirementIfIsNotNull(
-                ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                55003,
-                @"[In Appendix C: Product Behavior]Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment.)");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R311");
-
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R311
-            // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-            this.Site.CaptureRequirementIfIsNotNull(
-                ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                311,
-                @"[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of ""true"" indicates that the attachment contains MIME content.");
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R55003
+                // If the MIMEContent of returned attachment is not null, this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
+                    55003,
+                    @"[In Appendix C: Product Behavior]Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Appointment.)");
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R476");
@@ -619,19 +615,6 @@ Contains the status and result of a single DeleteAttachment operation.");
                  "Expected Item Count: {0}, Actual Item Count: {1}",
                  1,
                  getAttachmentResponse.ResponseMessages.Items.GetLength(0));
-
-            if (isR550Implemented)
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R550");
-
-                // Verify MS-OXWSATT requirement: MS-OXWSATT_R550
-                // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-                Site.CaptureRequirementIfIsNotNull(
-                    ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                    550,
-                    @"[In Appendix C: Product Behavior] Implementation does return MIME content for attachments of IPM.Contact, when the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type.  <1> (Exchange Server 2013 and above follow this behavior.)");
-            }
 
             // Get attachment not include Mime body.
             GetAttachmentResponseType getAttachmentWithoutMimeResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Best, false, createdAttachmentId);
@@ -777,15 +760,18 @@ Contains the status and result of a single DeleteAttachment operation.");
 
             #endregion
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55002");
+            if (Common.IsRequirementEnabled(55002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R55002");
 
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R55002
-            // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-            Site.CaptureRequirementIfIsNotNull(
-                ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                55002,
-                @"[In Appendix C: Product Behavior] Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post.)");
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R55002
+                // If the MIMEContent of returned attachment is not null, this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
+                    55002,
+                    @"[In Appendix C: Product Behavior] Implementation does return MIME content. (<10> Section 3.1.4.3.3.3:  In Exchange 2007, Exchange 2010, Microsoft Exchange Server 2010 Service Pack 1 (SP1) and Microsoft Exchange Server 2010 Service Pack 2 (SP2), if the IncludeMimeContent element is set to true in the AttachmentResponseShapeType complex type, the MIME content will be returned for attachment of the item class: IPM.Post.)");
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R357");
@@ -994,17 +980,6 @@ Contains the status and result of a single DeleteAttachment operation.");
                     318014,
                     @"[In Appendix C: Product Behavior] Implementation does return a MessageType item.(<3> Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)");
             }
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R527");
-
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R527.
-            // When the created attachment is returned successfully, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
-                ResponseClassType.Success,
-                getAttachmentInfoResponse.ResponseClass,
-                527,
-                @"[In t:ItemAttachmentType Complex Type][The type of Item element is] t:ItemType ([MS-OXWSCORE] section 2.2.4.8).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R81");

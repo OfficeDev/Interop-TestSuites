@@ -620,7 +620,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.MiddleName,
                 responseContactItem.MiddleName,
                 31,
-                @"[In t:ContactItemType Complex Type] MiddleName element: Represents the middle name of a contact.");
+                @"[In t:ContactItemType Complex Type] MiddleName element: Represents the middle name of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R32");
@@ -639,7 +639,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 requestContactItem.Nickname,
                 responseContactItem.Nickname,
                 33,
-                @"[In t:ContactItemType Complex Type] Nickname element: Represents the nickname of a contact.");
+                @"[In t:ContactItemType Complex Type] Nickname element: Represents the nickname of a contact (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R36");
@@ -895,7 +895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsTrue(
                 responseContactItem.FileAsMappingSpecified,
                 22,
-                @"[In t:ContactItemType Complex Type] The type of the element of FileAsMapping is t:FileAsMappingType (section 3.1.4.1.1.2)");
+                @"[In t:ContactItemType Complex Type] The type of the element of FileAsMapping is t:FileAsMappingType (section 3.1.4.1.2.4)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R34");
@@ -904,7 +904,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             Site.CaptureRequirementIfIsNotNull(
                 responseContactItem.CompleteName,
                 34,
-                @"[In t:ContactItemType Complex Type] The type of the element of CompleteName is t:CompleteNameType (section 3.1.4.1.2.1)");
+                @"[In t:ContactItemType Complex Type] The type of the element of CompleteName is t:CompleteNameType (section 3.1.4.1.1.5)");
 
             // Verify the CompleteNameType element of ContactItemType Complex Type.
             this.VerifyCompleteNameTypeComplexType(responseContactItem, requestContactItem);
