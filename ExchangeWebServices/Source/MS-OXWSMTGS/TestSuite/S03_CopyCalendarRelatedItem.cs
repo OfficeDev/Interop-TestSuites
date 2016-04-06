@@ -121,7 +121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Attendee gets the meeting request message in the Inbox folder
-            MeetingRequestMessageType request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", meetingItem.UID) as MeetingRequestMessageType;
+            MeetingRequestMessageType request = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, meetingItem.Subject, meetingItem.UID, UnindexedFieldURIType.itemSubject) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(request, "The meeting request message should exist in attendee's inbox folder.");
             #endregion
 

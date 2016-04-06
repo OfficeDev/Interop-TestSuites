@@ -427,7 +427,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.attendeePassword = Common.GetConfigurationPropertyValue("AttendeePassword", this.Site);
             this.delegateUser = Common.GetConfigurationPropertyValue("DelegateName", this.Site);
             this.delegatePassword = Common.GetConfigurationPropertyValue("DelegatePassword", this.Site);
-            this.locationUpdate = Common.GetConfigurationPropertyValue("LocationUpdate", this.Site);
+            this.locationUpdate = Common.GenerateResourceName(this.Site, Common.GetConfigurationPropertyValue("LocationUpdate", this.Site));
             this.organizerEmailAddress = this.organizer + "@" + this.domain;
             this.attendeeEmailAddress = this.attendee + "@" + this.domain;
             this.delegateEmailAddress = this.delegateUser + "@" + this.domain;
