@@ -3779,7 +3779,6 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R311</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of "true" indicates that the attachment contains MIME content.&lt;10&gt;</ns1:Description>
-		<ns1:Derived>MS-OXWSATT_R477:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3837,7 +3836,6 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:REQ_ID>MS-OXWSATT_R479001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:AttachmentResponseShapeType Complex Type][The FilterHtmlContent element] A text value of "true" indicates that potentially unsafe HTML content is to be filtered from the attachment.</ns1:Description>
-		<ns1:Derived>MS-OXWSATT_R479:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -530,16 +530,6 @@ Contains the status and result of a single DeleteAttachment operation.");
             }
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R311");
-
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R311
-            // If the MIMEContent of returned attachment is not null, this requirement can be captured.
-            this.Site.CaptureRequirementIfIsNotNull(
-                ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.MimeContent,
-                311,
-                @"[In t:AttachmentResponseShapeType Complex Type][in IncludeMimeContent] A text value of ""true"" indicates that the attachment contains MIME content.<10>");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R476");
 
             // Verify MS-OXWSATT requirement: MS-OXWSATT_R476
@@ -990,17 +980,6 @@ Contains the status and result of a single DeleteAttachment operation.");
                     318014,
                     @"[In Appendix C: Product Behavior] Implementation does return a MessageType item.(<3> Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)");
             }
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R527");
-
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R527.
-            // When the created attachment is returned successfully, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
-                ResponseClassType.Success,
-                getAttachmentInfoResponse.ResponseClass,
-                527,
-                @"[In t:ItemAttachmentType Complex Type][The type of Item element is] t:ItemType ([MS-OXWSCORE] section 2.2.4.24).<3>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R81");
