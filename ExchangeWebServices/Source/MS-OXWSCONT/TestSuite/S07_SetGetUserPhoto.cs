@@ -67,7 +67,7 @@
             this.Site.CaptureRequirementIfIsNotNull(
                 setUserPhotoResponse,
                 302081,
-                @"[In SetUserPhoto] [The protocol client sends a SetUserPhotoSoapIn request WSDL message] and the protocol server responds with a SetUserPhotoSoapOut response WSDL message.");
+                @"[In SetUserPhoto] [The protocol client sends a SetUserPhotoSoapIn request WSDL message] and the protocol server responds with a SetUserPhotoSoapOut response WSDL message");
   
             #endregion
 
