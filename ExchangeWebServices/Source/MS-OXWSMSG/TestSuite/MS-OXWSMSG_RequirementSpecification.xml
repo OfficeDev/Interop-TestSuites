@@ -2426,7 +2426,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCDATA_R21188, MS-OXWSCDATA_R21189.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21188</ns1:REQ_ID>
@@ -2494,7 +2493,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSMSG_R21193, MS-OXWSMSG_R21194.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1292</ns1:REQ_ID>
@@ -2516,7 +2514,7 @@
 		<ns1:REQ_ID>MS-OXWSCDATA_R1428001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior]&lt;53&gt; Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
