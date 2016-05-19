@@ -48,7 +48,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1803</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] Additionally, the server is required to register the negotiation security provider (2).</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] Additionally, the server is required to register the negotiation security provider.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -102,7 +102,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1809</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] The mechanism for obtaining these credentials [the credentials of the client] is specific to the protocol of the security provider (2) that is used.</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] The mechanism for obtaining these credentials [the credentials of the client] is specific to the protocol of the security provider that is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -248,7 +248,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R7001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>For the network protocol sequence RPC over HTTPS, this protocol MUST use the well-known endpoint 6004. </ns1:Description>
+		<ns1:Description>[In Transport] For the network protocol sequence RPC over HTTPS, this protocol MUST use the well-known endpoint 6004. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -257,7 +257,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R7002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>For RPC over TCP, this protocol can use RPC dynamic endpoints, as defined in Part 4 of [C706].</ns1:Description>
+		<ns1:Description>[In Transport] For RPC over TCP, this protocol can use RPC dynamic endpoints, as defined in Part 4 of [C706].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1049,6 +1049,15 @@
 		<ns1:Description>[In Display Type Values] [DT_ORGANIZATION] Department objects usually have this display type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R53001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Display Type Values] [DT_ORGANIZATION] An Exchange NSPI server MUST NOT return display type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
@@ -4983,7 +4992,7 @@ typedef DWORD MinEntryID;</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R386</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.3</ns1:Doc_Sect>
-		<ns1:Description>[In PermanentEntryID] If this [A server allows an object's distinguished name (DN) to change] happens, the server server is expected to map a Permanent Entry ID that contains the original DN to the object with the new DN.</ns1:Description>
+		<ns1:Description>[In PermanentEntryID] If this [A server allows an object's distinguished name (DN) to change] happens, the server is expected to map a Permanent Entry ID that contains the original DN to the object with the new DN.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5901,7 +5910,7 @@ long NspiBind(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R680</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In NspiBind] [Server Processing Rules: Upon receiving message NspiBind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.</ns1:Description>
+		<ns1:Description>[In NspiBind] [Server Processing Rules: Upon receiving message NspiBind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6522,7 +6531,7 @@ PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.550) (optional, and MUST 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1865</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] The PidTagEntryId property MUST be in the form of a PermanentEntryID structure, as section 2.2.9.3, with its PidTagDisplayType property having the value DT_CONTAINER, as specified in section 2.2.1.3, and its DN (1) following the addresslist-dn format specification, as specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
+		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] The PidTagEntryId property MUST be in the form of a PermanentEntryID structure, as section 2.2.9.3, with its PidTagDisplayType property having the value DT_CONTAINER, as specified in section 2.2.1.3, and its DN following the addresslist-dn format specification, as specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7039,7 +7048,7 @@ long NspiQueryColumns(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R824</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In NspiQueryColumns] [Server Processing Rules: Upon receiving message NspiQueryColumns, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] Subject to the prior constraints, the server MUST construct a list of all the properties it [server] is aware of and return that list as a PropertyTagArray_r structure, as specified in section 2.2.2, in the output parameter ppColumns.</ns1:Description>
+		<ns1:Description>[In NspiQueryColumns] [Server Processing Rules: Upon receiving message NspiQueryColumns, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] Subject to the prior constraints, the server MUST construct a list of all the properties it [server] is aware of and return that list as a PropertyTagArray_r structure, as specified in section 2.2.2.2, in the output parameter ppColumns.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7455,12 +7464,12 @@ long NspiGetProps(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R882</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the address book container specified by the ContainerID field in the input parameter pStat, the server MUST return the return value "InvalidBookmark" (0x80040405).&lt;4&gt;.</ns1:Description>
+		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the address book container specified by the ContainerID field in the input parameter pStat, the server MUST return the value "InvalidBookmark" (0x80040405).&lt;4&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXNSPI_R2003005, MS-OXNSPI_R2003006.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXNSPI_R2003005.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1623</ns1:REQ_ID>
@@ -7552,7 +7561,7 @@ The CodePage field of the NspiGetProps parameter pStat is used as the NspiGetPro
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R901</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If input parameter dwFlags does not contain the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Permanent Entry ID format, as specified in section 2.2.9.2.</ns1:Description>
+		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If input parameter dwFlags does not contain the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Permanent Entry ID format, as specified in section 2.2.9.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10174,7 +10183,7 @@ long NspiDNToMId(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1268</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1042) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.</ns1:Description>
+		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1044) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10393,7 +10402,7 @@ long NspiModProps(
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXNSPI_R2003007, MS-OXNSPI_R2003008.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXNSPI_R2003007.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1303</ns1:REQ_ID>
@@ -11402,7 +11411,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1450</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.18</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetTemplateInfo] pDN: The value NULL or the DN (1) of the template requested.</ns1:Description>
+		<ns1:Description>[In NspiGetTemplateInfo] pDN: The value NULL or the DN of the template requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11565,7 +11574,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1474</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.18</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetTemplateInfo] [Server Processing Rules: Upon receiving message NspiGetTemplateInfo, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the input parameter pDN is not NULL, it [pDN] specifies the DN (1) of a template object in the address book.</ns1:Description>
+		<ns1:Description>[In NspiGetTemplateInfo] [Server Processing Rules: Upon receiving message NspiGetTemplateInfo, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the input parameter pDN is not NULL, it [pDN] specifies the DN of a template object in the address book.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14071,7 +14080,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1878</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server does not using RPC over TCP.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server and  Exchange 2016 NSPI server does not using RPC over TCP.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1989:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14081,18 +14090,17 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1751</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property]. (Exchange 2007SP3 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property]. (&lt;2&gt; Section 2.2.1.10:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, and Exchange 2016 do not support the SortTypePhoneticDisplayName sort order.)</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R96:i,MS-OXNSPI_R1527:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1613</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not ignore this request [a value of "fAnonymousLogin" in the input parameter dwFlags]. &lt;2&gt; Section 2.2.1.10:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, and Exchange 2016 do not support the SortTypePhoneticDisplayName sort order.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not ignore this request [a value of "fAnonymousLogin" in the input parameter dwFlags]. (Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R690:i,MS-OXNSPI_R1528:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14134,7 +14142,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003004</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does follow the ABNF format. (Exchange 2010SP3 and below follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does follow the ABNF format. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R412:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14154,32 +14162,10 @@ long NspiGetTemplateInfo(
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R2003006</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "InvalidBookmark" (0x80040405). (Exchange 2007SP3 follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R882:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003007</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;5&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1527:I, MS-OXNSPI_R1301:I </ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R2003008</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does add all values for all properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat. (Exchange 2007SP3 follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1301:i </ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14200,7 +14186,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003010</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not modify any properties of any objects in the address book. (Exchange 2007SP3 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not modify any properties of any objects in the address book. (Exchange 2010SP3 and below follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1321:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
