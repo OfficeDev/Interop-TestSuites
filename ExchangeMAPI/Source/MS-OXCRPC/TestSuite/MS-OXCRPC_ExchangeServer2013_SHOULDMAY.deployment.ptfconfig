@@ -19,7 +19,7 @@
     <!-- Set R1381Enabled to true to verify that for EcDoRpcExt2, implementation will fail with ecRpcFailed (0x80040115) if the cbAuxIn parameter is greater than 0x00000000 and less than 0x00000008. Set R1381Enabled to false to disable this requirement.-->
     <Property name="R1381Enabled" value="false"/>
     <!-- Set R1403Enabled to true to verify that for EcDoRpcExt2, implementation does return auxiliary payload data to the client. Set R1403Enabled to false to disable this requirement.-->
-    <Property name="R1403Enabled" value="false"/>
+    <Property name="R1403Enabled" value="true"/>
     <!-- Set R1435Enabled to true to verify that for EcDoConnectEx, implementation does not support Session Context linking. Set R1435Enabled to false to disable this requirement.-->
     <Property name="R1435Enabled" value="true"/>
     <!-- Set R1436Enabled to true to verify that for EcDoConnectEx, implementation does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008. Set R1436Enabled to false to disable this requirement.-->
@@ -92,5 +92,9 @@
     <Property name="R1943Enabled" value="false"/>
     <!-- Set R1944Enabled to true to verify that for EcDoAsyncConnectEx, if no such Session Context state is found, the implementation does not fail the EcDoConnectEx call, but simply does not do linking. Set R1944Enabled to false to disable this requirement.-->
     <Property name="R1944Enabled" value="false"/>
+    <!-- Set R2001Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFailed if the request buffer is larger than 0x00008007 bytes in size. Set R2001Enabled to false to disable this requirement.-->
+    <Property name="R2001Enabled" value="true"/>
+    <!-- Set R2002Enabled to true to verify that for EcDoRpcExt2, implementation does succeed if the value in pcbOut on input is less than 0x00000008. Set R2002Enabled to false to disable this requirement.-->
+    <Property name="R2002Enabled" value="true"/>
   </Properties>
 </TestSite>
