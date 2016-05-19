@@ -106,7 +106,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2006</ns1:REQ_ID>
@@ -142,7 +142,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2010</ns1:REQ_ID>
@@ -151,7 +151,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2011</ns1:REQ_ID>
@@ -309,11 +309,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2025</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In AddressBookFlaggedPropertyValue Structure] [Flag value 0xA] This value [0xA] indicates why the property value is not present. </ns1:Description>
+		<ns1:Description>[In AddressBookFlaggedPropertyValue Structure] [Flag value 0xA] This value [PtypErrorCode] indicates why the property value is not present. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2026</ns1:REQ_ID>
@@ -1571,7 +1571,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R146</ns1:REQ_ID>
@@ -11428,7 +11428,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2234</ns1:REQ_ID>
