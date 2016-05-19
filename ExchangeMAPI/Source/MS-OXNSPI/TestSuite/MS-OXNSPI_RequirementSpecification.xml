@@ -14186,7 +14186,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003010</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not modify any properties of any objects in the address book. (Exchange 2010SP3 and below follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not modify any properties of any objects in the address book. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1321:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
