@@ -220,7 +220,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x0000,
                     header.Version,
                     1649,
-                    @"[In rgbAuxOut Output Buffer] The format of the the rgbAuxOut parameter input buffer for the EcDoRpcExt2 method, as specified in section 3.1.4.2, is the same as that of the rgbAuxOut parameter input buffer for the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2.");
+                    @"[In rgbAuxOut Output Buffer] The format of the rgbAuxOut parameter input buffer for the EcDoRpcExt2 method, as specified in section 3.1.4.2, is the same as that of the rgbAuxOut parameter input buffer for the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R682");
@@ -599,7 +599,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     Site.CaptureRequirementIfIsFalse(
                         isAuxOsVersionInFo,
                         1438,
-                        @"[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. [In Appendix B: Product Behavior] <17> Section 3.1.4.1.2.1: Exchange 2010 and Exchange 2013 do not support sending the AUX_OSVERSIONINFO block.");
+                        @"[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. <16> Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support sending the AUX_OSVERSIONINFO block.");
                 }
 
                 // Check whether block AUX_ENDPOINT_CAPABILITIES exists in the rgbAuxOut
@@ -626,7 +626,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         // If code can reach here, it indicates that block AUX_ENDPOINT_CAPABILITIES can be returned from server.
                         Site.CaptureRequirement(
                             1839,
-                            @"[In Appendix B: Product Behavior] Implementation does support the AUX_ENDPOINT_CAPABILITIES auxiliary buffer. (Microsoft Exchange Server 2013 follows this behavior.)");
+                            @"[In Appendix B: Product Behavior] Implementation does support the AUX_ENDPOINT_CAPABILITIES auxiliary buffer. (Microsoft Exchange Server 2013 and above follow this behavior.)");
                     }
                 }
 
@@ -733,7 +733,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0,
                     rgbAuxOutValue.Count,
                     1403,
-                    @"[In Appendix B: Product Behavior] Implementation does return auxiliary payload data to the client. <25> Section 3.1.4.2: Exchange 2007 supports returning data in rgbAuxOut.");
+                    @"[In Appendix B: Product Behavior] Implementation does return auxiliary payload data to the client. <24> Section 3.1.4.2: Exchange 2007, Exchange 2013, and Exchange 2016 support returning data in rgbAuxOut parameter.");
             }
         }
 
@@ -754,7 +754,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0,
                     pcbAuxOut,
                     1926,
-                    @"[In Appendix B: Product Behavior] Implementation does not return auxiliary payload data to the client. (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return auxiliary payload data to the client. (Microsoft Exchange Server 2010 follows this behavior.)");
             }
         }
 
@@ -1411,7 +1411,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         inputPulFlags,
                         outputPulFlags,
                         1899,
-                        @"[In Appendix B: Product Behavior] Implementation does return the same value on output as was input, not 0x00000000. (Microsoft Exchange Server 2010 follows this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does return the same value on output as was input, not 0x00000000. (<18> Section 3.1.4.2: Exchange 2010 returns the same value on output as was input, not 0x00000000.)");
                 }
 
                 if (Common.IsRequirementEnabled(1934, this.Site))
@@ -1424,7 +1424,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         0x00000000,
                         outputPulFlags,
                         1934,
-                        @"[In Appendix B: Product Behavior] On output, implementation does set field pulFlags to 0x00000000. (Microsoft Exchange Server 2007 and Microsoft Exchange Server 2013 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] On output, implementation does set field pulFlags to 0x00000000. (Microsoft Exchange Server 2007, Microsoft Exchange Server 2013 and above follow this behavior.)");
                 }
             }
         }
