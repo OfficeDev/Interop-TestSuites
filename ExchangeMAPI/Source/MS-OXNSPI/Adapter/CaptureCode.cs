@@ -21,10 +21,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             switch (transportSequence)
             {
                 case "ncacn_http":
-                    // If the transport sequence is RPC over HTTP and the code can reach here, it means that the implementation does support RPC over HTTP transport.
-                    this.Site.CaptureRequirement(
-                        1502,
-                        @"[In Transport] The Exchange Server NSPI Protocol uses the following RPC protocol sequences: RPC over HTTP.");
+                    if (Boolean.Parse(Common.GetConfigurationPropertyValue("RpchUseSsl", this.Site).ToLower(System.Globalization.CultureInfo.CurrentCulture)))
+                    {
+                        // If the transport sequence is RPC over HTTP and the code can reach here, it means that the implementation does support RPC over HTTP transport.
+                        this.Site.CaptureRequirement(
+                            1502,
+                            @"[In Transport] The Exchange Server NSPI Protocol uses the following RPC protocol sequences: RPC over HTTPS.");
+                    }
                     break;
                 case "ncacn_ip_tcp":
                     if (Common.IsRequirementEnabled(1877, this.Site))
@@ -1439,7 +1442,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     this.Site.CaptureRequirementIfIsTrue(
                         isSortTypeSetCorrectValue,
                         92,
-                        @"[In Table Sort Orders] These values [SortTypeDisplayName, SortTypePhoneticDisplayName, SortTypeDisplayName_RO and SortTypeDisplayName_W] appear in the SortType field of the STAT data structure, as specified in section 2.3.7.");
+                        @"[In Table Sort Orders] These values [SortTypeDisplayName, SortTypePhoneticDisplayName, SortTypeDisplayName_RO and SortTypeDisplayName_W] appear in the SortType field of the STAT data structure, as specified in section 2.2.8.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R311");
@@ -1568,7 +1571,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     (uint)DefaultLCID.NSPI_DEFAULT_LOCALE,
                     outputStat.TemplateLocale,
                     480,
-                    @"[In Unicode string Comparison] The server MUST minimally support the LCID NSPI_DEFAULT_LOCALE flag, as specified in section 2.2.4.");
+                    @"[In Unicode String Comparison] The server MUST minimally support the LCID NSPI_DEFAULT_LOCALE flag, as specified in section 2.2.1.4.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R496");
@@ -1746,7 +1749,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 16,
                 Marshal.SizeOf(ephemeralEntryID.ProviderUID),
                 370,
-                @"[In EphemeralEntryID] ProviderUID (16 bytes): A FlatUID_r value, as specified in section 2.3.1.1, that contains the GUID of the server that issued this Ephemeral Entry ID.");
+                @"[In EphemeralEntryID] ProviderUID (16 bytes): A FlatUID_r value, as specified in section 2.2.2.1, that contains the GUID of the server that issued this Ephemeral Entry ID.");
 
             this.VerifyFlatUID_r();
 
@@ -1819,7 +1822,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 4,
                 Marshal.SizeOf(ephemeralEntryID.Mid),
                 380,
-                @"[In EphemeralEntryID] MId (4 bytes): The Minimal Entry ID of this object, as specified in section 2.3.8.1.");
+                @"[In EphemeralEntryID] MId (4 bytes): The Minimal Entry ID of this object, as specified in section 2.2.9.1");
 
             // This test suite parses code according to this definition. So if the codes can reach here, this requirement can be captured directly.
             this.Site.CaptureRequirement(
@@ -1946,7 +1949,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Site.CaptureRequirementIfIsTrue(
                 isGUIDContained,
                 401,
-                @"[In PermanentEntryID] ProviderUID (16 bytes): A FlatUID_r value that contains the constant GUID specified in Permanent Entry ID GUID, as specified in section 2.2.7.");
+                @"[In PermanentEntryID] ProviderUID (16 bytes): A FlatUID_r value that contains the constant GUID specified in Permanent Entry ID GUID, as specified in section 2.2.1.7.");
 
             this.VerifyFlatUID_r();
 
@@ -2287,7 +2290,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             // Because the underlying code parses ppColumns based on this structure, this requirement can be captured directly.
             this.Site.CaptureRequirement(
                 824,
-                @"[In NspiQueryColumns] [Server Processing Rules: Upon receiving message NspiQueryColumns, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] Subject to the prior constraints, the server MUST construct a list of all the properties it [server] is aware of and return that list as a PropertyTagArray_r structure, as specified in section 2.3.1.2, in the output parameter ppColumns.");
+                @"[In NspiQueryColumns] [Server Processing Rules: Upon receiving message NspiQueryColumns, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] Subject to the prior constraints, the server MUST construct a list of all the properties it [server] is aware of and return that list as a PropertyTagArray_r structure, as specified in section 2.2.2.2, in the output parameter ppColumns.");
 
             // Verify MS-OXNSPI requirement: MS-OXNSPI_R808
             // This test suite parses code according to this definition. So if the codes can reach here, this requirement can be captured directly.
@@ -2748,7 +2751,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 // This test suite parses code according to this definition, so if the codes can reach here, this requirement can be captured directly.
                 this.Site.CaptureRequirement(
                     1217,
-                    @"[In NspiCompareMIds] plResult: A DWORD value.");
+                    @"[In NspiCompareMIds] plResult: A pointer to a long value [which specifies the compare result of the NspiCompareMids method. ]");
             }
         }
 
@@ -2930,7 +2933,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Site.CaptureRequirementIfIsNotNull(
                     mids,
                     1374,
-                    @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 6] The server constructs a list of the Minimal Entry IDs specified in section 2.2.9 to return to the client.");
+                    @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 6] The server constructs a list of the Minimal Entry IDs specified in section 2.2.1.9 to return to the client.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1377");
@@ -2961,7 +2964,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 // This test suite parses code according to this definition. So if the codes can reach here, this requirement can be captured directly.
                 this.Site.CaptureRequirement(
                     1353,
-                    @"[In NspiResolveNames] ppRows: A reference to a PropertyRowSet_r value.");
+                    @"[In NspiResolveNames] ppRows: A reference to a PropertyRowSet_r structure (section 2.2.4), [which contains the address book container rows that the server returns in response to the request.]");
 
                 this.VerifyPropertyRowSetStructure(rows.Value);
 
@@ -3072,7 +3075,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Site.CaptureRequirementIfIsNotNull(
                     mids,
                     1425,
-                    @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 6] The server constructs a list of the Minimal Entry IDs specified in section 2.2.9 to return to the client.");
+                    @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 6] The server constructs a list of the Minimal Entry IDs specified in section 2.2.1.9 to return to the client.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1428");
@@ -3103,7 +3106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 // This test suite parses code according to this definition. So if the codes can reach here, this requirement can be captured directly.
                 this.Site.CaptureRequirement(
                     1404,
-                    @"[In NspiResolveNamesW] ppRows: A reference to a PropertyRowSet_r structure.");
+                    @"[In NspiResolveNamesW] ppRows: A reference to a PropertyRowSet_r structure (section 2.2.4), [which contains the address book container rows that the server returns in response to the request.] ");
 
                 this.VerifyPropertyRowSetStructure(rows.Value);
             }

@@ -85,7 +85,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1392,
-                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1342");
@@ -251,7 +251,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1443,
-                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1394");

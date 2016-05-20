@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 680,
-                @"[In NspiBind] [Server Processing Rules: Upon receiving message NspiBind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiBind] [Server Processing Rules: Upon receiving message NspiBind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R696, the value of the result is {0}", this.Result);
@@ -189,7 +189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 732,
-                @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the input parameter dwFlags does not contain the value ""NspiUnicodeStrings"", and the input parameter dwFlags does not contain the value ""NspiAddressCreationTemplates"", and the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the input parameter dwFlags does not contain the value ""NspiUnicodeStrings"", and the input parameter dwFlags does not contain the value ""NspiAddressCreationTemplates"", and the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -223,7 +223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), result1),
                 780,
-                @"[In NspiUpdateStat] [Server Processing Rules: Upon receiving message NspiUpdateStat, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiUpdateStat] [Server Processing Rules: Upon receiving message NspiUpdateStat, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -260,7 +260,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 873,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat is set to the value CP_WINUNICODE and the type of the proptags in the input parameter pPropTags is PtypString8, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat is set to the value CP_WINUNICODE and the type of the proptags in the input parameter pPropTags is PtypString8, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -277,7 +277,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsNull(
                 row,
                 877,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the server returns any return values other than ""ErrorsReturned"" or ""Success"", the server MUST return a NULL for the output parameter ppRows.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the server returns any return values other than""ErrorsReturned"" (0x00040380) or ""Success"" (0x00000000), the server MUST return a NULL for the output parameter ppRows.");
 
             #endregion
 
@@ -310,7 +310,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 935,
-                @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion Capture
             #endregion
 
@@ -379,7 +379,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1016,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -434,7 +434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1101,
-                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -476,7 +476,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1181,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
             #endregion
@@ -512,7 +512,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1223,
-                @"[In NspiCompareMIds] [Server Processing Rules: Upon receiving message NspiCompareMIds, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiCompareMIds] [Server Processing Rules: Upon receiving message NspiCompareMIds, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
             #endregion
@@ -606,7 +606,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1280,
-                @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
 
             #endregion
@@ -666,7 +666,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1410,
-                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the CodePage field of the input parameter pStat contains the value CP_WINUNICODE, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -1217,7 +1217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Result,
                 "MS-OXCDATA",
                 899,
-                @"[In Error Codes] GeneralFailure(E_FAIL, MAPI_E_CALL_FAILED, ecError, SYNC_E_ERROR) will be returned, if the operation failed for an unspecified reason.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.2.9.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R900");
@@ -1373,7 +1373,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1024,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion Capture
             #endregion
 
@@ -1551,7 +1551,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 939,
-                @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter lpETable is NULL and the input parameter Count is 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter lpETable is NULL and the input parameter Count is 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion Capture
             #endregion
@@ -1681,7 +1681,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.InvalidParameter,
                 this.Result,
                 1328,
-                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the object specified by the input parameter dwMId, the server MUST return the value ""InvalidParameter"".");
+                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the object specified by the input parameter dwMId, the server MUST return the value ""InvalidParameter"" (0x80070057).");
 
             #endregion
             #endregion
@@ -2026,7 +2026,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.AccessDenied,
                 this.Result,
                 1338,
-                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If the server is unable to apply the modifications specified, the server MUST return the value ""AccessDenied"".");
+                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If the server is unable to apply the modifications specified, the server MUST return the value ""AccessDenied"" (0x80070005).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R907");
@@ -2435,7 +2435,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1105,
-                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter Filter contains any value other than NULL and the SortType field of the input parameter pStat contains any value other than SortTypeDisplayName or SortTypePhoneticDisplayName, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter Filter contains any value other than NULL and the SortType field of the input parameter pStat contains any value other than SortTypeDisplayName or SortTypePhoneticDisplayName, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
             #endregion
 
@@ -2518,7 +2518,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1109,
-                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the input parameter Reserved1 contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the input parameter Reserved1 contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion
             #endregion
@@ -2710,7 +2710,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), (ErrorCodeValue)this.Result),
                 1185,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the SortType field of the input parameter pStat contains any value other than ""SortTypeDisplayName"" or ""SortTypePhoneticDisplayName"", the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the SortType field of the input parameter pStat contains any value other than "SortTypeDisplayName" or "SortTypePhoneticDisplayName", the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion Capture
             #endregion
@@ -3104,10 +3104,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1363,
-                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] 
-                [Constraint 2] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, 
-                GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory 
-                and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion Capture
             #endregion
@@ -3241,7 +3238,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1414,
-                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter Reserved contains any value other than 0, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion Capture
             #endregion
@@ -3879,7 +3876,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), this.Result),
                 1020,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter lpETable is not NULL and does not contain an Explicit Table both containing a restriction of the table specified by the input parameter pStat and sorted as specified by the SortType field of the input parameter pStat, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.2.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the input parameter lpETable is not NULL and does not contain an Explicit Table both containing a restriction of the table specified by the input parameter pStat and sorted as specified by the SortType field of the input parameter pStat, the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
             #endregion
 
             #region Call NspiSeekentries method and the input parameter STAT block specifies SortTypePhoneticDisplayName and the property specified in the input parameter pTarget is PidTagEntryId.

@@ -348,7 +348,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     ErrorCodeValue.Success,
                     result1,
                     1340,
-                    @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                    @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"" (0x00000000).");
             }
             else
             {
@@ -404,7 +404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 addressBookMemberTagAfterAdd != 0x8009000a,
                 129,
-                @"[In NspiModLinkAtt Flags] The default behavior [Without setting the fDelete flag] is that the server adds values when modifying.");
+                @"[In NspiModLinkAtt Flags] If the fDelete flag is not set, the server adds values when modifying.");
 
             // MS-OXNSPI_R129 has already verified that modifying property PidTagAddressBookMember succeeds, so MS-OXNSPI_R1893 can be verified directly here.
             this.Site.CaptureRequirement(
