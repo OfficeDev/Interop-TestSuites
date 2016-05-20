@@ -99,6 +99,7 @@ function GetExchangeServerVersion
     $ExchangeServer2007             = "$global:Exchange2007",   "8.3.83.6",      "SP3"
     $ExchangeServer2010             = "$global:Exchange2010",   "14.3.123.4",    "SP3"
     $ExchangeServer2013             = "$global:Exchange2013",   "15.0.847.32",   "SP1"
+    $ExchangeServer2016             = "$global:Exchange2016",   "15.1.280.0",   "0"
     $ExchangeVersion                = "Unknown Version"
     
     Output "Trying to get the Exchange server version; please wait ..." "White"
@@ -136,7 +137,16 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2013[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }        
+        }     
+        if($item.DisplayName.StartsWith($ExchangeServer2016[0]))
+        {
+            $version = $item.DisplayVersion
+            $ExchangeVersion = $ExchangeServer2016[0]
+            $recommendVersion = $ExchangeServer2016[1]
+            $recommendMinorVersion = $ExchangeServer2016[2]
+            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
+            break
+        }    
     }
     if ($ExchangeVersion -eq "Unknown Version")
     {
@@ -1024,7 +1034,7 @@ function GetExchangeServerVersionOnSUT
         $Exchange2007 = "Microsoft Exchange Server 2007", "ExchangeServer2007"
         $Exchange2010 = "Microsoft Exchange Server 2010", "ExchangeServer2010"
         $Exchange2013 = "Microsoft Exchange Server 2013", "ExchangeServer2013"
-             
+        $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"   
         $ExchangeVersion  = "Unknown Version"
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
         $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
@@ -1048,22 +1058,29 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2013[1]
                 break
+            }
+            if($item.DisplayName.StartsWith($Exchange2016[0]))
+            {
+                $ExchangeVersion = $Exchange2016[1]
+                break
             }        
         }    
         return $ExchangeVersion
     }
 
-    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013")
+    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016")
     if($ExchangeVersions -notcontains $sutVersion )
     {
         Output "Cannot get the Exchange version automatically." "Yellow"
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
-                               '3: Microsoft Exchange Server 2013')   
+                               '3: Microsoft Exchange Server 2013',
+                               '4: Microsoft Exchange Server 2016')   
         Output "Select the Exchange version: " "Cyan"
         Output ($sutVersionChoices[0]) "Cyan"    
         Output ($sutVersionChoices[1]) "Cyan"    
         Output ($sutVersionChoices[2]) "Cyan"
+        Output ($sutVersionChoices[3]) "Cyan"
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
         Switch ($sutVersion)
@@ -1071,6 +1088,7 @@ function GetExchangeServerVersionOnSUT
             "1" { $sutVersion = $ExchangeVersions[0]; break }
             "2" { $sutVersion = $ExchangeVersions[1]; break }
             "3" { $sutVersion = $ExchangeVersions[2]; break }
+            "4" { $sutVersion = $ExchangeVersions[3]; break }
         }
     }
     else
@@ -1083,4 +1101,5 @@ function GetExchangeServerVersionOnSUT
 $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
+$global:Exchange2016 = "Microsoft Exchange Server 2016"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
