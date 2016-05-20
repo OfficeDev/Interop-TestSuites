@@ -932,6 +932,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             List<string> metaTags = new List<string>();
 
             ExecuteSuccessResponseBody executeSuccessResponse = this.SendExecuteRequest(requestBody, ref executeHeaders, out metaTags) as ExecuteSuccessResponseBody;
+            #region Capture code
+            string pendingPeriodHeader = executeHeaders["X-PendingPeriod"];
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1182");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1182
+            this.Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(pendingPeriodHeader),
+                1182,
+                @"[In X-PendingPeriod Header Field] The X-PendingPeriod header field, returned by the server, specifies the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream while the server is executing the request");
+            #endregion
             #endregion
 
             #region Call NotificationWait Request Type to get the pending event.
