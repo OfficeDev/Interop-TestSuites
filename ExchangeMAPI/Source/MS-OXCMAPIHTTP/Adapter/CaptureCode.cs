@@ -268,6 +268,51 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 pendingPeriod,
                 158,
                 @"[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1242");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1242
+            this.Site.CaptureRequirementIfIsTrue(
+                pendingPeriodHeader != null && int.TryParse(pendingPeriodHeader, out pendingPeriod),
+                1242,
+                @"[In Responding to All Request Type Requests] Since the keep-alive interval is configurable or auto-adjusted, the server MUST return the X-PendingPeriod header, specified in section 2.2.3.3.3, within the immediate response to tell the client the number of milliseconds to be expected between keep-alive responses from the server during the time a request is currently being executed on the server.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1243");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1243
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                15000,
+                pendingPeriod,
+                1243,
+                @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
+
+            string contentType = headers["Content-Type"];
+            if (responseCodeValue == 0)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2037");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2037
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    "application/mapi-http",
+                    contentType,
+                    2037,
+                    @"[In Content-Type Header Field] The Content-Type header MUST contain the string ""application/mapi-http"" on responses with X-ResponseCode header of 0.");
+            }
+            else
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2038");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2038
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    "text/html",
+                    contentType,
+                    2038,
+                    @"[In Content-Type Header Field] If X-ResponseCode is non-zero, the Content-Type header MUST contain the string ""text/html"".");
+            }
         }
 
         /// <summary>
