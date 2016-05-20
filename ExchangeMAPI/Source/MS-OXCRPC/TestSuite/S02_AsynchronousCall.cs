@@ -758,7 +758,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 }
 
                 tryToConnectCount++;
-                Thread.Sleep(waitTime);
+                Thread.Sleep(waitTime*3);
             }
 
             return false;
