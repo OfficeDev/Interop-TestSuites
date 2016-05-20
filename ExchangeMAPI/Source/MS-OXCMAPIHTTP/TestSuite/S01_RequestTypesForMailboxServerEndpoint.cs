@@ -932,6 +932,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             List<string> metaTags = new List<string>();
 
             ExecuteSuccessResponseBody executeSuccessResponse = this.SendExecuteRequest(requestBody, ref executeHeaders, out metaTags) as ExecuteSuccessResponseBody;
+            #region Capture code
+            string pendingPeriodHeader = executeHeaders["X-PendingPeriod"];
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1182");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1182
+            this.Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(pendingPeriodHeader),
+                1182,
+                @"[In Handling a Chunked Response] The immediate response includes an X-PendingPeriod header, specified in section 2.2.3.3.5, to tell the client the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream during the time a request is currently being processed on the server.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1183");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1183
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "15000",
+                pendingPeriodHeader,
+                1183,
+                @"[In Handling a Chunked Response] The default value for the keep-alive interval is 15 seconds, until the request is done.");
+            #endregion
             #endregion
 
             #region Call NotificationWait Request Type to get the pending event.
