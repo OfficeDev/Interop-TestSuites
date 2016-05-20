@@ -208,6 +208,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 @"[In X-ServerApplication Header Field] On every response, the server includes the X-ServerApplication header to indicate to the client what server version is being used.");
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R165: the X-ServerApplication header is {0}.", headers["X-ServerApplication"]);
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R165
+            this.Site.CaptureRequirementIfIsTrue(
+                Regex.IsMatch(headers["X-ServerApplication"], @"^Exchange/15.\d{2}.\d{4}.\d{3}$"),
+                165,
+                @"[In X-ServerApplication Header Field] The value of this header field [X-ServerApplication] has the following format: ""Exchange/15.xx.xxxx.xxx"".");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R167: the X-ExpirationInfo header is {0}.", headers["X-ExpirationInfo"]);
 
             // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R167
@@ -227,9 +236,85 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR68,
                 68,
-                @"[In Set-Cookie Header Field] The Set-Cookie header field contains an opaque value of the form <cookie name>=<opaque string>.");        
+                @"[In Set-Cookie Header Field] The Set-Cookie header field contains an opaque value of the form <cookie name>=<opaque string>.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1236");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1236
+            this.Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(headers["Set-Cookie"]),
+                1236,
+                @"[In Responding to All Request Type Requests] The response includes all Set-Cookie headers as specified in section 2.2.3.2.3 associated with the Session Context.");
+
+            string pendingPeriodHeader = headers["X-PendingPeriod"];
+            int pendingPeriod = 0;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R157");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R157
+            this.Site.CaptureRequirementIfIsTrue(
+                pendingPeriodHeader != null && int.TryParse(pendingPeriodHeader, out pendingPeriod),
+                157,
+                @"[In X-PendingPeriod Header Field] The X-PendingPeriod header field, returned by the server, specifies the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream while the server is executing the request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                15000,
+                pendingPeriod,
+                158,
+                @"[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1242");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1242
+            this.Site.CaptureRequirementIfIsTrue(
+                pendingPeriodHeader != null && int.TryParse(pendingPeriodHeader, out pendingPeriod),
+                1242,
+                @"[In Responding to All Request Type Requests] Since the keep-alive interval is configurable or auto-adjusted, the server MUST return the X-PendingPeriod header, specified in section 2.2.3.3.3, within the immediate response to tell the client the number of milliseconds to be expected between keep-alive responses from the server during the time a request is currently being executed on the server.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1243");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1243
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                15000,
+                pendingPeriod,
+                1243,
+                @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
+
+            string contentType = headers["Content-Type"];
+            if (responseCodeValue == 0)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2037");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2037
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    "application/mapi-http",
+                    contentType,
+                    2037,
+                    @"[In Content-Type Header Field] The Content-Type header MUST contain the string ""application/mapi-http"" on responses with X-ResponseCode header of 0.");
+            }
+            else
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2038");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2038
+                this.Site.CaptureRequirementIfAreEqual<string>(
+                    "text/html",
+                    contentType,
+                    2038,
+                    @"[In Content-Type Header Field] If X-ResponseCode is non-zero, the Content-Type header MUST contain the string ""text/html"".");
+            }
         }
-        
+
         /// <summary>
         /// Verify the requirements related to additional header.
         /// </summary>
@@ -644,7 +729,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 1461,
                 @"[In Request Types for Mailbox Server Endpoint] Response body is separated from the common response by a blank line, as specified in [RFC2616].");
         }
+        /// <summary>
+        /// Verify the NotificationWait Request Types related requirements.
+        /// </summary>
+        /// <param name="headers">The headers to be verified.</param>
+        private void VerifyNotificationWaitRequestType(WebHeaderCollection headers)
+        {
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1261");
 
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1261
+            this.Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(headers["Set-Cookie"]),
+                1261,
+                @"[In Responding to a NotificationWait Request Type Request] The response headers include Set-Cookie headers as specified in section 2.2.3.2.3 for all cookies related to the Session Context.");
+
+        }
         #endregion
 
         #region Verify each request type for mailbox server endpoint

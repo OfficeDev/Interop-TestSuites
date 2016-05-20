@@ -299,6 +299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.VerifyAdditionalHeaders(commonResponse.AdditionalHeaders);
                 this.VerifyRequestTypesForMailboxServerEndpoint(response.Headers, commonResponse);
                 this.VerifyResponseMetaTags(commonResponse.MetaTags);
+                this.VerifyNotificationWaitRequestType(response.Headers);
             }
 
             this.VerifyRespondingToAllRequestTypeRequests(response, commonResponse, responseCode);
