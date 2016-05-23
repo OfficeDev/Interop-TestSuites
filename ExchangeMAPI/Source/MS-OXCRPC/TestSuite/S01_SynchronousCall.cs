@@ -964,7 +964,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x80040115,
                     this.returnValue,
                     664,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFailed (0x80040115) if the value in pcbOut on input is less than 0x00000008. (Microsoft Exchange Server 2010 and above follow this behavior).");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFailed (0x80040115) if the value in pcbOut on input is less than 0x00000008. (Microsoft Exchange Server 2010 follows this behavior).");
             }
 
 			if (Common.IsRequirementEnabled(2002, this.Site))
