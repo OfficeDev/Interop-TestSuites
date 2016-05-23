@@ -31,7 +31,7 @@
     <!-- Set R1508Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFailed if the request buffer is smaller than the size of RPC_HEADER_EXT (0x00000008 bytes). Set R1508Enabled to false to disable this requirement.-->
     <Property name="R1508Enabled" value="true"/>
     <!-- Set R1550Enabled to true to verify that implementation supports the RPC_C_AUTHN_NONE authentication method. Set R1550Enabled to false to disable this requirement.-->
-    <Property name="R1550Enabled" value="true"/>
+    <Property name="R1550Enabled" value="false"/>
     <!-- Set R1558Enabled to true to verify that the implementation does not support EcRRegisterPushNotification, and the returned value will always be ecNotSupported. Set R1558Enabled to false to disable this requirement.-->
     <Property name="R1558Enabled" value="true"/>
     <!-- Set R1692Enabled to true to verify that the implementation return the AUX_EXORGINFO block in the rgbAuxOut buffer on the EcDoConnectEx call. Set R1692Enabled to false to disable this requirement.-->
