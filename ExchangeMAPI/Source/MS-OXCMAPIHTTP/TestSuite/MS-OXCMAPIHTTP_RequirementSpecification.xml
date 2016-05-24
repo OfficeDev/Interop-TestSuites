@@ -1668,18 +1668,18 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Doc_Sect>2.2.3.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In X-ClientInfo Header Field] The GUID portion of the X-ClientInfo header MUST be unique across all client instances.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2042</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In X-ClientInfo Header Field] The GUID portion of the X-ClientInfo header MUST be the same for all requests from a client instance.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2043</ns1:REQ_ID>
@@ -1868,7 +1868,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2048</ns1:REQ_ID>
@@ -1877,7 +1877,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2238</ns1:REQ_ID>
@@ -1913,7 +1913,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2051</ns1:REQ_ID>
@@ -1931,7 +1931,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2053</ns1:REQ_ID>
@@ -1949,7 +1949,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2055</ns1:REQ_ID>

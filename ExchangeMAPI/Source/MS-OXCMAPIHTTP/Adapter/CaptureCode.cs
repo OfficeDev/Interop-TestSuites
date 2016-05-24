@@ -313,6 +313,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     2038,
                     @"[In Content-Type Header Field] If X-ResponseCode is non-zero, the Content-Type header MUST contain the string ""text/html"".");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2050");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2050
+            this.Site.CaptureRequirementIfIsTrue(
+                string.IsNullOrEmpty(headers["X-DeviceInfo"]),
+                2050,
+                @"[In X-DeviceInfo Header Field] A device positioned between the client and server can the X-DeviceInfo header on a response to a client endpoint.");
         }
 
         /// <summary>
