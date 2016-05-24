@@ -321,7 +321,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 string.IsNullOrEmpty(headers["X-DeviceInfo"]),
                 2050,
-                @"[In X-DeviceInfo Header Field] A device positioned between the client and server can the X-DeviceInfo header on a response to a client endpoint.");
+                @"[In X-DeviceInfo Header Field] The server MUST not send this header [X-DeviceInfo] in a response to a client endpoint. ");
         }
 
         /// <summary>
