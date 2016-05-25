@@ -410,6 +410,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Site.CaptureRequirement(
                 1893,
                 @"[In NspiModLinkAtt] This protocol supports modifying the value of the PidTagAddressBookMember ([MS-OXPROPS] section 2.541) property of an address book object with display type DT_DISTLIST.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1306");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1306
+            this.Site.CaptureRequirement(
+                1306,
+                @"[In NspiModLinkAtt] The NspiModLinkAtt method modifies the values of a specific property of a specific row in the address book.");
+
             #endregion
             #endregion
 

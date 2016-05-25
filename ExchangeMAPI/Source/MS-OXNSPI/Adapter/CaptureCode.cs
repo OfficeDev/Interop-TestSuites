@@ -1218,6 +1218,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 458,
                 @"[In PropertyValue_r Structure] PropertyValue (variable): This value encodes the PropertyValue field of the PropertyValue structure, as specified in section 2.11.2.1.");
 
+            // Verify MS-OXCDATA requirement: MS-OXCDATA_R75
+            // This test suite parses code according to this definition. So if the codes can reach here, this requirement can be captured directly.
+            this.Site.CaptureRequirement(
+                "MS-OXCDATA",
+                75,
+                @"[In StandardPropertyRow Structure] ValueArray (variable): At each position of the array, the structure will either be a PropertyValue structure, as specified in section 2.11.2.1, if the type of the corresponding property tag was specified, or a TypedPropertyValue structure, as specified in section 2.11.3, if the type of the corresponding property tag was PtypUnspecified (section 2.11.1).");
+
             this.VerifyPROP_VAL_UNION(propertyValue);
         }
 
@@ -1249,6 +1256,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 propertyRow.Reserved,
                 1709,
                 @"[In PropertyRow_r Structure] [Reserved] The server under test MUST set this value to the constant 0x00000000.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R73");
+
+            // Verify MS-OXCDATA requirement: MS-OXCDATA_R73
+            // Consider the Flag in StandardPropertyRow structure has the same value with propertyRow.Reserved
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                0x0,
+                propertyRow.Reserved,
+                "MS-OXCDATA",
+                73,
+                @"[In StandardPropertyRow Structure] Flag (1 byte): This value MUST be set to 0x00 to indicate that all property values are present and without error.");
 
             // Check whether cValues represents the number of PropertyValue_r structures.
             bool iscValuesRepresented = false;
@@ -1299,6 +1318,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 {
                     this.VerifyPropertyValueStructure(propertyValue);
                 }
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R231");
+
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R231
+                // The PropertyValue_r should be the encoding of the ValueArray field of the StandardPropertyRow data structure
+                this.Site.CaptureRequirement(
+                    231,
+                    @"[In PropertyRow_r Structure] lpProps: Encodes the ValueArray field of the StandardPropertyRow data structure.");
             }
 
             // Verify MS-OXCDATA requirement: MS-OXCDATA_R82
@@ -2019,6 +2047,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 isValidDisplayType,
                 409,
                 @"[In PermanentEntryID] [Display Type String] A server MUST set this field when this data structure is returned in an output parameter.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R411.");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R411
+            this.Site.CaptureRequirementIfIsNotNull(
+                permanentEntryID.DistinguishedName,
+                411,
+                @"[In PermanentEntryID] Distinguished Name (variable): The DN of the object specified by this Permanent Entry ID.");
+
         }
 
         #endregion
