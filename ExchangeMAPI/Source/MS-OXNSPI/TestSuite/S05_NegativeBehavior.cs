@@ -1692,14 +1692,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiGetMatches should return Success!");
 
             #region Capture code
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1321");
+            if (Common.IsRequirementEnabled(2003010, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003010");
 
-            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1321
-            Site.CaptureRequirementIfIsTrue(
-                AdapterHelper.AreTwoPropertyRowSetEqual(rowsOfGetMatches, rowsOfGetMatches1),
-                1321,
-                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the server returns any return value other than ""Success"", the server MUST NOT modify any properties of any objects in the address book.");
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003010
+                Site.CaptureRequirementIfIsTrue(
+                    AdapterHelper.AreTwoPropertyRowSetEqual(rowsOfGetMatches, rowsOfGetMatches1),
+                    2003010,
+                    @"[In Appendix A: Product Behavior] Implementation does not modify any properties of any objects in the address book. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).");
+            }
             #endregion
             #endregion
 
@@ -2710,7 +2713,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 Enum.IsDefined(typeof(ErrorCodeValue), (ErrorCodeValue)this.Result),
                 1185,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the SortType field of the input parameter pStat contains any value other than "SortTypeDisplayName" or "SortTypePhoneticDisplayName", the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
+                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the SortType field of the input parameter pStat contains any value other than ""SortTypeDisplayName"" or ""SortTypePhoneticDisplayName"", the server MUST return one of the return values [Success, UnbindSuccess, UnbindFailure, ErrorsReturned, GeneralFailure, NotSupported, InvalidObject, OutOfResources, NotFound, LogonFailed, TooComplex, InvalidCodepage, InvalidLocale, TableTooBig, InvalidBookmark, AccessDenied, NotEnoughMemory and InvalidParameter] specified in section 2.2.1.2.");
 
             #endregion Capture
             #endregion

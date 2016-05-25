@@ -1626,23 +1626,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 }
             }
 
-            if (inputStat.SortType == (uint)TableSortOrder.SortTypePhoneticDisplayName)
-            {
-                if (Common.IsRequirementEnabled(1751, this.Site))
-                {
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1751");
-
-                    // Verify MS-OXNSPI requirement: MS-OXNSPI_R1751
-                    // The sort order has been verified by MS-OXNSPI_R95. So here just verify the SortType field in the returned STAT structure.
-                    this.Site.CaptureRequirementIfAreEqual<uint>(
-                        (uint)TableSortOrder.SortTypePhoneticDisplayName,
-                        outputStat.SortType,
-                        1751,
-                        @"[In Appendix B: Product Behavior] Implementation does support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property]. (Exchange 2010 and above follow this behavior.)");
-                }
-            }
-
             this.VerifyMinimalEntryIDStructure();
         }
 
