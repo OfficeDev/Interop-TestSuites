@@ -64,10 +64,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             PropertyTagArray_r propTagsInstance = new PropertyTagArray_r();
             propTagsInstance.CValues = 3;
             propTagsInstance.AulPropTag = new uint[3]
-            {     
+            {
                 (uint)AulProp.PidTagEntryId,
-                (uint)AulProp.PidTagDisplayName, 
-                (uint)AulProp.PidTagDisplayType, 
+                (uint)AulProp.PidTagDisplayName,
+                (uint)AulProp.PidTagDisplayType,
             };
             PropertyTagArray_r? propTags = propTagsInstance;
             this.Result = this.ProtocolAdatper.NspiQueryRows(flagsOfQueryRows, ref stat, tableCount, table, count, propTags, out rowsOfQueryRows);
@@ -176,7 +176,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         {
             this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
-            bool isR1340Enabled = Common.IsRequirementEnabled(1340, this.Site);
+            bool isR2003009Enabled = Common.IsRequirementEnabled(2003009, this.Site);
 
             #region Call NspiBind to initiate a session between the client and the server.
             uint flags = 0;
@@ -336,7 +336,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 
             // Add the property value.
             ErrorCodeValue result1;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result1 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
 
@@ -353,6 +353,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             else
             {
                 result1 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId, false);
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003009");
+
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003009
+                Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                    ErrorCodeValue.GeneralFailure,
+                    result1,
+                    2003009,
+                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <6> Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
             }
 
             this.IsRequireToDeleteAddressBookMember = true;
@@ -416,7 +426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #region Call NspiModLinkAtt with fDelete flag to delete the specified value.
             flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
             ErrorCodeValue result2;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result2 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result2, "NspiModLinkAtt method should return Success.");
@@ -487,7 +497,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             }
 
             ErrorCodeValue result3;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result3 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result3, "NspiModLinkAtt method should return Success.");
@@ -504,7 +514,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #region Call NspiModLinkAtt to delete value with the changed Display Type in EphemeralEntryID.
             flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
             ErrorCodeValue result4;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result4 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result4, "NspiModLinkAtt method should return Success.");
@@ -713,7 +723,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         {
             this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
-            bool isR1340Enabled = Common.IsRequirementEnabled(1340, this.Site);
+            bool isR2003009Enabled = Common.IsRequirementEnabled(2003009, this.Site);
 
             #region Call NspiBind to initiate a session between the client and the server.
             uint flags = 0;
@@ -864,7 +874,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             }
 
             ErrorCodeValue flag1Result;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag1Result = this.ProtocolAdatper.NspiModLinkAtt(flag1, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag1Result, "NspiModLinkAtt method should return Success.");
@@ -901,7 +911,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 
             #region Call NspiModLinkAtt method to delete the specified PidTagAddressBookPublicDelegates value.
             uint flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 this.Result = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiModLinkAtt method should return Success.");
@@ -957,7 +967,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             flag1 = 0xff;
             uint flag2 = 0xfe;
 
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag1Result = this.ProtocolAdatper.NspiModLinkAtt(flag1, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag1Result, "NspiModLinkAtt method should return Success.");
@@ -970,7 +980,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.IsRequireToDeleteAddressBookPublicDelegate = true;
 
             ErrorCodeValue flag2Result;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag2Result = this.ProtocolAdatper.NspiModLinkAtt(flag2, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag2Result, "NspiModLinkAtt method should return Success.");
@@ -992,7 +1002,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #endregion
 
             #region Call NspiModLinkAtt method to delete the specified PidTagAddressBookPublicDelegates value.
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 this.Result = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiModLinkAtt method should return Success.");

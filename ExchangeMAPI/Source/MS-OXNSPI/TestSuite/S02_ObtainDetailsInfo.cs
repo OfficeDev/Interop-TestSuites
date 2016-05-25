@@ -577,6 +577,50 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 549,
                 @"[In Absolute Positioning] [step 6] If the value of Delta is positive, the Current Position is moved toward the end of the table.");
             #endregion
+
+            uint previousTotalRecs = stat.TotalRecs;
+            previousPosition = stat.NumPos;
+            stat.InitiateStat();
+            stat.NumPos = 1;
+            stat.Delta = 1;
+            delta = 0;
+            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return Success!");
+
+            #region Capture code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R326001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R326001
+            // NumPos returned are same regardless of the value of NumPos set in request, this requirement can be captured.
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                previousPosition,
+                stat.NumPos,
+                326001,
+                @"[In STAT] [NumPos] If absolute positioning, as specified in section 3.1.4.5.1, is used, the value of this field specified by the client will be ignored by the server. ");
+            #endregion
+
+            stat.InitiateStat();
+            stat.TotalRecs = 1;
+            stat.Delta = 1;
+            delta = 0;
+            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return Success!");
+
+            #region Capture code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R331001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R331001
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                previousTotalRecs,
+                stat.TotalRecs,
+                331001,
+                @"[In STAT] [TotalRecs] If absolute positioning, as specified in section 3.1.4.5.1, is used, the value of this field specified by the client will be ignored by the server. ");
+            #endregion
+
             #endregion
 
             #region Call NspiUpdateStat with Delta set to 0 to keep the position in the table.
@@ -1110,7 +1154,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsNotNull(
                 entryID2,
                 899,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.3.8.2.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.2.9.2.");
             #endregion
             #endregion
 
