@@ -165,7 +165,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                         isReservedRopId && (status != 0),
                         180005,
-                        @"[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (<7> Section 2.2.2: Exchange 2013 SP1 follows this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (<4> Section 2.2.2: Exchange 2013 SP1 and above follow this behavior.)");
             }
         }
 
@@ -607,7 +607,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     Site.CaptureRequirementIfIsTrue(
                         isVerifyR4720,
                         4720,
-                        @"[In Appendix B: Product Behavior] <8> Section 2.2.3.1.3: Implementation does not set the PerUserGuid field to an empty GUID. (Exchange 2007 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does not set the PerUserGuid field to an empty GUID. (<5> Section 2.2.3.1.3: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)");
                 }
 
                 if (Common.IsRequirementEnabled(214, this.Site))
@@ -1214,7 +1214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR211,
                 211,
-                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.5), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.");
+                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.6), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.");
             #endregion
         }
 
@@ -1986,7 +1986,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropLongTermIdFromIdResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -2151,7 +2151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropIdFromLongTermIdResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -10722,7 +10722,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetAddressTypeResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -11294,7 +11294,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetTransportFolderResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -11456,7 +11456,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2928,
                     2928,
-                    @"[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (Exchange 2007 and Exchange 2010 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (<7> Section 2.2.7.9.2: Exchange 2007, and Exchange 2010 do not return an empty array in the OptionsInfo field.)");
             }
 
             // Add the debug information
@@ -11581,7 +11581,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropOptionsDataResponse.ReturnValue,
                     4690,
-                    @"[In Appendix B: Product Behavior] <11> Section 2.2.7.9.3: Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (&lt;8&gt; Section 2.2.7.9.3: Exchange 2007 sets the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP.)");
             }
         }
         #endregion
@@ -11928,7 +11928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetNamesFromPropertyIdsResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -15027,7 +15027,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                     ReadOrWrittenByteCountForRopCopyToStream,
                     ropCopyToStreamResponse.ReadByteCount,
                     4692,
-                    @"[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning.  (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning.  (<11> Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)");
             }
 
             if (Common.IsRequirementEnabled(3415, this.Site))
@@ -15053,7 +15053,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                     ReadOrWrittenByteCountForRopCopyToStream,
                     ropCopyToStreamResponse.WrittenByteCount,
                     4693,
-                    @"[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (<12> Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)");
             }
         }
 

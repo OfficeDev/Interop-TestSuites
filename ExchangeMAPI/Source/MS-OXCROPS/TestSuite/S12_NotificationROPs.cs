@@ -409,7 +409,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     Site.CaptureRequirementIfIsTrue(
                         isContainedRopPending,
                         469303,
-                        @"[In Appendix B: Product Behavior] Implementation does include a RopPending ROP response (section 2.2.14.3) even though the ROP output buffer contains all queued RopNotify ROP responses (section 2.2.14.2). (<19> Section 3.1.5.1.3: Exchange 2007 follows this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does include a RopPending ROP response (section 2.2.14.3) even though the ROP output buffer contains all queued RopNotify ROP responses (section 2.2.14.2). (<16> Section 3.1.5.1.3: Exchange 2007 follows this behavior.)");
                 }
 
                 if (Common.IsRequirementEnabled(4693031, this.Site))

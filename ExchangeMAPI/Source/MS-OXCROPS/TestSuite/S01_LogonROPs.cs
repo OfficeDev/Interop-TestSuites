@@ -1162,7 +1162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                                 Site.CaptureRequirementIfIsNotNull(
                                     createFolderResponse.HasRules,
                                     622,
-                                    @"[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This field is present if the IsExistingFolder field is nonzero and the folder is a public folder.");
+                                    @"[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This field is present if the IsExistingFolder field is nonzero.");
                             }
 
                             if (createFolderResponse.IsGhosted != null && createFolderResponse.IsGhosted != 0)
