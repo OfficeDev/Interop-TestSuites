@@ -437,7 +437,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
         {
             this.CheckTransportIsSupported();
 
-            if (Common.IsRequirementEnabled(454509, this.Site))
+            if (Common.IsRequirementEnabled(454509, this.Site)
+                || Common.IsRequirementEnabled(20009, this.Site))
             {
                 this.cropsAdapter.RpcConnect(
                 Common.GetConfigurationPropertyValue("SutComputerName", this.Site),
@@ -526,13 +527,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
 
                 #endregion
 
-                #region Check 0x40000 as the maximum value of pcbout.
-
-                // Here will check counter with 0x40000 to ensure the response payload be bigger than 0x40000.
-                if (this.counter <= MS_OXCROPSAdapter.MaxPcbOut)
-                {
-                    return;
-                }
+                #region Call RopGetPropertiesAll to make the response buffer larger than the maximum size specified in pcbOut
 
                 RopGetPropertiesAllRequest getPropertiesAllRequest = new RopGetPropertiesAllRequest
                 {
@@ -553,13 +548,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ref this.response,
                     ref this.rawData,
                     RopResponseType.RPCError,
-                    MS_OXCROPSAdapter.MaxPcbOut);
+                    0x10);
 
                 #endregion
             }
             else
             {
-                Site.Assert.Inconclusive("This case runs only under Exchange 2010, since Exchange 2007 and Exchange 2013 do not support fail the RPC with 0x0000047D, if one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value.");
+                Site.Assert.Inconclusive("This case runs only under Exchange 2010 and above, since Exchange 2007 does not support fail the RPC with 0x0000047D if the ROP output buffer is larger than the maximum size specified in request.");
             }
         }
 
@@ -624,7 +619,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             writeStreamRequest.InputHandleIndex = TestSuiteBase.InputHandleIndex0;
             writeStreamRequest.DataSize = (ushort)data.Length;
             writeStreamRequest.Data = data;
-            this.counter += writeStreamRequest.DataSize;
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Begin to send the RopWriteStream request in WriteStream method.");

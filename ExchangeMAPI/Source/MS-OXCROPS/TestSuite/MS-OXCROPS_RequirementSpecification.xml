@@ -43309,7 +43309,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454505</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of the EcDoRpcExt2 response, as specified in [MS-OXCRPC] section 3.1.4.2, is set to the maximum value, then the server SHOULD&lt;22&gt; fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of the EcDoRpcExt2 response, as specified in [MS-OXCRPC] section 3.1.4.2, is set to the maximum value, then the server SHOULD&lt;22&gt; fail the EcDoRpcExt2 method with a return value of 0x0000047D.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43319,7 +43319,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4546</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then the server SHOULD&lt;22&gt; fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then the server SHOULD fail the Execute request type with a value of 0x0000047D in the StatusCode field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44261,7 +44261,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454509</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2010  and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R454505:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44270,20 +44270,9 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R20008</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body is set to the maximum value. (&lt;22&gt; Section 3.2.4.3: Exchange 2007 do not fail the EcDoRpcExt2 RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R4546:i,MS-OXCROPS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R20009</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2010  and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2013 SP1  and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R4546:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

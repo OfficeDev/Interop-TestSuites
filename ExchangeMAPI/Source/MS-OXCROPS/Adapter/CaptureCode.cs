@@ -17649,21 +17649,35 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
         /// Verify RPC error when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value.
         /// </summary>
         /// <param name="status">The status of the RPC operation.</param>
-        /// <param name="pcbOut">The size of required response buffer.</param>
-        private void VerifyFailRPCForMaxPcbOut(uint status, uint pcbOut)
+        private void VerifyFailRPCForMaxPcbOut(uint status)
         {
-            if (Common.IsRequirementEnabled(454509, this.Site))
+            if (Common.IsRequirementEnabled(454509, this.Site)
+                && (this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_ip_tcp", StringComparison.InvariantCultureIgnoreCase)
+                || this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_http", StringComparison.InvariantCultureIgnoreCase)))
             {
-                bool isVerify454509 = status == OxcRpcErrorCode.ECResponseTooBig && pcbOut == MS_OXCROPSAdapter.MaxPcbOut;
-
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R454509");
 
                 // Verify MS-OXCROPS requirement: MS-OXCROPS_R454509
-                Site.CaptureRequirementIfIsTrue(
-                    isVerify454509,
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
                     454509,
-                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value, then implementation does fail the RPC with 0x0000047D. (Exchange 2010  follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(20009, this.Site)
+                && this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("mapi_http", StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R20009");
+
+                // Verify MS-OXCROPS requirement: MS-OXCROPS_R20009
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
+                    20009,
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2013 SP1  and above follow this behavior.)");
             }
         }
 
