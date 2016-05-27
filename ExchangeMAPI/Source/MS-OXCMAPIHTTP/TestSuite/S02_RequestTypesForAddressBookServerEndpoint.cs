@@ -1982,6 +1982,43 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             Site.Assert.AreEqual<uint>(0, queryRowsResponseBody.ErrorCode, "QueryRows request should be executed successfully, the returned value {0}.", queryRowsResponseBody.ErrorCode);
             #endregion
 
+            #region Capture code
+            AddressBookPropertyRow[] rowData = queryRowsResponseBody.RowData;
+            for (int i = 0; i < rowData.Length; i++)
+            {
+                List<AddressBookPropertyValue> valueArray = new List<AddressBookPropertyValue>(rowData[i].ValueArray);
+
+                for (int j = 0; j < valueArray.Count; j++)
+                {
+                    if (largePropTagArray.PropertyTags[j].PropertyType == 0x001F)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2001");
+
+                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2001
+                        this.Site.CaptureRequirementIfIsInstanceOfType(
+                            valueArray[j].HasValue,
+                            typeof(byte),
+                            2001,
+                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString.");
+                    }
+
+                    if (largePropTagArray.PropertyTags[j].PropertyType == 0x0102)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2003");
+
+                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2003
+                        this.Site.CaptureRequirementIfIsInstanceOfType(
+                            valueArray[j].HasValue,
+                            typeof(byte),
+                            2003,
+                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypBinary.");
+                    }
+                }
+            }
+            #endregion
+
             #region Call ModLinkAtt with flags 0x00000000 to add the specified PidTagAddressBookMember value.
             uint flagsOfModLinkAtt = 0;
             PropertyTag propTagOfModLinkAtt = new PropertyTag
@@ -2354,23 +2391,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             LargePropertyTagArray columns = new LargePropertyTagArray()
             {
-                PropertyTagCount = 3,
+                PropertyTagCount = 1,
                 PropertyTags = new PropertyTag[]
                 {
                     new PropertyTag
                     {
-                        PropertyType = (ushort)PropertyTypeValues.PtypString,
-                        PropertyId = (ushort)PropertyID.PidTagDisplayName
-                    }, 
-                    new PropertyTag
-                    {
                         PropertyType = (ushort)PropertyTypeValues.PtypString8,
-                        PropertyId = (ushort)PropertyID.PidTagDisplayType
-                    }, 
-                    new PropertyTag
-                    {
-                        PropertyType = (ushort)PropertyTypeValues.PtypBinary,
-                        PropertyId = (ushort)PropertyID.PidTagEntryId
+                        PropertyId = (ushort)PropertyID.PidTagDisplayName
                     }
                 }
             };
@@ -2388,19 +2415,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
                 for (int j = 0; j < valueArray.Count; j++)
                 {
-                    if (columns.PropertyTags[j].PropertyType == 0x001F)
-                    {
-                        // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2001");
-
-                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2001
-                        this.Site.CaptureRequirementIfIsInstanceOfType(
-                            valueArray[j].HasValue,
-                            typeof(byte),
-                            2001,
-                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString.");
-                    }
-
                     if (columns.PropertyTags[j].PropertyType == 0x1E)
                     {
                         // Add the debug information
@@ -2412,19 +2426,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                             typeof(byte),
                             2002,
                             @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString8.");
-                    }
-
-                    if (columns.PropertyTags[j].PropertyType == 0x0102)
-                    {
-                        // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2003");
-
-                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2003
-                        this.Site.CaptureRequirementIfIsInstanceOfType(
-                            valueArray[j].HasValue,
-                            typeof(byte),
-                            2003,
-                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypBinary.");
                     }
                 }
             }
