@@ -2316,18 +2316,116 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 {
                     AddressBookFlaggedPropertyValue propertyValue = (AddressBookFlaggedPropertyValue)valueArray[j];
 
-                         if (propertyValue.Flag == 0xA)
-                        {
-                            bool isVerifyR2024 = propertyValue.Value != null && columns.PropertyTags[j].PropertyType == 10;
-                            // Add the debug information
-                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2024.");
+                    if (propertyValue.Flag == 0xA)
+                    {
+                        bool isVerifyR2024 = propertyValue.Value != null && columns.PropertyTags[j].PropertyType == 10;
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2024.");
 
-                            // Verify MS-OXCDATA requirement: MS-OXCMAPIHTTP_R2024
-                            this.Site.CaptureRequirementIfIsTrue(
-                                isVerifyR2024,
-                                2024,
-                                @"[In AddressBookFlaggedPropertyValue Structure] Flag value 0xA meaning The PropertyValue field will be an AddressBookPropertyValue structure containing a value of PtypErrorCode, as specified in [MS-OXCDATA] section 2.11.1. ");
-                        }
+                        // Verify MS-OXCDATA requirement: MS-OXCMAPIHTTP_R2024
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isVerifyR2024,
+                            2024,
+                            @"[In AddressBookFlaggedPropertyValue Structure] Flag value 0xA meaning The PropertyValue field will be an AddressBookPropertyValue structure containing a value of PtypErrorCode, as specified in [MS-OXCDATA] section 2.11.1. ");
+                    }
+                }
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This case is designed to verify HasValue with different PropertyType.
+        /// </summary>
+        [TestCategory("MSOXCMAPIHTTP"), TestMethod]
+        public void MSOXCMAPIHTTP_S02_TC20_VerifyHasValueWithDifferentPropertyType()
+        {
+            this.CheckMapiHttpIsSupported();
+
+            #region Call Bind request type to established a session context with the address book server.
+            this.Bind();
+            #endregion
+
+            #region Call QueryRows with all optional fields exist and the type of all properties specified.
+            uint tableCount = 0;
+            uint[] table = null;
+            uint rowCount = ConstValues.QueryRowsRequestedRowNumber;
+            STAT stat = new STAT();
+            stat.InitiateStat();
+
+            LargePropertyTagArray columns = new LargePropertyTagArray()
+            {
+                PropertyTagCount = 3,
+                PropertyTags = new PropertyTag[]
+                {
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypString,
+                        PropertyId = (ushort)PropertyID.PidTagDisplayName
+                    }, 
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypString8,
+                        PropertyId = (ushort)PropertyID.PidTagDisplayType
+                    }, 
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypBinary,
+                        PropertyId = (ushort)PropertyID.PidTagEntryId
+                    }
+                }
+            };
+
+            QueryRowsRequestBody queryRowsRequestBody = this.BuildQueryRowsRequestBody(true, stat, tableCount, table, rowCount, true, columns);
+            QueryRowsResponseBody queryRowsResponseBody = this.Adapter.QueryRows(queryRowsRequestBody);
+            Site.Assert.AreEqual<uint>((uint)0, queryRowsResponseBody.ErrorCode, "QueryRows operation should succeed and 0 is expected to be returned. The return value is {0}.", queryRowsResponseBody.ErrorCode);
+            #endregion
+
+            #region Capture code
+            AddressBookPropertyRow[] rowData = queryRowsResponseBody.RowData;
+            for (int i = 0; i < rowData.Length; i++)
+            {
+                List<AddressBookPropertyValue> valueArray = new List<AddressBookPropertyValue>(rowData[i].ValueArray);
+
+                for (int j = 0; j < valueArray.Count; j++)
+                {
+                    if (columns.PropertyTags[j].PropertyType == 0x001F)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2001");
+
+                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2001
+                        this.Site.CaptureRequirementIfIsInstanceOfType(
+                            valueArray[j].HasValue,
+                            typeof(byte),
+                            2001,
+                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString.");
+                    }
+
+                    if (columns.PropertyTags[j].PropertyType == 0x1E)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2002");
+
+                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2002
+                        this.Site.CaptureRequirementIfIsInstanceOfType(
+                            valueArray[j].HasValue,
+                            typeof(byte),
+                            2002,
+                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString8.");
+                    }
+
+                    if (columns.PropertyTags[j].PropertyType == 0x0102)
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2003");
+
+                        // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2003
+                        this.Site.CaptureRequirementIfIsInstanceOfType(
+                            valueArray[j].HasValue,
+                            typeof(byte),
+                            2003,
+                            @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypBinary.");
+                    }
                 }
             }
             #endregion

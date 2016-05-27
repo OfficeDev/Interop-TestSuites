@@ -488,47 +488,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 2000,
                 @"[In AddressBookPropertyValue Structure] The AddressBookPropertyValue structure includes a property value.");
 
-            if (addressBookPropertyValue.HasValue != null)
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2001");
-
-                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2001
-                this.Site.CaptureRequirementIfIsInstanceOfType(
-                    addressBookPropertyValue.HasValue,
-                    typeof(byte),
-                    2001,
-                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString.");
-
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2002");
-
-                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2002
-                this.Site.CaptureRequirementIfIsInstanceOfType(
-                    addressBookPropertyValue.HasValue,
-                    typeof(byte),
-                    2002,
-                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString8.");
-
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2003");
-
-                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2003
-                this.Site.CaptureRequirementIfIsInstanceOfType(
-                    addressBookPropertyValue.HasValue,
-                    typeof(byte),
-                    2003,
-                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypBinary.");
-
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2004");
-
-                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2004
-                this.Site.CaptureRequirementIfIsInstanceOfType(
-                    addressBookPropertyValue.HasValue,
-                    typeof(byte),
-                    2004,
-                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultiple ([MS-OXCDATA] section 2.11.1).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2005");
@@ -540,7 +501,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 isVerifyR2005,
                 2005,
                 @"[In AddressBookPropertyValue Structure] [HasValue] This field MUST contain either TRUE (0xFF) or FALSE (0x00). ");
-            }
         }
         #endregion
 
