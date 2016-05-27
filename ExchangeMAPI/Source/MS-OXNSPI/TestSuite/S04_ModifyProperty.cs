@@ -111,10 +111,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             stat.CurrentRec = mids.Value.AulPropTag[0];
             Restriction_r? filter = null;
             PropertyTagArray_r propTags1 = new PropertyTagArray_r();
-            propTags1.CValues = 1;
-            propTags1.AulPropTag = new uint[1]
+            propTags1.CValues = 2;
+            propTags1.AulPropTag = new uint[2]
             {
-                (uint)AulProp.PidTagAddressBookX509Certificate
+                (uint)AulProp.PidTagAddressBookX509Certificate,
+                (uint)AulProp.PidTagUserX509Certificate
             };
             PropertyTagArray_r? propTagsOfGetMatches = propTags1;
 
@@ -131,18 +132,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #endregion
 
             #region Call NspiModProps method with specific PidTagAddressBookX509Certificate property value.
-            uint reservedOfModProps = 0;
+            uint reservedOfModProps = 1;
             BinaryArray_r emptyValue = new BinaryArray_r();
             PropertyRow_r rowOfModProps = new PropertyRow_r();
-            rowOfModProps.LpProps = new PropertyValue_r[1];
+            rowOfModProps.LpProps = new PropertyValue_r[2];
             rowOfModProps.LpProps[0].PropTag = (uint)AulProp.PidTagAddressBookX509Certificate;
             rowOfModProps.LpProps[0].Value.MVbin = emptyValue;
+            rowOfModProps.LpProps[1].PropTag = (uint)AulProp.PidTagUserX509Certificate;
+            rowOfModProps.LpProps[1].Value.MVbin = emptyValue;
 
             PropertyTagArray_r instanceOfModProps = new PropertyTagArray_r();
-            instanceOfModProps.CValues = 1;
-            instanceOfModProps.AulPropTag = new uint[1]
+            instanceOfModProps.CValues = 2;
+            instanceOfModProps.AulPropTag = new uint[2]
             {
-                (uint)AulProp.PidTagAddressBookX509Certificate
+                (uint)AulProp.PidTagAddressBookX509Certificate,
+                (uint)AulProp.PidTagUserX509Certificate
             };
             PropertyTagArray_r? propTagsOfModProps = instanceOfModProps;
 
@@ -158,8 +162,62 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Result,
                 1305,
                 @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [constraint 12] If no other return values have been specified by these constraints [constraints 1-11], the server MUST return the return value ""Success"".");
-            #endregion
 
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                5309,
+                @"[In PidTagAddressBookX509Certificate] Property ID: 0x8C6A.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                5310,
+                @"[In PidTagAddressBookX509Certificate] Data type: PtypMultipleBinary, 0x1102.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                8875,
+                @"[In PidTagUserX509Certificate] Property ID: 0x3A70.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                8876,
+                @"[In PidTagUserX509Certificate] Data type: PtypMultipleBinary, 0x1102.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1267");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1267
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                1267,
+                @"[In NspiModProps] The NspiModProps method is used to modify the properties of an object in the address book.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1268");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1268
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                1268,
+                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1044) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.");
+
+            bool isR1289Verified = reservedOfModProps != 0 && ErrorCodeValue.Success == this.Result;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1289");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1289
+            Site.CaptureRequirementIfIsTrue(
+                isR1289Verified,
+                1289,
+                @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the Reserved input parameter contains any value other than 0, the server MUST ignore the value.");
+            #endregion
             #endregion
 
             #region Call NspiUnbind method to destroy the context handle.

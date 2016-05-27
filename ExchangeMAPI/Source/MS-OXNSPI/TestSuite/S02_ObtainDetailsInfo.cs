@@ -3486,6 +3486,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 AdapterHelper.IsSortByName(rowsOfGetMatches, 1),
                 100,
                 @"[In Table Sort Orders] SortTypeDisplayName_W (0x000003E9): The table is sorted ascending on the PidTagDisplayName property.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R101");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R101
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                101,
+                "[In Table Sort Orders] [SortTypeDisplayName_W] The client MUST set this value only when using the NspiGetMatches method to open a writable table on an object-valued property.");
             #endregion
             #endregion
 
@@ -3837,7 +3847,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC21_GetMatchesComparedWithNspiQueryRows()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4043,7 +4053,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC22_ResortRestrictionSuccess()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4326,7 +4336,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC24_ResortRestrictionIgnoreSomeFields()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4439,7 +4449,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC25_ResortRestrictionCurrentRecFieldNotInETable()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4544,7 +4554,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC26_CompareMIdsSuccessWithCompareMid1AndMid2()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4669,7 +4679,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC27_CompareMIdsIgnoreReserved()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4744,7 +4754,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC28_DNToMIdSuccess()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4909,7 +4919,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC29_DNToMIdUnableToLocate()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4968,7 +4978,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC30_DNToMIdIgnoreReserved()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5050,7 +5060,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC31_NspiGetMatchesRestrictionVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5411,7 +5421,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC32_NspiGetPropsStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5553,7 +5563,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC33_NspiQueryRowsStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5699,7 +5709,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC34_NspiGetMatchesStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5866,7 +5876,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC35_NspiSeekEntriesStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6059,7 +6069,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC36_NspiSeekEntriesWithpPropTagsSetNull()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6225,7 +6235,7 @@ The NspiSeekEntries parameter pPropTags is used as the NspiQueryRows parameter p
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC37_MinimalEntryIDVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6370,7 +6380,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC38_PermanentEntryIDVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6456,7 +6466,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC39_GetMatchesWithDifferentDeltaAndContainerID()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.

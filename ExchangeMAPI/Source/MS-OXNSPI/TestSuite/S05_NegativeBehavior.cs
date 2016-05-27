@@ -1994,10 +1994,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     break;
                 }
             }
-
+            
             // Modify the PidTagAddressBookMember.
             this.Result = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
             Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.AccessDenied, this.Result, "NspiModLinkAtt method should return access denied.");
+            #endregion
+
+            #region Capture code
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1647");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1647
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.AccessDenied,
+                this.Result,
+                1647,
+                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] [If the server is able to locate the object, but will not allow modifications to the object due to its display type,] the server MUST return the value AccessDenied (0x80070005).");
+            #endregion
+
+            #region Call NspiGetMatches to get an Explicit Table.
+            // Output parameters.
+            PropertyTagArray_r? outMIds1;
+            PropertyRowSet_r? rowsOfGetMatches1;
+
+            this.Result = this.ProtocolAdatper.NspiGetMatches(reserved1, ref stat, proReserved, reserver2, filter, propNameOfGetMatches, requested, out outMIds1, propTagsOfGetMatches, out rowsOfGetMatches1);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiGetMatches should return Success!");
+            #endregion
+
+            #region Capture code
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1646");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1646
+            Site.CaptureRequirementIfIsTrue(
+                AdapterHelper.AreTwoPropertyRowSetEqual(rowsOfGetMatches, rowsOfGetMatches1),
+                1646,
+                @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the server is able to locate the object, but will not allow modifications to the object due to its display type, the server MUST NOT modify any properties of any objects in the address book.");
             #endregion
 
             #region Call NspiModLinkAtt to modify the value of the PidTagAddressBookPublicDelegates property of an address book object with display type DT_AGENT, which is not allowed by the server.
@@ -2872,6 +2904,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             uint flagsOfGetSpecialTable = (uint)NspiGetSpecialTableFlags.NspiUnicodeStrings;
             this.Result = this.ProtocolAdatper.NspiGetSpecialTable(flagsOfGetSpecialTable, ref stat, ref version, out rows);
             Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiGetSpecialTable should return Success!");
+            #endregion
+
+            #region Capture code
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R750");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R750
+            Site.CaptureRequirementIfAreNotEqual<uint>(
+                0,
+                version,
+                750,
+                @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If the client is requesting the rows of the server's address book hierarchy table and the server returns the value ""Success"", the server MUST set the output parameter lpVersion to the version of the server's address book hierarchy table.");
+
             #endregion
 
             #region Call NspiModProps with pPropTags set to NULL.
