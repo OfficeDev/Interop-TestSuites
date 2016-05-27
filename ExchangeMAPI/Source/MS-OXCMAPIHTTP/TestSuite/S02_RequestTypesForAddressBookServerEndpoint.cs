@@ -2371,10 +2371,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         }
 
         /// <summary>
-        /// This case is designed to verify HasValue with different PropertyType.
+        /// This case is designed to verify HasValue with PropertyType PtypString8.
         /// </summary>
         [TestCategory("MSOXCMAPIHTTP"), TestMethod]
-        public void MSOXCMAPIHTTP_S02_TC20_VerifyHasValueWithDifferentPropertyType()
+        public void MSOXCMAPIHTTP_S02_TC20_VerifyHasValueWithPropertyTypePtypString8()
         {
             this.CheckMapiHttpIsSupported();
 
