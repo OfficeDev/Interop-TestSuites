@@ -1146,7 +1146,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowEqual(data, data1),
                 1692,
-                @"[In NspiGetTemplateInfo] [dwFlags] If the bits are set to different values other than the bit flags TI_HELPFILE_NAME, TI_HELPFILE_CONTENTS, TI_SCRIPT, TI_TEMPLATE and TI_EMT, the server will return the same value.");
+                @"[In NspiGetTemplateInfo] [dwFlags] If the bits are set to different values other than the bit flags TI_SCRIPT and TI_TEMPLATE, the server will return the same value.");
 
             #endregion Capture
             #endregion

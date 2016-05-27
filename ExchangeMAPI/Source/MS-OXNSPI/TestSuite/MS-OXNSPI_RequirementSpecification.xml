@@ -252,7 +252,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R7002</ns1:REQ_ID>
@@ -261,7 +261,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R8</ns1:REQ_ID>
@@ -1039,18 +1039,18 @@
 		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Display Type Values] DT_ORGANIZATION display type with 0x00000004 value means an Address Book object defined for a large group, such as helpdesk, accounting, coordinator, or department.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Display Type Values] [DT_ORGANIZATION] Department objects usually have this display type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R53001</ns1:REQ_ID>
@@ -1059,7 +1059,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R54</ns1:REQ_ID>
@@ -10707,7 +10707,6 @@ long NspiModLinkAtt(
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1341</ns1:REQ_ID>
@@ -12058,7 +12057,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R446</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Conversion Rules for String Values Specified by the Server to the Client] If the native type of a property is PtypString and the client has requested that property with the type PtypString8, the server MUST convert the Unicode representation to an 8-bit character representation in the code page specified by the CodePage field of the pStat parameter prior to returning the value.</ns1:Description>
+		<ns1:Description>[In Conversion Rules for String Values Specified by the Server to the Client] If the native type of a property is PtypString and the client has requested that property with the type PtypString8, the server MUST convert the Unicode representation to an 8-bit character representation in the code page specified by the CodePage field of the pStat parameter, or the dwCodePage parameter prior to returning the value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12087,7 +12086,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1935</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Conversion Rules for String Values Specified by the Server to the Client] [For method NspiQueryRows] If the native type of a property is PtypString and the client has requested that property with the type PtypString8, the server MUST convert the Unicode representation to an 8-bit character representation in the code page specified by the CodePage field of the pStat parameter or the dwCodePage parameter prior to returning the value.</ns1:Description>
+		<ns1:Description>[In Conversion Rules for String Values Specified by the Server to the Client] [For method NspiQueryRows] If the native type of a property is PtypString and the client has requested that property with the type PtypString8, the server MUST convert the Unicode representation to an 8-bit character representation in the code page specified by the CodePage field of the pStat parameter prior to returning the value.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R446:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12133,6 +12132,16 @@ long NspiGetTemplateInfo(
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R19391</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In Conversion Rules for String Values Specified by the Server to the Client] [For method NspiGetTemplateInfo] If the native type of a property is PtypString and the client has requested that property with the type PtypString8, the server MUST convert the Unicode representation to an 8-bit character representation in the code page specified by the dwCodePage parameter prior to returning the value.</ns1:Description>
+		<ns1:Derived>MS-OXNSPI_R446:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R447</ns1:REQ_ID>
@@ -14175,7 +14184,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003009</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;6&gt; Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;6&gt; Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1321:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

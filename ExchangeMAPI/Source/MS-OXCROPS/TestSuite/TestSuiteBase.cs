@@ -420,11 +420,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
         protected byte[] rawData;
 
         /// <summary>
-        /// A counter for input payload size calculation.
-        /// </summary>
-        protected int counter;
-
-        /// <summary>
         /// This property is used to Logon a specific mailbox.
         /// </summary>
         protected string userDN = string.Empty;

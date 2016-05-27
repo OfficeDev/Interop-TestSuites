@@ -71,7 +71,7 @@
       <!-- Set R180005Enabled to true to verify that the implementation returns an error for the MAPIHTTP, when it encounters a RopId value that is associated with a reserved ROP. Set R180005Enabled to false to disable this requirement.-->
       <Property name="R180005Enabled" value="true"/>
       <!-- Set R5000Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R5000Enabled to false to disable this requirement.-->
-      <Property name="R5000Enabled" value="true"/>
+      <Property name="R5000Enabled" value="false"/>
       <!-- Set R5001Enabled to true to verify that the implementation does support an ncacn_ip_tcp transport. Set R5001Enabled to false to disable this requirement.-->
       <Property name="R5001Enabled" value="false"/>
       <!-- Set R469304Enabled to true to verify that the implementation does include a RopPending ROP response (section 2.2.14.3) even though all queued RopNotify ROP responses (section 2.2.14.2) fit in the ROP output buffer. Set R469304Enabled to false to disable this requirement.-->
@@ -88,5 +88,5 @@
       <Property name="R20010Enabled" value="true"/>
       <!-- Set R20003Enabled to true to verify that the mplementation does set the PerUserGuid field to all zeroes. Set 20003Enabled to false to disable this requirement.-->
       <Property name="R20003Enabled" value="true"/>
-      </Properties>
+   </Properties>
 </TestSite>
