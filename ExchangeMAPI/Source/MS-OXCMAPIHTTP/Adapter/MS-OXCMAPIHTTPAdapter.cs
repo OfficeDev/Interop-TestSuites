@@ -550,9 +550,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 foreach (AddressBookPropertyRow row in queryRowsResponseBody.RowData)
                 {
                     this.VerifyAddressBookPropertyRowStructure(row);
+                   
+                    if (row.Flag == 0x0)
+                    {
+                        for (int i = 0; i < row.ValueArray.Length; i++)
+                        {
+                            if (queryRowsRequestBody.Columns.PropertyTags[i].PropertyType != 0x0000)
+                            {
+                                this.VerifyAddressBookPropertyValueStructure(row.ValueArray[i]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < row.ValueArray.Length; j++)
+                        {
+                            this.VerifyAddressBookFlaggedPropertyValueStructure((AddressBookFlaggedPropertyValue)row.ValueArray[j]);
+                        }
+                    }
                 }
 
-                this.VerifyLargePropTagArrayStructure(queryRowsResponseBody.Columns.Value);
+                this.VerifyLargePropertyTagArrayStructure(queryRowsResponseBody.Columns.Value);
             }
             
             return queryRowsResponseBody;
@@ -568,7 +586,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             CommonResponse commonResponse = this.SendAddressBookRequest(queryColumnsRequestBody, RequestType.QueryColumns);
             QueryColumnsResponseBody queryColumnsResponseBody = QueryColumnsResponseBody.Parse(commonResponse.ResponseBodyRawData);
             this.VerifyQueryColumnsResponseBody(queryColumnsResponseBody);
-            this.VerifyLargePropTagArrayStructure(queryColumnsResponseBody.Columns.Value);
+            this.VerifyLargePropertyTagArrayStructure(queryColumnsResponseBody.Columns.Value);
 
             return queryColumnsResponseBody;
         }
@@ -590,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     this.VerifyAddressBookPropertyRowStructure(row);
                 }
 
-                this.VerifyLargePropTagArrayStructure(resolveNamesResponseBody.PropertyTags.Value);
+                this.VerifyLargePropertyTagArrayStructure(resolveNamesResponseBody.PropertyTags.Value);
             }
 
             return resolveNamesResponseBody;
@@ -627,7 +645,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     this.VerifyAddressBookPropertyRowStructure(row);
                 }
 
-                this.VerifyLargePropTagArrayStructure(seekEntriesResponseBody.Columns.Value);
+                this.VerifyLargePropertyTagArrayStructure(seekEntriesResponseBody.Columns.Value);
             }
 
             return seekEntriesResponseBody;

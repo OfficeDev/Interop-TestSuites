@@ -34,7 +34,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropertyTagArray structure that contains the property tags of the properties that the client requesting.
         /// </summary>
-        public LargePropTagArray PropertyTags { get; set; }
+        public LargePropertyTagArray PropertyTags { get; set; }
 
         /// <summary>
         /// Serialize the instance to byte array.

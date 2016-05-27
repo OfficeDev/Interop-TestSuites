@@ -476,6 +476,156 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
         #endregion
 
+        #region Verify AddressBookPropertyValue Structure
+        /// <summary>
+        /// Verify the AddressBookPropertyValue structure related requirements.
+        /// </summary>
+        /// <param name="addressBookPropertyValue">The AddressBookPropertyValue value to be verified.</param>
+        private void VerifyAddressBookPropertyValueStructure(AddressBookPropertyValue addressBookPropertyValue)
+        {
+            // Since Test Suite parsed AddressBookPropertyValue structure according to Specification, if the program run to here, R2000 can be verified directly.
+            this.Site.CaptureRequirement(
+                2000,
+                @"[In AddressBookPropertyValue Structure] The AddressBookPropertyValue structure includes a property value.");
+
+            if (addressBookPropertyValue.HasValue != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2001");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2001
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    addressBookPropertyValue.HasValue,
+                    typeof(byte),
+                    2001,
+                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2002");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2002
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    addressBookPropertyValue.HasValue,
+                    typeof(byte),
+                    2002,
+                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypString8.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2003");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2003
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    addressBookPropertyValue.HasValue,
+                    typeof(byte),
+                    2003,
+                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypBinary.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2004");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2004
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    addressBookPropertyValue.HasValue,
+                    typeof(byte),
+                    2004,
+                    @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultiple ([MS-OXCDATA] section 2.11.1).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2005");
+
+            bool isVerifyR2005 = addressBookPropertyValue.HasValue == 0xFF || addressBookPropertyValue.HasValue == 0x00;
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2005
+            this.Site.CaptureRequirementIfIsTrue(
+                isVerifyR2005,
+                2005,
+                @"[In AddressBookPropertyValue Structure] [HasValue] This field MUST contain either TRUE (0xFF) or FALSE (0x00). ");
+            }
+        }
+        #endregion
+
+        #region Verify AddressBookTaggedPropertyValue Structure
+        /// <summary>
+        /// Verify the AddressBookTaggedPropertyValue structure related requirements.
+        /// </summary>
+        /// <param name="addressBookTaggedPropertyValue">The AddressBookTaggedPropertyValue value to be verified.</param>
+        private void VerifyAddressBookTaggedPropertyValueStructure(AddressBookTaggedPropertyValue addressBookTaggedPropertyValue)
+        {
+            // Since Test Suite parsed AddressBookTaggedPropertyValue structure according to Specification, if the program run to here, R2011 can be verified directly.
+            this.Site.CaptureRequirement(
+                2011,
+                @"[In AddressBookTaggedPropertyValue Structure] The AddressBookTaggedPropertyValue structure includes property type, property identifier and property value.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2012");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2012
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+                addressBookTaggedPropertyValue.PropertyType,
+                typeof(ushort),
+                2012,
+                @"[In AddressBookTaggedPropertyValue Structure] PropertyType (2 bytes): An unsigned integer that identifies the data type of the property value ([MS-OXCDATA] section 2.11.1).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2013");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2013
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+                addressBookTaggedPropertyValue.PropertyId,
+                typeof(ushort),
+                2013,
+                @"[In AddressBookTaggedPropertyValue Structure] PropertyId (2 bytes): An unsigned integer that identifies the property.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2014");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2014
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+                addressBookTaggedPropertyValue,
+                typeof(AddressBookPropertyValue),
+                2014,
+                @"[In AddressBookTaggedPropertyValue Structure] PropertyValue (variable): An AddressBookPropertyValue structure, see section 2.2.1.1.");
+
+        }
+        #endregion
+
+        #region Verify AddressBookFlaggedPropertyValue Structure
+        /// <summary>
+        /// Verify the AddressBookFlaggedPropertyValue structure related requirements.
+        /// </summary>
+        /// <param name="addressBookFlaggedPropertyValue">The AddressBookFlaggedPropertyValue value to be verified.</param>
+        private void VerifyAddressBookFlaggedPropertyValueStructure(AddressBookFlaggedPropertyValue addressBookFlaggedPropertyValue)
+        {
+            // Since Test Suite parsed AddressBookFlaggedPropertyValue structure according to Specification, if the program run to here, R2018 can be verified directly.
+            this.Site.CaptureRequirement(
+                2018,
+                @"[In AddressBookFlaggedPropertyValue Structure] The AddressBookFlaggedPropertyValue structure includes a flag to indicate whether the value was successfully retrieved or not.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2019");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2019
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+                addressBookFlaggedPropertyValue.Flag,
+                typeof(byte),
+                2019,
+                @"[In AddressBookFlaggedPropertyValue Structure] Flag (1 byte): An unsigned integer. ");
+
+            if (addressBookFlaggedPropertyValue.Flag != 0x1)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2027");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2027
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                    addressBookFlaggedPropertyValue,
+                    typeof(AddressBookPropertyValue),
+                    2027,
+                    @"[In AddressBookFlaggedPropertyValue Structure] PropertyValue (optional) (variable): An AddressBookPropertyValue structure, as specified in section 2.2.1.1, unless the Flag field is set to 0x1.");
+            }
+        }
+        #endregion
+
         #region Verify AddressBookPropertyRow Structure
         /// <summary>
         /// Verify the AddressBookPropertyRow structure related requirements.
@@ -499,13 +649,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 @"[In AddressBookPropertyRow Structure] Flags (1 byte): An unsigned integer that indicates whether all property values are present and without error in the ValueArray field.");
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R18");
-        
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R18
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2035");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2035
             this.Site.CaptureRequirementIfIsInstanceOfType(
                 addressBookPropertyRow.ValueArray,
-                typeof(PropertyValue[]),
-                18,
+                typeof(AddressBookPropertyValue[]),
+                2035,
                 @"[In AddressBookPropertyRow Structure] ValueArray (variable): An array of variable-sized structures.");
         }
         #endregion
@@ -515,7 +665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// Verify the LargePropTagArray structure related requirements.
         /// </summary>
         /// <param name="largePropTagArray">The LargePropTagArray value to be verified.</param>
-        private void VerifyLargePropTagArrayStructure(LargePropTagArray largePropTagArray)
+        private void VerifyLargePropertyTagArrayStructure(LargePropertyTagArray largePropTagArray)
         {
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R24");
@@ -1418,7 +1568,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R853
                 this.Site.CaptureRequirementIfIsInstanceOfType(
                     queryRowsResponseBody.Columns,
-                    typeof(LargePropTagArray),
+                    typeof(LargePropertyTagArray),
                     853,
                     @"[In QueryRows Request Type Response Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the columns for the rows returned.");
 
@@ -2134,12 +2284,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R719
                 this.Site.CaptureRequirementIfIsInstanceOfType(
                     getTemplateInfoResponseBody.Row,
-                    typeof(AddressBookPropValueList),
+                    typeof(AddressBookPropertyValueList),
                     719,
                     @"[In GetTemplateInfo Request Type Response Body] [Row] This field is present when the value of the HasRow field is nonzero.");
 
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R721");
+                for (int i = 0; i < getTemplateInfoResponseBody.Row.Value.PropertyValueCount; i++)
+                {
+                    this.VerifyAddressBookTaggedPropertyValueStructure(getTemplateInfoResponseBody.Row.Value.PropertyValues[i]);
+                }
             }
             else
             {
@@ -2152,6 +2304,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     720,
                     @"[In GetTemplateInfo Request Type Response Body] [Row] This field is not present when the value of the HasRow field is zero.");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R721");
 
             // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R721
             this.Site.CaptureRequirementIfIsInstanceOfType(
@@ -2935,7 +3090,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R543
                 this.Site.CaptureRequirementIfIsInstanceOfType(
                     responseBody.Columns.Value,
-                    typeof(LargePropTagArray),
+                    typeof(LargePropertyTagArray),
                     543,
                     @"[In GetMatches Request Type Response Body] Columns: A LargePropertyTagArray structure (section 2.2.1.3) that specifies the columns used for each row returned.");
 
@@ -3594,7 +3749,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R889
                 this.Site.CaptureRequirementIfIsInstanceOfType(
                     queryColumnsResponseBody.Columns,
-                    typeof(LargePropTagArray),
+                    typeof(LargePropertyTagArray),
                     889,
                     @"[In QueryColumns Request Type Response Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that exist on the address book.");
 

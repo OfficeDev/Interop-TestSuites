@@ -39,9 +39,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         public uint? RowCount { get; set; }
 
         /// <summary>
-        /// Gets or sets a AddressBookPropValueList structure that contains the values of properties requested.
+        /// Gets or sets a AddressBookPropertyValueList structure that contains the values of properties requested.
         /// </summary>
-        public AddressBookPropValueList[] Rows { get; set; }
+        public AddressBookPropertyValueList[] Rows { get; set; }
 
         /// <summary>
         /// Parse the GetSpecialTable request type response body.
@@ -77,10 +77,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             {
                 responseBody.RowCount = BitConverter.ToUInt32(rawData, index);
                 index += sizeof(uint);
-                responseBody.Rows = new AddressBookPropValueList[(uint)responseBody.RowCount];
+                responseBody.Rows = new AddressBookPropertyValueList[(uint)responseBody.RowCount];
                 for (int i = 0; i < responseBody.RowCount; i++)
                 {
-                    responseBody.Rows[i] = AddressBookPropValueList.Parse(rawData, ref index);
+                    responseBody.Rows[i] = AddressBookPropertyValueList.Parse(rawData, ref index);
                 }
             }
             else

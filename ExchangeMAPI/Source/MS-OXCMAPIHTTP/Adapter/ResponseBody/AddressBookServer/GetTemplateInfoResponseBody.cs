@@ -24,9 +24,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         public bool HasRow { get; set; }
 
         /// <summary>
-        /// Gets or sets a AddressBookPropValueList structure that specifies the information that the client request.
+        /// Gets or sets a AddressBookPropertyValueList structure that specifies the information that the client request.
         /// </summary>
-        public AddressBookPropValueList? Row { get; set; }
+        public AddressBookPropertyValueList? Row { get; set; }
 
         /// <summary>
         /// Parse the GetTemplateInfo request type response body.
@@ -48,7 +48,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             index += sizeof(bool);
             if (responseBody.HasRow)
             {
-                responseBody.Row = AddressBookPropValueList.Parse(rawData, ref index);
+                responseBody.Row = AddressBookPropertyValueList.Parse(rawData, ref index);
             }
             else
             {

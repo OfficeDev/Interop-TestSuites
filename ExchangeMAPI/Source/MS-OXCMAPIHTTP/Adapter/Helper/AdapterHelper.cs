@@ -104,16 +104,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Compare whether two AddressBookPropValueLists are equal.
         /// </summary>
-        /// <param name="addressBookPropValueList1">The first AddressBookPropValueList used to compare.</param>
-        /// <param name="addressBookPropValueList2">The second AddressBookPropValueList used to compare.</param>
+        /// <param name="addressBookPropValueList1">The first AddressBookPropertyValueList used to compare.</param>
+        /// <param name="addressBookPropValueList2">The second AddressBookPropertyValueList used to compare.</param>
         /// <returns>Returns true if they are equal; otherwise false.</returns>
-        public static bool AreTwoAddressBookPropValueListEqual(AddressBookPropValueList addressBookPropValueList1, AddressBookPropValueList addressBookPropValueList2)
+        public static bool AreTwoAddressBookPropValueListEqual(AddressBookPropertyValueList addressBookPropValueList1, AddressBookPropertyValueList addressBookPropValueList2)
         {
             if (addressBookPropValueList1.PropertyValueCount != addressBookPropValueList2.PropertyValueCount)
             {
                 site.Log.Add(
                     LogEntryKind.Debug,
-                    "The length the two AddressBookPropValueList are not equal. The length of addressBookPropValueList1 is {0}, the length of addressBookPropValueList2 is {1}.",
+                    "The length the two AddressBookPropertyValueList are not equal. The length of addressBookPropValueList1 is {0}, the length of addressBookPropValueList2 is {1}.",
                     addressBookPropValueList1.PropertyValueCount,
                     addressBookPropValueList2.PropertyValueCount);
 
@@ -121,33 +121,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             }
             else
             {
-                TaggedPropertyValue[] propertyValues1 = addressBookPropValueList1.PropertyValues;
-                TaggedPropertyValue[] propertyValues2 = addressBookPropValueList2.PropertyValues;
-
+                AddressBookTaggedPropertyValue[] propertyValues1 = addressBookPropValueList1.PropertyValues;
+                AddressBookTaggedPropertyValue[] propertyValues2 = addressBookPropValueList2.PropertyValues;
+                
                 for (int i = 0; i < propertyValues1.Length; i++)
-                {
-                    PropertyTag propertyTag1 = propertyValues1[i].PropertyTag;
-                    PropertyTag propertyTag2 = propertyValues2[i].PropertyTag;
-
-                    if (propertyTag1.PropertyId != propertyTag2.PropertyId)
+                { 
+                    if (propertyValues1[i].PropertyId != propertyValues2[i].PropertyId)
                     {
                         site.Log.Add(
                             LogEntryKind.Debug,
                             "The property ID of property {0} in the two property tag array are not equal. The property ID of propertyTag1 is {1}, the property ID of propertyTag2 is {2}",
                             i,
-                            propertyTag1.PropertyId,
-                            propertyTag2.PropertyId);
+                            propertyValues1[i].PropertyId,
+                            propertyValues2[i].PropertyId);
 
                         return false;
                     }
-                    else if (propertyTag1.PropertyType != propertyTag2.PropertyType)
+                    else if (propertyValues1[i].PropertyType != propertyValues2[i].PropertyType)
                     {
                         site.Log.Add(
                             LogEntryKind.Debug,
                             "The property type of property {0} in the two property tag array are not equal. The property type of propertyTag1 is {1}, the property type of propertyTag2 is {2}",
                             i,
-                            propertyTag1.PropertyType,
-                            propertyTag2.PropertyType);
+                            propertyValues1[i].PropertyType,
+                            propertyValues2[i].PropertyType);
 
                         return false;
                     }
@@ -199,7 +196,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <param name="propertyTagArray1">The first LargePropertyTagArray used to compare.</param>
         /// <param name="propertyTagArray2">The second LargePropertyTagArray used to compare.</param>
         /// <returns>Returns true if they are equal; otherwise false.</returns>
-        public static bool AreTwoLargePropertyTagArrayEqual(LargePropTagArray propertyTagArray1, LargePropTagArray propertyTagArray2)
+        public static bool AreTwoLargePropertyTagArrayEqual(LargePropertyTagArray propertyTagArray1, LargePropertyTagArray propertyTagArray2)
         {
             if (propertyTagArray1.PropertyTagCount != propertyTagArray2.PropertyTagCount)
             {
@@ -283,9 +280,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     }
                     else
                     {
-                        List<PropertyValue> valueArray1 = new List<PropertyValue>();
+                        List<AddressBookPropertyValue> valueArray1 = new List<AddressBookPropertyValue>();
                         valueArray1.AddRange(propertyRow1.ValueArray);
-                        List<PropertyValue> valueArray2 = new List<PropertyValue>(); 
+                        List<AddressBookPropertyValue> valueArray2 = new List<AddressBookPropertyValue>(); 
                         valueArray2.AddRange(propertyRow2.ValueArray);
 
                         if (valueArray1.Count != valueArray2.Count)
