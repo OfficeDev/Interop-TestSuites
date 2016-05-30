@@ -2,14 +2,15 @@
 <TestSettings name="MS-OXCFOLD" id="6f34cecb-9a0b-4979-b94f-187ae43011d6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXCFOLD test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXCFOLD.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCFOLD_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCFOLD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCFOLD_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCFOLD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCFOLD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCFOLD_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCFOLD.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OXCFOLD_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCFOLD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>

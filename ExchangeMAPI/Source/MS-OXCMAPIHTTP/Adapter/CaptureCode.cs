@@ -496,11 +496,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             bool isVerifyR2005 = addressBookPropertyValue.HasValue == 0xFF || addressBookPropertyValue.HasValue == 0x00;
 
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2005
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifyR2005,
-                2005,
-                @"[In AddressBookPropertyValue Structure] [HasValue] This field MUST contain either TRUE (0xFF) or FALSE (0x00). ");
+            if (addressBookPropertyValue.HasValue != null)
+            {
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2005
+                this.Site.CaptureRequirementIfIsTrue(
+                    isVerifyR2005,
+                    2005,
+                    @"[In AddressBookPropertyValue Structure] [HasValue] This field MUST contain either TRUE (0xFF) or FALSE (0x00). ");
+            }
         }
         #endregion
 
