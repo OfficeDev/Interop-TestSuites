@@ -2,10 +2,6 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// A class indicates the GetSpecialTable request type failure response body.

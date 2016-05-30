@@ -9,7 +9,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP.ResponseBody.AddressBook
     public class GetPropsFailureResponseBody: AddressBookResponseBodyBase
     {
         /// <summary>
-        /// Parse the GetSpecialTable request type response body.
+        /// Parse the GetProps request type response body.
         /// </summary>
         /// <param name="rawData">The raw data of response.</param>
         /// <returns>The failure response body of GetProps request.</returns>

@@ -8,7 +8,7 @@
     public class GetPropListFailureResponseBody: AddressBookResponseBodyBase
     {
         /// <summary>
-        /// Parse the GetSpecialTable request type response body.
+        /// Parse the GetPropList request type response body.
         /// </summary>
         /// <param name="rawData">The raw data of response.</param>
         /// <returns>The failure response body of GetPropList request.</returns>

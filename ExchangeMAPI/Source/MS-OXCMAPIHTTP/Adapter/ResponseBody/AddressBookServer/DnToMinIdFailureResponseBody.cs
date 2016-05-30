@@ -1,10 +1,6 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
-{ 
+{
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// A class indicates the DnToMinId request type failure response body.
@@ -12,7 +8,7 @@
     public class DnToMinIdFailureResponseBody: AddressBookResponseBodyBase
     {
         /// <summary>
-        /// Parse the Bind request type response body.
+        /// Parse the DoToMinId request type response body.
         /// </summary>
         /// <param name="rawData">The raw data of response.</param>
         /// <returns>The failure response body of DnToMinId request</returns>

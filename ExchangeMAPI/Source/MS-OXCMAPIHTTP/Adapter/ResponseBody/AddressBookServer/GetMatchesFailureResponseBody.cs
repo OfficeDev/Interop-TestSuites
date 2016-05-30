@@ -8,7 +8,7 @@
     public class GetMatchesFailureResponseBody: AddressBookResponseBodyBase
     {
         /// <summary>
-        /// Parse the Bind request type response body.
+        /// Parse the GetMatches request type response body.
         /// </summary>
         /// <param name="rawData">The raw data of response.</param>
         /// <returns>The failure response body of GetMatches request</returns>
