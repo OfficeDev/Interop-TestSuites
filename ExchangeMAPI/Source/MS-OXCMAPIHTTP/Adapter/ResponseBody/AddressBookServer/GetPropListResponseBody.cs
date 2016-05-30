@@ -24,7 +24,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropTagArray structure that contains the property tags of properties that have values on the requested object.
         /// </summary>
-        public LargePropTagArray? PropertyTags { get; set; }
+        public LargePropertyTagArray? PropertyTags { get; set; }
 
         /// <summary>
         /// Parse the GetPropList request type response body.
@@ -44,7 +44,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             index += sizeof(bool);
             if (responseBody.HasPropertyTags)
             {
-                responseBody.PropertyTags = LargePropTagArray.Parse(rawData, ref index);
+                responseBody.PropertyTags = LargePropertyTagArray.Parse(rawData, ref index);
             }
             else
             {

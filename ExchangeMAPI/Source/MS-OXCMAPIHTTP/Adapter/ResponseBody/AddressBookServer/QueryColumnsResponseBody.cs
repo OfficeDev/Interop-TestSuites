@@ -21,7 +21,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropTagArray structure that specifies the properties that exist on the address book.
         /// </summary>
-        public LargePropTagArray? Columns { get; set; }
+        public LargePropertyTagArray? Columns { get; set; }
 
         /// <summary>
         /// Parse the QueryColumns request type response body.
@@ -40,7 +40,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             index += sizeof(bool);
             if (responseBody.HasColumns)
             {
-                responseBody.Columns = LargePropTagArray.Parse(rawData, ref index);
+                responseBody.Columns = LargePropertyTagArray.Parse(rawData, ref index);
             }
             else
             {

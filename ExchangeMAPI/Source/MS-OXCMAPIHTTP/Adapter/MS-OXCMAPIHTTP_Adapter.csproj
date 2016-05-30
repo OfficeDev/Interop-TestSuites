@@ -38,15 +38,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructure\AddressBookPropertyRow.cs" />
-    <Compile Include="DataStructure\AddressBookPropValueList.cs" />
+    <Compile Include="DataStructure\AddressBookPropertyValueList.cs" />
     <Compile Include="DataStructure\ExistRestriction.cs" />
     <Compile Include="DataStructure\IRestriction.cs" />
-    <Compile Include="DataStructure\LargePropTagArray.cs" />
-    <Compile Include="DataStructure\PropertyInterpreter\FlaggedPropertyValue.cs" />
-    <Compile Include="DataStructure\PropertyInterpreter\FlaggedPropertyValueWithType.cs" />
-    <Compile Include="DataStructure\PropertyInterpreter\PropertyValue.cs" />
-    <Compile Include="DataStructure\PropertyInterpreter\TaggedPropertyValue.cs" />
-    <Compile Include="DataStructure\PropertyInterpreter\TypedPropertyValue.cs" />
+    <Compile Include="DataStructure\LargePropertyTagArray.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\AddressBookFlaggedPropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\AddressBookFlaggedPropertyValueWithType.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\AddressBookPropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\AddressBookTaggedPropertyValue.cs" />
+    <Compile Include="DataStructure\PropertyInterpreter\AddressBookTypedPropertyValue.cs" />
     <Compile Include="DataStructure\Restriction.cs" />
     <Compile Include="DataStructure\Structure.cs" />
     <Compile Include="Helper\CommonResponse.cs" />
