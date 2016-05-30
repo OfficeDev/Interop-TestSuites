@@ -17660,7 +17660,6 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
         /// Verify RPC error when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value.
         /// </summary>
         /// <param name="status">The status of the RPC operation.</param>
-        /// <param name="pcbOut">The size of required response buffer.</param>
         private void VerifyFailRPCForMaxPcbOut(uint status)
         {
             if (Common.IsRequirementEnabled(454509, this.Site)
@@ -17677,6 +17676,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                     454509,
                     @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)");
             }
+
             if (Common.IsRequirementEnabled(20009, this.Site)
                && this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("mapi_http", StringComparison.InvariantCultureIgnoreCase))
             {
