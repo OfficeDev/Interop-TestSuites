@@ -17661,7 +17661,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
         /// </summary>
         /// <param name="status">The status of the RPC operation.</param>
         /// <param name="pcbOut">The size of required response buffer.</param>
-        private void VerifyFailRPCForMaxPcbOut(uint status, uint pcbOut)
+        private void VerifyFailRPCForMaxPcbOut(uint status)
         {
             if (Common.IsRequirementEnabled(454509, this.Site)
                  && (this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_ip_tcp", StringComparison.InvariantCultureIgnoreCase)
