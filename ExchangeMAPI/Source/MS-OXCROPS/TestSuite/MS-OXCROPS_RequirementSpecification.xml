@@ -1126,40 +1126,30 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes):  A GUID that specifies the replica GUID associated with the replica ID that is specified in the ReplId field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R107</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): This field specifies the replica GUID associated with the replica ID that is specified in the ReplId field.&lt;5&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCROPS_R4720, MS-OXCROPS_R214.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R20001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid (16 bytes): This field is not used and is ignored by the client. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R20002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid (16 bytes): The server SHOULD set this field to all zeroes.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid (16 bytes): The server SHOULD set this field to all zeroes.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCROPS_R20003.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCROPS_R4720, MS-OXCROPS_R214.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R11201</ns1:REQ_ID>
@@ -43694,17 +43684,6 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R20003</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PerUserGuid field to all zeroes.</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R20002:I,MS-OXCROPS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40010</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;1&gt; Section 2.1: Exchange 2003 follows this behavior.)</ns1:Description>
@@ -43851,7 +43830,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:REQ_ID>MS-OXCROPS_R4720</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the PerUserGuid field to an empty GUID. (&lt;5&gt; Section 2.2.3.1.3: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R107:i</ns1:Derived>
+		<ns1:Derived>MS-OXCROPS_R20002:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43862,7 +43841,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:REQ_ID>MS-OXCROPS_R214</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] PerUserGuid (16 bytes): Implementation does set this field to an empty GUID (all zeroes). (Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R107:i</ns1:Derived>
+		<ns1:Derived>MS-OXCROPS_R20002:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
