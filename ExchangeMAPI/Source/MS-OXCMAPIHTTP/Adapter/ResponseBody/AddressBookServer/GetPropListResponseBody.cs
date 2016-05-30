@@ -1,10 +1,6 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// A class indicates the response body of GetPropList request 
