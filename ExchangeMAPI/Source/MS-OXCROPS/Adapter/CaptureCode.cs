@@ -583,7 +583,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR106,
                     106,
-                    @"[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID that specifies the replica GUID associated with the replica ID that is specified in the ReplId field.");
+                    @"[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID.");
 
                 if (Common.IsRequirementEnabled(4720, this.Site))
                 {
@@ -632,7 +632,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                         isVerifyR214,
                         214,
                         @"[In Appendix B: Product Behavior] PerUserGuid (16 bytes): Implementation does set this field to an empty GUID (all zeroes). (Microsoft Exchange Server 2010 and above follow this behavior.)");
-                }               
+                }
             }
         }
 
@@ -1363,7 +1363,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 4,
                 Marshal.SizeOf(ropGetStoreStateResponse.StoreState.GetType()),
                 240,
-                @"[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure that contains flags that indicate the state of the mailbox for the logged on user.");
+                @"[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R241,StoreState:{0}", ropGetStoreStateResponse.StoreState);
@@ -9160,17 +9160,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 isVerifyR2024,
                 2024,
                 @"[In RopSetMessageStatus ROP Success Response Buffer,MessageStatusFlags (4 bytes)]The possible values[zero, the value of msRemoteDownload is 0x00001000, the value of msInConflict is 0x00000800 and the value of msRemoteDelete is 0x00002000] are specified in [MS-OXCMSG] section 2.2.3.8.2.");
-           
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R20004");
-
-            // Verify MS-OXCROPS requirement: MS-OXCROPS_R20004
-            this.Site.CaptureRequirementIfAreEqual<byte>(
-                0x20,
-                ropSetMessageStatusResponse.RopId,
-                20004,
-                @"[In RopGetMessageStatus ROP Response Buffers] The value of the RopId field for RopGetMessageStatus responses MUST be 0x20, which is the same as that for the RopSetMessageStatus responses.");
-
         }
 
         /// <summary>
@@ -17660,21 +17649,35 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
         /// Verify RPC error when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value.
         /// </summary>
         /// <param name="status">The status of the RPC operation.</param>
-        /// <param name="pcbOut">The size of required response buffer.</param>
-        private void VerifyFailRPCForMaxPcbOut(uint status, uint pcbOut)
+        private void VerifyFailRPCForMaxPcbOut(uint status)
         {
-            if (Common.IsRequirementEnabled(454509, this.Site))
+            if (Common.IsRequirementEnabled(454509, this.Site)
+                && (this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_ip_tcp", StringComparison.InvariantCultureIgnoreCase)
+                || this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_http", StringComparison.InvariantCultureIgnoreCase)))
             {
-                bool isVerify454509 = status == OxcRpcErrorCode.ECResponseTooBig && pcbOut == MS_OXCROPSAdapter.MaxPcbOut;
-
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R454509");
 
                 // Verify MS-OXCROPS requirement: MS-OXCROPS_R454509
-                Site.CaptureRequirementIfIsTrue(
-                    isVerify454509,
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
                     454509,
-                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2010  and above follow this behavior");
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(20009, this.Site)
+                && this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("mapi_http", StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R20009");
+
+                // Verify MS-OXCROPS requirement: MS-OXCROPS_R20009
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
+                    20009,
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2013 SP1  and above follow this behavior.)");
             }
         }
 
