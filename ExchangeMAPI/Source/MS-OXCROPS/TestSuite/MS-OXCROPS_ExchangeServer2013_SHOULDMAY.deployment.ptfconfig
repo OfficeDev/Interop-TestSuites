@@ -74,16 +74,10 @@
       <Property name="R5000Enabled" value="true"/>
       <!-- Set R5001Enabled to true to verify that the implementation does support an ncacn_ip_tcp transport. Set R5001Enabled to false to disable this requirement.-->
       <Property name="R5001Enabled" value="false"/>
-      <!-- Set R469304Enabled to true to verify that the implementation does include a RopPending ROP response (section 2.2.14.3) even though all queued RopNotify ROP responses (section 2.2.14.2) fit in the ROP output buffer. Set R469304Enabled to false to disable this requirement.-->
-      <Property name="R469304Enabled" value="false"/>
-      <!-- Set R469309Enabled to true to verify that the implementation does not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D if one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value. Set R469309Enabled to false to disable this requirement.-->
-      <Property name="R469309Enabled" value="false"/>
       <!-- Set R20008Enabled to true to verify that the implementation does not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body is set to the maximum value. Set R20008Enabled to false to disable this requirement.-->
       <Property name="R20008Enabled" value="false"/>
       <!-- Set R20009Enabled to true to verify that the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value. Set R20009Enabled to false to disable this requirement.-->
       <Property name="R20009Enabled" value="true"/>
-      <!-- Set R471401Enabled to true to verify that the implementation does replace the handle of the released Server object handle table entry with a value that is considered invalid by both server and client and is not 0xFFFFFFFF. This invalid handle value is then returned as the Server object handle in the ROP responses for the other ROPs in the RPC when multiple ROPs are being processed in one RPC and the RopRelease ROP is the last ROP in the call. Set R471401Enabled to false to disable this requirement.-->
-      <Property name="R471401Enabled" value="true"/>
       <!-- Set R20010Enabled to true to verify that the implementation does release the resources associated with it. Set R20010Enabled to false to disable this requirement.-->
       <Property name="R20010Enabled" value="true"/>
       </Properties>
