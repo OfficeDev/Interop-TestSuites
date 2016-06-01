@@ -4506,20 +4506,11 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035111</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values from the following table.</ns1:Description>
+		<ns1:Description>[In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values [1: IPM, 2: SEARCH, 4: NORMAL, 8: RULES] from the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1035102</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The folder flag named "IPM" has the value 1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035103</ns1:REQ_ID>
@@ -4531,15 +4522,6 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1035104</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The folder flag named "SEARCH" has the value 2.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035105</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "SEARCH" specified] the folder contains the results of a search.</ns1:Description>
@@ -4549,15 +4531,6 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1035106</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The folder flag named "NORMAL" has the value 4.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "NORMAL" specified] the folder is a generic folder that contains messages and other folders.</ns1:Description>
@@ -4565,15 +4538,6 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1035108</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The folder flag named "RULES" has the value 8.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035109</ns1:REQ_ID>
