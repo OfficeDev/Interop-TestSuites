@@ -4509,8 +4509,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Description>[In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values [1: IPM, 2: SEARCH, 4: NORMAL, 8: RULES] from the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035103</ns1:REQ_ID>
