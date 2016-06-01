@@ -142,6 +142,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirement(
                     459,
                     @"[In Transport] The Autodiscover response, as specified in [MS-OXDSCLI], contains a URI that the client will use to access the two endpoints (4) used by this protocol: the mailbox sever endpoint (same as that used for the EMSMDB interface) and the address book server endpoint (same as that used for the NSPI interface).");
+
+                // In the upper two if statements, one verified Mailbox server endpoint and another one verified AddressBook server endpoint.
+                // The validity of URI is verified in all endpoints, so if code run to here, R29 is verified.
+                this.Site.CaptureRequirement(
+                    29,
+                    @"[In POST Method] A separate URI is returned in Autodiscover for each endpoint (4).");
             }
         }
         #endregion
@@ -196,7 +202,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsFalse(
                 string.IsNullOrEmpty(headers["X-ClientInfo"]),
                 155,
-                @"[In X-ClientInfo Header Field] The X-ClientInfo header contains opaque information.");
+                @"[In X-ClientInfo Header Field] The X-ClientInfo header field MUST be a combination of a globally unique value in the format of a GUID followed by a decimal counter (for example, ""{2EF33C39-49C8-421C-B876-CDF7F2AC3AA0}:123"").");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R164: the X-ServerApplication header is {0}.", headers["X-ServerApplication"]);
@@ -245,7 +251,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsFalse(
                 string.IsNullOrEmpty(headers["Set-Cookie"]),
                 1236,
-                @"[In Responding to All Request Type Requests] The response includes all Set-Cookie headers as specified in section 2.2.3.2.3 associated with the Session Context.");
+                @"[In Responding to All Request Type Requests] The response includes all Set-Cookie headers as specified in section 2.2.3.2.4 associated with the Session Context.");
 
             string pendingPeriodHeader = headers["X-PendingPeriod"];
             int pendingPeriod = 0;
@@ -342,7 +348,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 elapsedTimeHeader,
                 169,
-                @"[In X-ElapsedTime Header] This header [X-ElapsedTime] is returned by the server as an additional header in the final response.");
+                @"[In X-ElapsedTime Header Field] This header [X-ElapsedTime] is returned by the server as an additional header in the final response.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R168: the X-ElapsedTime header is {0}", elapsedTimeHeader);
@@ -351,7 +357,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 int.TryParse(elapsedTimeHeader, out elapsedTimeHeaderValue),
                 168,
-                @"[In X-ElapsedTime Header] The X-ElapsedTime header specifies the amount of time, in milliseconds, that the server took to process the request.");
+                @"[In X-ElapsedTime Header Field] The X-ElapsedTime header specifies the amount of time, in milliseconds, that the server took to process the request.");
 
             string startTimeHeader = additionalHeaders["X-StartTime"];
             DateTime startTime;
@@ -365,7 +371,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 startTimeHeader,
                 171,
-                @"[In X-StartTime Header] This header [X-StartTime] is returned by the server as an additional header in the final response.");
+                @"[In X-StartTime Header Field] This header [X-StartTime] is returned by the server as an additional header in the final response.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R170");
@@ -376,7 +382,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 startTimeHeader != null && DateTime.TryParse(startTimeHeader, out startTime),
                 170,
-                @"[In X-StartTime Header] The X-StartTime header specifies the time that the server started processing the request.");
+                @"[In X-StartTime Header Field] The X-StartTime header specifies the time that the server started processing the request.");
         }
         #endregion
 
@@ -638,7 +644,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 largePropTagArray.PropertyTagCount,
                 typeof(uint),
                 24,
-                @"[In LargePropTagArray Structure] PropertyTagCount (4 bytes): An unsigned integer that specifies the number of structures contained in the PropertyTags field.");
+                @"[In LargePropertyTagArray Structure] PropertyTagCount (4 bytes): An unsigned integer that specifies the number of structures contained in the PropertyTags field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R25, the value of PropertyTagCount is {0}.", largePropTagArray.PropertyTagCount);
@@ -647,7 +653,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 largePropTagArray.PropertyTagCount <= 100000,
                 25,
-                @"[In LargePropTagArray Structure] [PropertyTagCount (4 bytes)] The number is limited to 100,000.");
+                @"[In LargePropertyTagArray Structure] [PropertyTagCount (4 bytes)] The number is limited to 100,000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R26");
@@ -657,7 +663,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 largePropTagArray.PropertyTags,
                 typeof(PropertyTag[]),
                 26,
-                @"[In LargePropTagArray Structure] PropertyTags (variable): An array of PropertyTag structures ([MS-OXCDATA] section 2.9), each of which contains a property tag that specifies a property.");
+                @"[In LargePropertyTagArray Structure] PropertyTags (variable): An array of PropertyTag structures ([MS-OXCDATA] section 2.9), each of which contains a property tag that specifies a property.");
         
             PropertyTag[] propertytags = largePropTagArray.PropertyTags;
             foreach (PropertyTag propertyTag in propertytags)
@@ -689,7 +695,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             // so if the program run to here, R23 can be verified directly.
             this.Site.CaptureRequirement(
                 23,
-                @"[In LargePropTagArray Structure] The LargePropTagArray structure contains a list of property tags.");
+                @"[In LargePropertyTagArray Structure] The LargePropertyTagArray structure contains a list of property tags.");
         }
         #endregion
 
@@ -745,18 +751,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     this.Site.CaptureRequirement(
                         41,
                         @"[In Common Response Format] The common server response across all endpoints (4) used in this protocol has the following formats, depending on whether the response is chunked.
-                                                        Chunked response:
-                                                        HTTP/1.1 200 OK
-                                                        Host: <URL of the host server>
-                                                        Transfer-Encoding: chunked
-                                                        Content-Type: application/mapi-http
-                                                        X-RequestType: <?>
-                                                        X-ResponseCode: <?>
-                                                        X-ServerApplication:<server version>
-
-                                                        <META-TAGS>
-                                                        <ADDITIONAL HEADERS>
-                                                        <RESPONSE BODY>");
+Chunked response:
+ HTTP/1.1 200 OK
+ Transfer-Encoding: chunked
+ Content-Type: application/mapi-http
+ X-RequestType: <?>
+ X-ResponseCode: <?>
+ X-RequestId: <?>
+ X-ServerApplication:<server version>
+ 
+ <META-TAGS>
+ <ADDITIONAL HEADERS>
+ <RESPONSE BODY>");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1300");
@@ -766,6 +772,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                         headerValus.Contains("Transfer-Encoding"),
                         1300,
                         @"[In Common Response Format] In addition to headers [Host, Content-Type, X-RequestType and X-ResponseCode], a chunked response contains the Transfer-Encoding header, specified in section 2.2.3.2.5.");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2231");
+
+                    // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2231
+                    // The structure of response body is parsed according to the request of this Specification, if the code run to here and passed, 
+                    // that means R2231 is invoked successfully.
+                    this.Site.CaptureRequirement(
+                        2231,
+                        @"[In Responding to All Request Type Requests] The request type response body for the initiating request type will immediately follow any additional headers preceded by a CRLF on an empty line.");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2228");
+
+                    // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2228
+                    // The structure of response body is parsed according to the request of this Specification, if the code run to here and passed, 
+                    // that means R2228 is invoked successfully.
+                    this.Site.CaptureRequirement(
+                        2228,
+                        @"[In Responding to All Request Type Requests] The X-ElapsedTime and X-StartTime are present after the DONE meta-tag, as specified in section 2.2.3.3.9 and 2.2.3.3.10 respectively.");
+
                 }
 
                 // Add the debug information
@@ -813,6 +840,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirement(
                     1459,
                     @"[In Common Response Format] For non-exceptional condition (most failures), the server will return an X-ResponseCode header.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2229");
+
+                // If the code execute to here, that means the server returned an X-ResponseCode header if failure occurs.
+                this.Site.CaptureRequirement(
+                    2229,
+                    @"[In Responding to All Request Type Requests] The server will include a X-ResponseCode header, as specified in section 2.2.3.3.3, if a failure occurs after the initial response is sent.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2229");
+
+                // If the code execute to here, that means the server returned an X-ResponseCode header if failure occurs.
+                this.Site.CaptureRequirement(
+                    2229,
+                    @"[In Responding to All Request Type Requests] The server will include a X-ResponseCode header, as specified in section 2.2.3.3.3, if a failure occurs after the initial response is sent.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2230");
+
+                // If the code execute to here, that means the server returned an X-ResponseCode header and the value is not 0 when failure occurs.
+                this.Site.CaptureRequirement(
+                    2230,
+                    @"[In Responding to All Request Type Requests] More specifically, this gives the server the ability to later fail the request and return a different value in the X-ResponseCode header.");
             }
         }
 
@@ -864,7 +915,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsFalse(
                 string.IsNullOrEmpty(headers["Set-Cookie"]),
                 1261,
-                @"[In Responding to a NotificationWait Request Type Request] The response headers include Set-Cookie headers as specified in section 2.2.3.2.3 for all cookies related to the Session Context.");
+                @"[In Responding to a NotificationWait Request Type Request] The response headers include Set-Cookie headers as specified in section 2.2.3.2.4 for all cookies related to the Session Context.");
 
         }
         #endregion
@@ -932,7 +983,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.StatusCode,
                 typeof(uint),
                 209,
-                @"[In Connect Request Type Success Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In Connect Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1349");
@@ -952,7 +1003,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.ErrorCode,
                 typeof(uint),
                 210,
-                @"[In Connect Request Type Success Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In Connect Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R211");
@@ -962,7 +1013,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.PollsMax,
                 typeof(uint),
                 211,
-                @"[In Connect Request Type Success Response Body] PollsMax: An unsigned integer that specifies the number of milliseconds for the maximum polling interval.");
+                @"[In Connect Request Type Success Response Body] PollsMax (4 bytes): An unsigned integer that specifies the number of milliseconds for the maximum polling interval.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R212");
@@ -972,7 +1023,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.RetryCount,
                 typeof(uint),
                 212,
-                @"[In Connect Request Type Success Response Body] RetryCount: An unsigned integer that specifies the number of times to retry request types.");
+                @"[In Connect Request Type Success Response Body] RetryCount (4 bytes): An unsigned integer that specifies the number of times to retry request types.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R214");
@@ -982,7 +1033,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.RetryDelay,
                 typeof(uint),
                 214,
-                @"[In Connect Request Type Success Response Body] RetryDelay: An unsigned integer that specifies the number of milliseconds for the client to wait before retrying a failed request type.");
+                @"[In Connect Request Type Success Response Body] RetryDelay (4 bytes): An unsigned integer that specifies the number of milliseconds for the client to wait before retrying a failed request type.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1351");
@@ -992,7 +1043,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1351,
-                @"[In Connect Request Type Success Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In Connect Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R218");
@@ -1002,7 +1053,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 connectSuccessResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 218,
-                @"[In Connect Request Type Success Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In Connect Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1102,7 +1153,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.StatusCode,
                 typeof(uint),
                 250,
-                @"[In Execute Request Type Success Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In Execute Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1356");
@@ -1122,7 +1173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.ErrorCode,
                 typeof(uint),
                 251,
-                @"[In Execute Request Type Success Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In Execute Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R245");
@@ -1152,7 +1203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.RopBufferSize,
                 typeof(uint),
                 253,
-                @"[In Execute Request Type Success Response Body] RopBufferSize: An unsigned integer that specifies the size, in bytes, of the RopBuffer field.");
+                @"[In Execute Request Type Success Response Body] RopBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the RopBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R254");
@@ -1162,7 +1213,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.RopBuffer,
                 typeof(byte[]),
                 254,
-                @"[In Execute Request Type Success Response Body] RopBuffer: An array of bytes that constitute the ROP responses payload.");
+                @"[In Execute Request Type Success Response Body] RopBuffer (variable): An array of bytes that constitute the ROP responses payload.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1186,7 +1237,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 255,
-                @"[In Execute Request Type Success Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In Execute Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R256");
@@ -1196,7 +1247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 executeSuccessResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 256,
-                @"[In Execute Request Type Success Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In Execute Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1228,7 +1279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 string.IsNullOrEmpty(httpWebResponse.Headers["Cookie"]),
                 1255,
-                @"[In Responding to a Disconnect Request Type Request] No Cookie headers (section 2.2.3.2.4) are included in the response.");
+                @"[In Responding to a Disconnect Request Type Request] All relevant Set-Cookie headers, as specified in section 2.2.3.2.3,  are included in the response even though the session context cookie has been invalidated.");
         }
         #endregion
 
@@ -1247,7 +1298,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 disconnectSuccessResponseBody.StatusCode,
                 typeof(uint),
                 281,
-                @"[In Disconnect Request Type Success Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In Disconnect Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1363");
@@ -1267,7 +1318,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 disconnectSuccessResponseBody.ErrorCode,
                 typeof(uint),
                 288,
-                @"[In Disconnect Request Type Success Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In Disconnect Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R289");
@@ -1277,7 +1328,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 disconnectSuccessResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 289,
-                @"[In Disconnect Request Type Success Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In Disconnect Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R290");
@@ -1287,7 +1338,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 disconnectSuccessResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 290,
-                @"[In Disconnect Request Type Success Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In Disconnect Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1320,7 +1371,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 notificationWaitSuccessResponseBody.StatusCode,
                 typeof(uint),
                 283,
-                @"[In NotificationWait Request Type Success Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In NotificationWait Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1369");
@@ -1340,7 +1391,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 notificationWaitSuccessResponseBody.ErrorCode,
                 typeof(uint),
                 297,
-                @"[In NotificationWait Request Type Success Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In NotificationWait Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R285");
@@ -1350,7 +1401,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 notificationWaitSuccessResponseBody.EventPending,
                 typeof(uint),
                 285,
-                @"[In NotificationWait Request Type Success Response Body] EventPending: An unsigned integer that indicates whether an event is pending.");
+                @"[In NotificationWait Request Type Success Response Body] EventPending (4 bytes): An unsigned integer that indicates whether an event is pending.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1373");
@@ -1360,7 +1411,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 notificationWaitSuccessResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1373,
-                @"[In NotificationWait Request Type Success Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In NotificationWait Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R298");
@@ -1370,7 +1421,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 notificationWaitSuccessResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 298,
-                @"[In NotificationWait Request Type Success Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In NotificationWait Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1374");
@@ -1448,7 +1499,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.StatusCode,
                 typeof(uint),
                 843,
-                @"[In QueryRows Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In QueryRows Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R844");
@@ -1458,7 +1509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 queryRowsResponseBody.StatusCode,
                 844,
-                @"[In QueryRows Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In QueryRows Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R845");
@@ -1468,7 +1519,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.ErrorCode,
                 typeof(uint),
                 845,
-                @"[In QueryRows Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In QueryRows Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R846");
@@ -1478,7 +1529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.HasState,
                 typeof(bool),
                 846,
-                @"[In QueryRows Request Type Response Body] HasState: A Boolean value that specifies whether the State field is present.");
+                @"[In QueryRows Request Type Success Response Body] HasState (1 byte): A Boolean value that specifies whether the State field is present.");
 
             if (queryRowsResponseBody.HasState)
             {
@@ -1489,7 +1540,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     queryRowsResponseBody.State,
                     850,
-                    @"[In QueryRows Request Type Response Body] [State] This field is present when the HasState field is nonzero.");
+                    @"[In QueryRows Request Type Success Response Body] [State] This field is present when the HasState field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R847");
@@ -1499,7 +1550,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     queryRowsResponseBody.State,
                     typeof(STAT),
                     847,
-                    @"[In QueryRows Request Type Response Body] State: A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
+                    @"[In QueryRows Request Type Success Response Body] State (optional) (36bytes): A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
             }
             else
             {
@@ -1510,7 +1561,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     queryRowsResponseBody.State,
                     851,
-                    @"[In QueryRows Request Type Response Body] [State] This field is not present when the HasState field is zero.");
+                    @"[In QueryRows Request Type Success Response Body] [State] This field is not present when the HasState field is zero.");
             }
 
             // Add the debug information
@@ -1521,7 +1572,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.HasColumnsAndRows,
                 typeof(bool),
                 852,
-                @"[In QueryRows Request Type Response Body] HasColumnsAndRows: A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
+                @"[In QueryRows Request Type Success Response Body] HasColumnsAndRows (1 byte): A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
 
             if (queryRowsResponseBody.HasColumnsAndRows)
             {
@@ -1533,7 +1584,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     queryRowsResponseBody.Columns,
                     typeof(LargePropertyTagArray),
                     853,
-                    @"[In QueryRows Request Type Response Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the columns for the rows returned.");
+                    @"[In QueryRows Request Type Success Response Body] Columns (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the columns for the rows returned.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R854.");
@@ -1542,7 +1593,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     queryRowsResponseBody.Columns,
                     854,
-                    @"[In QueryRows Request Type Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In QueryRows Request Type Success Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R856.");
@@ -1552,7 +1603,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     queryRowsResponseBody.RowCount,
                     typeof(uint),
                     856,
-                    @"[In QueryRows Request Type Response Body] RowCount: An unsigned integer that specifies the number of structures in the RowData field.");
+                    @"[In QueryRows Request Type Success Response Body] RowCount (optional) (4 bytes): An unsigned integer that specifies the number of structures in the RowData field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R857.");
@@ -1561,7 +1612,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     queryRowsResponseBody.RowCount,
                     857,
-                    @"[In QueryRows Request Type Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In QueryRows Request Type Success Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R859");
@@ -1571,7 +1622,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     queryRowsResponseBody.RowData,
                     typeof(AddressBookPropertyRow[]),
                     859,
-                    @"[In QueryRows Request Type Response Body] RowData: An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data of the Explicit Table.");
+                    @"[In QueryRows Request Type Success Response Body] RowData (optional) (variable): An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data of the Explicit Table.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R860.");
@@ -1580,7 +1631,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     queryRowsResponseBody.RowData,
                     860,
-                    @"[In QueryRows Request Type Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
+                    @"[In QueryRows Request Type Success Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
 
                 //// Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R825, the value of RowCount for queryRowsResponseBody is {0}.", queryRowsResponseBody.RowCount.Value);
@@ -1591,7 +1642,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     queryRowsRequestBody.RowCount >= queryRowsResponseBody.RowCount.Value,
                     825,
-                    @"[In QueryRows Request Type Request Body] RowCount: An unsigned integer that specifies the number of rows the client is requesting.");
+                    @"[In QueryRows Request Type Request Body] RowCount (4 bytes): An unsigned integer that specifies the number of rows the client is requesting.");
             }
             else
             {
@@ -1602,7 +1653,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     queryRowsResponseBody.Columns,
                     855,
-                    @"[In QueryRows Request Type Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In QueryRows Request Type Success Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R858.");
@@ -1611,7 +1662,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     queryRowsResponseBody.RowCount,
                     858,
-                    @"[In QueryRows Request Type Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In QueryRows Request Type Success Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R861.");
@@ -1620,7 +1671,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     queryRowsResponseBody.RowData,
                     861,
-                    @"[In QueryRows Request Type Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
+                    @"[In QueryRows Request Type Success Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
             }
             
             // Add the debug information
@@ -1631,7 +1682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 862,
-                @"[In QueryRows Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In QueryRows Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R863");
@@ -1641,7 +1692,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 863,
-                @"[In QueryRows Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In QueryRows Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R864");
@@ -1651,7 +1702,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryRowsResponseBody.AuxiliaryBufferSize,
                 (uint)queryRowsResponseBody.AuxiliaryBuffer.Length,
                 864,
-                @"[In QueryRows Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In QueryRows Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
 
         #endregion
@@ -1672,7 +1723,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 bindResponseBody.StatusCode,
                 typeof(uint),
                 346,
-                @"[In Bind Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In Bind Request Type Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R347");
@@ -1692,7 +1743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 bindResponseBody.ErrorCode,
                 typeof(uint),
                 348,
-                @"[In Bind Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In Bind Request Type Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R349");
@@ -1702,7 +1753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 bindResponseBody.ServerGuid,
                 typeof(Guid),
                 349,
-                @"[In Bind Request Type Response Body] ServerGuid: A GUID that is associated with a specific address book server.");
+                @"[In Bind Request Type Response Body] ServerGuid (16 bytes): A GUID that is associated with a specific address book server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R350");
@@ -1712,7 +1763,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 bindResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 350,
-                @"[In Bind Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In Bind Request Type Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R351");
@@ -1722,7 +1773,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 bindResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 351,
-                @"[In Bind Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In Bind Request Type Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R352");
@@ -1762,7 +1813,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 unbindResponseBody.StatusCode,
                 typeof(uint),
                 367,
-                @"[In Unbind Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In Unbind Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1291");
@@ -1772,7 +1823,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 unbindResponseBody.StatusCode,
                 1291,
-                @"[In Unbind Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In Unbind Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R368");
@@ -1782,7 +1833,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 unbindResponseBody.ErrorCode,
                 typeof(uint),
                 368,
-                @"[In Unbind Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In Unbind Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R369");
@@ -1792,7 +1843,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 unbindResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 369,
-                @"[In Unbind Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In Unbind Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R370");
@@ -1802,7 +1853,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 unbindResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 370,
-                @"[In Unbind Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In Unbind Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R371");
@@ -1812,7 +1863,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 unbindResponseBody.AuxiliaryBufferSize,
                 (uint)unbindResponseBody.AuxiliaryBuffer.Length,
                 371,
-                @"[In Unbind Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In Unbind Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -1831,7 +1882,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.StatusCode,
                 typeof(uint),
                 399,
-                @"[In CompareMinIds Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In CompareMinIds Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1290");
@@ -1841,7 +1892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 compareMinIdsResponseBody.StatusCode,
                 1290,
-                @"[In CompareMinIds Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In CompareMinIds Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R400");
@@ -1851,7 +1902,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.ErrorCode,
                 typeof(uint),
                 400,
-                @"[In CompareMinIds Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In CompareMinIds Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R401");
@@ -1861,7 +1912,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.Result,
                 typeof(int),
                 401,
-                @"[In CompareMinIds Request Type Response Body] Result: A signed integer that specifies the result of the comparison.");
+                @"[In CompareMinIds Request Type Success Response Body] Result (4 bytes): A signed integer that specifies the result of the comparison.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R402");
@@ -1871,7 +1922,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 402,
-                @"[In CompareMinIds Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In CompareMinIds Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R403");
@@ -1881,7 +1932,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 403,
-                @"[In CompareMinIds Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In CompareMinIds Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R404");
@@ -1891,7 +1942,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 compareMinIdsResponseBody.AuxiliaryBufferSize,
                 (uint)compareMinIdsResponseBody.AuxiliaryBuffer.Length,
                 404,
-                @"[In CompareMinIds Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In CompareMinIds Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -1911,7 +1962,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.StatusCode,
                 typeof(uint),
                 1286,
-                @"[In DnToMinId Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In DnToMinId Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1287");
@@ -1921,7 +1972,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 responseBodyDnToMinId.StatusCode,
                 1287,
-                @"[In DnToMinId Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In DnToMinId Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R430");
@@ -1931,7 +1982,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.ErrorCode,
                 typeof(uint),
                 430,
-                @"[In DnToMinId Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In DnToMinId Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R431");
@@ -1941,7 +1992,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.HasMinimalIds,
                 typeof(bool),
                 431,
-                @"[In DnToMinId Request Type Response Body] HasMinimalIds: A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
+                @"[In DnToMinId Request Type Success Response Body] HasMinimalIds (1 byte): A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R432");
@@ -1951,7 +2002,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.MinimalIdCount,
                 typeof(uint),
                 432,
-                @"[In DnToMinId Request Type Response Body] MinimalIdCount: An unsigned integer that specifies the number of structures in the MinimalIds field.");
+                @"[In DnToMinId Request Type Success Response Body] MinimalIdCount (optional) (4 bytes): An unsigned integer that specifies the number of structures in the MinimalIds field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R440");
@@ -1961,7 +2012,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.AuxiliaryBufferSize,
                 typeof(uint),
                 440,
-                @"[In DnToMinId Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In DnToMinId Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R441");
@@ -1971,7 +2022,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.AuxiliaryBuffer,
                 typeof(byte[]),
                 441,
-                @"[In DnToMinId Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In DnToMinId Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R442");
@@ -1981,7 +2032,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBodyDnToMinId.AuxiliaryBufferSize,
                 (uint)responseBodyDnToMinId.AuxiliaryBuffer.Length,
                 442,
-                @"[In DnToMinId Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In DnToMinId Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
 
             if (responseBodyDnToMinId.HasMinimalIds)
             {
@@ -1993,7 +2044,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBodyDnToMinId.MinimalIdCount,
                     433,
-                    @"[In DnToMinId Request Type Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In DnToMinId Request Type Success Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1288");
@@ -2003,7 +2054,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBodyDnToMinId.MinimalIds,
                     1288,
-                    @"[In DnToMinId Request Type Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In DnToMinId Request Type Success Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
             }
         }
         #endregion
@@ -2024,7 +2075,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.StatusCode,
                 typeof(uint),
                 664,
-                @"[In GetSpecialTable Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetSpecialTable Request Type  Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R665");
@@ -2034,7 +2085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getSpecialTableResponseBody.StatusCode,
                 665,
-                @"[In GetSpecialTable Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetSpecialTable Request Type  Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R666");
@@ -2044,7 +2095,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.ErrorCode,
                 typeof(uint),
                 666,
-                @"[In GetSpecialTable Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetSpecialTable Request Type  Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R667");
@@ -2054,7 +2105,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.CodePage,
                 typeof(uint),
                 667,
-                @"[In GetSpecialTable Request Type Response Body] CodePage: An unsigned integer that specifies the code page the server used to express string properties.");
+                @"[In GetSpecialTable Request Type  Success Response Body] CodePage (4 bytes): An unsigned integer that specifies the code page the server used to express string properties.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R668");
@@ -2064,7 +2115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.HasVersion,
                 typeof(bool),
                 668,
-                @"[In GetSpecialTable Request Type Response Body] HasVersion: A Boolean value that specifies whether the Version field is present.");
+                @"[In GetSpecialTable Request Type  Success Response Body] HasVersion (1 byte): A Boolean value that specifies whether the Version field is present.");
 
             if (getSpecialTableResponseBody.HasVersion)
             {
@@ -2075,7 +2126,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     getSpecialTableResponseBody.Version,
                     670,
-                    @"[In GetSpecialTable Request Type Response Body] [Version] This field is present when the value of the HasVersion field is nonzero.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] [Version] This field is present when the value of the HasVersion field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R669");
@@ -2085,7 +2136,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     getSpecialTableResponseBody.Version,
                     typeof(uint),
                     669,
-                    @"[In GetSpecialTable Request Type Response Body] Version: An unsigned integer that specifies the version number of the address book hierarchy table that the server has.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] Version (optional) (4 bytes): An unsigned integer that specifies the version number of the address book hierarchy table that the server has.");
             }
                         
             // Add the debug information
@@ -2096,7 +2147,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.HasRows,
                 typeof(bool),
                 672,
-                @"[In GetSpecialTable Request Type Response Body] HasRows: A Boolean value that specifies whether the RowCount and Rows fields are present.");
+                @"[In GetSpecialTable Request Type  Success Response Body] HasRows (1 byte): A Boolean value that specifies whether the RowCount and Rows fields are present.");
 
             if (getSpecialTableResponseBody.HasRows)
             {
@@ -2107,7 +2158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     getSpecialTableResponseBody.RowCount,
                     675,
-                    @"[In GetSpecialTable Request Type Response Body] [RowsCount] This field is present when the value of the HasRows field is nonzero.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] [RowsCount] This field is present when the value of the HasRows field is nonzero.");
                 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R673");
@@ -2117,7 +2168,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     getSpecialTableResponseBody.RowCount,
                     typeof(uint),
                     673,
-                    @"[In GetSpecialTable Request Type Response Body] RowsCount: An unsigned integer that specifies the number of structures in the Rows field.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] RowsCount (optional) (4 bytes): An unsigned integer that specifies the number of structures in the Rows field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R678");
@@ -2126,7 +2177,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     getSpecialTableResponseBody.Rows,
                     678,
-                    @"[In GetSpecialTable Request Type Response Body] [Rows] This field is present when the value of the HasRows field is nonzero.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] [Rows] This field is present when the value of the HasRows field is nonzero.");
             }
             else
             {
@@ -2137,7 +2188,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     getSpecialTableResponseBody.RowCount,
                     1452,
-                    @"[In GetSpecialTable Request Type Response Body] [RowsCount] This field is not present when the value of the HasRows field is zero.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] [RowsCount] This field is not present when the value of the HasRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R679");
@@ -2146,7 +2197,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     getSpecialTableResponseBody.Rows,
                     679,
-                    @"[In GetSpecialTable Request Type Response Body] [Rows] This field is not present when the value of the HasRows field is zero.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] [Rows] This field is not present when the value of the HasRows field is zero.");
             }
 
             // Add the debug information
@@ -2157,7 +2208,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 680,
-                @"[In GetSpecialTable Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetSpecialTable Request Type  Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R681");
@@ -2167,7 +2218,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 681,
-                @"[In GetSpecialTable Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetSpecialTable Request Type  Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R682");
@@ -2177,7 +2228,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getSpecialTableResponseBody.AuxiliaryBufferSize,
                 (uint)getSpecialTableResponseBody.AuxiliaryBuffer.Length,
                 682,
-                @"[In GetSpecialTable Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetSpecialTable Request Type  Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -2197,7 +2248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.StatusCode,
                 typeof(uint),
                 713,
-                @"[In GetTemplateInfo Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetTemplateInfo Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R714");
@@ -2207,7 +2258,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getTemplateInfoResponseBody.StatusCode,
                 714,
-                @"[In GetTemplateInfo Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetTemplateInfo Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R715");
@@ -2217,7 +2268,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.ErrorCode,
                 typeof(uint),
                 715,
-                @"[In GetTemplateInfo Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetTemplateInfo Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R716");
@@ -2227,7 +2278,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.CodePage,
                 typeof(uint),
                 716,
-                @"[In GetTemplateInfo Request Type Response Body] CodePage: An unsigned integer that specifies the code page the server used to express string values of properties.");
+                @"[In GetTemplateInfo Request Type Success Response Body] CodePage (4 bytes): An unsigned integer that specifies the code page the server used to express string values of properties.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R717");
@@ -2237,7 +2288,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.HasRow,
                 typeof(bool),
                 717,
-                @"[In GetTemplateInfo Request Type Response Body] HasRow: A Boolean value that specifies whether the Rows field is present.");
+                @"[In GetTemplateInfo Request Type Success Response Body] HasRow (1 byte): A Boolean value that specifies whether the Rows field is present.");
 
             if (getTemplateInfoResponseBody.HasRow)
             {
@@ -2249,7 +2300,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     getTemplateInfoResponseBody.Row,
                     typeof(AddressBookPropertyValueList),
                     719,
-                    @"[In GetTemplateInfo Request Type Response Body] [Row] This field is present when the value of the HasRow field is nonzero.");
+                    @"[In GetTemplateInfo Request Type Success Response Body] [Row] This field is present when the value of the HasRow field is nonzero.");
 
                 for (int i = 0; i < getTemplateInfoResponseBody.Row.Value.PropertyValueCount; i++)
                 {
@@ -2265,7 +2316,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     getTemplateInfoResponseBody.Row,
                     720,
-                    @"[In GetTemplateInfo Request Type Response Body] [Row] This field is not present when the value of the HasRow field is zero.");
+                    @"[In GetTemplateInfo Request Type Success Response Body] [Row] This field is not present when the value of the HasRow field is zero.");
             }
 
             // Add the debug information
@@ -2276,7 +2327,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 721,
-                @"[In GetTemplateInfo Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetTemplateInfo Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R722");
@@ -2286,7 +2337,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 722,
-                @"[In GetTemplateInfo Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetTemplateInfo Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R723");
@@ -2296,7 +2347,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.AuxiliaryBufferSize,
                 (uint)getTemplateInfoResponseBody.AuxiliaryBuffer.Length,
                 723,
-                @"[In GetTemplateInfo Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetTemplateInfo Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -2316,7 +2367,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modLinkAttResponseBody.StatusCode,
                 typeof(uint),
                 757,
-                @"[In ModLinkAtt Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In ModLinkAtt Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R758");
@@ -2326,7 +2377,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 modLinkAttResponseBody.StatusCode,
                 758,
-                @"[In ModLinkAtt Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In ModLinkAtt Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R759");
@@ -2336,7 +2387,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modLinkAttResponseBody.ErrorCode,
                 typeof(uint),
                 759,
-                @"[In ModLinkAtt Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In ModLinkAtt Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R760");
@@ -2346,7 +2397,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modLinkAttResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 760,
-                @"[In ModLinkAtt Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In ModLinkAtt Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R761");
@@ -2356,7 +2407,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modLinkAttResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 761,
-                @"[In ModLinkAtt Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In ModLinkAtt Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R762");
@@ -2366,7 +2417,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modLinkAttResponseBody.AuxiliaryBufferSize,
                 (uint)modLinkAttResponseBody.AuxiliaryBuffer.Length,
                 762,
-                @"[In ModLinkAtt Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In ModLinkAtt Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -2385,7 +2436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.StatusCode,
                 typeof(uint),
                 993,
-                @"[In ResortRestriction Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In ResortRestriction Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R994");
@@ -2395,7 +2446,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 resortRestrictionResponseBody.StatusCode,
                 994,
-                @"[In ResortRestriction Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In ResortRestriction Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R995");
@@ -2405,7 +2456,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.ErrorCode,
                 typeof(uint),
                 995,
-                @"[In ResortRestriction Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In ResortRestriction Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R996");
@@ -2415,7 +2466,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.HasState,
                 typeof(bool),
                 996,
-                @"[In ResortRestriction Request Type Response Body] HasState: A Boolean value that specifies whether the State field is present.");
+                @"[In ResortRestriction Request Type RSuccess esponse Body] HasState (1 byte): A Boolean value that specifies whether the State field is present.");
 
             if (resortRestrictionResponseBody.HasState)
             {
@@ -2427,7 +2478,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resortRestrictionResponseBody.State,
                     typeof(STAT),
                     997,
-                    @"[In ResortRestriction Request Type Response Body] State: A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
+                    @"[In ResortRestriction Request Type Success Response Body] State (optional) (36 butes): A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R999");
@@ -2436,7 +2487,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resortRestrictionResponseBody.State,
                     999,
-                    @"[In ResortRestriction Request Type Response Body] [State] This field is present when the HasState field is nonzero.");
+                    @"[In ResortRestriction Request Type Success Response Body] [State] This field is present when the HasState field is nonzero.");
             }
             else
             {
@@ -2447,7 +2498,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resortRestrictionResponseBody.State,
                     1000,
-                    @"[In ResortRestriction Request Type Response Body] [State] This field is not present when the HasState field is zero.");
+                    @"[In ResortRestriction Request Type Success Response Body] [State] This field is not present when the HasState field is zero.");
             }
 
             // Add the debug information
@@ -2458,7 +2509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.HasMinimalIds,
                 typeof(bool),
                 1001,
-                @"[In ResortRestriction Request Type Response Body] HasMinimalIds: A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
+                @"[In ResortRestriction Request Type Success Response Body] HasMinimalIds (1 byte): A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
 
             if (resortRestrictionResponseBody.HasMinimalIds)
             {
@@ -2470,7 +2521,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resortRestrictionResponseBody.MinimalIdCount,
                     typeof(uint),
                     1002,
-                    @"[In ResortRestriction Request Type Response Body] MinimalIdCount: An unsigned integer that specifies the number of structures present in the Minimalids field.");
+                    @"[In ResortRestriction Request Type Success Response Body] MinimalIdCount (optional) (4 bytes): An unsigned integer that specifies the number of structures present in the Minimalids field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1005");
@@ -2480,7 +2531,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resortRestrictionResponseBody.MinimalIds,
                     typeof(uint[]),
                     1005,
-                    @"[In ResortRestriction Request Type Response Body] MinimalIds: An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1) that compose a restricted address book container.");
+                    @"[In ResortRestriction Request Type Success Response Body] MinimalIds (optional) (variable): An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1) that compose a restricted address book container.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1006");
@@ -2490,7 +2541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resortRestrictionResponseBody.MinimalIdCount.Value,
                     (uint)resortRestrictionResponseBody.MinimalIds.Length,
                     1006,
-                    @"[In ResortRestriction Request Type Response Body] [MinimalIds] The number of structures contained in this field is specified by the MinimalIdCount field.");
+                    @"[In ResortRestriction Request Type Success Response Body] [MinimalIds] The number of structures contained in this field is specified by the MinimalIdCount field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1003");
@@ -2499,7 +2550,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resortRestrictionResponseBody.MinimalIdCount,
                     1003,
-                    @"[In ResortRestriction Request Type Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In ResortRestriction Request Type Success Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1007");
@@ -2508,7 +2559,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resortRestrictionResponseBody.MinimalIds,
                     1007,
-                    @"[In ResortRestriction Request Type Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In ResortRestriction Request Type RSuccess esponse Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
             }
             else
             {
@@ -2519,7 +2570,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resortRestrictionResponseBody.MinimalIdCount,
                     1004,
-                    @"[In ResortRestriction Request Type Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In ResortRestriction Request Type Success Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1008");
@@ -2528,7 +2579,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resortRestrictionResponseBody.MinimalIds,
                     1008,
-                    @"[In ResortRestriction Request Type Response Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In ResortRestriction Request Type RSuccess esponse Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
             }
             
             // Add the debug information
@@ -2539,7 +2590,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1009,
-                @"[In ResortRestriction Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In ResortRestriction Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1010");
@@ -2549,7 +2600,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 1010,
-                @"[In ResortRestriction Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In ResortRestriction Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1011");
@@ -2559,7 +2610,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resortRestrictionResponseBody.AuxiliaryBufferSize,
                 (uint)resortRestrictionResponseBody.AuxiliaryBuffer.Length,
                 1011,
-                @"[In ResortRestriction Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In ResortRestriction Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -2579,7 +2630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.StatusCode,
                 typeof(uint),
                 1074,
-                @"[In UpdateStat Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In UpdateStat Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1075");
@@ -2589,7 +2640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 updateStatResponseBody.StatusCode,
                 1075,
-                @"[In UpdateStat Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In UpdateStat Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1076");
@@ -2599,7 +2650,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.ErrorCode,
                 typeof(uint),
                 1076,
-                @"[In UpdateStat Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In UpdateStat Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1077");
@@ -2609,7 +2660,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.HasState,
                 typeof(bool),
                 1077,
-                @"[In UpdateStat Request Type Response Body] HasState: A Boolean value that specifies whether the State field is present.");
+                @"[In UpdateStat Request Type Success Response Body] HasState (1 byte): A Boolean value that specifies whether the State field is present.");
 
             if (updateStatResponseBody.HasState)
             {
@@ -2621,7 +2672,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     updateStatResponseBody.State,
                     typeof(STAT),
                     1078,
-                    @"[In UpdateStat Request Type Response Body] State: A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
+                    @"[In UpdateStat Request Type Success Response Body] State (optional) (36 bytes): A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1080");
@@ -2630,7 +2681,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     updateStatResponseBody.State,
                     1080,
-                    @"[In UpdateStat Request Type Response Body] [State] This field is present when the HasState field is nonzero.");
+                    @"[In UpdateStat Request Type Success Response Body] [State] This field is present when the HasState field is nonzero.");
             }
             else
             {
@@ -2641,7 +2692,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     updateStatResponseBody.State,
                     1081,
-                    @"[In UpdateStat Request Type Response Body] [State] This field is not present when the HasState field is zero.");
+                    @"[In UpdateStat Request Type Success Response Body] [State] This field is not present when the HasState field is zero.");
             }
 
             // Add the debug information
@@ -2652,7 +2703,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.HasDelta,
                 typeof(bool),
                 1082,
-                @"[In UpdateStat Request Type Response Body] HasDelta: A Boolean value that specifies whether the Delta field is present.");
+                @"[In UpdateStat Request Type Success Response Body] HasDelta (1 byte): A Boolean value that specifies whether the Delta field is present.");
 
             if (updateStatResponseBody.HasDelta)
             {
@@ -2663,7 +2714,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     updateStatResponseBody.Delta,
                     1084,
-                    @"[In UpdateStat Request Type Response Body] [Delta] This field is present when the value of the HasDelta field is nonzero.");
+                    @"[In UpdateStat Request Type Success Response Body] [Delta] This field is present when the value of the HasDelta field is nonzero.");
             }
             else
             {
@@ -2674,7 +2725,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     updateStatResponseBody.Delta,
                     1085,
-                    @"[In UpdateStat Request Type Response Body] [Delta] This field is not present when the value of the HasDelta field is zero.");
+                    @"[In UpdateStat Request Type Success Response Body] [Delta] This field is not present when the value of the HasDelta field is zero.");
             }
 
             // Add the debug information
@@ -2685,7 +2736,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1086,
-                @"[In UpdateStat Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In UpdateStat Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1087");
@@ -2695,7 +2746,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 1087,
-                @"[In UpdateStat Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In UpdateStat Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1088");
@@ -2705,7 +2756,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 updateStatResponseBody.AuxiliaryBufferSize,
                 (uint)updateStatResponseBody.AuxiliaryBuffer.Length,
                 1088,
-                @"[In UpdateStat Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In UpdateStat Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
 
         #endregion
@@ -2725,7 +2776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.StatusCode,
                 typeof(uint),
                 1099,
-                @"[In GetMailboxUrl Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetMailboxUrl Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1100");
@@ -2735,7 +2786,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getMailboxUrlResponseBody.StatusCode,
                 1100,
-                @"[In GetMailboxUrl Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetMailboxUrl Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1101");
@@ -2745,7 +2796,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.ErrorCode,
                 typeof(uint),
                 1101,
-                @"[In GetMailboxUrl Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetMailboxUrl Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1102");
@@ -2755,7 +2806,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.ServerUrl,
                 typeof(string),
                 1102,
-                @"[In GetMailboxUrl Request Type Response Body] ServerUrl: A null-terminated Unicode string that specifies URL of the EMSMDB server.");
+                @"[In GetMailboxUrl Request Type Success Response Body] ServerUrl (variable): A null-terminated Unicode string that specifies URL of the EMSMDB server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1103");
@@ -2765,7 +2816,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1103,
-                @"[In GetMailboxUrl Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetMailboxUrl Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1104");
@@ -2775,7 +2826,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 1104,
-                @"[In GetMailboxUrl Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetMailboxUrl Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1105");
@@ -2785,7 +2836,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getMailboxUrlResponseBody.AuxiliaryBufferSize,
                 (uint)getMailboxUrlResponseBody.AuxiliaryBuffer.Length,
                 1105,
-                @"[In GetMailboxUrl Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetMailboxUrl Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -2804,7 +2855,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.StatusCode,
                 typeof(uint),
                 1117,
-                @"[In GetAddressBookUrl Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1118");
@@ -2814,7 +2865,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getAddressBookUrlResponseBody.StatusCode,
                 1118,
-                @"[In GetAddressBookUrl Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1119");
@@ -2824,7 +2875,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.ErrorCode,
                 typeof(uint),
                 1119,
-                @"[In GetAddressBookUrl Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1120");
@@ -2834,7 +2885,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.ServerUrl,
                 this.addressBookUrl + "\0",
                 1120,
-                @"[In GetAddressBookUrl Request Type Response Body] ServerUrl: A null-terminated Unicode string that specifies the URL of the NSPI server.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] ServerUrl (variable): A null-terminated Unicode string that specifies the URL of the NSPI server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1121");
@@ -2844,7 +2895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1121,
-                @"[In GetAddressBookUrl Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1122");
@@ -2854,7 +2905,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 1122,
-                @"[In GetAddressBookUrl Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1123");
@@ -2864,7 +2915,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getAddressBookUrlResponseBody.AuxiliaryBufferSize,
                 (uint)getAddressBookUrlResponseBody.AuxiliaryBuffer.Length,
                 1123,
-                @"[In GetAddressBookUrl Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetAddressBookUrl Request Type  Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
 
         #endregion
@@ -2885,7 +2936,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.StatusCode,
                 typeof(uint),
                 524,
-                @"[In GetMatches Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetMatches Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R525");
@@ -2895,7 +2946,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0x00000000,
                 responseBody.StatusCode,
                 525,
-                @"[In GetMatches Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetMatches Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R526");
@@ -2905,7 +2956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.ErrorCode,
                 typeof(uint),
                 526,
-                @"[In GetMatches Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetMatches Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R527");
@@ -2915,7 +2966,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.HasState,
                 typeof(bool),
                 527,
-                @"[In GetMatches Request Type Response Body] HasState: A Boolean value that specifies whether the State field is present.");
+                @"[In GetMatches Request Type Success Response Body] HasState (1 byte): A Boolean value that specifies whether the State field is present.");
 
             if (responseBody.HasState)
             {
@@ -2927,7 +2978,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.State.Value,
                     typeof(STAT),
                     528,
-                    @"[In GetMatches Request Type Response Body] State: A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
+                    @"[In GetMatches Request Type Success Response Body] State (optional) (36 bytes): A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R530");
@@ -2937,7 +2988,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     responseBody.State.HasValue,
                     530,
-                    @"[In GetMatches Request Type Response Body] [State] This field is present when the HasState field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [State] This field is present when the HasState field is nonzero.");
             }
             else
             {
@@ -2948,7 +2999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsFalse(
                     responseBody.State.HasValue,
                     1449,
-                    @"[In GetMatches Request Type Response Body] [State] This field is not present when the HasState field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [State] This field is not present when the HasState field is zero.");
             }
            
             // Add the debug information
@@ -2959,7 +3010,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.HasMinimalIds,
                 typeof(bool),
                 533,
-                @"[In GetMatches Request Type Response Body] HasMinimalIds: A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
+                @"[In GetMatches Request Type Success Response Body] HasMinimalIds (1 byte): A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
 
             if (responseBody.HasMinimalIds)
             {
@@ -2971,7 +3022,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.MinimalIdCount,
                     typeof(uint),
                     516,
-                    @"[In GetMatches Request Type Response Body] The Date type of Field MinimalIdCount is (4 bytes) unsigned integer (optional).");
+                    @"[In GetMatches Request Type Success Response Body] The Date type of Field MinimalIdCount is (4 bytes) unsigned integer (optional).");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R534");
@@ -2981,7 +3032,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     (uint)responseBody.MinimalIds.Length,
                     responseBody.MinimalIdCount.Value,
                     534,
-                    @"[In GetMatches Request Type Response Body] MinimalIdCount: An unsigned integer that specifies the number of structures present in the MinimalIds field.");
+                    @"[In GetMatches Request Type Success Response Body] MinimalIdCount: An unsigned integer that specifies the number of structures present in the MinimalIds field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R535. The MinimalIdCount is {0}", responseBody.MinimalIdCount.Value);
@@ -2989,7 +3040,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     responseBody.MinimalIdCount.HasValue,
                     535,
-                    @"[In GetMatches Request Type Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R538");
@@ -3001,7 +3052,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.MinimalIds,
                     typeof(uint[]),
                     538,
-                    @"[In GetMatches Request Type Response Body] MinimalIds: An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which is the ID of an object found.");
+                    @"[In GetMatches Request Type Success Response Body] MinimalIds (optional) (variable): An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which is the ID of an object found.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R539");
@@ -3011,7 +3062,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.MinimalIds,
                     539,
-                    @"[In GetMatches Request Type Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
             }
             else
             {
@@ -3022,7 +3073,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsFalse(
                     responseBody.MinimalIdCount.HasValue,
                     1450,
-                    @"[In GetMatches Request Type Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1294");
@@ -3032,7 +3083,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.MinimalIds,
                     1294,
-                    @"[In GetMatches Request Type Response Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
             }
 
             // Add the debug information
@@ -3043,7 +3094,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.HasColumnsAndRows,
                 typeof(bool),
                 542,
-                @"[In GetMatches Request Type Response Body] HasColumnsAndRows: A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
+                @"[In GetMatches Request Type Success Response Body] HasColumnsAndRows (1 byte): A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
 
             if (responseBody.HasColumnsAndRows)
             {
@@ -3055,7 +3106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.Columns.Value,
                     typeof(LargePropertyTagArray),
                     543,
-                    @"[In GetMatches Request Type Response Body] Columns: A LargePropertyTagArray structure (section 2.2.1.3) that specifies the columns used for each row returned.");
+                    @"[In GetMatches Request Type Success Response Body] Columns (optional) (variable): A LargePropertyTagArray structure (section 2.2.1.3) that specifies the columns used for each row returned.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R544");
@@ -3064,7 +3115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     responseBody.Columns.HasValue,
                     544,
-                    @"[In GetMatches Request Type Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R547");
@@ -3074,7 +3125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.RowCount.Value,
                     typeof(uint),
                     547,
-                    @"[In GetMatches Request Type Response Body] RowCount: An unsigned integer that specifies the number of structures in the RowData field.");
+                    @"[In GetMatches Request Type Success Response Body] RowCount (optional) (4 bytes): An unsigned integer that specifies the number of structures in the RowData field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R545 : the RowCount field is {0}.", responseBody.RowCount.Value);
@@ -3083,7 +3134,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     responseBody.RowCount.HasValue,
                     545,
-                    @"[In GetMatches Request Type Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R551");
@@ -3093,7 +3144,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.RowData,
                     typeof(AddressBookPropertyRow[]),
                     551,
-                    @"[In GetMatches Request Type Response Body] RowData: An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data for the entries requested.");
+                    @"[In GetMatches Request Type Success Response Body] RowData (optional) (variable): An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data for the entries requested.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R552");
@@ -3103,7 +3154,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.RowData,
                     552,
-                    @"[In GetMatches Request Type Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
+                    @"[In GetMatches Request Type Success Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R502 : the RowCount is {0}.", responseBody.RowCount);
@@ -3116,7 +3167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifiedR502,
                     502,
-                    @"[In GetMatches Request Type Request Body] RowCount: An unsigned integer that specifies the number of rows the client is requesting.");
+                    @"[In GetMatches Request Type Request Body] RowCount (4 bytes): An unsigned integer that specifies the number of rows the client is requesting.");
             }
             else
             {
@@ -3128,7 +3179,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsFalse(
                     responseBody.Columns.HasValue,
                     1451,
-                    @"[In GetMatches Request Type Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R548");
@@ -3138,7 +3189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsFalse(
                     responseBody.RowCount.HasValue,
                     548,
-                    @"[In GetMatches Request Type Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1296");
@@ -3148,7 +3199,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.RowData,
                     1296,
-                    @"[In GetMatches Request Type Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
+                    @"[In GetMatches Request Type Success Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
             }
 
             // Add the debug information
@@ -3159,7 +3210,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 555,
-                @"[In GetMatches Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetMatches Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R556");
@@ -3169,7 +3220,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 556,
-                @"[In GetMatches Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetMatches Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R557");
@@ -3179,7 +3230,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBufferSize,
                 (uint)responseBody.AuxiliaryBuffer.Length,
                 557,
-                @"[In GetMatches Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetMatches Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3198,7 +3249,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.StatusCode,
                 typeof(uint),
                 1038,
-                @"[In SeekEntries Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In SeekEntries Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1039");
@@ -3208,7 +3259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0x00000000,
                 responseBody.StatusCode,
                 1039,
-                @"[In SeekEntries Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In SeekEntries Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1040");
@@ -3218,7 +3269,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.ErrorCode,
                 typeof(uint),
                 1040,
-                @"[In SeekEntries Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In SeekEntries Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1041");
@@ -3228,7 +3279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.HasState,
                 typeof(bool),
                 1041,
-                @"[In SeekEntries Request Type Response Body] HasState: A Boolean value that specifies whether the State field is present.");
+                @"[In SeekEntries Request Type RSuccess esponse Body] HasState (1 byte): A Boolean value that specifies whether the State field is present.");
 
             if (responseBody.HasState)
             {
@@ -3240,7 +3291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.State.Value,
                     typeof(STAT),
                     1042,
-                    @"[In SeekEntries Request Type Response Body] State: A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
+                    @"[In SeekEntries Request Type Success Response Body] State (optional) (36 bytes): A STAT structure ([MS-OXNSPI] section 2.3.7) that specifies the state of a specific address book container.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1044");
@@ -3250,7 +3301,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.State,
                     1044,
-                    @"[In SeekEntries Request Type Response Body] [State] This field is present when the HasState field is nonzero.");
+                    @"[In SeekEntries Request Type Success Response Body] [State] This field is present when the HasState field is nonzero.");
             }
             else
             {
@@ -3262,7 +3313,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.State,
                     1045,
-                    @"[In SeekEntries Request Type Response Body] [State] This field is not present when the HasState field is zero.");
+                    @"[In SeekEntries Request Type Success Response Body] [State] This field is not present when the HasState field is zero.");
             }
 
             // Add the debug information
@@ -3273,7 +3324,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.HasColumnsAndRows,
                 typeof(bool),
                 1046,
-                @"[In SeekEntries Request Type Response Body] HasColumnsAndRows: A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
+                @"[In SeekEntries Request Type Success Response Body] HasColumnsAndRows (1 byte): A Boolean value that specifies whether the Columns, RowCount, and RowData fields are present.");
 
             if (responseBody.HasColumnsAndRows)
             {
@@ -3285,7 +3336,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.Columns,
                     1048,
-                    @"[In SeekEntries Request Type Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In SeekEntries Request Type Success Response Body] [Columns] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1050");
@@ -3295,7 +3346,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     responseBody.RowCount.Value,
                     typeof(uint),
                     1050,
-                    @"[In SeekEntries Request Type Response Body] RowCount: An unsigned integer that specifies the number of structures contained in the RowData field.");
+                    @"[In SeekEntries Request Type Success Response Body] RowCount (optional) (4 bytes): An unsigned integer that specifies the number of structures contained in the RowData field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1051");
@@ -3305,7 +3356,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.RowCount,
                     1051,
-                    @"[In SeekEntries Request Type Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
+                    @"[In SeekEntries Request Type Success Response Body] [RowCount] This field is present when the value of the HasColumnsAndRows field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1054");
@@ -3315,7 +3366,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     responseBody.RowData,
                     1054,
-                    @"[In SeekEntries Request Type Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
+                    @"[In SeekEntries Request Type Success Response Body] [RowData] This field is present when the HasColumnsAndRows field is nonzero.");
             }
             else
             {
@@ -3327,7 +3378,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.Columns,
                     1049,
-                    @"[In SeekEntries Request Type Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In SeekEntries Request Type Success Response Body] [Columns] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1052");
@@ -3337,7 +3388,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.RowCount,
                     1052,
-                    @"[In SeekEntries Request Type Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
+                    @"[In SeekEntries Request Type Success Response Body] [RowCount] This field is not present when the value of the HasColumnsAndRows field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1055");
@@ -3347,7 +3398,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     responseBody.RowData,
                     1055,
-                    @"[In SeekEntries Request Type Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
+                    @"[In SeekEntries Request Type Success Response Body] [RowData] This field is not present when the HasColumnsAndRows field is zero.");
             }
 
             // Add the debug information
@@ -3358,7 +3409,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 1056,
-                @"[In SeekEntries Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In SeekEntries Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1057");
@@ -3368,7 +3419,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 1057,
-                @"[In SeekEntries Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In SeekEntries Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1058");
@@ -3378,7 +3429,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 responseBody.AuxiliaryBufferSize,
                 (uint)responseBody.AuxiliaryBuffer.Length,
                 1058,
-                @"[In SeekEntries Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In SeekEntries Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3397,7 +3448,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.StatusCode,
                 typeof(uint),
                 579,
-                @"[In GetPropList Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetPropList Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R580");
@@ -3407,7 +3458,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getPropListResponseBody.StatusCode,
                 580,
-                @"[In GetPropList Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetPropList Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R581");
@@ -3417,7 +3468,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.ErrorCode,
                 typeof(uint),
                 581,
-                @"[In GetPropList Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetPropList Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R582");
@@ -3427,7 +3478,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.HasPropertyTags,
                 typeof(bool),
                 582,
-                @"[In GetPropList Request Type Response Body] HasPropertyTags: A Boolean value that specifies whether the PropertyTags field is present.");
+                @"[In GetPropList Request Type Success Response Body] HasPropertyTags (1 byte): A Boolean value that specifies whether the PropertyTags field is present.");
 
             if (getPropListResponseBody.HasPropertyTags)
             {
@@ -3439,7 +3490,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     getPropListResponseBody.PropertyTags,
                     584,
-                    @"[In GetPropList Request Type Response Body] [PropertyTags] This field is present when the value of the HasPropertyTags field is nonzero.");
+                    @"[In GetPropList Request Type Success Response Body] [PropertyTags] This field is present when the value of the HasPropertyTags field is nonzero.");
             }
             
             // Add the debug information
@@ -3450,7 +3501,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 587,
-                @"[In GetPropList Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetPropList Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R588");
@@ -3460,7 +3511,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 588,
-                @"[In GetPropList Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetPropList Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R589");
@@ -3470,7 +3521,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropListResponseBody.AuxiliaryBufferSize,
                 (uint)getPropListResponseBody.AuxiliaryBuffer.Length,
                 589,
-                @"[In GetPropList Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetPropList Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3489,7 +3540,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.StatusCode,
                 typeof(uint),
                 619,
-                @"[In GetProps Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In GetProps Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R620");
@@ -3499,7 +3550,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 getPropsResponseBody.StatusCode,
                 620,
-                @"[In GetProps Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In GetProps Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R621");
@@ -3509,7 +3560,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.ErrorCode,
                 typeof(uint),
                 621,
-                @"[In GetProps Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In GetProps Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R622");
@@ -3519,7 +3570,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.CodePage,
                 typeof(uint),
                 622,
-                @"[In GetProps Request Type Response Body] CodePage: An unsigned integer that specifies the code page that the server used to express string properties.");
+                @"[In GetProps Request Type Success Response Body] CodePage (4 bytes): An unsigned integer that specifies the code page that the server used to express string properties.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R623");
@@ -3529,7 +3580,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.HasPropertyValues,
                 typeof(bool),
                 623,
-                @"[In GetProps Request Type Response Body] HasPropertyValues: A Boolean value that specifies whether the PropertyValues field is present.");
+                @"[In GetProps Request Type Success Response Body] HasPropertyValues (1 byte): A Boolean value that specifies whether the PropertyValues field is present.");
 
             if (getPropsResponseBody.HasPropertyValues)
             {
@@ -3541,7 +3592,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     getPropsResponseBody.PropertyValues,
                     626,
-                    @"[In GetProps Request Type Response Body] [PropertyValues] This field is present when the value of the HasPropertyValues field is nonzero.");
+                    @"[In GetProps Request Type Success Response Body] [PropertyValues] This field is present when the value of the HasPropertyValues field is nonzero.");
             }
             else
             {
@@ -3553,7 +3604,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     getPropsResponseBody.PropertyValues,
                     627,
-                    @"[In GetProps Request Type Response Body] [PropertyValues] This field is not present when the value of the HasPropertyValues field is zero.");
+                    @"[In GetProps Request Type Success Response Body] [PropertyValues] This field is not present when the value of the HasPropertyValues field is zero.");
             }
 
             // Add the debug information
@@ -3564,7 +3615,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 628,
-                @"[In GetProps Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In GetProps Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R629");
@@ -3574,7 +3625,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 629,
-                @"[In GetProps Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In GetProps Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R630");
@@ -3584,7 +3635,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropsResponseBody.AuxiliaryBufferSize,
                 (uint)getPropsResponseBody.AuxiliaryBuffer.Length,
                 630,
-                @"[In GetProps Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In GetProps Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3603,7 +3654,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modPropsResponseBody.StatusCode,
                 typeof(uint),
                 796,
-                @"[In ModProps Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In ModProps Request Type Success Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R797");
@@ -3613,7 +3664,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 modPropsResponseBody.StatusCode,
                 797,
-                @"[In ModProps Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In ModProps Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R798");
@@ -3623,7 +3674,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modPropsResponseBody.ErrorCode,
                 typeof(uint),
                 798,
-                @"[In ModProps Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In ModProps Request Type Success Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R799");
@@ -3633,7 +3684,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modPropsResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 799,
-                @"[In ModProps Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In ModProps Request Type Success Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R800");
@@ -3643,7 +3694,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modPropsResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 800,
-                @"[In ModProps Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In ModProps Request Type Success Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R801");
@@ -3653,7 +3704,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 modPropsResponseBody.AuxiliaryBufferSize,
                 (uint)modPropsResponseBody.AuxiliaryBuffer.Length,
                 801,
-                @"[In ModProps Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In ModProps Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3672,7 +3723,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.StatusCode,
                 typeof(uint),
                 885,
-                @"[In QueryColumns Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In QueryColumns Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R886");
@@ -3682,7 +3733,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 queryColumnsResponseBody.StatusCode,
                 886,
-                @"[In QueryColumns Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In QueryColumns Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R887");
@@ -3692,7 +3743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.ErrorCode,
                 typeof(uint),
                 887,
-                @"[In QueryColumns Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In QueryColumns Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R888");
@@ -3702,7 +3753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.HasColumns,
                 typeof(bool),
                 888,
-                @"[In QueryColumns Request Type Response Body] HasColumns: A Boolean value that specifies whether the Columns field is present.");
+                @"[In QueryColumns Request Type Success Response Body] HasColumns (1 byte): A Boolean value that specifies whether the Columns field is present.");
 
             if (queryColumnsResponseBody.HasColumns)
             {
@@ -3714,7 +3765,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     queryColumnsResponseBody.Columns,
                     typeof(LargePropertyTagArray),
                     889,
-                    @"[In QueryColumns Request Type Response Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that exist on the address book.");
+                    @"[In QueryColumns Request Type Success Response Body] Columns (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that exist on the address book.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R890");
@@ -3723,7 +3774,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     queryColumnsResponseBody.Columns,
                     890,
-                    @"[In QueryColumns Request Type Response Body] [Columns] This field is present when the HasColumns field is nonzero.");
+                    @"[In QueryColumns Request Type Success Response Body] [Columns] This field is present when the HasColumns field is nonzero.");
             }
            
             // Add the debug information
@@ -3734,7 +3785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 892,
-                @"[In QueryColumns Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In QueryColumns Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R893");
@@ -3744,7 +3795,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 893,
-                @"[In QueryColumns Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In QueryColumns Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R894");
@@ -3754,7 +3805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 queryColumnsResponseBody.AuxiliaryBufferSize,
                 (uint)queryColumnsResponseBody.AuxiliaryBuffer.Length,
                 894,
-                @"[In QueryColumns Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In QueryColumns Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
 
@@ -3773,7 +3824,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.StatusCode,
                 typeof(uint),
                 934,
-                @"[In ResolveNames Request Type Response Body] StatusCode: An unsigned integer that specifies the status of the request.");
+                @"[In ResolveNames Request Type Success Response Body] StatusCode (4 bytes): An unsigned integer that specifies the status of the request.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R935");
@@ -3783,7 +3834,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 0,
                 resolveNamesResponseBody.StatusCode,
                 935,
-                @"[In ResolveNames Request Type Response Body] [StatusCode] This field MUST be set to 0x00000000.");
+                @"[In ResolveNames Request Type Success Response Body] [StatusCode] This field MUST be set to 0x00000000.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R936");
@@ -3793,7 +3844,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.ErrorCode,
                 typeof(uint),
                 936,
-                @"[In ResolveNames Request Type Response Body] ErrorCode: An unsigned integer that specifies the return status of the operation.");
+                @"[In ResolveNames Request Type Success Response Body] ErrorCode (4 bytes): An unsigned integer that specifies the return status of the operation.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R937");
@@ -3803,7 +3854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.CodePage,
                 typeof(uint),
                 937,
-                @"[In ResolveNames Request Type Response Body] CodePage: An unsigned integer that specifies the code page the server used to express string values of properties.");
+                @"[In ResolveNames Request Type Success Response Body] CodePage (4 bytes): An unsigned integer that specifies the code page the server used to express string values of properties.");
 
             if (resolveNamesResponseBody.HasMinimalIds)
             {
@@ -3815,7 +3866,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resolveNamesResponseBody.HasMinimalIds,
                     typeof(bool),
                     938,
-                    @"[In ResolveNames Request Type Response Body] HasMinimalIds: A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
+                    @"[In ResolveNames Request Type Success Response Body] HasMinimalIds (1 byte): A Boolean value that specifies whether the MinimalIdCount and MinimalIds fields are present.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R939");
@@ -3825,7 +3876,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resolveNamesResponseBody.MinimalIdCount,
                     typeof(uint),
                     939,
-                    @"[In ResolveNames Request Type Response Body] MinimalIdCount: An unsigned integer that specifies the number of structures in the MinimalIds field.");
+                    @"[In ResolveNames Request Type Success Response Body] MinimalIdCount (optional) (4 bytes): An unsigned integer that specifies the number of structures in the MinimalIds field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R940");
@@ -3834,7 +3885,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resolveNamesResponseBody.MinimalIdCount,
                     940,
-                    @"[In ResolveNames Request Type Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In ResolveNames Request Type Success Response Body] [MinimalIdCount] This field is present when the value of the HasMinimalIds field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R943");
@@ -3843,7 +3894,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resolveNamesResponseBody.MinimalIds,
                     943,
-                    @"[In ResolveNames Request Type Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
+                    @"[In ResolveNames Request Type Success Response Body] [MinimalIds] This field is present when the value of the HasMinimalIds field is nonzero.");
             }
             else
             {
@@ -3854,7 +3905,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resolveNamesResponseBody.MinimalIdCount,
                     941,
-                    @"[In ResolveNames Request Type Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In ResolveNames Request Type Success Response Body] [MinimalIdCount] This field is not present when the value of the HasMinimalIds field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R944");
@@ -3863,7 +3914,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resolveNamesResponseBody.MinimalIds,
                     944,
-                    @"[In ResolveNames Request Type Response Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
+                    @"[In ResolveNames Request Type Success Response Body] [MinimalIds] This field is not present when the value of the HasMinimalIds field is zero.");
             }
 
             if (resolveNamesResponseBody.HasRowsAndPropertyTags)
@@ -3876,7 +3927,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resolveNamesResponseBody.HasRowsAndPropertyTags,
                     typeof(bool),
                     945,
-                    @"[In ResolveNames Request Type Response Body] HasRowsAndColumns: A Boolean value that specifies whether the PropertyTags, RowCount, and RowData fields are present.");
+                    @"[In ResolveNames Request Type Success Response Body] HasRowsAndCols (1 byte): A Boolean value that specifies whether the PropertyTags, RowCount, and RowData fields are present.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R949");
@@ -3886,7 +3937,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resolveNamesResponseBody.RowCount,
                     typeof(uint),
                     949,
-                    @"[In ResolveNames Request Type Response Body] RowCount: An unsigned integer that specifies the number of structures in the RowData field.");
+                    @"[In ResolveNames Request Type Success Response Body] RowCount (4 bytes): An unsigned integer that specifies the number of structures in the RowData field.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R952");
@@ -3896,7 +3947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     resolveNamesResponseBody.RowData,
                     typeof(AddressBookPropertyRow[]),
                     952,
-                    @"[In ResolveNames Request Type Response Body] RowData: An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data requested.");
+                    @"[In ResolveNames Request Type Success Response Body] RowData (optional) (variable): An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data requested.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R947");
@@ -3905,7 +3956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resolveNamesResponseBody.PropertyTags,
                     947,
-                    @"[In ResolveNames Request Type Response Body] [PropertyTags] This field is present when the value of the HasRowsAndColumns field is nonzero.");
+                    @"[In ResolveNames Request Type Success Response Body] [PropertyTags] This field is present when the value of the HasRowsAndColumns field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R950");
@@ -3914,7 +3965,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resolveNamesResponseBody.RowCount,
                     950,
-                    @"[In ResolveNames Request Type Response Body] [RowCount] This field is present when the value of the HasRowsAndColumns field is nonzero.");
+                    @"[In ResolveNames Request Type Success Response Body] [RowCount] This field is present when the value of the HasRowsAndCols field is nonzero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R953");
@@ -3923,7 +3974,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNotNull(
                     resolveNamesResponseBody.RowData,
                     953,
-                    @"[In ResolveNames Request Type Response Body] [RowData] This field is present when the value of the HasRowsAndColumns field is nonzero.");
+                    @"[In ResolveNames Request Type Success Response Body] [RowData] This field is present when the value of the HasRowsAndCols field is nonzero.");
             }
             else
             {
@@ -3934,7 +3985,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resolveNamesResponseBody.PropertyTags,
                     948,
-                    @"[In ResolveNames Request Type Response Body] [PropertyTags] This field is not present when the value of the HasRowsAndColumns field is zero.");
+                    @"[In ResolveNames Request Type Success Response Body] [PropertyTags] This field is not present when the value of the HasRowsAndColumns field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R951");
@@ -3943,7 +3994,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resolveNamesResponseBody.RowCount,
                     951,
-                    @"[In ResolveNames Request Type Response Body] [RowCount] This field is present when the value of the HasRowsAndColumns field is non-zero.");
+                    @"[In ResolveNames Request Type Success Response Body] [RowCount] This field is not present when the value of the HasRowsAndCols field is zero.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R954");
@@ -3952,7 +4003,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirementIfIsNull(
                     resolveNamesResponseBody.RowData,
                     954,
-                    @"[In ResolveNames Request Type Response Body] [RowData] This field is not present when the value of the HasRowsAndColumns field is zero.");
+                    @"[In ResolveNames Request Type Success Response Body] [RowData] This field is not present when the value of the HasRowsAndCols field is zero.");
             }
 
             // Add the debug information
@@ -3963,7 +4014,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.AuxiliaryBufferSize,
                 typeof(uint),
                 955,
-                @"[In ResolveNames Request Type Response Body] AuxiliaryBufferSize: An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
+                @"[In ResolveNames Request Type Success Response Body] AuxiliaryBufferSize (4 bytes): An unsigned integer that specifies the size, in bytes, of the AuxiliaryBuffer field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R956");
@@ -3973,7 +4024,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.AuxiliaryBuffer,
                 typeof(byte[]),
                 956,
-                @"[In ResolveNames Request Type Response Body] AuxiliaryBuffer: An array of bytes that constitute the auxiliary payload data returned from the server.");
+                @"[In ResolveNames Request Type Success Response Body] AuxiliaryBuffer (variable): An array of bytes that constitute the auxiliary payload data returned from the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R957");
@@ -3983,7 +4034,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 resolveNamesResponseBody.AuxiliaryBufferSize,
                 (uint)resolveNamesResponseBody.AuxiliaryBuffer.Length,
                 957,
-                @"[In ResolveNames Request Type Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
+                @"[In ResolveNames Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
         }
         #endregion
         #endregion

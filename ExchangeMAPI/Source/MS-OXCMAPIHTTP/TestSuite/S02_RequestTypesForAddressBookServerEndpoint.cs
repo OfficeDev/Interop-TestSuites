@@ -138,7 +138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 unbindResponseBody,
                 1438,
-                @"[In Responding to a Disconnect or Unbind Request Type Request] The server sends a response of the Unbind request type, as specified in section 2.2.2.2, including the response body that is specified in section 2.2.5.2.2 if the request was successful.");
+                @"[In Responding to a Disconnect or Unbind Request Type Request] If successful, the server's response includes the Unbind request type success response body, as specified in section 2.2.5.2.2.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R353");
@@ -158,7 +158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 bindResponseBody,
                 1441,
-                @"[In Responding to a Connect or Bind Request Type Request] The server creates a new Session Context and associates it with a session context cookie, and includes the Bind request type response body as specified in section 2.2.5.1.2 if successful.");
+                @"[In Responding to a Connect or Bind Request Type Request] If successful, the server's response includes the Bind request type response body as specified in section 2.2.5.1.2.");
             #endregion
         }
 
@@ -299,7 +299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 responseBodyOfDNToMinId.MinimalIdCount == requestBodyOfDNToMId.Names.CValues && responseBodyOfDNToMinId.MinimalIds != null,
                 436,
-                @"[In DnToMinId Request Type Response Body] MinimalIds: An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which specifies a Minimal Entry ID that matches a requested distinguished name (DN) (1).");
+                @"[In DnToMinId Request Type Success Response Body] MinimalIds (optional) (variable): An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which specifies a Minimal Entry ID that matches a requested distinguished name (DN) (1).");
             #endregion
 
             #region Call DnToMinId request body with HasNames set to false.
@@ -587,7 +587,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 delta,
                 updateStatResponseBody.Delta.Value,
                 1083,
-                @"[In UpdateStat Request Type Response Body] Delta: A signed integer that specifies the movement within the address book container that was specified in the State field of the request.");
+                @"[In UpdateStat Request Type Success Response Body] Delta: A signed integer that specifies the movement within the address book container that was specified in the State field of the request.");
             #endregion
             #endregion
 
@@ -656,7 +656,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     getSpecialTableResponseBody.Rows[i],
                     typeof(AddressBookPropertyValueList),
                     677,
-                    @"[In GetSpecialTable Request Type Response Body] Rows: An array of AddressBookPropertyValueList structures, each of which contains a row of the table that the client requested.");
+                    @"[In GetSpecialTable Request Type  Success Response Body] Rows (optional) (variable): An array of AddressBookPropertyValueList structures, each of which contains a row of the table that the client requested.");
             }
 
             #endregion
@@ -747,7 +747,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getTemplateInfoResponseBody.Row,
                 typeof(AddressBookPropertyValueList),
                 718,
-                @"[In GetTemplateInfo Request Type Response Body] Row: An AddressBookPropertyValueList structure (section 2.2.1.1) that specifies the information that the client requested.");
+                @"[In GetTemplateInfo Request Type Success Response Body] Row (optional) (variable): An AddressBookPropertyValueList structure (section 2.2.1.1) that specifies the information that the client requested.");
 
             #endregion
 
@@ -953,7 +953,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoLargePropertyTagArrayEqual(queryRowsRequestBody.Columns, queryRowsResponseBody.Columns.Value),
                 827,
-                @"[In QueryRows Request Type Request Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that the client requires for each row returned.");
+                @"[In QueryRows Request Type Request Body] Columns (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that the client requires for each row returned.");
 
             AddressBookPropertyRow[] rowData = queryRowsResponseBody.RowData;
             for (int i = 0; i < rowData.Length; i++)
@@ -1282,7 +1282,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoLargePropertyTagArrayEqual(resolveNamesRequestBody.PropertyTags, resolveNamesResponseBody.PropertyTags.Value),
                 913,
-                @"[In ResolveNames Request Type Request Body] PropertyTags: A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that client requires for the rows returned.");
+                @"[In ResolveNames Request Type Request Body] PropertyTags (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that client requires for the rows returned.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1299,7 +1299,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR946,
                 946,
-                @"[In ResolveNames Request Type Response Body] PropertyTags: A LargePropTagArray structure (section 2.2.1.3) that specifies the properties returned for the rows in the RowData field.");
+                @"[In ResolveNames Request Type Success Response Body] PropertyTags (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties returned for the rows in the RowData field.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R916");
@@ -1321,7 +1321,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR942,
                 942,
-                @"[In ResolveNames Request Type Response Body] MinimalIds: An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which specifies a Minimal Entry ID matching a name requested by the client.");
+                @"[In ResolveNames Request Type Success Response Body] MinimalIds (optional) (variable): An array of MinimalEntryID structures ([MS-OXNSPI] section 2.3.8.1), each of which specifies a Minimal Entry ID matching a name requested by the client.");
 
             #endregion
             #endregion
@@ -1492,7 +1492,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isLargePropertyTagArrayEqual,
                 1047,
-                @"[In SeekEntries Request Type Response Body] Columns: A LargePropTagArray structure (section 2.2.1.3) that specifies the columns used for the rows returned.");
+                @"[In SeekEntries Request Type Success Response Body] Columns (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the columns used for the rows returned.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1053");
@@ -1502,8 +1502,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 seekEntriesResponseBody.RowData,
                 typeof(AddressBookPropertyRow[]),
                 1053,
-                @"[In SeekEntries Request Type Response Body] RowData: An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data for the entries queried.");
-
+                @"[In SeekEntries Request Type Success Response Body] RowData (optional) (variable): An array of AddressBookPropertyRow structures (section 2.2.1.2), each of which specifies the row data for the entries queried.");
             #endregion
 
             #region Call SeekEntries request type without State field.
@@ -1545,7 +1544,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 getPropListResponseBody.PropertyTags,
                 583,
-                @"[In GetPropList Request Type Response Body] PropertyTags: A LargePropertyTagArray structure (section 2.2.1.3) that contains the property tags of properties that have values on the requested object.");
+                @"[In GetPropList Request Type Success Response Body] PropertyTags (optional) (variable): A LargePropertyTagArray structure (section 2.2.1.3) that contains the property tags of properties that have values on the requested object.");
             #endregion
 
             #region Call QueryColumns to get all of the properties that exist in the address book.
@@ -1720,7 +1719,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR624,
                 624,
-                @"[In GetProps Request Type Response Body] PropertyValues: An AddressBookPropertyValueList structure (section 2.2.1.1) that contains the values of the properties requested.");
+                @"[In GetProps Request Type Success Response Body] PropertyValues (optional) (variable): An AddressBookPropertyValueList structure (section 2.2.1.1) that contains the values of the properties requested.");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -2281,7 +2280,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR740,
                 740,
-                @"[In ModLinkAtt Request Type Request Body] MinimalId: A MinimalEntryID structure ([MS-OXNSPI] section 2.3.8.1) that specifies the Minimal Entry ID of the address book row to be modified.");
+                @"[In ModLinkAtt Request Type Request Body] MinimalId (4 bytes): A MinimalEntryID structure ([MS-OXNSPI] section 2.3.8.1) that specifies the Minimal Entry ID of the address book row to be modified.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R746.");
