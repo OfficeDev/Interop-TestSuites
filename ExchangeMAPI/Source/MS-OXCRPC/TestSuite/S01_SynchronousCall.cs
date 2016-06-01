@@ -840,7 +840,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000006F7,
                     this.returnValue,
                     1939,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with the RPC status code of RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00040000 bytes in size. (Microsoft Exchange Server 2013 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with the RPC status code of RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00040000 bytes in size. (Microsoft Exchange Server 2010 Service Pack 2 (SP2) and above follow this behavior.)");
                 #endregion
 
                 #region Client disconnects with Server

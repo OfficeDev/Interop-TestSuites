@@ -7220,7 +7220,7 @@ ENDIF</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R1374, MS-OXCRPC_R1939.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R1374, MS-OXCRPC_R2001, MS-OXCRPC_R1939.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1614</ns1:REQ_ID>
@@ -7323,7 +7323,7 @@ ENDIF</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R664, MS-OXCRPC_R1924.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R664, MS-OXCRPC_R1924, MS-OXCRPC_R2002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R666</ns1:REQ_ID>
@@ -8712,7 +8712,7 @@ ENDIF</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCRPC_R1558.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R4880, MS-OXCRPC_R1558.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R416</ns1:REQ_ID>
@@ -10486,7 +10486,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4885</ns1:REQ_ID>
@@ -12095,7 +12095,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -12331,7 +12331,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -12586,7 +12586,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -12707,7 +12707,6 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1558</ns1:REQ_ID>
