@@ -96,9 +96,5 @@
     <Property name="R2001Enabled" value="true"/>
     <!-- Set R2002Enabled to true to verify that for EcDoRpcExt2, implementation does succeed if the value in pcbOut on input is less than 0x00000008. Set R2002Enabled to false to disable this requirement.-->
     <Property name="R2002Enabled" value="false"/>
-    <!-- Set R4874Enabled to true to verify that the implementation does fail with return code 0x80040110 when the value of the cbAuxIn parameter on input is larger than 0x00001008. Set R4874Enabled to false to disable this requirement.-->
-    <Property name="R4874Enabled" value="false"/>
-    <!-- Set R4876Enabled to true to verify that the implementation does fail with return code 0x80040110 if the request buffer value of the cbAuxIn parameter is larger than 0x00001008 bytes in size. Set R4876Enabled to false to disable this requirement.-->
-    <Property name="R4876Enabled" value="false"/>
   </Properties>
 </TestSite>
