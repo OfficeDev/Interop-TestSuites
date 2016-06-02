@@ -272,7 +272,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0x00,
                 openFolderResponse.HasRules,
                 26,
-                @"[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules (4) are not associated with the folder], this field [HasRules] is set to zero (FALSE).");
+                @"[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules are not associated with the folder], this field [HasRules] is set to zero (FALSE).");
             #endregion
 
             #region Step 7. The client calls RopDeleteFolder to softly delete [MSOXCFOLDSubfolder3] folder.
