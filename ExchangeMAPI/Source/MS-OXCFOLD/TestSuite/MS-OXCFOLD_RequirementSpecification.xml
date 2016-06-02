@@ -4475,7 +4475,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXCFOLD_R350002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFOLD_R350002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R748</ns1:REQ_ID>
