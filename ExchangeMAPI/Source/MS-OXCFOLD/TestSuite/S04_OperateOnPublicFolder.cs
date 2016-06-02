@@ -99,16 +99,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
                 createFolderResponse = (RopCreateFolderResponse)response;
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R49601");
-
-                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R49601
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0x80040102,
-                    createFolderResponse.ReturnValue,
-                    49601,
-                    @"[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder (2) on a public folders message store.");
-            }
+               }
 
             #endregion
 
@@ -221,7 +212,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Site.CaptureRequirementIfIsTrue(
                     isR60001Verified,
                     60001,
-                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. (<3> Section 2.2.1.2.2: Exchange 2010 and Exchange 2013 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. <3> Section 2.2.1.2.2: Exchange 2010 Exchange 2013 and Exchange 2016 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.");
             }
 
             if (Common.IsRequirementEnabled(60002, this.Site))

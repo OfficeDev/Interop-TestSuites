@@ -215,7 +215,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openFolderResponse.HasRules,
                     25001,
-                    @"[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a zero value to HasRules field. [In Appendix A: Product Behavior] <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules (4) on the Inbox folder.");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
             }
 
             // Add the debug information
@@ -250,7 +250,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00,
                     openFolderResponse.HasRules,
                     25002,
-                    @"[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)");
             }
 
             #endregion
@@ -267,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R26");
 
             // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R26
-            // According to the Open Specification, if rules (4) are not associated with the folder, the HasRules field is set to zero (FALSE).
+            // According to the Open Specification, if rules are not associated with the folder, the HasRules field is set to zero (FALSE).
             Site.CaptureRequirementIfAreEqual<byte>(
                 0x00,
                 openFolderResponse.HasRules,
@@ -326,7 +326,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openSoftDeletedFolderReturnValue,
                     22001,
-                    @"[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. [In Appendix A: Product Behavior] <1> Section 2.2.1.1.1: Exchange 2013 ignores the OpenSoftDeleted bit and always opens an existing folder.");
+                    @"[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. <1> Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 ignores the OpenSoftDeleted bit and always opens an existing folder.");
             }
 
             if (Common.IsRequirementEnabled(22003, this.Site))
@@ -1104,7 +1104,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // [In Processing a RopDeleteFolder ROP Request] The server ignored the invalid bits [0x02, 0x08, 0x20, 0x40, and 0x80], MS-OXCFOLD_R103402 can be verified.
                 Site.CaptureRequirement(
                     123402,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. (<11> Section 3.2.5.3:  Exchange 2010 and Exchange 2013 ignore invalid bits instead of failing the ROP.)");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <13> Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.");
             }
 
             if (Common.IsRequirementEnabled(123401, this.Site))
@@ -1471,7 +1471,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
                     46201001,
-                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. [In Appendix A: Product Behavior] <9> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
+                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. <10> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
             }
        
             if (Common.IsRequirementEnabled(46201002, this.Site))
@@ -2245,7 +2245,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsNotNull(
                 propertyRows[0].PropertyValues[1].Value,
                 397,
-                "[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.5) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).");
+                "[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.6) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).");
 
             ulong copyFolderNewId = BitConverter.ToUInt64(propertyRows[0].PropertyValues[1].Value, 0);
 

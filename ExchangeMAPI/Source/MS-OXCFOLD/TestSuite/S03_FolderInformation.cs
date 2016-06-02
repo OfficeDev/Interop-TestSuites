@@ -158,7 +158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.Site.CaptureRequirementIfIsFalse(
                 folderIdsInGetSearchCriteriaResponse.Contains(createFolderResponse.FolderId),
                 1233,
-                @"[In Setting Up a Search Folder] [A search folder (2) cannot be included in its own search scope] Therefore, the FolderIds field MUST NOT include the FID of the search folder (2).");
+                @"[In Setting Up a Search Folder] [A search folder cannot be included in its own search scope] Therefore, the FolderIds field MUST NOT include the FID of the search folder.");
             #endregion
 
             #endregion
@@ -264,7 +264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 searchFolderNotChange,
                 1084,
-                @"[In Processing a RopSetSearchCriteria ROP Request] For static search folders (2), the contents of the search folder (2) are not updated after the initial population is complete.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] For static search folders, the contents of the search folder are not updated after the initial population is complete.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R549");
@@ -273,7 +273,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 searchFolderNotChange,
                 549,
-                @"[In Processing a RopSetSearchCriteria ROP Request] A static search causes the search folder (2) to be populated once with all messages that match the search criteria at the point in time when the search is started or restarted.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] A static search causes the search folder to be populated once with all messages that match the search criteria at the point in time when the search is started or restarted.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1093");
@@ -282,7 +282,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 searchFolderNotChange,
                 1093,
-                @"[In Processing a RopSetSearchCriteria ROP Request] The server MUST NOT update the search folder (2) after the initial population when new messages that match the search criteria arrive in the search scope.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] The server MUST NOT update the search folder after the initial population when new messages that match the search criteria arrive in the search scope.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1094");
@@ -291,7 +291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 searchFolderNotChange,
                 1094,
-                @"[In Processing a RopSetSearchCriteria ROP Request] Or the server MUST NOT update the search folder (2) after the initial population when existing messages that fit the search criteria are deleted.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] Or the server MUST NOT update the search folder after the initial population when existing messages that fit the search criteria are deleted.");
 
             #endregion
 
@@ -399,7 +399,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 getContentsTableResponse.RowCount,
                 519,
-                @"[In Processing a RopSetSearchCriteria ROP Request] When new search criteria are applied, the server modifies the search folder (2) to include only the messages that match the new search criteria.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] When new search criteria are applied, the server modifies the search folder to include only the messages that match the new search criteria.");
             #endregion
         }
 
@@ -509,7 +509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 (uint)GetSearchFlags.Running,
                 getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Running,
                 785,
-                @"[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): SEARCH_RUNNING (0x00000001) means that the search is running, which means that the initial population of the search folder (2) still being compiled.");
+                @"[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): SEARCH_RUNNING (0x00000001) means that the search is running, which means that the initial population of the search folder still being compiled.");
             #endregion
 
             #region Step 6. The client calls RopGetContentsTable to retrieve the contents table for the search folder [MSOXCFOLDSearchFolder1].
@@ -553,7 +553,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // Satisfy the above conditions, then this requirement can be verified directly.
             Site.CaptureRequirement(
                 526,
-                @"[In Processing a RopSetSearchCriteria ROP Request] The server can return the RopSetSearchCriteria ROP response before the search folder (2) is fully updated.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] The server can return the RopSetSearchCriteria ROP response before the search folder is fully updated.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R552");
@@ -564,7 +564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 1,
                 getContentsTableResponse.RowCount,
                 552,
-                @"[In Processing a RopSetSearchCriteria ROP Request] A dynamic search causes the search folder (2) to be initially populated with all messages that match the search criteria at the point in time when the search is started or restarted.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] A dynamic search causes the search folder to be initially populated with all messages that match the search criteria at the point in time when the search is started or restarted.");
             #endregion
 
             #endregion
@@ -643,7 +643,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 2,
                 getContentsTableResponse.RowCount,
                 1096,
-                @"[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders (2), the contents of the search folder (2) MUST continue to be updated as messages start to match or cease to match the search criteria. ");
+                @"[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders, the contents of the search folder MUST continue to be updated as messages start to match or cease to match the search criteria. ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1210");
@@ -664,7 +664,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 2,
                 getContentsTableResponse.RowCount,
                 1095,
-                @"[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders (2), the contents of the search folder (2) MUST continue to be updated as messages move around the mailbox. ");
+                @"[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders, the contents of the search folder MUST continue to be updated as messages move around the mailbox. ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1097");
@@ -674,7 +674,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 2,
                 getContentsTableResponse.RowCount,
                 1097,
-                @"[In Processing a RopSetSearchCriteria ROP Request] The server continues to update the search folder (2) with messages that enter or exit the search criteria.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] The server continues to update the search folder with messages that enter or exit the search criteria.");
 
             #endregion
 
@@ -759,7 +759,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Constants.SuccessCode,
                 setSearchCriteriaResponse.ReturnValue,
                 98,
-                @"[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.4) establishes search criteria for a search folder (2).");
+                @"[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.4) establishes search criteria for a search folder.");
 
             #region Verify the requirements: MS-OXCFOLD_R766, MS-OXCFOLD_R409, and MS-OXCFOLD_R47.
 
@@ -781,7 +781,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Constants.SuccessCode,
                 setSearchCriteriaResponse.ReturnValue,
                 409,
-                @"[In Setting Up a Search Folder] The client creates a search folder (2) by using the RopCreateFolder ROP ([MS-OXCROPS] section 2.2.4.2) with the FolderType field set to the value 2, as specified in section 2.2.1.2.1.");
+                @"[In Setting Up a Search Folder] The client creates a search folder by using the RopCreateFolder ROP ([MS-OXCROPS] section 2.2.4.2) with the FolderType field set to the value 2, as specified in section 2.2.1.2.1.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R47");
@@ -977,7 +977,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 getSearchCriteriaResponse1.RestrictionData != null && getSearchCriteriaResponse1.RestrictionData.Length > 0,
                 129,
-                @"[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): A Boolean value that is nonzero (TRUE) if the restriction (2) data is required in the response.");
+                @"[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): A Boolean value that is nonzero (TRUE) if the restriction data is required in the response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R131");
@@ -1052,7 +1052,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsNull(
                 getSearchCriteriaResponse2.RestrictionData,
                 130,
-                @"[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): [A Boolean value that is] zero (FALSE) otherwise [if the restriction (2) data is not required in the response].");
+                @"[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): [A Boolean value that is] zero (FALSE) otherwise [if the restriction data is not required in the response].");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R132");
@@ -1766,7 +1766,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSize,
                 10353,
-                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.785) specifies the aggregate size of messages in the folder.");
+                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.787) specifies the aggregate size of messages in the folder.");
             ulong pidTagMessageSizeExtended = BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[8].Value, 0);
             
             // Add the debug information
@@ -1777,7 +1777,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 (ulong)pidTagMessageSize,
                 pidTagMessageSizeExtended,
                 10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.786) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.788) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R354");
@@ -1844,7 +1844,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 subfolderId1,
                 BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[3].Value, 0),
                 10351,
-                @"[In PidTagHierarchyChangeNumber Property] The PidTagFolderId property ([MS-OXPROPS] section 2.691) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
+                @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.691) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1030");
@@ -1913,7 +1913,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // MS-OXCFOLD_R1029 and MS-OXCFOLD_R1030 is verified, MS-OXCFOLD_R10355 can be verified directly.
             Site.CaptureRequirement(
                 10355,
-                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1020) specifies whether the folder has any subfolders.");
+                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1022) specifies whether the folder has any subfolders.");
 
             #endregion
 
@@ -1949,7 +1949,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 changeNumberIncreased,
                 10028,
-                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.710) specifies the number of subfolders in the folder.");
+                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.711) specifies the number of subfolders in the folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] is {0}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after creating [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {1}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after deleting [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {2}.", getPropertiesSpecificResponse1.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse2.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse.RowData.PropertyValues[5].Value);
@@ -2420,7 +2420,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                    Constants.SuccessCode,
                     getHierarchyTableResponse.ReturnValue,
                     314001,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. (<17> Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.)");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. <19> Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
             }
 
             #endregion
@@ -2547,7 +2547,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     getContentsTableResponse.ReturnValue,
                     330001,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. (<19> Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.)");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. <22> Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
             }
 
             #endregion
@@ -2616,7 +2616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0x00000461,
                 setSearchCriteriaResponse.ReturnValue,
                 570,
-                @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates the object is not a search folder (2).");
+                @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates the object is not a search folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R46");
@@ -2742,7 +2742,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80070057,
                     setSearchCriteriaResponse.ReturnValue,
                     116002,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). (<15> Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.)");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). <17> Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.");
             }
 
             #endregion
@@ -2791,7 +2791,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // The clients call RopSetSearchCriteria ROP on a not initialized search folder without setting folder IDs, and the error code 0x80040605 was captured, MS-OXCFOLD_R566 can be verified directly.
             Site.CaptureRequirement(
                 566,
-                @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotInitialized, it indicates that no FIDs were specified for this search folder (2).");
+                @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotInitialized, it indicates that no FIDs were specified for this search folder.");
             #endregion
             #endregion
 
@@ -2822,7 +2822,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000490,
                     setSearchCriteriaResponse.ReturnValue,
                     124201,
-                    @"[In Appendix A: Product Behavior] Implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder (2) itself. (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder itself. (Exchange 2013 and above follows this behavior.)");
                 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1243: the return value of the RopSetSearchCriteria is {0}", setSearchCriteriaResponse.ReturnValue);
@@ -2843,7 +2843,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000490,
                     setSearchCriteriaResponse.ReturnValue,
                     1244,
-                    @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecSearchFolderScopeViolation, it indicates the search folder (2) was included in its own search scope.");
+                    @"[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecSearchFolderScopeViolation, it indicates the search folder was included in its own search scope.");
             }
 
             if (Common.IsRequirementEnabled(124202, this.Site))
@@ -2858,7 +2858,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     setSearchCriteriaResponse.ReturnValue,
                     124202,
-                    @"[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope. (<14> Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope.)");
+                    @"[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. <16> Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.");
             }
             #endregion
             #endregion
@@ -2907,7 +2907,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0x00000461,
                 getSearchCriteriaResponse.ReturnValue,
                 580,
-                @"[In Processing a RopGetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates that the object is not a search folder (2).");
+                @"[In Processing a RopGetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates that the object is not a search folder.");
 
             #endregion
 
@@ -3310,7 +3310,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 2,
                 getContentsTableResponse.RowCount,
                 515,
-                @"[In Processing a RopSetSearchCriteria ROP Request] The server fills the search folder (2) according to the search criteria and search scope that are specified in the RopSetSearchCriteria ROP request.");
+                @"[In Processing a RopSetSearchCriteria ROP Request] The server fills the search folder according to the search criteria and search scope that are specified in the RopSetSearchCriteria ROP request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R770");
@@ -3414,15 +3414,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             getSearchCriteriaResponse = this.Adapter.GetSearchCriteria(getSearchCriteriaRequest, searchFolderHandle2, ref this.responseHandles);
             Site.Assert.AreEqual<uint>(Constants.SuccessCode, getSearchCriteriaResponse.ReturnValue, "RopGetSearchCriteria ROP operation performs successfully!");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R778");
-
-            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R778
-            Site.CaptureRequirementIfAreNotEqual<uint>(
-                (uint)GetSearchFlags.ForGround,
-                getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.ForGround,
-                778,
-                @"[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): BACKGROUND_SEARCH (0x00000020) means that the search is executed at normal priority relative to other searches.");
             #endregion
 
             #region Step 15. The client calls RopGetContentsTable to retrieve the contents table for the search folder [MSOXCFOLDSearchFolder2].
@@ -3619,7 +3610,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     (uint)GetSearchFlags.Running,
                     getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Running,
                     54301,
-                    @"[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder (2) if the STOP_SEARCH bit is set in the SearchFlags field. Exchange 2007 and above follow this behavior.");
+                    @"[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder if the STOP_SEARCH bit is set in the SearchFlags field. Exchange 2007 and above follow this behavior.");
             }
 
             #endregion
@@ -3670,7 +3661,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 (uint)GetSearchFlags.Running,
                 getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Running,
                 546,
-                @"[In Processing a RopSetSearchCriteria ROP Request] If the RESTART_SEARCH bit is set in the SearchFlags field, the server restarts the population of the search folder (2).");
+                @"[In Processing a RopSetSearchCriteria ROP Request] If the RESTART_SEARCH bit is set in the SearchFlags field, the server restarts the population of the search folder.");
 
             #endregion
 

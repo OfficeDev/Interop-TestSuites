@@ -1173,7 +1173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80040102,
                     emptyFolderResponse.ReturnValue,
                     124801,
-                    @"[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. (<16> Section 3.2.5.9: Exchange 2007 does not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.)");
+                    @"[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. <18> Section 3.2.5.9: Exchange 2007 do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.");
             }
 
             if (Common.IsRequirementEnabled(124802, this.Site))
@@ -1186,7 +1186,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80040102,
                     emptyFolderResponse.ReturnValue,
                     124802,
-                    @"[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. (<16> Section 3.2.5.9: Update Rollup 4 for Exchange 2010 SP2 and Exchange 2013 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. <18> Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013 and Exchange 2016 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.");
             }
             #endregion
         }
@@ -1553,7 +1553,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 1,
                 rootFolderContentsCountActual,
                 121702,
-                @"[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be copied] This folder can be a search folder (2).");
+                @"[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be copied] This folder can be a search folder.");
             #endregion
 
             #region Step 12. Call RopMoveCopyMessages to move the message in the [MSOXCFOLDSearchFolder] to root folder synchronously.
@@ -1595,7 +1595,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 2,
                 rootFolderContentsCountActual,
                 121701,
-                @"[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be moved] This folder can be a search folder (2).");
+                @"[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be moved] This folder can be a search folder.");
             #endregion
 
             #region Step 14. Call RopMoveCopyMessages to copy the message in the [MSOXCFOLDSubfolder2] to the [MSOXCFOLDSearchFolder] synchronously.
@@ -1631,7 +1631,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000000,
                     copyMessagesToSearchFolderResponse.ReturnValue,
                     121802,
-                    @"[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be copied.] This folder cannot be a search folder (2).");
+                    @"[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be copied.] This folder cannot be a search folder.");
             }
             #endregion
 
@@ -1668,7 +1668,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000000,
                     moveMessagesToSearchFolderResponse.ReturnValue,
                     121801,
-                    @"[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be moved.] This folder cannot be a search folder (2).");
+                    @"[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be moved.] This folder cannot be a search folder.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1216");
@@ -1682,7 +1682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifiedR1216,
                     1216,
-                    @"[In RopMoveCopyMessages ROP] The source folder can be a search folder (2), but the destination folder cannot.");
+                    @"[In RopMoveCopyMessages ROP] The source folder can be a search folder, but the destination folder cannot.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1246: the return value is {0} when copy a message to a search folder and the return value is {1} when move a message to a search folder.", copyMessagesToSearchFolderResponse.ReturnValue, moveMessagesToSearchFolderResponse.ReturnValue);
@@ -1693,7 +1693,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifiedR1246,
                     1246,
-                    @"[In Processing a RopMoveCopyMessages ROP Request] When the error code is ecSearchFolder, it indicates the destination object is a search folder (2). ");
+                    @"[In Processing a RopMoveCopyMessages ROP Request] When the error code is ecSearchFolder, it indicates the destination object is a search folder. ");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1245");

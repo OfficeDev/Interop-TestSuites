@@ -4474,7 +4474,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXCFOLD_R350002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R748</ns1:REQ_ID>
@@ -8838,7 +8839,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R22001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. [In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 ignores the OpenSoftDeleted bit and always opens an existing folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 ignores the OpenSoftDeleted bit and always opens an existing folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R22:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9011,22 +9012,25 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;8&gt; Section 2.2.2.2.1.4:  Exchange 2013 and Exchange 2016 do not support the PidTagAddressBookEntryId property.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R350002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R46201001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. [In Appendix A: Product Behavior] &lt;10&gt; Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. &lt;10&gt; Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R46201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9103,7 +9107,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R123402</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. (&lt;13&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;13&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1234:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9233,7 +9237,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R314001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. (&lt;19&gt; Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. &lt;19&gt; Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R314:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

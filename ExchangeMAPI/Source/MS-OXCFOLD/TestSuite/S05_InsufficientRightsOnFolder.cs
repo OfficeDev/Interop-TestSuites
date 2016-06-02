@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000502,
                     createFolderResponse.ReturnValue,
                     106602,
-                    @"[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. (<10> Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.)");
+                    @"[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. <11> Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1074");
@@ -170,7 +170,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80070005,
                     createFolderResponse.ReturnValue,
                     106601,
-                    @"[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. (<10> Section 3.2.5.2: Exchange 2007 and Exchange 2013 return ecAccessdenied.)");
+                    @"[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. <11> Section 3.2.5.2: Exchange 2007, Exchange 2013 and Exchange 2016 return ecAccessdenied.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1071");
