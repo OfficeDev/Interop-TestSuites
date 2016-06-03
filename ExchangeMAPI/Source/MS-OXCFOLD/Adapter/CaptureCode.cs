@@ -1023,7 +1023,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                         // The property ID and property type match the description in [MS-OXPROPS] and the property type was verified, this requirement can be captured directly.
                         Site.CaptureRequirement(
                             351,
-                            "[In PidTagFolderId Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)");
+                            "[In PidTagFolderId Property] Type: PtypInteger64 ([MS-OXCDATA] section 2.11.1)");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R6212");
