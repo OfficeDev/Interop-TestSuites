@@ -388,6 +388,73 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 typeof(int),
                 372,
                 @"[In CompareMinIds Request Type] The CompareMinIds request type is used by the client to compare the positions of two objects in an address book container.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2111");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2111
+            this.Site.CaptureRequirementIfIsTrue(
+                compareMinIdsResponseBody.Result < 0,
+                2111,
+                @"[In CompareMinIds Request Type Success Response Body] [Result] A value less than 0 (zero): The position of the object specified by the MinimalId1 field of the request body precedes the position of the object specified by the MinimalId2 field.");
+
+            compareMinIdsRequestBody = new CompareMinIdsRequestBody()
+            {
+                // Reserved. The client MUST set this field to 0x00000000 and the server MUST ignore this field.
+                Reserved = 0,
+                HasState = true,
+                State = stat,
+                MinimalId1 = responseBodyOfDNToMinId.MinimalIds[1],
+                MinimalId2 = responseBodyOfDNToMinId.MinimalIds[0],
+                AuxiliaryBuffer = auxIn,
+                AuxiliaryBufferSize = (uint)auxIn.Length
+            };
+
+            compareMinIdsResponseBody = this.Adapter.CompareMinIds(compareMinIdsRequestBody);
+            Site.Assert.AreEqual<uint>(0, compareMinIdsResponseBody.ErrorCode, "CompareMinIds should succeed and 0 is expected to be returned. The returned value is {0}.", compareMinIdsResponseBody.ErrorCode);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2112");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2112
+            this.Site.CaptureRequirementIfIsTrue(
+                compareMinIdsResponseBody.Result > 0,
+                2112,
+                @"[In CompareMinIds Request Type Success Response Body] [Result] A value greater than 0 (zero): The position of the object specified by the MinimalId1 field of the request body succeeds the position of the object specified by the MinimalId2 field.");
+
+            compareMinIdsRequestBody = new CompareMinIdsRequestBody()
+            {
+                // Reserved. The client MUST set this field to 0x00000000 and the server MUST ignore this field.
+                Reserved = 0,
+                HasState = true,
+                State = stat,
+                MinimalId1 = responseBodyOfDNToMinId.MinimalIds[0],
+                MinimalId2 = responseBodyOfDNToMinId.MinimalIds[0],
+                AuxiliaryBuffer = auxIn,
+                AuxiliaryBufferSize = (uint)auxIn.Length
+            };
+
+            compareMinIdsResponseBody = this.Adapter.CompareMinIds(compareMinIdsRequestBody);
+            Site.Assert.AreEqual<uint>(0, compareMinIdsResponseBody.ErrorCode, "CompareMinIds should succeed and 0 is expected to be returned. The returned value is {0}.", compareMinIdsResponseBody.ErrorCode);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2109");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2109
+            this.Site.CaptureRequirementIfIsTrue(
+                compareMinIdsResponseBody.Result == 0,
+                2109,
+                @"[In CompareMinIds Request Type Success Response Body] [Result] Value 0 (zero): The position of the object specified by the MinimalId1 field of the request body is the same as the position of the object specified by the MinimalId2 field. ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2110");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2110
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                compareMinIdsRequestBody.MinimalId1,
+                compareMinIdsRequestBody.MinimalId2,
+                2110,
+                @"[In CompareMinIds Request Type Success Response Body] [Result] Value 0 (zero): That is, the two fields specify the same object.");
             #endregion
 
             #region Call CompareMinIds request body with HasState set to false to compare the positions of two objects in an address book container.

@@ -547,20 +547,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 out this.rgwBestVersion,
                 out this.picxr);
 
-            if (Common.IsRequirementEnabled(4874, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R4874");
-
-                // Verify MS-OXCRPC requirement: MS-OXCRPC_R4874
-                // The condition that cbAuxIn is larger than 0x00001008 bytes is controlled by "TooBigcbAuxIn" because the value of "TooBigcbAuxIn" is defined as a constant with value "4105(0x1009)".
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0x80040110,
-                    this.returnValue,
-                    4874,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with return code 0x80040110 when the value of the cbAuxIn parameter on input is larger than 0x00001008. (<12> Section 3.1.4.1: Exchange 2007 follows this behavior.)");
-            }
-
             if (Common.IsRequirementEnabled(4875, this.Site))
             {            
                 // Add the debug information
@@ -1136,19 +1122,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     @"[In Appendix B: Product Behavior] Implementation does fail with return code 0x000006F7 if the request buffer value of the cbAuxIn parameter is larger than 0x00001008 bytes in size. (<22> Section 3.1.4.2: Exchange 2010 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(4876, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R4876");
-
-                // Verify MS-OXCRPC requirement: MS-OXCRPC_R4876
-                // The condition that cbAuxIn is larger than 0x00001008 bytes is controlled by constant "TooBigcbAuxIn" defined in ConstValues.cs.
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0x80040110,
-                    this.returnValue,
-                    4876,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with return code 0x80040110 if the request buffer value of the cbAuxIn parameter is larger than 0x00001008 bytes in size. (<22> Section 3.1.4.2: Exchange 2007 follows this behavior.)");
-            }
             #endregion
 
             #region Client disconnects with Server
