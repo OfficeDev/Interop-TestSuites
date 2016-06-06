@@ -443,6 +443,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 AdapterHelper.GetFinalResponseCode(executeHeaders["X-ResponseCode"]),
                 141,
                 @"[In X-ResponseCode Header Field] Invalid Request Type (5): The request has an invalid X-RequestType header.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2232");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2232
+            this.Site.CaptureRequirementIfIsNull(
+                responseBody,
+                2232,
+                @"[In Responding to All Request Type Requests] If an additional X-ResponseCode header is returned and if it indicates a failure, then the response body can be empty or can include failure data in a format that is specified by an additional Content-Type header as specified in section 2.2.3.2.2.");
+
             #endregion
 
             #region Send an Execute request which misses cookie.
@@ -737,8 +747,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR1266,
-                1266,
-                @"[In Using Response Meta-Tags] If the server is using the ""chunked"" transfer coding, it MUST flush this [""chunked"" transfer coding] to the client (being careful to make sure it disables any internal Nagle algorithms, as described in [RFC896], that might attempt to buffer response data).");
+                2227,
+                @"[In Responding to All Request Type Requests] If the server is using the ""chunked"" transfer coding, it MUST flush this to the client (being careful to make sure it disables any internal Nagle algorithms, as described in [RFC896], that might attempt to buffer response data).");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -1210,7 +1220,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 HttpStatusCode.Unauthorized,
                 httpStatusCodeUnauthorized,
                 1331,
-                @"[In Common Response Format] c code for authentication (""401 Access Denied"").");
+                @"[In Common Response Format] The server deviates from a ""200 OK"" HTTP status code for authentication (""401 Access Denied"").");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R36");

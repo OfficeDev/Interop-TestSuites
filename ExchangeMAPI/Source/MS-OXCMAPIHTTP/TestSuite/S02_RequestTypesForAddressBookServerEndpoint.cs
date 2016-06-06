@@ -1260,6 +1260,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                                     "MS-OXCDATA",
                                     476,
                                     @"[In FlaggedPropertyValue Structure] The Flag value 0x0 means the PropertyValue field will be a PropertyValue structure containing a value compatible with the property type implied by the context.");
+
+                                // Add the debug information
+                                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2022.");
+
+                                // Verify MS-OXCDATA requirement: MS-OXCMAPIHTTP_R2022
+                                // The parser code parses the PropertyValue field according to the property type. So R2022 can be verified if the returned property value is not null.
+                                this.Site.CaptureRequirementIfIsNotNull(
+                                    propertyValue.Value,
+                                    2022,
+                                    @"[In AddressBookFlaggedPropertyValue Structure] Flag value 0x0 meaning The PropertyValue field will be an AddressBookPropertyValue structure (section 2.2.1.1) containing a value compatible with the property type implied by the context.");
                             }
                         }
                     }
@@ -1848,6 +1858,36 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             Site.Assert.AreEqual<uint>((uint)0, getPropertyResponseBody.StatusCode, "GetProps request should be executed successfully and 0 is expected to be returned. The return value is {0}.", getPropertyResponseBody.StatusCode);
             #endregion
 
+            #region Call GetProps request type with Flags set to fEphID.
+            largePropTagArray = new LargePropertyTagArray();
+            largePropTagArray.PropertyTagCount = 2;
+
+            // PidTagDisplayName property.
+            propertyTags = new PropertyTag[2];
+            propertyTags[0].PropertyId = (ushort)PropertyID.PidTagDisplayName;
+            propertyTags[0].PropertyType = (ushort)PropertyTypeValues.PtypString;
+            propertyTags[1].PropertyId = (ushort)PropertyID.PidTagAddressBookMember;
+            propertyTags[1].PropertyType = (ushort)PropertyTypeValues.PtypEmbeddedTable;
+            largePropTagArray.PropertyTags = propertyTags;
+
+            getPropertyRequestBody = this.BuildGetPropsRequestBody((uint)RetrievePropertyFlags.fEphID, true, updateStatResponseBody.State, true, largePropTagArray);
+            uint responseCodeHeader = 0;
+            getPropertyResponseBody = this.Adapter.GetProps(getPropertyRequestBody, out responseCodeHeader);
+
+            if (Common.IsRequirementEnabled(2237, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2237.");
+
+                // Verify MS-OXCDATA requirement: MS-OXCMAPIHTTP_R2237
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    1,
+                    responseCodeHeader,
+                    2237,
+                    @"[In Appendix A: Product Behavior] If the type of the returned property is PtypObject or PtypEmbeddedTable ([MS-OXCDATA] section 2.11.1), implementation will return value 1 for the X-ResponseCode header.  (Exchange 2013 SP1 follows this behavior.)");
+            }
+            #endregion
+
             #region Call the Unbind request type to destroy the session context.
             this.Unbind();
             #endregion
@@ -2376,7 +2416,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// This case is designed to verify Flag is 0xA.
         /// </summary>
         [TestCategory("MSOXCMAPIHTTP"), TestMethod]
-        public void MSOXCMAPIHTTP_S02_TC19_VerifyFlagWithPtypErrorCode()
+        public void MSOXCMAPIHTTP_S02_TC19_TestFlagWithPtypErrorCode()
         {
             this.CheckMapiHttpIsSupported();
 
@@ -2434,13 +2474,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 }
             }
             #endregion
+
+            #region Call Unbind request to destroy the session between the client and the server.
+            this.Unbind();
+            #endregion
         }
 
         /// <summary>
         /// This case is designed to verify HasValue with PropertyType PtypString8.
         /// </summary>
         [TestCategory("MSOXCMAPIHTTP"), TestMethod]
-        public void MSOXCMAPIHTTP_S02_TC20_VerifyHasValueWithPropertyTypePtypString8()
+        public void MSOXCMAPIHTTP_S02_TC20_TestHasValueWithPropertyTypePtypString8()
         {
             this.CheckMapiHttpIsSupported();
 
@@ -2495,6 +2539,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     }
                 }
             }
+            #endregion
+
+            #region Call Unbind request to destroy the session between the client and the server.
+            this.Unbind();
             #endregion
         }
         #endregion Test Cases
