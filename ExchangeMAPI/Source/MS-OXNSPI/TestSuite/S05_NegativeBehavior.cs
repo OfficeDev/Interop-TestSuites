@@ -1217,7 +1217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Result,
                 "MS-OXCDATA",
                 899,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.2.9.2.");
+                @"[In Error Codes] GeneralFailure (E_FAIL, MAPI_E_CALL_FAILED, ecError, SYNC_E_ERROR) will be returned, if the operation failed for an unspecified reason.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R900");
