@@ -1575,6 +1575,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 #endregion
 
                 // Step 3: Log on to a private mailbox.
+                this.cropsAdapter.RpcDisconnect();
+                this.cropsAdapter.RpcConnect(
+                    Common.GetConfigurationPropertyValue("SutComputerName", this.Site),
+                    ConnectionType.PrivateMailboxServer,
+                    Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
+                    Common.GetConfigurationPropertyValue("Domain", this.Site),
+                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("PassWord", this.Site));
                 logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
 
                 // Step 4: Call RopWritePerUserInformation to set per-user information for the public folder, passing longTermId

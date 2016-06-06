@@ -8377,15 +8377,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R115601</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopHardDeleteMessages ROP Request] In the server behavior, the server MUST NOT delete any messages that are opened with read/write access.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R115602</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12</ns1:Doc_Sect>
 		<ns1:Description>[In Processing a RopHardDeleteMessages ROP Request] In the server behavior, if the server fails to delete any messages, it sets the PartialCompletion field of the RopDeleteMessages ROP response buffer to nonzero (TRUE), as specified in section 2.2.1.11.2.</ns1:Description>
