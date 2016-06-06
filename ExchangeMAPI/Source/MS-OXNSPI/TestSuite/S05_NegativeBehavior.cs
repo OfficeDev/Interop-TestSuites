@@ -2978,6 +2978,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 1284,
                 @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 2] If the server returns any return value other than ""Success"", the server MUST NOT modify any properties of any objects in the address book.");
 
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R750001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R750001
+            Site.CaptureRequirementIfIsTrue(
+                AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
+                750001,
+                @"[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results.");
             #endregion
             #endregion
 
@@ -3503,14 +3511,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiBind should return success!");
             #endregion
 
-            #region Call NspiUpdateStat to update the STAT block to make CurrentRec point to the first row of the table.
-            uint reserved = 0;
-            int? delta = 1;
-            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
-            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return success!");
-            #endregion
-
-            #region Call NspiGetProps method with dwFlags set to fEphID.
+            #region Call NspiGetProps method with invalid ContainerID.
             PropertyTagArray_r prop = new PropertyTagArray_r
             {
                 CValues = 1
@@ -3522,6 +3523,45 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             uint flagsOfGetProps = (uint)RetrievePropertyFlag.fEphID;
             PropertyRow_r? rows;
 
+            stat.ContainerID = 1000;  // Invalid containerID
+            this.Result = this.ProtocolAdatper.NspiGetProps(flagsOfGetProps, stat, propTags, out rows);
+
+            bool isR2003005Verified = false;
+            if (Common.IsRequirementEnabled(2003005, this.Site))
+            {
+                if (ErrorCodeValue.ErrorsReturned == this.Result)
+                {
+                    isR2003005Verified = true;
+                }
+            }
+            else
+            {
+                if (ErrorCodeValue.InvalidBookmark == this.Result)
+                {
+                    isR2003005Verified = true;
+                }
+            }
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003005");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003005
+            Site.CaptureRequirementIfIsTrue(
+                isR2003005Verified,
+                2003005,
+                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <4> Section 3.1.4.1.7:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 return ""ErrorsReturned"" (0x00040380).");
+            #endregion
+
+            #region Call NspiUpdateStat to update the STAT block to make CurrentRec point to the first row of the table.
+            uint reserved = 0;
+            int? delta = 1;
+            stat.ContainerID = 0; // Reset the valid containerID
+            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return success!");
+            #endregion
+
+            #region Call NspiGetProps method with dwFlags set to fEphID.
+            
             this.Result = this.ProtocolAdatper.NspiGetProps(flagsOfGetProps, stat, propTags, out rows);
             Site.Assert.IsNotNull(rows, "rows should not be null. The row number is {0}.", rows == null ? 0 : rows.Value.CValues);
 
