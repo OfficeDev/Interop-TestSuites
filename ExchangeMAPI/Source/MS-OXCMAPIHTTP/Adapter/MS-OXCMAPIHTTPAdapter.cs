@@ -479,6 +479,37 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         }
 
         /// <summary>
+        /// This method is used by the client to get specific properties on an object.
+        /// </summary>
+        /// <param name="getPropsRequestBody">The GetProps request type request body.</param>
+        /// <param name="responseCodeHeader">The value of X-ResponseCode header</param>
+        /// <returns>The response body of the GetProps request type.</returns>
+        public GetPropsResponseBody GetProps(GetPropsRequestBody getPropsRequestBody,out uint responseCodeHeader)
+        {
+            byte[] rawBuffer;
+            CommonResponse commonResponse = null;
+            WebHeaderCollection webHeaderCollection = AdapterHelper.InitializeHTTPHeader(RequestType.GetProps, AdapterHelper.ClientInstance, AdapterHelper.Counter);
+
+            // Send the Execute HTTP request and get the response.
+            HttpWebResponse response = this.SendMAPIHttpRequest(this.userName, this.password, getPropsRequestBody, ServerEndpoint.AddressBookServerEndpoint, AdapterHelper.SessionContextCookies, webHeaderCollection, out rawBuffer);
+            responseCodeHeader = AdapterHelper.GetFinalResponseCode(response.Headers["X-ResponseCode"]);
+
+            // Read the HTTP response buffer and parse the response to correct format.
+            commonResponse = CommonResponse.ParseCommonResponse(rawBuffer);
+ 
+            response.GetResponseStream().Close();
+            AdapterHelper.SessionContextCookies = response.Cookies;
+            GetPropsResponseBody getPropsResponseBody = new GetPropsResponseBody();
+            if (commonResponse.ResponseBodyRawData.Length > 0)
+            {
+                getPropsResponseBody= GetPropsResponseBody.Parse(commonResponse.ResponseBodyRawData);
+            }
+               
+            return getPropsResponseBody;
+        }
+
+
+        /// <summary>
         /// This method is used by the client to get a special table, which can be either an address book hierarchy table or an address creation table.
         /// </summary>
         /// <param name="getSpecialTableRequestBody">The GetSpecialTable request type request body.</param>
