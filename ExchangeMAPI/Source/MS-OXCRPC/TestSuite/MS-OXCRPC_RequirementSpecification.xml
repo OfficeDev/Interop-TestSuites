@@ -10487,7 +10487,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCRPC_R4886.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCRPC_R4885, MS-OXCRPC_R4886.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4885</ns1:REQ_ID>
