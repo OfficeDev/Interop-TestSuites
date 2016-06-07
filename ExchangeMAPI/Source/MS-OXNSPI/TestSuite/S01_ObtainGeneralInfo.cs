@@ -1030,6 +1030,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             }
             #endregion
 
+            #region Capture
+            if (Common.IsRequirementEnabled(2003004, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003004");
+
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003004
+                Site.CaptureRequirementIfIsTrue(
+                    Common.IsDNMatchABNF(dn, DNFormat.AddressListDn),
+                    2003004,
+                    @"[In Appendix A: Product Behavior] Implementation does follow the ABNF format. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).");
+            }
+            #endregion Capture
+
             #region Call NspiGetTemplateInfo method with DN set to a non-null value.
             uint flagsOfGetTemplateInfo = (uint)NspiGetTemplateInfoFlag.TI_SCRIPT;
             uint type = (uint)DisplayTypeValue.DT_MAILUSER;
