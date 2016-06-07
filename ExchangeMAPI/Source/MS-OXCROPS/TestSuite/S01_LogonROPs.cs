@@ -1137,7 +1137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                             0,
                             createFolderResponse.IsExistingFolder,
                             6000101,
-                            @"[In Appendix A: Product Behavior] If a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field. (Exchange 2010 and above follows this behavior.)");
+                            @"[In Appendix A: Product Behavior] If a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field. (Exchange 2007 follows this behavior.)");
 
                         if (createFolderResponse.IsExistingFolder != 0)
                         {
