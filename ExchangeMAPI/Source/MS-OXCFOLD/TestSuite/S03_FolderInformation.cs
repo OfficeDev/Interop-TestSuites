@@ -1667,7 +1667,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #region Step 4. The client gets the read-only properties from [MSOXCFOLDSubfolder1].
 
-            PropertyTag[] propertyTagArray = new PropertyTag[10];
+            PropertyTag[] propertyTagArray = new PropertyTag[11];
 
             PropertyTag propertyTag = new PropertyTag
             {
@@ -1738,7 +1738,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 PropertyType = (ushort)PropertyType.PtypInteger32
             };
             propertyTagArray[9] = propertyTag;
-       
+
+            propertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)FolderPropertyId.PidTagHierRev,
+                PropertyType = (ushort)PropertyType.PtypTime
+            };
+            propertyTagArray[10] = propertyTag;
+
             RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
             RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
             getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
@@ -1751,13 +1758,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
             Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
             RopGetPropertiesSpecificResponse getPropertiesSpecificResponse1 = getPropertiesSpecificResponse;
-
             #endregion
 
-            #region Verify the requirements: MS-OXCFOLD_R10347, MS-OXCFOLD_R10345, MS-OXCFOLD_R346, MS-OXCFOLD_R10351 and MS-OXCFOLD_R1030, MS-OXCFOLD_R10027, MS-OXCFOLD_R10353, MS-OXCFOLD_R10354.
-
+            #region Verify the requirements: MS-OXCFOLD_R10347, MS-OXCFOLD_R10345, MS-OXCFOLD_R346, MS-OXCFOLD_R10351 and MS-OXCFOLD_R1030, MS-OXCFOLD_R10027, MS-OXCFOLD_R10353, MS-OXCFOLD_R10354, MS-OXCFOLD_R352001 and MS-OXCFOLD_R352002.
             uint pidTagMessageSize = BitConverter.ToUInt32(getPropertiesSpecificResponse1.RowData.PropertyValues[7].Value, 0);
-
+            
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10353");
 
@@ -1869,15 +1874,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 3006,
                 @"[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.660) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.");
  
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352001");
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R352001
+            Site.CaptureRequirementIfAreEqual<ushort>(
+                (ushort)PropertyType.PtypTime,
+                propertyTagArray[10].PropertyType,
+                352001,
+                "[In PidTagHierRev Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1)");
+
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10354");
-        
-            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10354
-            this.Site.CaptureRequirementIfAreEqual<ulong>(
-                (ulong)pidTagMessageSize,
-                pidTagMessageSizeExtended,
-                10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.786) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352002");
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R352002
+            // If the property value in getPropertiesSpecificResponse1 is not null, then the PidTagHierRev property is returned from server.
+            this.Site.CaptureRequirementIfIsTrue(
+                getPropertiesSpecificResponse1.RowData.PropertyValues[10].Value.Length > 0,
+                352002,
+                @"[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.712) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.");
             #endregion
 
             #region Step 5. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1].
@@ -3665,6 +3680,228 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #endregion
 
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test readonly property PidTagFolderFlags.
+        /// </summary>
+        [TestCategory("MSOXCFOLD"), TestMethod()]
+        public void MSOXCFOLD_S03_TC16_GetPropertyPidTagFolderFlags()
+        {
+            this.CheckWhetherSupportTransport();
+            this.Adapter.DoConnect(ConnectionType.PrivateMailboxServer);
+            this.GenericFolderInitialization();
+
+            #region Step 1. Call RopCreateFolder to create [MSOXCFOLDSubfolder1] under the root folder.
+            uint subfolderHandle1 = 0;
+            ulong subfolderId1 = 0;
+            this.CreateFolder(this.RootFolderHandle, Constants.Subfolder1, ref subfolderId1, ref subfolderHandle1);
+            #endregion
+
+            #region Step 2. Creates a none-FAI message in [MSOXCFOLDSubfolder1].
+            ulong messageId = 0;
+            uint messageHandle = 0;
+            this.CreateSaveMessage(subfolderHandle1, subfolderId1, ref messageId, ref messageHandle);
+            #endregion
+
+            #region Step 3. Create a FAI message and saves it in [MSOXCFOLDSubfolder1].
+            uint messageHandle2 = 0;
+            ulong messageId2 = 0;
+            this.CreateSaveMessage(subfolderHandle1, subfolderId1, 0x01, ref messageId2, ref messageHandle2);
+            #endregion
+
+            #region Step 4. The client calls RopCreateFolder to create the search folder [MSOXCFOLDSearchFolder1] under the root folder.
+            RopCreateFolderRequest createFolderRequest = new RopCreateFolderRequest
+            {
+                RopId = (byte)RopId.RopCreateFolder,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                OutputHandleIndex = Constants.CommonOutputHandleIndex,
+                FolderType = (byte)FolderType.Searchfolder,
+                UseUnicodeStrings = 0x0,
+                OpenExisting = 0x00,
+                Reserved = 0x0,
+                DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder),
+                Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
+            };
+            RopCreateFolderResponse createFolderResponse = this.Adapter.CreateFolder(createFolderRequest, this.RootFolderHandle, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, createFolderResponse.ReturnValue, "RopCreateFolder ROP operation performs successfully!");
+            uint searchFolderHandle = this.responseHandles[0][createFolderResponse.OutputHandleIndex];
+            #endregion            
+
+            #region Step 5. The client calls RopSetSearchCriteria to establish search criteria for [MSOXCFOLDSearchFolder1].
+            RopSetSearchCriteriaRequest setSearchCriteriaRequest = new RopSetSearchCriteriaRequest
+            {
+                RopId = (byte)RopId.RopSetSearchCriteria,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex
+            };
+            PropertyTag propertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)MessagePropertyId.PidTagMessageClass,
+                PropertyType = (ushort)PropertyType.PtypString
+            };
+            ExistRestriction existRestriction = new ExistRestriction
+            {
+                PropTag = propertyTag
+            };
+            setSearchCriteriaRequest.RestrictionDataSize = (ushort)existRestriction.Size();
+            setSearchCriteriaRequest.RestrictionData = existRestriction.Serialize();
+            setSearchCriteriaRequest.FolderIds = new ulong[] { subfolderId1 };
+            setSearchCriteriaRequest.FolderIdCount = (ushort)setSearchCriteriaRequest.FolderIds.Length;
+            setSearchCriteriaRequest.SearchFlags = (uint)SetSearchFlags.NonContentIndexedSearch | (uint)SetSearchFlags.RestartSearch;
+            RopSetSearchCriteriaResponse setSearchCriteriaResponse = this.Adapter.SetSearchCriteria(setSearchCriteriaRequest, searchFolderHandle, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, setSearchCriteriaResponse.ReturnValue, "RopSearchCriteria ROP operation performs successfully!");
+            #endregion
+
+            #region Step 6. The client calls RopGetContentsTable to retrieve the contents table for the search folder [MSOXCFOLDSearchFolder1].
+            RopGetContentsTableRequest getContentsTableRequest = new RopGetContentsTableRequest();
+            RopGetContentsTableResponse getContentsTableResponse;
+            getContentsTableRequest.RopId = (byte)RopId.RopGetContentsTable;
+            getContentsTableRequest.LogonId = Constants.CommonLogonId;
+            getContentsTableRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+            getContentsTableRequest.OutputHandleIndex = Constants.CommonOutputHandleIndex;
+            getContentsTableRequest.TableFlags = (byte)FolderTableFlags.None;
+
+            int count = 0;
+            do
+            {
+                getContentsTableResponse = this.Adapter.GetContentsTable(getContentsTableRequest, searchFolderHandle, ref this.responseHandles);
+                Site.Assert.AreEqual<uint>(Constants.SuccessCode, getContentsTableResponse.ReturnValue, "RopGetContentsTable ROP operation performs successfully!");
+                if (getContentsTableResponse.RowCount != 1)
+                {
+                    Thread.Sleep(this.WaitTime);
+                }
+                else
+                {
+                    break;
+                }
+
+                count++;
+            }
+            while (count < this.RetryCount);
+            #endregion
+
+            #region Step 7. The client creates rules on [MSOXCFOLDSubfolder1] folder.
+            RuleData[] sampleRuleDataArray;
+            object ropResponse = null;
+            sampleRuleDataArray = this.CreateSampleRuleDataArrayForAdd();
+
+            RopModifyRulesRequest modifyRulesRequest = new RopModifyRulesRequest()
+            {
+                RopId = (byte)RopId.RopModifyRules,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                ModifyRulesFlags = 0x00,
+                RulesCount = (ushort)sampleRuleDataArray.Length,
+                RulesData = sampleRuleDataArray,
+            };
+
+            modifyRulesRequest.RopId = (byte)RopId.RopModifyRules;
+            modifyRulesRequest.LogonId = Constants.CommonLogonId;
+            modifyRulesRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+            sampleRuleDataArray = this.CreateSampleRuleDataArrayForAdd();
+            modifyRulesRequest.ModifyRulesFlags = 0x00;
+            modifyRulesRequest.RulesCount = (ushort)sampleRuleDataArray.Length;
+            modifyRulesRequest.RulesData = sampleRuleDataArray;
+            this.Adapter.DoRopCall(modifyRulesRequest, subfolderHandle1, ref ropResponse, ref this.responseHandles);
+            RopModifyRulesResponse modifyRulesResponse = (RopModifyRulesResponse)ropResponse;
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, modifyRulesResponse.ReturnValue, "RopModifyRules ROP operation performs successfully!");           
+            #endregion
+
+            #region Step 8. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder1] folder.
+
+            RopOpenFolderRequest openFolderRequest = new RopOpenFolderRequest
+            {
+                RopId = (byte)RopId.RopOpenFolder,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                OutputHandleIndex = Constants.CommonOutputHandleIndex,
+                FolderId = subfolderId1,
+                OpenModeFlags = (byte)FolderOpenModeFlags.None
+            };
+            RopOpenFolderResponse openFolderResponse = this.Adapter.OpenFolder(openFolderRequest, subfolderHandle1, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, openFolderResponse.ReturnValue, "RopOpenFolder ROP operation performs successfully!");
+            #endregion
+            
+            #region Step 9. The client gets the PidTagFolderFlags propertie from [MSOXCFOLDSubfolder1].
+            PropertyTag[] propertyTagArray = new PropertyTag[1];
+            propertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)FolderPropertyId.PidTagFolderFlags,
+                PropertyType = (ushort)PropertyType.PtypInteger32
+            };
+            propertyTagArray[0] = propertyTag;
+                        
+            RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
+            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
+            getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
+            getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
+            getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+            getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
+            getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
+            getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
+
+            getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+            uint pidTagFolderFlags = BitConverter.ToUInt32(getPropertiesSpecificResponse.RowData.PropertyValues[0].Value, 0);
+
+            #region Verify MS-OXCFOLD_R1035110, MS-OXCFOLD_R1035111, MS-OXCFOLD_R1035103 and MS-OXCFOLD_R1035107
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035110: [In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.692) contains a computed value that specifies the type or state of a folder.");
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1035110
+            Site.CaptureRequirement(
+                1035110,
+                @"[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.692) contains a computed value that specifies the type or state of a folder.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035111: [In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values [1: IPM, 2: SEARCH, 4: NORMAL, 8: RULES] from the following table.");
+
+            bool isR1035111Verified = false;
+            if (((pidTagFolderFlags & 1) == 1) || ((pidTagFolderFlags & 2) == 2) || ((pidTagFolderFlags & 4) == 4) || ((pidTagFolderFlags & 8) == 8))
+            {
+                isR1035111Verified = true;
+            }
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1035111
+            Site.CaptureRequirementIfIsTrue(
+                isR1035111Verified,
+                1035111,
+                @"[In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values [1: IPM, 2: SEARCH, 4: NORMAL, 8: RULES] from the following table.");
+            
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035103: [In PidTagFolderFlags Property] [The folder flag named ""IPM"" specified] the folder belongs to the IPM subtree portion of the mailbox.");
+
+            bool isR1035103Verified = false;
+            if ((pidTagFolderFlags & 1) == 1)
+            {
+                isR1035103Verified = true;
+            }
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1035103
+            Site.CaptureRequirementIfIsTrue(
+                isR1035103Verified,
+                1035103,
+                @"[In PidTagFolderFlags Property] [The folder flag named ""IPM"" specified] the folder belongs to the IPM subtree portion of the mailbox.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035107: [In PidTagFolderFlags Property] [The folder flag named ""NORMAL"" specified] the folder is a generic folder that contains messages and other folders.");
+
+            bool isR1035107Verified = false;
+            if ((pidTagFolderFlags & 4) == 4)
+            {
+                isR1035107Verified = true;
+            }
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1035107
+            Site.CaptureRequirementIfIsTrue(
+                isR1035107Verified,
+                1035107,
+                @"[In PidTagFolderFlags Property] [The folder flag named ""NORMAL"" specified] the folder is a generic folder that contains messages and other folders.");
+            #endregion
             #endregion
         }
 

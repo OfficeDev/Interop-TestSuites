@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80004005,
                     createFolderResponse.ReturnValue,
                     10660201,
-                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError <12> Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError. ");
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError <12> Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError.");
             }
 
             if (Common.IsRequirementEnabled(10660202, this.Site))
