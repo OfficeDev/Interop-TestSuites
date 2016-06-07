@@ -1076,7 +1076,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                             450,
                             @"[In AddressBookPropertyRow Structure] [Flags] If the value of the Flags field is set to 0x0: The ValueArray field contains either an AddressBookPropertyValue structure, see section 2.2.1.1, if the type of the property is specified.");
 
-                        if (valueArray[j].HasValue == 0x00)
+                        if (valueArray[j].HasValue == 0xFF)
                         {
                             // Add the debug information
                             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2006");
@@ -1377,16 +1377,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 isVerifiedR946,
                 946,
                 @"[In ResolveNames Request Type Success Response Body] PropertyTags (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties returned for the rows in the RowData field.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R916");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R916
-            // If there are MinimalIds, it indicated that the server performed ANR, R916 is verified.
-            this.Site.CaptureRequirementIfIsNotNull(
-                resolveNamesResponseBody.MinimalIds,
-                916,
-                @"[In ResolveNames Request Type Request Body] Names: A WStringsArray_r structure ([MS-OXNSPI] section 2.3.6.2) that specifies the values on which the client is requesting that the server perform ANR.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R942");
@@ -1805,16 +1795,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropertyResponseBody.PropertyValues.Value.PropertyValueCount,
                 propertyValues[0].PropertyId,
                 propertyValues[0].PropertyType);
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R590
-            bool isVerifiedR590 = getPropertyResponseBody.PropertyValues.Value.PropertyValueCount == 1 &&
-                propertyValues[0].PropertyId == propertyTags[0].PropertyId &&
-                propertyValues[0].PropertyType == propertyTags[0].PropertyType;
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR590,
-                590,
-                @"[In GetProps Request Type] The GetProps request type is used by the client to get specific properties on an object.");
             #endregion
 
             #region Call GetProps request type with Flags set to fSkipObjects.

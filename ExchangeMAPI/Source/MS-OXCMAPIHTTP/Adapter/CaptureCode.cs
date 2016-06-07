@@ -142,12 +142,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.Site.CaptureRequirement(
                     459,
                     @"[In Transport] The Autodiscover response, as specified in [MS-OXDSCLI], contains a URI that the client will use to access the two endpoints (4) used by this protocol: the mailbox sever endpoint (same as that used for the EMSMDB interface) and the address book server endpoint (same as that used for the NSPI interface).");
-
-                // In the upper two if statements, one verified Mailbox server endpoint and another one verified AddressBook server endpoint.
-                // The validity of URI is verified in all endpoints, so if code run to here, R29 is verified.
-                this.Site.CaptureRequirement(
-                    29,
-                    @"[In POST Method] A separate URI is returned in Autodiscover for each endpoint (4).");
             }
         }
         #endregion
@@ -294,7 +288,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 1243,
                 @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2050");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2050
+            this.Site.CaptureRequirementIfIsTrue(
+                string.IsNullOrEmpty(headers["X-DeviceInfo"]),
+                2050,
+                @"[In X-DeviceInfo Header Field] The server MUST not send this header [X-DeviceInfo] in a response to a client endpoint. ");
+        }
+
+        /// <summary>
+        /// Verify the requirements related to Content-Type header.
+        /// </summary>
+        /// <param name="headers">The collection of HTTP headers.</param>
+        private void VerifyContentTypeHeader(WebHeaderCollection headers)
+        {
             string contentType = headers["Content-Type"];
+            int responseCodeValue;
+            int.TryParse(headers["X-ResponseCode"], out responseCodeValue);
             if (responseCodeValue == 0)
             {
                 // Add the debug information
@@ -319,15 +331,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     2038,
                     @"[In Content-Type Header Field] If X-ResponseCode is non-zero, the Content-Type header MUST contain the string ""text/html"".");
             }
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2050");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2050
-            this.Site.CaptureRequirementIfIsTrue(
-                string.IsNullOrEmpty(headers["X-DeviceInfo"]),
-                2050,
-                @"[In X-DeviceInfo Header Field] The server MUST not send this header [X-DeviceInfo] in a response to a client endpoint. ");
         }
 
         /// <summary>
@@ -1071,73 +1074,6 @@ Chunked response:
         }
         #endregion
 
-        #region Verify Execute response
-        /// <summary>
-        /// Verify the Execute response related requirements.
-        /// </summary>
-        /// <param name="commonResponse">The CommonResponse to be verified.</param>
-        private void VerifyExecuteResponse(CommonResponse commonResponse)
-        {
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1263");
-        
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1263
-            this.Site.CaptureRequirementIfAreNotEqual<int>(
-                0,
-                commonResponse.MetaTags.Count,
-                1263,
-                @"[In Using Response Meta-Tags] The server includes meta-tags, which are specified in section 2.2.7, in the Execute response to inform the client as to the state of processing an Execute request.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1265");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1265
-            this.Site.CaptureRequirementIfAreEqual<string>(
-                "PROCESSING",
-                commonResponse.MetaTags[0],
-                1265,
-                @"[In Using Response Meta-Tags] The server MUST return the PROCESSING meta-tag at the beginning of the response stream.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1269");
-        
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1269
-            this.Site.CaptureRequirementIfAreNotEqual<int>(
-                0,
-                commonResponse.AdditionalHeaders.Count,
-                1269,
-                @"[In Using Response Meta-Tags] The server has the ability to return additional headers in the final response.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1270, the count of AdditionalHeaders is {0}.", commonResponse.AdditionalHeaders.Count);
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1270
-            this.Site.CaptureRequirementIfIsTrue(
-                commonResponse.MetaTags[commonResponse.MetaTags.Count - 1] == "DONE" && commonResponse.AdditionalHeaders.Count != 0,
-                1270,
-                @"[In Using Response Meta-Tags] These additional headers [returned in the final response] follow the DONE meta-tag.");
-
-            // Add the debug information
-            this.Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXCMAPIHTTP_R1271, that the X-ElapsedTime header present is {0}, and the X-StartTime header present is {1}",
-                commonResponse.AdditionalHeaders.ContainsKey("X-ElapsedTime"),
-                commonResponse.AdditionalHeaders.ContainsKey("X-StartTime"));
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1271
-            this.Site.CaptureRequirementIfIsTrue(
-                commonResponse.MetaTags[commonResponse.MetaTags.Count - 1] == "DONE" && commonResponse.AdditionalHeaders.ContainsKey("X-ElapsedTime") && commonResponse.AdditionalHeaders.ContainsKey("X-StartTime"),
-                1271,
-                @"[In Using Response Meta-Tags] The X-ElapsedTime header and the X-StartTime header are present after the DONE meta-tag.");
-
-            // This structure of common response is parsed according to the request of this Specification, if the code run to here and passed, 
-            // that means R1274 is invoked successfully.
-            this.Site.CaptureRequirement(
-                1274,
-                @"[In Using Response Meta-Tags] The response body will immediately follow any additional headers preceded by a CRLF on an empty line.");
-        }
-        #endregion
-
         #region Verify Execute success response body
         /// <summary>
         /// Verify the Execute success response body related requirements.
@@ -1432,15 +1368,6 @@ Chunked response:
                 (uint)notificationWaitSuccessResponseBody.AuxiliaryBuffer.Length,
                 1374,
                 @"[In NotificationWait Request Type Success Response Body] [AuxiliaryBuffer] The size of this field, in bytes, is specified by the AuxiliaryBufferSize field.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R313, the value of EventPending is {0}.", notificationWaitSuccessResponseBody.EventPending);
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R313
-            this.Site.CaptureRequirementIfIsTrue(
-                notificationWaitSuccessResponseBody.EventPending == 1 || notificationWaitSuccessResponseBody.EventPending == 0,
-                313,
-                @"[In NotificationWait Request Type Success Response Body] ulFlagsOut: The output flags for the client.");
         }
         #endregion
 
