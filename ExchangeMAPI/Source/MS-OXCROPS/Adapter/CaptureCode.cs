@@ -11592,7 +11592,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropOptionsDataResponse.ReturnValue,
                     4690,
-                    @"[In Appendix B: Product Behavior] Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (&lt;8&gt; Section 2.2.7.9.3: Exchange 2007 sets the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP.)");
+                    @"[In Appendix B: Product Behavior] Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (<8> Section 2.2.7.9.3: Exchange 2007 sets the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP.)");
             }
         }
         #endregion
