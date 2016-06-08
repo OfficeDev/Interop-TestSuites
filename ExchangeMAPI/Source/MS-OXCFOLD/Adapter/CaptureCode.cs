@@ -1304,6 +1304,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                             "[In PidTagDeletedCountTotal Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).");
                         #endregion
                         break;
+                    case (ushort)FolderPropertyId.PidTagFolderFlags:
+
+                        #region PidTagFolderFlags
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R35101");
+
+                        // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R35101
+                        Site.CaptureRequirementIfAreEqual<ushort>(
+                            (ushort)PropertyType.PtypInteger32,
+                            tag.PropertyType,
+                            35101,
+                            "[In PidTagFolderFlags Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)");
+                        break;
+                        #endregion
                     default:
                         break;
                 }
