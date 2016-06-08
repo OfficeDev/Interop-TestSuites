@@ -3905,6 +3905,128 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             #endregion
         }
 
+        /// <summary>
+        /// This test case is designed to validate RopSetSearchCriteria is regardless of the STATIC_SEARCH bit.
+        /// </summary>
+        [TestCategory("MSOXCFOLD"), TestMethod()]
+        public void MSOXCFOLD_S03_TC17_RopSetSearchCriteriaRegardlessOfSTATIC_SEARCH()
+        {
+            this.CheckWhetherSupportTransport();
+            this.Adapter.DoConnect(ConnectionType.PrivateMailboxServer);
+            this.GenericFolderInitialization();
+
+            #region Step 1. The client calls RopCreateFolder to create the general folder [MSOXCFOLDSubfolder1] under the root folder.
+
+            RopCreateFolderRequest createFolderRequest = new RopCreateFolderRequest
+            {
+                RopId = (byte)RopId.RopCreateFolder,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                OutputHandleIndex = Constants.CommonOutputHandleIndex,
+                FolderType = (byte)FolderType.Genericfolder,
+                UseUnicodeStrings = 0x0,
+                OpenExisting = 0x00,
+                Reserved = 0x0,
+                DisplayName = Encoding.ASCII.GetBytes(Constants.Subfolder1),
+                Comment = Encoding.ASCII.GetBytes(Constants.Subfolder1)
+            };
+            RopCreateFolderResponse createFolderResponse = this.Adapter.CreateFolder(createFolderRequest, this.RootFolderHandle, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, createFolderResponse.ReturnValue, "RopCreateFolder ROP operation performs successfully!");
+            uint subfolderHandle1 = this.responseHandles[0][createFolderResponse.OutputHandleIndex];
+            ulong subfolderId1 = createFolderResponse.FolderId;
+
+            #endregion
+
+            #region Step 2. The client creates two general messages under the folder [MSOXCFOLDSubfolder1].
+
+            uint messageHandle1 = 0;
+            ulong messageId1 = 0;
+            this.CreateSaveMessage(subfolderHandle1, subfolderId1, ref messageId1, ref messageHandle1);
+
+            uint messageHandle2 = 0;
+            ulong messageId2 = 0;
+            this.CreateSaveMessage(subfolderHandle1, subfolderId1, ref messageId2, ref messageHandle2);
+            #endregion
+
+            #region Step 3. The client calls RopCreateFolder to create the search folder [MSOXCFOLDSearchFolder2] under the root folder.
+
+            createFolderRequest.FolderType = (byte)FolderType.Searchfolder;
+            createFolderRequest.DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder2);
+            createFolderRequest.Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder2);
+            createFolderResponse = this.Adapter.CreateFolder(createFolderRequest, this.RootFolderHandle, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, createFolderResponse.ReturnValue, "RopCreateFolder ROP operation performs successfully!");
+            uint searchFolderHandle2 = this.responseHandles[0][createFolderResponse.OutputHandleIndex];
+            #endregion
+
+            #region Step 4. The client calls RopSetSearchCriteria to establish search criteria for [MSOXCFOLDSearchFolder2] without setting STATIC_SEARCH bit.
+
+            RopSetSearchCriteriaRequest setSearchCriteriaRequest = new RopSetSearchCriteriaRequest
+            {
+                RopId = (byte)RopId.RopSetSearchCriteria,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex
+            };
+            PropertyTag propertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)MessagePropertyId.PidTagMessageClass,
+                PropertyType = (ushort)PropertyType.PtypString
+            };
+            ExistRestriction existRestriction = new ExistRestriction
+            {
+                PropTag = propertyTag
+            };
+            setSearchCriteriaRequest.RestrictionDataSize = (ushort)existRestriction.Size();
+            setSearchCriteriaRequest.RestrictionData = existRestriction.Serialize();
+            setSearchCriteriaRequest.FolderIds = new ulong[] { subfolderId1 };
+            setSearchCriteriaRequest.FolderIdCount = (ushort)setSearchCriteriaRequest.FolderIds.Length;
+            setSearchCriteriaRequest.SearchFlags = (uint)SetSearchFlags.ContentIndexedSearch;
+            RopSetSearchCriteriaResponse setSearchCriteriaResponse = this.Adapter.SetSearchCriteria(setSearchCriteriaRequest, searchFolderHandle2, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, setSearchCriteriaResponse.ReturnValue, "RopSearchCriteria ROP operation performs successfully!");
+
+            #endregion
+
+            #region Step 5. The client calls RopGetSearchCriteria to obtain the search criteria and the status of the search folder [MSOXCFOLDSearchFolder2].
+            RopGetSearchCriteriaRequest getSearchCriteriaRequest = new RopGetSearchCriteriaRequest
+            {
+                RopId = (byte)RopId.RopGetSearchCriteria,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                UseUnicode = 0x00,
+                IncludeRestriction = 0x01,
+                IncludeFolders = 0x01
+            };
+            RopGetSearchCriteriaResponse getSearchCriteriaResponse = this.Adapter.GetSearchCriteria(getSearchCriteriaRequest, searchFolderHandle2, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(Constants.SuccessCode, getSearchCriteriaResponse.ReturnValue, "RopGetSearchCriteria ROP operation performs successfully!");
+
+            if (Common.IsRequirementEnabled(1238001, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1238001");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1238001
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    (uint)GetSearchFlags.Static,
+                    getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Static,
+                    1238001,
+                    @"[In Appendix A: Product Behavior] Implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. <14> Section 3.2.5.4:  A content-indexed search is always static on the initial release version of Exchange 2010 and Exchange 2007 regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria request.");
+            }
+
+            if (Common.IsRequirementEnabled(1238002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1238002");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1238002
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    (uint)GetSearchFlags.Static,
+                    getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Static,
+                    1238002,
+                    @"[In Appendix A: Product Behavior] Implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.(Exchange 2013 and above follow this hebavior).");
+            }
+
+            #endregion
+        }
+
         #region Private methods
         /// <summary>
         /// Compare two folder Id arrays.

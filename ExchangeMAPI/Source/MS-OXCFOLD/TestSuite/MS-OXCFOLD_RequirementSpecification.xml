@@ -9120,7 +9120,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1238002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.(Exchange 2010 SP3 and above follow this hebavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.(Exchange 2013 and above follow this hebavior).</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R113:i </ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
