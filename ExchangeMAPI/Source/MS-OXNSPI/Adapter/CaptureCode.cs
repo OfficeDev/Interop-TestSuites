@@ -483,6 +483,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 63,
                 @"[In Display Type Values] [DT_SEARCH display type] An Exchange NSPI server MUST NOT return this display type.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R53001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R53001
+            this.Site.CaptureRequirementIfAreNotEqual(
+                DisplayTypeValue.DT_ORGANIZATION,
+                displayTypeValue,
+                53001,
+                @"[In Display Type Values] [DT_ORGANIZATION] An Exchange NSPI server MUST NOT return display type.");
+
             bool validDisplayType = false;
             if (displayTypeValue == DisplayTypeValue.DT_ADDRESS_TEMPLATE
                 || displayTypeValue == DisplayTypeValue.DT_AGENT

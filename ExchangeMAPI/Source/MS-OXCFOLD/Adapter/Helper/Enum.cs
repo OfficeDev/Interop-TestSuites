@@ -143,7 +143,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
         /// <summary>
         /// Contains the total count of messages that have been deleted from a folder, excluding messages deleted within subfolders.
         /// </summary>
-        PidTagDeletedCountTotal = 0x670B
+        PidTagDeletedCountTotal = 0x670B,
+
+        /// <summary>
+        /// Contains a computed value to specify the type or state of a folder.
+        /// </summary>
+        PidTagFolderFlags = 0x66A8,
+
+        /// <summary>
+        /// Specifies the time, in UTC, to trigger the client in cached mode to synchronize the folder hierarchy.
+        /// </summary>
+        PidTagHierRev = 0x4082
     }
 
     /// <summary>

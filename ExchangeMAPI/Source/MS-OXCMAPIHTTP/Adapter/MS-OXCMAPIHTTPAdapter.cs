@@ -198,6 +198,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.VerifyResponseMetaTags(commonResponse.MetaTags);
             }
 
+            this.VerifyContentTypeHeader(response.Headers);
             this.VerifyRespondingToAllRequestTypeRequests(response, commonResponse, responseCode);
             response.GetResponseStream().Close();
             AdapterHelper.SessionContextCookies = response.Cookies;
@@ -237,19 +238,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     ExecuteSuccessResponseBody responseSuccess = ExecuteSuccessResponseBody.Parse(commonResponse.ResponseBodyRawData);
                     responseBody = responseSuccess;
 
+                    this.VerifyHTTPS(response);
                     this.VerifyExecuteSuccessResponseBody(responseSuccess);
                 }
-            
-                this.VerifyHTTPS(response);
+
+                this.VerifyHTTPHeaders(response.Headers);
                 this.VerifyAuthentication(response);
                 this.VerifyAutoDiscover(response.StatusCode, ServerEndpoint.MailboxServerEndpoint);
-                this.VerifyHTTPHeaders(response.Headers);
                 this.VerifyAdditionalHeaders(commonResponse.AdditionalHeaders);
-                this.VerifyExecuteResponse(commonResponse);
                 this.VerifyRequestTypesForMailboxServerEndpoint(response.Headers, commonResponse);
                 this.VerifyResponseMetaTags(commonResponse.MetaTags);
             }
 
+            this.VerifyContentTypeHeader(response.Headers);
             this.VerifyRespondingToAllRequestTypeRequests(response, commonResponse, responseCode);
             response.GetResponseStream().Close();
             AdapterHelper.SessionContextCookies = response.Cookies;
@@ -302,6 +303,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.VerifyNotificationWaitRequestType(response.Headers);
             }
 
+            this.VerifyContentTypeHeader(response.Headers);
             this.VerifyRespondingToAllRequestTypeRequests(response, commonResponse, responseCode);
             response.GetResponseStream().Close();
             return responseCode;
@@ -341,6 +343,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 this.VerifyResponseMetaTags(commonResponse.MetaTags);
             }
 
+            this.VerifyContentTypeHeader(response.Headers);
             this.VerifyRespondingToAllRequestTypeRequests(response, commonResponse, responseCode);
             response.GetResponseStream().Close();
             return responseCode;

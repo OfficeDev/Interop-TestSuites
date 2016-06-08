@@ -79,28 +79,49 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             RopCreateFolderResponse createFolderResponse;
 
             #region Step 1. The client calls RopCreateFolder to create a search folder named [MSOXCFOLDSearchFolder1] under the root public folder.
-            if (Common.IsRequirementEnabled(49601, this.Site))
+            createFolderRequest = new RopCreateFolderRequest()
             {
-                createFolderRequest = new RopCreateFolderRequest()
-                {
-                    RopId = (byte)RopId.RopCreateFolder,
-                    LogonId = Constants.CommonLogonId,
-                    InputHandleIndex = Constants.CommonInputHandleIndex,
-                    OutputHandleIndex = Constants.CommonOutputHandleIndex,
-                    FolderType = (byte)FolderType.Searchfolder,
-                    UseUnicodeStrings = 0x0,
-                    OpenExisting = 0x01,
-                    Reserved = 0x0,
-                    DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder),
-                    Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
-                };
-                object response = null;
-                this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
+                RopId = (byte)RopId.RopCreateFolder,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                OutputHandleIndex = Constants.CommonOutputHandleIndex,
+                FolderType = (byte)FolderType.Searchfolder,
+                UseUnicodeStrings = 0x0,
+                OpenExisting = 0x01,
+                Reserved = 0x0,
+                DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder),
+                Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
+            };
+            object response = null;
+            this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
 
-                createFolderResponse = (RopCreateFolderResponse)response;
+            createFolderResponse = (RopCreateFolderResponse)response;
 
-               }
+            if (Common.IsRequirementEnabled(10660201, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10660201");
 
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10660201
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80004005,
+                    createFolderResponse.ReturnValue,
+                    10660201,
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError <12> Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError. ");
+            }
+
+            if (Common.IsRequirementEnabled(10660202, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10660202");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10660202
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80040102,
+                    createFolderResponse.ReturnValue,
+                    10660202,
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. <12> Exchange 2013 and Exchange 2016 return ecNotSupported.");
+            }
             #endregion
 
             #region Step 2. The client calls RopCreateFolder to create a generic folder named [MSOXCFOLDSubfolder1].

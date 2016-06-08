@@ -1,4 +1,4 @@
-﻿namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP.ResponseBody.AddressBookServer
+﻿namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 {
     using System;
 

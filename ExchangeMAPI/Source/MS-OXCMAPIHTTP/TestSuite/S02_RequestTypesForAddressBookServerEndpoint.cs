@@ -1076,7 +1076,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                             450,
                             @"[In AddressBookPropertyRow Structure] [Flags] If the value of the Flags field is set to 0x0: The ValueArray field contains either an AddressBookPropertyValue structure, see section 2.2.1.1, if the type of the property is specified.");
 
-                        if (valueArray[j].HasValue == 0x00)
+                        if (valueArray[j].HasValue == 0xFF)
                         {
                             // Add the debug information
                             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2006");
@@ -1377,16 +1377,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 isVerifiedR946,
                 946,
                 @"[In ResolveNames Request Type Success Response Body] PropertyTags (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties returned for the rows in the RowData field.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R916");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R916
-            // If there are MinimalIds, it indicated that the server performed ANR, R916 is verified.
-            this.Site.CaptureRequirementIfIsNotNull(
-                resolveNamesResponseBody.MinimalIds,
-                916,
-                @"[In ResolveNames Request Type Request Body] Names: A WStringsArray_r structure ([MS-OXNSPI] section 2.3.6.2) that specifies the values on which the client is requesting that the server perform ANR.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R942");
@@ -1805,16 +1795,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 getPropertyResponseBody.PropertyValues.Value.PropertyValueCount,
                 propertyValues[0].PropertyId,
                 propertyValues[0].PropertyType);
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R590
-            bool isVerifiedR590 = getPropertyResponseBody.PropertyValues.Value.PropertyValueCount == 1 &&
-                propertyValues[0].PropertyId == propertyTags[0].PropertyId &&
-                propertyValues[0].PropertyType == propertyTags[0].PropertyType;
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR590,
-                590,
-                @"[In GetProps Request Type] The GetProps request type is used by the client to get specific properties on an object.");
             #endregion
 
             #region Call GetProps request type with Flags set to fSkipObjects.
@@ -2220,6 +2200,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             uint modifyDisplayType = BitConverter.ToUInt32(getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[0].Value, 0);
             int propertyValuelength = getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].Value.Length;
 
+            if (getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].PropertyType == 0x101E)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2258");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2258
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].HasValue,
+                typeof(byte),
+                2258,
+                @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleString8 ([MS-OXCDATA] section 2.11.1).");
+            }
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R724");
 
@@ -2539,6 +2532,191 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     }
                 }
             }
+            #endregion
+
+            #region Call Unbind request to destroy the session between the client and the server.
+            this.Unbind();
+            #endregion
+        }
+
+        /// <summary>
+        /// This case is designed to verify HasValue with PropertyType PtypMultipleString.
+        /// </summary>
+        [TestCategory("MSOXCMAPIHTTP"), TestMethod]
+        public void MSOXCMAPIHTTP_S02_TC21_TestHasValueWithPropertyTypePtypMultipleString()
+        {
+            this.CheckMapiHttpIsSupported();
+
+            byte[] auxIn = new byte[] { };
+
+            #region Call Bind request type to established a session context with the address book server.
+            this.Bind();
+            #endregion
+
+            #region Call QueryRows request type to get a set of valid rows used to matched entry ID as the input paramter of ModLinkAtt method.
+            STAT stat = new STAT();
+            stat.InitiateStat();
+
+            uint tableCount = 0;
+            uint[] table = null;
+            LargePropertyTagArray largePropTagArray = new LargePropertyTagArray()
+            {
+                PropertyTagCount = 4,
+                PropertyTags = new PropertyTag[]
+                {
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypString,
+                        PropertyId = (ushort)PropertyID.PidTagDisplayName
+                    }, 
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypBinary,
+                        PropertyId = (ushort)PropertyID.PidTagEntryId
+                    },
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypInteger32,
+                        PropertyId = (ushort)PropertyID.PidTagDisplayType
+                    },
+                    new PropertyTag
+                    {
+                        PropertyType = (ushort)PropertyTypeValues.PtypMultipleString,
+                        PropertyId = (ushort)PropertyID.PidTagAddressBookMember
+                    }
+                }
+            };
+
+            QueryRowsRequestBody queryRowsRequestBody = new QueryRowsRequestBody();
+            queryRowsRequestBody.Flags = (uint)RetrievePropertyFlags.fSkipObjects;
+            queryRowsRequestBody.HasState = true;
+            queryRowsRequestBody.State = stat;
+            queryRowsRequestBody.ExplicitTableCount = tableCount;
+            queryRowsRequestBody.ExplicitTable = table;
+            queryRowsRequestBody.RowCount = ConstValues.QueryRowsRequestedRowNumber;
+            queryRowsRequestBody.HasColumns = true;
+            queryRowsRequestBody.Columns = largePropTagArray;
+            queryRowsRequestBody.AuxiliaryBuffer = auxIn;
+            queryRowsRequestBody.AuxiliaryBufferSize = (uint)auxIn.Length;
+
+            QueryRowsResponseBody queryRowsResponseBody = this.Adapter.QueryRows(queryRowsRequestBody);
+            Site.Assert.AreEqual<uint>(0, queryRowsResponseBody.ErrorCode, "QueryRows request should be executed successfully, the returned value {0}.", queryRowsResponseBody.ErrorCode);
+            #endregion
+
+            #region Call ModLinkAtt with flags 0x00000000 to add the specified PidTagAddressBookMember value.
+            uint flagsOfModLinkAtt = 0;
+            PropertyTag propTagOfModLinkAtt = new PropertyTag
+            {
+                PropertyType = (ushort)PropertyTypeValues.PtypEmbeddedTable,
+                PropertyId = (ushort)PropertyID.PidTagAddressBookMember
+            };
+            uint midOfModLinkAtt = 0;
+            byte[] entryId = null;
+            GetPropsRequestBody getPropsRequestBodyForAddressBookMember = null;
+            uint lengthOfErrorCodeValue = sizeof(uint);
+            string dlistName = Common.GetConfigurationPropertyValue("DistributionListName", this.Site);
+            string memberName = Common.GetConfigurationPropertyValue("GeneralUserName", this.Site);
+
+            for (int i = 0; i < queryRowsResponseBody.RowCount; i++)
+            {
+                string name = System.Text.Encoding.Unicode.GetString(queryRowsResponseBody.RowData[i].ValueArray[0].Value);
+                if (name.ToLower().Contains(dlistName.ToLower()))
+                {
+                    PermanentEntryID entryID = AdapterHelper.ParsePermanentEntryIDFromBytes(queryRowsResponseBody.RowData[i].ValueArray[1].Value);
+
+                    DNToMinIdRequestBody requestBodyOfDNToMId = new DNToMinIdRequestBody()
+                    {
+                        Reserved = 0,
+                        HasNames = true,
+                        Names = new StringArray_r
+                        {
+                            CValues = 1,
+                            LppzA = new string[]
+                            {
+                                entryID.DistinguishedName
+                            }
+                        },
+                        AuxiliaryBuffer = auxIn,
+                        AuxiliaryBufferSize = (uint)auxIn.Length
+                    };
+                    DnToMinIdResponseBody responseBodyOfDNToMinId = this.Adapter.DnToMinId(requestBodyOfDNToMId);
+                    midOfModLinkAtt = responseBodyOfDNToMinId.MinimalIds[0];
+
+                    stat.CurrentRec = midOfModLinkAtt;
+                    STAT? statForGetProps = stat;
+                    LargePropertyTagArray propertyTagForGetProps = new LargePropertyTagArray()
+                    {
+                        PropertyTagCount = 2,
+                        PropertyTags = new PropertyTag[] 
+                        {
+                            new PropertyTag
+                            {
+                                PropertyType = (ushort)PropertyTypeValues.PtypInteger32,
+                                PropertyId = (ushort)PropertyID.PidTagDisplayType
+                            },
+                            new PropertyTag
+                            {
+                                PropertyType = (ushort)PropertyTypeValues.PtypMultipleString,
+                                PropertyId = (ushort)PropertyID.PidTagAddressBookMember
+                            },
+                        }
+                    };
+
+                    getPropsRequestBodyForAddressBookMember = this.BuildGetPropsRequestBody((uint)0, true, statForGetProps, true, propertyTagForGetProps);
+                    GetPropsResponseBody getPropsResponseBody = this.Adapter.GetProps(getPropsRequestBodyForAddressBookMember);
+                    this.Site.Assert.AreEqual<uint>(0, getPropsResponseBody.StatusCode, "The GetProps request should be executed successfully, the returned status code is {0}", getPropsResponseBody.StatusCode);
+                    this.Site.Assert.AreEqual<uint>(lengthOfErrorCodeValue, (uint)getPropsResponseBody.PropertyValues.Value.PropertyValues[1].Value.Length, "The length of the property value should be equal the ErrorCodeValue: Not Found(0x8004010F)");
+                    uint propertyValue = BitConverter.ToUInt32(getPropsResponseBody.PropertyValues.Value.PropertyValues[1].Value, 0);
+                    this.Site.Assert.AreEqual<uint>((uint)ErrorCodeValue.NotFound, propertyValue, "The property value of AddressBookMember should be Not Found(0x8004010F), actual value is {0}", propertyValue);
+                }
+                else if (name.ToLower().Contains(memberName.ToLower()))
+                {
+                    entryId = queryRowsResponseBody.RowData[i].ValueArray[1].Value;
+                }
+
+                if (midOfModLinkAtt != 0 && entryId != null)
+                {
+                    break;
+                }
+            }
+
+            ModLinkAttRequestBody modLinkAttRequestBody = new ModLinkAttRequestBody();
+            modLinkAttRequestBody.Flags = flagsOfModLinkAtt;
+            modLinkAttRequestBody.PropertyTag = propTagOfModLinkAtt;
+            modLinkAttRequestBody.MinimalId = midOfModLinkAtt;
+            modLinkAttRequestBody.HasEntryIds = true;
+            modLinkAttRequestBody.EntryIdCount = 1;
+            modLinkAttRequestBody.EntryIDs = new byte[][] { entryId };
+            modLinkAttRequestBody.AuxiliaryBuffer = auxIn;
+            modLinkAttRequestBody.AuxiliaryBufferSize = (uint)auxIn.Length;
+            this.minimalIDForDeleteAddressBookMember = midOfModLinkAtt;
+            this.entryIDBufferForDeleteAddressBookMember = entryId;
+            this.isAddressBookMemberDeleted = false;
+
+            ModLinkAttResponseBody modLinkAttResponseBodyOfAdd = this.Adapter.ModLinkAtt(modLinkAttRequestBody);
+            GetPropsResponseBody getPropsResponseBodyForAddAddressBookMember = this.Adapter.GetProps(getPropsRequestBodyForAddressBookMember);
+            uint modifyDisplayType = BitConverter.ToUInt32(getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[0].Value, 0);
+            int propertyValuelength = getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].Value.Length;
+
+            if (getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].PropertyType == 0x101F)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2257");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2257
+                this.Site.CaptureRequirementIfIsInstanceOfType(
+                getPropsResponseBodyForAddAddressBookMember.PropertyValues.Value.PropertyValues[1].HasValue,
+                typeof(byte),
+                2257,
+                @"[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleString ([MS-OXCDATA] section 2.11.1).");
+            }
+            #endregion
+
+            #region Call ModLinkAtt to delete the specified PidTagAddressBookMember value.
+            modLinkAttRequestBody.Flags = 1;
+            ModLinkAttResponseBody modLinkAttResponseBodyOfDelete = this.Adapter.ModLinkAtt(modLinkAttRequestBody);
+            Site.Assert.AreEqual<uint>(0, modLinkAttResponseBodyOfDelete.ErrorCode, "ModLinkAtt request should be executed successfully, the returned error code is {0}.", modLinkAttResponseBodyOfDelete.ErrorCode);
+            this.isAddressBookMemberDeleted = true;
             #endregion
 
             #region Call Unbind request to destroy the session between the client and the server.

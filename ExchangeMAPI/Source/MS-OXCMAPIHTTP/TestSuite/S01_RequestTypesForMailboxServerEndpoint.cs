@@ -245,11 +245,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 1253,
                 @"[In Responding to a Disconnect or Unbind Request Type Request] If the client attempts to use an invalid session context cookie [which is released by server] in a request, the server MUST fail the request to indicate to the client that the Session Context is not valid.");
 
-            // The above capture codes ensures that all state information associated with the Session Context and the session context cookies are no longer available after disconnecting with server. So R1252 can be verified directly.
-            this.Site.CaptureRequirement(
-                1252,
-                @"[In Responding to a Disconnect or Unbind Request Type Request] If successful, the server releases all state information associated with the Session Context and invalidates the associated session context cookie (and all other cookies) passed in the request.");
-
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2236");
 
@@ -718,28 +713,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 @"[In Response Meta-Tags] DONE: The server has completed the processing of the request and additional response headers and the response body follow the DONE meta-tag.");
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1268");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1268
-            // According to the Open Specification, the final response must include the DONE meta-tag. And the response body is parsed according to the description of this requirement.
-            // So if the last meta-tag is DONE and code can reach here, MS-OXCMAPIHTTP_R1136 can be verified.
-            this.Site.CaptureRequirementIfAreEqual<string>(
-                "DONE",
-                metaTags[metaTags.Count - 1],
-                1268,
-                @"[In Using Response Meta-Tags] When the request finally completes, the server's final response MUST include the DONE meta-tag followed by additional response headers, such as a final X-ResponseCode header, and then, ultimately, the Execute request type response data.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1264");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1264
-            this.Site.CaptureRequirementIfAreEqual<uint>(
-                0,
-                AdapterHelper.GetFinalResponseCode(executeHeaders["X-ResponseCode"]),
-                1264,
-                @"[In Using Response Meta-Tags] After the request has been authorized, authenticated, parsed, and validated, the server MUST return a X-ResponseCode with a value of 0 (zero) to indicate that the request has been accepted.");
-
-            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1266. The header value of Transfer-Encoding is {0} and Content-Length is {1}.", executeHeaders["Transfer-Encoding"], executeHeaders["Content-Length"]);
 
             // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1266
@@ -907,14 +880,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1375");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1375
-            // A pending event is registered in step 3 and triggered in step 4, so MS-OXCMAPIHTTP_R1375 can be verified if the value of EventPending flag is 0x00000001.
-            this.Site.CaptureRequirementIfAreEqual<uint>(
-                0x00000001,
-                notificationWaitResponseBody.EventPending,
-                1375,
-                @"[In NotificationWait Request Type Success Response Body] NotificationPending (0x00000001): Signals that events are pending for the client on the Session Context on the server.");
 
             // The pending event is registered and triggered in the above steps, so MS-OXCMAPIHTTP_R1258 can be verified if code can reach here.
             this.Site.CaptureRequirement(

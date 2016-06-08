@@ -97,6 +97,126 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2250</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleInteger16 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2251</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleInteger32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2252</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleFloating32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2253</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleFloating64 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2254</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleCurrency ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2255</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleFloatingTime ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2256</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleInteger64 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2257</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleString ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2258</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleString8 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2259</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleTime ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2260</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleGuid ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2261</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddressBookPropertyValue Structure] HasValue (optional) (1 byte): An unsigned integer when the PropertyType ([MS-OXCDATA] section 2.11.1) is known to be PtypMultipleBinary ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R2004:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -1796,7 +1916,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R166</ns1:REQ_ID>
@@ -5546,7 +5666,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCMAPIHTTP_R2237.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMAPIHTTP_R2237.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1397</ns1:REQ_ID>
@@ -8069,9 +8189,9 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Doc_Sect>2.2.5.14.1</ns1:Doc_Sect>
 		<ns1:Description>[In ResolveNames Request Type Request Body] PropertyTags (optional) (variable): A LargePropTagArray structure (section 2.2.1.3) that specifies the properties that client requires for the rows returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R914</ns1:REQ_ID>
