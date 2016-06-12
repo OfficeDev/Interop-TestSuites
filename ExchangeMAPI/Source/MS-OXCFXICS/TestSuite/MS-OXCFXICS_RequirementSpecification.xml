@@ -23425,7 +23425,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2141001002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.8.1.5: Implementation does support the Execute request type. (Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.8.1.5: Implementation does support the Execute request type. (Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R2141001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
