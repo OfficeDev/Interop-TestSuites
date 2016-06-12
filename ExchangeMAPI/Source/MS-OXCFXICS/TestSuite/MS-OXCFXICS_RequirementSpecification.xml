@@ -22796,7 +22796,6 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:REQ_ID>MS-OXCFXICS_R2570</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: In Exchange 2003 and Exchange 2007, the RopSynchronizationGetTransferState ([MS-OXCROPS] section 2.2.13.8) and the RopFastTransferSourceGetBuffer ([MS-OXCROPS] section 2.2.12.3) ROPs are used to checkpoint ICS download operations.</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R348:I, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -22806,7 +22805,6 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:REQ_ID>MS-OXCFXICS_R2571</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: In Exchange 2010 and Exchange 2013, trying to retrieve a checkpoint ICS state during the download returns the initial state, and not a state with differences applied.</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R348:I, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
