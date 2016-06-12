@@ -51,6 +51,7 @@
     </None>
     <None Include="MS-OXCFXICS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig">
     </None>
+    <None Include="MS-OXCFXICS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCFXICS_TestSuite.deployment.ptfconfig">
     </None>
     <None Include="MS-OXCFXICS_TestSuite.ptfconfig" />
