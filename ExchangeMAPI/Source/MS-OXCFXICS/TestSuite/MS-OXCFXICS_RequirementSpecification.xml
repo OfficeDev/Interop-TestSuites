@@ -22823,7 +22823,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3118002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. [In Appendix A: Product Behavior]  &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3118:I, MS-OXCFXICS_R705:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22873,7 +22873,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R499001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. [In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R499:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22962,7 +22962,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3150001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016 .]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3150:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
