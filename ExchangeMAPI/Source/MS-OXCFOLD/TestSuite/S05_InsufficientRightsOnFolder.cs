@@ -641,7 +641,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.OpenFolder(logonHandle, commonUserSubfolderId2, ref commonUserRootSubfolderHandle2);
             #endregion
 
-            #region Step 8. The client calls RopCopyFolder to copy target folder [MSOXCFOLDSubfolder1] from the root folder to destination folder [MSOXCFOLDSubfolder2].
+            #region Step 8. The client calls RopMoveFolder to move target folder [MSOXCFOLDSubfolder1] from the root folder to destination folder [MSOXCFOLDSubfolder2].
 
             // Initialize a server object handle table.
             List<uint> handleList = new List<uint>
@@ -649,7 +649,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 commonUserRootFolderHandle, commonUserRootSubfolderHandle2
             };
 
-            // Call the RopCopyFolder operation to copy the folder.
+            // Call the RopMoveFolder operation to move the folder.
             RopMoveFolderRequest moveFolderRequest = new RopMoveFolderRequest
             {
                 RopId = (byte)RopId.RopMoveFolder,

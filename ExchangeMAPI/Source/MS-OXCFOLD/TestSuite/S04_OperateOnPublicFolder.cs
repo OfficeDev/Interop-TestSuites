@@ -93,9 +93,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
             };
             object response = null;
-            this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
-
-            createFolderResponse = (RopCreateFolderResponse)response;
+            uint result = this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
 
             if (Common.IsRequirementEnabled(10660201, this.Site))
             {
@@ -105,13 +103,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10660201
                 Site.CaptureRequirementIfAreEqual<uint>(
                     0x80004005,
-                    createFolderResponse.ReturnValue,
+                    result,
                     10660201,
                     @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError <12> Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError.");
             }
 
             if (Common.IsRequirementEnabled(10660202, this.Site))
             {
+                createFolderResponse = (RopCreateFolderResponse)response;
+
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10660202");
 
@@ -292,26 +292,50 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             #endregion
 
             #region Step 5. The client gets the PidTagAddressBookEntryId property of the [MSOXCFOLD_PublicFolderMailEnabled].
-
-            PropertyTag[] propertyTagArray = new PropertyTag[1];
-            PropertyTag propertyTag = new PropertyTag
+            if (Common.IsRequirementEnabled(350002, this.Site))
             {
-                PropertyId = (ushort)FolderPropertyId.PidTagAddressBookEntryId,
-                PropertyType = (ushort)PropertyType.PtypBinary
-            };
-            propertyTagArray[0] = propertyTag;
+                PropertyTag[] propertyTagArray = new PropertyTag[1];
+                PropertyTag propertyTag = new PropertyTag
+                {
+                    PropertyId = (ushort)FolderPropertyId.PidTagAddressBookEntryId,
+                    PropertyType = (ushort)PropertyType.PtypBinary
+                };
+                propertyTagArray[0] = propertyTag;
 
-            RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
-            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
-            getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
-            getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
-            getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
-            getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
-            getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
-            getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
+                RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
+                RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
+                getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
+                getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
+                getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+                getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
+                getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
+                getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
 
-            getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
-            Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+                getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
+                Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R350002");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R350002.
+                // The property value is returned if Flag value is 0x00.
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    getPropertiesSpecificResponse.RowData.Flag,
+                    350002,
+                    @"[In Appendix A: Product Behavior] The implementation does support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R350");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R350.
+                // The property value is returned if Flag value is 0x00.
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    getPropertiesSpecificResponse.RowData.Flag,
+                    350,
+                    @"[In PidTagAddressBookEntryId Property] This property is set only for public folders.");
+            }
             #endregion
 
             #region Step 6. The client calls RopGetPropertiesAll on [MSOXCFOLD_PublicFolderGhosted].
