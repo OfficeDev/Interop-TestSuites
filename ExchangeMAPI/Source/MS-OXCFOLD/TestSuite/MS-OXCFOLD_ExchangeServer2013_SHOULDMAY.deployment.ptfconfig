@@ -93,5 +93,7 @@
     <Property name="R1238001Enabled" value="false"/>
     <!-- Set R1238002Enabled to true to verify that implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. Set R1238002Enabled to false to disable this requirement.-->
     <Property name="R1238002Enabled" value="true"/>
+    <!-- Set R350002Enabled to true to verify that The implementation does support the PidTagAddressBookEntryId property. Set R350002Enabled to false to disable this requirement.-->
+    <Property name="R350002Enabled" value="false"/>
   </Properties>
 </TestSite>

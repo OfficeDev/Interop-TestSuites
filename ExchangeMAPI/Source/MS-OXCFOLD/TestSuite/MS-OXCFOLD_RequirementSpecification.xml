@@ -3135,7 +3135,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R263001</ns1:REQ_ID>
@@ -4178,7 +4178,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1024</ns1:REQ_ID>
@@ -4461,21 +4461,21 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.512) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. </ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R350</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookEntryId Property] This property is set only for public folders.&lt;8&gt; </ns1:Description>
+		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.512) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;8&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFOLD_R350002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R350</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagAddressBookEntryId Property] This property is set only for public folders.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R748</ns1:REQ_ID>
@@ -5714,7 +5714,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1050</ns1:REQ_ID>
@@ -8055,16 +8055,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R113802</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopHardDeleteMessagesAndSubfolders ROP Request] In the server behavior, for any folder other than the Drafts folder, the server MUST NOT delete messages that are open with read/write access.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1138:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R113803</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In Processing a RopHardDeleteMessagesAndSubfolders ROP Request] In the server behavior, if the server fails to delete any message or subfolder, it sets the PartialCompletion field of the RopHardDeleteMessagesAndSubfolders ROP response buffer to nonzero (TRUE), as specified in section 2.2.1.10.2.</ns1:Description>
@@ -8703,7 +8693,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R1174001, MS-OXCFOLD_R1174002, MS-OXCFOLD_R1174003.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1175</ns1:REQ_ID>
@@ -8731,7 +8720,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R1177001, MS-OXCFOLD_R1177002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R330</ns1:REQ_ID>
@@ -9011,7 +8999,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFOLD_R350002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] The implementation does support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFOLD_R10349:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9265,8 +9253,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1174003</ns1:REQ_ID>
@@ -9276,8 +9263,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1177002</ns1:REQ_ID>
@@ -9287,8 +9273,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1177001</ns1:REQ_ID>
@@ -9298,8 +9283,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R330001</ns1:REQ_ID>

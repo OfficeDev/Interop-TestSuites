@@ -2354,6 +2354,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             RopGetPropertiesAllResponse getPropertiesAllResponse = this.Adapter.GetFolderPropertiesAll(this.RootFolderHandle, ref this.responseHandles);
             Site.Assert.AreEqual<uint>(0, getPropertiesAllResponse.ReturnValue, "RopGetPropertiesAllResponse ROP operation performs successfully!");
             #endregion
+
+            #region Step 11. The client get property PidTagAddressBookEntryId
+            if (Common.IsRequirementEnabled(350002, this.Site))
+            {
+                PropertyTag[] propertyTagArray = new PropertyTag[1];
+                PropertyTag propertyTag = new PropertyTag
+                {
+                    PropertyId = (ushort)FolderPropertyId.PidTagAddressBookEntryId,
+                    PropertyType = (ushort)PropertyType.PtypBinary
+                };
+                propertyTagArray[0] = propertyTag;
+
+                getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
+                getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
+                getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
+                getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+                getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
+                getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
+                getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
+
+                getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
+                Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R350");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R350.
+                // Flag value 0x01 indicates there is error.
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x01,
+                    getPropertiesSpecificResponse.RowData.Flag,
+                    350,
+                    @"[In PidTagAddressBookEntryId Property] This property is set only for public folders.");
+            }
+            #endregion
         }
 
         /// <summary>
