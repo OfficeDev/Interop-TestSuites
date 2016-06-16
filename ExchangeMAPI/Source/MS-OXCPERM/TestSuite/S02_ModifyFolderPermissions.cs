@@ -1102,7 +1102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         {
             this.OxcpermAdapter.InitializePermissionList();
 
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(115002, this.Site) || Common.IsRequirementEnabled(115001, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(115002, this.Site) || Common.IsRequirementEnabled(116001, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
             uint responseValue = 0;
             List<PermissionTypeEnum> permissionList = new List<PermissionTypeEnum>();
             RequestBufferFlags bufferFlag = new RequestBufferFlags
