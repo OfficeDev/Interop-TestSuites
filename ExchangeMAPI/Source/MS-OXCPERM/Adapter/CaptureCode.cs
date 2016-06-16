@@ -83,7 +83,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR1069,
                 1069,
-                @"[In PidTagEntryId Property] [The first two bytes of this property specify the number of bytes that follow.] The remaining bytes constitute the PermanentEntryID structure ([MS-OXNSPI] section 2.3.8.3).");
+                @"[In PidTagEntryId Property] [The first two bytes of this property specify the number of bytes that follow.] The remaining bytes constitute the PermanentEntryID structure ([MS-OXNSPI] section 2.3.9.3).");
 
             bool memberIdIsUnique = true;
             for (int i = 0; i < permissionUserList.Count; i++)
@@ -141,7 +141,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR74,
                 74,
-                @"[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.771) specifies the unique identifier that the server generates for each user.");
+                @"[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.773) specifies the unique identifier that the server generates for each user.");
 
             // The PidTagMemberName is parsed as string, this requirement can be captured directly.
             Site.CaptureRequirement(
