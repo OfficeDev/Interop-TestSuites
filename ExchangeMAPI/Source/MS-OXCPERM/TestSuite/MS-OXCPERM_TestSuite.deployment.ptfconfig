@@ -13,12 +13,12 @@
     <Property name="User1Password" value="Password01!" />
     <!-- The User1Essdn property is a string that contains the distinguished name (DN) of the user specified in the User1Name property. On the Windows platform, the value of the User1Essdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
     <Property name="User1Essdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=7721c8c4359845ecadf049025578feb2-MSOXCPERM_TestUs" />
-    <!-- The User2Name property specifies a username which can be used by a client to access the mailbox. -->
-    <Property name="User2Name" value="MSOXCPERM_TestUser" />
-    <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
-    <Property name="User2Password" value="Password01!" />
-    <!-- The User2Essdn property is a string that contains the distinguished name (DN) of the user specified in the User2Name property. On the Windows platform, the value of the User2Essdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
-    <Property name="User2Essdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=7721c8c4359845ecadf049025578feb2-MSOXCPERM_TestUs" />
+    <!-- The AdminUserName property specifies a username which can be used by a client to access the mailbox. -->
+    <Property name="AdminUserName" value="MSOXCPERM_TestUser" />
+    <!-- The AdminUserPassword property specifies the password for the user specified in the AdminUserName property. The property value is case-sensitive. -->
+    <Property name="AdminUserPassword" value="Password01!" />
+    <!-- The AdminUserEssdn property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. On the Windows platform, the value of the AdminUserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+    <Property name="AdminUserEssdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=7721c8c4359845ecadf049025578feb2-MSOXCPERM_TestUs" />
     <!-- SUT section ends. -->
   </Properties>
 </TestSite>

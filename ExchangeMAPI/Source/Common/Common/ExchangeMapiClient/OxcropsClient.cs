@@ -457,14 +457,32 @@ namespace Microsoft.Protocols.TestSuites.Common
                     if (string.Compare(this.MapiContext.TransportSequence, "ncacn_http", true) == 0)
                     {
                         rpcProxyOptions = "RpcProxy=" + this.originalServerName + "." + this.domainName;
+
+                        bool connectionReturnValue = this.RpcConnect(serverName, this.userDN, this.domainName, this.userName, this.userPassword, rpcProxyOptions);
+                        this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
                     }
                     else if (string.Compare(this.MapiContext.TransportSequence, "mapi_http", true) == 0)
                     {
-                        this.site.Assert.Fail("Rop Logon returns 0x478, server name:{0}", serverName);
-                    }
+                        string adminUser = Common.GetConfigurationPropertyValue("AdminUserName", this.site);
+                        if (adminUser == null || adminUser == "")
+                        {
+                            this.site.Assert.Fail(@"There must be ""AdminUserName"" configure item in the ptfconfig file.");
+                        }
 
-                    bool connectionReturnValue = this.RpcConnect(serverName, this.userDN, this.domainName, this.userName, this.userPassword, rpcProxyOptions);
-                    this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
+                        string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);                        
+                        requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
+                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, adminUser, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
+
+                        this.privateMailboxServer = autoDiscoverProperties.PrivateMailboxServer;
+                        this.privateMailboxProxyServer = autoDiscoverProperties.PrivateMailboxProxy;
+                        this.publicFolderServer = autoDiscoverProperties.PublicMailboxServer;
+                        this.publicFolderProxyServer = autoDiscoverProperties.PublicMailboxProxy;
+                        this.privateMailStoreUrl = autoDiscoverProperties.PrivateMailStoreUrl;
+                        this.publicFolderUrl = autoDiscoverProperties.PublicMailStoreUrl;
+
+                        bool connectionReturnValue = this.MapiConnect(this.privateMailStoreUrl, this.userDN, this.domainName, this.userName, this.userPassword);
+                        this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
+                    }                    
 
                     ret = this.RopCall(
                         requestROPs,

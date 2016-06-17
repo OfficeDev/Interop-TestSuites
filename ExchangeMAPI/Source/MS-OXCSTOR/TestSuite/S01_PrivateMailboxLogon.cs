@@ -44,7 +44,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         {
             this.CheckTransportIsSupported();
 
-            #region Step1: connect server via user configured by "UserName"
+            #region Step1: connect server via user configured by "AdminUserName"
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion Step1
@@ -236,7 +236,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.IsTrue(this.returnStatus, "Disconnection is successful");
             #endregion Step3
 
-            #region Step4: Connect server via user configured by "UserName"
+            #region Step4: Connect server via user configured by "AdminUserName"
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion Step4
@@ -266,7 +266,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.IsTrue(this.returnStatus, "Disconnection  is successful");
             #endregion Step6
 
-            #region Step7: Connect server via the user that has no owner right on the mailbox of user configured by "UserName".
+            #region Step7: Connect server via the user that has no owner right on the mailbox of user configured by "AdminUserName".
             this.returnStatus = this.oxcstorAdapter.ConnectEx(this.server1Name, ConnectionType.PrivateMailboxServer, this.essdnOfUser1, this.domain, this.userNameOfMailboxOnServer1, this.passwordOfUserOfMailboxOnServer1);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion Step7
@@ -308,7 +308,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.IsTrue(this.returnStatus, "Disconnection  is successful");
             #endregion Step9
 
-            #region Step10: connect server via user configured by "UserName"
+            #region Step10: connect server via user configured by "AdminUserName"
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion Step10
@@ -386,7 +386,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             if (Common.IsRequirementEnabled(3145, this.Site))
             {
-                #region Step2: Connect server1 via user configured by "UserName"
+                #region Step2: Connect server1 via user configured by "AdminUserName"
                 this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
                 Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
                 #endregion Step2
@@ -417,7 +417,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Assert.IsTrue(this.returnStatus, "Disconnection is successful");
                 #endregion Step4
 
-                #region Step5: Connect server1 via user configured by "UserName"
+                #region Step5: Connect server1 via user configured by "AdminUserName"
                 this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
                 Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
                 #endregion Step5
@@ -466,12 +466,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 #endregion Step8
             }
 
-            #region Step9: Connect server1 via user configured by "UserName"
+            #region Step9: Connect server1 via user configured by "AdminUserName"
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion Step9
 
-            #region Step10:  RopLogon ROP with set USE_PER_MDB_REPLID_MAPPING to logon the mailbox of user configured by "UserName"
+            #region Step10:  RopLogon ROP with set USE_PER_MDB_REPLID_MAPPING to logon the mailbox of user configured by "AdminUserName"
             this.logonRequestForPrivateMailBox.LogonFlags = (byte)LogonFlags.Private; // Set the Private flag
             this.logonRequestForPrivateMailBox.OpenFlags = (uint)OpenFlags.UsePerMDBReplipMapping; // Set USE_PER_MDB_REPLID_MAPPING flags.
             this.logonRequestForPrivateMailBox.Essdn = Encoding.ASCII.GetBytes(this.userDN + "\0");
@@ -1447,7 +1447,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             LongTermId longTermIdForPublicFolder2ForServer;
             #endregion
 
-            #region Step1-3: Connect server1 with user configured by "UserName" and create a new folder, then disconnect
+            #region Step1-3: Connect server1 with user configured by "AdminUserName" and create a new folder, then disconnect
             #region Step1: Connect to server
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PublicFolderServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
@@ -1688,7 +1688,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         {
             this.CheckTransportIsSupported();
 
-            #region Step 1: Connect the server via user configured by "UserName".
+            #region Step 1: Connect the server via user configured by "AdminUserName".
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion
@@ -2008,7 +2008,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.IsTrue(this.returnStatus, "Disconnection  is successful");
             #endregion
 
-            #region Step 11: Connect the server via user configured by "UserName".
+            #region Step 11: Connect the server via user configured by "AdminUserName".
             this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
             Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
             #endregion

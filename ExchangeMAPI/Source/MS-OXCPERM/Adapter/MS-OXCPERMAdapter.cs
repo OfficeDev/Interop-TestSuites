@@ -149,23 +149,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         /// </summary>
         public string User2
         {
-            get { return Common.GetConfigurationPropertyValue("User2Name", this.Site); }
+            get { return Common.GetConfigurationPropertyValue("AdminUserName", this.Site); }
         }
 
         /// <summary>
         /// Gets the password of the User2.
         /// </summary>
-        public string User2Password
+        public string AdminUserPassword
         {
-            get { return Common.GetConfigurationPropertyValue("User2Password", this.Site); }
+            get { return Common.GetConfigurationPropertyValue("AdminUserPassword", this.Site); }
         }
 
         /// <summary>
         /// Gets the User2 ESSDN.
         /// </summary>
-        public string User2Essdn
+        public string AdminUserEssdn
         {
-            get { return Common.GetConfigurationPropertyValue("User2Essdn", this.Site); }
+            get { return Common.GetConfigurationPropertyValue("AdminUserEssdn", this.Site); }
         }
 
         /// <summary>
@@ -300,7 +300,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             this.RegisterToParses();
             uint responseValue = 0;
 
-            // The user configured by "User2Name" logons to his own mailbox to retrieve or modify the permissions.
+            // The user configured by "AdminUserName" logons to his own mailbox to retrieve or modify the permissions.
             this.Logon(this.User2);
 
             // Retrieve the permissions list to restore.
@@ -687,9 +687,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         }
 
         /// <summary>
-        /// The user connects to the server and logons to the mailbox of the user configured by "User2Name" in ptfconfig.
+        /// The user connects to the server and logons to the mailbox of the user configured by "AdminUserName" in ptfconfig.
         /// </summary>
-        /// <param name="userName">The user to logon to the mailbox of the user configured by "User2Name" in ptfconfig</param>
+        /// <param name="userName">The user to logon to the mailbox of the user configured by "AdminUserName" in ptfconfig</param>
         public void Logon(string userName)
         {
             bool isConnected;
@@ -705,8 +705,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                 string password = string.Empty;
                 if (string.Equals(userName, this.User2, StringComparison.OrdinalIgnoreCase))
                 {
-                    userDN = this.User2Essdn;
-                    password = this.User2Password;
+                    userDN = this.AdminUserEssdn;
+                    password = this.AdminUserPassword;
                 }
                 else if (string.Equals(userName, this.User1, StringComparison.OrdinalIgnoreCase))
                 {
@@ -722,7 +722,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                 // The user logons to the User2's mailbox.
                 isConnected = this.oxcropsClient.Connect(this.ServerName, ConnectionType.PrivateMailboxServer, userDN, this.Domain, userName, password);
                 Site.Assert.IsTrue(isConnected, "True indicates connecting to server successfully.");
-                this.ropLogonResponse = this.ROPLogon(LogonType.Mailbox, this.User2Essdn, out this.inobjHandle);
+                this.ropLogonResponse = this.ROPLogon(LogonType.Mailbox, this.AdminUserEssdn, out this.inobjHandle);
                 Site.Assert.AreEqual<uint>(UINT32SUCCESS, this.ropLogonResponse.ReturnValue, "0 indicates the user {0} logs on to the {1}'s mailbox successfully.", userName, this.User2);
                 this.VerifyCredential(userName, password, this.ropLogonResponse.ReturnValue);
                 this.currentLogonUser = userName;
@@ -734,7 +734,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         }
 
         /// <summary>
-        /// Create a new message in the mail box folder of the user configured by "User2Name" by the logon user.
+        /// Create a new message in the mail box folder of the user configured by "AdminUserName" by the logon user.
         /// </summary>
         /// <returns>The return value from the server. 0x00000000 indicates success, others indicate error occurs.</returns>
         public uint CreateMessageByLogonUser()
@@ -1861,7 +1861,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                 string distinguishedName = string.Empty;
                 if (string.Equals(permissionUserName, this.User2, StringComparison.OrdinalIgnoreCase))
                 {
-                    distinguishedName = this.User2Essdn + StringNullTerminator;
+                    distinguishedName = this.AdminUserEssdn + StringNullTerminator;
                 }
                 else if (string.Equals(permissionUserName, this.User1, StringComparison.OrdinalIgnoreCase))
                 {
@@ -2053,7 +2053,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             }
             else if (user.Equals(this.User2))
             {
-                return this.User2Password;
+                return this.AdminUserPassword;
             }
             else
             {

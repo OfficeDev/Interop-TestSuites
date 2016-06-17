@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             RopLogonRequest logonRequest;
@@ -114,7 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                         string server = Common.GetConfigurationPropertyValue("Sut2ComputerName", this.Site);
                         string userDN = Common.GetConfigurationPropertyValue("UserEssdn", this.Site) + '\0';
                         string domain = Common.GetConfigurationPropertyValue("Domain", this.Site);
-                        string userName = Common.GetConfigurationPropertyValue("UserName", this.Site);
+                        string userName = Common.GetConfigurationPropertyValue("AdminUserName", this.Site);
                         string password = Common.GetConfigurationPropertyValue("PassWord", this.Site);
                         cropsAdapter.SetAutoRedirect(false);
 
@@ -199,7 +199,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -433,7 +433,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PublicFolderServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Step 6: Send a RopGetStoreState request and verify the RopGetStoreState failure response.
@@ -531,7 +531,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PublicFolderServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Log on to the public folder, for this operation SHOULD be issued against a public folders logon.
@@ -755,7 +755,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PublicFolderServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Step 1: Open the second folder, in which a public folder will be created under root folder in the following code.
@@ -1250,7 +1250,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             RopLogonResponse logonResponse = Logon(LogonType.Mailbox, this.userDN, out inputObjHandle);
@@ -1380,7 +1380,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -1485,7 +1485,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PublicFolderServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Step 4: Send a RopGetPerUserLongTermIds request to the server and verify the failure response.
@@ -1531,7 +1531,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PublicFolderServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Step 1: Log on to the public folder, and get the public folder ID, we use FolderIds[0]
@@ -1581,7 +1581,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PrivateMailboxServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
                 logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
 
@@ -1753,7 +1753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -1958,7 +1958,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
             RopLogonResponse logonResponse = Logon(LogonType.Mailbox, this.userDN, out inputObjHandle);
 
@@ -2112,7 +2112,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             RopLogonRequest logonRequest;

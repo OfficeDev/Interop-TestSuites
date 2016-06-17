@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Send the RopSynchronizationConfigure request and verify the success response.
@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Send the RopSynchronizationImportMessageChange request and verify the success response.
@@ -214,7 +214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Create a message.
@@ -445,7 +445,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Open folder.
@@ -619,7 +619,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Open folder.
@@ -855,7 +855,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Open folder.
@@ -1242,7 +1242,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Log on to the private mailbox.
@@ -1291,7 +1291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Log on to the private mailbox.
@@ -1353,7 +1353,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Log on to the private mailbox.
@@ -1462,7 +1462,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Send the RopGetLocalReplicaIds request.

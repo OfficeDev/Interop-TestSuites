@@ -7,17 +7,17 @@
     <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
 
      <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
-      <!-- The User1Name property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have "Owner" permission level to the public folders. -->
-      <Property name="User1Name" value="MSOXORULE_TestUser01" />
-      <!-- The User1Password property specifies the password for the user specified in the User1Name property. The property value is case-sensitive. -->
-      <Property name="User1Password" value="Password01!" />
+      <!-- The AdminUserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have "Owner" permission level to the public folders. -->
+      <Property name="AdminUserName" value="MSOXORULE_TestUser01" />
+      <!-- The AdminUserPassword property specifies the password for the user specified in the AdminUserName property. The property value is case-sensitive. -->
+      <Property name="AdminUserPassword" value="Password01!" />
       <!-- The User2Name property specifies a username which can be used by a client to access the mailbox. -->
       <Property name="User2Name" value="MSOXORULE_TestUser02" />
       <!-- The User2Password property specifies the password for the user specified in the User2Name property. The property value is case-sensitive. -->
       <Property name="User2Password" value="Password01!" />
-      <!-- The User1ESSDN property is a string that contains the distinguished name (DN) of the user specified in the User1Name property. 
-    On the Windows platform, the value of the User1ESSDN property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
-      <Property name="User1ESSDN" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXORULE_TestUser01" />
+      <!-- The AdminUserESSDN property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. 
+    On the Windows platform, the value of the AdminUserESSDN property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+      <Property name="AdminUserESSDN" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXORULE_TestUser01" />
       <!-- The User2ESSDN property is a string that contains the distinguished name (DN) of the user specified in the User2Name property. 
     On the Windows platform, the value of the User2ESSDN property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
       <Property name="User2ESSDN" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXORULE_TestUser02" />   

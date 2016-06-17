@@ -34,7 +34,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         private string user1;
 
         /// <summary>
-        /// The user configured by "User2Name"
+        /// The user configured by "AdminUserName"
         /// </summary>
         private string user2;
 
@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         {
             this.oxcpermAdapter = Site.GetAdapter<IMS_OXCPERMAdapter>();
             this.user1 = Common.GetConfigurationPropertyValue("User1Name", this.Site);
-            this.user2 = Common.GetConfigurationPropertyValue("User2Name", this.Site);
+            this.user2 = Common.GetConfigurationPropertyValue("AdminUserName", this.Site);
             this.needDoCleanup = true;
         }
 

@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Preparations-Open folder and create a subfolder, then get it's handle.

@@ -51,7 +51,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Preparations-Create message and then open a stream.
@@ -337,7 +337,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Preparations-Create message and get its handle, open a stream and get its handle.
@@ -516,7 +516,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 1: Preparations-Create message and get its handle, open stream and get its handle.
@@ -656,7 +656,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Step 5: Preparations for RopCloneStream and RopCopyToStream.
