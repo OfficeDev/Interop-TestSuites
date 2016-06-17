@@ -5589,39 +5589,81 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         @"[In RopFastTransferSourceCopyTo ROP Request Buffer] [PropertyTags (variable)] Specifies properties and subobjects, as specified in section 2.2.1.7, to be excluded when copying a messaging object pointed to by the InputServerObject field.");
                     if (this.currentPermission == PermissionLevels.FolderVisible && ((this.currentCopyFlag & CopyToCopyFlags.Move) == CopyToCopyFlags.Move))
                     {
-                        // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3299");
-
-                        // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3299
-                        bool isVerifiedR3299 = false;
-                        if (Common.IsRequirementEnabled(118201, this.Site) && fldContent.SubFolders.Count > 0)
+                        if (fldContent.SubFolders.Count > 0)
                         {
-                            foreach (SubFolder subFolder in fldContent.SubFolders)
+                            bool isVerifiedR2813 = false;
+                            if (Common.IsRequirementEnabled(2813, this.Site) == false)
                             {
-                                if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                isVerifiedR2813 = true;
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
                                 {
-                                    if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
                                     {
-                                        isVerifiedR3299 = true;
-                                        break;
+                                        if (subFolder.FolderContent.PropList.PropValues[3] != null)
+                                        {
+                                            isVerifiedR2813 = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
+                                {
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                    {
+                                        if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                        {
+                                            isVerifiedR2813 = true;
+                                            break;
+                                        }
                                     }
                                 }
                             }
 
-                            this.Site.CaptureRequirementIfIsTrue(
-                                isVerifiedR3299,
-                                3299,
-                                @"[In folderContent Element] If the MetaTagEcWarning (section 2.2.4.1.5.2) is present,  it will be in the fixed the position [4] of the array list.");
+                            // Add the debug information
+                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3299");
+
+                            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3299
+                            bool isVerifiedR3299 = false;
+                            if (Common.IsRequirementEnabled(118201, this.Site))
+                            {
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
+                                {
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                    {
+                                        if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                        {
+                                            isVerifiedR3299 = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    isVerifiedR3299,
+                                    3299,
+                                    @"[In folderContent Element] If the MetaTagEcWarning (section 2.2.4.1.5.2) is present,  it will be in the fixed the position [4] of the array list.");
+
+                                // Add the debug information
+                                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R118201");
+
+                                // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R118201
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    isVerifiedR3299,
+                                    118201,
+                                    @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<21> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
+                            }
 
                             // Add the debug information
-                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R118201");
+                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R2813");
 
-                            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R118201
                             this.Site.CaptureRequirementIfIsTrue(
-                                isVerifiedR3299,
-                                118201,
-                                @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<21> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
-                        }
+                                   isVerifiedR2813,
+                                   2813,
+                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <19> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
+                        }                        
                     }
                 }
             }
