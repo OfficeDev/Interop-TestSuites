@@ -7521,7 +7521,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R946</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopLongTermIdFromId ROP Request] If the REPLID is not in the REPLID and REPLGUID to-and-from mapping table, the operation [RopLongTermIdFromId] SHOULD&lt;38&gt; fail with a ReturnValue of 0x8004010F.</ns1:Description>
+		<ns1:Description>[In Receiving a RopLongTermIdFromId ROP Request] If the REPLID is not in the REPLID and REPLGUID to-and-from mapping table, the operation [RopLongTermIdFromId] SHOULD&lt;43&gt; fail with a ReturnValue of 0x8004010F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7639,7 +7639,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R948</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopIdFromLongTermId ROP Request] If the LongTermId field of the request contains zeros for the global counter  component, the server MUST fail the operation with 0 in the ReturnValue field.</ns1:Description>
+		<ns1:Description>[In Receiving a RopIdFromLongTermId ROP Request] If the LongTermId field of the request contains zeros for the global counter component, the server MUST fail the operation with 0 in the ReturnValue field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9595,7 +9595,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3137</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the operation [RopLogon] with ecAccessDenied. (&lt;32&gt; Section 3.2.5.1.1: Exchange 2007, Exchange 2013 and above returns ecAccessDenied ReturnValue.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the operation [RopLogon] with ecAccessDenied. (&lt;32&gt; Section 3.2.5.1.1: Exchange 2007 returns ecAccessDenied ReturnValue.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3107:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9644,7 +9644,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1273</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecLoginFailure. &lt;36&gt; Section 3.2.5.1.3: If the user doesn't exist in the Active Directory forest, Exchange 2007 and Exchange 2010 return ecUnknownUser.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecLoginFailure. &lt;36&gt; Section 3.2.5.1.3: If the user doesn't exist in the Active Directory forest, Exchange 2007 and Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R174:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9661,16 +9661,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R16901</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecLoginFailure if a private logon was requested without a mailbox distinguished name (DN), which is specified in the Essdn field. (Exchange 2013 and above follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R174:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1338001</ns1:REQ_ID>
@@ -9843,7 +9833,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1356</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, and Exchange 2013 use 4096 for the default value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R992:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
