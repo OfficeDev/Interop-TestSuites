@@ -781,18 +781,18 @@ Output "$step.Find the property `"User1Password`", and set the value as $MSOXCPE
 $step++
 Output "$step.Find the property `"User1Essdn`", and set the value as $MSOXCPERMUser1Essdn" "Yellow"
 $step++
-Output "$step.Find the property `"User2Name`", and set the value as $MSOXCPERMUser2" "Yellow"
+Output "$step.Find the property `"AdminUserName`", and set the value as $MSOXCPERMUser2" "Yellow"
 $step++
-Output "$step.Find the property `"User2Password`", and set the value as $MSOXCPERMUser1Essdn" "Yellow"
+Output "$step.Find the property `"AdminUserPassword`", and set the value as $MSOXCPERMUser1Essdn" "Yellow"
 $step++
-Output "$step.Find the property `"User2Essdn`", and set the value as $MSOXCPERMUser2Essdn" "Yellow"
+Output "$step.Find the property `"AdminUserEssdn`", and set the value as $MSOXCPERMUser2Essdn" "Yellow"
     
 ModifyConfigFileNode $MSOXCPERMDeploymentFile "User1Name"      $MSOXCPERMUser1
 ModifyConfigFileNode $MSOXCPERMDeploymentFile "User1Password"  $MSOXCPERMUser1Password
 ModifyConfigFileNode $MSOXCPERMDeploymentFile "User1Essdn"     $MSOXCPERMUser1Essdn
-ModifyConfigFileNode $MSOXCPERMDeploymentFile "User2Name"      $MSOXCPERMUser2
-ModifyConfigFileNode $MSOXCPERMDeploymentFile "User2Password"  $MSOXCPERMUser2Password
-ModifyConfigFileNode $MSOXCPERMDeploymentFile "User2Essdn"     $MSOXCPERMUser2Essdn
+ModifyConfigFileNode $MSOXCPERMDeploymentFile "AdminUserName"      $MSOXCPERMUser2
+ModifyConfigFileNode $MSOXCPERMDeploymentFile "AdminUserPassword"  $MSOXCPERMUser2Password
+ModifyConfigFileNode $MSOXCPERMDeploymentFile "AdminUserEssdn"     $MSOXCPERMUser2Essdn
 
 Output "Configuration for MS-OXCPERM_TestSuite.deployment.ptfconfig file is complete" "Green"
 
@@ -864,7 +864,7 @@ Output "Steps for manual configuration:" "Yellow"
 $step = 1
 Output "$step.Open $MSOXCROPSDeploymentFile" "Yellow"
 $step++
-Output "$step.Find the property `"UserName`", and set the value as $MSOXCROPSUser" "Yellow"
+Output "$step.Find the property `"AdminUserName`", and set the value as $MSOXCROPSUser" "Yellow"
 $step++
 Output "$step.Find the property `"Password`", and set the value as $MSOXCROPSUserPassword" "Yellow"
 $step++
@@ -882,7 +882,7 @@ if($sut2ComputerName -ne "")
     Output "$step.Find the property `"GhostedPublicFolderDisplayName`", and set the value as $MSOXCROPSPublicFolderGhosted" "Yellow"
 }
 
-ModifyConfigFileNode $MSOXCROPSDeploymentFile "UserName"   $MSOXCROPSUser
+ModifyConfigFileNode $MSOXCROPSDeploymentFile "AdminUserName"   $MSOXCROPSUser
 ModifyConfigFileNode $MSOXCROPSDeploymentFile "Password"   $MSOXCROPSUserPassword
 ModifyConfigFileNode $MSOXCROPSDeploymentFile "UserEssdn"  $MSOXCROPSUserEssdn
 ModifyConfigFileNode $MSOXCROPSDeploymentFile "EmailAlias" $MSOXCROPSEmailAlias
@@ -970,7 +970,7 @@ Output "Steps for manual configuration:" "Yellow"
 $step = 1
 Output "$step.Open $MSOXCSTORDeploymentFile" "Yellow"
 $step++
-Output "$step.Find the property `"UserName`", and set the value as $MSOXCSTORUser" "Yellow"
+Output "$step.Find the property `"AdminUserName`", and set the value as $MSOXCSTORUser" "Yellow"
 $step++
 Output "$step.Find the property `"UserPassword`", and set the value as $MSOXCSTORUserPassword" "Yellow"
 $step++
@@ -996,7 +996,7 @@ if($sut2ComputerName -ne "")
     Output "$step.Find the property `"UserEssdnOfMailboxOnServer2`", and set the value as $MSOXCSTORMailboxOnServer2Essdn" "Yellow"
 }
 
-ModifyConfigFileNode $MSOXCSTORDeploymentFile "UserName"                          $MSOXCSTORUser
+ModifyConfigFileNode $MSOXCSTORDeploymentFile "AdminUserName"                     $MSOXCSTORUser
 ModifyConfigFileNode $MSOXCSTORDeploymentFile "UserPassword"                      $MSOXCSTORUserPassword
 ModifyConfigFileNode $MSOXCSTORDeploymentFile "UserEssdn"                         $MSOXCSTORUserEssdn
 ModifyConfigFileNode $MSOXCSTORDeploymentFile "UserNameOfMailboxOnServer1"        $MSOXCSTORMailboxOnServer1
@@ -1154,11 +1154,11 @@ Output "Steps for manual configuration:" "Yellow"
 $step = 1
 Output "$step.Open $MSOXORULEDeploymentFile" "Yellow"
 $step++
-Output "$step.Find the property `"User1Name`", and set the value as $MSOXORULEUser1" "Yellow"
+Output "$step.Find the property `"AdminUserName`", and set the value as $MSOXORULEUser1" "Yellow"
 $step++
-Output "$step.Find the property `"User1Password`", and set the value as $MSOXORULEUser1Password" "Yellow"
+Output "$step.Find the property `"AdminUserPassword`", and set the value as $MSOXORULEUser1Password" "Yellow"
 $step++
-Output "$step.Find the property `"User1ESSDN`", and set the value as $MSOXORULEUser1Essdn" "Yellow"
+Output "$step.Find the property `"AdminUserESSDN`", and set the value as $MSOXORULEUser1Essdn" "Yellow"
 $step++
 Output "$step.Find the property `"User2Name`", and set the value as $MSOXORULEUser2" "Yellow"
 $step++
@@ -1166,9 +1166,9 @@ Output "$step.Find the property `"User2Password`", and set the value as $MSOXORU
 $step++
 Output "$step.Find the property `"User2ESSDN`", and set the value as $MSOXORULEUser2Essdn" "Yellow"
 
-ModifyConfigFileNode $MSOXORULEDeploymentFile "User1Name"              $MSOXORULEUser1
-ModifyConfigFileNode $MSOXORULEDeploymentFile "User1Password"          $MSOXORULEUser1Password
-ModifyConfigFileNode $MSOXORULEDeploymentFile "User1ESSDN"             $MSOXORULEUser1Essdn
+ModifyConfigFileNode $MSOXORULEDeploymentFile "AdminUserName"              $MSOXORULEUser1
+ModifyConfigFileNode $MSOXORULEDeploymentFile "AdminUserPassword"          $MSOXORULEUser1Password
+ModifyConfigFileNode $MSOXORULEDeploymentFile "AdminUserESSDN"             $MSOXORULEUser1Essdn
 ModifyConfigFileNode $MSOXORULEDeploymentFile "User2Name"              $MSOXORULEUser2
 ModifyConfigFileNode $MSOXORULEDeploymentFile "User2Password"          $MSOXORULEUser2Password
 ModifyConfigFileNode $MSOXORULEDeploymentFile "User2ESSDN"             $MSOXORULEUser2Essdn

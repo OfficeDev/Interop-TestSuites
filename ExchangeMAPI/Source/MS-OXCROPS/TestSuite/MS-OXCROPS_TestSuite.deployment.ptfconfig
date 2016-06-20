@@ -7,11 +7,11 @@
     <Property name="CommonConfigurationFileName" value="ExchangeCommonConfiguration.deployment.ptfconfig" />
 
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
-    <!-- The UserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have "Owner" permission level to the public folders. -->
-    <Property name="UserName" value="MSOXCROPS_TestUser" />
-    <!-- The Password property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
+    <!-- The AdminUserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have "Owner" permission level to the public folders. -->
+    <Property name="AdminUserName" value="MSOXCROPS_TestUser" />
+    <!-- The Password property specifies the password for the user specified in the AdminUserName property. The property value is case-sensitive. -->
     <Property name="Password" value="Password01!" />
-    <!-- The UserEssdn property is a string that contains the distinguished name (DN) of the user specified in the UserName property. 
+    <!-- The UserEssdn property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. 
     On the Windows platform, the value of the UserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
     <Property name="UserEssdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/MSOXCROPS_TestUser" />
     <!--The EmailAlias property specifies the alias of the recipient. -->

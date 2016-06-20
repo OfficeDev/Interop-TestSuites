@@ -161,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             RequestBufferFlags bufferFlag = new RequestBufferFlags();
             FolderTypeEnum folderType = FolderTypeEnum.CommonFolderType;
 
-            // Here the user configured by "User2Name" logons on to the server. 
+            // Here the user configured by "AdminUserName" logons on to the server. 
             // Create 2 messages by the logon user to verify the EditAny or DeleteAny rights in subsequent operations.
             responseValue = OxcpermAdapter.CreateMessageByLogonUser();
             Site.Assert.AreEqual<uint>(TestSuiteBase.UINT32SUCCESS, responseValue, "0 indicates the server create a message successfully.");
@@ -1111,7 +1111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             };
             FolderTypeEnum folderType = FolderTypeEnum.CommonFolderType;
 
-            // Here the user configured by "User2Name" logons on to the server. 
+            // Here the user configured by "AdminUserName" logons on to the server. 
             // Create 2 messages by the logon user to verify the EditAny or DeleteAny rights in subsequent operations.
             responseValue = OxcpermAdapter.CreateMessageByLogonUser();
             Site.Assert.AreEqual<uint>(TestSuiteBase.UINT32SUCCESS, responseValue, "0 indicates the server create a message successfully.");

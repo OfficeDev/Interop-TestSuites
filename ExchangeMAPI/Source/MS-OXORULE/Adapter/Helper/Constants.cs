@@ -17,12 +17,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <summary>
         /// The user name of User1's mailbox.
         /// </summary>
-        public const string User1Name = "User1Name";
+        public const string User1Name = "AdminUserName";
 
         /// <summary>
         /// The user password of User1's mailbox.
         /// </summary>
-        public const string User1Password = "User1Password";
+        public const string User1Password = "AdminUserPassword";
 
         /// <summary>
         /// The user name of User2's mailbox.
@@ -37,7 +37,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <summary>
         /// The ESSDN of TestUser1.
         /// </summary>
-        public const string User1ESSDN = "User1ESSDN";
+        public const string User1ESSDN = "AdminUserESSDN";
 
         /// <summary>
         /// The ESSDN of TestUser2.
