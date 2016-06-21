@@ -38,7 +38,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         /// <param name="pidTagLastModificationTime">PidTagLastModificationTime property</param>
         /// <param name="pidTagLastModifierName">PidTagLastModifierName property</param>
         /// <param name="pidTagSearchKey">PidTagSearchKey property</param>
-        private void VerifyPropertiesExistOnAllMessageObject(PropertyObj pidTagAccess, PropertyObj pidTagAccessLevel, PropertyObj pidTagChangeKey, PropertyObj pidTagCreationTime, PropertyObj pidTagLastModificationTime, PropertyObj pidTagLastModifierName, PropertyObj pidTagSearchKey, PropertyObj PidTagObjectType, PropertyObj PidTagRecordKey)
+        private void VerifyPropertiesExistOnAllMessageObject(PropertyObj pidTagAccess, PropertyObj pidTagAccessLevel, PropertyObj pidTagChangeKey, PropertyObj pidTagCreationTime, PropertyObj pidTagLastModificationTime, PropertyObj pidTagLastModifierName, PropertyObj pidTagSearchKey)
         {
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1097");
