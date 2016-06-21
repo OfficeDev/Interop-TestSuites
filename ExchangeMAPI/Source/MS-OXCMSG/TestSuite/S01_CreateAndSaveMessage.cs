@@ -1640,9 +1640,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
                 this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
                 saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
-
                 Site.Assert.AreNotEqual<uint>(TestSuiteBase.Success, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
-
+               
                 this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(getPropertiesSpecificRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
                 getPropertiesSpecificResponse = (RopGetPropertiesSpecificResponse)this.response;
                 Site.Assert.AreEqual<uint>(TestSuiteBase.Success, getPropertiesSpecificResponse.ReturnValue, TestSuiteBase.ROPSucceedMsg);
@@ -1691,7 +1690,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     Convert.ToInt32(accesssLevelBeforeSave.Value),
                     Convert.ToInt32(accesssLevelAfterReadOnlySuccess.Value),
                     2192,
-                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.[In Appendix B: Product Behavior] <8> Section 2.2.3.3.1: Exchange 2010 and Exchange 2013 ignore the KeepOpenReadOnly flag.");
+                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 ignore the KeepOpenReadOnly flag.)");
             }
 
             if (Common.IsRequirementEnabled(2193, this.Site))

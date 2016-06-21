@@ -263,9 +263,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyObj pidTagLastModificationTime = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagLastModificationTime);
                         PropertyObj pidTagLastModifierName = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagLastModifierName);
                         PropertyObj pidTagSearchKey = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagSearchKey);
-
+                        PropertyObj PidTagObjectType = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagObjectType);
+                        PropertyObj PidTagRecordKey = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagRecordKey);
                         // Verify properties PidTagAccess, PidTagAccessLevel, PidTagChangeKey, PidTagCreationTime, PidTagLastModificationTime, PidTagLastModifierName and PidTagSearchKey exist on all Message objects.
-                        this.VerifyPropertiesExistOnAllMessageObject(pidTagAccess, pidTagAccessLevel, pidTagChangeKey, pidTagCreationTime, pidTagLastModificationTime, pidTagLastModifierName, pidTagSearchKey);
+                        this.VerifyPropertiesExistOnAllMessageObject(pidTagAccess, pidTagAccessLevel, pidTagChangeKey, pidTagCreationTime, pidTagLastModificationTime, pidTagLastModifierName, pidTagSearchKey, PidTagObjectType, PidTagRecordKey);
                     }
 
                     if (getPropertiesFlag == GetPropertiesFlags.AttachmentProperties)

@@ -38,7 +38,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         /// <param name="pidTagLastModificationTime">PidTagLastModificationTime property</param>
         /// <param name="pidTagLastModifierName">PidTagLastModifierName property</param>
         /// <param name="pidTagSearchKey">PidTagSearchKey property</param>
-        private void VerifyPropertiesExistOnAllMessageObject(PropertyObj pidTagAccess, PropertyObj pidTagAccessLevel, PropertyObj pidTagChangeKey, PropertyObj pidTagCreationTime, PropertyObj pidTagLastModificationTime, PropertyObj pidTagLastModifierName, PropertyObj pidTagSearchKey)
+        private void VerifyPropertiesExistOnAllMessageObject(PropertyObj pidTagAccess, PropertyObj pidTagAccessLevel, PropertyObj pidTagChangeKey, PropertyObj pidTagCreationTime, PropertyObj pidTagLastModificationTime, PropertyObj pidTagLastModifierName, PropertyObj pidTagSearchKey, PropertyObj PidTagObjectType, PropertyObj PidTagRecordKey)
         {
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1097");
@@ -1173,6 +1173,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         111,
                         @"[In PidLidCommonStart Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1).");
                     break;
+
+                case PropertyNames.PidLidCategories:
+                     // Add the debug information
+                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1153");
+
+                     // Verify MS-OXCMSG requirement: MS-OXCMSG_R1153
+                     this.Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypMultipleString,
+                         propertyObj.ValueType,
+                         1153,
+                         @"[In PidLidCategories Property] Type: PtypMultipleString ([MS-OXCDATA] section 2.11.1).");
+
+                     break;
 
                 case PropertyNames.PidLidCommonEnd:
 

@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
+﻿namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 {
     using System;
     using System.Collections.Generic;
@@ -1800,7 +1800,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 new PropertyNameObject(PropertyNames.PidLidAgingDontAgeMe, (uint)PropertyLID.PidLidAgingDontAgeMe, PropertySet.PSETIDCommon, PropertyType.PtypBoolean),
                 new PropertyNameObject(PropertyNames.PidLidCommonStart, (uint)PropertyLID.PidLidCommonStart, PropertySet.PSETIDCommon, PropertyType.PtypTime),
                 new PropertyNameObject(PropertyNames.PidLidCommonEnd, (uint)PropertyLID.PidLidCommonEnd, PropertySet.PSETIDCommon, PropertyType.PtypTime),
-                new PropertyNameObject(PropertyNames.PidLidSmartNoAttach, (uint)PropertyLID.PidLidSmartNoAttach, PropertySet.PSETIDCommon, PropertyType.PtypBoolean)
+                new PropertyNameObject(PropertyNames.PidLidSmartNoAttach, (uint)PropertyLID.PidLidSmartNoAttach, PropertySet.PSETIDCommon, PropertyType.PtypBoolean),
+                new PropertyNameObject(PropertyNames.PidLidCategories, (uint)PropertyLID.PidLidCategories, PropertySet.PSETIDCommon, PropertyType.PtypMultipleString)              
             };
 
             #region Call RopLogon to logon the private mailbox.
@@ -1834,6 +1835,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.SetNamedProperty(targetMessageHandle, propertyName, BitConverter.GetBytes(DateTime.Parse(TestDataOfDateTime).ToFileTimeUtc()));
             propertyName = new PropertyNameObject(PropertyNames.PidLidAgingDontAgeMe, (uint)PropertyLID.PidLidAgingDontAgeMe, PropertySet.PSETIDCommon, PropertyType.PtypBoolean);
             this.SetNamedProperty(targetMessageHandle, propertyName, BitConverter.GetBytes(true));
+            propertyName = new PropertyNameObject(PropertyNames.PidLidCategories, (uint)PropertyLID.PidLidCategories, PropertySet.PSETIDCommon, PropertyType.PtypString);
+            this.SetNamedProperty(targetMessageHandle, propertyName, Common.GetBytesFromUnicodeString("PidLidCategories"));
+           
             #endregion
 
             #region Get properties value in message

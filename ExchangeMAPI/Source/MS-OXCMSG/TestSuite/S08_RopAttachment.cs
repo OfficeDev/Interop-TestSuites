@@ -671,7 +671,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifyR1651,
                     1651,
-                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1650, this.Site))
@@ -684,7 +684,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     0x00000000,
                     pidTagAccessLevelInitialValue,
                     1650,
-                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
 
