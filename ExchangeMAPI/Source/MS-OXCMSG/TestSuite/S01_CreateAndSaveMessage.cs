@@ -1640,6 +1640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
                 this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
                 saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
                 Site.Assert.AreNotEqual<uint>(TestSuiteBase.Success, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
                
                 this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(getPropertiesSpecificRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
