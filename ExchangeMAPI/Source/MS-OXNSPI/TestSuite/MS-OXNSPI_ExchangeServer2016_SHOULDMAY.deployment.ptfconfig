@@ -12,7 +12,7 @@
     <!-- Set R1992Enabled to true to verify that implementation doesn't report an approximate value for the Numeric Position. Set R1992Enabled to false to disable this requirement. -->
     <Property name="R1992Enabled" value="true" />
     <!-- Set R2003Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R2003Enabled to false to disable this requirement.-->
-    <Property name="R2003Enabled" value="false" />
+    <Property name="R2003Enabled" value="true" />
     <!-- Set R2003004 to true to verify that the Implementation does follow the ABNF format. Set R2003004Enabled to false to disable this requirement.-->
     <Property name="R2003004Enabled" value="false" />
     <!-- Set R2003005Enabled to true to verify that the implementation does return the value "ErrorsReturned" (0x00040380). Set R2003005Enabled to false to disable this requirement.-->
