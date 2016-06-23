@@ -5,7 +5,7 @@ $FolderPath = (Get-Location).Path
 $serverName = $PtfPropSutComputerName
 $serverVersion = $PtfPropSutVersion
 
-$credentialUserName = "$PtfPropDomain\$PtfPropUserName"
+$credentialUserName = "$PtfPropDomain\$PtfPropAdminUserName"
 $credentialSecurePassword = ConvertTo-SecureString $PtfPropUserPassword -AsPlainText -Force
 $credential = new-object Management.Automation.PSCredential($credentialUserName,$credentialSecurePassword)
 

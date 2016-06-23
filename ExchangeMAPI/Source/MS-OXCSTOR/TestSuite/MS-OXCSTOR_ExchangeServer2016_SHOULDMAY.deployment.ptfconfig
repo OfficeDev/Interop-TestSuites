@@ -35,8 +35,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R3145Enabled" value="false"/>
     <!-- Set R790Enabled to true to verify that for RopLogon ROP if the user's configured mailbox is not hosted by this server, fail the ROP with a ReturnValue of ecWrongServer. Set R790Enabled to false to disable this requirement.-->
     <Property name="R790Enabled" value="false"/>
-    <!-- Set R3103Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server MUST fail the operation with ecServerPaused. Set R3103Enabled to false to disable this requirement.-->
-    <Property name="R3103Enabled" value="false"/>
+    <!-- Set R3103001Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. Set R3103001Enabled to false to disable this requirement.-->
+    <Property name="R3103001Enabled" value="true"/>
+    <!-- Set R3103002Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. Set R3103002Enabled to false to disable this requirement.-->
+    <Property name="R3103002Enabled" value="false"/>
     <!-- Set R1410001Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x00000000 if the mailbox currently has any active search folders. Set R1410001Enabled to false to disable this requirement.-->
     <Property name="R1410001Enabled" value="true"/>
     <!-- Set R59781Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x01000000 if the mailbox currently has any active search folders. Set R59781Enabled to false to disable this requirement.-->
@@ -69,10 +71,14 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R1337Enabled" value="true"/>
     <!-- Set R1355Enabled to true to verify that for RopLongTermIdFromId ROP the implementation does fail the operation with 0x8004010F if the REPLID is not in the REPLID and REPLGUID to-and-from mapping table. Set R1355Enabled to false to disable this requirement.-->
     <Property name="R1355Enabled" value="false"/>
-    <!-- Set R6280Enabled to true to verify for PidTagComment property the implementation can return success through RopGetPropertiesSpecific ROP. Set R6280Enabled to false to disable this requirement-->
-    <Property name="R6280Enabled" value="false"/>
-    <!-- Set R3068003Enabled to true to verify for PidTagDisplayName property the implementation can return success through RopGetPropertiesSpecific ROP. Set R3068003Enabled to false to disable this requirement-->
-    <Property name="R3068003Enabled" value="false"/>
+    <!-- Set R6280001Enabled to true to verify implementation does support the PidTagComment property as read-only. Set R6280001Enabled to false to disable this requirement-->
+    <Property name="R6280001Enabled" value="true"/>
+    <!-- Set R6280002Enabled to true to verify implementation does support the PidTagComment property as read-write. Set R6280002Enabled to false to disable this requirement-->
+    <Property name="R6280002Enabled" value="false"/>
+    <!-- Set R3068003001Enabled to true to verify implementation does support PidTagDisplayName  property as read-only. Set R3068003001Enabled to false to disable this requirement-->
+    <Property name="R306800301Enabled" value="true"/>
+    <!-- Set R3068003002Enabled to true to verify implementation does support PidTagDisplayName  property as read-write. Set R3068003002Enabled to false to disable this requirement-->
+    <Property name="R306800302Enabled" value="false"/>
     <!-- Set R300000001Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R300000001Enabled to false to disable this requirement-->
     <Property name="R300000001Enabled" value="true"/>
     <!-- Set R1911Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R1911Enabled to false to disable this requirement.-->

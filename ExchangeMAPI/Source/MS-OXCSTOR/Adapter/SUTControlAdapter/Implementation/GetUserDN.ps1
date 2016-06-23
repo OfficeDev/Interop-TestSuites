@@ -1,6 +1,6 @@
 $script:ErrorActionPreference = "Stop"
 
-$credentialUserName = "$PtfPropDomain\$PtfPropUserName"
+$credentialUserName = "$PtfPropDomain\$PtfPropAdminUserName"
 $credentialPassword = $PtfPropUserPassword
 
 #----------------------------------------------------------------------------

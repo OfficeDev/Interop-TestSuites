@@ -638,6 +638,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.setReceiveFolderRequest.FolderId = this.logonResponse.FolderIds[3];
             this.setReceiveFolderRequest.MessageClass = Encoding.ASCII.GetBytes(this.messageMyClass + "\0");
             this.oxcstorAdapter.DoRopCall(this.setReceiveFolderRequest, this.outObjHandle, ROPCommandType.RopSetReceiveFolder, out this.outputBuffer);
+            DateTime modificationTime = DateTime.Now;
             this.setReceiveFolderResponse = (RopSetReceiveFolderResponse)this.outputBuffer.RopsList[0];
 
             // Add the debug information
@@ -986,6 +987,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     Site.CaptureRequirement(
                         868,
                         @"[In Receiving a RopSetReceiveFolder ROP Request] Each row of the table contains at least the following three columns [Folder ID, Message Class, and Last-modification Time], with each column corresponding to a property.");
+
+                    if (messageClass.Equals("My.Class\0", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        DateTime actualModificationTime = DateTime.FromFileTimeUtc(BitConverter.ToInt64(receiveFolderRow.PropertyValues[2].Value, 0));
+
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R314");
+
+                        TimeSpan timeSpan = modificationTime - actualModificationTime;
+                        // Test case has recorded time after execute RopSetReceiveFolder ROP with MessageClass="My.Class", 
+                        // If the time span between it and actual modification time is less than 1 second, this requirement can be captured. 
+                        bool isEqual = timeSpan.TotalSeconds < 1;
+
+                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R314
+                        Site.CaptureRequirementIfIsTrue(
+                            isEqual,
+                            314,
+                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.755) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
+                    }
                 }
                 else
                 {
@@ -1297,6 +1317,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                    this.logonResponse.StoreState,
                    891,
                    "[In Receiving a RopGetStoreState ROP Request] The server MUST NOT set any other flags in the response [except STORE_HAS_SEARCHES flag].");
+
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R889");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R889
+                Site.CaptureRequirementIfAreEqual<uint>(
+                   0x01000000,
+                   this.logonResponse.StoreState,
+                   889,
+                   "[In Receiving a RopGetStoreState ROP Request] If the mailbox has any persisted search folders, then the server MUST set the STORE_HAS_SEARCHES flag in the response, as specified in section 2.2.1.5.2.");
                 #endregion capture
 
                 #region Step6: Disconnect
@@ -3025,19 +3056,36 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             #endregion
 
-            #region Capture R650, R3069, R6280
-            if (Common.IsRequirementEnabled(6280, this.Site))
+            #region Capture code
+
+            if (Common.IsRequirementEnabled(6280001, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280001");
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280001
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    responseFlagForGetVauleTagComment,
+                    6280001,
+                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. <13> Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).");
+            }
+
+            if (Common.IsRequirementEnabled(6280002, this.Site))
+            {
+                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
+                Site.Assert.AreEqual<uint>(0, responseFlagForGetVauleTagComment, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280002");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280002
                 Site.CaptureRequirementIfAreEqual<string>(
                     tagCommentValue,
                     tagCurrentCommentValue,
-                    6280,
-                    @"[In Read/Write Properties] The PidTagComment property is read/write.");
+                    6280002,
+                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R650");
@@ -3172,21 +3220,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             // According to [MS-OXPROPS], PidTagDisplayName's data type is 0x001F
             propertTagDisplayName.PropertyType = 0x001F;
             uint responseDisplayName;
-
             this.TryGetFlagLogonProperty(propertTagDisplayName, out responseDisplayName);
-            #endregion
 
-            #region Capture R3071
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
+            if (Common.IsRequirementEnabled(306800301, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800301");
 
-            // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
-            // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
-            Site.CaptureRequirementIfAreEqual<uint>(
-                0,
-                responseDisplayName,
-                3071,
-                @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800301
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    responseDisplayName,
+                    306800301,
+                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <15> Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
+                // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    responseDisplayName,
+                    3071,
+                    @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
+            }
             #endregion
 
             #region RopSetProperties ROP to write a writable property PidTagDisplayName
@@ -3195,25 +3253,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             taggedDisplayName.Value = Encoding.Unicode.GetBytes(strSetDisplayName);
             this.TrySetLogonProperty(taggedDisplayName);
             string newDisplayName = Encoding.Unicode.GetString(this.TryGetLogonPropertyValue(propertTagDisplayName));
-            #endregion
 
-            #region Capture R3068003
-            if (Common.IsRequirementEnabled(3068003, this.Site))
+            if (Common.IsRequirementEnabled(306800302, this.Site))
             {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3068003");
+                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
+                Site.Assert.AreEqual<uint>(0, responseDisplayName, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3068003
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800302");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800302
                 // The value of responseDisplayName is 0 indicates the ROPGetPropertiesSpecific ROP is implemented successfully.
                 // When the value of strSetDisplayName is the same as newDisplayName, it indicates that the ROPSetProperties ROP is implemented successfully.
                 // So the MS-OXCSTOR_R3068003 is verified.
                 Site.CaptureRequirementIfIsTrue(
                     newDisplayName.Equals(strSetDisplayName),
-                    3068003,
-                    @"[In Read/Write Properties] The PidTagDisplayName property is read/write.");
+                    306800302,
+                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
             }
             #endregion
-            #endregion
+
+            #endregion 
 
             #region Step6: Test PidTagOutOfOfficeState
 
@@ -3561,7 +3621,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 // Call RopLogon ROP 6 times in 10 seconds
                 if (elapsedSecond < 10)
                 {
-                    if (Common.IsRequirementEnabled(3103, this.Site))
+                    if (Common.IsRequirementEnabled(3103001, this.Site))
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103001");
+
+                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103001
+                        this.Site.CaptureRequirementIfAreEqual<uint>(
+                            0,
+                            this.logonResponse.ReturnValue,
+                            3103001,
+                            @"[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. <22> Section 3.2.5.1.1:  Exchange 2010 and Exchange 2013 return Success with ecServerPaused.");
+                    }
+
+                    if (Common.IsRequirementEnabled(3103002, this.Site))
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R191");
@@ -3584,14 +3657,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                             @"[In RopLogon ROP Common Return Codes] The meaning of return code ecServerPaused: The client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server.");
 
                         // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103");
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103002");
 
-                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103
+                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103002
                         this.Site.CaptureRequirementIfAreEqual<uint>(
-                                0x0000047F,
-                                this.logonResponse.ReturnValue,
-                            3103,
-                            @"[In Private Mailbox Logon] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server MUST fail the operation with ecServerPaused, as specified in section 3.2.5.1.3, in the ReturnValue field.");
+                            0x0000047F,
+                            this.logonResponse.ReturnValue,
+                            3103002,
+                            @"[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. (Exchange 2007 and Exchange 2016 follow this behavior).");
                     }
                 }
                 #endregion Step11
