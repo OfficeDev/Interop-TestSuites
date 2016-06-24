@@ -1824,8 +1824,8 @@
 		<ns1:Description>[In NotificationData Structure] The property values to be included are determined by a previous RopSetColumns ROP, as specified in [MS-OXCTABL] section 2.2.2.2. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R167</ns1:REQ_ID>
@@ -3703,15 +3703,6 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:REQ_ID>MS-OXCNOTIF_R399</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In Polling the Server for Notifications] To poll the server for pending notifications, the client MUST make EcDoRpcExt2 method calls as specified in section 3.2.5.6.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R399001</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In Polling the Server for Notifications] To poll the server for pending notifications, the client MUST make the Execute request type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
