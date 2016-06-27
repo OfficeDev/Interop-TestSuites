@@ -391,6 +391,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
             #endregion
 
+            #region Call RopOpenMessage to open a message and the value of the InputHandleIndex field on which this ROP was called does not refer to a Folder object or a Store object.
+            openMessageRequest = new RopOpenMessageRequest()
+            {
+                RopId = (byte)RopId.RopOpenMessage,
+                LogonId = CommonLogonId,
+                InputHandleIndex = CommonOutputHandleIndex, // the value of the InputHandleIndex field does not refer to a Folder object or a Store object.
+                OutputHandleIndex = CommonOutputHandleIndex, 
+                CodePageId = 0x0FFF, // Code page of Logon object is used
+                FolderId = logonResponse.FolderIds[4], // Open the message in INBOX folder in which message is created.
+                OpenModeFlags = 0x00, // The message will be opened as read-only
+                MessageId = targetMessageId
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(openMessageRequest, this.insideObjHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            openMessageResponse = (RopOpenMessageResponse)this.response;
+
+            #region Verify MS-OXCMSG_R1478
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1478");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R1478
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                0x000004b9,
+                openMessageResponse.ReturnValue,
+                1478,
+                @"[In Receiving a RopOpenMessage ROP Request] ecNullObject (0x000004b9)] The value of the InputHandleIndex field on which this ROP was called does not refer to a Folder object or a Store object");
+            #endregion
+            #endregion
+
             #region Call RopRelease to release the created message.
             this.ReleaseRop(targetMessageHandle);
             #endregion
@@ -685,6 +713,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             string commonUserPassword = Common.GetConfigurationPropertyValue("CommonUserPassword", Site);
             string commonUserEssdn = Common.GetConfigurationPropertyValue("CommonUserEssdn", Site);
             uint pidTagMemberRights;
+            RopSetPropertiesResponse rpmSetResponse;
 
             #region Call RopOpenFolder to open the inbox folder.
             ulong parentFolderId = logonResponse.FolderIds[4];
@@ -742,7 +771,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopLogon to logon the private mailbox with "CommonUser"
+            this.rawData = null;
+            this.insideObjHandle = 0;
+            this.response = null;
+            this.ResponseSOHs = null;
             this.MSOXCMSGAdapter.RpcDisconnect();
+            this.MSOXCMSGAdapter.Reset();
             this.MSOXCMSGAdapter.RpcConnect(ConnectionType.PrivateMailboxServer, commonUser, commonUserPassword, commonUserEssdn);
 
             string userDN = Common.GetConfigurationPropertyValue("AdminUserEssdn", this.Site) + "\0";
@@ -805,7 +839,44 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             uint returnValue;
             this.response = null;
             this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(rpmSetRequest, openedMessageBestReadOnlyHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None, out returnValue);
-            RopSetPropertiesResponse rpmSetResponse = (RopSetPropertiesResponse)this.response;
+            
+            if(Common.IsRequirementEnabled(3009,this.Site))
+            {
+                rpmSetResponse = (RopSetPropertiesResponse)this.response;
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3009");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3009
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    TestSuiteBase.Success,
+                    rpmSetResponse.ReturnValue,
+                    3009,
+                    @"[In Appendix A: Product Behavior] BestAccess is read/write if the user don't have write permissions. (<12> Section 2.2.3.1.1:  Exchange 2010 and above follow this behavior.)");
+            }
+
+            if(Common.IsRequirementEnabled(3010,this.Site))
+            {
+                if (this.response == null)
+                {
+                    Site.Assert.AreNotEqual<uint>(0, returnValue, "Call RopSetProperties should fail.");
+                }
+                else
+                {
+                    rpmSetResponse = (RopSetPropertiesResponse)this.response;
+                    Site.Assert.AreNotEqual<uint>(0, rpmSetResponse.ReturnValue, "Call RopSetProperties should fail.");
+                }
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3010");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R661
+                // Because when call RopSetProperties to set property of specified Message object that opened by read-only, server will fail and return error code.
+                // R661 will be verified.
+                this.Site.CaptureRequirement(
+                    3010,
+                    @"[In Appendix A: Product Behavior] BestAccess is read-only if the user don't have write permissions. (Exchange 2007 follows this behavior.)");
+            }
             #endregion
 
             #region Call RopRelease to release created message in subfolder created by step 3.
@@ -838,7 +909,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopLogon to logon the private mailbox with administrator
+            this.rawData = null;
+            this.insideObjHandle = 0;
+            this.response = null;
+            this.ResponseSOHs = null;
             this.MSOXCMSGAdapter.RpcDisconnect();
+            this.MSOXCMSGAdapter.Reset();
             this.ConnectToServer(ConnectionType.PrivateMailboxServer);
             logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
             openedInboxFolderHandle = this.OpenSpecificFolder(logonResponse.FolderIds[4], this.insideObjHandle);
@@ -921,7 +997,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopLogon to logon the private mailbox with "CommonUser"
+            this.rawData = null;
+            this.insideObjHandle = 0;
+            this.response = null;
+            this.ResponseSOHs = null;
             this.MSOXCMSGAdapter.RpcDisconnect();
+            this.MSOXCMSGAdapter.Reset();
             this.MSOXCMSGAdapter.RpcConnect(ConnectionType.PrivateMailboxServer, commonUser, commonUserPassword, commonUserEssdn);
 
             string userDN = Common.GetConfigurationPropertyValue("AdminUserEssdn", this.Site) + "\0";
@@ -985,7 +1066,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopLogon to logon the private mailbox with administrator
+            this.rawData = null;
+            this.insideObjHandle = 0;
+            this.response = null;
+            this.ResponseSOHs = null;
             this.MSOXCMSGAdapter.RpcDisconnect();
+            this.MSOXCMSGAdapter.Reset();
             this.ConnectToServer(ConnectionType.PrivateMailboxServer);
             logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
             openedInboxFolderHandle = this.OpenSpecificFolder(logonResponse.FolderIds[4], this.insideObjHandle);

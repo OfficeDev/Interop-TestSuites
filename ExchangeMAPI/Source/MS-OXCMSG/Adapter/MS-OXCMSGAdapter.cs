@@ -225,6 +225,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         this.VerifyMessageSyntaxPidTagDisplayName(pidTagDisplayName, pidTagAttachLongFilename);
                     }
 
+                    PropertyObj pidTagObjectType = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagObjectType);
+                    PropertyObj pidTagRecordKey = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagRecordKey);
+
+                    this.VerifyPidTagObjectTypeAndPidTagRecordKey(pidTagObjectType, pidTagRecordKey);
                     break;
 
                 case (byte)RopId.RopGetPropertiesAll:
@@ -252,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     }
 
                     PropertyObj pidTagAccessLevel = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagAccessLevel);
-                    PropertyObj pidTagRecordKey = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagRecordKey);
+                    pidTagRecordKey = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagRecordKey);
 
                     if (getPropertiesFlag == GetPropertiesFlags.MessageProperties)
                     {

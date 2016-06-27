@@ -7,6 +7,7 @@
     <DeploymentItem filename="TestSuite\MS-OXCNOTIF_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCNOTIF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCNOTIF_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCNOTIF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCNOTIF_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />

@@ -866,7 +866,9 @@
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagBodyHtml],
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagRtfCompressed],
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagRtfInSync],
-                PropertyHelper.PropertyTagDic[PropertyNames.PidTagInternetCodepage]
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagInternetCodepage],
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagObjectType],
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagRecordKey]
             };
 
             propertyValues = this.GetSpecificPropertiesOfMessage(logonResponse.FolderIds[4], saveMessageResp.MessageId, this.insideObjHandle, propertiesOfMessage);
@@ -1800,8 +1802,7 @@
                 new PropertyNameObject(PropertyNames.PidLidAgingDontAgeMe, (uint)PropertyLID.PidLidAgingDontAgeMe, PropertySet.PSETIDCommon, PropertyType.PtypBoolean),
                 new PropertyNameObject(PropertyNames.PidLidCommonStart, (uint)PropertyLID.PidLidCommonStart, PropertySet.PSETIDCommon, PropertyType.PtypTime),
                 new PropertyNameObject(PropertyNames.PidLidCommonEnd, (uint)PropertyLID.PidLidCommonEnd, PropertySet.PSETIDCommon, PropertyType.PtypTime),
-                new PropertyNameObject(PropertyNames.PidLidSmartNoAttach, (uint)PropertyLID.PidLidSmartNoAttach, PropertySet.PSETIDCommon, PropertyType.PtypBoolean),
-                new PropertyNameObject(PropertyNames.PidLidCategories, (uint)PropertyLID.PidLidCategories, PropertySet.PSETIDCommon, PropertyType.PtypMultipleString)              
+                new PropertyNameObject(PropertyNames.PidLidSmartNoAttach, (uint)PropertyLID.PidLidSmartNoAttach, PropertySet.PSETIDCommon, PropertyType.PtypBoolean)
             };
 
             #region Call RopLogon to logon the private mailbox.
@@ -1835,9 +1836,6 @@
             this.SetNamedProperty(targetMessageHandle, propertyName, BitConverter.GetBytes(DateTime.Parse(TestDataOfDateTime).ToFileTimeUtc()));
             propertyName = new PropertyNameObject(PropertyNames.PidLidAgingDontAgeMe, (uint)PropertyLID.PidLidAgingDontAgeMe, PropertySet.PSETIDCommon, PropertyType.PtypBoolean);
             this.SetNamedProperty(targetMessageHandle, propertyName, BitConverter.GetBytes(true));
-            propertyName = new PropertyNameObject(PropertyNames.PidLidCategories, (uint)PropertyLID.PidLidCategories, PropertySet.PSETIDCommon, PropertyType.PtypString);
-            this.SetNamedProperty(targetMessageHandle, propertyName, Common.GetBytesFromUnicodeString("PidLidCategories"));
-           
             #endregion
 
             #region Get properties value in message
@@ -1893,6 +1891,8 @@
             propertyNameList.Add(contentClassName);
             PropertyNameObject contentType = new PropertyNameObject(PropertyNames.PidNameContentType, "Content-Type", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
             propertyNameList.Add(contentType);
+            PropertyNameObject keywords = new PropertyNameObject(PropertyNames.PidNameKeywords, "Keywords", PropertySet.PSPUBLICSTRINGS, PropertyType.PtypMultipleString);
+            propertyNameList.Add(keywords);
 
             #region Call RopCreateMessage to create Message object.
             targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
@@ -1903,6 +1903,7 @@
             this.SetNamedProperty(targetMessageHandle, acceptLanguageName, Common.GetBytesFromUnicodeString(TestDataOfPidNameAcceptLanguage));
             this.SetNamedProperty(targetMessageHandle, contentClassName, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentClass));
             this.SetNamedProperty(targetMessageHandle, contentType, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentType));
+            this.SetNamedProperty(targetMessageHandle, keywords, Common.GetBytesFromMutiUnicodeString(new string[] { TestDataOfPidNameKeywords }));
             #endregion
 
             #region Get properties value in message

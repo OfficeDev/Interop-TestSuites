@@ -70,6 +70,7 @@
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCNOTIF\TestSuite\MS-OXCNOTIF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCNOTIF\TestSuite\MS-OXCNOTIF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMAPIHTTP\TestSuite\MS-OXCMAPIHTTP_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
