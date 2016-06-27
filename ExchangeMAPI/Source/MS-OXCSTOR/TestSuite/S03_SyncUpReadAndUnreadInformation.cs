@@ -1446,12 +1446,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
             if (this.writePerUserInformationResponse.ReturnValue == 0x8004011B)
             {
-                data = new byte[10000];
                 IDSETWithReplGuid validIdset1 = this.GenerateRandomValidIdset(true);
                 byte[] validDataForWrite1 = validIdset1.Serialize();
-                Array.Copy(validDataForWrite1, data, validDataForWrite1.Length);
                 this.writePerUserInformationRequest.DataSize = (ushort)(validDataForWrite1.Length);
-                this.writePerUserInformationRequest.Data = data;
+                this.writePerUserInformationRequest.Data = validDataForWrite1;
                 this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
                 this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
             }
