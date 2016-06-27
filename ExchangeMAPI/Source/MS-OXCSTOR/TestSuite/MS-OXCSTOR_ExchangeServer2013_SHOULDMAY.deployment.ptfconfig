@@ -24,7 +24,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- Set R400001Enabled to true to verify that the implementation does issue RopPublicFolderIsGhosted ROP against a public folders logon. Set R400001Enabled to false to disable this requirement.-->
     <Property name="R400001Enabled" value="true"/>
     <!-- Set R1273Enabled to true to verify that the implementation does not fail RopLogon ROP with ecLoginFailure, if the user doesn't exist in the Active Directory forest. Set R1273Enabled to false to disable this requirement.-->
-    <Property name="R1273Enabled" value="false"/>
+    <Property name="R1273Enabled" value="true"/>
     <!-- Set R3135Enabled to true to verify that for RopLogon ROP the implementation does fail the operation [RopLogon] with ecAccessDenied if the user does not match the owner of the mailbox. Set R3135Enabled to false to disable this requirement.-->
     <Property name="R3135Enabled" value="false"/>
     <!-- Set R1346Enabled to true to verify that for RopLogon ROP the implementation does fail the operation [RopLogon] with ecLoginPerm if the user does not match the owner of the mailbox. Set R1346Enabled to false to disable this requirement.-->
@@ -83,5 +83,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R300000001Enabled" value="true"/>
     <!-- Set R1911Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R1911Enabled to false to disable this requirement.-->
     <Property name="R1911Enabled" value="false"/>
+    <!-- Set R94801001Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field. Set R94801001Enabled to false to disable this requirement.-->
+    <Property name="R94801001Enabled" value="false"/>
+    <!-- Set R94801002Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field. Set R94801002Enabled to false to disable this requirement.-->
+    <Property name="R94801002Enabled" value="true"/>
   </Properties>
 </TestSite>

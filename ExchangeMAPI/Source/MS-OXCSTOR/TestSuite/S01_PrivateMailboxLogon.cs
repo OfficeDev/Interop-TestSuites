@@ -3448,7 +3448,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000003EB,
                     this.logonResponse.ReturnValue,
                     1273,
-                    @"[In Appendix A: Product Behavior] Implementation does not return ecLoginFailure. <31> Section 3.2.5.1.3: If the user doesn't exist in the Active Directory forest, Exchange 2007 and Exchange 2010 return ecUnknownUser.");
+                    @"[In Appendix A: Product Behavior] Implementation does not return ecLoginFailure. <36> Section 3.2.5.1.3: If the user doesn't exist in the Active Directory forest, Exchange 2007 and Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.");
             }
             #endregion Capture
             #endregion Step2
@@ -3725,7 +3725,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000003EB,
                     this.logonResponse.ReturnValue,
                     193,
-                    @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<17> Section 3.2.5.1.1: Exchange 2010 and Exchange 2013 return ecUnknownUser.)");
+                    @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)");
             }
                 #endregion Capture
             #endregion
@@ -4429,6 +4429,100 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 469,
                 @"[In RopGetPerUserLongTermIds ROP Request Buffer] This ROP [RopGetPerUserLongTermIds] MUST be issued against a logon that was made to a private mailbox.");
             #endregion Step7
+        }
+
+        /// <summary>
+        /// This test case verifies the requirements related to the error codes when calling RopLongTermIdFromId ROP.
+        /// </summary>
+        [TestCategory("MSOXCSTOR"), TestMethod()]
+        public void MSOXCSTOR_S01_TC16_TestRopLongTermIdFromIdErrorCodes()
+        {
+            this.CheckTransportIsSupported();
+
+            #region Step 1: Connect the server via user configured by "AdminUserName".
+            this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
+            Site.Assert.IsTrue(this.returnStatus, "Connection is successful");
+            #endregion
+
+            #region Step 2: Logon to a private mailbox.
+            this.oxcstorAdapter.DoRopCall(this.logonRequestForPrivateMailBox, this.insideObjHandle, ROPCommandType.RopLogonPrivateMailbox, out this.outputBuffer);
+            this.logonResponse = (RopLogonResponse)this.outputBuffer.RopsList[0];
+            this.outObjHandle = this.outputBuffer.ServerObjectHandleTable[0];
+
+            Site.Assert.AreEqual<uint>(
+                0x00000000,
+                this.logonResponse.ReturnValue,
+                "0 indicates the ROP succeeds, other value indicates error occurs.");
+            #endregion
+
+            #region Step 3: Call RopLongTermIdFromId ROP to get the LongTermId of the inbox.
+
+            this.longTermIdFromIdRequest.ObjectId = this.logonResponse.FolderIds[4];
+            this.oxcstorAdapter.DoRopCall(this.longTermIdFromIdRequest, this.outObjHandle, ROPCommandType.RopLongTermIdFromId, out this.outputBuffer);
+            this.longTermIdFromIdResponse = (RopLongTermIdFromIdResponse)this.outputBuffer.RopsList[0];
+            LongTermId longTermIdForInbox = this.longTermIdFromIdResponse.LongTermId;
+
+            #endregion
+
+            #region Step 4: Call RopIdFromLongTermId by setting global counter component in LongTermId to zeros.
+
+            this.getIdFromLongTermIdRequest.LongTermId.DatabaseGuid = this.longTermIdFromIdResponse.LongTermId.DatabaseGuid;
+            this.getIdFromLongTermIdRequest.LongTermId.GlobalCounter = new byte[this.longTermIdFromIdResponse.LongTermId.GlobalCounter.Length];
+            this.oxcstorAdapter.DoRopCall(this.getIdFromLongTermIdRequest, this.outObjHandle, ROPCommandType.RopIdFromLongTermId, out this.outputBuffer);
+            this.getIdFromLongTermIdResponse = (RopIdFromLongTermIdResponse)this.outputBuffer.RopsList[0];
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R948");
+
+            // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R948
+            Site.CaptureRequirementIfAreEqual<uint>(
+                0,
+                this.getIdFromLongTermIdResponse.ReturnValue,
+                948,
+                @"[In Receiving a RopIdFromLongTermId ROP Request] If the LongTermId field of the request contains zeros for the global counter component, the server MUST fail the operation with 0 in the ReturnValue field.");
+            #endregion
+
+            #region Step 5: Call RopIdFromLongTermId by setting replica GUID component in LongTermId to zeros.
+            this.getIdFromLongTermIdRequest.LongTermId.DatabaseGuid = new byte[this.longTermIdFromIdResponse.LongTermId.DatabaseGuid.Length];
+            this.getIdFromLongTermIdRequest.LongTermId.GlobalCounter = this.longTermIdFromIdResponse.LongTermId.GlobalCounter;
+            this.oxcstorAdapter.DoRopCall(this.getIdFromLongTermIdRequest, this.outObjHandle, ROPCommandType.RopIdFromLongTermId, out this.outputBuffer);
+            this.getIdFromLongTermIdResponse = (RopIdFromLongTermIdResponse)this.outputBuffer.RopsList[0];
+
+            if (Common.IsRequirementEnabled(94801001, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R94801001");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R94801001
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    this.getIdFromLongTermIdResponse.ReturnValue,
+                    94801001,
+                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field.  <44> Section 3.2.5.9:  Exchange 2010 returns 0 for this condition.");
+            }
+
+            if (Common.IsRequirementEnabled(94801002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R94801002");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R94801002
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80070057,
+                    this.getIdFromLongTermIdResponse.ReturnValue,
+                    94801002,
+                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field.  (Exchange 2007, Exchange 2013 and above follow this behavior).");
+
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1120");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1120
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80070057,
+                    this.getIdFromLongTermIdResponse.ReturnValue,
+                    1120,
+                    @"[In Receiving a RopIdFromLongTermId ROP Request] The error code ecInvalidParam: Its value is 0x80070057.");
+            }
+            #endregion
         }
     }
 }
