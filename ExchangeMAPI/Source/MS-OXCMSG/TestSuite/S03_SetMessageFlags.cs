@@ -1027,7 +1027,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             uint folderHandle = this.OpenSpecificFolder(logonResponse.FolderIds[4], this.insideObjHandle);
             #endregion
 
-            #region Call RopSetReadFlags to change the state of the PidTagMessageFlags property and the WantAsynchronous flag is set in RopSetReadFlags.
+            #region Call RopSetReadFlags to change the state of the PidTagMessageFlags property and the MessageIds contains a MessageId that the message does not exist.
             // RopSetReadFlags
             RopSetReadFlagsRequest setReadFlagsRequet = new RopSetReadFlagsRequest()
             {
