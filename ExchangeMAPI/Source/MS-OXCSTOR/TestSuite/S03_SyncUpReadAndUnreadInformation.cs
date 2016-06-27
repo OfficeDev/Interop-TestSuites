@@ -1443,6 +1443,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.writePerUserInformationRequest.HasFinished = 0x01;
             this.writePerUserInformationRequest.DataOffset = 0;
             this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
+            this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
+            if (this.writePerUserInformationResponse.ReturnValue == 0x8004011B)
+            {
+                data = new byte[10000];
+                IDSETWithReplGuid validIdset1 = this.GenerateRandomValidIdset(true);
+                byte[] validDataForWrite1 = validIdset1.Serialize();
+                Array.Copy(validDataForWrite1, data, validDataForWrite1.Length);
+                this.writePerUserInformationRequest.DataSize = (ushort)(validDataForWrite1.Length);
+                this.writePerUserInformationRequest.Data = data;
+                this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
+                this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
+            }
 
             this.writePerUserInformationRequest.HasFinished = 0x00;
             this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
@@ -1654,9 +1666,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R977.
             // The RopReadPerUserInformation was called twice to get the data which exceed the maximum amount of data that can be communicated in a single RopReadPerUserInformation response, MS-OXCSTOR_R977 can be verified.
-            Site.CaptureRequirementIfAreEqual<int>(
-                data.Length,
-                userInformation1.Length + userInformation2.Length,
+            Site.CaptureRequirementIfIsTrue(
+                userInformation1.Length + userInformation2.Length > maxDataSize,
                 977,
                 "[In Behavior Common to Both Private Mailbox and Public Folder Logon] For this reason [the size of the BLOB can potentially exceed the maximum amount of data that can be communicated in a single RopReadPerUserInformation response], the RopReadPerUserInformation ROP ([MS-OXCROPS] section 2.2.3.12) is designed to stream the data to the client by having the client invoke the ROP multiple times.");
 
