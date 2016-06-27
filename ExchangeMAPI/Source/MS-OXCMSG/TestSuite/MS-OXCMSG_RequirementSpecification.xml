@@ -116,7 +116,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R1074, MS-OXCMSG_R3000.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCMSG_R1724,MS-OXCMSG_R15,MS-OXCMSG_R1078,MS-OXCMSG_R231.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1128</ns1:REQ_ID>
@@ -125,7 +125,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R11</ns1:REQ_ID>
@@ -5270,7 +5270,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R699</ns1:REQ_ID>
@@ -5279,7 +5279,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R700</ns1:REQ_ID>
@@ -8603,7 +8603,8 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCMSG_R3015.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1480</ns1:REQ_ID>
@@ -9118,7 +9119,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1057</ns1:REQ_ID>
@@ -9996,28 +9997,6 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R1074</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.2: When a property is referred to as "read-only for the client", implementation does return Success without persisting changes to read-only properties. (&lt;1&gt; Section 2.2: Exchange 2007 changes properties PidTagAccess and PidTagLastModificationTime.)</ns1:Description>
-		<ns1:Derived>MS-OXCMSG_R1125:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R3000</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] When a property is referred to as "read-only for the client", implementation does return Success without persisting changes to read-only properties. (&lt;1&gt; Section 2.2: Exchange 2010, Exchange 2013, and Exchange 2016 change properties PidTagAccess, PidTagAccessLevel, PidTagChangeKey, PidTagCreationTime, PidTagLastModificationTime, PidTagLastModifierName, PidTagSearchKey, PidTagHasAttachments, PidTagMessageFlags, PidTagMessageSize, PidTagMessageStatus, and PidTagAttachSize.)</ns1:Description>
-		<ns1:Derived>MS-OXCMSG_R1125:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagObjectType property. (&lt;2&gt; Section 2.2.1.1:  Exchange 2010 and above follow this behavior.)</ns1:Description>
@@ -10282,7 +10261,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3021</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2003 and exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2007 and exchange 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1674:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10303,7 +10282,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3013</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R911:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10346,7 +10325,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1912</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId and PidTagLastModificationTime. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId, PidTagLastModificationTime, PidTagMessageLocaleId  and PidTagLocaleId. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

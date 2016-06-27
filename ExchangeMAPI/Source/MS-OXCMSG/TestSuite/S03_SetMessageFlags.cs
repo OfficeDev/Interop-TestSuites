@@ -997,6 +997,93 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         }
 
         /// <summary>
+        /// This test case tests the error code ecNullObject of the RopSetMessageReadFlags ROP.
+        /// </summary>
+        [TestCategory("MSOXCMSG"), TestMethod()]
+        public void MSOXCMSG_S03_TC08_RopSetReadFlagsWithPartialCompletion()
+        {
+            this.CheckMapiHttpIsSupported();
+            this.ConnectToServer(ConnectionType.PrivateMailboxServer);
+
+            #region Call RopLogon to logon the private mailbox.
+            // Create a message
+            RopLogonResponse logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
+            #endregion
+
+            #region Call RopCreateMessage to create Message object in inbox folder.
+            uint targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
+            #endregion
+
+            #region Call RopSaveChangesMessage to save created message.
+            RopSaveChangesMessageResponse saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, (byte)SaveFlags.ForceSave);
+            ulong[] messageIds = new ulong[2];
+            messageIds[0] = saveChangesMessageResponse.MessageId;
+            messageIds[1] = saveChangesMessageResponse.MessageId + 1;
+
+            Site.Assert.AreEqual<uint>(TestSuiteBase.Success, saveChangesMessageResponse.ReturnValue, TestSuiteBase.ROPSucceedMsg);
+            #endregion
+
+            #region Call RopOpenFolder to open inbox folder.
+            uint folderHandle = this.OpenSpecificFolder(logonResponse.FolderIds[4], this.insideObjHandle);
+            #endregion
+
+            #region Call RopSetReadFlags to change the state of the PidTagMessageFlags property and the MessageIds contains a MessageId that the message does not exist.
+            // RopSetReadFlags
+            RopSetReadFlagsRequest setReadFlagsRequet = new RopSetReadFlagsRequest()
+            {
+                RopId = (byte)RopId.RopSetReadFlags,
+                LogonId = CommonLogonId,
+                InputHandleIndex = CommonInputHandleIndex,
+                WantAsynchronous = 0x01,
+                ReadFlags = (byte)ReadFlags.ClearReadFlag,
+                MessageIds = messageIds,
+                MessageIdCount = Convert.ToUInt16(messageIds.Length)
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(setReadFlagsRequet, folderHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            RopSetReadFlagsResponse setReadFlagesResponse = (RopSetReadFlagsResponse)this.response;
+            if(Common.IsRequirementEnabled(3021,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3021");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3021
+                this.Site.CaptureRequirementIfAreNotEqual<uint>(
+                    0,
+                    setReadFlagesResponse.PartialCompletion,
+                    3021,
+                    @"[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2007 and exchange 2016 follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1514");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1514
+                this.Site.CaptureRequirementIfAreNotEqual<uint>(
+                    0,
+                    setReadFlagesResponse.PartialCompletion,
+                    1514,
+                    @"[In Receiving a RopSetReadFlags ROP Request] If the server is unable to modify one or more of the Message objects that are specified in the MessageIds field, as specified in section 2.2.3.10.1, of the request buffer, then the server returns the PartialCompletion flag, as specified in section 2.2.3.10.2, in the response buffer.");
+            }
+            #endregion
+
+            #region Call RopRelease to release all resources.
+            RopReleaseRequest releaseRequest = new RopReleaseRequest()
+            {
+                RopId = (byte)RopId.RopRelease, // RopId 0x01 indicates RopRelease
+                LogonId = CommonLogonId, // The logonId 0x00 is associated with this operation.
+                InputHandleIndex = CommonInputHandleIndex // This index specifies the location 0x00 in the Server Object Handle Table where the handle for the input Server Object is stored. 
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(releaseRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+
+            releaseRequest = new RopReleaseRequest()
+            {
+                RopId = (byte)RopId.RopRelease, // RopId 0x01 indicates RopRelease
+                LogonId = CommonLogonId, // The logonId 0x00 is associated with this operation.
+                InputHandleIndex = CommonInputHandleIndex // This index specifies the location 0x00 in the Server Object Handle Table where the handle for the input Server Object is stored. 
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(releaseRequest, folderHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            #endregion
+        }
+        /// <summary>
         /// Test cleanup method
         /// </summary>
         protected override void TestCleanup()
