@@ -40,12 +40,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         /// <param name="inputObjHandle">Server object handle in request.</param>
         /// <param name="commandType">ROP commands type</param>
         /// <param name="outputBuffer">ROP response buffer</param>
-        void DoRopCall(ISerializable ropRequest, uint inputObjHandle, ROPCommandType commandType, out RopOutputBuffer outputBuffer);
+        /// <param name="mailBoxUser">Mailbox which to logon to</param>
+        void DoRopCall(ISerializable ropRequest, uint inputObjHandle, ROPCommandType commandType, out RopOutputBuffer outputBuffer, string mailBoxUser = null);
 
         /// <summary>
         /// Set auto redirect value in RPC context
         /// </summary>
         /// <param name="option">True indicates enable auto redirect, false indicates disable auto redirect</param>
         void SetAutoRedirect(bool option);
+
     }
 }

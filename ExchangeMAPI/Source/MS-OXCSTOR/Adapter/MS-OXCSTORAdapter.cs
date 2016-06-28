@@ -82,7 +82,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         /// <param name="inputObjHandle">Server object handle in request.</param>
         /// <param name="commandType">ROP commands type</param>
         /// <param name="outputBuffer">ROP response buffer</param>
-        public void DoRopCall(ISerializable ropRequest, uint inputObjHandle, ROPCommandType commandType, out RopOutputBuffer outputBuffer)
+        /// <param name="mailBoxUser">Mailbox which to logon to</param>
+        public void DoRopCall(ISerializable ropRequest, uint inputObjHandle, ROPCommandType commandType, out RopOutputBuffer outputBuffer, string mailBoxUser = null)
         {
             outputBuffer = new RopOutputBuffer();
             List<ISerializable> inputBuffer = new List<ISerializable>
@@ -101,7 +102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             List<IDeserializable> responses = new List<IDeserializable>();
             List<List<uint>> responseSOHTable = new List<List<uint>>();
             byte[] rawData = null;
-            uint ret = this.oxcropsClient.RopCall(inputBuffer, requestSOH, ref responses, ref responseSOHTable, ref rawData, 0x10008);
+            uint ret = this.oxcropsClient.RopCall(inputBuffer, requestSOH, ref responses, ref responseSOHTable, ref rawData, 0x10008, mailBoxUser);
             if (ret != 0)
             {
                 Site.Assert.Fail("Calling RopCall should return 0 for success, but it returns value: {0}", ret);

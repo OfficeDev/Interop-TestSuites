@@ -361,6 +361,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <param name="responseSOHTable">ROP response server object handle table.</param>
         /// <param name="rgbRopOut">The response payload bytes.</param>
         /// <param name="pcbOut">The maximum size of the rgbOut buffer to place Response in.</param>
+        /// <param name="mailBoxUserName">Autodiscover find the mailbox according to this username.</param>
         /// <returns>0 indicates success, other values indicate failure. </returns>
         public uint RopCall(
             List<ISerializable> requestROPs,
@@ -368,7 +369,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             ref List<IDeserializable> responseROPs,
             ref List<List<uint>> responseSOHTable,
             ref byte[] rgbRopOut,
-            uint pcbOut)
+            uint pcbOut,
+            string mailBoxUserName = null)
         {
             // Log the rop requests
             if (requestROPs != null)
@@ -463,15 +465,18 @@ namespace Microsoft.Protocols.TestSuites.Common
                     }
                     else if (string.Compare(this.MapiContext.TransportSequence, "mapi_http", true) == 0)
                     {
-                        string adminUser = Common.GetConfigurationPropertyValue("AdminUserName", this.site);
-                        if (adminUser == null || adminUser == "")
+                        if (mailBoxUserName == null)
                         {
-                            this.site.Assert.Fail(@"There must be ""AdminUserName"" configure item in the ptfconfig file.");
+                            mailBoxUserName = Common.GetConfigurationPropertyValue("AdminUserName", this.site);
+                            if (mailBoxUserName == null || mailBoxUserName == "")
+                            {
+                                this.site.Assert.Fail(@"There must be ""AdminUserName"" configure item in the ptfconfig file.");
+                            }
                         }
 
                         string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);                        
                         requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
-                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, adminUser, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
+                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, mailBoxUserName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
 
                         this.privateMailboxServer = autoDiscoverProperties.PrivateMailboxServer;
                         this.privateMailboxProxyServer = autoDiscoverProperties.PrivateMailboxProxy;
