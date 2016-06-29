@@ -3679,7 +3679,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             }
 
             #region Capture
-            if (Common.IsRequirementEnabled(193, this.Site))
+            if (Common.IsRequirementEnabled(193, this.Site) ||
+                Common.IsRequirementEnabled(1268001, this.Site))
             {
                 #region Step13: Connect to the server
                 string userForDisableMailbox = Common.GetConfigurationPropertyValue(ConstValues.UserForDisableMailbox, this.Site);
@@ -3717,15 +3718,47 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 this.oxcstorAdapter.DoRopCall(this.logonRequestForPrivateMailBox, this.insideObjHandle, ROPCommandType.RopLogonPrivateMailbox, out this.outputBuffer);
                 this.logonResponse = (RopLogonResponse)this.outputBuffer.RopsList[0];
 
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R193");
+                if (Common.IsRequirementEnabled(193, this.Site))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R193");
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R193
-                this.Site.CaptureRequirementIfAreEqual<uint>(
-                    0x000003EB,
-                    this.logonResponse.ReturnValue,
-                    193,
-                    @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)");
+                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R193
+                    this.Site.CaptureRequirementIfAreEqual<uint>(
+                        0x000003EB,
+                        this.logonResponse.ReturnValue,
+                        193,
+                        @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)");
+                }
+
+                if (Common.IsRequirementEnabled(1268001, this.Site))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1268001");
+
+                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1268001
+                    this.Site.CaptureRequirementIfAreEqual<uint>(
+                        0x80040111,
+                        this.logonResponse.ReturnValue,
+                        1268001,
+                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
+
+                    // Sleep 5 minutes
+                    System.Threading.Thread.Sleep(300 * 1000);
+
+                    this.oxcstorAdapter.DoRopCall(this.logonRequestForPrivateMailBox, this.insideObjHandle, ROPCommandType.RopLogonPrivateMailbox, out this.outputBuffer);
+                    this.logonResponse = (RopLogonResponse)this.outputBuffer.RopsList[0];
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1268001");
+
+                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1268001
+                    this.Site.CaptureRequirementIfAreEqual<uint>(
+                        0x000003EB,
+                        this.logonResponse.ReturnValue,
+                        1268001,
+                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
+                }
             }
                 #endregion Capture
             #endregion
