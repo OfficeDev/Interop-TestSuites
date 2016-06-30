@@ -2410,7 +2410,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R210</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1.2 </ns1:Doc_Sect>
-		<ns1:Description>[In RopNotify ROP Response Buffer] UnreadMessageCount: An unsigned 32-bit integer that specifies the number of unread items in a folder triggering this event.</ns1:Description>
+		<ns1:Description>[In NotificationData Structure] UnreadMessageCount: An unsigned 32-bit integer that specifies the number of unread items in a folder triggering this event.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2661,9 +2661,8 @@ Global.AsynchronousHandle, as specified in [MS-OXCRPC] section 3.3.1.</ns1:Descr
 		<ns1:Description>[In Abstract Data Model] This protocol [MS-OXCNOTIF] includes the following abstract data model (ADM) elements: cookies, as specified in [MS-OXCMAPIHTTP] section 3.2.1.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCNOTIF_R511001</ns1:VerificationComment>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R232</ns1:REQ_ID>
@@ -4634,64 +4633,6 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R512</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;9&gt; Section 3.1.1:  Exchange 2003 does not support the session context cookie.)</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R197:i,MS-OXCNOTIF_R59:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R513</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;9&gt; Section 3.1.1:  Exchange 2007, Exchange 2010, the initial release of Exchange 2013 do not support the session context cookie.)</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R197:i,MS-OXCNOTIF_R59:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R514</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;9&gt; Section 3.1.1:  Office Outlook 2003 does not support the session context cookie.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R515</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;9&gt; Section 3.1.1:  Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the session context cookie.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R516</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;9&gt; Section 3.1.1:  The session context cookie was introduced in Outlook 2013 SP1.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R517</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;9&gt; Section 3.1.1:  The session context cookie was introduced in Exchange 2013 SP1.)</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R197:i,MS-OXCNOTIF_R59:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R538</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does allow for a 60-second interval between UDP datagrams until the client has retrieved all event information for the session, if push notifications are supported by the implementation. (Exchange 2007 follows this behavior.)</ns1:Description>
@@ -4725,40 +4666,56 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R511004</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCNOTIF_R512</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support cookies. (&lt;11&gt; Section 3.1.1:  Exchange 2003, Exchange 2007, Exchange 2010, the initial release of Exchange 2013 do not support cookies. )</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R511:i</ns1:Derived>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;11&gt; Section 3.1.1:  Exchange 2003 does not support the session context cookie.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R511003</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCNOTIF_R513</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support cookies.(&lt;11&gt; Section 3.1.1: Office Outlook 2003, Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support cookies. )</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;11&gt; Section 3.1.1:  Exchange 2007, Exchange 2010, the initial release of Exchange 2013 do not support the session context cookie.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R511002</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCNOTIF_R514</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support cookies. &lt;11&gt; Section 3.1.1:  The Execute request type was introduced in Outlook 2013 SP1. </ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;11&gt; Section 3.1.1:  Office Outlook 2003 does not support the session context cookie.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCNOTIF_R511001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCNOTIF_R515</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support cookies. &lt;11&gt; Section 3.1.1:  The Execute request type was introduced in Exchange 2013 SP1. (Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R511:i</ns1:Derived>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;11&gt; Section 3.1.1:  Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the session context cookie.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCNOTIF_R516</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;11&gt; Section 3.1.1:  The session context cookie was introduced in Outlook 2013 SP1.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCNOTIF_R517</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;11&gt; Section 3.1.1:  The session context cookie was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>

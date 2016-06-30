@@ -257,14 +257,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
             #region Verify that the pending notification is returned on the linked session context handle.
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R343: the last response buffer for notification is {0}", response2.Last().GetType().Name);
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R342: the last response buffer for notification is {0}", response2.Last().GetType().Name);
 
-            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R343 
+            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R342 
             this.Site.CaptureRequirementIfAreEqual<string>(
                 "RopPendingResponse",
                 response2.Last().GetType().Name,
-                343,
-                @"[In Appendix A: Product Behavior] Implementation does send a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts. (<15> Section 3.1.5.6: Exchange 2007 sends a RopPending ROP response (section 2.2.1.3.4) to the client whenever there are pending notifications on any linked session contexts.)");
+                342,
+                @"[In Sending a RopPending ROP Response] The server sends a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts.");
             #endregion
 
             #region Get all the left notification details on the linked session context handle.
@@ -963,7 +963,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 1,
                 notificationWaitResponseBody.EventPending,
                 482,
-                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 follows this behavior.)");
+                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 and above follow this behavior.)");
             #endregion
         }
         #endregion

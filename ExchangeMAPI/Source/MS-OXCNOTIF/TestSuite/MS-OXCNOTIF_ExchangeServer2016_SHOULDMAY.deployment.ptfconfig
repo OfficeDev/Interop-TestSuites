@@ -89,8 +89,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R482Enabled" value="true"/>
     <!-- Set R498Enabled to true to verify that for operation RopNotify the implementation does send a RopNotify ROP response in an Execute request type success response body. Set R498Enabled to false to disable this requirement. -->
     <Property name="R498Enabled" value="true"/>
-    <!-- Set R510Enabled to true to verify that for the field TagCount the implementation does return a value of 0xFFFF in a RopNotify ROP response, if the number of tags to fit in the response creates a response that exceeds the maximum size of the output buffer. Set R510Enabled to false to disable this requirement. -->
-    <Property name="R510Enabled" value="true"/>
     <!-- Set R517Enabled to true to verify that implementation does support the session context cookie. Set R517Enabled to false to disable this requirement. -->
     <Property name="R517Enabled" value="true"/>
     <!-- Set R538Enabled to true to verify that implementation does allow for a 60-second interval between UDP datagrams until the client has retrieved all event information for the session when the implementation does support push notifications. Set R538Enabled to false to disable this requirement. -->
