@@ -3856,7 +3856,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R3068003001, MS-OXCSTOR_R3068003002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R306800301, MS-OXCSTOR_R306800302.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3068004</ns1:REQ_ID>

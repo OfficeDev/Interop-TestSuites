@@ -3453,7 +3453,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             #endregion Capture
             #endregion Step2
 
-            if (Common.IsRequirementEnabled(3135, this.Site) || Common.IsRequirementEnabled(1346, this.Site))
+            if (Common.IsRequirementEnabled(3135, this.Site) || Common.IsRequirementEnabled(1346, this.Site) || Common.IsRequirementEnabled(3905001, this.Site))
             {
                 #region Step3: Disconnect to server
                 this.returnStatus = this.oxcstorAdapter.DisconnectEx();
@@ -3528,6 +3528,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         this.logonResponse.ReturnValue,
                         189,
                         @"[In RopLogon ROP Common Return Codes] The value of return code ecLoginPerm: 0x000003F2.");
+                }
+
+                if (Common.IsRequirementEnabled(3905001, this.Site))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3905001");
+
+                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3905001
+                    this.Site.CaptureRequirementIfAreEqual<uint>(
+                        0x00000000,
+                        this.logonResponse.ReturnValue,
+                        3905001,
+                        @"[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (<31> Section 3.2.5.1.1: Exchange 2016 and Exchange 2013 return ecNone.)");
                 }
                 #endregion Capture
                 #endregion Step5

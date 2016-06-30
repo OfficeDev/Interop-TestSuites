@@ -73,9 +73,9 @@
     <Property name="R6280001Enabled" value="false"/>
     <!-- Set R6280002Enabled to true to verify implementation does support the PidTagComment property as read-write. Set R6280002Enabled to false to disable this requirement-->
     <Property name="R6280002Enabled" value="true"/>
-    <!-- Set R3068003001Enabled to true to verify implementation does support PidTagDisplayName  property as read-only. Set R3068003001Enabled to false to disable this requirement-->
+    <!-- Set R306800301Enabled to true to verify implementation does support PidTagDisplayName  property as read-only. Set R306800301Enabled to false to disable this requirement-->
     <Property name="R306800301Enabled" value="false"/>
-    <!-- Set R3068003002Enabled to true to verify implementation does support PidTagDisplayName  property as read-write. Set R3068003002Enabled to false to disable this requirement-->
+    <!-- Set R306800302Enabled to true to verify implementation does support PidTagDisplayName  property as read-write. Set R306800302Enabled to false to disable this requirement-->
     <Property name="R306800302Enabled" value="true"/>
     <!-- Set R300000001Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R300000001Enabled to false to disable this requirement-->
     <Property name="R300000001Enabled" value="false"/>
@@ -91,5 +91,7 @@
     <Property name="R5979301Enabled" value="true"/>
     <!-- Set R155Enabled to true to verify that implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index in RopLogon ROP Success Response Buffer for Public Folders. Set R155Enabled to false to disable this requirement.-->
     <Property name="R155Enabled" value="false"/>
+    <!-- Set R3905001Enabled to true to verify that implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. Set R3905001Enabled to false to disable this requirement.-->
+    <Property name="R3905001Enabled" value="false"/>
   </Properties>
 </TestSite>
