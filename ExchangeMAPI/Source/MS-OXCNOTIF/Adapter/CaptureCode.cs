@@ -151,6 +151,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 @"[In RopNotify ROP Response Buffer] It [NotificationHandle] is 4 bytes.");
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R97002");
+
+            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R97002
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                Marshal.SizeOf(ropNotifyResponse.LogonId),
+                97002,
+                @"[In RopNotify ROP Response Buffer] [LogonId ] is 1 byte.");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R137");
 
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R137

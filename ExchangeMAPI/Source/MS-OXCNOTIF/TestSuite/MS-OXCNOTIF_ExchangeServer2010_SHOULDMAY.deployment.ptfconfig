@@ -81,8 +81,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R81001Enabled" value="false"/>
     <!-- Set R81002Enabled to true to verify that for for operation RopPending the implementation does notify the client that there are pending notifications on the server for the client, when the value of pcbOut is 0x190. Set R81002Enabled to false to disable this requirement. -->
     <Property name="R81002Enabled" value="true"/>
-    <!-- Set R214Enabled to true to verify that for operation RopNotify the implementation does support MessageFlags specifies the message flags of new mail that has been received. Set R214Enabled to false to disable this requirement. -->
-    <Property name="R214Enabled" value="true"/>
+    <!-- Set R214001Enabled to true to verify that for operation RopNotify the implementation does support MessageFlags specifies the message flags of new mail that has been received. Set R214001Enabled to false to disable this requirement. -->
+    <Property name="R214001Enabled" value="true"/>
     <!-- Set R475Enabled to true to verify that for asynchronous calls the implementation does support using the MAPI extensions to HTTP. Set R475Enabled to false to disable this requirement. -->
     <Property name="R475Enabled" value="false"/>
     <!-- Set R482Enabled to true to verify that for NotificationWait request type the implementation does notify the client that there are pending notifications on the server for the client. Set R482Enabled to false to disable this requirement. -->
@@ -97,5 +97,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R539Enabled" value="false"/>
     <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
     <Property name="R1340Enabled" value="false"/>
+    <!-- Set R214002Enabled to true to verify that for operation RopNotify the implementation does return zero for MessageFlags. Set R214002Enabled to false to disable this requirement. -->
+    <Property name="R214002Enabled" value="false"/>
   </Properties>
 </TestSite>

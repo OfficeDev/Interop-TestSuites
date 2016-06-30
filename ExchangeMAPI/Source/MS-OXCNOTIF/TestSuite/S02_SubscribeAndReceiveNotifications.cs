@@ -1245,17 +1245,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     #endregion
 
                     #region Verify element MessageFlags of the notification response
-                    if (Common.IsRequirementEnabled(214, this.Site))
+                    if (Common.IsRequirementEnabled(214001, this.Site))
                     {
                         // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R214");
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R214001");
 
-                        // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R214
+                        // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R214001
                         this.Site.CaptureRequirementIfAreEqual<uint?>(
                             messageFlagsFromTable,
                             notifyResponse.MessageFlags,
-                            214,
-                            @"[In RopNotify ROP Response Buffer] MessageFlags: An unsigned 32-bit integer that specifies the message flags of new mail that has been received.");
+                            214001,
+                            @"[In Appendix A: Product Behavior] MessageFlags does specify the message flags of new mail that has been received.(Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
+                    }
+                    if (Common.IsRequirementEnabled(214002, this.Site))
+                    {
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R214002");
+
+                        // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R214002
+                        this.Site.CaptureRequirementIfAreEqual<uint?>(
+                            0,
+                            notifyResponse.MessageFlags,
+                            214002,
+                            @"[In Appendix A: Product Behavior] Implementation does return zero for MessageFlags. <10> Section 2.2.1.4.1.2:  In Exchange 2013 the value of MessageFlags is zero. (Exchange 2013 follows this behavior.)");
                     }
                     #endregion
 
