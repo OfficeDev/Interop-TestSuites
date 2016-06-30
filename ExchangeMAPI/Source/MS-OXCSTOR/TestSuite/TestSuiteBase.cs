@@ -310,7 +310,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         {
                             this.oxcstorAdapter.DisconnectEx();
 
-                            if (Common.IsRequirementEnabled(193, this.Site))
+                            if (Common.IsRequirementEnabled(193, this.Site)
+                                || Common.IsRequirementEnabled(1268001, this.Site))
                             {
                                 string userForDisableMailbox = Common.GetConfigurationPropertyValue(ConstValues.UserForDisableMailbox, this.Site);
                                 string essdn = this.sutControlAdapter.GetUserDN(this.server1Name, userForDisableMailbox);
