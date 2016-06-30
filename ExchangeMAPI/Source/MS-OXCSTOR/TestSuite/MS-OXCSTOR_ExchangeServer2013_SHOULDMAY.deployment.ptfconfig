@@ -87,5 +87,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R94801002Enabled" value="true"/>
     <!-- Set R1268001Enabled to true to verify that implementation returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser if the client attempts to log on to a mailbox that is disabled. Set R1268001Enabled to false to disable this requirement.-->
     <Property name="R1268001Enabled" value="false"/>
+    <!-- Set R5979301Enabled to true to verify that implementation returns the Folder ID of Public Folders Root Folder, Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, NNTP Article Index, Empty, Empty, Empty in RopLogon ROP Success Response Buffer for Public Folders. Set R5979301Enabled to false to disable this requirement.-->
+    <Property name="R5979301Enabled" value="false"/>
+    <!-- Set R155Enabled to true to verify that implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index in RopLogon ROP Success Response Buffer for Public Folders. Set R155Enabled to false to disable this requirement.-->
+    <Property name="R155Enabled" value="true"/>
   </Properties>
 </TestSite>
