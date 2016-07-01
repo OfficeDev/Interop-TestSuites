@@ -408,7 +408,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.logonResponse.ReturnValue,
                     3145,
-                    @"[In Appendix A: Product Behavior] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the implementation has the following behavior: If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server ignores the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the implementation has the following behavior: If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server ignores the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
                 #endregion capture
                 #endregion Step3
 
@@ -446,7 +446,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     logonResponse.ReturnValue,
                     logonResponseAdditional.ReturnValue,
                     3145,
-                    @"[In Appendix A: Product Behavior] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the implementation has the following behavior: If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server ignores the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the implementation has the following behavior: If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server ignores the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R133");
@@ -501,7 +501,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070057,
                     logonToUser2.ReturnValue,
                     1204,
-                    @"[In Private Mailbox Logon] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the server has the following behavior: If the USE_PER_MDB_REPLID_MAPPING flag is not set, then Implementation does fail the ROP with a ReturnValue of ecInvalidParameter 0x80070057.<24> (Exchange 2013 and above follow this behavior)");
+                    @"[In Private Mailbox Logon] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the server has the following behavior: If the USE_PER_MDB_REPLID_MAPPING flag is not set, then Implementation does fail the ROP with a ReturnValue of ecInvalidParameter 0x80070057.<29> (Exchange 2013 and above follow this behavior)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1800001");
@@ -534,7 +534,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x00000478,
                     logonToUser2.ReturnValue,
                     800,
-                    @"[In Appendix A: Product Behavior] The implementation does fail the RopLogon with ecWrongServer (0x00000478) [if the USE_PER_MDB_REPLID_MAPPING flag is not set]. (<24> Section 3.2.5.1.1: Exchange 2010 return ecWrongServer (0x00000478).)");
+                    @"[In Appendix A: Product Behavior] The implementation does fail the RopLogon with ecWrongServer (0x00000478) [if the USE_PER_MDB_REPLID_MAPPING flag is not set]. (<29> Section 3.2.5.1.1: Exchange 2010 return ecWrongServer (0x00000478).)");
             }
 
             if (Common.IsRequirementEnabled(3133, this.Site))
@@ -547,7 +547,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     logonToUser2.ReturnValue,
                     3133,
-                    @"[In Appendix A: Product Behavior] The implementation does return the RopLogon with Success. <23> Section 3.2.5.1.1: If the USE_PER_MDB_REPLID_MAPPING flag is not set, Exchange 2007 does not fail the ROP and instead has the following behavior: Exchange 2007 maintains one REPLID-to-REPLGUID mapping and one named property-to-property ID mapping per RPC session, and these mappings are shared by all logons on the TRPC session.)");
+                    @"[In Appendix A: Product Behavior] The implementation does return the RopLogon with Success. <28> Section 3.2.5.1.1: If the USE_PER_MDB_REPLID_MAPPING flag is not set, Exchange 2007 does not fail the ROP and instead has the following behavior: Exchange 2007 maintains one REPLID-to-REPLGUID mapping and one named property-to-property ID mapping per RPC session, and these mappings are shared by all logons on the TRPC session.)");
             }
 
             if (Common.IsRequirementEnabled(1204, this.Site) || Common.IsRequirementEnabled(800, this.Site))
@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR872,
                 872,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.776)) - Contains a string that specifies the message class that is configured for the Receive folder.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.778)) - Contains a string that specifies the message class that is configured for the Receive folder.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R59801, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -1441,7 +1441,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getStoreStateResponse.ReturnValue,
                     3125,
-                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (<10> Section 2.2.1.5: Exchange 2010 and  Exchange 2013 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
+                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (<10> Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
                 #endregion
             }
 
@@ -1947,7 +1947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.longTermIdFromIdResponse.ReturnValue,
                     1337,
-                    @"[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. <38> Section 3.2.5.8: In Exchange 2013, if the ObjectId field is set to zero, the server returns ecNone.");
+                    @"[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. <43> Section 3.2.5.8: If the ObjectId field is set to zero, Exchange 2013 and Exchange 2016 returns ecNone.");
             }
 
             if (Common.IsRequirementEnabled(1355, this.Site))
@@ -1960,7 +1960,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x8004010F,
                     this.longTermIdFromIdResponse.ReturnValue,
                     1355,
-                    @"Implementation does fail the operation with 0x8004010F if the REPLID is not in the REPLID and REPLGUID to-and-from mapping table [when the server receiving a RopLongTermIdFromId ROP Request]. (Exchange 2010 and below follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does fail the operation with 0x8004010F if the REPLID is not in the REPLID and REPLGUID to-and-from mapping table [when the server receiving a RopLongTermIdFromId ROP Request]. (Exchange 2010 and below follow this behavior.)");
             }
             #endregion
 
@@ -3160,7 +3160,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070005,
                     resultSetDeleteAfterSubmit,
                     3128,
-                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (<13> Section 2.2.2.1.2.2: In Exchange 2013 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
+                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (<14> Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
             }
             #endregion
 
@@ -3484,7 +3484,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x80070005,
                         this.logonResponse.ReturnValue,
                         3135,
-                        @"[In Appendix A: Product Behavior] Implementation does fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (<26> Section 3.2.5.1.1: Exchange 2003 and Exchange 2007 return ecAccessDenied.)");
+                        @"[In Appendix A: Product Behavior] Implementation does fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (<31> Section 3.2.5.1.1: Exchange 2003 and Exchange 2007 return ecAccessDenied.)");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R187");
@@ -3517,7 +3517,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x000003F2,
                         this.logonResponse.ReturnValue,
                         1346,
-                        @"[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (<26> Section 3.2.5.1.1: Exchange 2010 and Exchange 2013 return ecLoginPerm.)");
+                        @"[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (<31> Section 3.2.5.1.1: Exchange 2010 return ecLoginPerm.)");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R189");

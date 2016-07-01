@@ -924,7 +924,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getOwningServersResponse.ReturnValue,
                     3490001,
-                    @"Implementation does issue this operation [RopGetOwningServers] against a public folders logon. (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does issue this operation [RopGetOwningServers] against a public folders logon. (Exchange 2013 follows this behavior.)");
             }
 
             // Add the debug information

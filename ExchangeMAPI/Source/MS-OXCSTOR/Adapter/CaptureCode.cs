@@ -597,7 +597,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                             this.Site.CaptureRequirementIfIsNotNull(
                                 messageClass,
                                 305,
-                                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.776): A PtypString8 value.");
+                                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.778): A PtypString8 value.");
 
                             // Add the debug information
                             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R307");
