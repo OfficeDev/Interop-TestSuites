@@ -85,6 +85,7 @@
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_ExchangeServer20、16_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
 	<DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
