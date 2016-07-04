@@ -498,7 +498,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         {
             this.TriggerObjectModifiedEvent();
         }
-
         #endregion
 
         #region Protected Methods
