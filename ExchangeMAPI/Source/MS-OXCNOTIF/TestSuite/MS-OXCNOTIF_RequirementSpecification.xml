@@ -258,7 +258,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R27</ns1:REQ_ID>
@@ -267,7 +267,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R28</ns1:REQ_ID>
@@ -276,7 +276,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R28001</ns1:REQ_ID>
@@ -541,18 +541,18 @@
 		<ns1:Doc_Sect>2.2.1.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] This field [Reserved] is optional [and is present only if the Extended (0x0400) flag is set in the NotificationTypes field.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R49002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] This field [Reserved] [is optional and] is present only if the Extended (0x0400) flag is set in the NotificationTypes field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R52</ns1:REQ_ID>
@@ -638,7 +638,7 @@
 		<ns1:Description>[In Pending Notifications] [Pending notifications rely on transmission of one or more of the following methods] The NotificationWait request type as described in [MS-OXCMAPIHTTP] section 2.2.4.4.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Server</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXCNOTIF_R482.</ns1:VerificationComment>
 	</ns1:Requirement>
@@ -785,7 +785,9 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R8201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In EcDoRpcExt] This ROP [RopPending] MUST appear only in response buffers of [either the EcDoRpcExt2 method, as specified in [MS-OXCRPC] section 3.1.4.2, or ] the Execute request type,&lt;7&gt; as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
@@ -2510,7 +2512,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R219</ns1:REQ_ID>
@@ -2576,7 +2578,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R225</ns1:REQ_ID>

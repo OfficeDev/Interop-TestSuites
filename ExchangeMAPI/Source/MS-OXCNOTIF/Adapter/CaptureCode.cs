@@ -75,6 +75,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         517,
                         @"[In Appendix A: Product Behavior] Implementation does support the session context cookie. (<11> Section 3.1.1:  The session context cookie was introduced in Exchange 2013 SP1.)");
                 }
+
+                if(Common.IsRequirementEnabled(511001,this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R517");
+
+                    // When the client receive asynchronous MAPI notification in the response through test suites by using
+                    // underlying networking protocols, this method will be invoked, and this requirement will be verified directly.
+                    Site.CaptureRequirement(
+                        511001,
+                        @"[In Appendix A: Product Behavior] Implementation does support cookies. <11> Section 3.1.1:  The Execute request type was introduced in Exchange 2013 SP1. (Exchange 2013 SP1 and above follow this behavior.)");
+                }
             }
 
             // Add the debug information
@@ -151,24 +163,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 @"[In RopNotify ROP Response Buffer] It [NotificationHandle] is 4 bytes.");
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R97002");
-
-            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R97002
-            Site.CaptureRequirementIfAreEqual<int>(
-                1,
-                Marshal.SizeOf(ropNotifyResponse.LogonId),
-                97002,
-                @"[In RopNotify ROP Response Buffer] [LogonId ] is 1 byte.");
-
-            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R137");
 
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R137
             Site.CaptureRequirementIfAreEqual<int>(
                 2,
-                Marshal.SizeOf(ropNotifyResponse.NotificationFlags),
+                Marshal.SizeOf(ropNotifyResponse.NotificationData.NotificationFlags),
                 137,
                 @"[In RopNotify ROP Response Buffer] It [NotificationFlags] is 2 bytes.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R97002");
+
+            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R97002
+            Site.CaptureRequirementIfIsInstanceOfType(
+                ropNotifyResponse.LogonId,
+                typeof(byte),
+                97002,
+                @"[In RopNotify ROP Response Buffer] [LogonId ] is 1 byte.");
 
             // Verify NotificationFlags of RopNotify response
             this.VerifyNotificationFlagsOfRopNotify(ropNotifyResponse);
@@ -189,7 +201,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         /// <param name="ropNotifyResponse">The response of ropNotify</param>
         private void VerifyRopNotifyForTableModified(RopNotifyResponse ropNotifyResponse)
         {
-            if (ropNotifyResponse.NotificationType == NotificationType.TableModified)
+            if (ropNotifyResponse.NotificationData.NotificationType == NotificationType.TableModified)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R139");
@@ -197,15 +209,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R139
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     2,
-                    Marshal.SizeOf(ropNotifyResponse.TableEventType),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TableEventType),
                     139,
                     @"[In NotificationData Structure] It [TableEventType] is 2 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: TableRowFolderID is available only if the TableEventType field is available and is 0x0003(TableRowAdded), 0x0004(TableRowDeleted), or 0x0005(TableRowModified).
-            bool isTableRowFolderIDAvailable = ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
-                            ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
-                            ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowModified;
+            bool isTableRowFolderIDAvailable = ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
+                            ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
+                            ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowModified;
             if (isTableRowFolderIDAvailable)
             {
                 // Add the debug information
@@ -214,17 +226,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R140
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.TableRowFolderID),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TableRowFolderID),
                     140,
                     @"[In NotificationData Structure] It [TableRowFolderID] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: TableRowMessageID is available only if bit 0x8000(M bit) is set in the NotificationFlags field and if the TableEventType field is available
             // and is 0x0003(TableRowAdded), 0x0004(TableRowDeleted), or 0x0005(TableRowModified).
-            bool isTableRowMessageIDAvailable = (ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
-                           ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
-                           ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
-                           ((ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M);
+            bool isTableRowMessageIDAvailable = (ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
+                           ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
+                           ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
+                           ((ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M);
 
             if (isTableRowMessageIDAvailable)
             {
@@ -234,17 +246,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R144
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.TableRowMessageID),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TableRowMessageID),
                     144,
                     @"[In NotificationData Structure] It [TableRowMessageID] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: TableRowInstance is available only if bit 0x8000(M bit) is set in the NotificationFlags field and if the TableEventType field is available
             // and is 0x0003(TableRowAdded), 0x0004(TableRowDeleted), or 0x0005(TableRowModified).
-            bool isTableRowInstanceAvalible = (ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
-                            ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
-                            ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
-                            (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
+            bool isTableRowInstanceAvalible = (ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
+                            ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowDeleted ||
+                            ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
+                            (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
 
             if (isTableRowInstanceAvalible)
             {
@@ -254,12 +266,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R148
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     4,
-                    Marshal.SizeOf(ropNotifyResponse.TableRowInstance),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TableRowInstance),
                     148,
                     @"[In NotificationData Structure] It [TableRowInstance] is 4 bytes.");
             }
 
-            if (ropNotifyResponse.InsertAfterTableRowFolderID != null)
+            if (ropNotifyResponse.NotificationData.InsertAfterTableRowFolderID != null)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R152");
@@ -267,16 +279,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R152
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.InsertAfterTableRowFolderID),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.InsertAfterTableRowFolderID),
                     152,
                     @"[In NotificationData Structure] It [InsertAfterTableRowFolderID] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: InsertAfterTableRowID is available only if bit 0x8000(M bit) is set in the NotificationFlags field
             // and if the TableEventType field is available and is 0x0003(TableRowAdded)or 0x0005(TableRowModified).
-            bool isInsertAfterTableRowIDAvailable = (ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
-              ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
-              (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
+            bool isInsertAfterTableRowIDAvailable = (ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
+              ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowModified) &&
+              (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
 
             if (isInsertAfterTableRowIDAvailable)
             {
@@ -286,12 +298,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R156
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.InsertAfterTableRowID),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.InsertAfterTableRowID),
                     156,
                     @"[In NotificationData Structure] It [InsertAfterTableRowID] is 8 bytes.");
             }
 
-            if (ropNotifyResponse.InsertAfterTableRowInstance != null)
+            if (ropNotifyResponse.NotificationData.InsertAfterTableRowInstance != null)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R160");
@@ -299,14 +311,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R160
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     4,
-                    Marshal.SizeOf(ropNotifyResponse.InsertAfterTableRowInstance),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.InsertAfterTableRowInstance),
                     160,
                     @"[In NotificationData Structure] It [InsertAfterTableRowInstance] is 4 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: TableRowDataSize is available only if the TableEventType field is available and is 0x0003(TableRowAdded)or 0x0005(TableRowModified).
-            bool isTableRowDataSizeAvailable = ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
-                          ropNotifyResponse.TableEventType == (ushort)EventTypeOfTable.TableRowModified;
+            bool isTableRowDataSizeAvailable = ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowAdded ||
+                          ropNotifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.TableRowModified;
 
             if (isTableRowDataSizeAvailable)
             {
@@ -316,7 +328,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R162
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     2,
-                    Marshal.SizeOf(ropNotifyResponse.TableRowDataSize),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TableRowDataSize),
                     162,
                     @"[In NotificationData Structure] It [TableRowDataSize] is 2 bytes.");
             }
@@ -328,7 +340,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         /// <param name="ropNotifyResponse">The response of ropNotify</param>
         private void VerifyRopNotifyForNewMail(RopNotifyResponse ropNotifyResponse)
         {
-            if (ropNotifyResponse.NotificationType == NotificationType.NewMail)
+            if (ropNotifyResponse.NotificationData.NotificationType == NotificationType.NewMail)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R213");
@@ -336,7 +348,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R213
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     4,
-                    Marshal.SizeOf(ropNotifyResponse.MessageFlags),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.MessageFlags),
                     213,
                     @"[In NotificationData Structure] It [MessageFlags] is 4 bytes.");
             
@@ -346,20 +358,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R217
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     1,
-                    Marshal.SizeOf(ropNotifyResponse.UnicodeFlag),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.UnicodeFlag),
                     217,
                     @"[In NotificationData Structure] It [UnicodeFlag]  is 1 byte.");
             }
 
-            if (ropNotifyResponse.MessageClass != null)
+            if (ropNotifyResponse.NotificationData.MessageClass != null)
             {
-                if (ropNotifyResponse.UnicodeFlag == 0x00)
+                if (ropNotifyResponse.NotificationData.UnicodeFlag == 0x00)
                 {
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R219");
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R219
-                    bool isVerifiedR219 = this.IsNullTerminatedASCIIStr(ropNotifyResponse.MessageClass);
+                    bool isVerifiedR219 = this.IsNullTerminatedASCIIStr(ropNotifyResponse.NotificationData.MessageClass);
 
                     this.Site.CaptureRequirementIfIsTrue(
                         isVerifiedR219,
@@ -370,7 +382,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R225");
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R225
-                    bool isVerifiedR225 = this.IsNullTerminatedASCIIStr(ropNotifyResponse.MessageClass);
+                    bool isVerifiedR225 = this.IsNullTerminatedASCIIStr(ropNotifyResponse.NotificationData.MessageClass);
 
                     this.Site.CaptureRequirementIfIsTrue(
                         isVerifiedR225,
@@ -395,7 +407,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         /// <param name="ropNotifyResponse">The response of ropNotify</param>
         private void VerifyRopNotifyForOtherEvents(RopNotifyResponse ropNotifyResponse)
         {
-            if (ropNotifyResponse.FolderId != null)
+            if (ropNotifyResponse.NotificationData.FolderId != null)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R169");
@@ -403,12 +415,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R169
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.FolderId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.FolderId),
                     169,
                     @"[In NotificationData Structure] It [FolderId] is 8 bytes.");
             }
 
-            if (ropNotifyResponse.MessageId != null)
+            if (ropNotifyResponse.NotificationData.MessageId != null)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R173");
@@ -416,12 +428,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R173
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.MessageId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.MessageId),
                     173,
                     @"[In NotificationData Structure] It [MessageId] is 8 bytes.");
             }
 
-            bool isTotalMessageCountAvailable = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T;
+            bool isTotalMessageCountAvailable = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T;
 
             if (isTotalMessageCountAvailable)
             {
@@ -431,12 +443,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R205
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     4,
-                    Marshal.SizeOf(ropNotifyResponse.TotalMessageCount),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TotalMessageCount),
                     205,
                     @"[In NotificationData Structure] It [TotalMessageCount]  is 4 bytes.");
             }
 
-            bool isUnreadMessageCountAvailable = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U;
+            bool isUnreadMessageCountAvailable = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U;
 
             if (isUnreadMessageCountAvailable)
             {
@@ -446,12 +458,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R209
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     4,
-                    Marshal.SizeOf(ropNotifyResponse.UnreadMessageCount),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.UnreadMessageCount),
                     209,
                     @"[In NotificationData Structure] It [UnreadMessageCount]  is 4 bytes.");
             }
 
-            if (ropNotifyResponse.ParentFolderId != null)
+            if (ropNotifyResponse.NotificationData.ParentFolderId != null)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R177");
@@ -459,14 +471,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R177
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.ParentFolderId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.ParentFolderId),
                     177,
                     @"[In NotificationData Structure] It [ParentFolderId]  is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: OldFolderId is available only if the NotificationType value in the NotificationFlags field is 0x0020(ObjectMoved) or 0x0040(ObjectCopied).
-            bool isOldFolderIdAvailable = ropNotifyResponse.NotificationType == NotificationType.ObjectMoved ||
-                        ropNotifyResponse.NotificationType == NotificationType.ObjectCopied;
+            bool isOldFolderIdAvailable = ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectMoved ||
+                        ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectCopied;
 
             if (isOldFolderIdAvailable)
             {
@@ -476,16 +488,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R181
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.OldFolderId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.OldFolderId),
                     181,
                     @"[In NotificationData Structure] It [OldFolderId] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: OldMessageId is available only if the value of the NotificationType field in the NotificationFlags field is
             // 0x0020(ObjectMoved) or 0x0040(ObjectCopied) and bit 0x8000(M bit) is set in the NotificationFlags field.
-            bool isOldMessageIdAvailable = (ropNotifyResponse.NotificationType == NotificationType.ObjectMoved ||
-                ropNotifyResponse.NotificationType == NotificationType.ObjectCopied) &&
-                (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
+            bool isOldMessageIdAvailable = (ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectMoved ||
+                ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectCopied) &&
+                (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
             if (isOldMessageIdAvailable)
             {
                 // Add the debug information
@@ -494,16 +506,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R185
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.OldMessageId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.OldMessageId),
                     185,
                     @"[In NotificationData Structure] It [OldMessageId] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: OldParentFolderId is available only if the value of the NotificationType field in the NotificationFlags field is 0x0020(ObjectMoved) or 0x0040(ObjectCopied)
             // and bit 0x8000(M bit) is not set in the NotificationFlags field.
-            bool isOldParentFolderIdAvailable = (ropNotifyResponse.NotificationType == NotificationType.ObjectMoved ||
-                ropNotifyResponse.NotificationType == NotificationType.ObjectCopied) &&
-                (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M;
+            bool isOldParentFolderIdAvailable = (ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectMoved ||
+                ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectCopied) &&
+                (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M;
 
             if (isOldParentFolderIdAvailable)
             {
@@ -513,14 +525,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R189
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     8,
-                    Marshal.SizeOf(ropNotifyResponse.OldParentFolderId),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.OldParentFolderId),
                     189,
                     @"[In NotificationData Structure] It [OldParentFolderId] is 8 bytes.");
             }
 
             // Refer to MS-OXCNOTIF section 2.2.1.4.1.1: TagCount is available only if the value of the NotificationType field in the NotificationFlags field is 0x0004(ObjectCreated) or 0x0010(ObjectModified).
-            bool isTagCountAvailable = ropNotifyResponse.NotificationType == NotificationType.ObjectCreated ||
-                    ropNotifyResponse.NotificationType == NotificationType.ObjectModified;
+            bool isTagCountAvailable = ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectCreated ||
+                    ropNotifyResponse.NotificationData.NotificationType == NotificationType.ObjectModified;
             if (isTagCountAvailable)
             {
                 // Add the debug information
@@ -529,7 +541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R193
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     2,
-                    Marshal.SizeOf(ropNotifyResponse.TagCount),
+                    Marshal.SizeOf(ropNotifyResponse.NotificationData.TagCount),
                     193,
                     @"[In NotificationData Structure] It [TagCount]  is 2 bytes.");
             }
@@ -542,7 +554,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         private void VerifyNotificationFlagsOfRopNotify(RopNotifyResponse ropNotifyResponse)
         {
             // FlagsBit.T is 0x1000. T bit is set in NotificationFlags.
-            bool isTBitSet = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T;
+            bool isTBitSet = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T;
             if (isTBitSet)
             {
                 // Add the debug information
@@ -560,13 +572,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R114
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     0x0010,
-                    (int)ropNotifyResponse.NotificationType,
+                    (int)ropNotifyResponse.NotificationData.NotificationType,
                     114,
                     @"[In NotificationData Structure] If this bit [0x1000] is set, the NotificationType MUST be 0x0010.");
             }
 
             // FlagsBit.U is 0x2000. U bit is set.
-            bool isUBitSet = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U;
+            bool isUBitSet = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U;
             if (isUBitSet)
             {
                 // Add the debug information
@@ -584,13 +596,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R117
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     0x0010,
-                    (int)ropNotifyResponse.NotificationType,
+                    (int)ropNotifyResponse.NotificationData.NotificationType,
                     117,
                     @"[In NotificationData Structure] If this bit [0x2000] is set, the NotificationType MUST be 0x0010.");
             }
 
             // FlagsBit.S is 0x4000. S bit is set.
-            bool isSBitSet = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.S) == (ushort)FlagsBit.S;
+            bool isSBitSet = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.S) == (ushort)FlagsBit.S;
             if (isSBitSet)
             {
                 // Add the debug information
@@ -602,7 +614,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     118,
                     @"[In NotificationData Structure] 0x4000: specify flag S.");
 
-                int actualBitSet = ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M;
+                int actualBitSet = ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M;
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R120");
@@ -616,7 +628,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             }
 
             // FlagsBit.M is 0x8000. M bit is set.
-            bool isMBitSet = (ropNotifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
+            bool isMBitSet = (ropNotifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M;
             if (isMBitSet)
             {
                 // Add the debug information
@@ -632,7 +644,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R138");
 
-            int notificationFlagsLength = Marshal.SizeOf(ropNotifyResponse.NotificationFlags) * 8;
+            int notificationFlagsLength = Marshal.SizeOf(ropNotifyResponse.NotificationData.NotificationFlags) * 8;
             int notificationTypeLength = notificationFlagsLength - 4;
 
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R138

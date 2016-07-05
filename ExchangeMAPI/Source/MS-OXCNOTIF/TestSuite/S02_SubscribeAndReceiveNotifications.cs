@@ -81,11 +81,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
                     this.VerifyTableRowAddedNotificationElements(notifyResponse);
-                    if (notifyResponse.TableRowDataSize != null)
+                    if (notifyResponse.NotificationData.TableRowDataSize != null)
                     {
                         #region Verify the elements TableRowDataSize and TableRowData of the notification response
 
@@ -94,8 +94,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R163
                         this.Site.CaptureRequirementIfAreEqual<ushort?>(
-                            (ushort)notifyResponse.TableRowData.Length,
-                            notifyResponse.TableRowDataSize,
+                            (ushort)notifyResponse.NotificationData.TableRowData.Length,
+                            notifyResponse.NotificationData.TableRowDataSize,
                             163,
                             @"[In NotificationData Structure] TableRowDataSize: An unsigned 16-bit integer that indicates the length of the table row data.");
 
@@ -103,22 +103,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R166");
 
                         // Convert TableRowData to string type.
-                        string tableRowDataToString = BitConverter.ToString(notifyResponse.TableRowData);
+                        string tableRowDataToString = BitConverter.ToString(notifyResponse.NotificationData.TableRowData);
                         Site.Log.Add(LogEntryKind.Debug, "The table row data is {0}.", tableRowDataToString);
 
                         // Convert TableRowFolderID to string type.
-                        Site.Assert.IsNotNull(notifyResponse.TableRowFolderID, "The TableRowFolderID should not null.");
-                        string tableRowFolderIDToString = BitConverter.ToString(BitConverter.GetBytes((ulong)notifyResponse.TableRowFolderID));
+                        Site.Assert.IsNotNull(notifyResponse.NotificationData.TableRowFolderID, "The TableRowFolderID should not null.");
+                        string tableRowFolderIDToString = BitConverter.ToString(BitConverter.GetBytes((ulong)notifyResponse.NotificationData.TableRowFolderID));
                         Site.Log.Add(LogEntryKind.Debug, "The value of TableRowFolderID is {0}.", tableRowFolderIDToString);
 
                         // Convert TableRowInstance to string type.
-                        Site.Assert.IsNotNull(notifyResponse.TableRowInstance, "The TableRowInstance should not null.");
-                        string tableRowInstanceToString = BitConverter.ToString(BitConverter.GetBytes((uint)notifyResponse.TableRowInstance));
+                        Site.Assert.IsNotNull(notifyResponse.NotificationData.TableRowInstance, "The TableRowInstance should not null.");
+                        string tableRowInstanceToString = BitConverter.ToString(BitConverter.GetBytes((uint)notifyResponse.NotificationData.TableRowInstance));
                         Site.Log.Add(LogEntryKind.Debug, "The value of TableRowInstance is {0}.", tableRowInstanceToString);
 
                         // Convert TableRowMessageID to string type.
-                        Site.Assert.IsNotNull(notifyResponse.TableRowMessageID, "The TableRowMessageID should not null.");
-                        string tableRowMessageIDToString = BitConverter.ToString(BitConverter.GetBytes((ulong)notifyResponse.TableRowMessageID));
+                        Site.Assert.IsNotNull(notifyResponse.NotificationData.TableRowMessageID, "The TableRowMessageID should not null.");
+                        string tableRowMessageIDToString = BitConverter.ToString(BitConverter.GetBytes((ulong)notifyResponse.NotificationData.TableRowMessageID));
                         Site.Log.Add(LogEntryKind.Debug, "The value of TableRowMessageID is {0}.", tableRowMessageIDToString);
 
                         // Check whether TableRowData contains TableRowFolderID, TableRowInstance and TableRowMessageID or not.
@@ -172,7 +172,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R149
                     this.Site.CaptureRequirementIfAreEqual<uint?>(
                         tableRowInstanceFromTable,
-                        notifyResponse.TableRowInstance,
+                        notifyResponse.NotificationData.TableRowInstance,
                         149,
                         @"[In NotificationData Structure] TableRowInstance: An identifier of the instance of the previous row in the table.");
 
@@ -182,9 +182,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R161
                     this.Site.CaptureRequirementIfAreEqual<uint?>(
                         insertAfterTableRowInstanceFromTable,
-                        notifyResponse.InsertAfterTableRowInstance,
+                        notifyResponse.NotificationData.InsertAfterTableRowInstance,
                         161,
                         @"[In NotificationData Structure] InsertAfterTableRowInstance: An unsigned 32-bit identifier of the instance of the row where the modified row is inserted");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R161002");
+
+                    // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R161002
+                    this.Site.CaptureRequirementIfIsTrue(
+                        notifyResponse.NotificationData.InsertAfterTableRowInstance!=null && (notifyResponse.NotificationData.NotificationFlags & 0x8000) == 0x8000 && notifyResponse.NotificationData.TableEventType== 0x0003,
+                        161002,
+                        @"[In NotificationData Structure] This field [InsertAfterTableRowInstance] is available when bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003.");
+
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R145");
@@ -193,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // If the value of TableRowMessageID is the message which trigger the notification, this requirement can be verified.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         messageId,
-                        notifyResponse.TableRowMessageID,
+                        notifyResponse.NotificationData.TableRowMessageID,
                         145,
                         @"[In NotificationData Structure] TableRowMessageID: The value of the Message ID structure, as specified in [MS-OXCDATA] section 2.2.1.2, of the item triggering the notification.");
 
@@ -204,7 +214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // If the value of TableRowFolderID is the folder which trigger the notification, this requirement can be verified.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         this.InboxFolderId,
-                        notifyResponse.TableRowFolderID,
+                        notifyResponse.NotificationData.TableRowFolderID,
                         141,
                         @"[In NotificationData Structure] TableRowFolderID: The value of the Folder ID structure, as specified in [MS-OXCDATA] section 2.2.1.1, of the item triggering the notification.");
 
@@ -219,10 +229,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         @"[In RopNotify ROP Response Buffer] [NotificationHandle] The target object can be a table.");
 
                     // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R261: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.TableRowFolderID, notifyResponse.TableRowMessageID);
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R261: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.NotificationData.TableRowFolderID, notifyResponse.NotificationData.TableRowMessageID);
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R261
-                    bool isVerifiedR261 = notifyResponse.TableRowFolderID != null && notifyResponse.TableRowMessageID != null;
+                    bool isVerifiedR261 = notifyResponse.NotificationData.TableRowFolderID != null && notifyResponse.NotificationData.TableRowMessageID != null;
 
                     this.Site.CaptureRequirementIfIsTrue(
                         isVerifiedR261,
@@ -231,7 +241,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                     this.VeriyServerGenerateInformativeNotification(isVerifiedR261);
 
-                    Site.Assert.IsNotNull(notifyResponse.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
+                    Site.Assert.IsNotNull(notifyResponse.NotificationData.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R129");
@@ -239,7 +249,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R129
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0003,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         129,
                         @"[In NotificationData Structure] [TableEventType value] 0x0003: The notification is for TableRowAdded events.");
 
@@ -250,7 +260,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The client can receive TableRowAdded notification indicates that a new row has been added to the table.
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0003,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         23,
                         @"[In TableModified Event Types] TableRowAdded: A new row has been added to the table.");
 
@@ -383,16 +393,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowDeleted, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowDeleted.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowDeleted, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowDeleted.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
                     this.VerifyTableRowDeletedNotificationElements(notifyResponse);
 
                     // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R262: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.TableRowFolderID, notifyResponse.TableRowMessageID);
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R262: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.NotificationData.TableRowFolderID, notifyResponse.NotificationData.TableRowMessageID);
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R262
-                    bool isVerifiedR262 = notifyResponse.TableRowFolderID != null && notifyResponse.TableRowMessageID != null;
+                    bool isVerifiedR262 = notifyResponse.NotificationData.TableRowFolderID != null && notifyResponse.NotificationData.TableRowMessageID != null;
 
                     this.Site.CaptureRequirementIfIsTrue(
                         isVerifiedR262,
@@ -401,7 +411,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                     this.VeriyServerGenerateInformativeNotification(isVerifiedR262);
 
-                    Site.Assert.IsNotNull(notifyResponse.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
+                    Site.Assert.IsNotNull(notifyResponse.NotificationData.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R130");
@@ -409,7 +419,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R130
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0004,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         130,
                         @"[In NotificationData Structure] [TableEventType value] 0x0004: The notification is for TableRowDeleted events.");
 
@@ -420,7 +430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The client can receive TableRowDeleted notification indicates that an existing row has been deleted from the table.
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0004,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         24,
                         @"[In TableModified Event Types] TableRowDeleted: An existing row has been deleted from the table.");
 
@@ -536,8 +546,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
 
                     // Only Exchange 2010 and above require a table view, this server version restrict is the same with MS-OXCNTOIF_R245.
@@ -669,8 +679,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowModified, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowModified.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowModified, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowModified.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
                     this.VerifyTableRowModifiedNotificationElements(notifyResponse);
 
@@ -714,7 +724,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R157
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         insertAfterTableRowIDFromTable,
-                        notifyResponse.InsertAfterTableRowID,
+                        notifyResponse.NotificationData.InsertAfterTableRowID,
                         157,
                         @"[In NotificationData Structure] InsertAfterTableRowID: The old value of the Message ID structure of the item triggering the notification.");
 
@@ -724,15 +734,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R153
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         insertAfterTableRowFolderIDFromTable,
-                        notifyResponse.InsertAfterTableRowFolderID,
+                        notifyResponse.NotificationData.InsertAfterTableRowFolderID,
                         153,
                         @"[In NotificationData Structure] InsertAfterTableRowFolderID: The old value of the Folder ID structure of the item triggering the notification.");
 
                     // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R263: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.TableRowFolderID, notifyResponse.TableRowMessageID);
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R161003");
+
+                    // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R161003
+                    this.Site.CaptureRequirementIfIsTrue(
+                        notifyResponse.NotificationData.InsertAfterTableRowInstance != null && (notifyResponse.NotificationData.NotificationFlags & 0x8000) == 0x8000 && notifyResponse.NotificationData.TableEventType == 0x0005,
+                        161003,
+                        @"[In NotificationData Structure] This field [InsertAfterTableRowInstance] is available when bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0005.");
+
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R263: The value of the Folder ID and Message ID separately are {0},{1}", notifyResponse.NotificationData.TableRowFolderID, notifyResponse.NotificationData.TableRowMessageID);
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R263
-                    bool isVerifiedR263 = notifyResponse.TableRowFolderID != null && notifyResponse.TableRowMessageID != null;
+                    bool isVerifiedR263 = notifyResponse.NotificationData.TableRowFolderID != null && notifyResponse.NotificationData.TableRowMessageID != null;
 
                     this.Site.CaptureRequirementIfIsTrue(
                         isVerifiedR263,
@@ -741,7 +761,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                     this.VeriyServerGenerateInformativeNotification(isVerifiedR263);
 
-                    Site.Assert.IsNotNull(notifyResponse.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
+                    Site.Assert.IsNotNull(notifyResponse.NotificationData.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R131");
@@ -749,7 +769,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R131
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0005,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         131,
                         @"[In NotificationData Structure] [TableEventType value] 0x0005: The notification is for TableRowModified events.");
 
@@ -760,7 +780,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The client can receive TableRowModified notification indicates that an existing row has been modified in the table.
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0005,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         25,
                         @"[In TableModified Event Types] TableRowModified: An existing row has been modified in the table.");
 
@@ -893,8 +913,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
 
                     // Only Exchange 2010 and above require a table view, this server version restrict is the same with MS-OXCNTOIF_R245.
@@ -1022,8 +1042,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRowAdded, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRowAdded.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
 
                     // Only Exchange 2010 and above require a table view, this server version restrict is the same with MS-OXCNTOIF_R245.
@@ -1231,15 +1251,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.NewMail, "The notification type should be NewMail.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.NewMail, "The notification type should be NewMail.");
                     isNewMail = true;
 
                     #region Get messageFlags from table
                     uint folderHandle, messageHandle;
                     this.OpenFolder(this.InboxFolderId, out folderHandle);
 
-                    Site.Assert.IsNotNull(notifyResponse.MessageId, "The MessageId in the RopNotifyResponse should not null.");
-                    this.OpenMessage(folderHandle, this.InboxFolderId, (ulong)notifyResponse.MessageId, out messageHandle);
+                    Site.Assert.IsNotNull(notifyResponse.NotificationData.MessageId, "The MessageId in the RopNotifyResponse should not null.");
+                    this.OpenMessage(folderHandle, this.InboxFolderId, (ulong)notifyResponse.NotificationData.MessageId, out messageHandle);
                     RopGetPropertiesSpecificResponse getPropertiesSpecificResponse = this.GetPropertiesSpecific(messageHandle, new PropertyTag[] { PropertyTags.All[PropertyNames.PidTagMessageFlags] });
                     uint messageFlagsFromTable = BitConverter.ToUInt32(getPropertiesSpecificResponse.RowData.PropertyValues[0].Value, 0);
                     #endregion
@@ -1253,11 +1273,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R214001
                         this.Site.CaptureRequirementIfAreEqual<uint?>(
                             messageFlagsFromTable,
-                            notifyResponse.MessageFlags,
+                            notifyResponse.NotificationData.MessageFlags,
                             214001,
                             @"[In Appendix A: Product Behavior] MessageFlags does specify the message flags of new mail that has been received.(Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
                     }
-                    if (Common.IsRequirementEnabled(214002, this.Site))
+
+                    if(Common.IsRequirementEnabled(214002,this.Site))
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R214002");
@@ -1265,7 +1286,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R214002
                         this.Site.CaptureRequirementIfAreEqual<uint?>(
                             0,
-                            notifyResponse.MessageFlags,
+                            notifyResponse.NotificationData.MessageFlags,
                             214002,
                             @"[In Appendix A: Product Behavior] Implementation does return zero for MessageFlags. <10> Section 2.2.1.4.1.2:  In Exchange 2013 the value of MessageFlags is zero. (Exchange 2013 follows this behavior.)");
                     }
@@ -1290,7 +1311,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R174
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         messageIDFromTable,
-                        notifyResponse.MessageId,
+                        notifyResponse.NotificationData.MessageId,
                         174,
                         @"[In NotificationData Structure] MessageId: The Message ID structure, as specified in [MS-OXCDATA] section 2.2.1.2, of the item triggering the event.");
                     #endregion
@@ -1378,7 +1399,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
 
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectCopied, "The notification type should be ObjectCopied.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectCopied, "The notification type should be ObjectCopied.");
                     isObjectCopied = true;
 
                     #region Verify elements OldFolderId and OldMessageId of the notification response
@@ -1389,7 +1410,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The InboxFolderId is the folder of the message originally exists. So if the value of OldFolderId is equal to InboxFolderId, this requirement can be verified.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         this.InboxFolderId,
-                        notifyResponse.OldFolderId,
+                        notifyResponse.NotificationData.OldFolderId,
                         182,
                         @"[In NotificationData Structure] OldFolderId: The old Folder ID structure of the item triggering the event.");
 
@@ -1400,7 +1421,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The newMessageId1 is the message originally is. So if the value of OldMessageId is equal to newMessageId1, this requirement can be verified.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         this.TriggerMessageId,
-                        notifyResponse.OldMessageId,
+                        notifyResponse.NotificationData.OldMessageId,
                         186,
                         @"[In NotificationData Structure] OldMessageId: The old Message ID structure of the item triggering the event.");
                     #endregion
@@ -1468,7 +1489,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectCreated, "The notification type should be ObjectCreated.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectCreated, "The notification type should be ObjectCreated.");
                     isObjectCreated = true;
                     this.VerifyObjectCreatedNotificationElements(notifyResponse);
 
@@ -1480,7 +1501,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The folder of createdFodlerId is the folder which trigger the notification.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         createdFodlerId,
-                        notifyResponse.FolderId,
+                        notifyResponse.NotificationData.FolderId,
                         170,
                         @"[In NotificationData Structure] FolderId: The Folder ID structure of the item triggering the event.");
 
@@ -1491,21 +1512,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The folder of InboxFolderId is the parent of the folder which trigger the notification.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         this.InboxFolderId,
-                        notifyResponse.ParentFolderId,
+                        notifyResponse.NotificationData.ParentFolderId,
                         178,
                         @"[In NotificationData Structure] ParentFolderId: The Folder ID structure of the parent folder of the item triggering the event.");
 
-                    if (notifyResponse.TagCount == 0)
+                    if (notifyResponse.NotificationData.TagCount == 0)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R20302");
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R20302
                         this.Site.CaptureRequirementIfIsNull(
-                            notifyResponse.Tags,
+                            notifyResponse.NotificationData.Tags,
                             20302,
                             @"[In NotificationData Structure] This field [Tags] is not available if the TagCount field is available and the value of the TagCount field is 0x0000.");
                     }
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R161004");
+
+                    // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R161004
+                    this.Site.CaptureRequirementIfIsTrue(
+                        (notifyResponse.NotificationData.NotificationFlags & 0x8000)==0x0000 && notifyResponse.NotificationData.InsertAfterTableRowInstance==null,
+                        161004,
+                        @"[In NotificationData Structure] This field [InsertAfterTableRowInstance] is not available when bit 0x8000 is not set in the NotificationFlags field.");
+
                     #endregion
                 }
             }
@@ -1583,7 +1614,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R105
                     this.Site.CaptureRequirementIfAreEqual<NotificationType>(
                         NotificationType.ObjectDeleted,
-                        (NotificationType)(notifyResponse.NotificationFlags & 0x0FFF),
+                        (NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF),
                         105,
                         @"[In NotificationData Structure] [NotificationType value] 0x0008: The notification is for an ObjectDeleted event.");
 
@@ -1663,11 +1694,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 {
                     gotRopNotifyResponse = true;
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectModified, "The notification type should be ObjectModified.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectModified, "The notification type should be ObjectModified.");
                     isObjectModified = true;
 
                     #region Verify elements TagCount and Tags of the notification response
-                    if (notifyResponse.TagCount != null)
+                    if (notifyResponse.NotificationData.TagCount != null)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R194");
@@ -1675,13 +1706,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R194
                         bool isVerifiedR194;
 
-                        if (notifyResponse.TagCount == 0)
+                        if (notifyResponse.NotificationData.TagCount == 0)
                         {
-                            isVerifiedR194 = notifyResponse.Tags == null;
+                            isVerifiedR194 = notifyResponse.NotificationData.Tags == null;
                         }
                         else
                         {
-                            isVerifiedR194 = notifyResponse.Tags.Length == notifyResponse.TagCount;
+                            isVerifiedR194 = notifyResponse.NotificationData.Tags.Length == notifyResponse.NotificationData.TagCount;
                         }
 
                         this.Site.CaptureRequirementIfIsTrue(
@@ -1689,14 +1720,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                             194,
                             @"[In NotificationData Structure] TagCount: An unsigned 16-bit integer that specifies the number of property tags in the Tags field.");
 
-                        if (notifyResponse.TagCount != 0x0000 && notifyResponse.TagCount != 0xFFFF)
+                        if (notifyResponse.NotificationData.TagCount != 0x0000 && notifyResponse.NotificationData.TagCount != 0xFFFF)
                         {
                             // Add the debug information
                             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R20301");
 
                             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R20301
                             this.Site.CaptureRequirementIfIsNotNull(
-                                notifyResponse.Tags,
+                                notifyResponse.NotificationData.Tags,
                                 20301,
                                 @"[In NotificationData Structure] This field [Tags] is available if the TagCount field is available and the value of the TagCount field is  not 0x0000 or 0xFFFF .");
 
@@ -1706,21 +1737,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R202
                             this.Site.CaptureRequirementIfAreEqual<Type>(
                                 typeof(uint[]),
-                                notifyResponse.Tags.GetType(),
+                                notifyResponse.NotificationData.Tags.GetType(),
                                 202,
                                 @"[In NotificationData Structure] Tags (variable): An array of unsigned 32-bit integers that identifies the IDs of properties that have changed.");
 
                             if (Common.IsRequirementEnabled(198, this.Site))
                             {
-                                Site.Assert.IsNotNull(notifyResponse.TagCount, "The TagCount should not null.");
+                                Site.Assert.IsNotNull(notifyResponse.NotificationData.TagCount, "The TagCount should not null.");
 
                                 // Add the debug information
                                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R198");
 
                                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R198
                                 this.Site.CaptureRequirementIfAreEqual<int>(
-                                    notifyResponse.Tags.Length,
-                                    (int)notifyResponse.TagCount,
+                                    notifyResponse.NotificationData.Tags.Length,
+                                    (int)notifyResponse.NotificationData.TagCount,
                                     198,
                                     @"[In Appendix A: Product Behavior] [If the value of the NotificationType field in the NotificationFlags field is 0x0010] Implementation does not set the value of the TagCount field to 0x0000. (<9> Section 2.2.1.4.1.2:  Exchange 2007, and Exchange 2010 do not set the value of the TagCount field to 0x0000; they set the value of the field to the number of property tags in the Tags field.)");
                             }
@@ -1735,7 +1766,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R199
                         this.Site.CaptureRequirementIfAreEqual<ushort?>(
                             0,
-                            notifyResponse.TagCount,
+                            notifyResponse.NotificationData.TagCount,
                             199,
                             @"[In Appendix A: Product Behavior] [If the value of the NotificationType field in the NotificationFlags field is 0x0010] Implementation will set the value of this field [TagCount] to 0x0000. (Exchange 2013 and above follow this behavior)");
                     }
@@ -1745,6 +1776,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 }
             }
 
+            if (Common.IsRequirementEnabled(510, this.Site) && Common.GetConfigurationPropertyValue("TransportSeq", this.Site).ToLower() == "mapi_http")
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R510");
+
+                // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R510
+                // Get the RopNotifyResponse via MAPI transport, MS-OXCNOTIF_R510 can be verified.
+                this.Site.CaptureRequirementIfIsTrue(
+                    gotRopNotifyResponse,
+                    510,
+                    @"[In Appendix A: Product Behavior] Implementation does support the Execute request type. (<8> Section 2.2.1.4.1.1:  The Execute request type was introduced in Exchange 2013 SP1.)");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R106");
@@ -1811,7 +1854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectMoved, "The notification type should be ObjectMoved.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectMoved, "The notification type should be ObjectMoved.");
                     isObjectMoved = true;
 
                     #region Verify element OldParentFolderId of notification response
@@ -1822,7 +1865,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // The folder of InboxFolderId is the older parent folder which trigger the notification. So if the value of OldParentFolderId equals to InboxFolderId, this requirement can be verified.
                     this.Site.CaptureRequirementIfAreEqual<ulong?>(
                         this.InboxFolderId,
-                        notifyResponse.OldParentFolderId,
+                        notifyResponse.NotificationData.OldParentFolderId,
                         190,
                         @"[In NotificationData Structure] OldParentFolderId: The old parent Folder ID structure of the item triggering the event.");
                     #endregion
@@ -1898,7 +1941,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
 
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.SearchCompleted, "The notification type should be SearchCompleted.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.SearchCompleted, "The notification type should be SearchCompleted.");
                     isSearchCompleted = true;
                 }
             }
@@ -2001,7 +2044,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     if (response is RopNotifyResponse)
                     {
                         RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                        switch ((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF))
+                        switch ((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF))
                         {
                             case NotificationType.ObjectCopied:
                                 isObjectCopied = true;
@@ -2011,14 +2054,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                                 break;
                             case NotificationType.ObjectDeleted:
                                 isObjectDeleted = true;
-                                if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M && (notifyResponse.NotificationFlags & (ushort)FlagsBit.S) != (ushort)FlagsBit.S)
+                                if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M && (notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.S) != (ushort)FlagsBit.S)
                                 {
                                     // Add the debug information
                                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R17902");
 
                                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R17902
                                     this.Site.CaptureRequirementIfIsNotNull(
-                                        notifyResponse.ParentFolderId,
+                                        notifyResponse.NotificationData.ParentFolderId,
                                         17902,
                                         @"[In NotificationData Structure] This field [ParentFolderId] is available if the value of the NotificationType field is 0x0008, and it [RopNotify ROP] is sent for a message in a folder (both bit 0x4000 and bit 0x8000 are not set in the NotificationFlags field).");
                                 }
@@ -2156,16 +2199,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     if (response is RopNotifyResponse)
                     {
                         RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                        Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                        Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableChanged, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableChanged.");
+                        Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                        Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableChanged, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableChanged.");
                         this.VerifyTableModifyNotificationFlag(notifyResponse);
                         this.VerifyTableChangedNotificationElements(notifyResponse);
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R264");
 
-                        Site.Assert.IsNull(notifyResponse.TableRowFolderID, "The TableRowFolderID of the basic notification should be null.");
-                        Site.Assert.IsNull(notifyResponse.TableRowMessageID, "The TableRowMessageID of the basic notification should be null.");
+                        Site.Assert.IsNull(notifyResponse.NotificationData.TableRowFolderID, "The TableRowFolderID of the basic notification should be null.");
+                        Site.Assert.IsNull(notifyResponse.NotificationData.TableRowMessageID, "The TableRowMessageID of the basic notification should be null.");
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R264
                         this.Site.CaptureRequirement(
@@ -2174,7 +2217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                         this.VerifyTriggerBasicNotification(true);
 
-                        Site.Assert.IsNotNull(notifyResponse.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
+                        Site.Assert.IsNotNull(notifyResponse.NotificationData.TableEventType, "The TableEventType in the RopNotifyResponse should not null.");
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R128");
@@ -2182,7 +2225,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R128
                         this.Site.CaptureRequirementIfAreEqual<int>(
                             0x0001,
-                            (int)notifyResponse.TableEventType,
+                            (int)notifyResponse.NotificationData.TableEventType,
                             128,
                             @"[In NotificationData Structure] [TableEventType value] 0x0001: The notification is for TableChanged events.");
 
@@ -2193,7 +2236,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Client can receive TableChanged notification indicates that a table has been changed on the server.
                         this.Site.CaptureRequirementIfAreEqual<int>(
                             0x0001,
-                            (int)notifyResponse.TableEventType,
+                            (int)notifyResponse.NotificationData.TableEventType,
                             22,
                             @"[In TableModified Event Types] TableChanged: A table has been changed.");
                     }
@@ -2245,33 +2288,33 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectModified, "The notification type should be ObjectModified.");
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectModified, "The notification type should be ObjectModified.");
                     #region Verify elements TotalMessageCount and UnreadMessageCount of the notification response
-                    if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T)
+                    if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.T) == (ushort)FlagsBit.T)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R20701");
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R20701
                         this.Site.CaptureRequirementIfIsNotNull(
-                            notifyResponse.TotalMessageCount,
+                            notifyResponse.NotificationData.TotalMessageCount,
                             20701,
                             @"[In NotificationData Structure] This field [TotalMessageCount] is available if bit 0x1000 is set in the NotificationFlags field.");
                     }
 
-                    if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U)
+                    if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.U) == (ushort)FlagsBit.U)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R21101");
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R21101
                         this.Site.CaptureRequirementIfIsNotNull(
-                            notifyResponse.UnreadMessageCount,
+                            notifyResponse.NotificationData.UnreadMessageCount,
                             21101,
                             @"[In NotificationData Structure] This field [UnreadMessageCount] is available if bit 0x2000 is set in the NotificationFlags field.");
                     }
 
-                    if (notifyResponse.TotalMessageCount != null)
+                    if (notifyResponse.NotificationData.TotalMessageCount != null)
                     {
                         uint inboxTableHandle;
                         this.OpenFolder(this.InboxFolderId, out inboxTableHandle);
@@ -2284,12 +2327,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R206
                         this.Site.CaptureRequirementIfAreEqual<uint?>(
                             getContentsTableResponse.RowCount,
-                            notifyResponse.TotalMessageCount,
+                            notifyResponse.NotificationData.TotalMessageCount,
                             206,
                             @"[In NotificationData Structure] TotalMessageCount: An unsigned 32-bit integer that specifies the total number of items in the folder triggering this event.");
                     }
 
-                    if (notifyResponse.UnreadMessageCount != null)
+                    if (notifyResponse.NotificationData.UnreadMessageCount != null)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R210");
@@ -2298,7 +2341,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         // In TriggerNewMailEvent() method, 1 mail is created and unread. So if the value of UnreadMessageCount is 1, this requirement can be verified.
                         this.Site.CaptureRequirementIfAreEqual<uint?>(
                             1,
-                            notifyResponse.UnreadMessageCount,
+                            notifyResponse.NotificationData.UnreadMessageCount,
                             210,
                             @"[In NotificationData Structure] UnreadMessageCount: An unsigned 32-bit integer that specifies the number of unread items in a folder triggering this event.");
                     }
@@ -2354,19 +2397,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationType, "The notification type for the RopNotify response should be TableModified.");
-                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRestrictionChanged, notifyResponse.TableEvent, "The table event type for the RopNotify response should be TableRestrictionChanged.");
+                    Site.Assert.AreEqual<NotificationType>(NotificationType.TableModified, notifyResponse.NotificationData.NotificationType, "The notification type for the RopNotify response should be TableModified.");
+                    Site.Assert.AreEqual<EventTypeOfTable>(EventTypeOfTable.TableRestrictionChanged, notifyResponse.NotificationData.TableEvent, "The table event type for the RopNotify response should be TableRestrictionChanged.");
                     this.VerifyTableModifyNotificationFlag(notifyResponse);
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R265");
 
                     this.Site.Assert.IsNull(
-                        notifyResponse.TableRowFolderID,
+                        notifyResponse.NotificationData.TableRowFolderID,
                         "The server generates a basic notification should not have TableRowFolderID.");
 
                     this.Site.Assert.IsNull(
-                        notifyResponse.TableRowMessageID,
+                        notifyResponse.NotificationData.TableRowMessageID,
                         "The server generates a basic notification should not have TableRowMessageID.");
 
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R265
@@ -2375,7 +2418,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         265,
                         @"[In Creating and Sending TableModified Event Notifications] [When a TableModified event occurs, the server generates a notification using one of the following three methods, listed in descending order of usefulness to the client.] For TableRestrictionChanged event, the server generates a basic notification that does not include specifics about the change made.");
 
-                    this.Site.Assert.IsNotNull(notifyResponse.TableEventType, "TableEventType in the RopNotify response should not null.");
+                    this.Site.Assert.IsNotNull(notifyResponse.NotificationData.TableEventType, "TableEventType in the RopNotify response should not null.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R13201");
@@ -2383,7 +2426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R13201
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         0x0007,
-                        (int)notifyResponse.TableEventType,
+                        (int)notifyResponse.NotificationData.TableEventType,
                         13201,
                         @"[In NotificationData Structure] [TableEventType value] Implementation does support TableRestrictionChanged events (0x0007). (Exchange 2007 follows this behavior.)");
                 }
@@ -2418,15 +2461,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 if (response is RopNotifyResponse)
                 {
                     RopNotifyResponse notifyResponse = (RopNotifyResponse)response;
-                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationFlags & 0x0FFF), NotificationType.ObjectMoved, "The notification type should be ObjectMoved.");
-                    if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+                    Site.Assert.AreEqual<NotificationType>((NotificationType)(notifyResponse.NotificationData.NotificationFlags & 0x0FFF), NotificationType.ObjectMoved, "The notification type should be ObjectMoved.");
+                    if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
                     {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R18701");
 
                         // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R18701
                         this.Site.CaptureRequirementIfIsNotNull(
-                            notifyResponse.OldMessageId,
+                            notifyResponse.NotificationData.OldMessageId,
                             18701,
                             @"[In NotificationData Structure] This field [OldMessageId] is available if the value of the NotificationType in the NotificationFlags field is 0x0020 and bit 0x8000 is set in the NotificationFlags field.");
                     }
@@ -2510,7 +2553,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R110
             this.Site.CaptureRequirementIfAreEqual<int>(
                 0x0100,
-                notifyResponse.NotificationFlags & 0x0fff,
+                notifyResponse.NotificationData.NotificationFlags & 0x0fff,
                 110,
                 @"[In NotificationData Structure] [NotificationType value] 0x0100: The notification is for a TableModified event.");
 
@@ -2521,9 +2564,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Client can receive TableModified notification indicates that a table has been modified on the server.
             this.Site.CaptureRequirementIfAreEqual<int>(
                 0x0100,
-                notifyResponse.NotificationFlags & 0x0fff,
+                notifyResponse.NotificationData.NotificationFlags & 0x0fff,
                 18,
                 @"[In Server Event Types] TableModified: A table has been modified on the server.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R40001");
+
+            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R40001
+            // If R110 and R18 been verified, R40001 will be verified.
+            this.Site.CaptureRequirement(
+                40001,
+                @"[In RopRegisterNotification ROP Request Buffer] [NotificationTypes value] 0x0100: The server sends notifications to the client when TableModified events occur within the scope of interest.");
         }
 
         /// <summary>
@@ -2580,7 +2632,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14204
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the TableRowFolderID is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TableRowFolderID,
+                notifyResponse.NotificationData.TableRowFolderID,
                 14204,
                 @"[In NotificationData Structure] This field [TableRowFolderID] is not available if the TableEventType field is 0x0001.");
 
@@ -2590,7 +2642,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15403
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the InsertAfterTableRowFolderID is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.InsertAfterTableRowFolderID,
+                notifyResponse.NotificationData.InsertAfterTableRowFolderID,
                 15403,
                 @"[In NotificationData Structure] This field [InsertAfterTableRowFolderID] is not available if the TableEventType field is 0x0001.");
 
@@ -2600,7 +2652,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15803
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the InsertAfterTableRowID is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.InsertAfterTableRowID,
+                notifyResponse.NotificationData.InsertAfterTableRowID,
                 15803,
                 @"[In NotificationData Structure] This field [InsertAfterTableRowID] is not available if the TableEventType field is 0x0001.");
 
@@ -2610,7 +2662,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16403
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the TableRowDataSize is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TableRowDataSize,
+                notifyResponse.NotificationData.TableRowDataSize,
                 16403,
                 @"[In NotificationData Structure] This field [TableRowDataSize] is not available if the TableEventType field is 0x0001.");
 
@@ -2620,7 +2672,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16703
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the TableRowData is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TableRowData,
+                notifyResponse.NotificationData.TableRowData,
                 16703,
                 @"[In NotificationData Structure] This field [TableRowData] is not available  if the TableEventType field is 0x0001.");
 
@@ -2630,7 +2682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14604
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the TableRowMessageID is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TableRowMessageID,
+                notifyResponse.NotificationData.TableRowMessageID,
                 14604,
                 @"[In NotificationData Structure] This field [TableRowMessageID] is not available if the TableEventType field is 0x0001.");
 
@@ -2640,7 +2692,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15004
             // TableEventType with value 0x0001 means the notification is for TableChanged event, so if the TableRowInstance is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TableRowInstance,
+                notifyResponse.NotificationData.TableRowInstance,
                 15004,
                 @"[In NotificationData Structure] This field [TableRowInstance] is not available if the TableEventType field is 0x0001.");
         }
@@ -2660,7 +2712,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0100 of NotificationType means that notification is for a TableModified event, cause TableRowAdded is one of the TableModified events.
             // So if the TableEventType in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableEventType,
+                notifyResponse.NotificationData.TableEventType,
                 12401,
                 @"[In NotificationData Structure] This field [TableEventType] is available if the NotificationType value in the NotificationFlags field is 0x0100.");
 
@@ -2671,7 +2723,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0100 of NotificationType means that notification is for a TableModified event, cause TableRowAdded is one of the TableModified events.
             // So if the FolderId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.FolderId,
+                notifyResponse.NotificationData.FolderId,
                 17101,
                 @"[In NotificationData Structure] This field [FolderId] is not available if the NotificationType value in the NotificationFlags field is 0x0100.");
 
@@ -2682,7 +2734,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0100 of NotificationType means that notification is for a TableModified event, cause TableRowAdded is one of the TableModified events.
             // So if the MessageId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.MessageId,
+                notifyResponse.NotificationData.MessageId,
                 17502,
                 @"[In NotificationData Structure] This field [MessageId] is not available if the NotificationType value in the NotificationFlags field is 0x0100.");
 
@@ -2692,7 +2744,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14201
             // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the TableRowFolderID is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowFolderID,
+                notifyResponse.NotificationData.TableRowFolderID,
                 14201,
                 @"[In NotificationData Structure] This field [TableRowFolderID] is available if the TableEventType field is available and is 0x0003.");
 
@@ -2702,7 +2754,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15401
             // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the InsertAfterTableRowFolderID is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.InsertAfterTableRowFolderID,
+                notifyResponse.NotificationData.InsertAfterTableRowFolderID,
                 15401,
                 @"[In NotificationData Structure] This field [InsertAfterTableRowFolderID] is available if the TableEventType field is available and is 0x0003.");
 
@@ -2712,7 +2764,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16401
             // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the TableRowDataSize is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowDataSize,
+                notifyResponse.NotificationData.TableRowDataSize,
                 16401,
                 @"[In NotificationData Structure] This field [TableRowDataSize] is available if the TableEventType field is available and is 0x0003.");
 
@@ -2722,12 +2774,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16701
             // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the TableRowData is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowData,
+                notifyResponse.NotificationData.TableRowData,
                 16701,
                 @"[In NotificationData Structure] This field [TableRowData] is available if the TableEventType field is available and is 0x0003.");
 
             // FlagsBit.M is 0x8000. If FlagsBit.M & NotificationFlags is itself, indicate that M bit is set. 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R14601");
@@ -2735,7 +2787,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14601
                 // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the TableRowMessageID is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowMessageID,
+                    notifyResponse.NotificationData.TableRowMessageID,
                     14601,
                     @"[In NotificationData Structure] This field [TableRowMessageID] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003.");
 
@@ -2745,7 +2797,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15001
                 // TableEventType with value 0x0003 means the notification is for TableRowAdded event, so if the TableRowInstance is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowInstance,
+                    notifyResponse.NotificationData.TableRowInstance,
                     15001,
                     @"[In NotificationData Structure] This field [TableRowInstance] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003.");
 
@@ -2754,7 +2806,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15801
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.InsertAfterTableRowID,
+                    notifyResponse.NotificationData.InsertAfterTableRowID,
                     15801,
                     @"[In NotificationData Structure] This field [InsertAfterTableRowID] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003.");
             }
@@ -2774,12 +2826,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14202
             // TableEventType with value 0x0004 means the notification is for TableRowDeleted event, so if the TableRowFolderID is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowFolderID,
+                notifyResponse.NotificationData.TableRowFolderID,
                 14202,
                 @"[In NotificationData Structure] This field [TableRowFolderID] is available if the TableEventType field is available and is 0x0004.");
 
             // FlagsBit.M is 0x8000. If FlagsBit.M & NotificationFlags is itself, indicate that M bit is set. 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R14602");
@@ -2787,7 +2839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14602
                 // TableEventType with value 0x0004 means the notification is for TableRowDeleted event, so if the TableRowMessageID is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowMessageID,
+                    notifyResponse.NotificationData.TableRowMessageID,
                     14602,
                     @"[In NotificationData Structure] This field [TableRowMessageID] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0004.");
 
@@ -2797,7 +2849,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15002
                 // TableEventType with value 0x0004 means the notification is for TableRowDeleted event, so if the TableRowInstance is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowInstance,
+                    notifyResponse.NotificationData.TableRowInstance,
                     15002,
                     @"[In NotificationData Structure] This field [TableRowInstance] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0004.");
             }
@@ -2817,7 +2869,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14203
             // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the TableRowFolderID is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowFolderID,
+                notifyResponse.NotificationData.TableRowFolderID,
                 14203,
                 @"[In NotificationData Structure] This field [TableRowFolderID] is available if the TableEventType field is available and is 0x0005.");
 
@@ -2827,7 +2879,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15402
             // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the InsertAfterTableRowFolderID is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.InsertAfterTableRowFolderID,
+                notifyResponse.NotificationData.InsertAfterTableRowFolderID,
                 15402,
                 @"[In NotificationData Structure] This field [InsertAfterTableRowFolderID] is available, if the TableEventType field is available and is 0x0005.");
 
@@ -2837,7 +2889,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16402
             // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the TableRowDataSize is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowDataSize,
+                notifyResponse.NotificationData.TableRowDataSize,
                 16402,
                 @"[In NotificationData Structure] This field [TableRowDataSize] is available only if the TableEventType field is available and is 0x0005.");
 
@@ -2847,12 +2899,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R16702
             // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the TableRowData is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TableRowData,
+                notifyResponse.NotificationData.TableRowData,
                 16702,
                 @"[In NotificationData Structure] This field [TableRowData] is available if the TableEventType field is available and is 0x0005.");
 
             // FlagsBit.M is 0x8000. If FlagsBit.M & NotificationFlags is itself, indicate that M bit is set. 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R14603");
@@ -2860,7 +2912,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R14603
                 // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the TableRowMessageID is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowMessageID,
+                    notifyResponse.NotificationData.TableRowMessageID,
                     14603,
                     @"[In NotificationData Structure] This field [TableRowMessageID] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0005.");
 
@@ -2870,7 +2922,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15003
                 // TableEventType with value 0x0005 means the notification is for TableRowModified event, so if the TableRowInstance is not null, this requirement can be verified.
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.TableRowInstance,
+                    notifyResponse.NotificationData.TableRowInstance,
                     15003,
                     @"[In NotificationData Structure] This field [TableRowInstance] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0005.");
 
@@ -2879,7 +2931,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R15802
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.InsertAfterTableRowID,
+                    notifyResponse.NotificationData.InsertAfterTableRowID,
                     15802,
                     @"[In NotificationData Structure] This field [InsertAfterTableRowID] is available if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0005.");
             }
@@ -2898,13 +2950,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
 
             bool isR12402Satisfied = false;
 
-            if (notifyResponse.TableEventType == null)
+            if (notifyResponse.NotificationData.TableEventType == null)
             {
                 isR12402Satisfied = true;
             }
             else
             {
-                if (notifyResponse.TableEventType == (ushort)EventTypeOfTable.NONE)
+                if (notifyResponse.NotificationData.TableEventType == (ushort)EventTypeOfTable.NONE)
                 {
                     isR12402Satisfied = true;
                 }
@@ -2925,7 +2977,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the FolderId in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.FolderId,
+                notifyResponse.NotificationData.FolderId,
                 17103,
                 @"[In NotificationData Structure] This field [FolderId] is available if the NotificationType value in the NotificationFlags field is 0x0002.");
 
@@ -2936,7 +2988,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the ParentFolderId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.ParentFolderId,
+                notifyResponse.NotificationData.ParentFolderId,
                 17905,
                 @"[In NotificationData Structure] This field [ParentFolderId] is not available if the value of the NotificationType field is 0x0002.");
 
@@ -2947,7 +2999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the OldFolderId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.OldFolderId,
+                notifyResponse.NotificationData.OldFolderId,
                 18303,
                 @"[In NotificationData Structure] This field [OldFolderId] is not available if the NotificationType value in the NotificationFlags field is 0x0002.");
 
@@ -2958,7 +3010,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the OldMessageId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.OldMessageId,
+                notifyResponse.NotificationData.OldMessageId,
                 18703,
                 @"[In NotificationData Structure] This field [OldMessageId] is not available if the value of the NotificationType in the NotificationFlags field is 0x0002.");
 
@@ -2969,7 +3021,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the OldParentFolderId in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.OldParentFolderId,
+                notifyResponse.NotificationData.OldParentFolderId,
                 19103,
                 @"[In NotificationData Structure] This field [OldParentFolderId] is not available if the value of the NotificationType in the NotificationFlags field is 0x0002.");
 
@@ -2980,7 +3032,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the TagCount in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.TagCount,
+                notifyResponse.NotificationData.TagCount,
                 19503,
                 @"[In NotificationData Structure] This field [TagCount] is not available if the value of the NotificationType in the NotificationFlags field is 0x0002.");
 
@@ -2991,7 +3043,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the MessageFlags in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.MessageFlags,
+                notifyResponse.NotificationData.MessageFlags,
                 21501,
                 @"[In NotificationData Structure] This field [MessageFlags] is available if the value of the NotificationType in the NotificationFlags field is 0x0002. For details, see [MS-OXCMSG] section 2.2.1.6.");
 
@@ -3002,7 +3054,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the UnicodeFlag in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.UnicodeFlag,
+                notifyResponse.NotificationData.UnicodeFlag,
                 22101,
                 @"[In NotificationData Structure] This field [UnicodeFlag] is available if the value of the NotificationType field in the NotificationFlags field is 0x0002.");
 
@@ -3013,18 +3065,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0002 of NotificationType means that notification is for a NewMail event.
             // So if the MessageClass in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.MessageClass,
+                notifyResponse.NotificationData.MessageClass,
                 22601,
                 @"[In NotificationData Structure] This field [MessageClass] is available if the value of the NotificationType in the NotificationFlags field is 0x0002.");
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R17501");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R17501
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.MessageId,
+                    notifyResponse.NotificationData.MessageId,
                     17501,
                     @"[In NotificationData Structure] This field [MessageId] is available if the NotificationType value in the NotificationFlags field is 0x0002, and bit 0x8000 is set in the NotificationFlags field.");
             }
@@ -3045,7 +3097,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0004 of NotificationType means that notification is for a ObjectCreated event.
             // So if the TagCount in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TagCount,
+                notifyResponse.NotificationData.TagCount,
                 19501,
                 @"[In NotificationData Structure] This field [TagCount] is available if the value of the NotificationType in the NotificationFlags field is 0x0004.");
 
@@ -3056,7 +3108,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0004 of NotificationType means that notification is for a ObjectCreated event.
             // So if the MessageFlags in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.MessageFlags,
+                notifyResponse.NotificationData.MessageFlags,
                 21502,
                 @"[In NotificationData Structure] This field [MessageFlags] is not available if the value of the NotificationType in the NotificationFlags field is 0x0004. For details, see [MS-OXCMSG] section 2.2.1.6.");
 
@@ -3067,7 +3119,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0004 of NotificationType means that notification is for a ObjectCreated event.
             // So if the UnicodeFlag in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.UnicodeFlag,
+                notifyResponse.NotificationData.UnicodeFlag,
                 22102,
                 @"[In NotificationData Structure] This field [UnicodeFlag] is not available if the value of the NotificationType field in the NotificationFlags field is 0x0004.");
 
@@ -3078,18 +3130,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0004 of NotificationType means that notification is for a ObjectCreated event.
             // So if the MessageClass in the response is null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNull(
-                notifyResponse.MessageClass,
+                notifyResponse.NotificationData.MessageClass,
                 22602,
                 @"[In NotificationData Structure] This field [MessageClass] is not available if the value of the NotificationType in the NotificationFlags field is 0x0004.");
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M && (notifyResponse.NotificationFlags & (ushort)FlagsBit.S) != (ushort)FlagsBit.S)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M && (notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.S) != (ushort)FlagsBit.S)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R17901");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R17901
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.ParentFolderId,
+                    notifyResponse.NotificationData.ParentFolderId,
                     17901,
                     @"[In NotificationData Structure] This field [ParentFolderId] is available if the value of the NotificationType field is 0x0004, and it [RopNotify ROP] is sent for a message in a folder (both bit 0x4000 and bit 0x8000 are not set in the NotificationFlags field).");
             }
@@ -3110,7 +3162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0010 of NotificationType means that notification is for a ObjectModified event.
             // So if the TagCount in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.TagCount,
+                notifyResponse.NotificationData.TagCount,
                 19502,
                 @"[In NotificationData Structure] This field [TagCount] is available if the value of the NotificationType in the NotificationFlags field is 0x0010.");
         }
@@ -3130,18 +3182,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0020 of NotificationType means that notification is for a ObjectMoved event.
             // So if the OldFolderId in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.OldFolderId,
+                notifyResponse.NotificationData.OldFolderId,
                 18301,
                 @"[In NotificationData Structure] This field [OldFolderId] is available if the NotificationType value in the NotificationFlags field is 0x0020.");
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) != (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R19101");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R19101
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.OldParentFolderId,
+                    notifyResponse.NotificationData.OldParentFolderId,
                     19101,
                     @"[In NotificationData Structure] This field [OldParentFolderId] is available if the value of the NotificationType in the NotificationFlags field is 0x0020 and bit 0x8000 is not set in the NotificationFlags field.");
             }
@@ -3162,42 +3214,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             // The value 0x0040 of NotificationType means that notification is for a ObjectCopied event.
             // So if the OldFolderId in the response is not null, this requirement can be verified.
             this.Site.CaptureRequirementIfIsNotNull(
-                notifyResponse.OldFolderId,
+                notifyResponse.NotificationData.OldFolderId,
                 18302,
                 @"[In NotificationData Structure] This field [OldFolderId] is available if the NotificationType value in the NotificationFlags field is 0x0040.");
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.M) == (ushort)FlagsBit.M)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R18702");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R18702
                 this.Site.CaptureRequirementIfIsNotNull(
-                    notifyResponse.OldMessageId,
+                    notifyResponse.NotificationData.OldMessageId,
                     18702,
                     @"[In NotificationData Structure] This field [OldMessageId] is available if the value of the NotificationType in the NotificationFlags field is 0x0040 and bit 0x8000 is set in the NotificationFlags field.");
             }
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.T) != (ushort)FlagsBit.T)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.T) != (ushort)FlagsBit.T)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R20702");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R20702
                 this.Site.CaptureRequirementIfIsNull(
-                    notifyResponse.TotalMessageCount,
+                    notifyResponse.NotificationData.TotalMessageCount,
                     20702,
                     @"[In NotificationData Structure] This field [TotalMessageCount] is not available if bit 0x1000 is not set in the NotificationFlags field.");
             }
 
-            if ((notifyResponse.NotificationFlags & (ushort)FlagsBit.U) != (ushort)FlagsBit.U)
+            if ((notifyResponse.NotificationData.NotificationFlags & (ushort)FlagsBit.U) != (ushort)FlagsBit.U)
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R21102");
 
                 // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R21102
                 this.Site.CaptureRequirementIfIsNull(
-                    notifyResponse.UnreadMessageCount,
+                    notifyResponse.NotificationData.UnreadMessageCount,
                     21102,
                     @"[In NotificationData Structure] This field [UnreadMessageCount] is not available if bit 0x2000 is not set in the NotificationFlags field.");
             }
