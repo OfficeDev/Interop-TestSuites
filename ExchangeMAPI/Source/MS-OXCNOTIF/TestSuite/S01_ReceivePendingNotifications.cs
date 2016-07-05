@@ -990,7 +990,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 1,
                 notificationWaitResponseBody.EventPending,
                 482,
-                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 follows this behavior.)");
+                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 and above follow this behavior.)");
             #endregion
         }
         #endregion
