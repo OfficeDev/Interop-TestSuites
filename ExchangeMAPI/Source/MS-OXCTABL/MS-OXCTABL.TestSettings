@@ -1,16 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="MS-OXCTABL" id="6f34cecb-9a0b-4979-b94f-187ae43011d5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXCTABL test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXCTABL.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCTABL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCTABL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCTABL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCTABL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCTABL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCTABL_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCTABL.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXCTABL_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCTABL_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
-    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
