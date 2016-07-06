@@ -5,7 +5,7 @@
     /// <summary>
     /// The NotificationData structure.
     /// </summary>
-    public struct NotificationData
+    public class NotificationData
     {
         /// <summary>
         /// Gets or sets the NotificationFlags.This value specifies the type of the notification and availability of the notification data fields
