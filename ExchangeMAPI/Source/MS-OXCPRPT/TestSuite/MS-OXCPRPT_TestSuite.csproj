@@ -58,6 +58,7 @@
     <None Include="MS-OXCPRPT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCPRPT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCPRPT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCPRPT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
