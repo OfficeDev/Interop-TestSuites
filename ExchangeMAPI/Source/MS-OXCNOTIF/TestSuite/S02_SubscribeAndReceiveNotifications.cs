@@ -133,6 +133,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                             isContained,
                             166,
                             @"[In NotificationData Structure] TableRowData (variable): The table row data, which contains a list of property values in a PropertyRow structure, as specified in [MS-OXCDATA] section 2.8, for the row that was added or modified in the table. ");
+
+                        // Add the debug information
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R166001");
+
+                        // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R166001
+                        // Because TableRowFolderID, TableRowInstance and TableRowMessageID are added by previous RopSetColumns ROP.
+                        // So if TableRowData contains the three values, this requirement can be verified.
+                        this.Site.CaptureRequirementIfIsTrue(
+                            isContained,
+                            166001,
+                            @"[In NotificationData Structure] The property values to be included are determined by a previous RopSetColumns ROP, as specified in [MS-OXCTABL] section 2.2.2.2. ");
                         #endregion
                     }
 
