@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 0x00000000,
                 modifyRulesResponse.ReturnValue,
                 596,
-                @"[In Receiving a RopModifyRules ROP Request] If the server successfully parses the data in the request buffer and is able to process all requests for adding, modifying, and deleting rules (4) present in the request buffer, the server MUST return 0x00000000 as the value of the ReturnValue field in the response buffer.");
+                @"[In Receiving a RopModifyRules ROP Request] If the server successfully parses the data in the request buffer and is able to process all requests for adding, modifying, and deleting rules (2) present in the request buffer, the server MUST return 0x00000000 as the value of the ReturnValue field in the response buffer.");
             #endregion
 
             #region TestUser1 gets the value of PidTagHasRules of the newly created folder after adding rules.
@@ -179,7 +179,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 2,
                 queryRowResponse.RowCount,
                 612,
-                @"[In Receiving a RopGetRulesTable ROP Request] If the server successfully parses the data in the ROP request buffer, it MUST return a valid table handle through which the client can access the folder rules (4) using table specific ROPs defined in [MS-OXCTABL].");
+                @"[In Receiving a RopGetRulesTable ROP Request] If the server successfully parses the data in the ROP request buffer, it MUST return a valid table handle through which the client can access the folder rules (2) using table specific ROPs defined in [MS-OXCTABL].");
 
             // Get PidTagRuleName's value from the specific RuleData.
             TaggedPropertyValue ruleNameProperty = new TaggedPropertyValue();
@@ -248,7 +248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR123,
                 123,
-                @"[In RopGetRulesTable ROP] Each row in the table MUST represent one rule (4).");
+                @"[In RopGetRulesTable ROP] Each row in the table MUST represent one rule (2).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R597, the rule id is:{0}", ruleIDForMarkRead.ToString());
@@ -259,7 +259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR597,
                 597,
-                @"[In Receiving a RopModifyRules ROP Request] The server MUST assign a value for the PidTagRuleId property (section 2.2.7.8) for each rule (4) that has been added by the RopModifyRules ROP request.");
+                @"[In Receiving a RopModifyRules ROP Request] The server MUST assign a value for the PidTagRuleId property (section 2.2.7.8) for each rule (2) that has been added by the RopModifyRules ROP request.");
 
             byte[] valueRuleUserFlagsRetrieved = this.GetPropertyFromList(PropertyId.PidTagRuleUserFlags, propertyRow, propertyTags);
 
@@ -446,7 +446,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Constants.PidTagRuleProvider,
                 pidTagRuleMessageProviderData,
                 184,
-                @"[In PidTagRuleMessageProvider Property] This property has the same semantics as the PidTagRuleProvider property (section 2.2.1.3.1.5). [The PidTagRuleMessageProvider property identifies the client application that owns the rule (4).]");
+                @"[In PidTagRuleMessageProvider Property] This property has the same semantics as the PidTagRuleProvider property (section 2.2.1.3.1.5). [The PidTagRuleMessageProvider property identifies the client application that owns the rule (2).]");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R164");
@@ -458,7 +458,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                  ruleName,
                  pidTagRuleMessageNameValue,
                  164,
-                 @"[In PidTagRuleMessageName Property] This property has the same semantics as the PidTagRuleName property (section 2.2.1.3.1.4). [The PidTagRuleMessageName property specifies the name of the rule (4).]");
+                 @"[In PidTagRuleMessageName Property] This property has the same semantics as the PidTagRuleName property (section 2.2.1.3.1.4). [The PidTagRuleMessageName property specifies the name of the rule (2).]");
             #endregion
             #endregion
 
@@ -651,7 +651,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     0x0,
                     ropGetRulesTableResponse.ReturnValue,
                     836,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [<15> Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [<23> Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]");
             }
 
             if (Common.IsRequirementEnabled(920, this.Site))
@@ -866,7 +866,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR671,
                 671,
-                @"[In RopModifyRules ROP Request Buffer] [ModifyRulesFlag] R (Bitmask 0x01): If this bit is not set, the rules (4) specified in this request represent changes (delete, modify, and add) to the set of rules (4) already existing in this folder.");
+                @"[In RopModifyRules ROP Request Buffer] [ModifyRulesFlag] R (Bitmask 0x01): If this bit is not set, the rules (2) specified in this request represent changes (delete, modify, and add) to the set of rules (2) already existing in this folder.");
 
             #endregion
 
@@ -988,7 +988,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR669,
                 669,
-                @"[In RopModifyRules ROP Request Buffer] [ModifyRulesFlag] R (Bitmask 0x01): If this bit is set, the rules (4) in this request are to replace the existing set of rules (4) in the folder.");
+                @"[In RopModifyRules ROP Request Buffer] [ModifyRulesFlag] R (Bitmask 0x01): If this bit is set, the rules (2) in this request are to replace the existing set of rules (2) in the folder.");
             #endregion
 
             #region TestUser1 deletes the last created rule.
@@ -1017,7 +1017,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             // According to above steps, this requirement can be captured directly.
             this.Site.CaptureRequirement(
                 14,
-                @"[In RopModifyRules ROP] The RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1) creates, modifies, or deletes rules (4) in a folder.");
+                @"[In RopModifyRules ROP] The RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1) creates, modifies, or deletes rules (2) in a folder.");
             #endregion
         }
 
@@ -1481,7 +1481,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR727,
                 727,
-                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.907) specifies the GUID for the reply template.");
+                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.909) specifies the GUID for the reply template.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R928: the actual value of PidTagReplyTemplateId property is {0}", BitConverter.ToString(actionDataForOOFReply.ReplyTemplateGUID));
@@ -1728,7 +1728,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR646,
                 646,
-                @"[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [<10> Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]");
+                @"[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [<15> Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]");
             #endregion
         }
 

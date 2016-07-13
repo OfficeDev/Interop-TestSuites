@@ -6674,7 +6674,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R633</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [&lt;9&gt; Section 2.2.5.1.2.4.1: Exchange 2010 and Exchange 2013 set this value to 0x00.]</ns1:Description>
+		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [&lt;9&gt; Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R329:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

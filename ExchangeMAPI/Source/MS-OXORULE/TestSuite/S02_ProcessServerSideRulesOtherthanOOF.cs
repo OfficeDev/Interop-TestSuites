@@ -390,7 +390,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR525,
                 525,
-                @"[In Processing Incoming Messages to a Folder] Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message: ""OP_REPLY"": The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.");
+                @"[In Processing Incoming Messages to a Folder] Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message: "OP_REPLY": The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R253: the actual value of the PidTagSubject is {0}, and the name of the template is {1}", subject, replyTemplateSubject);
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 526,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_REPLY"": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property ([MS-OXOMSG] section 2.2.1.77) on the message that has the 0x00000020 bit set.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_REPLY": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property ([MS-OXOMSG] section 2.2.1.77) on the message that has the 0x00000020 bit set.");
 
             #endregion
 
@@ -764,7 +764,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 931,
-                @"[In Processing Incoming Messages to a Folder] When executing a rule (4) whose condition evaluates to ""TRUE"" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST perform the actions (3) specified in the PidTagRuleActions property (section 2.2.1.3.1.10) associated with that rule (4) in the case of a server-side rule.");
+                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to "TRUE" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST perform the actions (2) specified in the PidTagRuleActions property (section 2.2.1.3.1.10) associated with that rule (2) in the case of a server-side rule.");
 
             if (Common.IsRequirementEnabled(898, this.Site))
             {
@@ -785,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 549,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELETE"": The server MUST delete the message.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELETE"": The server MUST delete the message.");
 
             #endregion
             #endregion
@@ -802,7 +802,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist2,
                 550,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELETE"": The server MUST stop evaluating subsequent rules (4) on the message except for Out of Office rules.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELETE"": The server MUST stop evaluating subsequent rules (2) on the message except for Out of Office rules.");
             #endregion
 
             #region Delete the newly created folder.
@@ -876,7 +876,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR516,
                 516,
-                @"[In Processing Incoming Messages to a Folder] The server MUST only evaluate rules (4) that are enabled; that is, rules (4) that have the ST_ENABLED flag set in the PidTagRuleState property (2.2.1.3.1.3).");
+                @"[In Processing Incoming Messages to a Folder] The server MUST only evaluate rules (2) that are enabled; that is, rules (2) that have the ST_ENABLED flag set in the PidTagRuleState property (2.2.1.3.1.3).");
 
             // Add the debug information.
             Site.Log.Add(
@@ -894,7 +894,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR63,
                 63,
-                @"[In PidTagRuleState] EN (ST_ENABLED, Bitmask 0x00000001): If neither this flag nor the ST_ONLY_WHEN_OOF flag are set, the server skips this rule (4) when evaluating rules (4).");
+                @"[In PidTagRuleState] EN (ST_ENABLED, Bitmask 0x00000001): If neither this flag nor the ST_ONLY_WHEN_OOF flag are set, the server skips this rule (2) when evaluating rules (2).");
             #endregion
 
             #endregion
@@ -946,7 +946,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isR914Satisfied,
                     914,
-                    @"[In Receiving a RopModifyRules ROP Request] The implementation does start using the newly modified rules (4) when processing messages delivered to that folder as soon as it successfully processes the RopModifyRules ROP request. (Exchange 2003 and above follow this behavior.)");
+                    @"[In Receiving a RopModifyRules ROP Request] The implementation does start using the newly modified rules (2) when processing messages delivered to that folder as soon as it successfully processes the RopModifyRules ROP request. (Exchange 2003 and above follow this behavior.)");
             }
 
             // Add the debug information.
@@ -960,7 +960,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR551,
                 551,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.780) on the message.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.782) on the message.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R902, the value of PidTagMessageFlags is {0}", messageFlag);
@@ -1013,7 +1013,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR559,
                 559,
-                @"[In Processing Out of Office Rules] If the rule (4) condition evaluates to ""false"", no additional action (3) needs to be taken.");
+                @"[In Processing Out of Office Rules] If the rule (2) condition evaluates to ""false"", no additional action (2) needs to be taken.");
             #endregion
         }
 
@@ -1116,7 +1116,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR537,
                 537,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_FORWARD"": The server MUST forward the message to the recipients (2) specified in the action buffer structure (except for messages forwarded to the sender).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_FORWARD"": The server MUST forward the message to the recipients (2) specified in the action buffer structure (except for messages forwarded to the sender).");
 
             if (Common.IsRequirementEnabled(802, this.Site))
             {
@@ -1173,7 +1173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     2,
                     countOfExepctedMessage,
                     799,
-                    @"[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [<12> Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]");
+                    @"[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [<17> Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]");
             }
 
             if (Common.IsRequirementEnabled(907, this.Site))
@@ -1391,7 +1391,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 mailSubject,
                 subject,
                 539,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": the server MUST resend the message to the recipients (2) specified in the action buffer structure.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": the server MUST resend the message to the recipients (2) specified in the action buffer structure.");
 
             string pidTagEntryIdOfMailboxUser = addressbookEntryId.ValueOfX500DN.ToLower(System.Globalization.CultureInfo.CurrentCulture);
             string pidTagReceivedRepresentingEntryId = mailEntryID.ValueOfX500DN.ToLower(System.Globalization.CultureInfo.CurrentCulture);
@@ -1404,7 +1404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 pidTagReceivedRepresentingEntryId,
                 pidTagEntryIdOfMailboxUser,
                 540,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The server also MUST set the values of the following properties to match the current user's properties in the address book: The PidTagReceivedRepresentingEntryId property ([MS-OXOMSG] section 2.2.1.25) MUST be set to the same value as the mailbox user's PidTagEntryId property ([MS-OXOABK] section 2.2.3.3).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The server also MUST set the values of the following properties to match the current user's properties in the address book: The PidTagReceivedRepresentingEntryId property ([MS-OXOMSG] section 2.2.1.25) MUST be set to the same value as the mailbox user's PidTagEntryId property ([MS-OXOABK] section 2.2.3.3).");
 
             string pidTagReceivedRepresentingAddressType = Encoding.Unicode.GetString(getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[2].Value);
 
@@ -1422,7 +1422,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 pidTagReceivedRepresentingAddressType,
                 pidTagAddressTypeOfMailboxUser,
                 541,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingAddressType property ([MS-OXOMSG] section 2.2.1.23) MUST be set to the same value as the mailbox user's PidTagAddressType property ([MS-OXOABK] section 2.2.3.13).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingAddressType property ([MS-OXOMSG] section 2.2.1.23) MUST be set to the same value as the mailbox user's PidTagAddressType property ([MS-OXOABK] section 2.2.3.13).");
 
             string pidTagReceivedRepresentingEmailAddress = Encoding.Unicode.GetString(getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[3].Value);
 
@@ -1440,7 +1440,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 pidTagReceivedRepresentingEmailAddress,
                 pidTagEmailAddressOfMailboxUser,
                 542,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingEmailAddress property ([MS-OXOMSG] section 2.2.1.24) MUST be set to the same value as the mailbox user's PidTagEmailAddress property ([MS-OXOABK] section 2.2.3.14).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingEmailAddress property ([MS-OXOMSG] section 2.2.1.24) MUST be set to the same value as the mailbox user's PidTagEmailAddress property ([MS-OXOABK] section 2.2.3.14).");
 
             string pidTagReceivedRepresentingName = AdapterHelper.PropertyValueConvertToString(getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[4].Value).ToLower(System.Globalization.CultureInfo.CurrentCulture);
 
@@ -1470,7 +1470,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR544,
                 544,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingSearchKey property ([MS-OXOMSG] section 2.2.1.27) MUST be set to the same value as the mailbox user's PidTagSearchKey property ([MS-OXCPRPT] section 2.2.1.9).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingSearchKey property ([MS-OXOMSG] section 2.2.1.27) MUST be set to the same value as the mailbox user's PidTagSearchKey property ([MS-OXCPRPT] section 2.2.1.9).");
 
             // BitConverter.ToBoolean() is used to convert a byte array to a bool value from the byte array index of 0.
             bool pidTagDelegatedByRule = BitConverter.ToBoolean(getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[6].Value, 0);
@@ -1482,7 +1482,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 pidTagDelegatedByRule,
                 545,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagDelegatedByRule property ([MS-OXOMSG] section 2.2.1.84) MUST be set to ""TRUE"".");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagDelegatedByRule property ([MS-OXOMSG] section 2.2.1.84) MUST be set to ""TRUE"".");
 
             #endregion
             #endregion
@@ -1609,7 +1609,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR548,
                 548,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_TAG"": The server MUST set on the message the property specified in the action buffer structure.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_TAG"": The server MUST set on the message the property specified in the action buffer structure.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R266: the value of PidTagImportance is {0}", BitConverter.ToInt32(getMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[0].Value, 0));
@@ -1958,7 +1958,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR514,
                 514,
-                @"[In Processing Incoming Messages to a Folder] For each message delivered to a folder, the server evaluates each rule (4) in that folder in increasing order of the value of the PidTagRuleSequence property (section 2.2.1.3.1.2) in each rule (4).");
+                @"[In Processing Incoming Messages to a Folder] For each message delivered to a folder, the server evaluates each rule (2) in that folder in increasing order of the value of the PidTagRuleSequence property (section 2.2.1.3.1.2) in each rule (2).");
             #endregion
         }
 
@@ -2771,7 +2771,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                   isVerifyR904,
                   904,
-                  @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MOVE"": The implementation does create multiple copies of the message and then delete the original message, if multiple ""OP_MOVE"" operations apply to the same message. (Exchange 2003 and above follow this behavior.)");
+                  @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MOVE"": The implementation does create multiple copies of the message and then delete the original message, if multiple ""OP_MOVE"" operations apply to the same message. (Exchange 2003 and above follow this behavior.)");
             #endregion
 
             #region Delete the folders created in step2 and step3.

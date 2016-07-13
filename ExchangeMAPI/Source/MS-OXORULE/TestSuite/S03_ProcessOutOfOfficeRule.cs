@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR560,
                 560,
-                @"[In Interaction Between ST_ONLY_WHEN_OOF and ST_EXIT_LEVEL Flags] When the Out of Office state is set on the mailbox, as specified in [MS-OXWOOF], and a rule (4) condition evaluates to ""TRUE"", if the rule (4) has the ST_EXIT_LEVEL flag specified in section 2.2.1.3.1.3 set, then the server MUST NOT evaluate subsequent rules (4) that do not have the ST_ONLY_WHEN_OOF flag set.");
+                @"[In Interaction Between ST_ONLY_WHEN_OOF and ST_EXIT_LEVEL Flags] When the Out of Office state is set on the mailbox, as specified in [MS-OXWOOF], and a rule (2) condition evaluates to ""TRUE"", if the rule (2) has the ST_EXIT_LEVEL flag specified in section 2.2.1.3.1.3 set, then the server MUST NOT evaluate subsequent rules (2) that do not have the ST_ONLY_WHEN_OOF flag set.");
             #endregion
 
             #region Set Testuser1 back to normal state (not in OOF state)
@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR807,
                 807,
-                @"[In Interaction Between ST_ONLY_WHEN_OOF and ST_EXIT_LEVEL Flags] Subsequent rules (4) that have the ST_ONLY_WHEN_OOF flag set MUST be evaluated.");
+                @"[In Interaction Between ST_ONLY_WHEN_OOF and ST_EXIT_LEVEL Flags] Subsequent rules (2) that have the ST_ONLY_WHEN_OOF flag set MUST be evaluated.");
 
             // When is not mark as read, it means rule evaluation will not terminate.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R858");
@@ -238,7 +238,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 1,
                 messageFlags & 1,
                 858,
-                "[In PidTagRuleState Property] EL (ST_EXIT_LEVEL, Bitmask 0x00000010): Rule (4) evaluation will not terminate after executing this rule (4) if for evaluation of Out of Office rules.");
+                "[In PidTagRuleState Property] EL (ST_EXIT_LEVEL, Bitmask 0x00000010): rule (2) evaluation will not terminate after executing this rule (2) if for evaluation of Out of Office rules.");
 
             #endregion
             #endregion
@@ -325,7 +325,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerify67,
                 67,
-                "[In PidTagRuleState] OF (ST_ONLY_WHEN_OOF, Bitmask 0x00000004): The rule (4) is executed only when a user sets the Out of Office (OOF) state on the mailbox, as specified in [MS-OXWOOF] section 2.2.5.2.");
+                "[In PidTagRuleState] OF (ST_ONLY_WHEN_OOF, Bitmask 0x00000004): The rule (2) is executed only when a user sets the Out of Office (OOF) state on the mailbox, as specified in [MS-OXWOOF] section 2.2.5.2.");
             #endregion
 
             #region TestUser2 Verifies whether the OP_Forward rule is executed.
@@ -342,7 +342,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 857,
-                "[In PidTagRuleState Property] EL (ST_EXIT_LEVEL, Bitmask 0x00000010): Rule (4) evaluation will terminate after executing this rule (4) except for evaluation of Out of Office rules.");
+                "[In PidTagRuleState Property] EL (ST_EXIT_LEVEL, Bitmask 0x00000010): rule (2) evaluation will terminate after executing this rule (2) except for evaluation of Out of Office rules.");
             #endregion
         }
 
@@ -439,7 +439,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR517,
                 517,
-                @"[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (4) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.1.");
+                @"[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (2) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.1.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R553: whether rule is executed or not when it is not in out of office state is {0}, and when it is in out of office state is {1}", isRuleNotExecuteWhenNotInOOFState, isRuleExecuteWhenInOOFState);
@@ -461,7 +461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR582,
                 582,
-                @"[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.1, the server MUST start processing rules (4) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).");
+                @"[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.1, the server MUST start processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).");
             #endregion
             #endregion
 
@@ -620,7 +620,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             // If R577 is verified, which means the sender was added to the list of recipients.
             this.Site.CaptureRequirement(
                 558,
-                @"[In Processing Out of Office Rules] If not [the sender is not on the list] and the rule (4) condition evaluates to ""TRUE"", the server MUST add the sender to the list of recipients (2) for the rule (4) in addition to executing the rule (4) action (3).");
+                @"[In Processing Out of Office Rules] If not [the sender is not on the list] and the rule (2) condition evaluates to ""TRUE"", the server MUST add the sender to the list of recipients (2) for the rule (2) in addition to executing the rule (2) action (2).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R583");
@@ -632,7 +632,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR583,
                 583,
-                @"[In Entering and Exiting the Out of Office State]The server MUST also keep a list for rules (4) that have the ST_KEEP_OOF_HIST flag in the PidTagRuleState property specified in section 3.2.1.2.");
+                @"[In Entering and Exiting the Out of Office State] The server MUST also keep a list for rules (2) that have the ST_KEEP_OOF_HIST flag in the PidTagRuleState property specified in section 3.2.1.2.");
             #endregion
             #endregion
 
@@ -744,7 +744,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR922,
                 922,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message:] ""OP_OOF_REPLY"": The server MUST behave as specified for the ""OP_REPLY"" action (3). [The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.]");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message:] "OP_OOF_REPLY": The server MUST behave as specified for the "OP_REPLY" action (2). [The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.]");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R953: the replied message count is {0}, and whether the message body contains the reply template body is {1}", ropQueryRowsResponse.RowCount, isBodyContainsReplyTemplateBody);
@@ -773,7 +773,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR906,
                     906,
-                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_OOF_REPLY"": The implementation does set the value of the PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) on the reply message to ""IPM.Note.rules.OOFTemplate"" in addition. (Exchange 2003 and above follow this behavior.)");
+                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_OOF_REPLY"": The implementation does set the value of the PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) on the reply message to ""IPM.Note.rules.OOFTemplate"" in addition. (Exchange 2003 and above follow this behavior.)");
             }
             #endregion
             #endregion
@@ -907,7 +907,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 2,
                 BitConverter.ToInt32(getMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[0].Value, 0),
                 584,
-                @"[In Entering and Exiting the Out of Office State] When the mailbox exits the Out of Office state, the server MUST stop processing rules (4) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property.");
+                @"[In Entering and Exiting the Out of Office State] When the mailbox exits the Out of Office state, the server MUST stop processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property.");
             #endregion
         }
 
@@ -1153,7 +1153,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 533,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_OOF_REPLY"": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property on the message has the 0x00000010 bit set.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_OOF_REPLY"": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property on the message has the 0x00000010 bit set.");
             #endregion
         }
     }
