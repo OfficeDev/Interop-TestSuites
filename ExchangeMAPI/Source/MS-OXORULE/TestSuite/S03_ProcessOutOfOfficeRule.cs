@@ -1156,5 +1156,120 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_OOF_REPLY"": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property on the message has the 0x00000010 bit set.");
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test the server behavior for OP_OOF_REPLY when action flavor is NS. 
+        /// </summary>
+        [TestCategory("MSOXORULE"), TestMethod()]
+        public void MSOXORULE_S03_TC09_OOFBehaviorsForOP_OOF_REPLY_ActionFlavor_NS()
+        {
+            this.CheckMAPIHTTPTransportSupported();
+
+            #region Prepare value for ruleProperties variable.
+            RuleProperties ruleProperties = AdapterHelper.GenerateRuleProperties(this.Site, Constants.RuleNameOOFReply);
+            string setOOFMailAddress = this.User1Name + "@" + this.Domain;
+            string userPassword = this.User1Password;
+            #endregion
+
+            #region Set TestUser1 to OOF state.
+            bool isSetOOFSuccess = this.SUTSetOOFAdapter.SetUserOOFSettings(setOOFMailAddress, userPassword, true);
+            Site.Assert.IsTrue(isSetOOFSuccess, "Turn Out of Office on for {0} should succeed.", this.User1Name);
+            Thread.Sleep(this.WaitForSetOOFComplete);
+            #endregion
+
+            #region Create one reply template for OP_OOF_REPLY action Type in TestUser1's Inbox folder.
+            ulong replyTemplateMessageID;
+            uint replyTemplateMessageHandle;
+
+            TaggedPropertyValue[] replyTemplateProperties;
+            TaggedPropertyValue[] temp = AdapterHelper.GenerateRecipientPropertiesBlock(this.User2Name, this.User2ESSDN);
+            replyTemplateProperties = new TaggedPropertyValue[4];
+            replyTemplateProperties[0] = new TaggedPropertyValue();
+            PropertyTag addReplyBodyPropertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)PropertyId.PidTagBody,
+                PropertyType = (ushort)PropertyType.PtypString
+            };
+            replyTemplateProperties[0].PropertyTag = addReplyBodyPropertyTag;
+            string replyMessageBody = Common.GenerateResourceName(this.Site, Constants.MessageOfOOFReply);
+            replyTemplateProperties[0].Value = Encoding.Unicode.GetBytes(replyMessageBody + "\0");
+            Array.Copy(temp, 0, replyTemplateProperties, 1, temp.Length - 1);
+            string replyTemplateSubject = Common.GenerateResourceName(this.Site, Constants.ReplyTemplateSubject);
+            byte[] replyTemplateGUID = this.OxoruleAdapter.CreateReplyTemplate(this.InboxFolderHandle, this.InboxFolderID, true, replyTemplateSubject, replyTemplateProperties, out replyTemplateMessageID, out replyTemplateMessageHandle);
+            #endregion
+
+            #region TestUser1 adds OP_OOF_REPLY rule with actionFlavor set to NS(0x00000001).
+            ReplyActionData replyRuleActionData = new ReplyActionData
+            {
+                ReplyTemplateGUID = replyTemplateGUID,
+                ReplyTemplateFID = this.InboxFolderID,
+                ReplyTemplateMID = replyTemplateMessageID
+            };
+            uint actionFlavor_NS = (uint)ActionFlavorsReply.NS;
+
+            RuleData ruleDataForReplyRule = AdapterHelper.GenerateValidRuleDataWithFlavor(ActionType.OP_OOF_REPLY, 1, RuleState.ST_ENABLED, replyRuleActionData, actionFlavor_NS, ruleProperties);
+            RopModifyRulesResponse ropModifyRulesResponse = this.OxoruleAdapter.RopModifyRules(this.InboxFolderHandle, ModifyRuleFlag.Modify_ReplaceAll, new RuleData[] { ruleDataForReplyRule });
+            Site.Assert.AreEqual<uint>(0, ropModifyRulesResponse.ReturnValue, "Adding reply rule should succeed.");
+            #endregion
+
+            #region TestUser2 delivers a message to TestUser1 to trigger these rules.
+            // Sleep enough time to wait for the rule to take effect.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+            string mailSubject = Common.GenerateResourceName(this.Site, ruleProperties.ConditionSubjectName + "Title");
+            this.SUTAdapter.SendMailToRecipient(this.User2Name, this.User2Password, this.User1Name, mailSubject);
+
+            // Sleep enough time to wait for the rule to be executed on the delivered message.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+            #endregion
+
+            #region TestUser2 verifies whether can receive the OOF replied message.
+            // Let Testuser2 logon to the server
+            this.LogonMailbox(TestUser.TestUser2);
+
+            PropertyTag[] propertyTagList = new PropertyTag[4];
+            propertyTagList[0].PropertyId = (ushort)PropertyId.PidTagAutoForwarded;
+            propertyTagList[0].PropertyType = (ushort)PropertyType.PtypBoolean;
+            propertyTagList[1].PropertyId = (ushort)PropertyId.PidTagBody;
+            propertyTagList[1].PropertyType = (ushort)PropertyType.PtypString;
+            propertyTagList[2].PropertyId = (ushort)PropertyId.PidTagSubject;
+            propertyTagList[2].PropertyType = (ushort)PropertyType.PtypString;
+            propertyTagList[3].PropertyId = (ushort)PropertyId.PidTagMessageClass;
+            propertyTagList[3].PropertyType = (ushort)PropertyType.PtypString;
+
+            uint contentsTableHandle = 0;
+            int expectedMessageIndex = 0;            
+
+            if (Common.IsRequirementEnabled(10191, this.Site))
+            {
+                RopQueryRowsResponse ropQueryRowsResponse = this.GetExpectedMessage(this.InboxFolderHandle, ref contentsTableHandle, propertyTagList, ref expectedMessageIndex, mailSubject);
+                string mailBodyTestUser2 = AdapterHelper.PropertyValueConvertToString(ropQueryRowsResponse.RowData.PropertyRows[expectedMessageIndex].PropertyValues[1].Value);
+                string subject = AdapterHelper.PropertyValueConvertToString(ropQueryRowsResponse.RowData.PropertyRows[expectedMessageIndex].PropertyValues[2].Value);
+                bool isBodyContainsReplyTemplateBody = mailBodyTestUser2.Contains(replyMessageBody);
+                Site.Assert.IsTrue(isBodyContainsReplyTemplateBody, "Message should contain the template body!");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R10191: the replied message count is {0}, and whether the message body contains the reply template body is {1}", ropQueryRowsResponse.RowCount, isBodyContainsReplyTemplateBody);
+
+                // Verify MS-OXORULE requirement: MS-OXORULE_R10191
+                // Testuser2 sent message to Testuser1,Testuser2 can receive a reply means the server send the reply
+                bool isVerifyR10191 = ropQueryRowsResponse.RowCount > 0 && isBodyContainsReplyTemplateBody;
+
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR10191,
+                    10191,
+                    @"[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is ""OP_OOF_REPLY"" if action flavor is NS. (<6> Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 send a reply message if the ActionType is ""OP_OOF_REPLY"".)");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R1020");
+
+                // Verify MS-OXORULE requirement: MS-OXORULE_R1020
+                // The recipients information is added in the reply template when it is created. Since the rule works as expected, this requirement can be captured.
+                Site.CaptureRequirement(
+                    1020,
+                    @"[In Action Flavors] NS (Bitmask 0x00000001): [OP_OOF_REPLY ActionType] [The server SHOULD<6> not send the message to the message sender]The reply template MUST contain recipients (2) in this case [if the NS flag is set].");
+            }
+
+            #endregion
+        }
     }
 }

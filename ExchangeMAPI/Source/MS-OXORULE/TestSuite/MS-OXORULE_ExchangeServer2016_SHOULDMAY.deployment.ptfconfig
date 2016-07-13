@@ -85,5 +85,11 @@
     <Property name="R740Enabled" value="true"/>
     <!-- Set R741Enabled to true to verify that the implementation does support PidTagRuleFolderEntryId property for DAM. Set R741Enabled to false to disable this requirement.-->
     <Property name="R741Enabled" value="true"/>
+    <!-- Set R7411Enabled to true to verify that the implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) if the delivered message's PidTagContentFilterSpamConfidenceLevel property has a value of 0xFFFFFFFF. Set R7411Enabled to false to disable this requirement.-->
+    <Property name="R7411Enabled" value="true"/>
+    <!-- Set R10191Enabled to true to verify that the implementation does send a reply message if the ActionType is "OP_OOF_REPLY" when action flavor is NS. Set R10191Enabled to false to disable this requirement.-->
+    <Property name="R10191Enabled" value="false"/>
+    <!-- Set R5281Enabled to true to verify that the implementation does not avoid sending replies to automatically generated messages to avoid generating endless autoreply loops for "OP_REPLY". Set R5281Enabled to false to disable this requirement.-->
+    <Property name="R5281Enabled" value="true"/>
   </Properties>
 </TestSite>

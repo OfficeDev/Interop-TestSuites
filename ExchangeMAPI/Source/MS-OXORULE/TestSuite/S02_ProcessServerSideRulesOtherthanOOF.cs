@@ -2783,6 +2783,176 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         }
 
         /// <summary>
+        /// This test case is designed to verify the rules behavior of ST_SKIP_IF_SCL_IS_SAFE state. 
+        /// </summary>
+        [TestCategory("MSOXORULE"), TestMethod()]
+        public void MSOXORULE_S02_TC19_RuleState_ST_SKIP_IF_SCL_IS_SAFE()
+        {
+            this.CheckMAPIHTTPTransportSupported();
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(7411, this.Site), "This test case only runs if implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) when the delivered message's PidTagContentFilterSpamConfidenceLevel property has a value of 0xFFFFFFFF");
+            
+            #region TestUser1 adds an OP_TAG rule with PidTagRuleState set to ST_ENABLED | ST_SKIP_IF_SCL_IS_SAFE.
+            RuleProperties ruleProperties = AdapterHelper.GenerateRuleProperties(this.Site, Constants.RuleNameTag);
+            TagActionData tagActionData = new TagActionData();
+            PropertyTag tagActionDataPropertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)PropertyId.PidTagImportance,
+                PropertyType = (ushort)PropertyType.PtypInteger32
+            };
+            tagActionData.PropertyTag = tagActionDataPropertyTag;
+            tagActionData.PropertyValue = BitConverter.GetBytes(2);
+
+            RuleData ruleOpTag = AdapterHelper.GenerateValidRuleData(ActionType.OP_TAG, TestRuleDataType.ForAdd, 1, RuleState.ST_ENABLED | RuleState.ST_SKIP_IF_SCL_IS_SAFE, tagActionData, ruleProperties, null);
+            RopModifyRulesResponse ropModifyRulesResponse = this.OxoruleAdapter.RopModifyRules(this.InboxFolderHandle, ModifyRuleFlag.Modify_ReplaceAll, new RuleData[] { ruleOpTag });
+            Site.Assert.AreEqual<uint>(0, ropModifyRulesResponse.ReturnValue, "Adding OP_TAG rule should succeed");
+            #endregion
+
+            #region TestUser2 delivers a message to TestUser1 to trigger these rules.
+            // Sleep enough time to wait for the rule to take effect.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+
+            // Let TestUser2 log on to the server
+            this.LogonMailbox(TestUser.TestUser2);
+
+            TaggedPropertyValue contentFilterSpamConfidenceLevel = new TaggedPropertyValue();
+            PropertyTag contentFilterSpamConfidenceLevelTag = new PropertyTag
+            {
+                PropertyId = (ushort)PropertyId.PidTagContentFilterSpamConfidenceLevel,
+                PropertyType = (ushort)PropertyType.PtypInteger32
+            };
+            contentFilterSpamConfidenceLevel.PropertyTag = contentFilterSpamConfidenceLevelTag;
+            contentFilterSpamConfidenceLevel.Value = BitConverter.GetBytes(0xFFFFFFFF);
+            string subject = Common.GenerateResourceName(this.Site, ruleProperties.ConditionSubjectName);
+            this.DeliverMessageToTriggerRule(this.User1Name, this.User1ESSDN, subject, new TaggedPropertyValue[1] { contentFilterSpamConfidenceLevel });
+
+            // Sleep enough time to wait for the rule to be executed on the delivered message.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+            #endregion
+
+            #region Testuser1 verifies whether the specific property value is set on the received mail.
+            // Let TestUser2 log on to the server
+            this.LogonMailbox(TestUser.TestUser1);
+
+            PropertyTag[] propertyTagList = new PropertyTag[2];
+            propertyTagList[0].PropertyId = (ushort)PropertyId.PidTagImportance;
+            propertyTagList[0].PropertyType = (ushort)PropertyType.PtypInteger32;
+            propertyTagList[1].PropertyId = (ushort)PropertyId.PidTagSubject;
+            propertyTagList[1].PropertyType = (ushort)PropertyType.PtypString;
+
+            uint contentsTableHandle = 0;
+            int expectedMessageIndex = 0;
+            RopQueryRowsResponse getMailMessageContent = this.GetExpectedMessage(this.InboxFolderHandle, ref contentsTableHandle, propertyTagList, ref expectedMessageIndex, subject);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7411");
+
+            // Verify MS-OXORULE requirement: MS-OXORULE_R7411
+            // If the PidTagImportance is the value which is set on OP_TAG rule, it means the rule tacks action and the rule sets the property 
+            // specified in the rule's action buffer structure.
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                BitConverter.ToInt32(getMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[0].Value, 0),
+                7411,
+                @"[In Appendix A: Product Behavior] Implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.638) has a value of 0xFFFFFFFF. (Exchange 2003 and above follow this behavior.)");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to validate the execution of OP_REPLY rule for automatically generated messages,. 
+        /// </summary>
+        [TestCategory("MSOXORULE"), TestMethod()]
+        public void MSOXORULE_S02_TC20_ServerExecuteRule_Action_OP_REPLY_AutoGeneratedMsg()
+        {
+            this.CheckMAPIHTTPTransportSupported();
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(5281, this.Site), "This test case only runs when implementation does not avoid sending replies to automatically generated messages to avoid generating endless autoreply loops for \"OP_REPLY\"");
+
+            #region Prepare value for ruleProperties variable
+            RuleProperties ruleProperties = AdapterHelper.GenerateRuleProperties(this.Site, Constants.RuleNameReply);
+            #endregion
+
+            #region Create a reply template in the TestUser1's Inbox folder.
+            ulong replyTemplateMessageId;
+            uint replyTemplateMessageHandler;
+            string replyTemplateSubject = Common.GenerateResourceName(this.Site, Constants.ReplyTemplateSubject);
+
+            TaggedPropertyValue[] replyTemplateProperties = new TaggedPropertyValue[1];
+            replyTemplateProperties[0] = new TaggedPropertyValue();
+            PropertyTag replyTemplatePropertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)PropertyId.PidTagBody,
+                PropertyType = (ushort)PropertyType.PtypString
+            };
+            replyTemplateProperties[0].PropertyTag = replyTemplatePropertyTag;
+            replyTemplateProperties[0].Value = Encoding.Unicode.GetBytes(Constants.ReplyTemplateBody + "\0");
+
+            byte[] guidBytes = this.OxoruleAdapter.CreateReplyTemplate(this.InboxFolderHandle, this.InboxFolderID, false, replyTemplateSubject, replyTemplateProperties, out replyTemplateMessageId, out replyTemplateMessageHandler);
+            #endregion
+
+            #region TestUser1 adds a reply rule to TestUser1's Inbox folder.
+            ReplyActionData replyActionData = new ReplyActionData
+            {
+                ReplyTemplateGUID = new byte[guidBytes.Length]
+            };
+            Array.Copy(guidBytes, 0, replyActionData.ReplyTemplateGUID, 0, guidBytes.Length);
+
+            replyActionData.ReplyTemplateFID = this.InboxFolderID;
+            replyActionData.ReplyTemplateMID = replyTemplateMessageId;
+
+            RuleData ruleForReply = AdapterHelper.GenerateValidRuleDataWithFlavor(ActionType.OP_REPLY, 0, RuleState.ST_ENABLED, replyActionData, 0x00000000, ruleProperties);
+            RopModifyRulesResponse ropModifyRulesResponse = this.OxoruleAdapter.RopModifyRules(this.InboxFolderHandle, ModifyRuleFlag.Modify_ReplaceAll, new RuleData[] { ruleForReply });
+            Site.Assert.AreEqual<uint>(0, ropModifyRulesResponse.ReturnValue, "Adding rule with actionFlavor set to 0x00000000 should succeed.");
+            #endregion
+
+            #region TestUser2 sends a mail with PidTagAutoForwarded setting to true to the TestUser1 to trigger this rule.
+            // Sleep enough time to wait for the rule to take effect.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+
+            // Let TestUser2 log on to the server
+            this.LogonMailbox(TestUser.TestUser2);
+
+            TaggedPropertyValue autoForwarded = new TaggedPropertyValue();
+            PropertyTag autoForwardedTag = new PropertyTag
+            {
+                PropertyId = (ushort)PropertyId.PidTagAutoForwarded,
+                PropertyType = (ushort)PropertyType.PtypBoolean
+            };
+            autoForwarded.PropertyTag = autoForwardedTag;
+            autoForwarded.Value = BitConverter.GetBytes(true);
+            string subject = Common.GenerateResourceName(this.Site, ruleProperties.ConditionSubjectName);
+            this.DeliverMessageToTriggerRule(this.User1Name, this.User1ESSDN, subject, new TaggedPropertyValue[1] { autoForwarded });
+
+            // Sleep enough time to wait for the rule to be executed on the delivered message.
+            Thread.Sleep(this.WaitForTheRuleToTakeEffect);
+            #endregion
+
+            #region TestUser2 verifies there are reply messages in the specific folder.
+            PropertyTag[] propertyTagList1 = new PropertyTag[3];
+            propertyTagList1[0].PropertyId = (ushort)PropertyId.PidTagSubject;
+            propertyTagList1[0].PropertyType = (ushort)PropertyType.PtypString;
+            propertyTagList1[1].PropertyId = (ushort)PropertyId.PidTagBody;
+            propertyTagList1[1].PropertyType = (ushort)PropertyType.PtypString;
+            propertyTagList1[2].PropertyId = (ushort)PropertyId.PidTagReceivedByEmailAddress;
+            propertyTagList1[2].PropertyType = (ushort)PropertyType.PtypString;
+
+            uint contentTableHandler = 0;
+            int expectedMessageIndex = 0;
+            RopQueryRowsResponse getNormalMailMessageContent = this.GetExpectedMessage(this.InboxFolderHandle, ref contentTableHandler, propertyTagList1, ref expectedMessageIndex, replyTemplateSubject);
+
+            #region Capture Code
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R5281");
+
+            // Verify MS-OXORULE requirement: MS-OXORULE_R5281.
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                getNormalMailMessageContent.RowData.PropertyRows.Count,
+                5281,
+                @"[In Appendix A: Product Behavior] Implementation does not avoid sending replies to automatically generated messages to avoid generating endless autoreply loops for ""OP_REPLY"". (Exchange 2003 and above follow this behavior.)");
+            #endregion
+            #endregion
+        }
+
+        /// <summary>
         /// Verify action type OP_MOVE.
         /// </summary>
         /// <param name="getFolderMailMessageContent">Message content gotten from the specified folder.</param>

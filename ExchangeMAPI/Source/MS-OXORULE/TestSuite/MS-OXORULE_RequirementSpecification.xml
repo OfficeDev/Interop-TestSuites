@@ -5502,7 +5502,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R528</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_REPLY": The server SHOULD also avoid sending replies to automatically generated messages, which are identified by the PidTagAutoForwarded property ([MS-OXCMSG] section 2.2.1.20), to avoid generating endless autoreply loops.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_REPLY": The server MAY also avoid sending replies to automatically generated messages, which are identified by the PidTagAutoForwarded property ([MS-OXCMSG] section 2.2.1.20), to avoid generating endless autoreply loops.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6452,12 +6452,24 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R7411</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.638) has a value of 0xFFFFFFFF.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.638) has a value of 0xFFFFFFFF. (Exchange 2003 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R74:i,MS-OXORULE_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXORULE_R5281</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not avoid sending replies to automatically generated messages to avoid generating endless autoreply loops for "OP_REPLY". (Exchange 2003 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXORULE_R528:i,MS-OXORULE_R2:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R621</ns1:REQ_ID>
@@ -6597,7 +6609,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R10191</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is "OP_OOF_REPLY". (&lt;6&gt; Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 send a reply message if the ActionType is "OP_OOF_REPLY".)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is "OP_OOF_REPLY" if action flavor is NS. (&lt;6&gt; Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 send a reply message if the ActionType is "OP_OOF_REPLY".)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R1019:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6608,13 +6620,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R10192</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not send the message to the message sender if the ActionType field value is "OP_OOF_REPLY". (Exchange 2016 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not send the message to the message sender if the ActionType field value is "OP_OOF_REPLY" if action flavor is NS. (Exchange 2016 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R1019:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R7031</ns1:REQ_ID>
