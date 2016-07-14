@@ -37,7 +37,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 // If the transport sequence is MAPIHTTP and the code can reach here, it means that the implementation does support MAPIHTTP transport.
                 Site.CaptureRequirement(
                         5000,
-                        @"[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) follows this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follow this behavior.)");
             }
         }
         #endregion
@@ -164,7 +164,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                                 Common.GetConfigurationPropertyValue("UserName", this.Site).ToLower(),
                                 result,
                                 34,
-                                @"[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.755) contains the name of the last mail user to modify the object. ");
+                                @"[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.757) contains the name of the last mail user to modify the object.");
 
                             Site.CaptureRequirementIfAreNotEqual<ServerObjectType>(
                                  ServerObjectType.Folder,
@@ -1705,7 +1705,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     (uint)CPRPTErrorCode.NotSupported,
                     ropCopyToResponse.ReturnValue,
                     5070513,
-                    @"[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<9> Section 3.2.5.8: Exchange 2007 and Exchange 2010 follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<10> Section 3.2.5.8: Exchange 2007 and Exchange 2010 follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(5070514, this.Site))
@@ -1718,7 +1718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     (uint)CPRPTErrorCode.NotSupported,
                     ropCopyToResponse.ReturnValue,
                     5070514,
-                    @"[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<9> Section 3.2.5.8: Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<10> Section 3.2.5.8: Exchange 2013 follows this behavior.)");
             }
         }
         #endregion
@@ -2700,7 +2700,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
                        750,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (<14> Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (<15> Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
@@ -2731,7 +2731,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
                        751,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (<15> Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (<16> Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
@@ -2763,7 +2763,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // Since the RopWriteAndCommitStream ROP response is performed successfully, MS-OXCPRPT_R752 can be captured directly.
                     Site.CaptureRequirement(
                         752,
-                        @"[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (<16> Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))");
+                        @"[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (<17> Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))");
 
                     // Since the RopWriteAndCommitStream ROP response is performed successfully, MS-OXCPRPT_R805 can be captured directly.
                     Site.CaptureRequirement(
@@ -2813,7 +2813,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, the following requirement can be captured.
                     Site.CaptureRequirement(
                        753,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<17> Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<18> Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(

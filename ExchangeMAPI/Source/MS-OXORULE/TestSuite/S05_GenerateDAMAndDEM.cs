@@ -83,6 +83,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 {
                     PropertyId = (ushort)PropertyId.PidTagRuleName,
                     PropertyType = (ushort)PropertyType.PtypString
+                },
+                new PropertyTag
+                {
+                    PropertyId = (ushort)PropertyId.PidTagRuleId,
+                    PropertyType = (ushort)PropertyType.PtypInteger64
+                },
+                new PropertyTag
+                {
+                    PropertyId = (ushort)PropertyId.PidTagRuleSequence,
+                    PropertyType = (ushort)PropertyType.PtypInteger32
                 }
             };
 
@@ -93,6 +103,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             // Add two rules to the Inbox folder, so if get rule table successfully and the rule count is 2,
             // it means the server is returning a table with the rules added by the test suite.
             Site.Assert.AreEqual(2, queryRowResponse.RowCount, @"There should be 2 rules returned, actual returned row count is {0}.", queryRowResponse.RowCount);
+            byte[] pidTagRuleId1 = null;
+            if (AdapterHelper.PropertyValueConvertToUint(queryRowResponse.RowData.PropertyRows[0].PropertyValues[2].Value) == 0)
+            {
+                pidTagRuleId1 = queryRowResponse.RowData.PropertyRows[0].PropertyValues[1].Value;
+            }
+            else
+            {
+                pidTagRuleId1 = queryRowResponse.RowData.PropertyRows[1].PropertyValues[1].Value;
+            }
             this.VerifyRuleTable();
             #endregion
 
@@ -174,6 +193,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 908,
                 @"[In Generating a DAM] The implementation does this [pack information about more than one ""OP_DEFER_ACTION"" actions (2) for any given message into one DAM] when there are more than one ""OP_DEFER_ACTION"" actions (2) that belong to the same rule provider. (Exchange 2003 and above follow this behavior.)");
 
+            byte[] pidTagRuleIds = AdapterHelper.PropertyValueConvertToBinary(ropQueryRowsResponseOfDAM.RowData.PropertyRows[0].PropertyValues[6].Value);
+
+            System.Collections.Generic.List<byte> temp = new System.Collections.Generic.List<byte>();
+            temp.AddRange(pidTagRuleId1);
+            temp.AddRange(pidTagRuleId1);
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R368");
+
+            // Verify MS-OXORULE requirement: MS-OXORULE_R368
+            Site.CaptureRequirementIfIsTrue(
+                Common.CompareByteArray(temp.ToArray(), pidTagRuleIds),
+                368,
+                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.941) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
             #endregion
             #endregion
         }
