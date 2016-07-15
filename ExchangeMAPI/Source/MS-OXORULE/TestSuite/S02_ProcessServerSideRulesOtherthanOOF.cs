@@ -390,7 +390,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR525,
                 525,
-                @"[In Processing Incoming Messages to a Folder] Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message: "OP_REPLY": The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.");
+                @"[In Processing Incoming Messages to a Folder] Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message: ""OP_REPLY"": The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R253: the actual value of the PidTagSubject is {0}, and the name of the template is {1}", subject, replyTemplateSubject);
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 526,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_REPLY": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property ([MS-OXOMSG] section 2.2.1.77) on the message that has the 0x00000020 bit set.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_REPLY"": The server MUST NOT send a reply if the PidTagAutoResponseSuppress property ([MS-OXOMSG] section 2.2.1.77) on the message that has the 0x00000020 bit set.");
 
             #endregion
 
@@ -764,7 +764,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsFalse(
                 doesUnexpectedMessageExist,
                 931,
-                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to "TRUE" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST perform the actions (2) specified in the PidTagRuleActions property (section 2.2.1.3.1.10) associated with that rule (2) in the case of a server-side rule.");
+                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to ""TRUE"" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST perform the actions (2) specified in the PidTagRuleActions property (section 2.2.1.3.1.10) associated with that rule (2) in the case of a server-side rule.");
 
             if (Common.IsRequirementEnabled(898, this.Site))
             {

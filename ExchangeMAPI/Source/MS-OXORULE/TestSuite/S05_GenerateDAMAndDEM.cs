@@ -1615,7 +1615,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR932,
                 932,
-                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to "TRUE" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST generate a DAM for the client to process as specified in section 3.2.5.1.2 in the case of a client-side rule.");
+                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to ""TRUE"" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST generate a DAM for the client to process as specified in section 3.2.5.1.2 in the case of a client-side rule.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R354.");

@@ -744,7 +744,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR922,
                 922,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message:] "OP_OOF_REPLY": The server MUST behave as specified for the "OP_REPLY" action (2). [The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.]");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message:] ""OP_OOF_REPLY"": The server MUST behave as specified for the ""OP_REPLY"" action (2). [The server MUST use properties from the reply template and from the original message to create a reply to the message and then send the reply.]");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R953: the replied message count is {0}, and whether the message body contains the reply template body is {1}", ropQueryRowsResponse.RowCount, isBodyContainsReplyTemplateBody);
