@@ -731,17 +731,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Thread.Sleep(this.WaitForTheRuleToTakeEffect);
             #endregion
 
-            #region TestUser1 gets the message copied to the new folder.
-            uint newFolderFolderContentsTableHandle = 0;
-            PropertyTag[] propertyTagList = new PropertyTag[1];
-            propertyTagList[0].PropertyId = (ushort)PropertyId.PidTagSubject;
-            propertyTagList[0].PropertyType = (ushort)PropertyType.PtypString;
-
-            uint rowCount = 0;
-            RopQueryRowsResponse getNewFolderMailMessageContent = this.GetExpectedMessage(newFolderHandle, ref newFolderFolderContentsTableHandle, propertyTagList, ref rowCount, 1, mailSubject);
-            Site.Assert.AreEqual<uint>(0, getNewFolderMailMessageContent.ReturnValue, "Getting the message should succeed.");
-            #endregion
-
             #region TestUser1 checks whether the origin message is deleted.
             // Set PidTagSubject and PidTagMessageFlags visible.
             PropertyTag[] propertyTag = new PropertyTag[2];
@@ -1365,7 +1354,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             int user1Index = 0;
             for (int i = 0; i < propertyRows.Value.Rows; i++)
             {
-                if (propertyRows.Value.PropertyRowSet[i].Props[3].Value.LpszW.ToLower(System.Globalization.CultureInfo.CurrentCulture) == this.User1Name.ToLower(System.Globalization.CultureInfo.CurrentCulture))
+                if (Encoding.Unicode.GetString(propertyRows.Value.PropertyRowSet[i].Props[3].Value.LpszW).ToLower(System.Globalization.CultureInfo.CurrentCulture) == this.User1Name.ToLower(System.Globalization.CultureInfo.CurrentCulture))
                 {
                     user1Index = i;
                     break;
@@ -1412,7 +1401,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             pidTagReceivedRepresentingAddressType = pidTagReceivedRepresentingAddressType.Substring(0, pidTagReceivedRepresentingAddressType.Length - 1);
 
             // In this test case, the mailbox user's PidTagAddressType is "EX".
-            string pidTagAddressTypeOfMailboxUser = propertyRows.Value.PropertyRowSet[user1Index].Props[1].Value.LpszW;
+            string pidTagAddressTypeOfMailboxUser = System.Text.UTF8Encoding.Unicode.GetString(propertyRows.Value.PropertyRowSet[user1Index].Props[1].Value.LpszW);
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R541");
@@ -1430,7 +1419,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             pidTagReceivedRepresentingEmailAddress = pidTagReceivedRepresentingEmailAddress.Substring(0, pidTagReceivedRepresentingEmailAddress.Length - 1).ToUpperInvariant();
 
             // In this test case, the mailbox user's PidTagEmailAddress is the adminUserDN.
-            string pidTagEmailAddressOfMailboxUser = propertyRows.Value.PropertyRowSet[user1Index].Props[2].Value.LpszW.ToUpperInvariant();
+            string pidTagEmailAddressOfMailboxUser = Encoding.Unicode.GetString(propertyRows.Value.PropertyRowSet[user1Index].Props[2].Value.LpszW).ToUpperInvariant();
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R542");
@@ -1445,7 +1434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             string pidTagReceivedRepresentingName = AdapterHelper.PropertyValueConvertToString(getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[4].Value).ToLower(System.Globalization.CultureInfo.CurrentCulture);
 
             // In this test case, the mailbox user's PidTagDisplayName is "administrator".
-            string pidTagDisplayNameOfMailboxUser = propertyRows.Value.PropertyRowSet[user1Index].Props[3].Value.LpszW.ToLower(System.Globalization.CultureInfo.CurrentCulture);
+            string pidTagDisplayNameOfMailboxUser = Encoding.Unicode.GetString(propertyRows.Value.PropertyRowSet[user1Index].Props[3].Value.LpszW).ToLower(System.Globalization.CultureInfo.CurrentCulture);
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R543");
