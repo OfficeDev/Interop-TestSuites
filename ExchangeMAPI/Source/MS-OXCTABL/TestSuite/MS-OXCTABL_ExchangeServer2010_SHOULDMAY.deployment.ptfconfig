@@ -97,5 +97,17 @@
     <Property name="R909Enabled" value="false"/>
     <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
     <Property name="R1340Enabled" value="false"/>
+    <!-- Set R8276Enabled to true to verify that the if a RopSeekRowBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8276Enabled to false to disable this requirement.-->
+    <Property name="R8276Enabled" value="true"/>
+    <!-- Set R8274Enabled to true to verify that the if a RopFreeBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8274Enabled to false to disable this requirement.-->
+    <Property name="R8274Enabled" value="true"/>
+    <!-- Set R8271Enabled to true to verify that the if a RopCollapseRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8271Enabled to false to disable this requirement.-->
+    <Property name="R8271Enabled" value="true"/>
+    <!-- Set R8273Enabled to true to verify that the if a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8273Enabled to false to disable this requirement.-->
+    <Property name="R8273Enabled" value="true"/>
+    <!-- Set R8275Enabled to true to verify that the if a RopGetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8275Enabled to false to disable this requirement.-->
+    <Property name="R8275Enabled" value="true"/>
+    <!-- Set R8277Enabled to true to verify that the if a RopSetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8277Enabled to false to disable this requirement.-->
+    <Property name="R8277Enabled" value="true"/>
   </Properties>
 </TestSite>

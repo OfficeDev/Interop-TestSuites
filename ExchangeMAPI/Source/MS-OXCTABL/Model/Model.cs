@@ -97,6 +97,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         {
             // Initialize the table type
             globleTableType = tableType;
+            setColumnsFlags.Clear();
+        }
+
+        /// <summary>
+        /// This method is used to disconnect from server
+        /// </summary>
+        [Rule(Action = "Disconnect()")]
+        public static void Disconnect()
+        {
+
         }
 
         #endregion
@@ -665,6 +675,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotSupported;
             }
 
+            // Before a success SetColumnsRop, RopSeekRowBookmark will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8276])
+                {
+                    ModelHelper.CaptureRequirement(8276, @"[In Appendix A: Product Behavior] If a RopSeekRowBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             Condition.IsTrue((requirementContainer[872] && !requirementContainer[761]) || (!requirementContainer[872] && requirementContainer[761]));
             
             // Exchange 2007 does not requires a RopSetColumns ROP request before sending a RopCreateBookmark ROP request.
@@ -885,6 +909,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             if (setColumnsFlags.ContainsValue(true))
             {
                 setColumnsBeforeCreateBookmark = true;
+            }
+
+            // Before a success SetColumnsRop, RopCreateBookmark will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8272])
+                {
+                    ModelHelper.CaptureRequirement(8272, @"[In Appendix A: Product Behavior] If a RopCreateBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             validBookmark = true;
@@ -1130,6 +1168,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotSupported;
             }
 
+            // Before a success SetColumnsRop, RopFreeBookmark will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8274])
+                {
+                    ModelHelper.CaptureRequirement(8274, @"[In Appendix A: Product Behavior] If a RopFreeBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             if (!validBookmark)
             {
                 // After resetTable Rop, attempts to use the bookmark will fail with ecNullObject.
@@ -1304,6 +1356,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotCollapsed;
             }
 
+            // Before a success SetColumnsRop, RopExpandRow will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8273])
+                {
+                    ModelHelper.CaptureRequirement(8273, @"[In Appendix A: Product Behavior] If a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             ModelHelper.CaptureRequirement(567, @"[In Processing RopExpandRow] The RopExpandRow ROP ([MS-OXCROPS] section 2.2.5.16) sets a category row to expanded state.");
             return TableRopReturnValues.success;
         }
@@ -1378,6 +1444,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotExpanded;
             }
 
+            // Before a success SetColumnsRop, RopCollapseRow will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8271])
+                {
+                    ModelHelper.CaptureRequirement(8271, @"[In Appendix A: Product Behavior] If a RopCollapseRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             return TableRopReturnValues.success;
         }
         #endregion
@@ -1407,6 +1487,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(290, @"[In RopGetCollapseState ROP] This ROP is valid only on Table objects.");
                 return TableRopReturnValues.ecNotSupported;
+            }
+
+            // Before a success SetColumnsRop, RopGetCollapseState will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8275])
+                {
+                    ModelHelper.CaptureRequirement(8275, @"[In Appendix A: Product Behavior] If a RopGetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             ModelHelper.CaptureRequirement(579, @"[In Processing RopGetCollapseState] The RopGetCollapseState ROP ([MS-OXCROPS] section 2.2.5.18) MUST send the collapsed state of the whole table in the CollapseState field of the ROP response.");
@@ -1454,6 +1548,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(306, "[In RopSetCollapseState ROP] This ROP is valid only on Table objects");
                 return TableRopReturnValues.ecNotSupported;
+            }
+
+            // Before a success SetColumnsRop, RopSetCollapseState will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8277])
+                {
+                    ModelHelper.CaptureRequirement(8277, @"[In Appendix A: Product Behavior] If a RopSetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             // The RopGetCollapseState must be called before RopSetCollapseState, and if RopSetCollapseState is successful, then a book mark is returned, so the following requirement can be verified.
