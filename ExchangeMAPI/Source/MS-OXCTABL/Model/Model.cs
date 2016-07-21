@@ -676,7 +676,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             // Before a success SetColumnsRop, RopSeekRowBookmark will fail in Exchange2010 and above
-            if (!setColumnsFlags.ContainsValue(true))
+            if (!setColumnsFlags.ContainsValue(true) && !resetTableDone)
             {
                 if (requirementContainer[8276])
                 {
@@ -686,28 +686,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 else
                 {
                     return TableRopReturnValues.unexpected;
-                }
-            }
-
-            Condition.IsTrue((requirementContainer[872] && !requirementContainer[761]) || (!requirementContainer[872] && requirementContainer[761]));
-            
-            // Exchange 2007 does not requires a RopSetColumns ROP request before sending a RopCreateBookmark ROP request.
-            // if the RopSeekRowBookmark return success, means bookmark is successfully created. 
-            if (requirementContainer[872])
-            {
-                if (!setColumnsBeforeCreateBookmark && bookmarkCreated)
-                {
-                    ModelHelper.CaptureRequirement(872, @"[In Appendix A: Product Behavior] Implementation does not require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (<31> Section 3.2.5.12: Exchange 2007 does not require that a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1) be sent before sending a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11). )");
-                }
-            }
-
-            // Exchange 2010 and above require a RopSetColumns ROP request before sending a RopCreateBookmark ROP request.
-            // if the RopSeekRowBookmark return success, means bookmark is successfully created.
-            if (requirementContainer[761])
-            {
-                if (setColumnsBeforeCreateBookmark && bookmarkCreated)
-                {
-                    ModelHelper.CaptureRequirement(761, @"[In Appendix A: Product Behavior] Implementation does require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (Exchange 2010 and above follow this behavior.)");
                 }
             }
             
@@ -909,20 +887,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             if (setColumnsFlags.ContainsValue(true))
             {
                 setColumnsBeforeCreateBookmark = true;
-            }
-
-            // Before a success SetColumnsRop, RopCreateBookmark will fail in Exchange2010 and above
-            if (!setColumnsFlags.ContainsValue(true))
-            {
-                if (requirementContainer[8272])
-                {
-                    ModelHelper.CaptureRequirement(8272, @"[In Appendix A: Product Behavior] If a RopCreateBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
-                    return TableRopReturnValues.ecNullObject;
-                }
-                else
-                {
-                    return TableRopReturnValues.unexpected;
-                }
             }
 
             validBookmark = true;
@@ -1169,7 +1133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             // Before a success SetColumnsRop, RopFreeBookmark will fail in Exchange2010 and above
-            if (!setColumnsFlags.ContainsValue(true))
+            if (!setColumnsFlags.ContainsValue(true) && !resetTableDone)
             {
                 if (requirementContainer[8274])
                 {

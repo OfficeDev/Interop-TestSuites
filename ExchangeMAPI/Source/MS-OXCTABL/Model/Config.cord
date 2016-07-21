@@ -1275,48 +1275,6 @@ machine S03_BookmarkRops_SeekRowFractionalNotSupported_TestSuite() : Actions whe
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S03_BookmarkRops_SeekRowFractionalNotSupported_SlicedModel
 }
-
-// Scenario S03 definition for testing CreateBookmark ROP before RopSetColumns
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario() : Actions
-{
-	call CheckMAPIHTTPTransportSupported(out _);
-	(
-		return CheckMAPIHTTPTransportSupported(out false);
-		|
-		(
-			return CheckMAPIHTTPTransportSupported(out true);
-			InitializeTable(TableType.CONTENT_TABLE);
-			RopCreateBookmark;
-			call CheckRequirementEnabled(872, out _);
-			(
-				return CheckRequirementEnabled(872, out false);
-				|
-				(
-					return CheckRequirementEnabled(872, out true);
-					CheckRequirementEnabled(761, out _);
-					RopSeekRowBookmark(true, true, true); 
-				)
-			) 
-		)                               
-    ) 
-}
-
-// Sliced model based on S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel(): Actions
-{
-    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario()
-    ||
-    OXCTABLModelProgramCoverage 
-}
-
-// S03 Test Suite Definition: test for CreateBookmark ROP before RopSetColumns
-// The TestEnable switch should be set to true for generating test suite code
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite() : Actions where TestEnabled = true
-{
-	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
-    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel
-}
-
 // Scenario S03 definition for testing the ecNotSupported error code for the CreateBookmarkNotSupported ROP
 machine S03_BookmarkRops_CreateBookmarkNotSupported_Scenario() : Actions
 {

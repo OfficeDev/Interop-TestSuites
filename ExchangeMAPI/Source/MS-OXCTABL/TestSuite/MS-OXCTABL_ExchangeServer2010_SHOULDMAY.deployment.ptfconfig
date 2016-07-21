@@ -47,8 +47,6 @@
     <Property name="R866Enabled" value="true"/>
     <!-- Set R867Enabled to true to verify that for ROP RopQueryRows the implementation does fails the ROP with "ecNullObject",if RopSetColumns has not been sent on this table as specified in section 3.2.5.5. Set R867Enabled to false to disable this requirement.-->
     <Property name="R867Enabled" value="true"/>
-    <!-- Set R872Enabled to true to verify that for ROP RopCreateBookmark the implementation does not requires that a RopSetColumns ROP request before a RopCreateBookmark ROP request as specified in section 6. Set R872Enabled to false to disable this requirement.-->
-    <Property name="R872Enabled" value="false"/>
     <!-- Set R827Enabled to true to verify that for ROP RopFindRow the implementation fails the ROP with "ecNullObject" if a RopFindRow ROP is sent before a successful RopSetColumns ROP. Set R827Enabled to false to disable this requirement.-->
     <Property name="R827Enabled" value="true"/>
     <!-- Set R608Enabled to true to verify that for ROP RopFindRow the implementation does always set RowNoLongerVisible to "FALSE" (0x00) for hierarchy tables as specified in section 6. Set R608Enabled to false to disable this requirement.-->
@@ -69,8 +67,6 @@
     <Property name="R610Enabled" value="true"/>
     <!-- Set R456Enabled to true to verify that for ROP RopRestrict the implementation does invalidate the table restriction (2) until a successful RopRestrict ROP request is made if a RopRestrict ROP fails, as specified in section 3.2.5.4. Set R456Enabled to false to disable this requirement.-->
     <Property name="R456Enabled" value="true"/>
-    <!-- Set R761Enabled to true to verify that for ROP RopCreateBookmark the implementation does require that a RopSetColumns be sent before sending this ROP, as specified in section 6. Set R761Enabled to false to disable this requirement.-->
-    <Property name="R761Enabled" value="true"/>
     <!-- Set R910Enabled to true to verify that for ROP RopSeekRowFractional the implementation does support this ROP as specified in section 6. Set R910Enabled to false to disable this requirement.-->
     <Property name="R910Enabled" value="true"/>
     <!-- Set R896Enabled to true to verify that for ROP RopQueryRows the implementation does set the Origin field to "BOOKMARK_BEGINNING", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE", as specified in section 3.2.5.5. Set R896Enabled to false to disable this requirement.-->
