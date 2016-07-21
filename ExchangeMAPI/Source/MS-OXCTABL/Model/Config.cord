@@ -1048,6 +1048,38 @@ machine S03_BookmarkRops_SeekRowBookMarkNotSupported_TestSuite() : Actions where
     S03_BookmarkRops_SeekRowBookMarkNotSupported_SlicedModel
 }
 
+// Scenario S03 definition for testing the ecNullObject error code for the SeekRowBookmark ROP
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			CheckRequirementEnabled(8276, out _);
+			RopSeekRowBookmark(true, true, true); 
+		)
+	)
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNullObject error code for the SeekRowBookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowBookMarkecNullObject_SlicedModel       
+}
+
 // Scenario S03 definition for testing the SeekRowBookmark ROP after the bookmark is invalid
 machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Actions
 {
@@ -1472,6 +1504,39 @@ machine S03_BookmarkRops_FreebookmarkNotSupported_TestSuite() : Actions where Te
     S03_BookmarkRops_FreebookmarkNotSupported_SlicedModel
 }
 
+// Scenario S03 definition for testing the ecNullObject error code for the FreeBookmark ROP
+machine S03_BookmarkRops_FreeBookmarkecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			CheckRequirementEnabled(549, out _);
+			CheckRequirementEnabled(8274, out _);
+			RopFreeBookmark;
+		)
+	)
+}
+
+// Sliced model based on S03_BookmarkRops_FreeBookmarkecNullObject_Scenario
+machine S03_BookmarkRops_FreeBookmarkecNullObject_SlicedModel(): Actions
+{
+    S03_BookmarkRops_FreeBookmarkecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNullObject error code for the FreeBookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_FreeBookmarkecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_FreeBookmarkecNullObject_SlicedModel       
+}
+
 // Scenario S04 definition for testing success for the CollapseorExpandRow ROP
 machine S04_ExpandRowRops_CollapseorExpandRow_Scenario() : Actions
 {
@@ -1590,6 +1655,53 @@ machine S04_ExpandRowRops_CollapseorExpandRowNotSupported_TestSuite() : Actions 
 {
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S04_ExpandRowRops_CollapseorExpandRowNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNullObject error code for the CollapseRow and ExpandRow ROP
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+            RopSetColumns(1,false,false,false);
+			RopQueryRows(QueryRowsFlags.Advance,true);  
+            Disconnect;
+            InitializeTable(TableType.CONTENT_TABLE);
+			(
+			    (
+				    CheckRequirementEnabled(8271, out _);
+				    RopCollapseRow(false,false)
+				)
+				|
+				(
+				    CheckRequirementEnabled(748, out _);
+					CheckRequirementEnabled(8273, out _);
+					RopExpandRow(false,false,false);
+					RopExpandRowResponse(false);
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNullObject error code for the CollapseRow and ExpandRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_CollapseorExpandRowecNullObject_SlicedModel       
 }
 
 // Scenario S04 definition for testing the ecNotSupported error code for the CollapseorExpandRowMaxRowCountinvalid ROP
@@ -1732,6 +1844,51 @@ machine S04_ExpandRowRops_GetorSetCollapseRowNotSupported_TestSuite() : Actions 
 {
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S04_ExpandRowRops_GetorSetCollapseRowNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNullObject error code for the GetCollapseState and SetCollapseState ROP
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			(
+			    (
+				    RopSetColumns(1,false,false,false);
+				    RopQueryRows(QueryRowsFlags.Advance,true);  
+                    Disconnect;
+                    InitializeTable(TableType.CONTENT_TABLE);
+				    CheckRequirementEnabled(8275, out _);
+					RopGetCollapseState;
+				)
+				|
+				(
+				    CheckRequirementEnabled(8277, out _);
+					RopSetCollapseState;
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_GetorSetCollapseRowecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNullObject error code for the GetCollapseState and SetCollapseState ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_GetorSetCollapseRowecNullObject_SlicedModel       
 }
 
 // Scenario S05 definition for testing success for the ResetTable ROP

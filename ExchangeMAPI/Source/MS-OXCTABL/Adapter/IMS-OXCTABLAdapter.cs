@@ -310,5 +310,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         /// </summary>
         /// <param name="isSupported">The transport is supported or not.</param>
         void CheckMAPIHTTPTransportSupported(out bool isSupported);
+
+        /// <summary>
+        /// Disconnect from the server.
+        /// </summary>
+        void Disconnect();
     }
 }
