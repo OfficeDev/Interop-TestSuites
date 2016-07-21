@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2013
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B93A000-5568-456B-91B0-B4E051F66978}"
 	ProjectSection(SolutionItems) = preProject
 		MS-OXNSPI.runsettings = MS-OXNSPI.runsettings

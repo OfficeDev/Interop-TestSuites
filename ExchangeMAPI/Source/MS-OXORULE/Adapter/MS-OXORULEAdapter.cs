@@ -25,6 +25,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// </summary>
         private OxcropsClient oxcropsClient;
 
+        /// <summary>
+        /// The NSPIAdapter instance.
+        /// </summary>
         private NSPIAdapter nspiAdapter;
         /// <summary>
         /// String server name.

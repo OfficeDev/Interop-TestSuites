@@ -7,9 +7,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
     using Microsoft.Protocols.TestTools;
     using System.Runtime.InteropServices;
     using System.Net;
-    using System.Collections;/// <summary>
-                             /// Help method collection.
-                             /// </summary>
+    using System.Collections;
+    
+    /// <summary>
+    /// Help method collection.
+    /// </summary>
     public class AdapterHelper
     {
         /// <summary>
