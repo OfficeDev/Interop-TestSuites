@@ -956,22 +956,16 @@ machine S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario() : Actions
 					RopCreateBookmark;
 					(	
 						(
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(true, true, true);
 							RopSeekRowBookmarkResponse(true, true, false, true, false)
 						)
 						|
 						(
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(false, true, false);
 							RopSeekRowBookmarkResponse(true, false, true, true, false) 
 						)
 						|
 						(	
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(true, true, false);
 							RopSeekRowBookmarkResponse(true, false, true, true, false) 
 						)
@@ -982,8 +976,6 @@ machine S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario() : Actions
 					InitializeTable(TableType.HIERARCHY_TABLE);
 					RopSetColumns(1,false,false,false);
 					RopCreateBookmark;
-					CheckRequirementEnabled(872, out _);
-					CheckRequirementEnabled(761, out _);
 					RopSeekRowBookmark(true, true, true);
 					RopSeekRowBookmarkResponse(true, true, false, true, false)                                      
 				) 
@@ -1055,12 +1047,23 @@ machine S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario() : Actions
 	(
 		return CheckMAPIHTTPTransportSupported(out false);
 		|
-		(
-			return CheckMAPIHTTPTransportSupported(out true);
+        (
+            return CheckMAPIHTTPTransportSupported(out true);
 			InitializeTable(TableType.CONTENT_TABLE);
-			CheckRequirementEnabled(8276, out _);
-			RopSeekRowBookmark(true, true, true); 
-		)
+		    (
+                (			
+			        CheckRequirementEnabled(8276, out _);
+			        RopSeekRowBookmark(true, true, true); 
+		        )
+                |
+		        (
+			        RopSetColumns(1,false,false,false);
+			        RopCreateBookmark;
+                    RopRelease;
+			        RopSeekRowBookmark(true, true, true); 
+		        )
+            )
+        )
 	)
 }
 
@@ -1103,8 +1106,6 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 						|
 						(
 							return CheckRequirementEnabled(909, out true);
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _); 
 							RopSeekRowBookmark(true, true, true);
 						)
 					)
@@ -1114,8 +1115,6 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 					RopSortTable(1, true, false,true, true, true, false,false);
 					CheckRequirementEnabled(904, out _);  
 					CheckRequirementEnabled(905, out _); 
-					CheckRequirementEnabled(872, out _);
-					CheckRequirementEnabled(761, out _);    
 					RopSeekRowBookmark(true, true, true);
 				)	
 				|
@@ -1127,8 +1126,6 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 						|
 						(
 							return CheckRequirementEnabled(906, out true);
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);      
 							RopSeekRowBookmark(true, true, true);
 						)
 					)  
@@ -1329,8 +1326,6 @@ machine S03_BookmarkRops_Freebookmark_HierarchyTable_Scenario() : Actions
 			RopCreateBookmark;
 			CheckRequirementEnabled(549, out _);     
 			RopFreeBookmark;
-			CheckRequirementEnabled(872, out _);
-			CheckRequirementEnabled(761, out _);
 			RopSeekRowBookmark(true, true, true);
 		)
 	)	

@@ -8,75 +8,67 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
-{
+namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
     using System;
     using System.Collections.Generic;
     using System.Text;
     using System.Reflection;
     using Microsoft.SpecExplorer.Runtime.Testing;
     using Microsoft.Protocols.TestTools;
-
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Spec Explorer", "3.5.3130.0")]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite : PtfTestClassBase
-    {
-
-        public S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite()
-        {
+    public partial class S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite : PtfTestClassBase {
+        
+        public S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite() {
             this.SetSwitch("ProceedControlTimeout", "100");
             this.SetSwitch("QuiescenceTimeout", "2000000");
         }
-
+        
         #region Expect Delegates
         public delegate void CheckMAPIHTTPTransportSupportedDelegate1(bool isSupported);
-
+        
         public delegate void CheckRequirementEnabledDelegate1(bool enabled);
         #endregion
-
+        
         #region Event Metadata
         static System.Reflection.MethodBase CheckMAPIHTTPTransportSupportedInfo = TestManagerHelpers.GetMethodInfo(typeof(Microsoft.Protocols.TestSuites.MS_OXCTABL.IMS_OXCTABLAdapter), "CheckMAPIHTTPTransportSupported", typeof(bool).MakeByRefType());
-
+        
         static System.Reflection.MethodBase CheckRequirementEnabledInfo = TestManagerHelpers.GetMethodInfo(typeof(Microsoft.Protocols.TestSuites.MS_OXCTABL.IMS_OXCTABLAdapter), "CheckRequirementEnabled", typeof(int), typeof(bool).MakeByRefType());
         #endregion
-
+        
         #region Adapter Instances
         private Microsoft.Protocols.TestSuites.MS_OXCTABL.IMS_OXCTABLAdapter IMS_OXCTABLAdapterInstance;
         #endregion
-
+        
         #region Class Initialization and Cleanup
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
-        public static void ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext context)
-        {
+        public static void ClassInitialize(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext context) {
             PtfTestClassBase.Initialize(context);
         }
-
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
-        public static void ClassCleanup()
-        {
+        public static void ClassCleanup() {
             PtfTestClassBase.Cleanup();
         }
         #endregion
-
+        
         #region Test Initialization and Cleanup
-        protected override void TestInitialize()
-        {
+        protected override void TestInitialize() {
             this.InitializeTestManager();
             this.IMS_OXCTABLAdapterInstance = ((Microsoft.Protocols.TestSuites.MS_OXCTABL.IMS_OXCTABLAdapter)(this.Manager.GetAdapter(typeof(Microsoft.Protocols.TestSuites.MS_OXCTABL.IMS_OXCTABLAdapter))));
         }
-
-        protected override void TestCleanup()
-        {
+        
+        protected override void TestCleanup() {
             base.TestCleanup();
             this.CleanupTestManager();
         }
         #endregion
-
+        
         #region Test Starting in S0
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite()
-        {
+        public void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite() {
             this.Manager.BeginTest("MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite");
             this.Manager.Comment("reaching state \'S0\'");
             bool temp0;
@@ -85,13 +77,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             this.Manager.AddReturn(CheckMAPIHTTPTransportSupportedInfo, null, temp0);
             this.Manager.Comment("reaching state \'S1\'");
             int temp7 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker1)));
-            if ((temp7 == 0))
-            {
+            if ((temp7 == 0)) {
                 this.Manager.Comment("reaching state \'S4\'");
                 goto label1;
             }
-            if ((temp7 == 1))
-            {
+            if ((temp7 == 1)) {
                 this.Manager.Comment("reaching state \'S5\'");
                 this.Manager.Comment("executing step \'call InitializeTable(CONTENT_TABLE)\'");
                 this.IMS_OXCTABLAdapterInstance.InitializeTable(((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableType)(0)));
@@ -131,8 +121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 this.Manager.AddReturn(CheckRequirementEnabledInfo, null, temp3);
                 this.Manager.Comment("reaching state \'S27\'");
                 int temp6 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker)), new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker1)));
-                if ((temp6 == 0))
-                {
+                if ((temp6 == 0)) {
                     this.Manager.Comment("reaching state \'S28\'");
                     Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp4;
                     this.Manager.Comment("executing step \'call RopGetCollapseState()\'");
@@ -145,8 +134,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     this.Manager.Comment("reaching state \'S32\'");
                     goto label0;
                 }
-                if ((temp6 == 1))
-                {
+                if ((temp6 == 1)) {
                     this.Manager.Comment("reaching state \'S29\'");
                     Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp5;
                     this.Manager.Comment("executing step \'call RopGetCollapseState()\'");
@@ -160,44 +148,39 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 }
                 throw new InvalidOperationException("never reached");
             label0:
-                ;
+;
                 goto label1;
             }
             throw new InvalidOperationException("never reached");
         label1:
-            ;
+;
             this.Manager.EndTest();
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker(bool isSupported)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker(bool isSupported) {
             this.Manager.Comment("checking step \'return CheckMAPIHTTPTransportSupported/[out False]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, isSupported, "isSupported of CheckMAPIHTTPTransportSupported, state S1");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker1(bool isSupported)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckMAPIHTTPTransportSupportedChecker1(bool isSupported) {
             this.Manager.Comment("checking step \'return CheckMAPIHTTPTransportSupported/[out True]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, isSupported, "isSupported of CheckMAPIHTTPTransportSupported, state S1");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker(bool enabled)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker(bool enabled) {
             this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S27");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker1(bool enabled)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuiteCheckRequirementEnabledChecker1(bool enabled) {
             this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S27");
         }
         #endregion
-
+        
         #region Test Starting in S2
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        public void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1()
-        {
+        public void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1() {
             this.Manager.BeginTest("MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1");
             this.Manager.Comment("reaching state \'S2\'");
             bool temp8;
@@ -206,8 +189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             this.Manager.AddReturn(CheckMAPIHTTPTransportSupportedInfo, null, temp8);
             this.Manager.Comment("reaching state \'S3\'");
             int temp13 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker1)));
-            if ((temp13 == 0))
-            {
+            if ((temp13 == 0)) {
                 this.Manager.Comment("reaching state \'S6\'");
                 this.Manager.Comment("executing step \'call InitializeTable(CONTENT_TABLE)\'");
                 this.IMS_OXCTABLAdapterInstance.InitializeTable(((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableType)(0)));
@@ -220,8 +202,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 this.Manager.AddReturn(CheckRequirementEnabledInfo, null, temp9);
                 this.Manager.Comment("reaching state \'S13\'");
                 int temp12 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker)), new ExpectedReturn(S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker1)));
-                if ((temp12 == 0))
-                {
+                if ((temp12 == 0)) {
                     this.Manager.Comment("reaching state \'S15\'");
                     Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp10;
                     this.Manager.Comment("executing step \'call RopSetCollapseState()\'");
@@ -234,8 +215,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     this.Manager.Comment("reaching state \'S21\'");
                     goto label2;
                 }
-                if ((temp12 == 1))
-                {
+                if ((temp12 == 1)) {
                     this.Manager.Comment("reaching state \'S16\'");
                     Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp11;
                     this.Manager.Comment("executing step \'call RopSetCollapseState()\'");
@@ -249,40 +229,35 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 }
                 throw new InvalidOperationException("never reached");
             label2:
-                ;
+;
                 goto label3;
             }
-            if ((temp13 == 1))
-            {
+            if ((temp13 == 1)) {
                 this.Manager.Comment("reaching state \'S7\'");
                 goto label3;
             }
             throw new InvalidOperationException("never reached");
         label3:
-            ;
+;
             this.Manager.EndTest();
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker(bool isSupported)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker(bool isSupported) {
             this.Manager.Comment("checking step \'return CheckMAPIHTTPTransportSupported/[out True]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, isSupported, "isSupported of CheckMAPIHTTPTransportSupported, state S3");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker(bool enabled)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker(bool enabled) {
             this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S13");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker1(bool enabled)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckRequirementEnabledChecker1(bool enabled) {
             this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S13");
         }
-
-        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker1(bool isSupported)
-        {
+        
+        private void MSOXCTABL_S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite1CheckMAPIHTTPTransportSupportedChecker1(bool isSupported) {
             this.Manager.Comment("checking step \'return CheckMAPIHTTPTransportSupported/[out False]\'");
             TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, isSupported, "isSupported of CheckMAPIHTTPTransportSupported, state S3");
         }

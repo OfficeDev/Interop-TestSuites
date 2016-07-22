@@ -1777,6 +1777,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
 
             return (TableRopReturnValues)setCollapseStateResponse.ReturnValue;
         }
+
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        public void RopRelease()
+        {
+            RopReleaseRequest ropReleaseRequest;
+
+            ropReleaseRequest.RopId = 0x01;
+            ropReleaseRequest.LogonId = 0x00;
+            ropReleaseRequest.InputHandleIndex = 0x00;
+
+            this.DoSingleCallROP(ropReleaseRequest, this.tableHandle, ref this.response, ref this.rawData);
+        }
         #endregion
 
         /// <summary>

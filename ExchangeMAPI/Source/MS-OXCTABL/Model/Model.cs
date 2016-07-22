@@ -53,9 +53,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         private static bool freeBookmarkDone = false;
 
         /// <summary>
-        /// Identify whether setColumns is done before CreateBookmark
+        /// Identify whether the RopRelease is done
         /// </summary>
-        private static bool setColumnsBeforeCreateBookmark = false;
+        private static bool ropReleaseDone = false;
 
         /// <summary>
         /// Identify the requirement Id and the enable property value related to the optional behavior
@@ -688,13 +688,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     return TableRopReturnValues.unexpected;
                 }
             }
-            
+
+            if (ropReleaseDone)
+            {
+                ModelHelper.CaptureRequirement(248, @"[In RopFreeBookmark ROP] If the bookmark has been released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3), attempts to use the bookmark will fail with the ecNullObject error code.");
+                ModelHelper.CaptureRequirement(552, @"[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use the bookmark after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
+                return TableRopReturnValues.ecNullObject;
+            }
+
             if (!validBookmark)
             {
                 if (freeBookmarkDone)
                 {
                     // The error code ecInvalidBookmark will be returned if the bookmark (2) sent in the request is no longer valid.
                     ModelHelper.CaptureRequirement(511, "[In Processing RopSeekRowBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405,%x05.04.04.80 means if the bookmark sent in the request is no longer valid.");
+                    ModelHelper.CaptureRequirement(2481, "[In RopFreeBookmark ROP] If the bookmark is released by the RopFreeBookmark ROP, the server will return the ecInvalidBookmark error code when it is used.");
+                    ModelHelper.CaptureRequirement(5521, "[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released by the RopFreeBookmark ROP (section 2.2.2.15).");
                     return TableRopReturnValues.ecInvalidBookmark;
                 }
 
@@ -706,6 +715,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         ModelHelper.CaptureRequirement(909, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<28> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
                     }
                 }
+
+                // After resetTable Rop, attempts to use the bookmark will return ecInvalidBookmark in Exchange 2010 and above
+                if (resetTableDone)
+                {
+                    ModelHelper.CaptureRequirement(908, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecInvalidBookmark;
+                }                
 
                 // After sortTable Rop, attempts to use the bookmark will fail with ecInvalidBookmark except Exchange 2007.
                 if (sortTableFlags.ContainsValue(true))
@@ -882,11 +898,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(209, @"[In RopCreateBookmark ROP] This ROP is valid only on Table objects.");
                 return TableRopReturnValues.ecNotSupported;
-            }
-
-            if (setColumnsFlags.ContainsValue(true))
-            {
-                setColumnsBeforeCreateBookmark = true;
             }
 
             validBookmark = true;
@@ -1627,6 +1638,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             return TableRopReturnValues.success;
+        }
+        #endregion
+
+        #region RopRelease
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        [Rule(Action = "RopRelease()")]
+        public static void RopRelease()
+        {
+            ropReleaseDone = true;
         }
         #endregion
 

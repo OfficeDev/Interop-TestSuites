@@ -290,6 +290,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         /// </summary>
         /// <returns>Table ROP return value</returns>
         TableRopReturnValues RopSetCollapseState();
+
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        void RopRelease();
         #endregion
 
         /// <summary>
