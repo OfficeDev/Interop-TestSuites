@@ -128,21 +128,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
                     this.Manager.Comment("reaching state \'S45\'");
                     int temp7 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker1)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker2)));
                     if ((temp7 == 0)) {
-                        this.Manager.Comment("reaching state \'S49\'");
-                        this.Manager.Assert(false, "reached non-accepting end state \'S49\'.");
-                        goto label0;
-                    }
-                    if ((temp7 == 1)) {
-                        this.Manager.Comment("reaching state \'S50\'");
+                        this.Manager.Comment("reaching state \'S51\'");
                         Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp6;
                         this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
                         temp6 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
                         this.Manager.Checkpoint("MS-OXCTABL_R508");
                         this.Manager.Checkpoint("MS-OXCTABL_R904");
-                        this.Manager.Comment("reaching state \'S55\'");
+                        this.Manager.Comment("reaching state \'S59\'");
                         this.Manager.Comment("checking step \'return RopSeekRowBookmark/ecInvalidBookmark\'");
-                        TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues.ecInvalidBookmark, temp6, "return of RopSeekRowBookmark, state S55");
-                        this.Manager.Comment("reaching state \'S57\'");
+                        TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues.ecInvalidBookmark, temp6, "return of RopSeekRowBookmark, state S59");
+                        this.Manager.Comment("reaching state \'S61\'");
+                        goto label0;
+                    }
+                    if ((temp7 == 1)) {
+                        this.Manager.Comment("reaching state \'S52\'");
+                        this.Manager.Assert(false, "reached non-accepting end state \'S52\'.");
                         goto label0;
                     }
                     throw new InvalidOperationException("never reached");
@@ -159,12 +159,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
                     this.Manager.Comment("reaching state \'S46\'");
                     int temp10 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker4)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker5)));
                     if ((temp10 == 0)) {
-                        this.Manager.Comment("reaching state \'S51\'");
-                        this.Manager.Assert(false, "reached non-accepting end state \'S51\'.");
-                        goto label1;
-                    }
-                    if ((temp10 == 1)) {
-                        this.Manager.Comment("reaching state \'S52\'");
+                        this.Manager.Comment("reaching state \'S53\'");
                         Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp9;
                         this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
                         temp9 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
@@ -172,10 +167,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
                         this.Manager.Checkpoint("MS-OXCTABL_R905");
                         this.Manager.Checkpoint("MS-OXCTABL_R504");
                         this.Manager.Checkpoint("MS-OXCTABL_R522");
-                        this.Manager.Comment("reaching state \'S56\'");
+                        this.Manager.Comment("reaching state \'S60\'");
                         this.Manager.Comment("checking step \'return RopSeekRowBookmark/success\'");
-                        TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp9, "return of RopSeekRowBookmark, state S56");
-                        this.Manager.Comment("reaching state \'S58\'");
+                        TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp9, "return of RopSeekRowBookmark, state S60");
+                        this.Manager.Comment("reaching state \'S62\'");
+                        goto label1;
+                    }
+                    if ((temp10 == 1)) {
+                        this.Manager.Comment("reaching state \'S54\'");
+                        this.Manager.Assert(false, "reached non-accepting end state \'S54\'.");
                         goto label1;
                     }
                     throw new InvalidOperationException("never reached");
@@ -210,13 +210,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker1(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S45");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S45");
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker2(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S45");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S45");
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker3(bool enabled) {
@@ -225,13 +225,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker4(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S46");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S46");
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuiteCheckRequirementEnabledChecker5(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S46");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S46");
         }
         #endregion
         
@@ -245,8 +245,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
             this.IMS_OXCTABLAdapterInstance.CheckMAPIHTTPTransportSupported(out temp13);
             this.Manager.AddReturn(CheckMAPIHTTPTransportSupportedInfo, null, temp13);
             this.Manager.Comment("reaching state \'S3\'");
-            int temp20 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckMAPIHTTPTransportSupportedChecker1)));
-            if ((temp20 == 0)) {
+            int temp21 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckMAPIHTTPTransportSupportedChecker1)));
+            if ((temp21 == 0)) {
                 this.Manager.Comment("reaching state \'S8\'");
                 this.Manager.Comment("executing step \'call InitializeTable(CONTENT_TABLE)\'");
                 this.IMS_OXCTABLAdapterInstance.InitializeTable(((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableType)(0)));
@@ -283,8 +283,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
                 this.IMS_OXCTABLAdapterInstance.CheckRequirementEnabled(906, out temp17);
                 this.Manager.AddReturn(CheckRequirementEnabledInfo, null, temp17);
                 this.Manager.Comment("reaching state \'S37\'");
-                int temp19 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckRequirementEnabledChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckRequirementEnabledChecker1)));
-                if ((temp19 == 0)) {
+                int temp20 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckRequirementEnabledChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite1CheckRequirementEnabledChecker1)));
+                if ((temp20 == 0)) {
                     this.Manager.Comment("reaching state \'S41\'");
                     Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp18;
                     this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
@@ -294,11 +294,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
                     this.Manager.Comment("reaching state \'S47\'");
                     this.Manager.Comment("checking step \'return RopSeekRowBookmark/ecInvalidBookmark\'");
                     TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues.ecInvalidBookmark, temp18, "return of RopSeekRowBookmark, state S47");
-                    this.Manager.Comment("reaching state \'S53\'");
+                    this.Manager.Comment("reaching state \'S55\'");
                     goto label4;
                 }
-                if ((temp19 == 1)) {
+                if ((temp20 == 1)) {
                     this.Manager.Comment("reaching state \'S42\'");
+                    Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp19;
+                    this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
+                    temp19 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
+                    this.Manager.Checkpoint("MS-OXCTABL_R508");
+                    this.Manager.Checkpoint("MS-OXCTABL_R504");
+                    this.Manager.Checkpoint("MS-OXCTABL_R522");
+                    this.Manager.Comment("reaching state \'S48\'");
+                    this.Manager.Comment("checking step \'return RopSeekRowBookmark/success\'");
+                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp19, "return of RopSeekRowBookmark, state S48");
+                    this.Manager.Comment("reaching state \'S56\'");
                     goto label4;
                 }
                 throw new InvalidOperationException("never reached");
@@ -306,7 +316,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
 ;
                 goto label5;
             }
-            if ((temp20 == 1)) {
+            if ((temp21 == 1)) {
                 this.Manager.Comment("reaching state \'S9\'");
                 goto label5;
             }
@@ -342,66 +352,75 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
         public void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2() {
             this.Manager.BeginTest("MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2");
             this.Manager.Comment("reaching state \'S4\'");
-            bool temp21;
+            bool temp22;
             this.Manager.Comment("executing step \'call CheckMAPIHTTPTransportSupported(out _)\'");
-            this.IMS_OXCTABLAdapterInstance.CheckMAPIHTTPTransportSupported(out temp21);
-            this.Manager.AddReturn(CheckMAPIHTTPTransportSupportedInfo, null, temp21);
+            this.IMS_OXCTABLAdapterInstance.CheckMAPIHTTPTransportSupported(out temp22);
+            this.Manager.AddReturn(CheckMAPIHTTPTransportSupportedInfo, null, temp22);
             this.Manager.Comment("reaching state \'S5\'");
-            int temp28 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckMAPIHTTPTransportSupportedChecker1)));
-            if ((temp28 == 0)) {
+            int temp30 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckMAPIHTTPTransportSupportedChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckMAPIHTTPTransportSupportedInfo, null, new CheckMAPIHTTPTransportSupportedDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckMAPIHTTPTransportSupportedChecker1)));
+            if ((temp30 == 0)) {
                 this.Manager.Comment("reaching state \'S10\'");
                 this.Manager.Comment("executing step \'call InitializeTable(CONTENT_TABLE)\'");
                 this.IMS_OXCTABLAdapterInstance.InitializeTable(((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableType)(0)));
                 this.Manager.Comment("reaching state \'S14\'");
                 this.Manager.Comment("checking step \'return InitializeTable\'");
                 this.Manager.Comment("reaching state \'S17\'");
-                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp22;
+                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp23;
                 this.Manager.Comment("executing step \'call RopSetColumns(1,False,False,False)\'");
-                temp22 = this.IMS_OXCTABLAdapterInstance.RopSetColumns(1u, false, false, false);
+                temp23 = this.IMS_OXCTABLAdapterInstance.RopSetColumns(1u, false, false, false);
                 this.Manager.Checkpoint("MS-OXCTABL_R831");
                 this.Manager.Checkpoint("MS-OXCTABL_R45");
                 this.Manager.Comment("reaching state \'S20\'");
                 this.Manager.Comment("checking step \'return RopSetColumns/success\'");
-                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp22, "return of RopSetColumns, state S20");
+                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp23, "return of RopSetColumns, state S20");
                 this.Manager.Comment("reaching state \'S23\'");
-                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp23;
+                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp24;
                 this.Manager.Comment("executing step \'call RopCreateBookmark()\'");
-                temp23 = this.IMS_OXCTABLAdapterInstance.RopCreateBookmark();
+                temp24 = this.IMS_OXCTABLAdapterInstance.RopCreateBookmark();
                 this.Manager.Checkpoint("MS-OXCTABL_R526");
                 this.Manager.Comment("reaching state \'S26\'");
                 this.Manager.Comment("checking step \'return RopCreateBookmark/success\'");
-                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp23, "return of RopCreateBookmark, state S26");
+                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp24, "return of RopCreateBookmark, state S26");
                 this.Manager.Comment("reaching state \'S29\'");
-                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp24;
+                Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp25;
                 this.Manager.Comment("executing step \'call RopResetTable()\'");
-                temp24 = this.IMS_OXCTABLAdapterInstance.RopResetTable();
+                temp25 = this.IMS_OXCTABLAdapterInstance.RopResetTable();
                 this.Manager.Checkpoint("MS-OXCTABL_R564");
                 this.Manager.Comment("reaching state \'S32\'");
                 this.Manager.Comment("checking step \'return RopResetTable/success\'");
-                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp24, "return of RopResetTable, state S32");
+                TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp25, "return of RopResetTable, state S32");
                 this.Manager.Comment("reaching state \'S35\'");
-                bool temp25;
+                bool temp26;
                 this.Manager.Comment("executing step \'call CheckRequirementEnabled(909,out _)\'");
-                this.IMS_OXCTABLAdapterInstance.CheckRequirementEnabled(909, out temp25);
-                this.Manager.AddReturn(CheckRequirementEnabledInfo, null, temp25);
+                this.IMS_OXCTABLAdapterInstance.CheckRequirementEnabled(909, out temp26);
+                this.Manager.AddReturn(CheckRequirementEnabledInfo, null, temp26);
                 this.Manager.Comment("reaching state \'S38\'");
-                int temp27 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker1)));
-                if ((temp27 == 0)) {
+                int temp29 = this.Manager.ExpectReturn(this.QuiescenceTimeout, true, new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker)), new ExpectedReturn(S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.CheckRequirementEnabledInfo, null, new CheckRequirementEnabledDelegate1(this.MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker1)));
+                if ((temp29 == 0)) {
                     this.Manager.Comment("reaching state \'S43\'");
-                    Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp26;
+                    Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp27;
                     this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
-                    temp26 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
+                    temp27 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
                     this.Manager.Checkpoint("MS-OXCTABL_R508");
-                    this.Manager.Checkpoint("MS-OXCTABL_R909");
-                    this.Manager.Checkpoint("MS-OXCTABL_R908");
-                    this.Manager.Comment("reaching state \'S48\'");
-                    this.Manager.Comment("checking step \'return RopSeekRowBookmark/ecInvalidBookmark\'");
-                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues.ecInvalidBookmark, temp26, "return of RopSeekRowBookmark, state S48");
-                    this.Manager.Comment("reaching state \'S54\'");
+                    this.Manager.Comment("reaching state \'S49\'");
+                    this.Manager.Comment("checking step \'return RopSeekRowBookmark/ecNullObject\'");
+                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues.ecNullObject, temp27, "return of RopSeekRowBookmark, state S49");
+                    this.Manager.Comment("reaching state \'S57\'");
                     goto label6;
                 }
-                if ((temp27 == 1)) {
+                if ((temp29 == 1)) {
                     this.Manager.Comment("reaching state \'S44\'");
+                    Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues temp28;
+                    this.Manager.Comment("executing step \'call RopSeekRowBookmark(True,True,True)\'");
+                    temp28 = this.IMS_OXCTABLAdapterInstance.RopSeekRowBookmark(true, true, true);
+                    this.Manager.Checkpoint("MS-OXCTABL_R508");
+                    this.Manager.Checkpoint("MS-OXCTABL_R909");
+                    this.Manager.Checkpoint("MS-OXCTABL_R504");
+                    this.Manager.Checkpoint("MS-OXCTABL_R522");
+                    this.Manager.Comment("reaching state \'S50\'");
+                    this.Manager.Comment("checking step \'return RopSeekRowBookmark/success\'");
+                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCTABL.TableRopReturnValues)(0)), temp28, "return of RopSeekRowBookmark, state S50");
+                    this.Manager.Comment("reaching state \'S58\'");
                     goto label6;
                 }
                 throw new InvalidOperationException("never reached");
@@ -409,7 +428,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
 ;
                 goto label7;
             }
-            if ((temp28 == 1)) {
+            if ((temp30 == 1)) {
                 this.Manager.Comment("reaching state \'S11\'");
                 goto label7;
             }
@@ -425,13 +444,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL {
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S38");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S38");
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckRequirementEnabledChecker1(bool enabled) {
-            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out False]\'");
-            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, false, enabled, "enabled of CheckRequirementEnabled, state S38");
+            this.Manager.Comment("checking step \'return CheckRequirementEnabled/[out True]\'");
+            TestManagerHelpers.AssertAreEqual<bool>(this.Manager, true, enabled, "enabled of CheckRequirementEnabled, state S38");
         }
         
         private void MSOXCTABL_S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite2CheckMAPIHTTPTransportSupportedChecker1(bool isSupported) {

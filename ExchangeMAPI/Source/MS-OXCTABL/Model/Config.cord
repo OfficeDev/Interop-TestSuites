@@ -1097,18 +1097,9 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 			RopCreateBookmark;  
 			(
 				(
-					RopResetTable;  
-					call CheckRequirementEnabled(909, out _);
-					(
-						(
-							return CheckRequirementEnabled(909, out false);
-						)
-						|
-						(
-							return CheckRequirementEnabled(909, out true);
-							RopSeekRowBookmark(true, true, true);
-						)
-					)
+					RopResetTable;
+                    CheckRequirementEnabled(909, out _);
+			        RopSeekRowBookmark(true, true, true);					
 				)
 				|
 				(
@@ -1120,15 +1111,8 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 				|
 				(
 					RopRestrict(1,true,false,false);   
-					call CheckRequirementEnabled(906, out _);
-					(
-						return CheckRequirementEnabled(906, out false);
-						|
-						(
-							return CheckRequirementEnabled(906, out true);
-							RopSeekRowBookmark(true, true, true);
-						)
-					)  
+					CheckRequirementEnabled(906, out _);
+					RopSeekRowBookmark(true, true, true);
 				) 
 			)
 		)                           
