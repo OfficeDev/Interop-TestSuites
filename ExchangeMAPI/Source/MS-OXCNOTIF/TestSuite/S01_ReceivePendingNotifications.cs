@@ -211,10 +211,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         [TestCategory("MSOXCNOTIF"), TestMethod()]
         public void MSOXCNOTIF_S01_TC02_VerifyRopPendingForLinkedSession()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(343, this.Site), "This case runs only under Exchange 2007, since Exchange 2010,Exchange 2013 and Exchange 2016 do not support Session Context linking.");
             this.CheckWhetherSupportMAPIHTTP();
             this.NotificationInitialize();
-
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(342, this.Site), "This case runs only under Exchange 2007, since Exchange 2010,Exchange 2013 and Exchange 2016 do not support Session Context linking.");
+       
             #region Subscribe ObjectCreated event on server using receiver context handle.
             this.CNOTIFAdapter.RegisterNotification(NotificationType.ObjectCreated);
             #endregion
