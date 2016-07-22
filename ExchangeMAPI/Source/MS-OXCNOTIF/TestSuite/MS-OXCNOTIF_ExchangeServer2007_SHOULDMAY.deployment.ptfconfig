@@ -51,7 +51,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R331Enabled" value="true"/>
     <!-- Set R335Enabled to true to verify that for operation RopNotify the implementation does include as many RopNotify ROP responses as will fit in the response, and then include a RopPending ROP response as specified in section 3.1.5.7. Set R335Enabled to false to disable this requirement. -->
     <Property name="R335Enabled" value="true"/>
-    <!-- Set R342Enabled to true to implementation does support Session Context linking. Set R335Enabled to false to disable this requirement. -->
+    <!-- Set R342Enabled to true to implementation does support Session Context linking. Set R342Enabled to false to disable this requirement. -->
     <Property name="R342Enabled" value="true"/>
     <!-- Set R346Enabled to true to verify that for operation RopNotify the implementation does send a RopNotify ROP response to the client for each pending notification on the session context that is associated with the client as specified in section 3.1.5.7. Set R346Enabled to false to disable this requirement. -->
     <Property name="R346Enabled" value="true"/>
