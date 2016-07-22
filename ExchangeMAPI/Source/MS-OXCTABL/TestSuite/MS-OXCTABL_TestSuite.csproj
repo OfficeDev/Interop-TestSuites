@@ -83,7 +83,6 @@
     <Compile Include="S02_RowRops_QueryRowsSuccess_TestSuite.cs" />
     <Compile Include="S02_RowRops_SeekRowNotSupported_TestSuite.cs" />
     <Compile Include="S02_RowRops_SeekRowSuccess_TestSuite.cs" />
-    <Compile Include="S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_CreateBookmarkNotSupported_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_FreeBookmarkecNullObject_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_FreebookmarkNotSupported_TestSuite.cs" />
