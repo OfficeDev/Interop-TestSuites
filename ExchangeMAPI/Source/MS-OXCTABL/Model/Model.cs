@@ -708,7 +708,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 }
 
                 // After resetTable Rop, attempts to use the bookmark will return success in Exchange 2007.
-                // After resetTable Rop, attempts to use the bookmark will return ecInvalidBookmark in Exchange 2010 and above
+                // After resetTable Rop, attempts to use the bookmark will return ecNullObject in Exchange 2010 and above
                 if (resetTableDone)
                 {
                     if (requirementContainer[909])
