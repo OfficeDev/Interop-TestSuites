@@ -3660,7 +3660,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     (uint)GetSearchFlags.Running,
                     getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Running,
                     54301,
-                    @"[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder if the STOP_SEARCH bit is set in the SearchFlags field. Exchange 2007 and above follow this behavior.");
+                    @"[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder if the STOP_SEARCH bit is set in the SearchFlags field. (Exchange 2007 and above follow this behavior).");
             }
 
             #endregion

@@ -4511,7 +4511,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035103</ns1:REQ_ID>
@@ -6674,7 +6674,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R503</ns1:REQ_ID>
@@ -8674,7 +8674,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1173</ns1:REQ_ID>
@@ -9012,7 +9012,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. &lt;10&gt; Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R46201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9023,7 +9023,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. (Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R46201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9034,7 +9034,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. &lt;11&gt; Section 3.2.5.2: Exchange 2007, Exchange 2013 and Exchange 2016 return ecAccessdenied.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9045,7 +9045,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. &lt;11&gt; Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9056,7 +9056,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError &lt;12&gt; Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError. </ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9067,7 +9067,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;12&gt; Exchange 2013 and Exchange 2016 return ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9078,7 +9078,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the ROP [RopDeleteFolder] with an ecInvalidParam (0x80070057) error, if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. (Exchange 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1234:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9098,9 +9098,9 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFOLD_R1238001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. &lt;14&gt; Section 3.2.5.4:  A content-indexed search is always static on the initial release version of Exchange 2010 and Exchange 2007 regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria request.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R113:i </ns1:Derived>
+		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R114:i </ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9109,9 +9109,9 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFOLD_R1238002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.(Exchange 2013 and above follow this hebavior).</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R113:i </ns1:Derived>
+		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R114:i </ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9122,7 +9122,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder itself. (Exchange 2013 and above follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1242:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9133,7 +9133,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. &lt;16&gt; Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1242:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9176,7 +9176,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Exchange 2007 do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9187,7 +9187,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013 and Exchange 2016 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9198,7 +9198,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Exchange 2003, the initial release version of Exchange 2010, and Microsoft Exchange Server 2010 Service Pack 1 (SP1) do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9208,7 +9208,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer, if the client attempts to empty a search folder. (Exchange 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1249:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9219,7 +9219,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. &lt;19&gt; Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R314:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
@@ -9230,7 +9230,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation fails the ROP[RopGetHierarchyTable] with an error code of ecNotSupported(0x80040102). (Microsoft Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R314:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
