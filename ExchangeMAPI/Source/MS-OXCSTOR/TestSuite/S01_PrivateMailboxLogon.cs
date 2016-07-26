@@ -638,7 +638,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.setReceiveFolderRequest.FolderId = this.logonResponse.FolderIds[3];
             this.setReceiveFolderRequest.MessageClass = Encoding.ASCII.GetBytes(this.messageMyClass + "\0");
             this.oxcstorAdapter.DoRopCall(this.setReceiveFolderRequest, this.outObjHandle, ROPCommandType.RopSetReceiveFolder, out this.outputBuffer);
-            DateTime modificationTime = DateTime.Now;
+            DateTime modificationTime = DateTime.UtcNow;
             this.setReceiveFolderResponse = (RopSetReceiveFolderResponse)this.outputBuffer.RopsList[0];
 
             // Add the debug information
