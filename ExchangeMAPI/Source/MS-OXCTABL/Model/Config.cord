@@ -1098,7 +1098,9 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 			(
 				(
 					RopResetTable;
+                    CheckRequirementEnabled(908, out _);
                     CheckRequirementEnabled(909, out _);
+                    RopSetColumns(1,false,false,false);
 			        RopSeekRowBookmark(true, true, true);					
 				)
 				|

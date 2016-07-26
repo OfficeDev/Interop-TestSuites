@@ -708,16 +708,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 }
 
                 // After resetTable Rop, attempts to use the bookmark will return success in Exchange 2007.
-                // After resetTable Rop, attempts to use the bookmark will return ecNullObject in Exchange 2010 and above
+                // After resetTable Rop, attempts to use the bookmark will return ecInvalidBookmark in Exchange 2010 and above
                 if (resetTableDone)
                 {
                     if (requirementContainer[909])
                     {
                         ModelHelper.CaptureRequirement(909, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<28> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
                     }
-                    else
+
+                    if (requirementContainer[908])
                     {
-                        return TableRopReturnValues.ecNullObject;
+                        ModelHelper.CaptureRequirement(908, @"Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        return TableRopReturnValues.ecInvalidBookmark;
                     }
                 }
 

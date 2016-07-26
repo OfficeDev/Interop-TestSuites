@@ -89,7 +89,9 @@
     <Property name="R905Enabled" value="true"/>
     <!-- Set R906Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecInvalidBookmark", if the bookmark has become invalid because of a RopRestrict ROP, as specified in section 3.2.5.10. Set R906Enabled to false to disable this requirement.-->
     <Property name="R906Enabled" value="false"/>
-    <!-- Set R905Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R909Enabled to false to disable this requirement.-->
+    <!-- Set R908Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the ReturnValue field to "ecInvalidBookmark" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. Set R908Enabled to false to disable this requirement.-->
+    <Property name="R908Enabled" value="false"/>
+    <!-- Set R909Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R909Enabled to false to disable this requirement.-->
     <Property name="R909Enabled" value="true"/>
     <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
     <Property name="R1340Enabled" value="false"/>
