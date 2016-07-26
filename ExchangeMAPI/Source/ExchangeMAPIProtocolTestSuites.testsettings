@@ -14,7 +14,7 @@
     <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-OXCROPS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCTABL\TestSuite\MS-OXCTABL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCSTOR\Adapter\SUTControlAdapter\Implementation\" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_TestSuite.deployment.ptfconfig" />

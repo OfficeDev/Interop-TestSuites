@@ -5360,7 +5360,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R663</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In EcDoRpcExt2 Method (opnum 11)] [pcbOut] If the value in the pcbOut parameter on input is less than 0x00000008, the server SHOULD&lt;22&gt; fail with error code ecRpcFailed (0x80040115).</ns1:Description>
+		<ns1:Description>[In EcDoRpcExt2 Method (opnum 11)] [pcbOut] If the value in the pcbOut parameter on input is less than 0x00000008, the server SHOULD&lt;21&gt; fail with error code ecRpcFailed (0x80040115).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
