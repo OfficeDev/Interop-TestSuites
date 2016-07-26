@@ -1547,7 +1547,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             logonRequest.OpenFlags = 0x01000000;
             logonRequest.Essdn = Encoding.ASCII.GetBytes(this.essdnOfUser1 + "\0");
             logonRequest.EssdnSize = (ushort)logonRequest.Essdn.Length;
-            this.oxcstorAdapter.DoRopCall(logonRequest, this.insideObjHandle, ROPCommandType.RopLogonPrivateMailbox, out this.outputBuffer);
+            this.oxcstorAdapter.DoRopCall(logonRequest, this.insideObjHandle, ROPCommandType.RopLogonPrivateMailbox, out this.outputBuffer, this.userNameOfMailboxOnServer1);
             this.logonResponse = (RopLogonResponse)this.outputBuffer.RopsList[0];
             Site.Assert.AreEqual<uint>(0, this.logonResponse.ReturnValue, "0 indicates the ROP succeeds, other value indicates error occurs.");
             this.outObjHandle = this.outputBuffer.ServerObjectHandleTable[0];
