@@ -1710,7 +1710,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R161001</ns1:REQ_ID>
@@ -3354,6 +3354,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R345</ns1:REQ_ID>
@@ -3752,7 +3753,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Description>[In Polling the Server for Notifications] If the client is required to respond to notifications at a rate that is more frequent than the polling interval, then the polling method SHOULD NOT be used for retrieving notifications.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3941,7 +3942,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Description>[In Sending an EcRRegisterPushNotification Method Call] A client SHOULD register a callback address by using an address type that corresponds to the protocol being used to communicate with the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
