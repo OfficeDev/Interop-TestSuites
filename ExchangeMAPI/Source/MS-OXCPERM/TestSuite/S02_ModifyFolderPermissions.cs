@@ -947,7 +947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                 TestSuiteBase.UINT32SUCCESS,
                 responseValue,
                 98,
-                @"[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.<3>");
+                @"[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.<5>");
             #endregion
 
             #endregion Check FreeBusySimple permission
