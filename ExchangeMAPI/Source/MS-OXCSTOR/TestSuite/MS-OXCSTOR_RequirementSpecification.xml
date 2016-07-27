@@ -3814,7 +3814,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280</ns1:REQ_ID>
@@ -9472,7 +9472,7 @@
 		<ns1:REQ_ID>MS-OXCSTOR_R1046001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the implementation does fail with an RPC fault. &lt;27&gt; Section 3.2.5.1.1:  In Exchange 2013, if the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server fails with an RPC fault.</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R1046:I</ns1:Derived>
+		<ns1:Derived>MS-OXCSTOR_R1046:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9482,7 +9482,7 @@
 		<ns1:REQ_ID>MS-OXCSTOR_R3145</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] For the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field, the implementation has the following behavior: If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server ignores the USE_PER_MDB_REPLID_MAPPING flag of the OpenFlags field. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R1046:i</ns1:Derived>
+		<ns1:Derived>MS-OXCSTOR_R1046:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9899,7 +9899,7 @@
 		<ns1:REQ_ID>MS-OXCSTOR_R603002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not fail with "0x000004ED" when the client sends a RopWritePerUserInformation ROP request with invalid value set in Data field. (Exchange 2010 and above follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R603"i</ns1:Derived>
+		<ns1:Derived>MS-OXCSTOR_R603:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
