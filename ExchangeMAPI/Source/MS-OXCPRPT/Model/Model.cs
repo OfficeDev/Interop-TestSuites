@@ -922,24 +922,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     error = CPRPTErrorCode.NotSupported;
                 }            
             }
-
-            if (globalObj == ServerObjectType.Folder && propertyType == PropertyTypeName.PtypString && objectToOperate == ObjectToOperate.FifthObject && requirementContainer[2563])
-            {
-                isStreamOpenedSuccess = true;
-                error = CPRPTErrorCode.NotSupported;
-                ModelHelper.CaptureRequirement(
-                   2563,
-                   @"[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypString for Folder objects. (Exchange 2007 and above follow this behavior.)");
-            }
-
-            if (globalObj == ServerObjectType.Folder && propertyType == PropertyTypeName.PtypBinary && objectToOperate == ObjectToOperate.FifthObject && requirementContainer[2561])
-            {
-                isStreamOpenedSuccess = true;
-                error = CPRPTErrorCode.NotSupported;
-                ModelHelper.CaptureRequirement(
-                   2561,
-                   @"[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypBinary for Folder objects. (Exchange 2007 and above follow this behavior.)");
-            }
         }
 
         /// <summary>

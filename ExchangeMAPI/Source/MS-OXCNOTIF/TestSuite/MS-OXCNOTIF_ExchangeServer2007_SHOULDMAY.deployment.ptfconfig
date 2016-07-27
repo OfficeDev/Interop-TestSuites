@@ -103,7 +103,5 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R1340Enabled" value="false"/>
     <!-- Set R8201001Enabled to true to verify that the implementation does support Execute request type. Set R8201001Enabled to false to disable this requirement.-->
     <Property name="R8201001Enabled" value="false"/>
-    <!-- Set R511001Enabled to true to verify that the implementation does support cookies. Set R511001Enabled to false to disable this requirement.-->
-    <Property name="R511001Enabled" value="false"/>
   </Properties>
 </TestSite>

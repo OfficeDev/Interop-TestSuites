@@ -3520,7 +3520,7 @@ Create associated contents table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R258</ns1:REQ_ID>
@@ -6017,7 +6017,8 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCPRPT_R466001</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R467</ns1:REQ_ID>
@@ -6026,7 +6027,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R9070301</ns1:REQ_ID>
@@ -8298,6 +8299,28 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R466001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When this is the first ROP RopGetPropertiesAll in the request buffer, and the maximum size of a ROP response buffer is used, and the serialized response would not fit, the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. &lt;5&gt; Section 3.2.5.2:  Exchange 2010 fails the EcDoRpcExt2 method with a return value of 0x0000047D.</ns1:Description>
+		<ns1:Derived>MS-OXCPRPT_R466:I, MS-OXCPRPT_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R466002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When this is the first ROP RopGetPropertiesAll in the request buffer, and the maximum size of a ROP response buffer is used, and the serialized response would not fit, the implementation does fail the EcDoRpcExt2 method with a return value of 0x000003F0. (Exchange 2007, Exchange 2013, Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXCPRPT_R466:I, MS-OXCPRPT_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>

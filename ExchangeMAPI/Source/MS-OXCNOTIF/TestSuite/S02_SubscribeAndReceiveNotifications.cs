@@ -1894,7 +1894,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR107,
                 107,
-                @"[n NotificationData Structure] [NotificationType value] 0x0020: The notification is for an ObjectMoved event.");
+                @"[In NotificationData Structure] [NotificationType value] 0x0020: The notification is for an ObjectMoved event.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R16");

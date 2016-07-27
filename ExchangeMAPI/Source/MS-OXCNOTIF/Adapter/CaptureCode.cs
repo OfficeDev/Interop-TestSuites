@@ -75,18 +75,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                         517,
                         @"[In Appendix A: Product Behavior] Implementation does support the session context cookie. (<11> Section 3.1.1:  The session context cookie was introduced in Exchange 2013 SP1.)");
                 }
-
-                if(Common.IsRequirementEnabled(511001,this.Site))
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R517");
-
-                    // When the client receive asynchronous MAPI notification in the response through test suites by using
-                    // underlying networking protocols, this method will be invoked, and this requirement will be verified directly.
-                    Site.CaptureRequirement(
-                        511001,
-                        @"[In Appendix A: Product Behavior] Implementation does support cookies. <11> Section 3.1.1:  The Execute request type was introduced in Exchange 2013 SP1. (Exchange 2013 SP1 and above follow this behavior.)");
-                }
             }
 
             // Add the debug information
@@ -170,7 +158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 2,
                 Marshal.SizeOf(ropNotifyResponse.NotificationData.NotificationFlags),
                 137,
-                @"[In RopNotify ROP Response Buffer] It [NotificationFlags] is 2 bytes.");
+                @"[In NotificationData Structure] It [NotificationFlags] is 2 bytes.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R97002");

@@ -389,7 +389,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-OXCNOTIF_R41, MS-OXCNOTIF_R42, MS-OXCNOTIF_R43, MS-OXCNOTIF_R44, MS-OXCNOTIF_R45, MS-OXCNOTIF_R46, MS-OXCNOTIF_R47,  MS-OXCNOTIF_R40001,  MS-OXCNOTIF_R40002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCNOTIF_R41, MS-OXCNOTIF_R42, MS-OXCNOTIF_R43, MS-OXCNOTIF_R44, MS-OXCNOTIF_R45, MS-OXCNOTIF_R46, MS-OXCNOTIF_R47,  MS-OXCNOTIF_R40001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R133</ns1:REQ_ID>
@@ -408,7 +408,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-OXCNOTIF_R41, MS-OXCNOTIF_R42, MS-OXCNOTIF_R43, MS-OXCNOTIF_R44, MS-OXCNOTIF_R45, MS-OXCNOTIF_R46, MS-OXCNOTIF_R47,  MS-OXCNOTIF_R40001,  MS-OXCNOTIF_R40002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCNOTIF_R41, MS-OXCNOTIF_R42, MS-OXCNOTIF_R43, MS-OXCNOTIF_R44, MS-OXCNOTIF_R45, MS-OXCNOTIF_R46, MS-OXCNOTIF_R47,  MS-OXCNOTIF_R40001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R41</ns1:REQ_ID>
@@ -489,7 +489,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R48</ns1:REQ_ID>
@@ -1710,13 +1710,12 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R161001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1.2 </ns1:Doc_Sect>
 		<ns1:Description>[In NotificationData Structure] This field [InsertAfterTableRowInstance] is available only if bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003 or 0x0005.</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R161:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1727,7 +1726,7 @@
 		<ns1:REQ_ID>MS-OXCNOTIF_R161002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1.2 </ns1:Doc_Sect>
 		<ns1:Description>[In NotificationData Structure] This field [InsertAfterTableRowInstance] is available when bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0003.</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R161:p</ns1:Derived>
+		<ns1:Derived>MS-OXCNOTIF_R161001:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1737,7 +1736,7 @@
 		<ns1:REQ_ID>MS-OXCNOTIF_R161003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1.2 </ns1:Doc_Sect>
 		<ns1:Description>[In NotificationData Structure] This field [InsertAfterTableRowInstance] is available when bit 0x8000 is set in the NotificationFlags field and if the TableEventType field is available and is 0x0005.</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R161:p</ns1:Derived>
+		<ns1:Derived>MS-OXCNOTIF_R161001:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1747,7 +1746,7 @@
 		<ns1:REQ_ID>MS-OXCNOTIF_R161004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1.2 </ns1:Doc_Sect>
 		<ns1:Description>[In NotificationData Structure] This field [InsertAfterTableRowInstance] is not available when bit 0x8000 is not set in the NotificationFlags field.</ns1:Description>
-		<ns1:Derived>MS-OXCNOTIF_R161:p</ns1:Derived>
+		<ns1:Derived>MS-OXCNOTIF_R161001:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4543,7 +4542,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -4594,6 +4593,16 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCNOTIF_R510</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;8&gt; Section 2.2.1.4.1.1:  The Execute request type was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R503</ns1:REQ_ID>
@@ -4666,7 +4675,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -4721,7 +4730,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
