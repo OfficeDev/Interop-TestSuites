@@ -17,8 +17,6 @@
     <Property name="R2003004Enabled" value="false" />
     <!-- Set R2003005Enabled to true to verify that the implementation does return the value "ErrorsReturned" (0x00040380). Set R2003005Enabled to false to disable this requirement.-->
     <Property name="R2003005Enabled" value="true" />
-    <!-- Set R2003007Enabled to true to verify that the implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat. Set R2003007Enabled to false to disable this requirement.-->
-    <Property name="R2003007Enabled" value="true" />
     <!-- Set R2003009Enabled to true to verify that the implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. Set R2003009Enabled to false to disable this requirement.-->
     <Property name="R2003009Enabled" value="true" />
     <!-- Set R2003010Enabled to true to verify that the implementation does not modify any properties of any objects in the address book. Set R2003010Enabled to false to disable this requirement.-->

@@ -1268,6 +1268,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 @"[In PropertyRow_r Structure] [Reserved] The server under test MUST set this value to the constant 0x00000000.");
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R72");
+
+            // Verify MS-OXCDATA requirement: MS-OXCDATA_R72
+            this.Site.CaptureRequirement(
+                "MS-OXCDATA",
+                72,
+                @"[In StandardPropertyRow Structure] Flag (1 byte): An unsigned integer.");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R73");
 
             // Verify MS-OXCDATA requirement: MS-OXCDATA_R73
