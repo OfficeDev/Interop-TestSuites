@@ -718,7 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
 
                     if (requirementContainer[908])
                     {
-                        ModelHelper.CaptureRequirement(908, @"Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(908, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
                 }
@@ -1021,7 +1021,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     Condition.IsTrue((requirementContainer[898] && !requirementContainer[899]) || (!requirementContainer[898] && requirementContainer[899]));
                     if (requirementContainer[898])
                     {
-                        ModelHelper.CaptureRequirement(898, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(898, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
 

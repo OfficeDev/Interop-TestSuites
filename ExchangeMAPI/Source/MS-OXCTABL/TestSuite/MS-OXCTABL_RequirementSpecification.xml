@@ -2752,7 +2752,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R6081.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R6081, MS-OXCTABL_R608.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R239</ns1:REQ_ID>
@@ -2849,6 +2849,15 @@
 		<ns1:REQ_ID>MS-OXCTABL_R248</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
 		<ns1:Description>[In RopFreeBookmark ROP] If the bookmark has been released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3), attempts to use the bookmark will fail with the ecNullObject error code.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCTABL_R249</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RopFreeBookmark ROP] This ROP is valid only on Table objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4542,7 +4551,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R8272.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCTABL_R8272.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R8263</ns1:REQ_ID>
@@ -5616,7 +5625,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R906.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R906, MS-OXCTABL_R907.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R871</ns1:REQ_ID>
@@ -5626,7 +5635,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R909.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R908, MS-OXCTABL_R909.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R506</ns1:REQ_ID>
@@ -6097,7 +6106,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R900.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R900, MS-OXCTABL_R901.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R869</ns1:REQ_ID>
@@ -6969,7 +6978,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:REQ_ID>MS-OXCTABL_R6081</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does always set this value [RowNoLongerVisible] to "TRUE" (0x01) if the row to which the bookmark pointed has been removed from the table in RopFindRow. (Exchange 2013 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCTABL_R238:i,MS-OXCTABL_R2</ns1:Derived>
+		<ns1:Derived>MS-OXCTABL_R238:i,MS-OXCTABL_R1</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7341,8 +7350,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R906</ns1:REQ_ID>
@@ -7363,7 +7371,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R908</ns1:REQ_ID>
@@ -7384,8 +7392,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R759</ns1:REQ_ID>
@@ -7431,7 +7438,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R761</ns1:REQ_ID>
@@ -7472,8 +7479,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R900</ns1:REQ_ID>
@@ -7494,7 +7500,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R902</ns1:REQ_ID>
@@ -7515,8 +7521,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R764</ns1:REQ_ID>
