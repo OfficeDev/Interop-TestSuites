@@ -10392,7 +10392,6 @@ long NspiModProps(
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXNSPI_R2003007.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1303</ns1:REQ_ID>
@@ -14144,7 +14143,7 @@ long NspiGetTemplateInfo(
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -14162,12 +14161,11 @@ long NspiGetTemplateInfo(
 		<ns1:REQ_ID>MS-OXNSPI_R2003007</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;5&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R1527:I, MS-OXNSPI_R1301:I </ns1:Derived>
+		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003009</ns1:REQ_ID>

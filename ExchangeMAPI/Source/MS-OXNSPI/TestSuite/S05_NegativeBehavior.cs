@@ -2985,7 +2985,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
                 750001,
-                @"[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results.");
+                @"[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results. ");
             #endregion
             #endregion
 
