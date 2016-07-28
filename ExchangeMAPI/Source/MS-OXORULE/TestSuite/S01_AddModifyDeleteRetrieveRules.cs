@@ -75,15 +75,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 }
             }
 
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R606");
+            if (Common.IsRequirementEnabled(8851, this.Site))
+            {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R8851");
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R606.
-            // There are no rules for the newly created folder before adding rule to it, so the pidtaghasrules property must be false
-            Site.CaptureRequirementIfIsFalse(
-                pidTagHasRulesBeforeAdd,
-                606,
-                @"[In Receiving a RopModifyRules ROP Request] The value of this property [PidTagHasRules] MUST be set to ""FALSE"" otherwise [no rules are set in that folder].");
+                // Verify MS-OXORULE requirement: MS-OXORULE_8851.
+                // There are no rules for the newly created folder before adding rule to it, so the pidtaghasrules property must be false
+                Site.CaptureRequirementIfIsFalse(
+                    pidTagHasRulesBeforeAdd,
+                    8851,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagHasRules to ""FALSE"" if no rule (2) is set on a folder. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
+            }
             #endregion
 
             #region TestUser1 generates test RuleData.
@@ -124,11 +127,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 }
 
                 // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R605");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7202");
                 Site.CaptureRequirementIfIsTrue(
                     pidTagHasRulesAfterAdd,
-                    605,
-                    @"[In Receiving a RopModifyRules ROP Request] The value of this property [PidTagHasRules] MUST be set to ""TRUE"" if any rules (4) are set in that folder.");
+                    7202,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagHasRules to ""TRUE"" if any rules (2) are set on a folder. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
             }
             #endregion
 

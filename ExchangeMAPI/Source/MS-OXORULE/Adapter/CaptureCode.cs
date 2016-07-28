@@ -1461,7 +1461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     Site.CaptureRequirementIfIsTrue(
                         isVerifyR636,
                         636,
-                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<6> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
+                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<8> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
                 }
 
                 if ((actionBlock.ActionType == ActionType.OP_FORWARD) || (actionBlock.ActionType == ActionType.OP_DELEGATE))
@@ -1588,7 +1588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR633,
                             633,
-                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<9> Section 2.2.5.1.2.4.1: Exchange 2010 and Exchange 2013 set this value to 0x00.]");
+                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<9> Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]");
                     }
 
                     if (Common.IsRequirementEnabled(632, this.Site))
@@ -1599,7 +1599,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR632,
                             632,
-                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<9> Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]");
+                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<9> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]");
                     }
 
                     // Add the debug information.
@@ -1660,7 +1660,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR895,
                             895,
-                            @"[In RecipientBlock Data Buffer Packet Structure] No rules (4) does require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer] on the implementation. (Exchange 2010 and above follow this behavior.)");
+                            @"[In RecipientBlock Data Buffer Packet Structure] No rules (2) does require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer] on the implementation. (Exchange 2010 and above follow this behavior.)");
                     }
                 }
 

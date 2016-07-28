@@ -869,56 +869,56 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     @"[In Handling Errors During Rule Processing] The implementation does generate a DEM when it encounters an error processing a rule (2) on an incoming message. (Exchange 2003 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(713, this.Site))
+            if (Common.IsRequirementEnabled(7132, this.Site))
             {
                 // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R713.");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7132.");
 
-                // Verify MS-OXORULE requirement: MS-OXORULE_R713.
+                // Verify MS-OXORULE requirement: MS-OXORULE_R7132.
                 // The messageEntryIdInbyte get from the inboxFolder is the message that was being processed by the server when this error was encountered.
-                bool isVerifyR713 = pidTagDamOriginalEntryId.Length == messageEntryId.Length;
-                if (isVerifyR713)
+                bool isVerifyR7132 = pidTagDamOriginalEntryId.Length == messageEntryId.Length;
+                if (isVerifyR7132)
                 {
                     for (int i = 0; i < pidTagDamOriginalEntryId.Length; i++)
                     {
                         if (pidTagDamOriginalEntryId[i] != messageEntryId[i])
                         {
-                            isVerifyR713 = false;
+                            isVerifyR7132 = false;
                             break;
                         }
                     }
                 }
 
                 Site.CaptureRequirementIfIsTrue(
-                    isVerifyR713,
-                    713,
-                    @"[In PidTagDamOriginalEntryId Property] The PidTagDamOriginalEntryId property (section 2.2.6.3) MUST be set to the EntryID of the message that was being processed by the server when this error was encountered (that is, the ""delivered message"").");
+                    isVerifyR7132,
+                    7132,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagDamOriginalEntryId  to the EntryID of the message that was being processed by the server when this error was encountered (this is, the ""delivered message""). (Exchange 2010 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(715, this.Site))
+            if (Common.IsRequirementEnabled(7152, this.Site))
             {
                 // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R715.");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7152.");
 
-                // Verify MS-OXORULE requirement: MS-OXORULE_R715.
+                // Verify MS-OXORULE requirement: MS-OXORULE_R7152.
                 // The inboxFolder is the folder where the rule that triggered in this case.
-                bool isVerifyR715 = pidTagRuleFolderEntryId.Length == inboxFolderEntryId.Length;
-                if (isVerifyR715)
+                bool isVerifyR7152 = pidTagRuleFolderEntryId.Length == inboxFolderEntryId.Length;
+                if (isVerifyR7152)
                 {
                     for (int i = 0; i < pidTagRuleFolderEntryId.Length; i++)
                     {
                         if (pidTagRuleFolderEntryId[i] != inboxFolderEntryId[i])
                         {
-                            isVerifyR715 = false;
+                            isVerifyR7152 = false;
                             break;
                         }
                     }
                 }
 
                 Site.CaptureRequirementIfIsTrue(
-                    isVerifyR715,
-                    715,
-                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property (section 2.2.6.5) MUST be set to the EntryID of the folder where the rule (4) that triggered the generation of this DEM is stored.");
+                    isVerifyR7152,
+                    7152,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagRuleFolderEntryId   to the EntryID of the folder where the rule (2) that triggered the generation of this DEM is stored. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(896, this.Site))
@@ -1092,7 +1092,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 709,
-                @"[In PidTagRuleActionNumber Property] The ActionType field value of the action (3) at this index MUST be the same value as the value of the PidTagRuleActionType property (section 2.2.7.3) in this DEM.");
+                @"[In PidTagRuleActionNumber Property] The ActionType field value of the action (2) at this index MUST be the same value as the value of the PidTagRuleActionType property (section 2.2.7.3) in this DEM.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R750");
@@ -1112,7 +1112,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 1009,
-                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.934) specifies the action (3) of the rule (4) that failed.");
+                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.936) specifies the action (2) of the rule (2) that failed.");
             #endregion
             #endregion
 

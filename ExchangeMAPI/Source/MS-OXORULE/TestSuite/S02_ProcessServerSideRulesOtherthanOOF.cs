@@ -86,16 +86,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             bool doesUnexpectedMessageExist = this.CheckUnexpectedMessageExist(this.InboxFolderHandle, ref contentsTableHandle, propertyTag, mailSubject);
 
             #region Capture Code
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R547");
+            if (Common.IsRequirementEnabled(5472, this.Site))
+            {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R5472");
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R547.
-            // TestUser2 has sent a message to TestUser1. If the message doesn't appear in the user's mailbox, this requirement can be verified.
-            Site.CaptureRequirementIfIsFalse(
-                doesUnexpectedMessageExist,
-                547,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_BOUNCE"": The original message MUST NOT appear in the user's mailbox.");
-
+                // Verify MS-OXORULE requirement: MS-OXORULE_R5472.
+                // TestUser2 has sent a message to TestUser1. If the message doesn't appear in the user's mailbox, this requirement can be verified.
+                Site.CaptureRequirementIfIsFalse(
+                    doesUnexpectedMessageExist,
+                    5472,
+                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_BOUNCE"": The original message MUST NOT appear in the user's mailbox.");
+            }
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R342");
 
@@ -242,29 +244,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.Assert.AreEqual<uint>(0, getMailMessageContentForDenied.ReturnValue, "Getting the message should succeed, the actual returned value is {0}!", getMailMessageContentForDenied.ReturnValue);
                 bool isReceivedReplyMessageForDenied = mailSubjectForDenied.Contains(mailSubject);
                 Site.Assert.IsTrue(isReceivedReplyMessageForDenied, "The server should send a reply message to the sender for the Denied Bounce rule.");
+                if (Common.IsRequirementEnabled(5462, this.Site))
+                {
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R5462");
 
-                // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R546");
-
-                // Verify MS-OXORULE requirement: MS-OXORULE_R546.
-                bool isVerifyR546 = isReceivedReplyMessageForCanNotDisplay && isReceivedReplyMessageForTooLarge && isReceivedReplyMessageForDenied;
-                Site.CaptureRequirementIfIsTrue(
-                    isVerifyR546,
-                    546,
-                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_BOUNCE"": The server MUST send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox.");
+                    // Verify MS-OXORULE requirement: MS-OXORULE_R5462.
+                    bool isVerifyR546 = isReceivedReplyMessageForCanNotDisplay && isReceivedReplyMessageForTooLarge && isReceivedReplyMessageForDenied;
+                    Site.CaptureRequirementIfIsTrue(
+                        isVerifyR546,
+                        5462,
+                        @"[In Appendix A: Product Behavior] [""OP_BOUNCE""]Implementation does send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox. (Exchange 2010 and above follow this behavior.)");
+                }
                 #endregion
             }
             else
             {
-                // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R546");
+                if (Common.IsRequirementEnabled(5462, this.Site))
+                {
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R5462");
 
-                // Verify MS-OXORULE requirement: MS-OXORULE_R546.
-                bool isVerifyR546 = isReceivedReplyMessageForCanNotDisplay && isReceivedReplyMessageForTooLarge;
-                Site.CaptureRequirementIfIsTrue(
-                    isVerifyR546,
-                    546,
-                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_BOUNCE"": The server MUST send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox.");
+                    // Verify MS-OXORULE requirement: MS-OXORULE_R5462.
+                    bool isVerifyR546 = isReceivedReplyMessageForCanNotDisplay && isReceivedReplyMessageForTooLarge;
+                    Site.CaptureRequirementIfIsTrue(
+                        isVerifyR546,
+                        5462,
+                        @"[In Appendix A: Product Behavior] [""OP_BOUNCE""]Implementation does send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox. (Exchange 2010 and above follow this behavior.)");
+                }
             }
         }
 
@@ -1444,7 +1451,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 pidTagReceivedRepresentingName,
                 pidTagDisplayNameOfMailboxUser,
                 543,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingName property ([MS-OXOMSG] section 2.2.1.26) MUST be set to the same value as the mailbox user's PidTagDisplayName property ([MS-OXCFOLD] section 2.2.2.2.2.5).");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DELEGATE"": The PidTagReceivedRepresentingName property ([MS-OXOMSG] section 2.2.1.26) MUST be set to the same value as the mailbox user's PidTagDisplayName property ([MS-OXCFOLD] section 2.2.2.2.2.5).");
 
             byte[] pidTagReceivedRepresentingSearchKeyOfbytes = getNormalMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[5].Value;
             byte[] pidTagReceivedRepresentingSearchKey = AdapterHelper.PropertyValueConvertToBinary(pidTagReceivedRepresentingSearchKeyOfbytes);
@@ -2096,17 +2103,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     isVerifiedR983,
                     983,
                     @"[In ServerEid Structure] FolderId (8 bytes): A Folder ID structure, as specified in [MS-OXCDATA] section 2.2.1.1, identifies the destination folder.");
+                if (Common.IsRequirementEnabled(7032, this.Site))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7032");
 
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R703");
+                    bool isVerifiedR703 = moveActionDataOfQueryRowsResponse.FolderInThisStore == 0x01 && getNewFolder1MailMessageContent.RowCount != 0;
 
-                bool isVerifiedR703 = moveActionDataOfQueryRowsResponse.FolderInThisStore == 0x01 && getNewFolder1MailMessageContent.RowCount != 0;
-
-                // Verify MS-OXORULE requirement: MS-OXORULE_R703
-                this.Site.CaptureRequirementIfIsTrue(
-                    isVerifiedR703,
-                    703,
-                    @"[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field MUST be set to 0x01, if the destination folder is in the user's mailbox,");
+                    // Verify MS-OXORULE requirement: MS-OXORULE_R7032
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isVerifiedR703,
+                        7032,
+                        @"[In Appendix A: Product Behavior] Implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. (Exchange 2007 and Exchange 2016 follow this behavior).");
+                }
                 #endregion
                 #endregion
             }
