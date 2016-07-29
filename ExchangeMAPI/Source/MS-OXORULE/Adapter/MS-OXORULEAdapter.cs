@@ -75,21 +75,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         private TargetOfRop targetOfRop;
 
         /// <summary>
-        /// The RPC binding handle string used for the NSPI method.
-        /// </summary>
-        private IntPtr stringBinding;
-
-        /// <summary>
-        /// The RPC binding handle used for the NSPI method.
-        /// </summary>
-        private IntPtr bindingHandle;
-
-        /// <summary>
-        /// The NSPI context handle used for the NSPI method.
-        /// </summary>
-        private IntPtr nspiContextHandle;
-
-        /// <summary>
         /// Gets or sets indicate the Rop operation is performed for DAM, DEM or ExtendedRules.
         /// </summary>
         public TargetOfRop TargetOfRop

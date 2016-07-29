@@ -66,12 +66,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <summary>
         /// The time internal that is used to wait to retry when the returned error code is GeneralFailure.
         /// </summary>
-        private int waitTime;
+        private int waitTime = 0;
 
         /// <summary>
         /// The retry count that is used to retry when the returned error code is GeneralFailure.
         /// </summary>
-        private uint maxRetryCount;
+        private uint maxRetryCount = 0;
 
         private ITestSite site;
         #endregion
@@ -83,6 +83,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             this.userName = Common.GetConfigurationPropertyValue("AdminUserName", this.site);
             this.domainName = Common.GetConfigurationPropertyValue("Domain", this.site);
             this.password = Common.GetConfigurationPropertyValue("AdminUserPassword", this.site);
+            this.waitTime= int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.site));
+            this.maxRetryCount = uint.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.site));
             string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);
             requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
             this.transport = Common.GetConfigurationPropertyValue("TransportSeq", this.site).ToLower(System.Globalization.CultureInfo.CurrentCulture);
