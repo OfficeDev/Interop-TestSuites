@@ -44639,7 +44639,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R123</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In RopAbort ROP] The RopAbort ROP ([MS-OXCROPS] section 2.2.5.5) attempts to stop any asynchronous table operations that are currently in progress.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In RopAbort ROP] The RopAbort ROP ([MS-OXCROPS] section 2.2.5.5) attempts to stop any asynchronous table operations that are currently in progress.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44649,7 +44649,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R128</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStatus ROP] The RopGetStatus ROP ([MS-OXCROPS] section 2.2.5.6) retrieves information about the current status of asynchronous operations being performed on the table.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In RopGetStatus ROP] The RopGetStatus ROP ([MS-OXCROPS] section 2.2.5.6) retrieves information about the current status of asynchronous operations being performed on the table.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44659,7 +44659,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R602</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;9&gt; Section 2.2.2.6: Exchange 2010 and Exchange 2013 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;10&gt; Section 2.2.2.6: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44669,7 +44669,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R604</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;11&gt; Section 2.2.2.7: Exchange 2010 and Exchange 2013 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;12&gt; Section 2.2.2.7: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44679,7 +44679,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;15&gt; Section 2.2.2.17.1: Exchange 2013 does not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;16&gt; Section 2.2.2.17.1: Exchange 2013 and Exchange 2016 do not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44689,7 +44689,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.18</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44709,7 +44709,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;12&gt; implement this ROP [RopCopyToStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;13&gt; implement this ROP [RopCopyToStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44719,7 +44719,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R597</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;13&gt; implement this ROP [RopProgress].</ns1:Description>
+		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;14&gt; implement this ROP [RopProgress].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44729,7 +44729,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R607</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;14&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44739,7 +44739,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R620</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;16&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44749,7 +44749,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;16&gt;  implement this ROP [RopWriteAndCommitStream].</ns1:Description>
+		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;17&gt; implement this ROP [RopWriteAndCommitStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44759,7 +44759,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75606</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;17&gt; implement this ROP [RopCloneStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;18&gt; implement this ROP [RopCloneStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44787,7 +44787,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86709</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;12&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44797,7 +44797,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R866</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;13&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;14&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44807,7 +44807,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;14&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;15&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44817,7 +44817,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;15&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44827,7 +44827,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R752</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44837,7 +44837,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R753</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

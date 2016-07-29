@@ -5360,7 +5360,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R802</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;19&gt; Section 3.2.5.1: Exchange 2010 and Exchange 2013 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5380,7 +5380,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1924</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Polling the Server for Notifications] To poll the server for pending notifications, the client MUST make EcDoRpcExt2 method calls as specified in section 3.2.5.6.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does fail with ecRpcFormat (0x000004B6) if the output buffer is less than 0x00008007. (Microsoft Exchange Server 2007 follows this behavior).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
