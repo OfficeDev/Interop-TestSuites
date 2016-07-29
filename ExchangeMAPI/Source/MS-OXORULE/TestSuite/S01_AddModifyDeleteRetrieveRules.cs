@@ -114,7 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             #endregion
 
             #region TestUser1 gets the value of PidTagHasRules of the newly created folder after adding rules.
-            if (Common.IsRequirementEnabled(605, this.Site))
+            if (Common.IsRequirementEnabled(7202, this.Site))
             {
                 getPropertiesSpecificResponse = this.OxoruleAdapter.RopGetPropertiesSpecific(newFolderHandle, new PropertyTag[] { pidTagHasRules });
                 Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "Getting PidTagHasRules property should succeed.");

@@ -73,8 +73,8 @@
     <Property name="R898Enabled" value="true"/>
     <!-- Set R343Enabled to true to verify that for RopModifyRules ROP the implementation does deny the incoming messages as specified in section 2.2.5.1.3.5. Set R343Enabled to false to disable this requirement.-->
     <Property name="R343Enabled" value="true"/>
-    <!-- Set R605Enabled to true to verify that the implementation does set the PidTagHasRules property to true when the folder has any rule. Set R605Enabled to false to disable this requirement.-->
-    <Property name="R605Enabled" value="false"/>
+    <!-- Set R7202Enabled to true to verify that the implementation does set the PidTagHasRules property to true when the folder has any rule. Set R7202Enabled to false to disable this requirement.-->
+    <Property name="R7202Enabled" value="false"/>
     <!-- Set R8851Enabled to true to verify that the implementation does set PidTagHasRules to FALSE when no rule (2) is set on a folder. Set R8851Enabled to false to disable this requirement.-->
     <Property name="R8851Enabled" value="false"/>
     <!-- Set R933Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R933Enabled to false to disable this requirement.-->

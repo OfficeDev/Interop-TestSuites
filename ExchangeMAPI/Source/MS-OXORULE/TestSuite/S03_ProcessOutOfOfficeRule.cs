@@ -495,7 +495,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 2,
                 BitConverter.ToInt32(getMailMessageContent.RowData.PropertyRows[expectedMessageIndex].PropertyValues[0].Value, 0),
                 584,
-                @"[In Entering and Exiting the Out of Office State] When the mailbox exits the Out of Office state, the server MUST stop processing rules (4) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property.");
+                @"[In Entering and Exiting the Out of Office State] When the mailbox exits the Out of Office state, the server MUST stop processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property.");
             #endregion
         }
 

@@ -96,7 +96,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsFalse(
                     doesUnexpectedMessageExist,
                     5472,
-                    @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_BOUNCE"": The original message MUST NOT appear in the user's mailbox.");
+                    @"[In Appendix A: Product Behavior] [""OP_BOUNCE""]Implementation does not support the original message appears in the user's mailbox. (Exchange 2010 and above follow this behavior.)");
             }
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R342");
