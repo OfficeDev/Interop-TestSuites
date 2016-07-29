@@ -99,6 +99,8 @@
     <Property name="R5472Enabled" value="true"/>
     <!-- Set R5572Enabled to true to verify that the implementation does not evaluate the rule (2) when the sender is on the list. Set R5572Enabled to false to disable this requirement.-->
     <Property name="R5572Enabled" value="true"/>
+    <!-- Set R5571Enabled to true to verify that the implementation does evaluate the rule (2) when the sender is on the list. Set R5571Enabled to false to disable this requirement.-->
+    <Property name="R5571Enabled" value="false"/>
     <!-- Set R7032Enabled to true to verify that the implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. Set R7032Enabled to false to disable this requirement.-->
     <Property name="R7032Enabled" value="true"/>
   </Properties>
