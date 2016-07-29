@@ -619,19 +619,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     5572,
                     @"[In Appendix A: Product Behavior] Implementation does not evaluate the rule (2) if the sender is on the list. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
             }
-            if (Common.IsRequirementEnabled(5571, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R5571: the expected reply message index is {0} and the total message count is {1}, and whether the message body contains the reply template body is {2}", expectedMessageIndex, getNormalMailMessageContent.RowCount, isBodyContainsReplyTemplateBody);
-
-                // Verify MS-OXORULE requirement: MS-OXORULE_R5571.
-                // The above case shows the rule was executed twice, which indirectly indicates server adds the normal user into 
-                // History List after the rule was executed once.
-                Site.CaptureRequirementIfIsTrue(
-                    doesUnexpectedMessageExist,
-                    5571,
-                    @"[In Appendix A: Product Behavior] Implementation does evaluate the rule (2) if the sender is on the list. (<20> Section 3.2.5.1.1:  Exchange 2013 SP1 evaluates the rule if the sender is on the list of recipients.)");
-            }
             // If R577 is verified, which means the sender was added to the list of recipients.
             this.Site.CaptureRequirement(
                 558,
