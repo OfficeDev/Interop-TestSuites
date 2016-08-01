@@ -1038,7 +1038,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 
                 // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003004
                 Site.CaptureRequirementIfIsTrue(
-                    Common.IsDNMatchABNF(dn, DNFormat.AddressListDn),
+                    Common.IsDNMatchABNF(dn, DNFormat.Dn),
                     2003004,
                     @"[In Appendix A: Product Behavior] Implementation does follow the ABNF format. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).");
             }
