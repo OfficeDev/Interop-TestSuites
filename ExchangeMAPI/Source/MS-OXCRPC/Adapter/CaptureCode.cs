@@ -1188,6 +1188,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     1180,
                     @"[In Sending the EcDoConnectEx Method] rgwServerVersion: On success, this value is the server protocol version that the client uses to determine what protocol functionality the server supports.");
 
+                ushort[] bestVersion = new ushort[4];
+                ushort[] clientVersion = new ushort[4];
+
+                AdapterHelper.ConvertVersion(rgwBestVersion, out bestVersion);
+                AdapterHelper.ConvertVersion(rgwClientVersion, out clientVersion);
+
                 // Add the debug information
                 Site.Log.Add(
                     LogEntryKind.Debug,
@@ -1201,9 +1207,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
 
                 // Verify MS-OXCRPC requirement: MS-OXCRPC_R1303
                 // According to the Open Specification, server will set the ClientVersion passed in as the BestVersion value if version matches.
-                bool isVerifyR1303 = (rgwBestVersion[0] == rgwClientVersion[0]) &&
-                    (rgwBestVersion[1] == rgwClientVersion[1]) &&
-                    (rgwBestVersion[2] == rgwClientVersion[2]);
+                bool isVerifyR1303 = (bestVersion[0] == clientVersion[0]) &&
+                    (bestVersion[1] == clientVersion[1]) &&
+                    (bestVersion[2] == clientVersion[2]) &&
+                    (bestVersion[3] == clientVersion[3]);
 
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR1303,
@@ -1224,9 +1231,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // Verify MS-OXCRPC requirement: MS-OXCRPC_R547
                 // According to the Open Specification, server will set the ClientVersion passed in as the BestVersion value if version matches.
                 bool isVerifyR547 =
-                    (rgwBestVersion[0] == rgwClientVersion[0]) &&
-                    (rgwBestVersion[1] == rgwClientVersion[1]) &&
-                    (rgwBestVersion[2] == rgwClientVersion[2]);
+                    (bestVersion[0] == clientVersion[0]) &&
+                    (bestVersion[1] == clientVersion[1]) &&
+                    (bestVersion[2] == clientVersion[2]) &&
+                    (bestVersion[3] == clientVersion[3]);
 
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR547,

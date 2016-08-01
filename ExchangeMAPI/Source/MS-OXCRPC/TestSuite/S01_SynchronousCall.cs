@@ -3701,7 +3701,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         {
             ushort[] normalizeVersion;
             bool isServerVersionSupport = false;
-            this.ConvertVersion(version, out normalizeVersion);
+            AdapterHelper.ConvertVersion(version, out normalizeVersion);
 
             // Ignore the last (four) number: build minor number as this digit always means larger or equal to 0.
             // Transform the first three number to a long version in hexadecimal
@@ -3781,31 +3781,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             }
 
             return isServerVersionSupport;
-        }
-
-        /// <summary>
-        /// Convert the three DWORD version into a normalized version.
-        /// </summary>
-        /// <param name="version">The three DWORD version.</param>
-        /// <param name="normalizeVersion">The returned normalized version.</param>
-        private void ConvertVersion(ushort[] version, out ushort[] normalizeVersion)
-        {
-            normalizeVersion = new ushort[ConstValues.NormalizedVersionSize];
-
-            if ((version[1] & ConstValues.HighBitMask) != 0)
-            {
-                normalizeVersion[0] = (ushort)((version[0] & ConstValues.HighByteMask) >> ConstValues.StepDistanceOfOneByte);
-                normalizeVersion[1] = (ushort)(version[0] & ConstValues.LowByteMask);
-                normalizeVersion[2] = (ushort)(version[1] & (~ConstValues.HighBitMask));
-                normalizeVersion[3] = version[2];
-            }
-            else
-            {
-                normalizeVersion[0] = version[0];
-                normalizeVersion[1] = 0;
-                normalizeVersion[2] = version[1];
-                normalizeVersion[3] = version[2];
-            }
         }
 
         /// <summary>
