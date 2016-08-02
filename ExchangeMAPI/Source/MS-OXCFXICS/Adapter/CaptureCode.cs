@@ -2160,23 +2160,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 
                         if (this.synchroniztionFlag == (SynchronizationFlag.FAI | SynchronizationFlag.Normal | SynchronizationFlag.IgnoreSpecifiedOnFAI))
                         {
+                            bool isPropertyExist = false;
+
+                            if (this.propertyTagForConfigure.PropertyId == item2.PropList.PropValues[0].PropInfo.PropID)
+                            {
+                                isPropertyExist = true;
+                            }
+
+                            // If the OnlySpecifiedProperties flag is not set, server must ignore the IgnoreSpecifiedOnFAI flag.
+                            // So Server must write all properties and subobjects for non-FAI messages to the FastTransfer stream.
+                            this.Site.CaptureRequirementIfIsTrue(
+                                        isPropertyExist==false && item2.PropList.PropValues.Count>1,
+                                        218300301,
+                                        @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the OnlySpecifiedProperties flag is not set, the server MUST return same value wether the IgnoreSpecifiedOnFAI flag is set or not.");
+
                             this.messageChangeFull = item2;
                         }
                         else if (this.synchroniztionFlag == (SynchronizationFlag.FAI | SynchronizationFlag.Normal))
                         {
-                            for (int i = 0; i < item2.PropList.PropValues.Count; i++)
-                            {
-                                if (item2.PropList.PropValues[i].PropInfo.PropID != this.messageChangeFull.PropList.PropValues[i].PropInfo.PropID)
-                                {
-                                    this.previousStepVerifiedResult = false;
-                                    break;
-                                }
-                            }
-
-                            this.Site.CaptureRequirementIfIsTrue(
-                                    this.previousStepVerifiedResult,
-                                    218300301,
-                                    @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the OnlySpecifiedProperties flag is not set, the server MUST return same value wether the IgnoreSpecifiedOnFAI flag is set or not.");
                             this.messageChangeFull = item2;
                         }
 
