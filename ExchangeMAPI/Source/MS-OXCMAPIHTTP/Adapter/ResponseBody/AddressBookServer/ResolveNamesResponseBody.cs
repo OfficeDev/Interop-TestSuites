@@ -41,7 +41,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropTagArray structure that specifies the properties returned for the rows in the RowData field.
         /// </summary>
-        public LargePropTagArray? PropertyTags { get; set; }
+        public LargePropertyTagArray? PropertyTags { get; set; }
 
         /// <summary>
         /// Gets or sets an unsigned integer that specifies the number of structures contained in the RowData field.
@@ -92,13 +92,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             index += sizeof(bool);
             if (responseBody.HasRowsAndPropertyTags)
             {
-                responseBody.PropertyTags = LargePropTagArray.Parse(rawData, ref index);
+                responseBody.PropertyTags = LargePropertyTagArray.Parse(rawData, ref index);
                 responseBody.RowCount = BitConverter.ToUInt32(rawData, index);
                 index += sizeof(uint);
                 responseBody.RowData = new AddressBookPropertyRow[(uint)responseBody.RowCount];
                 for (int i = 0; i < responseBody.RowCount; i++)
                 {
-                    responseBody.RowData[i] = AddressBookPropertyRow.Parse(rawData, (LargePropTagArray)responseBody.PropertyTags, ref index);
+                    responseBody.RowData[i] = AddressBookPropertyRow.Parse(rawData, (LargePropertyTagArray)responseBody.PropertyTags, ref index);
                 }
             }
 

@@ -61,7 +61,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                             (ushort)PropertyType.PtypString,
                             propertyType,
                             745,
-                            @"[In PidTagDeferredActionMessageOriginalEntryId Property] Type: PtypString ([MS-OXCDATA] section 2.11.1).");
+                            @"[In PidTagMessageClass Property] Type: PtypString ([MS-OXCDATA] section 2.11.1).");
 
                         // Add the debug information. 
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R746");
@@ -72,7 +72,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                             "IPC.Microsoft Exchange 4.0.Deferred Error",
                             messageClassValue,
                             746,
-                            @"[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) MUST be set to ""IPC.Microsoft Exchange 4.0.Deferred Error"".");
+                            @"[In PidTagMessageClass Property] The PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) MUST be set to ""IPC.Microsoft Exchange 4.0.Deferred Error"".");
 
                         if (propertyValue != null)
                         {
@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                             Site.CaptureRequirementIfIsTrue(
                                 isVerifyR748,
                                 748,
-                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.936) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (4).");
+                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.938) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).");
 
                             if (propertyValue != null)
                             {
@@ -563,7 +563,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageSequenceValue,
                     169,
-                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.945) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.947) MUST be set on the FAI message.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R172.");
@@ -573,7 +573,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageStateValue,
                     172,
-                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.946) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(891, this.Site))
                 {
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageProviderValue,
                     183,
-                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.943) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.945) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(893, this.Site))
                 {
@@ -739,7 +739,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR215,
                     215,
-                    @"[In PidTagExtendedRuleMessageCondition Property] RuleRestriction (variable): The condition is expressed as a restriction (2), as specified in [MS-OXCDATA] section 2.12.");
+                    @"[In PidTagExtendedRuleMessageCondition Property] RuleRestriction (variable): The condition is expressed as a restriction, as specified in [MS-OXCDATA] section 2.12.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R214");
@@ -979,7 +979,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR947,
                     947,
-                    @"[In RuleAction Structure] ActionBlocks (variable):  An array of ActionBlock structures, each of which specifies an action (3) of the rule (4), as specified in section 2.2.5.1.");
+                    @"[In RuleAction Structure] ActionBlocks (variable):  An array of ActionBlock structures, each of which specifies an action (2) of the rule (2), as specified in section 2.2.5.1.");
             }
 
             // Add the debug information.
@@ -1024,7 +1024,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR245,
                     245,
-                    @"[In ActionBlock Structure] The valid actions (3) [of ActionType] are listed in the following table: OP_MOVE, OP_COPY, OP_REPLY, OP_OOF_REPLY, OP_DEFER_ACTION, OP_BOUNCE, OP_FORWARD, OP_DELEGATE, OP_TAG, OP_DELETE, OP_MARK_AS_READ.");
+                    @"[In ActionBlock Structure] The valid actions (2) [of ActionType] are listed in the following table: OP_MOVE, OP_COPY, OP_REPLY, OP_OOF_REPLY, OP_DEFER_ACTION, OP_BOUNCE, OP_FORWARD, OP_DELEGATE, OP_TAG, OP_DELETE, OP_MARK_AS_READ.");
 
                 if ((actionBlock.ActionType == ActionType.OP_MOVE) || (actionBlock.ActionType == ActionType.OP_COPY))
                 {
@@ -1461,7 +1461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     Site.CaptureRequirementIfIsTrue(
                         isVerifyR636,
                         636,
-                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<6> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
+                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<8> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
                 }
 
                 if ((actionBlock.ActionType == ActionType.OP_FORWARD) || (actionBlock.ActionType == ActionType.OP_DELEGATE))
@@ -1588,7 +1588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR633,
                             633,
-                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<7> Section 2.2.5.1.2.4.1: Exchange 2010 and Exchange 2013 set this value to 0x00.]");
+                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<9> Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]");
                     }
 
                     if (Common.IsRequirementEnabled(632, this.Site))
@@ -1599,7 +1599,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR632,
                             632,
-                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<7> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]");
+                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<9> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]");
                     }
 
                     // Add the debug information.
@@ -1660,7 +1660,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR895,
                             895,
-                            @"[In RecipientBlock Data Buffer Packet Structure] No rules (4) does require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer] on the implementation. (Exchange 2010 and above follow this behavior.)");
+                            @"[In RecipientBlock Data Buffer Packet Structure] No rules (2) does require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer] on the implementation. (Exchange 2010 and above follow this behavior.)");
                     }
                 }
 
@@ -1959,7 +1959,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                                 isVerifyR2706,
                                 "MS-OXCDATA",
                                 2706,
-                                @"[In Property Value Types] PtypRuleAction (PT_ACTIONS) is that variable size; a 16-bit COUNT field followed by that many rule (4) action (3) structures, as specified in [MS-OXORULE] section 2.2.5. with Property Type Value 0x00FE,%xFE.00.");
+                                @"[In Property Value Types] PtypRuleAction (PT_ACTIONS) is that variable size; a 16-bit COUNT field followed by that many rule (2) action (2) structures, as specified in [MS-OXORULE] section 2.2.5. with Property Type Value 0x00FE,%xFE.00.");
                         }
 
                         break;

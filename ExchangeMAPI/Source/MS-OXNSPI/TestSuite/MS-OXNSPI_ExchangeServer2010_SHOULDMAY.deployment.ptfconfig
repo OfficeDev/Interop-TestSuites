@@ -5,17 +5,21 @@
   <Properties>
     <!-- Set the value of the property MS-OXNSPI_Supported to true to indicate that the SUT supports the MS-OXNSPI protocol. Otherwise set the value to false. -->
     <Property name="MS-OXNSPI_Supported" value="true" />
-    <!-- Set R1751Enabled to true to verify that implementation does support ascending on the PidTagAddressBookPhoneticDisplayName property for at least one LCID. Set R1751Enabled to false to disable this requirement. -->
-    <Property name="R1751Enabled" value="true" />
     <!-- Set R1613Enabled to true to verify that implementation does not ignore the NspiBind request with a value of "fAnonymousLogin" in the input parameter dwFlags. Set R1613Enabled to false to disable this requirement. -->
     <Property name="R1613Enabled" value="true" />
     <!-- Set R1877Enabled to true to verify that implementation does support RPC over TCP. Set R1877Enabled to false to disable this requirement. -->
     <Property name="R1877Enabled" value="true" />
-    <!-- Set R1340Enabled to true to verify that implementation does return "Success" for the NspiModLinkAtt method when the Ephemeral Entry ID is used. Set R1340Enabled to false to disable this requirement. -->
-    <Property name="R1340Enabled" value="true" />
     <!-- Set R1992Enabled to true to verify that implementation doesn't report an approximate value for the Numeric Position. Set R1992Enabled to false to disable this requirement. -->
     <Property name="R1992Enabled" value="true" />
     <!-- Set R2003Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R2003Enabled to false to disable this requirement.-->
     <Property name="R2003Enabled" value="false"/>
+    <!-- Set R2003004 to true to verify that the Implementation does follow the ABNF format. Set R2003004Enabled to false to disable this requirement.-->
+    <Property name="R2003004Enabled" value="true" />
+    <!-- Set R2003005Enabled to true to verify that the implementation does return the value "ErrorsReturned" (0x00040380). Set R2003005Enabled to false to disable this requirement.-->
+    <Property name="R2003005Enabled" value="true" />
+    <!-- Set R2003009Enabled to true to verify that the implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. Set R2003009Enabled to false to disable this requirement.-->
+    <Property name="R2003009Enabled" value="false" />
+    <!-- Set R2003010Enabled to true to verify that the implementation does not modify any properties of any objects in the address book. Set R2003010Enabled to false to disable this requirement.-->
+    <Property name="R2003010Enabled" value="true" />
   </Properties>
 </TestSite>

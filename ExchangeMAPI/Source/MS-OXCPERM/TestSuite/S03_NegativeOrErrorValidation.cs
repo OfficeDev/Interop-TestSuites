@@ -105,7 +105,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         {
             this.OxcpermAdapter.InitializePermissionList();
 
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(115, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(115002, this.Site)||Common.IsRequirementEnabled(116001, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
             const uint AccessDenied = 0x80070005;
             FolderTypeEnum folderType = FolderTypeEnum.CommonFolderType;
             List<PermissionTypeEnum> permissionList = new List<PermissionTypeEnum>();

@@ -88,7 +88,29 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #endregion
 
-            #region Step 2. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder2] under the root folder with set the 'OpenExisting' flag to 0x01.
+            #region Step 2. The client gets the PidTagParentEntryId property of the [MSOXCFOLDSubfolder1].
+            PropertyTag[] propertyTagArray = new PropertyTag[1];
+            PropertyTag propertyTag = new PropertyTag
+            {
+                PropertyId = (ushort)FolderPropertyId.PidTagParentEntryId,
+                PropertyType = (ushort)PropertyType.PtypBinary
+            };
+            propertyTagArray[0] = propertyTag;
+
+            RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
+            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse1;
+            getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
+            getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
+            getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+            getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
+            getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
+            getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
+
+            getPropertiesSpecificResponse1 = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, newFolderHandle, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse1.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+            #endregion
+
+            #region Step 3. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder2] under the root folder with set the 'OpenExisting' flag to 0x01.
 
             createFolderRequest.OpenExisting = 0x01;
             createFolderRequest.DisplayName = Encoding.ASCII.GetBytes(Constants.Subfolder2);
@@ -105,7 +127,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #endregion
 
-            #region Step 3. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder3] under the root folder.
+            #region Step 4. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder3] under the root folder.
 
             createFolderRequest.DisplayName = Encoding.ASCII.GetBytes(Constants.Subfolder3);
             createFolderRequest.Comment = Encoding.ASCII.GetBytes(Constants.Subfolder3);
@@ -130,7 +152,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 @"[In Processing a RopCreateFolder ROP Request] If a folder with the same name does not exist, the server creates a new folder, regardless of the value of the OpenExisting field.");
             #endregion
 
-            #region Step 4. The client creates rules on [MSOXCFOLDSubfolder1] folder.
+            #region Step 5. The client gets the PidTagParentEntryId property of the [MSOXCFOLDSubfolder3].
+            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse2 = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, newFolderHandle3, ref this.responseHandles);
+            Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse1.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+
+            bool isEqual = Common.CompareByteArray(getPropertiesSpecificResponse1.RowData.PropertyValues[0].Value, getPropertiesSpecificResponse2.RowData.PropertyValues[0].Value);
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10027");
+
+            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10027.
+            // MSOXCFOLDSubfolder1 and MSOXCFOLDSubfolder3 are under the same folder, if property PidTagParentEntryId for them are equal,
+            // this requirement can be captured.
+            Site.CaptureRequirementIfIsTrue(
+                isEqual,
+                10027,
+                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.849) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
+
+            #endregion
+
+            #region Step 6. The client creates rules on [MSOXCFOLDSubfolder1] folder.
             RuleData[] sampleRuleDataArray;
             object ropResponse = null;
             sampleRuleDataArray = this.CreateSampleRuleDataArrayForAdd();
@@ -167,7 +208,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 @"[InRopCreateFolder ROP Request Buffer] OutputHandleIndex (1 byte): The output Server object for this operation is a Folder object that represents the folder that was created.");
             #endregion
 
-            #region Step 5. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder1] folder.
+            #region Step 7. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder1] folder.
 
             RopOpenFolderRequest openFolderRequest = new RopOpenFolderRequest
             {
@@ -215,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openFolderResponse.HasRules,
                     25001,
-                    @"[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a zero value to HasRules field. [In Appendix A: Product Behavior] <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules (4) on the Inbox folder.");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
             }
 
             // Add the debug information
@@ -250,14 +291,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00,
                     openFolderResponse.HasRules,
                     25002,
-                    @"[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)");
             }
 
             #endregion
 
             #endregion
 
-            #region Step 6. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder2] folder.
+            #region Step 8. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder2] folder.
 
             openFolderRequest.FolderId = newFolderId2;
             openFolderResponse = this.Adapter.OpenFolder(openFolderRequest, newFolderHandle2, ref this.responseHandles);
@@ -267,15 +308,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R26");
 
             // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R26
-            // According to the Open Specification, if rules (4) are not associated with the folder, the HasRules field is set to zero (FALSE).
+            // According to the Open Specification, if rules are not associated with the folder, the HasRules field is set to zero (FALSE).
             Site.CaptureRequirementIfAreEqual<byte>(
                 0x00,
                 openFolderResponse.HasRules,
                 26,
-                @"[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules (4) are not associated with the folder], this field [HasRules] is set to zero (FALSE).");
+                @"[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules are not associated with the folder], this field [HasRules] is set to zero (FALSE).");
             #endregion
 
-            #region Step 7. The client calls RopDeleteFolder to softly delete [MSOXCFOLDSubfolder3] folder.
+            #region Step 9. The client calls RopDeleteFolder to softly delete [MSOXCFOLDSubfolder3] folder.
 
             RopDeleteFolderRequest deleteFolderRequest = new RopDeleteFolderRequest
             {
@@ -292,7 +333,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #endregion
 
-            #region Step 8. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder3] which was soft-deleted and open [MSOXCFOLDSubfolder2] which is an existing folder with OpenSoftDeleted flag.
+            #region Step 10. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder3] which was soft-deleted and open [MSOXCFOLDSubfolder2] which is an existing folder with OpenSoftDeleted flag.
 
             openFolderRequest.FolderId = newFolderId3;
             openFolderRequest.OpenModeFlags = (byte)FolderOpenModeFlags.OpenSoftDeleted;
@@ -326,7 +367,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openSoftDeletedFolderReturnValue,
                     22001,
-                    @"[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. [In Appendix A: Product Behavior] <1> Section 2.2.1.1.1: Exchange 2013 ignores the OpenSoftDeleted bit and always opens an existing folder.");
+                    @"[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. <1> Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 ignores the OpenSoftDeleted bit and always opens an existing folder.");
             }
 
             if (Common.IsRequirementEnabled(22003, this.Site))
@@ -395,7 +436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #endregion
 
-            #region Step 9. The client calls RopOpenFolder to open the [MSOXCFOLDSubfolder2] with OpenModeFlags flag set with invalid value.
+            #region Step 11. The client calls RopOpenFolder to open the [MSOXCFOLDSubfolder2] with OpenModeFlags flag set with invalid value.
             openFolderRequest.FolderId = newFolderId2;
             byte[] invalidOpenModeFlags = { 0x01, 0x02, 0x08, 0x10, 0x20, 0x40, 0x80 };
             for (int i = 0; i < invalidOpenModeFlags.Length; i++)
@@ -1104,7 +1145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // [In Processing a RopDeleteFolder ROP Request] The server ignored the invalid bits [0x02, 0x08, 0x20, 0x40, and 0x80], MS-OXCFOLD_R103402 can be verified.
                 Site.CaptureRequirement(
                     123402,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. (<11> Section 3.2.5.3:  Exchange 2010 and Exchange 2013 ignore invalid bits instead of failing the ROP.)");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <13> Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.");
             }
 
             if (Common.IsRequirementEnabled(123401, this.Site))
@@ -1471,7 +1512,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
                     46201001,
-                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. [In Appendix A: Product Behavior] <9> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
+                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. <10> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
             }
        
             if (Common.IsRequirementEnabled(46201002, this.Site))
@@ -2245,7 +2286,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsNotNull(
                 propertyRows[0].PropertyValues[1].Value,
                 397,
-                "[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.5) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).");
+                "[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.6) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).");
 
             ulong copyFolderNewId = BitConverter.ToUInt64(propertyRows[0].PropertyValues[1].Value, 0);
 

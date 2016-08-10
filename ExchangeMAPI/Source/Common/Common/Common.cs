@@ -668,6 +668,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         public static byte[] GetBytesFromMutiUnicodeString(string[] strs)
         {
             List<byte> lstResult = new List<byte>();
+            lstResult.AddRange(BitConverter.GetBytes(strs.Length));
+
             foreach (string str in strs)
             {
                 lstResult.AddRange(GetBytesFromUnicodeString(str));

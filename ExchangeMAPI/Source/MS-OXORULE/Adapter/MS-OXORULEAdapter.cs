@@ -26,6 +26,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         private OxcropsClient oxcropsClient;
 
         /// <summary>
+        /// The NSPIAdapter instance.
+        /// </summary>
+        private NSPIAdapter nspiAdapter;
+        /// <summary>
         /// String server name.
         /// </summary>
         private string server;
@@ -69,21 +73,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// This enum is used to specify the ROP operation is performed on  ExtendedRule, DAM, DEM or StandardRule.
         /// </summary>
         private TargetOfRop targetOfRop;
-
-        /// <summary>
-        /// The RPC binding handle string used for the NSPI method.
-        /// </summary>
-        private IntPtr stringBinding;
-
-        /// <summary>
-        /// The RPC binding handle used for the NSPI method.
-        /// </summary>
-        private IntPtr bindingHandle;
-
-        /// <summary>
-        /// The NSPI context handle used for the NSPI method.
-        /// </summary>
-        private IntPtr nspiContextHandle;
 
         /// <summary>
         /// Gets or sets indicate the Rop operation is performed for DAM, DEM or ExtendedRules.
@@ -225,6 +214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             this.domain = Common.GetConfigurationPropertyValue(Constants.Domain, this.Site);
             this.user2ESSDN = Common.GetConfigurationPropertyValue(Constants.User2ESSDN, this.Site) + "\0";
             this.oxcropsClient = new OxcropsClient(MapiContext.GetDefaultRpcContext(this.Site));
+            this.nspiAdapter = new NSPIAdapter(this.Site);
         }
 
         /// <summary>
@@ -232,16 +222,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// </summary>
         public void CleanUp()
         {
-            if (this.nspiContextHandle != IntPtr.Zero)
-            {
-                this.NspiUnbind(ref this.nspiContextHandle);
-            }
-
-            if (this.bindingHandle != IntPtr.Zero || this.stringBinding != IntPtr.Zero)
-            {
-                this.FreeRpcBinding(ref this.bindingHandle, ref this.stringBinding);
-            }
-
             this.oxcropsClient.Disconnect();
         }
 
@@ -276,89 +256,37 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <returns>Results in PropertyRowSet format.</returns>
         public PropertyRowSet_r? GetRecipientInfo(string server, string userName, string domain, string password, PropertyTagArray_r? columns)
         {
-            #region Initialize variables
-            IntPtr columnsPtr = IntPtr.Zero;
-            if (columns != null)
-            {
-                columnsPtr = NspiHelper.AllocPropertyTagArray_r(columns.Value);
-            }
-
-            IntPtr serverPtr = Marshal.StringToHGlobalUni(server);
-            IntPtr userNamePtr = Marshal.StringToHGlobalUni(userName);
-            IntPtr domainPtr = Marshal.StringToHGlobalUni(domain);
-            IntPtr passwordPtr = Marshal.StringToHGlobalUni(password);
-            this.bindingHandle = IntPtr.Zero;
-            this.stringBinding = IntPtr.Zero;
-            this.nspiContextHandle = IntPtr.Zero;
-            #endregion
-
-            #region Create RPC binding handle with the server.
-            this.bindingHandle = NspiInterop.CreateRpcBinding(serverPtr, userNamePtr, domainPtr, passwordPtr, this.stringBinding);
-            if (this.bindingHandle == IntPtr.Zero)
-            {
-                Site.Assert.Fail("Could not create RPC binding handle with server");
-            }
-            #endregion
-
             #region Call NspiBind method to initiate a session between the client and the server.
-            int result;
             uint flags = 0;
             STAT stat = new STAT();
             stat.CodePage = 0x4e4; // Set a valid code page.
             stat.TemplateLocale = 0x409; // Set a valid LCID.
             stat.SortLocale = 0x409; // Set a valid LCID.
-            try
+                                     // Set value for serverGuid
+            FlatUID_r guid = new FlatUID_r
             {
-                result = NspiInterop.NspiBind(this.bindingHandle, flags, ref stat, IntPtr.Zero, ref this.nspiContextHandle);
-                Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, (ErrorCodeValue)result, "NspiBind should return Success!");
-            }
-            catch (SEHException e)
-            {
-                result = (int)NativeMethods.RpcExceptionCode(e);
-                Site.Assert.Fail(string.Format("RPC component throws exception for NspiBind method, the error code is: {0} and the error message is: {1}", result, new Win32Exception(result).ToString()));
-            }
+                Ab = new byte[16]
+            };
+            FlatUID_r? serverGuid = guid;
 
-            if (this.nspiContextHandle == IntPtr.Zero)
-            {
-                Site.Assert.Fail("The NspiBind method should return a valid NSPI context handle! The returned error code is {0}", result);
-            }
+
+            ErrorCodeValue result = this.nspiAdapter.NspiBind(flags, stat, ref serverGuid);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result, "NspiBind should return Success!");
             #endregion
 
             #region Call NspiQueryRows method to get the recipient information.
             stat.ContainerID = 0; // Set the container id to the id of default global address book container
-            IntPtr rowsPtr = IntPtr.Zero;
             uint tableCount = 0;
             uint[] table = null;
             uint requestCount = 5000;
-            try
-            {
-                result = NspiInterop.NspiQueryRows(this.nspiContextHandle, flags, ref stat, tableCount, table, requestCount, columnsPtr, out rowsPtr);
-                Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, (ErrorCodeValue)result, "NspiQueryRows should return Success!");
-            }
-            catch (SEHException e)
-            {
-                result = (int)NativeMethods.RpcExceptionCode(e);
-                Site.Assert.Fail(string.Format("RPC component throws exception for NspiQueryRows method, the error code is: {0} and the error message is: {1}", result, new Win32Exception(result).ToString()));
-            }
-
             PropertyRowSet_r? propertyRowSet = null;
-            if (rowsPtr == IntPtr.Zero)
-            {
-                Site.Assert.Fail("The NspiQueryRows method should return a valid PropertyRowSet_r structure! The returned error code is {0}", result);
-            }
-            else
-            {
-                propertyRowSet = Parser.ParsePropertyRowSet_r(rowsPtr);
-            }
 
-            if (columns != null)
-            {
-                Marshal.FreeHGlobal(columnsPtr);
-            }
+            result = this.nspiAdapter.NspiQueryRows(flags, ref stat, tableCount, table, requestCount, columns, out propertyRowSet);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result, "NspiQueryRows should return Success!");
             #endregion
 
-            this.NspiUnbind(ref this.nspiContextHandle);
-            this.FreeRpcBinding(ref this.bindingHandle, ref this.stringBinding);
+            uint returnValue = this.nspiAdapter.NspiUnbind(0);
+            Site.Assert.AreEqual<uint>(1, returnValue, "NspiUnbind method should return 1 (Success).");
             return propertyRowSet;
         }
 
@@ -1206,45 +1134,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
 
             this.VerifyMAPITransport();
             return responseSOHs;
-        }
-
-        /// <summary>
-        /// Destroy the session between the client and the server.
-        /// </summary>
-        /// <param name="contextHandle">The NSPI context handle to be destroyed.</param>
-        private void NspiUnbind(ref IntPtr contextHandle)
-        {
-            uint reserved = 0;
-            int result = 0;
-            try
-            {
-                result = (int)NspiInterop.NspiUnbind(ref contextHandle, reserved);
-                Site.Assert.AreEqual<int>(1, result, "NspiUnbind method should return 1 (Success).");
-            }
-            catch (SEHException e)
-            {
-                result = (int)NativeMethods.RpcExceptionCode(e);
-                Site.Assert.Fail(string.Format("RPC component throws exception for NspiUnbind method, the error code is: {0} and the error message is: {1}", result, new Win32Exception(result).ToString()));
-            }
-        }
-
-        /// <summary>
-        /// Destroy the created RPC binding handle.
-        /// </summary>
-        /// <param name="bindingHandle">The RPC binding handle to be destroyed.</param>
-        /// <param name="stringBinding">The RPC binding handle string to be free.</param>
-        private void FreeRpcBinding(ref IntPtr bindingHandle, ref IntPtr stringBinding)
-        {
-            uint status = NspiInterop.FreeRpcBinding(bindingHandle, stringBinding);
-            if (status != 0)
-            {
-                Site.Assert.Fail(string.Format("Could not destroy the RPC binding handle, the error code is: {0} and the error message is: {1}", (int)status, new Win32Exception((int)status).ToString()));
-            }
-            else
-            {
-                bindingHandle = IntPtr.Zero;
-                stringBinding = IntPtr.Zero;
-            }
         }
         #endregion
     }

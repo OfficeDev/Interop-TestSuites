@@ -30,7 +30,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R675</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ROPs] For more details about acquiring message identifiers, including usages, restrictions (2), and notes, see [MS-OXCMSG].</ns1:Description>
+		<ns1:Description>[In ROPs] For more details about acquiring message identifiers, including usages, restrictions , and notes, see [MS-OXCMSG].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -277,7 +277,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): A Boolean value that indicates whether rules (4) are associated with the folder.</ns1:Description>
+		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): A Boolean value that indicates whether rules are associated with the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -287,7 +287,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): If rules (4) are associated with the folder, this field [HasRules] is set to a nonzero (TRUE) value.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): If rules are associated with the folder, this field [HasRules] is set to a nonzero (TRUE) value.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -297,7 +297,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R26</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules (4) are not associated with the folder], this field [HasRules] is set to zero (FALSE).</ns1:Description>
+		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): otherwise [If rules are not associated with the folder], this field [HasRules] is set to zero (FALSE).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -306,7 +306,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R681</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): For details about rules (4), see [MS-OXORULE].</ns1:Description>
+		<ns1:Description>[In RopOpenFolder ROP Response Buffer] HasRules (1 byte): For details about rules, see [MS-OXORULE].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -725,7 +725,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R922</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Response Buffer] HasRules (1 byte): A Boolean value that indicates whether rules (4) are associated with the folder.</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Response Buffer] HasRules (1 byte): A Boolean value that indicates whether rules are associated with the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -735,7 +735,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R923</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Response Buffer] If rules (4) are associated with the folder, this field [HasRules] is set to a nonzero (TRUE) value.</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Response Buffer] If rules are associated with the folder, this field [HasRules] is set to a nonzero (TRUE) value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -744,7 +744,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R924</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Response Buffer] Otherwise [if rules (4) are not associated with the folder], this field [HasRules] is set to zero (FALSE).</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Response Buffer] Otherwise [if rules are not associated with the folder], this field [HasRules] is set to zero (FALSE).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -753,7 +753,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R925</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Response Buffer] For details about rules (4), see [MS-OXORULE].</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Response Buffer] For details about rules, see [MS-OXORULE].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1128,7 +1128,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R98</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.4) establishes search criteria for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.4) establishes search criteria for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1173,7 +1173,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] InputHandleIndex (1 byte): The input Server object for this operation is a Folder object that represents the search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] InputHandleIndex (1 byte): The input Server object for this operation is a Folder object that represents the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1209,7 +1209,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): A packet of structures that specify restrictions (2) for the search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): A packet of structures that specify restrictions for the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1227,7 +1227,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R694</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): For details about the structures that are used to specify restrictions (2), see [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): For details about the structures that are used to specify restrictions, see [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1281,7 +1281,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R112</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): A set of bits that control the search for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): A set of bits that control the search for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1443,42 +1443,6 @@
 		<ns1:VerificationComment>Verified by requirement: MS-OXCFOLD_R1200.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R776</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): FOREGROUND_SEARCH (0x00000010) means that the search is executed at a high priority relative to other searches.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1202</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): The server ignores this bit [FOREGROUND_SEARCH] and always performs the search at normal priority.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R778</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): BACKGROUND_SEARCH (0x00000020) means that the search is executed at normal priority relative to other searches.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1203</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): The server ignores this bit [BACKGROUND_SEARCH] and always performs the search at normal priority.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R782</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): CONTENT_INDEXED_SEARCH (0x00010000) means that the search uses a content-indexed search.</ns1:Description>
@@ -1608,7 +1572,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R120</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP] The RopGetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.5) obtains the search criteria and the status of a search for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP] The RopGetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.5) obtains the search criteria and the status of a search for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1662,7 +1626,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R126</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] InputHandleIndex (1 byte): The input Server object for this operation is a Folder object that represents the search folder (2).</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] InputHandleIndex (1 byte): The input Server object for this operation is a Folder object that represents the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1689,7 +1653,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): A Boolean value that is nonzero (TRUE) if the restriction (2) data is required in the response.</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): A Boolean value that is nonzero (TRUE) if the restriction data is required in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1698,7 +1662,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R130</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): [A Boolean value that is] zero (FALSE) otherwise [if the restriction (2) data is not required in the response].</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): [A Boolean value that is] zero (FALSE) otherwise [if the restriction data is not required in the response].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1789,7 +1753,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R137</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): A packet of structures that specify restrictions (2) for the search folder (2).</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): A packet of structures that specify restrictions for the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1798,7 +1762,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): For details about the structures that are used to specify restrictions (2), see [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): For details about the structures that are used to specify restrictions, see [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1890,7 +1854,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R785</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): SEARCH_RUNNING (0x00000001) means that the search is running, which means that the initial population of the search folder (2) still being compiled.</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): SEARCH_RUNNING (0x00000001) means that the search is running, which means that the initial population of the search folder still being compiled.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1931,42 +1895,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1211</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): SEARCH_FOREGROUND (0x00000008) not used.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1212</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): The server always performs a search at normal priority relative to other searches.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1213</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): Therefore, this bit [SEARCH_FOREGROUND] has no meaning.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1214</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Response Buffer] SearchFlags (4 bytes): This bit [SEARCH_FOREGROUND] MUST be ignored by the client.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R793</ns1:REQ_ID>
@@ -2034,7 +1962,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1216</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In RopMoveCopyMessages ROP] The source folder can be a search folder (2), but the destination folder cannot.</ns1:Description>
+		<ns1:Description>[In RopMoveCopyMessages ROP] The source folder can be a search folder, but the destination folder cannot.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2115,7 +2043,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R121701</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be moved] This folder can be a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be moved] This folder can be a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2124,7 +2052,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R121702</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be copied] This folder can be a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] SourceHandleIndex (1 byte): [The source Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder from which the messages will be copied] This folder can be a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2160,7 +2088,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R121801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be moved.] This folder cannot be a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be moved.] This folder cannot be a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2169,7 +2097,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R121802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be copied.] This folder cannot be a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopMoveCopyMessages ROP Request Buffer] DestHandleIndex (1 byte): [The destination Server object for this operation [RopMoveCopyMessages ROP] is a Folder object that represents the folder to which the messages will be copied.] This folder cannot be a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3210,6 +3138,24 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R263001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.11</ns1:Doc_Sect>
+		<ns1:Description>[In RopDeleteMessages ROP] For details about opening and saving a Message object, see [MS-OXCMSG]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R263002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.11</ns1:Doc_Sect>
+		<ns1:Description>[In RopDeleteMessages ROP] For details about copying a Message object from one folder to another, see section 3.1.4.7.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R724</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.11</ns1:Doc_Sect>
 		<ns1:Description>[In RopDeleteMessages ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
@@ -3910,15 +3856,6 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R2320</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetContentsTable ROP] The contents table for a search folder (2) contains the same columns, which represent properties, as the contents table for a generic folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R100501</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetContentsTable ROP] This ROP [RopGetContentsTable] applies to both public folders [and private mailboxes].</ns1:Description>
@@ -3948,7 +3885,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1222</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetContentsTable ROP] For example, the columns of the table can be set by using the RopSetColumns ROP ([MS-OXCROPS] section 2.2.5.1).</ns1:Description>
+		<ns1:Description>[In RopGetContentsTable ROP] For example, the table's columns, which represent properties, can be set by using the RopSetColumns ROP ([MS-OXCROPS] section 2.2.5.1). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4524,11 +4461,12 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.512) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the name-service entry ID of a directory object that refers to a public folder.</ns1:Description>
+		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.512) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;8&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFOLD_R350002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R350</ns1:REQ_ID>
@@ -4537,7 +4475,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R748</ns1:REQ_ID>
@@ -4549,8 +4487,71 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R351</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFOLD_R35101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.692) contains a computed value that specifies the type or state of a folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035111</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] The value is a bitwise OR of zero or more values [1: IPM, 2: SEARCH, 4: NORMAL, 8: RULES] from the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035103</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "IPM" specified] the folder belongs to the IPM subtree portion of the mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035105</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "SEARCH" specified] the folder contains the results of a search.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035107</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "NORMAL" specified] the folder is a generic folder that contains messages and other folders.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1035109</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderFlags Property] [The folder flag named "RULES" specified] the folder has rules associated with it.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R351</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagFolderId Property] Type: PtypInteger64 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4559,8 +4560,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10351</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagFolderId property ([MS-OXPROPS] section 2.691) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.691) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4568,7 +4569,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1027</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagParentEntryId Property] Type: PtypBinary ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4577,16 +4578,16 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10027</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.847) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.849) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1028</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagHierarchyChangeNumber Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4595,8 +4596,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10028</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.710) specifies the number of subfolders in the folder.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.711) specifies the number of subfolders in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4604,7 +4605,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R352</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The value of this property [PidTagHierarchyChangeNumber] monotonically increases every time a subfolder is added to or deleted from the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4612,8 +4613,26 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R352001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagHierRev Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R352002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.712) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R353</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagMessageSize Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4622,8 +4641,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10353</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.785) specifies the aggregate size of messages in the folder.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.787) specifies the aggregate size of messages in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4631,7 +4650,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R354</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagMessageSizeExtended Property] Type: PtypInteger64 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4640,8 +4659,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10354</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.786) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.788) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4649,7 +4668,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R355</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSubfolders Property] Type: PtypBoolean ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4658,8 +4677,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10355</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1020) specifies whether the folder has any subfolders.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1022) specifies whether the folder has any subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4667,7 +4686,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1029</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSubfolders Property] The value of this property [PidTagSubfolders] is nonzero if the folder has subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4676,7 +4695,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1030</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSubfolders Property] [if the folder does not have subfolders,] the value is zero otherwise.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4685,7 +4704,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3000</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagLocalCommitTime Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4694,8 +4713,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.761) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.763) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4703,7 +4722,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagLocalCommitTimeMax Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4712,8 +4731,8 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.762) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.2.1.14</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.764) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4721,7 +4740,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3004</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagLocalCommitTimeMax Property] Top level objects include messages and subfolders within the folder but not objects within the folder's subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4730,7 +4749,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.15</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDeletedCountTotal Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4739,7 +4758,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3006</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.1.15</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.660) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4939,7 +4958,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10362</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.692) specifies the type of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.693) specifies the type of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5003,7 +5022,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.924) specifies the client's folder permissions.</ns1:Description>
+		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.926) specifies the client's folder permissions.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5030,7 +5049,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10042</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXCPERM] section 2.2.3) contains the access control list (ACL) of the folder.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXCPERM] section 2.2.3) contains the access control list (ACL) of the folder.&lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5257,7 +5276,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R397</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.5) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).</ns1:Description>
+		<ns1:Description>[In Opening a Folder] The FID can be retrieved from the hierarchy table that contains the folder's information by including the PidTagFolderId property (section 2.2.2.2.1.6) in a RopSetColumns request ([MS-OXCROPS] section 2.2.5.1.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5386,7 +5405,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R409</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] The client creates a search folder (2) by using the RopCreateFolder ROP ([MS-OXCROPS] section 2.2.4.2) with the FolderType field set to the value 2, as specified in section 2.2.1.2.1.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] The client creates a search folder by using the RopCreateFolder ROP ([MS-OXCROPS] section 2.2.4.2) with the FolderType field set to the value 2, as specified in section 2.2.1.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5404,7 +5423,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R410</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] The client fills a search folder (2) by applying search criteria and a search scope to the search folder (2).</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] The client fills a search folder by applying search criteria and a search scope to the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5422,7 +5441,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R413</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] To set the search criteria and search scope for a search folder (2), the client sends a RopSetSearchCriteria ROP request ([MS-OXCROPS] section 2.2.4.4) with bits of the SearchFlags field set to control the details of how the search is performed, as specified in section 2.2.1.4.1.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] To set the search criteria and search scope for a search folder, the client sends a RopSetSearchCriteria ROP request ([MS-OXCROPS] section 2.2.4.4) with bits of the SearchFlags field set to control the details of how the search is performed, as specified in section 2.2.1.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5431,7 +5450,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R412</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] The ROP request includes restrictions (2) to specify the search criteria and FIDs ([MS-OXCDATA] section 2.2.1.1) to specify the search scope.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] The ROP request includes restrictions to specify the search criteria and FIDs ([MS-OXCDATA] section 2.2.1.1) to specify the search scope.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5440,7 +5459,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1252</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] A search folder (2) cannot be included in its own search scope.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] A search folder cannot be included in its own search scope.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5449,7 +5468,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1233</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] [A search folder (2) cannot be included in its own search scope] Therefore, the FolderIds field MUST NOT include the FID of the search folder (2).</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] [A search folder cannot be included in its own search scope] Therefore, the FolderIds field MUST NOT include the FID of the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5458,7 +5477,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1046</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] To access the results of a search, the client sends a RopGetContentsTable ROP request ([MS-OXCROPS] section 2.2.4.14) to obtain the contents table of the search folder (2), as specified in section 3.1.4.10.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] To access the results of a search, the client sends a RopGetContentsTable ROP request ([MS-OXCROPS] section 2.2.4.14) to obtain the contents table of the search folder, as specified in section 3.1.4.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5467,7 +5486,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R414</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] [To access the results of a search, the client sends a RopGetContentsTable ROP request ([MS-OXCROPS] section 2.2.4.14) to obtain the contents table of the search folder (2), as specified in section 3.1.4.10.] The messages that match the search criteria are specified in the table.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] [To access the results of a search, the client sends a RopGetContentsTable ROP request ([MS-OXCROPS] section 2.2.4.14) to obtain the contents table of the search folder, as specified in section 3.1.4.10.] The messages that match the search criteria are specified in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5476,7 +5495,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R415</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] When the client is finished using a search folder (2), the folder can either be deleted or remain open for later use.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] When the client is finished using a search folder, the folder can either be deleted or remain open for later use.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5485,7 +5504,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] Note that if the search folder (2) is deleted, only message links are deleted.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] Note that if the search folder is deleted, only message links are deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5494,7 +5513,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R417</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Setting Up a Search Folder] [If the search folder (2) is deleted,] the actual messages remain in their [folder's] parent folders.</ns1:Description>
+		<ns1:Description>[In Setting Up a Search Folder] [If the search folder is deleted,] the actual messages remain in their [folder's] parent folders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5503,7 +5522,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R418</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In Getting Details About a Search Folder] To obtain details about a search folder (2), the client sends a RopGetSearchCriteria ROP request ([MS-OXCROPS] section 2.2.4.5) with the appropriate values in the IncludeRestriction and IncludeFolders fields, as specified in section 2.2.1.5.1, to specify the details to be included in the response.</ns1:Description>
+		<ns1:Description>[In Getting Details About a Search Folder] To obtain details about a search folder, the client sends a RopGetSearchCriteria ROP request ([MS-OXCROPS] section 2.2.4.5) with the appropriate values in the IncludeRestriction and IncludeFolders fields, as specified in section 2.2.1.5.1, to specify the details to be included in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5513,7 +5532,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R451</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In Getting Details About a Search Folder] The details about a search folder (2) can include the search criteria, a list of the folders that are being searched, and the status of the search folder (2).</ns1:Description>
+		<ns1:Description>[In Getting Details About a Search Folder] The details about a search folder can include the search criteria, a list of the folders that are being searched, and the status of the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5523,7 +5542,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R419</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In Getting Details About a Search Folder] For details about how the client sets up a search folder (2), see section 3.1.4.4.</ns1:Description>
+		<ns1:Description>[In Getting Details About a Search Folder] For details about how the client sets up a search folder, see section 3.1.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5700,7 +5719,16 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1050</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In Deleting the Contents of a Folder] For details about opening, copying, and saving a Message object, see [MS-OXCMSG].</ns1:Description>
+		<ns1:Description>[In Deleting the Contents of a Folder] For details about opening and saving a Message object, see [MS-OXCMSG].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R105001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In Deleting the Contents of a Folder] For details about copying a Message object from one folder to another, see section 3.1.4.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6040,7 +6068,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R462</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopOpenFolder ROP Request] The RopOpenFolder ROP succeeds only if a folder with the specified ID actually exists&lt;9&gt; and the client has sufficient access rights to view the folder.</ns1:Description>
+		<ns1:Description>[In Processing a RopOpenFolder ROP Request] The RopOpenFolder ROP succeeds only if a folder with the specified ID actually exists&lt;10&gt; and the client has sufficient access rights to view the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6049,7 +6077,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R46201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopOpenFolder ROP Request] If a folder with the specified ID does not exist, the server either fails the RopOpenfolder ROP or not&lt;9&gt; .</ns1:Description>
+		<ns1:Description>[In Processing a RopOpenFolder ROP Request] If a folder with the specified ID does not exist, the server either fails the RopOpenfolder ROP or not&lt;10&gt; .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6330,7 +6358,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1066</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopCreateFolder ROP Request] If the client does not have permissions to create the folder, the server returns either ecAccessdenied or ecNoCreateSubfolderRight. &lt;10&gt;</ns1:Description>
+		<ns1:Description>[In Processing a RopCreateFolder ROP Request] If the client does not have permissions to create the folder, the server returns either ecAccessdenied or ecNoCreateSubfolderRight. &lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6449,12 +6477,12 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R49601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder (2) on a public folders message store.</ns1:Description>
+		<ns1:Description>[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder on a public folders message store.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R10660201, MS-OXCFOLD_R10660202.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1072</ns1:REQ_ID>
@@ -6604,7 +6632,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1234</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopDeleteFolder ROP Request] If the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer, the server SHOULD&lt;11&gt; fail the ROP with an ecInvalidParam (0x80070057) error.</ns1:Description>
+		<ns1:Description>[In Processing a RopDeleteFolder ROP Request] If the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer, the server SHOULD&lt;13&gt; fail the ROP with an ecInvalidParam (0x80070057) error.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6769,7 +6797,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R515</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server fills the search folder (2) according to the search criteria and search scope that are specified in the RopSetSearchCriteria ROP request.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server fills the search folder according to the search criteria and search scope that are specified in the RopSetSearchCriteria ROP request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6778,7 +6806,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R518</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The messages that satisfy the search criteria appear as links in the search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The messages that satisfy the search criteria appear as links in the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6787,7 +6815,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R519</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When new search criteria are applied, the server modifies the search folder (2) to include only the messages that match the new search criteria.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When new search criteria are applied, the server modifies the search folder to include only the messages that match the new search criteria.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6796,7 +6824,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R526</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server can return the RopSetSearchCriteria ROP response before the search folder (2) is fully updated.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server can return the RopSetSearchCriteria ROP response before the search folder is fully updated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6805,7 +6833,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1084</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For static search folders (2), the contents of the search folder (2) are not updated after the initial population is complete.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For static search folders, the contents of the search folder are not updated after the initial population is complete.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6814,7 +6842,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1095</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders (2), the contents of the search folder (2) MUST continue to be updated as messages move around the mailbox.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders, the contents of the search folder MUST continue to be updated as messages move around the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6823,7 +6851,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1096</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders (2), the contents of the search folder (2) MUST continue to be updated as messages start to match or cease to match the search criteria.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] For dynamic search folders, the contents of the search folder MUST continue to be updated as messages start to match or cease to match the search criteria.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6832,7 +6860,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R549</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A static search causes the search folder (2) to be populated once with all messages that match the search criteria at the point in time when the search is started or restarted.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A static search causes the search folder to be populated once with all messages that match the search criteria at the point in time when the search is started or restarted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6841,7 +6869,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1093</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server MUST NOT update the search folder (2) after the initial population when new messages that match the search criteria arrive in the search scope.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server MUST NOT update the search folder after the initial population when new messages that match the search criteria arrive in the search scope.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6850,7 +6878,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1094</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Or the server MUST NOT update the search folder (2) after the initial population when existing messages that fit the search criteria are deleted.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Or the server MUST NOT update the search folder after the initial population when existing messages that fit the search criteria are deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6868,7 +6896,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R552</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A dynamic search causes the search folder (2) to be initially populated with all messages that match the search criteria at the point in time when the search is started or restarted.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A dynamic search causes the search folder to be initially populated with all messages that match the search criteria at the point in time when the search is started or restarted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6877,7 +6905,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1097</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server continues to update the search folder (2) with messages that enter or exit the search criteria.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] The server continues to update the search folder with messages that enter or exit the search criteria.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6895,7 +6923,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1099</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] And a RopSetSearchCriteria ROP request with the STOP_SEARCH bit set, also does not change the dynamic nature of the search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] And a RopSetSearchCriteria ROP request with the STOP_SEARCH bit set, also does not change the dynamic nature of the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6913,7 +6941,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R531</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Whether it [context indexing] is used is usually based on the nature of the restriction (2) that is used.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Whether it [context indexing] is used is usually based on the nature of the restriction that is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6940,11 +6968,12 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1238</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A content-indexed search MAY&lt;12&gt; be static regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] A content-indexed search MAY&lt;14&gt; be static regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R1238001, MS-OXCFOLD_R1238002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R533</ns1:REQ_ID>
@@ -6994,7 +7023,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R538</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request, the difference between content-indexed and not content-indexed searches is that] Content-indexed search supports only full-text searches, not content-indexed search supports the full set of restrictions (2), which includes nontext property types such as date and time. Does not use a full-text search.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request, the difference between content-indexed and not content-indexed searches is that] Content-indexed search supports only full-text searches, not content-indexed search supports the full set of restrictions, which includes nontext property types such as date and time. Does not use a full-text search.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7003,7 +7032,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1239</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the server receives a subsequent RopSetSearchCriteria ROP request in which neither STOP_SEARCH nor RESTART_SEARCH is set or in which neither RECURSIVE_SEARCH nor SHALLOW_SEARCH is set, the server SHOULD&lt;13&gt; use the default values.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the server receives a subsequent RopSetSearchCriteria ROP request in which neither STOP_SEARCH nor RESTART_SEARCH is set or in which neither RECURSIVE_SEARCH nor SHALLOW_SEARCH is set, the server SHOULD&lt;15&gt; use the default values.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7012,7 +7041,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R543</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the STOP_SEARCH bit is set in the SearchFlags field, the server SHOULD stop the initial population of the search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the STOP_SEARCH bit is set in the SearchFlags field, the server SHOULD stop the initial population of the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7040,7 +7069,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R546</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the RESTART_SEARCH bit is set in the SearchFlags field, the server restarts the population of the search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the RESTART_SEARCH bit is set in the SearchFlags field, the server restarts the population of the search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7067,7 +7096,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1242</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the client sets the search scope to include the search folder (2) itself, the server SHOULD&lt;14&gt; fail the ROP with ecSearchFolderScopeViolation (0x00000490).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the client sets the search scope to include the search folder itself, the server SHOULD&lt;16&gt; fail the ROP with ecSearchFolderScopeViolation (0x00000490).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7077,7 +7106,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the client sets an invalid bit in the SearchFlags field, the server SHOULD&lt;15&gt; fail the ROP with the error code ecInvalidParam (0x80070057).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] If the client sets an invalid bit in the SearchFlags field, the server SHOULD&lt;17&gt; fail the ROP with the error code ecInvalidParam (0x80070057).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7133,7 +7162,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R566</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotInitialized, it indicates that no FIDs were specified for this search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotInitialized, it indicates that no FIDs were specified for this search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7151,7 +7180,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R570</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates the object is not a search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates the object is not a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7169,7 +7198,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1244</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecSearchFolderScopeViolation, it indicates the search folder (2) was included in its own search scope.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecSearchFolderScopeViolation, it indicates the search folder was included in its own search scope.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7187,7 +7216,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R572</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecTooComplex, it indicates restriction (2) is too complex.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] When the error code is ecTooComplex, it indicates restriction is too complex.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7305,7 +7334,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R580</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.5</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates that the object is not a search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopGetSearchCriteria ROP Request] When the error code is ecNotSearchFolder, it indicates that the object is not a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7469,7 +7498,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1246</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopMoveCopyMessages ROP Request] When the error code is ecSearchFolder, it indicates the destination object is a search folder (2).</ns1:Description>
+		<ns1:Description>[In Processing a RopMoveCopyMessages ROP Request] When the error code is ecSearchFolder, it indicates the destination object is a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7832,24 +7861,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:VerificationComment>Verified by requirement: MS-OXCFOLD_R225.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1130</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] For any folder other than the Drafts folder, the server MUST NOT delete messages that are open with read/write access.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1247</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] For details about how a message is opened with read/write access, see [MS-OXCMSG] section 3.1.4.1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1131</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
 		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] If the server fails to delete any message or subfolder, it sets the PartialCompletion field of the RopEmptyFolder ROP response buffer to nonzero (TRUE), as specified in section 2.2.1.9.2.</ns1:Description>
@@ -7925,7 +7936,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1248</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] If the client attempts to empty the Root folder, the server SHOULD&lt;16&gt; return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer.</ns1:Description>
+		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] If the client attempts to empty the Root folder, the server SHOULD&lt;18&gt; return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7935,7 +7946,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1249</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] If the client attempts to empty a search folder, the server SHOULD&lt;16&gt; return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer.</ns1:Description>
+		<ns1:Description>[In Processing a RopEmptyFolder ROP Request] If the client attempts to empty a search folder, the server SHOULD&lt;18&gt; return ecNotSupported (0x80040102) in the ReturnValue field of the RopEmptyFolder ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8042,16 +8053,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R113802</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopHardDeleteMessagesAndSubfolders ROP Request] In the server behavior, for any folder other than the Drafts folder, the server MUST NOT delete messages that are open with read/write access.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1138:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R113803</ns1:REQ_ID>
@@ -8212,24 +8213,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:VerificationComment>Verified by requirement: MS-OXCFOLD_R262.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1146</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.11</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopDeleteMessages ROP Request] The server MUST NOT delete any messages that are opened with read/write access.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1250</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.11</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopDeleteMessages ROP Request] For details about how a message is opened with read/write access, see [MS-OXCMSG] section 3.1.4.1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1147</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.11</ns1:Doc_Sect>
 		<ns1:Description>[In Processing a RopDeleteMessages ROP Request] If the server fails to delete any messages, it sets the PartialCompletion field of the RopDeleteMessages ROP response buffer to nonzero (TRUE), as specified in section 2.2.1.11.2.</ns1:Description>
@@ -8382,15 +8365,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R115601</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopHardDeleteMessages ROP Request] In the server behavior, the server MUST NOT delete any messages that are opened with read/write access.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R115602</ns1:REQ_ID>
@@ -8586,7 +8560,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R314</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetHierarchyTable ROP Request] If the client sets an invalid bit in the TableFlags field, the server SHOULD&lt;17&gt; fail the ROP with an error code of ecNotSupported (0x80040102).</ns1:Description>
+		<ns1:Description>[In Processing a RopGetHierarchyTable ROP Request] If the client sets an invalid bit in the TableFlags field, the server SHOULD&lt;19&gt; fail the ROP with an error code of ecNotSupported (0x80040102).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8694,19 +8668,9 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1171</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] The contents table for a search folder (2) contains the same columns as the contents table for a generic folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCFOLD_R2320.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1172</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] However, for a search folder (2), the PidTagParentEntryId property (section 2.2.2.2.1.6) contains the entry ID of the folder where the linked message resides.</ns1:Description>
+		<ns1:Description>[In Processing a RopGetContentsTable ROP Request]  In the contents for a search folder, the PidTagParentEntryId property (section 2.2.2.2.1.7) contains the entry ID of the folder where the linked message resides.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8724,11 +8688,11 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1174</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set, the server SHOULD&lt;18&gt; return a contents table that shows messages pertaining to a particular conversation.</ns1:Description>
+		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set, the server SHOULD&lt;20&gt; return a contents table that shows messages pertaining to a particular conversation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1175</ns1:REQ_ID>
@@ -8751,16 +8715,16 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1177</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the server SHOULD fail the operation with an error code of ecInvalidParam (0x80070057).</ns1:Description>
+		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the server SHOULD fail the operation with an error code of ecInvalidParam (0x80070057)&lt;21&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R330</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the client sets an invalid bit in the TableFlags field, the server SHOULD&lt;19&gt; fail the ROP with an error code of ecInvalidParam.</ns1:Description>
+		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the client sets an invalid bit in the TableFlags field, the server SHOULD&lt;22&gt; fail the ROP with an error code of ecInvalidParam.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8843,7 +8807,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R54301</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder (2) if the STOP_SEARCH bit is set in the SearchFlags field. Exchange 2007 and above follow this behavior.</ns1:Description>
+		<ns1:Description>[In Processing a RopSetSearchCriteria ROP Request] Implementation does stop the initial population of the search folder if the STOP_SEARCH bit is set in the SearchFlags field. (Exchange 2007 and above follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R543:i, MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8854,7 +8818,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R22001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. [In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 ignores the OpenSoftDeleted bit and always opens an existing folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If OpenSoftDeleted bit in OpenModeFlags is set, implementation ignores the OpenSoftDeleted bit and always opens an existing folder in processing the RopOpenFolder ROP request. &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 ignores the OpenSoftDeleted bit and always opens an existing folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R22:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8865,7 +8829,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R22002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not provide access to soft-deleted folders. [In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 does not provide access to soft-deleted folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not provide access to soft-deleted folders. &lt;1&gt; Section 2.2.1.1.1: Exchange 2013 does not provide access to soft-deleted folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R22:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8897,7 +8861,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R25001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a zero value to HasRules field. [In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules (4) on the Inbox folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. &lt;2&gt; Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R25:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8908,7 +8872,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R25002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If rules (4) are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R25:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8919,7 +8883,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R60001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. (&lt;3&gt; Section 2.2.1.2.2: Exchange 2010 and Exchange 2013 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. &lt;3&gt; Section 2.2.1.2.2: Exchange 2010 Exchange 2013 and Exchange 2016 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R60:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8941,7 +8905,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R19702001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders. [In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.1.8: Exchange 2013 does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders. &lt;4&gt; Section 2.2.1.8: Exchange 2013 and Exchange 2016 do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R19702:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8962,7 +8926,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R19703001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) between public folder and private mailbox. [In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.1.8: Exchange 2013 does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) between public folder and private mailbox. &lt;4&gt; Section 2.2.1.8: Exchange 2013 and Exchange 2016 do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R19703:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8982,7 +8946,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R97501001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders. [In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1.9: Exchange 2013 does not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders. &lt;5&gt; Section 2.2.1.9: Exchange 2013 and Exchange 2016 do not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R97501:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9003,7 +8967,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R98301001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders. [In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.10: Exchange 2013 does not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders. &lt;6&gt; Section 2.2.1.10: Exchange 2013 and Exchange 2016 do not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R98301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9022,27 +8986,30 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1194</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFOLD_R350001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;7&gt; Section 2.2.1.14.1:  Exchange 2003 and Exchange 2007 do not support the ConversationMembers bit.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;8&gt; Section 2.2.2.2.1.4:  Exchange 2013 and Exchange 2016 do not support the PidTagAddressBookEntryId property.</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1195</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFOLD_R350002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;8&gt; Section 2.2.2.2.2.7: Outlook 2010 and Outlook 2013 do not use the PidTagAccessControlListData property ([MS-OXCPERM] section 2.2.3).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R10349:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R46201001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. [In Appendix A: Product Behavior] &lt;9&gt; Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. &lt;10&gt; Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R46201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9064,7 +9031,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R106601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. (&lt;10&gt; Section 3.2.5.2: Exchange 2007 and Exchange 2013 return ecAccessdenied.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. &lt;11&gt; Section 3.2.5.2: Exchange 2007, Exchange 2013 and Exchange 2016 return ecAccessdenied.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9075,8 +9042,30 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R106602</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. (&lt;10&gt; Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. &lt;11&gt; Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1066:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R10660201</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError &lt;12&gt; Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError. </ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R10660202</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;12&gt; Exchange 2013 and Exchange 2016 return ecNotSupported.</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9097,8 +9086,30 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R123402</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. (&lt;11&gt; Section 3.2.5.3:  Exchange 2010 and Exchange 2013 ignore invalid bits instead of failing the ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;13&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1234:i,MS-OXCFOLD_R113:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1238001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. &lt;14&gt; Section 3.2.5.4:  A content-indexed search is always static on the initial release version of Exchange 2010 and Exchange 2007 regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria request.</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R114:i </ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1238002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request.(Exchange 2013 and above follow this hebavior).</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R1238:i, MS-OXCFOLD_R114:i </ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9108,7 +9119,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder (2) itself. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does fail the ROP with ecSearchFolderScopeViolation (0x00000490), if the client sets the search scope to include the search folder itself. (Exchange 2013 and above follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1242:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9119,7 +9130,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope. (&lt;14&gt; Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. &lt;16&gt; Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1242:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9130,7 +9141,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124203</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope. (&lt;14&gt; Section 3.2.5.4:  Exchange 2003 does not fail the RopSetSearchCriteria ROP when the search folder (2) is included in its own search scope.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. &lt;16&gt; Section 3.2.5.4:  Exchange 2003 does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1242:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9151,7 +9162,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R116002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). (&lt;15&gt; Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). &lt;17&gt; Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R116:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9162,7 +9173,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124801</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. (&lt;16&gt; Section 3.2.5.9: Exchange 2007 does not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Exchange 2007 do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9173,7 +9184,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124802</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. (&lt;16&gt; Section 3.2.5.9: Update Rollup 4 for Exchange 2010 SP2 and Exchange 2013 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013 and Exchange 2016 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9184,7 +9195,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124803</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. (&lt;16&gt; Section 3.2.5.9: Exchange 2003, the initial release version of Exchange 2010, and Exchange 2010 SP1 do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;18&gt; Section 3.2.5.9: Exchange 2003, the initial release version of Exchange 2010, and Microsoft Exchange Server 2010 Service Pack 1 (SP1) do not return ecNotSupported (0x80040102) when the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9205,7 +9216,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R314001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. (&lt;17&gt; Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. &lt;19&gt; Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R314:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9225,9 +9236,59 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1174001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set, the implemetation does not return a contents table that shows messages pertaining to a particular conversation. &lt;20&gt; Section 3.2.5.14:  Exchange 2003 fails the ROP with an error code of ecInvalidParam. </ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R113:I, MS-OXCFOLD_R1174:I</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1174002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set, the implemetation does not return a contents table that shows messages pertaining to a particular conversation. &lt;20&gt; Section 3.2.5.14:  Exchange 2007 ignores the ConversationMembers bit.</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R113:i, MS-OXCFOLD_R1174:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1174003</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set, the implemetation does return a contents table that shows messages pertaining to a particular conversation. (Exchange 2010 and above follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R113:i, MS-OXCFOLD_R1174:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1177002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the implemetation does fail the operation with an error code of ecInvalidParam (0x80070057).). (Exchange 2007 and Exchange 2010 follow this behavior). </ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R1177:i, MS-OXCFOLD_R113:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R1177001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the implemetation does not fail the operation. &lt;21&gt; Section 3.2.5.14:  Exchange 2013 and Exchange 2016 do not fail the operation and allow the setting of this combination of TableFlags.</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R1177:i, MS-OXCFOLD_R113:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R330001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. (&lt;19&gt; Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. &lt;22&gt; Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R330:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9332,7 +9393,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCDATA_R510</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.12</ns1:Doc_Sect>
-		<ns1:Description>[In Restrictions] Although the packet formats differ, the first 8 bits always store RestrictType, an unsigned byte value specifying the type of restriction (2).</ns1:Description>
+		<ns1:Description>[In Restrictions] Although the packet formats differ, the first 8 bits always store RestrictType, an unsigned byte value specifying the type of restriction.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -51,7 +51,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to the private mailbox.
@@ -291,19 +291,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             }
 
             // This bit is set for logon to a private mailbox and is not set for logon to public folders. 
-            if (0x00 != (logonResponse.LogonFlags & (byte)LogonFlags.Private))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R4614");
-
-                // Verify MS-OXCROPS requirement: MS-OXCROPS_R4614
-                // HasRules is null means not present
-                Site.CaptureRequirementIfAreEqual<byte?>(
-                    null,
-                    createFolderResponse.HasRules,
-                    4614,
-                    @"[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): otherwise[if the folder is not a public folder], it is not present.");
-            }
 
             if (createFolderResponse.IsGhosted == null || createFolderResponse.IsGhosted == 0)
             {
@@ -591,7 +578,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -1099,7 +1086,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -1353,7 +1340,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.
@@ -1662,7 +1649,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 ConnectionType.PrivateMailboxServer,
                 Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                Common.GetConfigurationPropertyValue("UserName", this.Site),
+                Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
             // Log on to a private mailbox.

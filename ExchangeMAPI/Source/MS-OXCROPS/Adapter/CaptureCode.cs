@@ -165,7 +165,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                         isReservedRopId && (status != 0),
                         180005,
-                        @"[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (<7> Section 2.2.2: Exchange 2013 SP1 follows this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (<4> Section 2.2.2: Exchange 2013 SP1 and above follow this behavior.)");
             }
         }
 
@@ -583,7 +583,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR106,
                     106,
-                    @"[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID.");
+                    @"[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID that specifies the replica GUID associated with the replica ID that is specified in the ReplId field.");
 
                 if (Common.IsRequirementEnabled(4720, this.Site))
                 {
@@ -607,7 +607,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     Site.CaptureRequirementIfIsTrue(
                         isVerifyR4720,
                         4720,
-                        @"[In Appendix B: Product Behavior] <8> Section 2.2.3.1.3: Implementation does not set the PerUserGuid field to an empty GUID. (Exchange 2007 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does not set the PerUserGuid field to an empty GUID. (<5> Section 2.2.3.1.3: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)");
                 }
 
                 if (Common.IsRequirementEnabled(214, this.Site))
@@ -632,7 +632,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                         isVerifyR214,
                         214,
                         @"[In Appendix B: Product Behavior] PerUserGuid (16 bytes): Implementation does set this field to an empty GUID (all zeroes). (Microsoft Exchange Server 2010 and above follow this behavior.)");
-                }
+                }               
             }
         }
 
@@ -1214,7 +1214,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR211,
                 211,
-                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.5), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.");
+                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.6), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.");
             #endregion
         }
 
@@ -1363,7 +1363,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 4,
                 Marshal.SizeOf(ropGetStoreStateResponse.StoreState.GetType()),
                 240,
-                @"[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure.");
+                @"[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure that contains flags that indicate the state of the mailbox for the logged on user.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R241,StoreState:{0}", ropGetStoreStateResponse.StoreState);
@@ -1986,7 +1986,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropLongTermIdFromIdResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -2151,7 +2151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropIdFromLongTermIdResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -9160,6 +9160,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 isVerifyR2024,
                 2024,
                 @"[In RopSetMessageStatus ROP Success Response Buffer,MessageStatusFlags (4 bytes)]The possible values[zero, the value of msRemoteDownload is 0x00001000, the value of msInConflict is 0x00000800 and the value of msRemoteDelete is 0x00002000] are specified in [MS-OXCMSG] section 2.2.3.8.2.");
+           
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R20004");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R20004
+            this.Site.CaptureRequirementIfAreEqual<byte>(
+                0x20,
+                ropSetMessageStatusResponse.RopId,
+                20004,
+                @"[In RopGetMessageStatus ROP Response Buffers] The value of the RopId field for RopGetMessageStatus responses MUST be 0x20, which is the same as that for the RopSetMessageStatus responses.");
+
         }
 
         /// <summary>
@@ -10722,7 +10733,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetAddressTypeResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -11294,7 +11305,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetTransportFolderResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -11456,7 +11467,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2928,
                     2928,
-                    @"[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (Exchange 2007 and Exchange 2010 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (<7> Section 2.2.7.9.2: Exchange 2007, and Exchange 2010 do not return an empty array in the OptionsInfo field.)");
             }
 
             // Add the debug information
@@ -11581,7 +11592,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropOptionsDataResponse.ReturnValue,
                     4690,
-                    @"[In Appendix B: Product Behavior] <11> Section 2.2.7.9.3: Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (<8> Section 2.2.7.9.3: Exchange 2007 sets the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP.)");
             }
         }
         #endregion
@@ -11928,7 +11939,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     SuccessReturnValue,
                     ropGetNamesFromPropertyIdsResponse.ReturnValue,
                     4713,
-                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (<23> Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)");
             }
             else
             {
@@ -15027,7 +15038,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                     ReadOrWrittenByteCountForRopCopyToStream,
                     ropCopyToStreamResponse.ReadByteCount,
                     4692,
-                    @"[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning.  (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning.  (<11> Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)");
             }
 
             if (Common.IsRequirementEnabled(3415, this.Site))
@@ -15053,7 +15064,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                     ReadOrWrittenByteCountForRopCopyToStream,
                     ropCopyToStreamResponse.WrittenByteCount,
                     4693,
-                    @"[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (Exchange 2007 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (<12> Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)");
             }
         }
 
@@ -17649,21 +17660,35 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
         /// Verify RPC error when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value.
         /// </summary>
         /// <param name="status">The status of the RPC operation.</param>
-        /// <param name="pcbOut">The size of required response buffer.</param>
-        private void VerifyFailRPCForMaxPcbOut(uint status, uint pcbOut)
+        private void VerifyFailRPCForMaxPcbOut(uint status)
         {
-            if (Common.IsRequirementEnabled(454509, this.Site))
+            if (Common.IsRequirementEnabled(454509, this.Site)
+                 && (this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_ip_tcp", StringComparison.InvariantCultureIgnoreCase)
+                 || this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("ncacn_http", StringComparison.InvariantCultureIgnoreCase)))
             {
-                bool isVerify454509 = status == OxcRpcErrorCode.ECResponseTooBig && pcbOut == MS_OXCROPSAdapter.MaxPcbOut;
-
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R454509");
 
                 // Verify MS-OXCROPS requirement: MS-OXCROPS_R454509
-                Site.CaptureRequirementIfIsTrue(
-                    isVerify454509,
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
                     454509,
-                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value, then implementation does fail the RPC with 0x0000047D. (Exchange 2010  follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(20009, this.Site)
+               && this.oxcropsClient.MapiContext.TransportSequence.ToLower().Equals("mapi_http", StringComparison.InvariantCultureIgnoreCase))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R20009");
+
+                // Verify MS-OXCROPS requirement: MS-OXCROPS_R20009
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    OxcRpcErrorCode.ECResponseTooBig,
+                    status,
+                    20009,
+                    @"[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2013 SP1  and above follow this behavior.)");
             }
         }
 

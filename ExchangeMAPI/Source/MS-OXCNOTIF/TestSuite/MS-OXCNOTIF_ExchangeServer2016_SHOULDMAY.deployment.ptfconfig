@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R73Enabled to true to verify that for operation EcRRegisterPushNotification the implementation uses it to register a callback address of a client as specified in section 2.2.1.3.3. Set R73Enabled to false to disable this requirement. -->
+    <Property name="R73Enabled" value="false"/>
+    <!-- Set R244Enabled to true to verify that for operation RopRegisterNotification the implementation does not require that a table view is created in order to send tale notifications as specified in section 6. Set R244Enabled to false to disable this requirement. -->
+    <Property name="R244Enabled" value="false"/>
+    <!-- Set R245Enabled to true to verify that for operation RopRegisterNotification the implementation does require that a table view is created in order to send tale notifications as specified in section 3.1.4.3. Set R245Enabled to false to disable this requirement. -->
+    <Property name="R245Enabled" value="true"/>
+    <!-- Set R257Enabled to true to verify that for operation RopRegisterNotification the implementation does create a subscription to TableModified event notifications automatically for every table created on the server as specified in section 3.1.4.3. Set R257Enabled to false to disable this requirement. -->
+    <Property name="R257Enabled" value="true"/>
+    <!-- Set R269Enabled to true to verify that for operation RopRegisterNotification the implementation does generate informative notifications whenever possible as specified in section 3.1.4.3. Set R269Enabled to false to disable this requirement. -->
+    <Property name="R269Enabled" value="true"/>
+    <!-- Set R271Enabled to true to verify that for operation RopRegisterNotification the implementation only generates a basic notification when it is not feasible to generate an informative notification as specified in section 3.1.4.3. Set R271Enabled to false to disable this requirement. -->
+    <Property name="R271Enabled" value="true"/>
+    <!-- Set R294Enabled to true to verify that for operation RopRegisterNotification the implementation does not stop sending notification if the RopResetTable ROP is received as specified in section 6. Set R294Enabled to false to disable this requirement. -->
+    <Property name="R294Enabled" value="false"/>
+    <!-- Set R275Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopFindRow as specified in section 3.1.4.3. Set R275Enabled to false to disable this requirement. -->
+    <Property name="R275Enabled" value="true"/>
+    <!-- Set R277Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopQueryColumnsAll as specified in section 3.1.4.3. Set R277Enabled to false to disable this requirement. -->
+    <Property name="R277Enabled" value="true"/>
+    <!-- Set R279Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopQueryPosition as specified in section 3.1.4.3. Set R279Enabled to false to disable this requirement. -->
+    <Property name="R279Enabled" value="true"/>
+    <!-- Set R281Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopQueryRows as specified in section 3.1.4.3. Set R281Enabled to false to disable this requirement. -->
+    <Property name="R281Enabled" value="true"/>
+    <!-- Set R283Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopSeekRow as specified in section 3.1.4.3. Set R283Enabled to false to disable this requirement. -->
+    <Property name="R283Enabled" value="true"/>
+    <!-- Set R286Enabled to true to verify that for operation RopRegisterNotification the implementation does stop sending notification if the RopResetTable ROP is received, until a new table view is created using one of the following ROPs: RopSeekRowBookmark as specified in section 3.1.4.3. Set R286Enabled to false to disable this requirement. -->
+    <Property name="R286Enabled" value="true"/>
+    <!-- Set R288Enabled to true to verify that for operation RopRegisterNotification the implementation does create a new Notification Subscription object and associate it with the session context as specified in section 3.1.5.1. Set R288Enabled to false to disable this requirement. -->
+    <Property name="R288Enabled" value="true"/>
+    <!-- Set R290Enabled to true to verify that for operation RopRegisterNotification the implementation does save the information provided in the RopRegisterNotification ROP request fields for future use as specified in section 3.1.5.1. Set R290Enabled to false to disable this requirement. -->
+    <Property name="R290Enabled" value="true"/>
+    <!-- Set R292Enabled to true to verify that for operation RopRegisterNotification the implementation does allow multiple Notification Subscription objects to be created and associated with the same session context as specified in section 3.1.5.1. Set R292Enabled to false to disable this requirement. -->
+    <Property name="R292Enabled" value="true"/>
+    <!-- Set R305Enabled to true to verify that for operation EcDoAsyncWaitEx the implementation does not complete the call until there is a notification for the client session as specified in section 3.1.5.3. Set R305Enabled to false to disable this requirement. -->
+    <Property name="R305Enabled" value="true"/>
+    <!-- Set R307Enabled to true to verify that for operation EcDoAsyncWaitEx the implementation does not complete the call until the call has been outstanding on the server 5 minutes as specified in section 3.1.5.3. Set R307Enabled to false to disable this requirement. -->
+    <Property name="R307Enabled" value="true"/>
+    <!-- Set R313Enabled to true to verify that for operation EcRRegisterPushNotification the implementation does support the EcRRegisterPushNotification method call as specified in section 3.1.5.4. Set R313Enabled to false to disable this requirement. -->
+    <Property name="R313Enabled" value="false"/>
+    <!-- Set R321Enabled to true to verify that for operation EcRRegisterPushNotification the implementation does support at a minimum the AF_INET address type for IP support as specified in section 3.1.5.4. Set R321Enabled to false to disable this requirement. -->
+    <Property name="R321Enabled" value="false"/>
+    <!-- Set R323Enabled to true to verify that for operation EcRRegisterPushNotification the implementation does support at a minimum the AF_INET6 address type for IPv6 support as specified in section 3.1.5.4. Set R323Enabled to false to disable this requirement. -->
+    <Property name="R323Enabled" value="false"/>
+    <!-- Set R326Enabled to true to verify that for operation EcRRegisterPushNotification the implementation does send a UDP datagram containing the client's opaque data as specified in section 3.1.5.4. Set R326Enabled to false to disable this requirement. -->
+    <Property name="R326Enabled" value="false"/>
+    <!-- Set R331Enabled to true to verify that for operation EcRRegisterPushNotification the implementation does stop sending UDP datagrams only when all of the notifications have been retrieved from the implementation through EcDoRpcExt2 method calls as specified in section 3.1.5.4. Set R331Enabled to false to disable this requirement. -->
+    <Property name="R331Enabled" value="false"/>
+    <!-- Set R335Enabled to true to verify that for operation RopNotify the implementation does include as many RopNotify ROP responses as will fit in the response, and then include a RopPending ROP response as specified in section 3.1.5.7. Set R335Enabled to false to disable this requirement. -->
+    <Property name="R335Enabled" value="true"/>
+    <!-- Set R342Enabled to true to implementation does support Session Context linking.  Set R342Enabled to false to disable this requirement. -->
+    <Property name="R342Enabled" value="false"/>
+    <!-- Set R346Enabled to true to verify that for operation RopNotify the implementation does send a RopNotify ROP response to the client for each pending notification on the session context that is associated with the client as specified in section 3.1.5.7. Set R346Enabled to false to disable this requirement. -->
+    <Property name="R346Enabled" value="true"/>
+    <!-- Set R348Enabled to true to verify that for operation RopNotify the implementation does send as many RopNotify ROP responses as the response buffer allows as specified in section 3.1.5.7. Set R348Enabled to false to disable this requirement. -->
+    <Property name="R348Enabled" value="true"/>
+    <!-- Set R372Enabled to true to verify that for operation RopRegisterNotification the implementation does created the subscription automatically, when the client creates a Table object on the implementation as specified in section 6. Set R372Enabled to false to disable this requirement. -->
+    <Property name="R372Enabled" value="false"/>
+    <!-- Set R62Enabled to true to verify that for operation EcDoAsyncConnectEx the implementation does use the asynchronous context handle acquired by EcDoAsyncConnectEx to use in subsequent EcDoAsyncWaitEx method calls, as specified in [MS-OXCRPC] section 3.3.4.1. Set R62Enabled to false to disable this requirement. -->
+    <Property name="R62Enabled" value="true"/>
+    <!-- Set R68Enabled to true to verify that for operation EcDoAsyncConnectEx the implementation does use  used to inform a client about pending notifications. Set R68Enabled to false to disable this requirement. -->
+    <Property name="R68Enabled" value="true"/>
+    <!-- Set R198Enabled to true to verify that for operation RopRegisterNotification the implementation does not set the value of the TagCount field to 0x0000; they set the value of the field to the number of property tags in the Tags field. Set R198Enabled to false to disable this requirement. -->
+    <Property name="R198Enabled" value="false"/>
+    <!-- Set R199Enabled to true to verify that for operation RopRegisterNotification the implementation does set the value of the TagCount field to 0x0000. Set R199Enabled to false to disable this requirement. -->
+    <Property name="R199Enabled" value="true"/>
+    <!-- Set R297Enabled to true to verify that for operation EcDoAsyncConnectEx the implementation does support this method call, as specified in [MS-OXCRPC] section 3.1.4.4. Set R297Enabled to false to disable this requirement. -->
+    <Property name="R297Enabled" value="true"/>
+    <!-- Set R302Enabled to true to verify that for operation EcDoAsyncWaitEx the implementation does support this method call, as specified in [MS-OXCRPC] section 3.3.4.1. Set R302Enabled to false to disable this requirement. -->
+    <Property name="R302Enabled" value="true"/>
+    <!-- Set R13201Enabled to true to verify that for operation RopNotify the implementation does support TableRestrictionChanged events. Set R13201Enabled to false to disable this requirement. -->
+    <Property name="R13201Enabled" value="false"/>
+    <!-- Set R53Enabled to true to verify that for operation RopRegisterNotification the implementation does support the value of WantWholeStore is 0x00. Set R53Enabled to false to disable this requirement. -->
+    <Property name="R53Enabled" value="false"/>
+    <!-- Set R128Enabled to true to verify that for operation RopNotify the implementation does support TableChanged events. Set R128Enabled to false to disable this requirement. -->
+    <Property name="R128Enabled" value="false"/>
+    <!-- Set R81001Enabled to true to verify that for for operation RopPending the implementation does notify the client that there are pending notifications on the server for the client, when the value of pcbOut is 0xC350. Set R81001Enabled to false to disable this requirement. -->
+    <Property name="R81001Enabled" value="false"/>
+    <!-- Set R81002Enabled to true to verify that for for operation RopPending the implementation does notify the client that there are pending notifications on the server for the client, when the value of pcbOut is 0x190. Set R81002Enabled to false to disable this requirement. -->
+    <Property name="R81002Enabled" value="true"/>
+    <!-- Set R214001Enabled to true to verify that for operation RopNotify the implementation does support MessageFlags specifies the message flags of new mail that has been received. Set R214001Enabled to false to disable this requirement. -->
+    <Property name="R214001Enabled" value="false"/>
+    <!-- Set R214002Enabled to true to verify that for operation RopNotify the implementation does return zero for MessageFlags. Set R214002Enabled to false to disable this requirement. -->
+    <Property name="R214002Enabled" value="true"/>
+    <!-- Set R475Enabled to true to verify that for asynchronous calls the implementation does support using the MAPI extensions to HTTP. Set R475Enabled to false to disable this requirement. -->
+    <Property name="R475Enabled" value="true"/>
+    <!-- Set R482Enabled to true to verify that for NotificationWait request type the implementation does notify the client that there are pending notifications on the server for the client. Set R482Enabled to false to disable this requirement. -->
+    <Property name="R482Enabled" value="true"/>
+    <!-- Set R498Enabled to true to verify that for operation RopNotify the implementation does send a RopNotify ROP response in an Execute request type success response body. Set R498Enabled to false to disable this requirement. -->
+    <Property name="R498Enabled" value="true"/>
+    <!-- Set R510Enabled to true to verify that for the field TagCount the implementation does return a value of 0xFFFF in a RopNotify ROP response, if the number of tags to fit in the response creates a response that exceeds the maximum size of the output buffer. Set R510Enabled to false to disable this requirement. -->
+    <Property name="R510Enabled" value="true"/>
+    <!-- Set R517Enabled to true to verify that implementation does support the session context cookie. Set R517Enabled to false to disable this requirement. -->
+    <Property name="R517Enabled" value="true"/>
+    <!-- Set R538Enabled to true to verify that implementation does allow for a 60-second interval between UDP datagrams until the client has retrieved all event information for the session when the implementation does support push notifications. Set R538Enabled to false to disable this requirement. -->
+    <Property name="R538Enabled" value="false"/>
+    <!-- Set R539Enabled to true to verify that implementation does continue sending a UDP datagram to the callback address at 60-second intervals if event details are still queued for the client. Set R539Enabled to false to disable this requirement. -->
+    <Property name="R539Enabled" value="false"/>
+    <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
+    <Property name="R1340Enabled" value="true"/>
+    <!-- Set R8201001Enabled to true to verify that the implementation does support Execute request type. Set R8201001Enabled to false to disable this requirement.-->
+    <Property name="R8201001Enabled" value="true"/>
+  </Properties>
+</TestSite>

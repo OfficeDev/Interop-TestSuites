@@ -422,6 +422,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             PropertyObj pidTagMessageFlags = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagMessageFlags);
             PropertyObj pidTagCreatorEntryId = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagCreatorEntryId);
             PropertyObj pidTagLastModifierEntryId = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagLastModifierEntryId);
+            PropertyObj pidTagMessageLocaleId = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagMessageLocaleId);
+            PropertyObj pidTagLocaleId = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagLocaleId);
+
 
             #region Verify requirements
             // Add the debug information
@@ -475,48 +478,57 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
             string pidTagDisplayBccInitialValue = Convert.ToString(pidTagDisplayBcc.Value);
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXCMSG_R344,the actual initial Data of PidTagDisplayBcc is {0}",
-                pidTagDisplayBccInitialValue);
+            if (Common.IsRequirementEnabled(344, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXCMSG_R344,the actual initial Data of PidTagDisplayBcc is {0}",
+                    pidTagDisplayBccInitialValue);
 
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R344
-            Site.CaptureRequirementIfAreEqual<string>(
-                string.Empty,
-                pidTagDisplayBccInitialValue,
-                344,
-                @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayBcc is] """".");
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R344
+                Site.CaptureRequirementIfAreEqual<string>(
+                    string.Empty,
+                    pidTagDisplayBccInitialValue,
+                    344,
+                    @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayBcc is] """".");
+            }
 
-            string pidTagDisplayCcInitialValue = Convert.ToString(pidTagDisplayCc.Value);
+            if (Common.IsRequirementEnabled(345, this.Site))
+            {
+                string pidTagDisplayCcInitialValue = Convert.ToString(pidTagDisplayCc.Value);
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXCMSG_R345,the actual initial Data of PidTagDisplayCc is {0}",
-                pidTagDisplayCcInitialValue);
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXCMSG_R345,the actual initial Data of PidTagDisplayCc is {0}",
+                    pidTagDisplayCcInitialValue);
 
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R345
-            Site.CaptureRequirementIfAreEqual<string>(
-                string.Empty,
-                pidTagDisplayCcInitialValue,
-                345,
-                @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayCc is] """".");
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R345
+                Site.CaptureRequirementIfAreEqual<string>(
+                    string.Empty,
+                    pidTagDisplayCcInitialValue,
+                    345,
+                    @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayCc is] """".");
+            }
 
-            string pidTagDisplayToInitialValue = Convert.ToString(pidTagDisplayTo.Value);
+            if (Common.IsRequirementEnabled(346, this.Site))
+            {
+                string pidTagDisplayToInitialValue = Convert.ToString(pidTagDisplayTo.Value);
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXCMSG_R346,the actual initial Data of PidTagDisplayTo is {0}",
-                pidTagDisplayToInitialValue);
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXCMSG_R346,the actual initial Data of PidTagDisplayTo is {0}",
+                    pidTagDisplayToInitialValue);
 
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R346
-            Site.CaptureRequirementIfAreEqual<string>(
-                string.Empty,
-                pidTagDisplayToInitialValue,
-                346,
-                @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayTo is] """".");
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R346
+                Site.CaptureRequirementIfAreEqual<string>(
+                    string.Empty,
+                    pidTagDisplayToInitialValue,
+                    346,
+                    @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagDisplayTo is] """".");
+            }
 
             int pidTagHasAttachmentsInitialValue = Convert.ToInt32(pidTagHasAttachments.Value);
 
@@ -589,7 +601,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     0x00000007,
                     pidTagAccessInitialValue,
                     1914,
-                    @"[In Appendix A: Product Behavior] Implementation does initialize the PidTagAccess property to 0x00000007. (<14> Section 3.2.5.2: Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does initialize the PidTagAccess property to 0x00000007. (<23> Section 3.2.5.2: Exchange 2013 follows this behavior.)");
             }
 
             int pidTagAccessLevelInitialValue = Convert.ToInt32(pidTagAccessLevel.Value);
@@ -700,12 +712,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.754) specifies the last user to modify the contents of the message according to their address book EntryID.");
 
                 // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R359");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R359
+                this.Site.CaptureRequirementIfIsNotNull(
+                    pidTagMessageLocaleId.Value,
+                    359,
+                    @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagMessageLocaleId is] The Logon object LocaleID.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R365");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R365
+                this.Site.CaptureRequirementIfAreEqual<object>(
+                    pidTagMessageLocaleId.Value,
+                    pidTagLocaleId.Value,
+                    365,
+                    @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagLocaleId is] Same as PidTagMessageLocaleId property.");
+
+                // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1912");
 
                 // MS-OXCMSG_R1912 can be verified if code can run here.
                 this.Site.CaptureRequirement(
                     1912,
-                    @"[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId and PidTagLastModificationTime. (Exchange 2007 and Exchange 2010 follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId, PidTagLastModificationTime, PidTagMessageLocaleId  and PidTagLocaleId. (Exchange 2007 and Exchange 2010 follow this behavior.)");
             }
 
             // MS-OXCMSG_R358 can be verified if the value of PidTagSearchKey is not null since whether server generated SearchKey is unknown to client.
@@ -729,15 +760,53 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 364,
                 @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagHasNamedProperties is] 0x00.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R347");
+            if(Common.IsRequirementEnabled(3015,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3015");
 
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R347
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                0x00000009,
-                Convert.ToInt32(pidTagMessageFlags.Value) & 0x00000009,
-                347,
-                @"[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagMessageFlags is] 0x00000009.");
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3015
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0x00000009,
+                    Convert.ToInt32(pidTagMessageFlags.Value),
+                    3015,
+                    @"[In Appendix A: Product Behavior] [The Initial data of PidTagMessageFlags] will be 0x00000009 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state. (<22> Section 3.2.5.2: Exchange 2007 follows this behavior.)");
+            }
+
+            if(Common.IsRequirementEnabled(3016,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3016");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3016
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0x00000409,
+                    Convert.ToInt32(pidTagMessageFlags.Value),
+                    3016,
+                    @"[In Appendix A: Product Behavior] [The Initial data of PidTagMessageFlags] will be 0x00000409 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state. (Exchange 2010 and above follow this behavior.)");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1140");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1140
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0x00000400,
+                    Convert.ToInt32(pidTagMessageFlags.Value)& 0x00000400,
+                    1140,
+                    @"[In PidTagMessageFlags Property] [mfEverRead (0x00000400)] The message has been read at least once.");
+            }
+
+            if(Common.IsRequirementEnabled(3006,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3006");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3006
+                this.Site.CaptureRequirementIfIsTrue(
+                    (Convert.ToInt32(pidTagMessageFlags.Value) & 0x00000400)== 0x00000400 && (Convert.ToInt32(pidTagMessageFlags.Value) & 0x00000001) == 0x00000001,
+                    3006,
+                    @"[In Appendix A: Product Behavior] [mfEverRead (0x00000400)] This flag is set by the implementation whenever the mfRead flag is set. (Exchange 2010 and above follow this behavior.)");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R510");
@@ -977,6 +1046,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1869,
                     @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only property PidTagHasAttachments. (Exchange 2010 and above follow this behavior.)");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R15");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R15
+            // If According to above capture code, R15 will be verified.
+            this.Site.CaptureRequirement(
+                15,
+                @"[In PidTagHasAttachments Property] This property [PidTagHasAttachments] is read-only for the client.");
             #endregion
 
             #region Set PidTagMessageSize property.
@@ -1015,6 +1093,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1883,
                     @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only property PidTagMessageSize. (Exchange 2010 and above follow this behavior.)");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R47");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R47
+            // If According to above capture code, R47 will be verified.
+            this.Site.CaptureRequirement(
+                47,
+                @"[In PidTagMessageSize Property] This property [PidTagMessageSize] is read-only for the client.");
             #endregion
 
             #region Set MfRead flag of PidTagMessageFlags.
@@ -1132,6 +1219,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1872,
                     @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only flag mfResend. (Exchange 2010 and above follow this behavior.)");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R31");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R31
+            // If According to above capture code, R31 will be verified.
+            this.Site.CaptureRequirement(
+                31,
+                @"[In PidTagMessageFlags Property] After the first successful call to the RopSaveChangesMessage ROP ([MS-OXCROPS] section 2.2.6.3), as described in section 2.2.3.3, these flags [mfRead, mfUnsent, mfResend] are read-only for the client.");
             #endregion
 
             #region Set mfUnmodified flag of PidTagMessageFlags.
@@ -1522,6 +1618,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1882,
                     @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only flag mfUntrusted. (Exchange 2010 and above follow this behavior.)");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R516");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R516
+            // If According to above capture code, R516 will be verified.
+            this.Site.CaptureRequirement(
+                516,
+                @"[In PidTagMessageFlags Property] These flags are always read-only for the client [mfUnmodified, mfSubmitted, mfHasAttach, mfFromMe, mfFAI, mfNotifyRead, mfNotifyUnread, mfEverRead, mfInternet, mfUntrusted].");
             #endregion
 
             #region Set msInConflict flag of PidTagMessageStatus.
@@ -1561,6 +1666,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1884,
                     @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only flag msInConflict. (Exchange 2010 and above follow this behavior.)");
             }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R545");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R545
+            // If According to above capture code, R545 will be verified.
+            this.Site.CaptureRequirement(
+                545,
+                @"[In PidTagMessageStatus Property] [msInConflict (0x00000800)] This is a read-only value for the client.");
             #endregion
         }
 
@@ -1691,7 +1805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     Convert.ToInt32(accesssLevelBeforeSave.Value),
                     Convert.ToInt32(accesssLevelAfterReadOnlySuccess.Value),
                     2192,
-                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.[In Appendix B: Product Behavior] <8> Section 2.2.3.3.1: Exchange 2010 and Exchange 2013 ignore the KeepOpenReadOnly flag.");
+                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(<13> Section 2.2.3.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 ignore the KeepOpenReadOnly flag.)");
             }
 
             if (Common.IsRequirementEnabled(2193, this.Site))
@@ -1952,8 +2066,36 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopSaveChangesMessage to commit the Message object created and keep the message open with ForceSave.
-            saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, (byte)SaveFlags.ForceSave);
-            Site.Assert.AreEqual<uint>(TestSuiteBase.Success, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should success.");
+            if (Common.IsRequirementEnabled(3011, this.Site))
+            {
+                saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, 0x0C);
+                Site.Assert.AreEqual<uint>(TestSuiteBase.Success, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should success.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3011");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3011
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    TestSuiteBase.Success,
+                    saveChangesMessageResponse.ReturnValue,
+                    3011,
+                    @"[In Appendix A: Product Behavior] <14> Section 2.2.3.3.1:  The value of ForceSave is 0x0C in Microsoft Exchange Server 2007 Service Pack 3 (SP3).");
+            }
+
+            if (Common.IsRequirementEnabled(3022,this.Site))
+            {
+                saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, 0x04);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3022");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3022
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    TestSuiteBase.Success,
+                    saveChangesMessageResponse.ReturnValue,
+                    3022,
+                    @"[In Appendix A: Product Behavior] The value of ForceSave is 0x04. (Exchange 2010 and above follow this behavior.)");
+            }
 
             this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(getPropertiesSpecificRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
             getPropertiesSpecificResponse = (RopGetPropertiesSpecificResponse)this.response;
@@ -2150,6 +2292,502 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.isNotNeedCleanupPrivateMailbox = true;
                 Site.Assume.Inconclusive("This case runs only if the implementation does not return Success for RopSaveChangesMessage ROP requests when a previous request has already been committed against the Message object, even though the changes to the object are not actually committed to the server store.");
             }
+        }
+
+        /// <summary>
+        /// This test case tests calling RopSaveChangesMessage failure when the message has been opened or previously saved as read only;.
+        /// </summary>
+        [TestCategory("MSOXCMSG"), TestMethod()]
+        public void MSOXCMSG_S01_TC10_RopSaveChangeMessageWithReadOnlyProperty()
+        {
+            this.CheckMapiHttpIsSupported();
+            this.ConnectToServer(ConnectionType.PrivateMailboxServer);
+            RopSaveChangesMessageResponse saveChangesMessageResponse;
+
+            #region Call RopLogon to log on a private mailbox.
+            RopLogonResponse logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
+            #endregion
+
+            #region Call RopCreateMessage to create new Message object.
+            uint targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
+            saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, (byte)SaveFlags.ForceSave);
+            ulong messageID = saveChangesMessageResponse.MessageId;
+            this.ReleaseRop(targetMessageHandle);
+            #endregion
+
+            #region Call RopOpenMessage to open the message object created by step above as read-only.
+            targetMessageHandle = this.OpenSpecificMessage(logonResponse.FolderIds[4], messageID, this.insideObjHandle, MessageOpenModeFlags.ReadOnly);
+            #endregion
+
+            #region Call RopSaveChangesMessage to commit the Message object created and keep the message open with read-only.
+           
+            if(Common.IsRequirementEnabled(3019,this.Site))
+            {
+                RopSaveChangesMessageRequest saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId, // The logonId 0x00 is associated with this operation.
+                    InputHandleIndex = CommonInputHandleIndex, // This index specifies the location 0x00 in the Server Object Handle Table where the handle for the input Server Object is stored. 
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response. 
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+                uint returnValue = 0;
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None,out returnValue);
+
+                bool isR3019Verifed = false;
+
+                if (returnValue == 0)
+                {
+                    if (((RopSaveChangesMessageResponse)this.response).ReturnValue == 0x80004005)
+                    {
+                        isR3019Verifed = true;
+                    }
+                }
+                else
+                {
+                    if (returnValue == 0x80004005)
+                    {
+                        isR3019Verifed = true;
+                    }
+                }
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3019");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3019
+                this.Site.CaptureRequirementIfIsTrue(
+                    isR3019Verifed,
+                    3019,
+                    @"[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (<27> Section 3.2.5.3: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)");
+
+            }
+            #endregion
+
+            #region Call RopRelease to release created message.
+            this.ReleaseRop(targetMessageHandle);
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case tests calling RopSaveChangesMessage failure when the message has been opened or previously saved as read only;.
+        /// </summary>
+        [TestCategory("MSOXCMSG"), TestMethod()]
+        public void MSOXCMSG_S01_TC11_CreateMessageWithoutPermissions()
+        {
+            this.CheckMapiHttpIsSupported();
+            this.ConnectToServer(ConnectionType.PrivateMailboxServer);
+            string commonUser = Common.GetConfigurationPropertyValue("CommonUser", Site);
+            string commonUserPassword = Common.GetConfigurationPropertyValue("CommonUserPassword", Site);
+            string commonUserEssdn = Common.GetConfigurationPropertyValue("CommonUserEssdn", Site);
+
+            #region Call RopLogon to log on a private mailbox.
+            RopLogonResponse logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
+            #endregion
+
+            #region Call RopOpenFolder to open inbox folder
+            uint openedFolderHandle = this.OpenSpecificFolder(logonResponse.FolderIds[4], this.insideObjHandle);
+            #endregion
+
+            #region Add Read permission to "CommonUser" on inbox folder.
+            // Add folder visible permission for the inbox.
+            uint pidTagMemberRights = (uint)PidTagMemberRights.FolderVisible | (uint)PidTagMemberRights.ReadAny;
+            this.AddPermission(commonUserEssdn, pidTagMemberRights, openedFolderHandle);
+            #endregion
+
+            #region Call RopLogon to logon the private mailbox with "CommonUser"
+            this.rawData = null;
+            this.insideObjHandle = 0;
+            this.response = null;
+            this.ResponseSOHs = null;
+            this.MSOXCMSGAdapter.RpcDisconnect();
+            this.MSOXCMSGAdapter.Reset();
+            this.MSOXCMSGAdapter.RpcConnect(ConnectionType.PrivateMailboxServer, commonUser, commonUserPassword, commonUserEssdn);
+
+            string userDN = Common.GetConfigurationPropertyValue("AdminUserEssdn", this.Site) + "\0";
+            RopLogonRequest logonRequest = new RopLogonRequest()
+            {
+                RopId = (byte)RopId.RopLogon,
+                LogonId = CommonLogonId,
+                OutputHandleIndex = 0x00, // This index specifies the location 0x00 in the Server Object Handle Table where the handle for the output Server Object is stored. 
+                StoreState = 0,
+                LogonFlags = 0x01, // Logon to a private mailbox
+                OpenFlags = (uint)OpenFlags.UsePerMDBReplipMapping, // Requesting admin access to the mail box
+                EssdnSize = (ushort)Encoding.ASCII.GetByteCount(userDN),
+                Essdn = Encoding.ASCII.GetBytes(userDN)
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(logonRequest, this.insideObjHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            logonResponse = (RopLogonResponse)this.response;
+            Site.Assert.AreEqual<uint>(TestSuiteBase.Success, logonResponse.ReturnValue, "Call RopLogon should success.");
+
+            uint objHandle = this.ResponseSOHs[0][logonResponse.OutputHandleIndex];
+            #endregion
+
+            #region Call RopCreateMessage to create new Message object in folder without permission.
+            RopCreateMessageRequest createMessageRequest = new RopCreateMessageRequest()
+            {
+                RopId = (byte)RopId.RopCreateMessage,
+                LogonId = CommonLogonId,
+                InputHandleIndex = CommonInputHandleIndex,
+                OutputHandleIndex = CommonOutputHandleIndex,
+                CodePageId = 0x0FFF, // Code page of Logon object is used
+                FolderId = logonResponse.FolderIds[4], // Create a message in INBOX which root is mailbox 
+                AssociatedFlag = 0x00 // NOT an FAI message
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(createMessageRequest, this.insideObjHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            RopCreateMessageResponse createMessageResponse = (RopCreateMessageResponse)this.response;
+            
+            if(Common.IsRequirementEnabled(3017,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3017");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3017
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x000004FF,
+                    createMessageResponse.ReturnValue,
+                    3017,
+                    @"[In Appendix A: Product Behavior] [ecNoCreateRight (0x000004FF)] The user does not have permissions to create this message [RopCreateMessage]. (<24> Section 3.2.5.2:  Exchange 2007 and Exchange 2010 follow this behavior.)");
+            }
+
+            if(Common.IsRequirementEnabled(3018,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3018");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3018
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80070005,
+                    createMessageResponse.ReturnValue,
+                    3018,
+                    @"[In Appendix A: Product Behavior] [ecAccessDenied (0x80070005)] The user does not have permissions to create this message [RopCreateMessage]. (Exchange 2013 and above follow this behavior.)");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case tests calling RopSaveChangesMessage failure when the Message object include read-only properties.
+        /// </summary>
+        [TestCategory("MSOXCMSG"), TestMethod()]
+        public void MSOXCMSG_S01_TC12_RopSaveChangeMessageWithReadOnlyProperty()
+        {
+            this.CheckMapiHttpIsSupported();
+            this.ConnectToServer(ConnectionType.PrivateMailboxServer);
+
+            RopSaveChangesMessageResponse saveChangesMessageResponse;
+
+            #region Call RopLogon to log on a private mailbox.
+            RopLogonResponse logonResponse = this.Logon(LogonType.Mailbox, out this.insideObjHandle);
+            #endregion
+
+            #region Call RopCreateMessage to create new Message object.
+            uint targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
+            saveChangesMessageResponse = this.SaveMessage(targetMessageHandle, (byte)SaveFlags.ForceSave);
+            ulong messageID = saveChangesMessageResponse.MessageId;
+            this.ReleaseRop(targetMessageHandle);
+            #endregion
+
+            #region Call RopOpenMessage to open the message object created by step above.
+            targetMessageHandle = this.OpenSpecificMessage(logonResponse.FolderIds[4], messageID, this.insideObjHandle, MessageOpenModeFlags.ReadWrite);
+            #endregion
+
+            #region Call RopSaveChangesMessage to save a Message object and server return an error.
+            if (Common.IsRequirementEnabled(1644, this.Site))
+            {
+                #region Call RopSetProperties to set PidTagHasAttachments that is a read-only property.
+                List<PropertyObj> propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagHasAttachments, BitConverter.GetBytes(true))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                RopSaveChangesMessageRequest saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagMessageSize that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagMessageSize, BitConverter.GetBytes(0))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagAccess that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagAccess, BitConverter.GetBytes(0x00000001))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagAccessLevel that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagAccessLevel, BitConverter.GetBytes(0x00000001))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagObjectType that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagObjectType, BitConverter.GetBytes(0x00000005))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagRecordKey that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagRecordKey, new byte[] { 0x10, 0x00, 0xa1, 0x3e, 0x25, 0x6f, 0xbb, 0x2c, 0x26, 0x44, 0x8c, 0x8a, 0x2c, 0x52, 0x0c, 0x85, 0xfb, 0x08})
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagMessageStatus that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagMessageStatus, BitConverter.GetBytes(0x00001000))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagChangeKey that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagChangeKey,new byte[] { 0x10, 0x00, 0xa1, 0x3e, 0x25, 0x6f, 0xbb, 0x2c, 0x26, 0x44, 0x8c, 0x8a, 0x2c, 0x52, 0x0c, 0x85, 0xfb, 0x08})
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagSearchKey that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagSearchKey,new byte[] { 0x10, 0x00, 0xa1, 0x3e, 0x25, 0x6f, 0xbb, 0x2c, 0x26, 0x44, 0x8c, 0x8a, 0x2c, 0x52, 0x0c, 0x85, 0xfb, 0x08})
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagCreationTime that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagCreationTime, BitConverter.GetBytes(DateTime.Parse(TestDataOfDateTime).ToFileTimeUtc()))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagLastModificationTime that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagLastModificationTime, BitConverter.GetBytes(DateTime.Parse(TestDataOfDateTime).ToFileTimeUtc()))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                #region Call RopSetProperties to set PidTagLastModifierName that is a read-only property.
+                propertyList = new List<PropertyObj>
+                {
+                    new PropertyObj(PropertyNames.PidTagLastModifierName,Common.GetBytesFromUnicodeString("Last modifier name"))
+                };
+                this.SetPropertiesForMessage(targetMessageHandle, propertyList);
+
+                saveChangesMessageRequest = new RopSaveChangesMessageRequest()
+                {
+                    RopId = (byte)RopId.RopSaveChangesMessage,
+                    LogonId = CommonLogonId,
+                    InputHandleIndex = CommonInputHandleIndex,
+                    ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response.
+                    SaveFlags = (byte)SaveFlags.KeepOpenReadOnly
+                };
+
+                this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+                saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
+
+                Site.Assert.AreEqual<uint>(0x80004005, saveChangesMessageResponse.ReturnValue, "Call RopSaveChangesMessage should failed.");
+                #endregion
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1724");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1724
+                this.Site.CaptureRequirement(
+                    1724,
+                    @"[In General Properties] These properties are read-only for the client: PidTagAccess, PidTagChangeKey, PidTagCreationTime, PidTagLastModificationTime, PidTagLastModifierName, PidTagObjectType, PidTagRecordKey and PidTagSearchKey.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1078");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1078
+                this.Site.CaptureRequirement(
+                    1078,
+                    @"[In General Properties] These properties [PidTagAccessLevel, PidTagObjectType and PidTagRecordKey] are read-only for the client.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1644");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1644
+                this.Site.CaptureRequirement(
+                    1644,
+                    @"[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only properties PidTagMessageSize, PidTagAccess, PidTagAccessLevel, PidTagObjectType, PidTagRecordKey, PidTagMessageStatus, and PidTagHasAttachments [about RopSaveChangeMessage]. (Exchange 2010 and above follow this behavior.)");
+            }
+
+            this.ReleaseRop(targetMessageHandle);
+            #endregion
+
+            #region Call RopRelease to release created message.
+            this.ReleaseRop(targetMessageHandle);
+            #endregion
         }
 
         #region Private methods

@@ -62,7 +62,64 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             #endregion
 
             #region Capture
-            
+
+            if (Common.IsRequirementEnabled(5979301, this.Site))
+            {
+                // Do not check NNTP Article Index and EForms Registry for the user's locale
+                // NNTP Article Index: It is supported on Exchange 2003 and below version.
+                // EForms Registry for the user's locale: Needs to create the Organizational Forms Library 
+                //     1. New-PublicFolder -Path "\NON_IPM_SUBTREE\EFORMS REGISTRY" -Name "Organizational Forms Library"
+                //     2. Download MFCMAPI tool and add property PR_EFORMS_LOCALE_ID
+                //     3. Set-PublicFolder "\NON_IPM_SUBTREE\EFORMS REGISTRY\Organizational Forms Library" -EformsLocaleID EN-US
+                bool isR5979301Verified = logonResponse1.FolderIds[0] != 0 // Public Folders Root Folder
+                    && logonResponse1.FolderIds[1] != 0 // Interpersonal messages subtree
+                    && logonResponse1.FolderIds[2] != 0 // Non-interpersonal messages subtree
+                    && logonResponse1.FolderIds[3] != 0 // EForms Registry
+                    && logonResponse1.FolderIds[4] != 0 // Free/Busy Data
+                    && logonResponse1.FolderIds[5] != 0 // Offline address book Data
+                    && logonResponse1.FolderIds[7] != 0 // Local Site's Free/Busy Data
+                    && logonResponse1.FolderIds[8] != 0 // Local Site's Offline Address Book Data
+                    && logonResponse1.FolderIds[10] == 0 // Empty
+                    && logonResponse1.FolderIds[11] == 0 // Empty
+                    && logonResponse1.FolderIds[12] == 0; // Empty
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R5979301");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R5979301
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    logonResponse1.ReturnValue,
+                    5979301,
+                    @"[In Appendix A: Product Behavior]  Implementation returns the Folder ID of all of the following folders in this field [FolderIds in RopLogon ROP Success Response Buffer for Public Folders]: Public Folders Root Folder (All other folders listed here are direct or indirect children of this folder), Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, NNTP Article Index, Empty, Empty, Empty. (Exchange 2003, Exchange 2007 and Exchange 2010 follow this behavior)");
+            }
+
+            if (Common.IsRequirementEnabled(155, this.Site))
+            {
+                bool isR155Verified = logonResponse1.FolderIds[0] != 0 // Public Folders Root Folder
+                    && logonResponse1.FolderIds[1] != 0 // Interpersonal messages subtree
+                    && logonResponse1.FolderIds[2] != 0 // Non-interpersonal messages subtree
+                    && logonResponse1.FolderIds[3] != 0 // EForms Registry
+                    && logonResponse1.FolderIds[4] == 0 // Free/Busy Data
+                    && logonResponse1.FolderIds[5] == 0 // Offline address book Data
+                    && logonResponse1.FolderIds[7] == 0 // Local Site's Free/Busy Data
+                    && logonResponse1.FolderIds[8] == 0 // Local Site's Offline Address Book Data
+                    && logonResponse1.FolderIds[9] == 0 // NNTP Article Index
+                    && logonResponse1.FolderIds[10] == 0 // Empty
+                    && logonResponse1.FolderIds[11] == 0 // Empty
+                    && logonResponse1.FolderIds[12] == 0; // Empty
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R155");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R155
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    logonResponse1.ReturnValue,
+                    155,
+                    @"[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (<8> Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)");
+            }
+
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R7202");
 
@@ -867,7 +924,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getOwningServersResponse.ReturnValue,
                     3490001,
-                    @"Implementation does issue this operation [RopGetOwningServers] against a public folders logon. (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does issue this operation [RopGetOwningServers] against a public folders logon. (Exchange 2013 follows this behavior.)");
             }
 
             // Add the debug information

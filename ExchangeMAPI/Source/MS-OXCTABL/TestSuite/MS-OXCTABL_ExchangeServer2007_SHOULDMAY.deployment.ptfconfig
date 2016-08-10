@@ -47,8 +47,6 @@
     <Property name="R866Enabled" value="false"/>
     <!-- Set R867Enabled to true to verify that for ROP RopQueryRows the implementation does fails the ROP with "ecNullObject",if RopSetColumns has not been sent on this table as specified in section 3.2.5.5. Set R867Enabled to false to disable this requirement.-->
     <Property name="R867Enabled" value="false"/>
-    <!-- Set R872Enabled to true to verify that for ROP RopCreateBookmark the implementation does not requires that a RopSetColumns ROP request before a RopCreateBookmark ROP request as specified in section 6. Set R872Enabled to false to disable this requirement.-->
-    <Property name="R872Enabled" value="true"/>
     <!-- Set R827Enabled to true to verify that for ROP RopFindRow the implementation fails the ROP with "ecNullObject" if a RopFindRow ROP is sent before a successful RopSetColumns ROP. Set R827Enabled to false to disable this requirement.-->
     <Property name="R827Enabled" value="false"/>
     <!-- Set R608Enabled to true to verify that for ROP RopFindRow the implementation does always set RowNoLongerVisible to "FALSE" (0x00) for hierarchy tables as specified in section 6. Set R608Enabled to false to disable this requirement.-->
@@ -69,8 +67,6 @@
     <Property name="R610Enabled" value="true"/>
     <!-- Set R456Enabled to true to verify that for ROP RopRestrict the implementation does invalidate the table restriction (2) until a successful RopRestrict ROP request is made if a RopRestrict ROP fails, as specified in section 3.2.5.4. Set R456Enabled to false to disable this requirement.-->
     <Property name="R456Enabled" value="true"/>
-    <!-- Set R761Enabled to true to verify that for ROP RopCreateBookmark the implementation does require that a RopSetColumns be sent before sending this ROP, as specified in section 6. Set R761Enabled to false to disable this requirement.-->
-    <Property name="R761Enabled" value="false"/>
     <!-- Set R910Enabled to true to verify that for ROP RopSeekRowFractional the implementation does support this ROP as specified in section 6. Set R910Enabled to false to disable this requirement.-->
     <Property name="R910Enabled" value="false"/>
     <!-- Set R896Enabled to true to verify that for ROP RopQueryRows the implementation does set the Origin field to "BOOKMARK_BEGINNING", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE", as specified in section 3.2.5.5. Set R896Enabled to false to disable this requirement.-->
@@ -93,9 +89,23 @@
     <Property name="R905Enabled" value="true"/>
     <!-- Set R906Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecInvalidBookmark", if the bookmark has become invalid because of a RopRestrict ROP, as specified in section 3.2.5.10. Set R906Enabled to false to disable this requirement.-->
     <Property name="R906Enabled" value="false"/>
-    <!-- Set R905Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R909Enabled to false to disable this requirement.-->
+    <!-- Set R908Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the ReturnValue field to "ecInvalidBookmark" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. Set R908Enabled to false to disable this requirement.-->
+    <Property name="R908Enabled" value="false"/>
+    <!-- Set R909Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R909Enabled to false to disable this requirement.-->
     <Property name="R909Enabled" value="true"/>
     <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
     <Property name="R1340Enabled" value="false"/>
+    <!-- Set R8276Enabled to true to verify that the if a RopSeekRowBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8276Enabled to false to disable this requirement.-->
+    <Property name="R8276Enabled" value="false"/>
+    <!-- Set R8274Enabled to true to verify that the if a RopFreeBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8274Enabled to false to disable this requirement.-->
+    <Property name="R8274Enabled" value="false"/>
+    <!-- Set R8271Enabled to true to verify that the if a RopCollapseRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8271Enabled to false to disable this requirement.-->
+    <Property name="R8271Enabled" value="false"/>
+    <!-- Set R8273Enabled to true to verify that the if a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8273Enabled to false to disable this requirement.-->
+    <Property name="R8273Enabled" value="false"/>
+    <!-- Set R8275Enabled to true to verify that the if a RopGetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8275Enabled to false to disable this requirement.-->
+    <Property name="R8275Enabled" value="false"/>
+    <!-- Set R8277Enabled to true to verify that the if a RopSetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8277Enabled to false to disable this requirement.-->
+    <Property name="R8277Enabled" value="false"/>
   </Properties>
 </TestSite>

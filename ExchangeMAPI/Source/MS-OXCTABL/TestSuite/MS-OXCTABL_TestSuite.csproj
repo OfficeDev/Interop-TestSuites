@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +29,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Protocols.TestTools" />
@@ -43,6 +41,7 @@
     <None Include="MS-OXCTABL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCTABL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCTABL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXCTABL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCTABL_TestSuite.deployment.ptfconfig" />
     <None Include="MS-OXCTABL_TestSuite.ptfconfig" />
   </ItemGroup>
@@ -82,19 +81,22 @@
     <Compile Include="S02_RowRops_QueryRowsSuccess_TestSuite.cs" />
     <Compile Include="S02_RowRops_SeekRowNotSupported_TestSuite.cs" />
     <Compile Include="S02_RowRops_SeekRowSuccess_TestSuite.cs" />
-    <Compile Include="S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_CreateBookmarkNotSupported_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_FreeBookmarkecNullObject_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_FreebookmarkNotSupported_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_Freebookmark_ContentTable_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_Freebookmark_HierarchyTable_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_TestSuite.cs" />
+    <Compile Include="S03_BookmarkRops_SeekRowBookMarkecNullObject_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_SeekRowBookMarkNotSupported_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_SeekRowBookMarkSuccess_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_SeekRowFractionalNotSupported_TestSuite.cs" />
     <Compile Include="S03_BookmarkRops_SeekRowFractionalSuccess_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_CollapseorExpandRowecNullObject_TestSuite.cs" />
     <Compile Include="S04_ExpandRowRops_CollapseorExpandRowMaxRowCountinvalid_TestSuite.cs" />
     <Compile Include="S04_ExpandRowRops_CollapseorExpandRowNotSupported_TestSuite.cs" />
     <Compile Include="S04_ExpandRowRops_CollapseorExpandRow_TestSuite.cs" />
+    <Compile Include="S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite.cs" />
     <Compile Include="S04_ExpandRowRops_GetorSetCollapseRowNotSupported_TestSuite.cs" />
     <Compile Include="S04_ExpandRowRops_GetorSetCollapseRow_TestSuite.cs" />
     <Compile Include="S05_ResetSortTableRops_ResetTableNotSupported_TestSuite.cs" />

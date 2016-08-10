@@ -109,22 +109,14 @@
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R9</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Message Syntax] When a property is referred to as "read-only for the client", the server can return an error and ignore any request to change the value of that property.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1125</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Message Syntax] The server can return Success [When a property is referred to as "read-only for the client"] but not persist any changes to read-only properties&lt;1&gt;.</ns1:Description>
+		<ns1:Description>[In Message Syntax] When a property is referred to as "read-only for the client", the server can return Success but not persist any changes to read-only properties&lt;1&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCMSG_R1724,MS-OXCMSG_R15,MS-OXCMSG_R1078,MS-OXCMSG_R231.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1128</ns1:REQ_ID>
@@ -207,22 +199,24 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In General Properties] The Property PidTagObjectType exists on the Message objects.</ns1:Description>
+		<ns1:Description>[In General Properties] The Property PidTagObjectType&lt;2&gt; exists on the Message objects.</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R11:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMSG_R3002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1104</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In General Properties] The Property PidTagRecordKey exists on the Message objects.</ns1:Description>
+		<ns1:Description>[In General Properties] The Property PidTagRecordKey&lt;3&gt; exists on the Message objects.</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R11:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMSG_R3004.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1105</ns1:REQ_ID>
@@ -241,7 +235,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R13</ns1:REQ_ID>
@@ -277,7 +271,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R16</ns1:REQ_ID>
@@ -477,7 +471,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R510</ns1:REQ_ID>
@@ -531,7 +525,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R519</ns1:REQ_ID>
@@ -613,16 +607,17 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1141</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageFlags Property] [mfEverRead (0x00000400)] This flag is set by the server whenever the mfRead flag is set.</ns1:Description>
+		<ns1:Description>[In PidTagMessageFlags Property] [mfEverRead (0x00000400)] This flag is set by the server whenever the mfRead flag is set.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCMSG_R3006.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1142</ns1:REQ_ID>
@@ -712,7 +707,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R118</ns1:REQ_ID>
@@ -785,7 +780,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2030</ns1:REQ_ID>
@@ -1392,7 +1387,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R109</ns1:REQ_ID>
@@ -1410,7 +1405,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R111</ns1:REQ_ID>
@@ -1536,7 +1531,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1154</ns1:REQ_ID>
@@ -2124,7 +2119,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1219</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.45</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagTrustSender] The PidTagTrustSender property ([MS-OXPROPS] section 2.1039) specifies whether the message was delivered through a trusted transport channel.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In PidTagTrustSender] The PidTagTrustSender property ([MS-OXPROPS] section 2.1039) specifies whether the message was delivered through a trusted transport channel.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2498,7 +2493,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2056</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagNativeBody Property] The PidTagNativeBody property ([MS-OXPROPS] section 2.794) indicates the best available format for storing the message body&lt;3&gt;.</ns1:Description>
+		<ns1:Description>[In PidTagNativeBody Property] The PidTagNativeBody property ([MS-OXPROPS] section 2.794) indicates the best available format for storing the message body&lt;6&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3459,7 +3454,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2161</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRetentionFlags Property] [NeedsRescan&lt;4&gt; (0x00000080)] The folder needs to be rescanned.</ns1:Description>
+		<ns1:Description>[In PidTagRetentionFlags Property] [NeedsRescan&lt;7&gt; (0x00000080)] The folder needs to be rescanned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3469,7 +3464,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRetentionFlags Property] [PendingRescan&lt;5&gt; (0x00000100)] The folder is being rescanned.</ns1:Description>
+		<ns1:Description>[In PidTagRetentionFlags Property] [PendingRescan&lt;8&gt; (0x00000100)] The folder is being rescanned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3671,12 +3666,13 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1826</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In General Properties] Property PidTagObjectType exists on Attachment object.</ns1:Description>
+		<ns1:Description>[In General Properties] Property PidTagObjectType&lt;9&gt; exists on Attachment object.</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R219:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMSG_R3008.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1077</ns1:REQ_ID>
@@ -3694,7 +3690,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R221</ns1:REQ_ID>
@@ -3802,7 +3798,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R232</ns1:REQ_ID>
@@ -4370,7 +4366,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachEncoding Property] Clients SHOULD&lt;6&gt; correctly detect MacBinary I, MacBinaryII, and MacBinary III formats.</ns1:Description>
+		<ns1:Description>[In PidTagAttachEncoding Property] Clients SHOULD&lt;10&gt; correctly detect MacBinary I, MacBinaryII, and MacBinary III formats.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4733,11 +4729,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R647</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenMessage ROP] The RopOpenMessage ROP ([MS-OXCROPS] section 2.2.6.1) provides access to an existing Message object, which is identified by the message ID (MID), whose structure is specified in [MS-OXCDATA] section 2.2.1.2.&lt;7&gt;</ns1:Description>
+		<ns1:Description>[In RopOpenMessage ROP] The RopOpenMessage ROP ([MS-OXCROPS] section 2.2.6.1) provides access to an existing Message object, which is identified by the message ID (MID), whose structure is specified in [MS-OXCDATA] section 2.2.1.2.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R648</ns1:REQ_ID>
@@ -4898,11 +4894,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R666</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenMessage ROP Request Buffer] [OpenModeFlags] [BestAccess (0x03)] It is read-only if the user don't have write permissions.</ns1:Description>
+		<ns1:Description>[In RopOpenMessage ROP Request Buffer] [OpenModeFlags] [BestAccess (0x03)] It is read-only if the user don't have write permissions.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R3009, MS-OXCMSG_R3010.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R668</ns1:REQ_ID>
@@ -5398,11 +5395,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1671</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSaveChangesMessage ROP Request Buffer] [SaveFlags] [KeepOpenReadOnly (0x01)] [If the RopSaveChangesMessage ROP succeeded] The server returns a success code and keeps the Message object open with read-only access.</ns1:Description>
+		<ns1:Description>[In RopSaveChangesMessage ROP Request Buffer] [SaveFlags] [KeepOpenReadOnly (0x01)] [If the RopSaveChangesMessage ROP succeeded] The server returns a success code and keeps the Message object open with read-only access. &lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMSG_R2192,MS-OXCMSG_R2193</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1308</ns1:REQ_ID>
@@ -5439,6 +5437,16 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3023</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopSaveChangesMessage ROP Request Buffer] [SaveFlags] The value of ForceSave is 0x04 &lt;14&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R3011, MS-OXCMSG_R3022.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R721</ns1:REQ_ID>
@@ -6310,11 +6318,12 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1674</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.10.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetReadFlags ROP Response Buffer] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field.</ns1:Description>
+		<ns1:Description>[In RopSetReadFlags ROP Response Buffer] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field.&lt;15&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCMSG_R3021.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R835</ns1:REQ_ID>
@@ -6808,7 +6817,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1114</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.15</ns1:Doc_Sect>
-		<ns1:Description>[In RopSaveChangesAttachment ROP] If pending changes include changes to read-only properties [PidTagAccessLevel, PidTagObjectType, PidTagRecordKey, PidTagAttachSize], the server MAY&lt;9&gt; return an error.</ns1:Description>
+		<ns1:Description>[In RopSaveChangesAttachment ROP] If pending changes include changes to read-only properties [PidTagAccessLevel, PidTagObjectType, PidTagRecordKey, PidTagAttachSize], the server MAY&lt;16&gt; return an error.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6954,12 +6963,12 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.16.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenEmbeddedMessage ROP Request Buffer] [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read only.</ns1:Description>
+		<ns1:Description>[In RopOpenEmbeddedMessage ROP Request Buffer] [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read only.&lt;17&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R3013, MS-OXCMSG_R3014.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R912</ns1:REQ_ID>
@@ -7146,7 +7155,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.18</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7265,7 +7274,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2182</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Per Global] Session context cookie, as specified in [MS-OXCMAPIHTTP] section 3.1.1.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In Per Global] Session context cookie, as specified in [MS-OXCMAPIHTTP] section 3.1.1.&lt;19&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8225,7 +8234,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2183</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Per Global] Session context cookie, as specified in [MS-OXCMAPIHTTP] section 3.2.1.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In Per Global] Session context cookie, as specified in [MS-OXCMAPIHTTP] section 3.2.1.&lt;20&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8334,7 +8343,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1464</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Body Properties] For example, if the message contains the body in the PidTagBodyHtml property (section 2.2.1.56.3) and the client requests the PidTagBody property (section 2.2.1.56.1), the server SHOULD convert the PidTagBodyHtml property to a plain text representation and return this converted value.</ns1:Description>
+		<ns1:Description>[In Requesting Body Properties] For example, if the message contains the body in the PidTagBodyHtml property (section 2.2.1.56.3) and the client requests the PidTagBody property (section 2.2.1.56.1), the server converts the PidTagBodyHtml property to a plain text representation and returns this converted value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8490,11 +8499,11 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1478</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopOpenMessage ROP Request] [ecNotFound (0x8004010F)] The value of the InputHandleIndex field on which this ROP was called does not refer to a Folder object or a Store object</ns1:Description>
+		<ns1:Description>[In Receiving a RopOpenMessage ROP Request] ecNullObject (0x000004b9)] The value of the InputHandleIndex field on which this ROP was called does not refer to a Folder object or a Store object</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R335</ns1:REQ_ID>
@@ -8526,7 +8535,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R340</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] The server SHOULD&lt;13&gt; initialize the following properties [PidTagImportance, PidTagMessageClass, PidTagSensitivity, PidTagDisplayBcc, PidTagDisplayCc, PidTagDisplayTo, PidTagMessageFlags, PidTagMessageSize, PidTagHasAttachments,  PidTagTrustSender, PidTagAccess, PidTagAccessLevel, PidTagCreationTime, PidTagLastModificationTime, PidTagSearchKey, PidTagMessageLocaleId, PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId, PidTagHasNamedProperties, PidTagLocaleId, PidTagLocalCommitTime] before responding.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] The server SHOULD&lt;21&gt; initialize the following properties [PidTagImportance, PidTagMessageClass, PidTagSensitivity, PidTagDisplayBcc, PidTagDisplayCc, PidTagDisplayTo, PidTagMessageFlags, PidTagMessageSize, PidTagHasAttachments,  PidTagTrustSender, PidTagAccess, PidTagAccessLevel, PidTagCreationTime, PidTagLastModificationTime, PidTagSearchKey, PidTagMessageLocaleId, PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId, PidTagHasNamedProperties, PidTagLocaleId, PidTagLocalCommitTime] before responding.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8594,16 +8603,18 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCMSG_R3015.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1480</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [The Initial data of PidTagMessageFlags] will be 0x00000409 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [The Initial data of PidTagMessageFlags] will be 0x00000409 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state.&lt;22&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCMSG_R3015, MS-OXCMSG_R3016.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1481</ns1:REQ_ID>
@@ -8636,7 +8647,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagAccess is] 0x00000003 &lt;11&gt;.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [The Initial Data of PidTagAccess is] 0x00000003 &lt;23&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8695,7 +8706,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R360</ns1:REQ_ID>
@@ -8749,7 +8760,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R367</ns1:REQ_ID>
@@ -8763,11 +8774,12 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R369</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [ecAccessDenied (0x80070005)] The user does not have permissions to create this message [RopCreateMessage].</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateMessage ROP Request] [ecAccessDenied (0x80070005)] The user does not have permissions to create this message [RopCreateMessage].&lt;24&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R3017, MS-OXCMSG_R3018.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R370</ns1:REQ_ID>
@@ -8836,7 +8848,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R705</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] Once a transaction (3) on one handle has been committed, the server MUST return "ecObjectModified" for RopSaveChangesMessage ROP requests on other handles and MUST NOT&lt;12&gt; allow those transactions (3) to be committed, unless the client instructs the server to override previous changes with the ForceSave flag.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] Once a transaction (3) on one handle has been committed, the server MUST return "ecObjectModified" for RopSaveChangesMessage ROP requests on other handles and MUST NOT&lt;25&gt; allow those transactions (3) to be committed, unless the client instructs the server to override previous changes with the ForceSave flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8846,7 +8858,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] If pending changes include changes to read-only properties, the server MAY&lt;16&gt; return an error.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] If pending changes include changes to read-only properties, the server MAY&lt;26&gt; return an error.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8874,20 +8886,12 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1699</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] [ecNotSupported (0x80040102)] The message has been opened or previously saved as read only; changes cannot be saved.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved.&lt;27&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R1052</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSaveChangesMessage ROP Request] [ecNotSupported (0x80040102)] The values of the SaveFlags are not a supported combination.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R3019.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1053</ns1:REQ_ID>
@@ -9248,7 +9252,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1509</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReadFlags ROP Request] If the SUPPORT_PROGRESS flag, as specified in [MS-OXCSTOR] section 2.2.1.1.1, is not set by the client in the OpenFlags field in the RopLogon ROP ([MS-OXCROPS] section 2.2.3.1), then the server SHOULD disable asynchronous processing of the RopSetReadFlags ROP and SHOULD NOT&lt;17&gt; return the RopProgress ROP whether or not the WantAsynchronous flag is set.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReadFlags ROP Request] If the SUPPORT_PROGRESS flag, as specified in [MS-OXCSTOR] section 2.2.1.1.1, is not set by the client in the OpenFlags field in the RopLogon ROP ([MS-OXCROPS] section 2.2.3.1), then the server SHOULD disable asynchronous processing of the RopSetReadFlags ROP and SHOULD NOT&lt;28&gt; return the RopProgress ROP whether or not the WantAsynchronous flag is set.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9267,7 +9271,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1511</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReadFlags ROP Request] In this case [the server has not received a SUPPORT_PROGRESS flag in the request buffer of the RopLogon ROP], a RopProgress ROP SHOULD NOT&lt;18&gt; be sent.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReadFlags ROP Request] In this case [the server has not received a SUPPORT_PROGRESS flag in the request buffer of the RopLogon ROP], a RopProgress ROP SHOULD NOT&lt;29&gt; be sent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9299,7 +9303,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1515</ns1:REQ_ID>
@@ -9449,7 +9453,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R449</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagAttachSize is] 0x00000040&lt;19&gt;.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagAttachSize is] 0x00000040&lt;30&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9459,7 +9463,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R450</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagAccessLevel is] 0x00000001&lt;20&gt;.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagAccessLevel is] 0x00000001&lt;31&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9496,7 +9500,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R453</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagLastModificationTime is] Same as the PidTagCreationTime property&lt;21&gt;.</ns1:Description>
+		<ns1:Description>[In Receiving a RopCreateAttachment ROP Request] [The initial data of PidTagLastModificationTime is] Same as the PidTagCreationTime property&lt;32&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9993,19 +9997,73 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R1074</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCMSG_R3001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>&lt;1&gt; Section 2.2: Implementation does return Success without persisting changes to read-only properties. (&lt;1&gt; Section 2.2: Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagObjectType property. (&lt;2&gt; Section 2.2.1.1:  Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1103:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagObjectType property. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1103:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3003</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagRecordKey property. (&lt;3&gt; Section 2.2.1.1:  Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1104:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3004</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagRecordKey property. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1104:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3005</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [mfEverRead (0x00000400)] This flag is set by the implementation whenever the mfRead flag is set. (&lt;4&gt; Section 2.2.1.6:  Exchange 2007 does not set the mfEverRead flag when the mfRead flag is set.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1141:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3006</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [mfEverRead (0x00000400)] This flag is set by the implementation whenever the mfRead flag is set. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1141:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1635</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagTrustSender property. (&lt;2&gt; Section 2.2.1.45: Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCMSG_R1219:i,MS-OXCMSG_R1:i</ns1:Derived>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagTrustSender property. (&lt;5&gt; Section 2.2.1.45: Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1219:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10015,7 +10073,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:REQ_ID>MS-OXCMSG_R1713</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagTrustSender property. (Exchange 2007 follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCMSG_R1219:i,MS-OXCMSG_R1:i</ns1:Derived>
+		<ns1:Derived>MS-OXCMSG_R1219:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10025,7 +10083,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1636</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the PidTagNativeBody property. (&lt;3&gt; Section 2.2.1.50.2: Exchange 2003 and Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the PidTagNativeBody property. (&lt;6&gt; Section 2.2.1.50.2: Exchange 2003 and Exchange 2007 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R2056:i,MS-OXCMSG_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10046,7 +10104,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1908</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the NeedsRescan flag. (&lt;4&gt; Section 2.2.1.58.6: Exchange 2003, Exchange 2007, and the initial release version of Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the NeedsRescan flag. (&lt;7&gt; Section 2.2.1.58.6: Exchange 2003, Exchange 2007, and the initial release version of Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R2161:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10067,7 +10125,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1910</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the PendingRescan flag. (&lt;5&gt; Section 2.2.1.58.6: Exchange 2003, Exchange 2007, and the initial release version of Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the PendingRescan flag. (&lt;8&gt; Section 2.2.1.58.6: Exchange 2003, Exchange 2007, and the initial release version of Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R2162:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10086,6 +10144,27 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3007</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation doesn't support the PidTagObjectType property. (&lt;9&gt; Section 2.2.2.1: Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1826:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3008</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagObjectType property. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1826:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1637</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Office Outlook 2003 only correctly detects MacBinary I and MacBinary II.</ns1:Description>
@@ -10097,16 +10176,38 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1638</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does output unexpected results when using the RopOpenMessage ROP ([MS-OXCROPS] section 2.2.6.1) when Client Access Services are deployed on an Exchange server that does not also have a mailbox message store installed. (&lt;7&gt; Section 2.2.3.1: Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does output unexpected results when using the RopOpenMessage ROP ([MS-OXCROPS] section 2.2.6.1) when Client Access Services are deployed on an Exchange server that does not also have a mailbox message store installed. (&lt;11&gt; Section 2.2.3.1: Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3009</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] BestAccess is read/write if the user don't have write permissions. (&lt;12&gt; Section 2.2.3.1.1:  Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R666:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3010</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] BestAccess is read-only if the user don't have write permissions. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R666:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2192</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.[In Appendix B: Product Behavior] &lt;8&gt; Section 2.2.3.3.1: Exchange 2010 and Exchange 2013 ignore the KeepOpenReadOnly flag.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 ignore the KeepOpenReadOnly flag.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1671:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10126,9 +10227,52 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3011</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;14&gt; Section 2.2.3.3.1:  The value of ForceSave is 0x0C in Microsoft Exchange Server 2007 Service Pack 3 (SP3).</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R3023:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3022</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] The value of ForceSave is 0x04. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R3023:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3012</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (&lt;15&gt; Section 2.2.3.10.2:  ex14 and ex15 return a zero value.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1674:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3021</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2007 and exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1674:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1639</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only property PidTagAttachSize [about RopSaveChangesAttachment]. (&lt;8&gt; Section 2.2.3.15: Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only property PidTagAttachSize [about RopSaveChangesAttachment]. (&lt;16&gt; Section 2.2.3.15: Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1114:i,MS-OXCMSG_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10136,9 +10280,31 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3013</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R911:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3014</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read only. (Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R911:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1640</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18). (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18). (&lt;18&gt; Section 2.2.3.18: Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R1367:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10159,7 +10325,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1912</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId and PidTagLastModificationTime. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the properties: PidTagCreatorName, PidTagCreatorEntryId, PidTagLastModifierName, PidTagLastModifierEntryId, PidTagLastModificationTime, PidTagMessageLocaleId  and PidTagLocaleId. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10170,7 +10336,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1641</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;10&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagCreatorName ([MS-OXPROPS] section 2.647), PidTagCreatorEntryId (section 2.2.1.31), PidTagLastModifierName ([MS-OXCPRPT] section 2.2.1.5), PidTagLastModifierEntryId (section 2.2.1.32), and PidTagLastModificationTime (section 2.2.2.2). (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagCreatorName ([MS-OXPROPS] section 2.647), PidTagCreatorEntryId (section 2.2.1.31), PidTagLastModifierName ([MS-OXCPRPT] section 2.2.1.5), PidTagLastModifierEntryId (section 2.2.1.32), PidTagLastModificationTime (section 2.2.2.2), PidTagMessageLocaleId (section 2.2.1.5) and PidTagLocaleId ([MS-OXPROPS] section 2.873). (Exchange 2013 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10178,9 +10344,31 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3015</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [The Initial data of PidTagMessageFlags] will be 0x00000009 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state. (&lt;22&gt; Section 3.2.5.2: Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1480:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3016</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [The Initial data of PidTagMessageFlags] will be 0x00000409 (the mfEverRead flag combined by using the bitwise OR operation with the value 0x00000009) if the client does not explicitly set the read state. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1480:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1914</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the PidTagAccess property to 0x00000007. (&lt;14&gt; Section 3.2.5.2: Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the PidTagAccess property to 0x00000007. (&lt;23&gt; Section 3.2.5.2: Exchange 2013 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R353:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10193,6 +10381,28 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does initialize the PidTagAccess property to 0x00000003. (Exchange 2007 and 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R353:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3017</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecNoCreateRight (0x000004FF)] The user does not have permissions to create this message [RopCreateMessage]. (&lt;24&gt; Section 3.2.5.2:  Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R369:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3018</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecAccessDenied (0x80070005)] The user does not have permissions to create this message [RopCreateMessage]. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R369:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10224,13 +10434,34 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1644</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only properties [about RopSaveChangeMessage]. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a GeneralFailure error if pending changes include changes to read-only properties PidTagMessageSize, PidTagAccess, PidTagAccessLevel, PidTagObjectType, PidTagRecordKey, PidTagMessageStatus, and PidTagHasAttachments [about RopSaveChangeMessage]. (Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R2:i,MS-OXCMSG_R1111:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3019</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1699:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R3020</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2007 returns Success. )</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1699:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1867</ns1:REQ_ID>
@@ -10464,12 +10695,13 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1649</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagAttachSize property (section 2.2.2.5) to 0x00000084. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagAttachSize property (section 2.2.2.5) to 0x00000000. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R449:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1919</ns1:REQ_ID>
@@ -10485,7 +10717,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1650</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R450:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10518,7 +10750,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1651</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R453:i,MS-OXCMSG_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

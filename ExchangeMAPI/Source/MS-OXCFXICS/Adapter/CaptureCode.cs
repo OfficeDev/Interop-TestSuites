@@ -205,9 +205,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             1,
                             propValues,
                             6004,
-                            @"[In Identifying Objects and Maintaining Change Numbers] [Also, if a message is deleted within the folder, 
-                            the value of the folder change number does not change] But the aggregated PidTagDeletedCountTotal property 
-                            ([MS-OXCFOLD] section 2.2.2.2.1.13) is updated to reflect the change. ");
+                            @"[In Identifying Objects and Maintaining Change Numbers] [Also, if a message is deleted within the folder, the value of the folder change number does not change] But the aggregated PidTagDeletedCountTotal property ([MS-OXCFOLD] section 2.2.2.2.1.15) is updated to reflect the change.");
             }
             else if (propTag == "PidTagChangeNumber" && Common.IsRequirementEnabled(6003, this.Site))
             {
@@ -234,10 +232,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 Site.CaptureRequirementIfIsNotNull(
                            propValue.Value,
                            6002,
-                           @"[In Identifying Objects and Maintaining Change Numbers] [If a message within a folder changes,                             
-                           the change number is not updated] However, the aggregated property PidTagLocalCommitTimeMax
-                           property ([MS-OXCFOLD] section 2.2.2.2.1.12) is modified to reflect that something within the
-                           folder has been changed. ");
+                           @"[In Identifying Objects and Maintaining Change Numbers] [If a message within a folder changes, the change number is not updated] However, the aggregated property PidTagLocalCommitTimeMax property ([MS-OXCFOLD] section 2.2.2.2.1.14) is modified to reflect that something within the folder has been changed.");
             }
             else if (propTag == "PidTagChangeNumber" && Common.IsRequirementEnabled(6001, this.Site))
             {
@@ -271,7 +266,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 // which is same as the last step: mfRead(0x00000001) and mfUnsent(0x00000008).
                 bool isVerifiedR3513001 = Common.ConvertByteArrayToUint(propValue.Value) == 0x09;
 
-                // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R6004
+                // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3513001
                 Site.CaptureRequirementIfIsTrue(
                             isVerifiedR3513001,
                             3513001,
@@ -298,7 +293,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     0x0001,
                     fastTransferDestinationPutBufferResponse.TotalStepCount,
                     3178001,
-                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x0000. [<11> Section 2.2.3.1.2.2.2: Exchange 2010 and Exchange 2013 set the value of the TotalStepCount field to 0x0001.]");
+                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x0000. [<11> Section 2.2.3.1.2.2.2: Exchange 2010, Exchange 2013 and Exchange 2016 set the value of the TotalStepCount field to 0x0001.]");
             }
             else if (Common.IsRequirementEnabled(317800201, this.Site))
             {
@@ -842,7 +837,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifiedR3150001,
                     3150001,
-                    @"[In Appendix A: Product Behavior] Implementation does not support. [<8> Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013.]");
+                    @"[In Appendix A: Product Behavior] Implementation does not support. [<8> Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016.]");
             }
             else if (Common.IsRequirementEnabled(315000201, this.Site))
             {
@@ -2165,23 +2160,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 
                         if (this.synchroniztionFlag == (SynchronizationFlag.FAI | SynchronizationFlag.Normal | SynchronizationFlag.IgnoreSpecifiedOnFAI))
                         {
+                            bool isPropertyExist = false;
+
+                            if (this.propertyTagForConfigure.PropertyId == item2.PropList.PropValues[0].PropInfo.PropID)
+                            {
+                                isPropertyExist = true;
+                            }
+
+                            // If the OnlySpecifiedProperties flag is not set, server must ignore the IgnoreSpecifiedOnFAI flag.
+                            // So Server must write all properties and subobjects for non-FAI messages to the FastTransfer stream.
+                            this.Site.CaptureRequirementIfIsTrue(
+                                        isPropertyExist==false && item2.PropList.PropValues.Count>1,
+                                        218300301,
+                                        @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the OnlySpecifiedProperties flag is not set, the server MUST return same value wether the IgnoreSpecifiedOnFAI flag is set or not.");
+
                             this.messageChangeFull = item2;
                         }
                         else if (this.synchroniztionFlag == (SynchronizationFlag.FAI | SynchronizationFlag.Normal))
                         {
-                            for (int i = 0; i < item2.PropList.PropValues.Count; i++)
-                            {
-                                if (item2.PropList.PropValues[i].PropInfo.PropID != this.messageChangeFull.PropList.PropValues[i].PropInfo.PropID)
-                                {
-                                    this.previousStepVerifiedResult = false;
-                                    break;
-                                }
-                            }
-
-                            this.Site.CaptureRequirementIfIsTrue(
-                                    this.previousStepVerifiedResult,
-                                    218300301,
-                                    @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the OnlySpecifiedProperties flag is not set, the server MUST return same value wether the IgnoreSpecifiedOnFAI flag is set or not.");
                             this.messageChangeFull = item2;
                         }
 
@@ -3716,7 +3712,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1391,
                             1391,
-                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required,Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.928) MUST be present in the propList.");
+                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required,Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.930) MUST be present in the propList.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1392");
@@ -4050,7 +4046,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3049,
-                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.785) identifies the size of the message in bytes.");
+                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.787) identifies the size of the message in bytes.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R2691");
@@ -4166,7 +4162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3017,
-                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.790) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
+                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.792) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
 
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
@@ -5137,7 +5133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // If the program execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
                         1270,
-                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.848) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
+                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.850) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
                 }
                 #endregion
             }
@@ -5212,7 +5208,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1272,
-                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.850) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
+                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.852) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R7478");
@@ -5287,7 +5283,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified.
             this.Site.CaptureRequirement(
                 1271,
-                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1010) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier (2) for the folder or message.");
+                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1012) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier (2) for the folder or message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R8583");
@@ -5444,7 +5440,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1274,
-                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.856) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
+                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.858) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1093");
@@ -5594,39 +5590,81 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         @"[In RopFastTransferSourceCopyTo ROP Request Buffer] [PropertyTags (variable)] Specifies properties and subobjects, as specified in section 2.2.1.7, to be excluded when copying a messaging object pointed to by the InputServerObject field.");
                     if (this.currentPermission == PermissionLevels.FolderVisible && ((this.currentCopyFlag & CopyToCopyFlags.Move) == CopyToCopyFlags.Move))
                     {
-                        // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3299");
-
-                        // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3299
-                        bool isVerifiedR3299 = false;
-                        if (Common.IsRequirementEnabled(118201, this.Site) && fldContent.SubFolders.Count > 0)
+                        if (fldContent.SubFolders.Count > 0)
                         {
-                            foreach (SubFolder subFolder in fldContent.SubFolders)
+                            bool isVerifiedR2813 = false;
+                            if (Common.IsRequirementEnabled(2813, this.Site) == false)
                             {
-                                if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                isVerifiedR2813 = true;
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
                                 {
-                                    if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
                                     {
-                                        isVerifiedR3299 = true;
-                                        break;
+                                        if (subFolder.FolderContent.PropList.PropValues[3] != null)
+                                        {
+                                            isVerifiedR2813 = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
+                                {
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                    {
+                                        if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                        {
+                                            isVerifiedR2813 = true;
+                                            break;
+                                        }
                                     }
                                 }
                             }
 
-                            this.Site.CaptureRequirementIfIsTrue(
-                                isVerifiedR3299,
-                                3299,
-                                @"[In folderContent Element] If the MetaTagEcWarning (section 2.2.4.1.5.2) is present,  it will be in the fixed the position [4] of the array list.");
+                            // Add the debug information
+                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3299");
+
+                            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3299
+                            bool isVerifiedR3299 = false;
+                            if (Common.IsRequirementEnabled(118201, this.Site))
+                            {
+                                foreach (SubFolder subFolder in fldContent.SubFolders)
+                                {
+                                    if (subFolder.FolderContent.PropList.PropValues.Count > 0)
+                                    {
+                                        if (subFolder.FolderContent.PropList.PropValues[3].PropInfo.PropID == 0x400F)
+                                        {
+                                            isVerifiedR3299 = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    isVerifiedR3299,
+                                    3299,
+                                    @"[In folderContent Element] If the MetaTagEcWarning (section 2.2.4.1.5.2) is present,  it will be in the fixed the position [4] of the array list.");
+
+                                // Add the debug information
+                                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R118201");
+
+                                // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R118201
+                                this.Site.CaptureRequirementIfIsTrue(
+                                    isVerifiedR3299,
+                                    118201,
+                                    @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<21> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
+                            }
 
                             // Add the debug information
-                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R118201");
+                            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R2813");
 
-                            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R118201
                             this.Site.CaptureRequirementIfIsTrue(
-                                isVerifiedR3299,
-                                118201,
-                                @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<21> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
-                        }
+                                   isVerifiedR2813,
+                                   2813,
+                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <19> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
+                        }                        
                     }
                 }
             }
@@ -7557,7 +7595,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR1909,
                 1909,
-                @"[In Identifying Objects and Maintaining Change Numbers] [Upon successful import of a new or changed object using ICS upload, the server MUST do the following when receiving the RopSaveChangesMessage ROP:] Assign the object an internal identifier (2).");
+                @"[In Identifying Objects and Maintaining Change Numbers] [Upon successful import of a new or changed object using ICS upload, the server MUST do the following when receiving the RopSaveChangesMessage ROP:] Assign the object an internal identifier.");
         }
     }
 }

@@ -85,7 +85,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1392,
-                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1342");
@@ -251,7 +251,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1443,
-                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1394");
@@ -674,6 +674,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 rowOfResolveNamesW,
                 1430,
                 @"[In NspiResolveNamesW] [Server Processing Rules: Upon receiving message NspiResolveNamesW, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] Subject to the prior constraints, the server MUST construct a PropertyRowSet_r to return to the client.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1405");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1405
+            Site.CaptureRequirementIfIsNotNull(
+                rowOfResolveNamesW,
+                1405,
+                @"[In NspiResolveNamesW] [ppRows: A reference to a PropertyRowSet_r structure (section 2.2.4), ] which contains the address book container rows that the server returns in response to the request. ");
         }
 
         /// <summary>
@@ -692,6 +701,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 rowOfResolveNames,
                 1379,
                 @"[In NspiResolveNames] [Server Processing Rules: Upon receiving message NspiResolveNames, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] Subject to the prior constraints, the server MUST construct a PropertyRowSet_r to return to the client.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1354");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1354
+            Site.CaptureRequirementIfIsNotNull(
+                rowOfResolveNames,
+                1354,
+                @"[In NspiResolveNames] [ppRows: A reference to a PropertyRowSet_r structure (section 2.2.4), ] which contains the address book container rows that the server returns in response to the request. ");
         }
 
         /// <summary>

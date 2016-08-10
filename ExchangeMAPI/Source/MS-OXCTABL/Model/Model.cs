@@ -53,9 +53,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         private static bool freeBookmarkDone = false;
 
         /// <summary>
-        /// Identify whether setColumns is done before CreateBookmark
+        /// Identify whether the RopRelease is done
         /// </summary>
-        private static bool setColumnsBeforeCreateBookmark = false;
+        private static bool ropReleaseDone = false;
 
         /// <summary>
         /// Identify the requirement Id and the enable property value related to the optional behavior
@@ -97,6 +97,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         {
             // Initialize the table type
             globleTableType = tableType;
+            setColumnsFlags.Clear();
+        }
+
+        /// <summary>
+        /// This method is used to disconnect from server
+        /// </summary>
+        [Rule(Action = "Disconnect()")]
+        public static void Disconnect()
+        {
+
         }
 
         #endregion
@@ -420,7 +430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     if (requirementContainer[897] && isRequestCountTooLarger)
                     {
                         Condition.IsTrue(queryRowOrigin == BookmarkType.BOOKMARK_END);
-                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<24> Section 3.2.5.5: Exchange 2010 and Exchange 2013 set the Origin field to ""BOOKMARK_END"".)");
+                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<25> Section 3.2.5.5: Exchange 2010, Exchange 2013, and Exchange 2016 set the Origin field to ""BOOKMARK_END"".)");
                     }
 
                     // When ForwardRead in request is false, if the correct row count is returned, this requirement can be verified.
@@ -547,7 +557,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 // After ROPSetColumns ROP, restrict, it need to use ROPQueryRows ROP to verify whether the columns, restrict set in the previous calls works. So this requirement is verified here.
                 Condition.IsTrue(!validBookmark && (cursorPosition == CursorPosition.BEGIN)); 
-                ModelHelper.CaptureRequirement(453, "[In Processing RopRestrict] When this ROP is sent, the server MUST invalidate all current bookmarks (2) of the table and MUST move the cursor position to the beginning of the table.");
+                ModelHelper.CaptureRequirement(453, "[In Processing RopRestrict] When this ROP is sent, the server MUST invalidate all current bookmarks of the table and MUST move the cursor position to the beginning of the table.");
             }
         }
         #endregion
@@ -623,7 +633,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     ModelHelper.CaptureRequirement(496, @"[In Processing RopSeekRow] The RopSeekRow ROP ([MS-OXCROPS] section 2.2.5.8) MUST move the cursor position according to its request fields.");
                     
                     // In the request, it uses adapter to specify a pre-defined bookmark and the number of rows to move (forward or backwards), so, if the actualRowcount is true, MS-OXCTABL_R141 can be verified.
-                    ModelHelper.CaptureRequirement(141, @"[In RopSeekRow ROP] The new location is specified by a predefined bookmark (2), as specified in section 2.2.2.1.1, and the number of rows to move (forward or backwards) from that bookmark (2).");
+                    ModelHelper.CaptureRequirement(141, @"[In RopSeekRow ROP] The new location is specified by a predefined bookmark, as specified in section 2.2.2.1.1, and the number of rows to move (forward or backwards) from that bookmark.");
                 }
             }
         }
@@ -665,43 +675,51 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotSupported;
             }
 
-            Condition.IsTrue((requirementContainer[872] && !requirementContainer[761]) || (!requirementContainer[872] && requirementContainer[761]));
-            
-            // Exchange 2007 does not requires a RopSetColumns ROP request before sending a RopCreateBookmark ROP request.
-            // if the RopSeekRowBookmark return success, means bookmark is successfully created. 
-            if (requirementContainer[872])
+            // Before a success SetColumnsRop, RopSeekRowBookmark will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true) && !resetTableDone)
             {
-                if (!setColumnsBeforeCreateBookmark && bookmarkCreated)
+                if (requirementContainer[8276])
                 {
-                    ModelHelper.CaptureRequirement(872, @"[In Appendix A: Product Behavior] Implementation does not require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (<30> Section 3.2.5.12: Exchange 2007 does not require that a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1) be sent before sending a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11). )");
+                    ModelHelper.CaptureRequirement(8276, @"[In Appendix A: Product Behavior] If a RopSeekRowBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
                 }
             }
 
-            // Exchange 2010 and above require a RopSetColumns ROP request before sending a RopCreateBookmark ROP request.
-            // if the RopSeekRowBookmark return success, means bookmark is successfully created.
-            if (requirementContainer[761])
+            if (ropReleaseDone)
             {
-                if (setColumnsBeforeCreateBookmark && bookmarkCreated)
-                {
-                    ModelHelper.CaptureRequirement(761, @"[In Appendix A: Product Behavior] Implementation does require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (<30> Section 3.2.5.12: Exchange 2010 and Exchange 2013 require that a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1) be sent before sending a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11). )");
-                }
+                ModelHelper.CaptureRequirement(248, @"[In RopFreeBookmark ROP] If the bookmark has been released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3), attempts to use the bookmark will fail with the ecNullObject error code.");
+                ModelHelper.CaptureRequirement(552, @"[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use the bookmark after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
+                return TableRopReturnValues.ecNullObject;
             }
-            
+
             if (!validBookmark)
             {
                 if (freeBookmarkDone)
                 {
                     // The error code ecInvalidBookmark will be returned if the bookmark (2) sent in the request is no longer valid.
-                    ModelHelper.CaptureRequirement(511, "[In Processing RopSeekRowBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405,%x05.04.04.80 means if the bookmark (2) sent in the request is no longer valid.");
+                    ModelHelper.CaptureRequirement(511, "[In Processing RopSeekRowBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405,%x05.04.04.80 means if the bookmark sent in the request is no longer valid.");
+                    ModelHelper.CaptureRequirement(2481, "[In RopFreeBookmark ROP] If the bookmark is released by the RopFreeBookmark ROP, the server will return the ecInvalidBookmark error code when it is used.");
+                    ModelHelper.CaptureRequirement(5521, "[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released by the RopFreeBookmark ROP (section 2.2.2.15).");
                     return TableRopReturnValues.ecInvalidBookmark;
                 }
 
                 // After resetTable Rop, attempts to use the bookmark will return success in Exchange 2007.
+                // After resetTable Rop, attempts to use the bookmark will return ecInvalidBookmark in Exchange 2010 and above
                 if (resetTableDone)
                 {
                     if (requirementContainer[909])
                     {
-                        ModelHelper.CaptureRequirement(909, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark (2) has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<27> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
+                        ModelHelper.CaptureRequirement(909, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<28> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
+                    }
+
+                    if (requirementContainer[908])
+                    {
+                        ModelHelper.CaptureRequirement(908, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        return TableRopReturnValues.ecInvalidBookmark;
                     }
                 }
 
@@ -711,13 +729,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     Condition.IsTrue((requirementContainer[904] && !requirementContainer[905]) || (!requirementContainer[904] && requirementContainer[905]));
                     if (requirementContainer[904])
                     {
-                        ModelHelper.CaptureRequirement(904, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark (2) has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(904, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
 
                     if (requirementContainer[905])
                     {
-                        ModelHelper.CaptureRequirement(905, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark (2) has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (<27> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
+                        ModelHelper.CaptureRequirement(905, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (<28> Section 3.2.5.10: Exchange 2007 returns ecSuccess.)");
                     }
                 }
 
@@ -726,14 +744,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 {
                     if (requirementContainer[906])
                     {
-                        ModelHelper.CaptureRequirement(906, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark (2) has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(906, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
                 }
             }
 
-            ModelHelper.CaptureRequirement(504, @"[In Processing RopSeekRowBookmark] It acts in the same way as the RopSeekRow ROP ([MS-OXCROPS] section 2.2.5.8), except that it moves the cursor using a custom bookmark (2), as specified in section 2.2.2.1.2, as a reference.");
-            ModelHelper.CaptureRequirement(522, @"[In Processing RopCreateBookmark] When the server receives a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11), it MUST create a custom bookmark (2), as specified in section 2.2.2.1.2, that uniquely identifies a row in the table and can be subsequently used in the RopSeekRowBookmark ROP ([MS-OXCROPS] section 2.2.5.9).");
+            ModelHelper.CaptureRequirement(504, @"[In Processing RopSeekRowBookmark] It acts in the same way as the RopSeekRow ROP ([MS-OXCROPS] section 2.2.5.8), except that it moves the cursor using a custom bookmark, as specified in section 2.2.2.1.2, as a reference.");
+            ModelHelper.CaptureRequirement(522, @"[In Processing RopCreateBookmark] When the server receives a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11), it MUST create a custom bookmark, as specified in section 2.2.2.1.2, that uniquely identifies a row in the table and can be subsequently used in the RopSeekRowBookmark ROP ([MS-OXCROPS] section 2.2.5.9).");
             return TableRopReturnValues.success;
         }
 
@@ -761,7 +779,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         // In the request, it uses adapter to specify a pre-defined bookmark and the number of 
                         // rows to move (forward or backwards), so, if the IsActualRowscount is true, MS-OXCTABL_R166 and MS-OXCTABL_R190
                         // can be verified.
-                        ModelHelper.CaptureRequirement(166, "[In RopSeekRowBookmark ROP] The new location is specified by a custom bookmark (2), as specified in section 2.2.2.1.2, and the number of rows to move (forward or backwards) from that bookmark (2).");
+                        ModelHelper.CaptureRequirement(166, "[In RopSeekRowBookmark ROP] The new location is specified by a custom bookmark, as specified in section 2.2.2.1.2, and the number of rows to move (forward or backwards) from that bookmark.");
                         ModelHelper.CaptureRequirement(190, @"[In RopSeekRowBookmark ROP Response Buffer] This field's [HasSoughtLess's] value MUST be valid if the WantRowMovedCount field (in the request) is set to ""TRUE"" (0x01).");
                     }
                 }
@@ -820,7 +838,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             // Exchange 2010 SP1 and above implement the RopSeekRowFractional ROP.
-            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<13> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013 do implement the RopSeekRowFractional ROP.)");
+            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<14> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, and Exchange 2016 do implement the RopSeekRowFractional ROP.)");
                 
             return TableRopReturnValues.success;
         }
@@ -880,11 +898,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(209, @"[In RopCreateBookmark ROP] This ROP is valid only on Table objects.");
                 return TableRopReturnValues.ecNotSupported;
-            }
-
-            if (setColumnsFlags.ContainsValue(true))
-            {
-                setColumnsBeforeCreateBookmark = true;
             }
 
             validBookmark = true;
@@ -992,13 +1005,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     Condition.IsTrue((requirementContainer[902] && !requirementContainer[903]) || (!requirementContainer[902] && requirementContainer[903]));
                     if (requirementContainer[902])
                     {
-                        ModelHelper.CaptureRequirement(902, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(902, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
 
                     if (requirementContainer[903])
                     {
-                        ModelHelper.CaptureRequirement(903, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<32> Section 3.2.5.14: Exchange 2007 returns ecSuccess.)");
+                        ModelHelper.CaptureRequirement(903, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. (<33> Section 3.2.5.14: Exchange 2007 returns ecSuccess.)");
                     }
                 }
 
@@ -1008,13 +1021,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     Condition.IsTrue((requirementContainer[898] && !requirementContainer[899]) || (!requirementContainer[898] && requirementContainer[899]));
                     if (requirementContainer[898])
                     {
-                        ModelHelper.CaptureRequirement(898, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(898, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
 
                     if (requirementContainer[899])
                     {
-                        ModelHelper.CaptureRequirement(899, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (<32> Section 3.2.5.14: Exchange 2007 returns ecSuccess.)");
+                        ModelHelper.CaptureRequirement(899, @"[In Appendix A: Product Behavior] Implementation returns ecSuccess [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request. (<33> Section 3.2.5.14: Exchange 2007 returns ecSuccess.)");
                     }
                 }
 
@@ -1023,7 +1036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 {
                     if (requirementContainer[900])
                     {
-                        ModelHelper.CaptureRequirement(900, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark (2), as specified in section 2.2.2.1.2, but the bookmark (2) has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request. (Exchange Server 2010 and above follow this behavior.)");
+                        ModelHelper.CaptureRequirement(900, @"[In Appendix A: Product Behavior] Implementation does set the ReturnValue field to ""ecInvalidBookmark"" [for RopFindRow], if the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request. (Exchange Server 2010 and above follow this behavior.)");
                         return TableRopReturnValues.ecInvalidBookmark;
                     }
                 }
@@ -1049,7 +1062,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 if (globleTableType == TableType.HIERARCHY_TABLE)
                 {
                     Condition.IsTrue(!rowNoLongerVisible);
-                    ModelHelper.CaptureRequirement(608, @"[In Appendix A: Product Behavior] Implementation does always set this value [RowNoLongerVisible] to ""FALSE"" (0x00) for hierarchy tables in RopFindRow. (<14> Section 2.2.2.14.2: Exchange 2007 and Exchange 2010 always set this value [RowNoLongerVisible] to ""FALSE"" (0x00) for hierarchy tables in RopFindRow.)");
+                    ModelHelper.CaptureRequirement(608, @"[In Appendix A: Product Behavior] Implementation does always set this value [RowNoLongerVisible] to ""FALSE"" (0x00) for hierarchy tables in RopFindRow. (<15> Section 2.2.2.14.2: Exchange 2007 and Exchange 2010 always set this value [RowNoLongerVisible] to ""FALSE"" (0x00) for hierarchy tables in RopFindRow.)");
                 }
             }
 
@@ -1057,8 +1070,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             if (isValidRestriction && hasRowData)
             {
                 Condition.IsTrue(isCorrectRowData);
-                ModelHelper.CaptureRequirement(534, @"[In Processing RopFindRow]The RopFindRow ROP ([MS-OXCROPS] section 2.2.5.13) sets the cursor position to the first row that matches the search criteria specified in the ROP (starting the search from the current cursor position) and returns the found row.");
-                ModelHelper.CaptureRequirement(243, @"[In RopFindRow ROP Response Buffer] If a row that meets the specified search criteria was found, this field [HasRowData] MUST be set to ""TRUE"" (0x01).");
+                ModelHelper.CaptureRequirement(534, @"[In Processing RopFindRow]The RopFindRow ROP ([MS-OXCROPS] section 2.2.5.13) sets the cursor position to the first row that matches the search criteria specified in the ROP (starting the search from the current cursor position) and returns the found row when there is enough space in the output buffer.");
+                ModelHelper.CaptureRequirement(243, @"[In RopFindRow ROP Response Buffer] If a row that meets the specified search criteria was found and the row data is included in the response, this field [HasRowData] MUST be set to ""TRUE"" (0x01).");
             }
 
             // The columns sent for the row found MUST be the columns that are specified on RopSetColumns
@@ -1130,29 +1143,43 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotSupported;
             }
 
+            // Before a success SetColumnsRop, RopFreeBookmark will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true) && !resetTableDone)
+            {
+                if (requirementContainer[8274])
+                {
+                    ModelHelper.CaptureRequirement(8274, @"[In Appendix A: Product Behavior] If a RopFreeBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             if (!validBookmark)
             {
                 // After resetTable Rop, attempts to use the bookmark will fail with ecNullObject.
                 if (resetTableDone)
                 {
-                    ModelHelper.CaptureRequirement(863, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks (2) related to a table when a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request is sent.");
-                    ModelHelper.CaptureRequirement(562, @"[In Processing RopResetTable] After a RopResetTable ROP executes, all previously existing bookmarks (2) on the table are invalid.");
+                    ModelHelper.CaptureRequirement(863, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks related to a table when a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request is sent.");
+                    ModelHelper.CaptureRequirement(562, @"[In Processing RopResetTable] After a RopResetTable ROP executes, all previously existing bookmarks on the table are invalid.");
                     return TableRopReturnValues.ecNullObject;
                 }
 
                 // After sortTable Rop, attempts to use the bookmark will fail with ecInvalidBookmark.
                 if (sortTableFlags.ContainsValue(true))
                 {
-                    ModelHelper.CaptureRequirement(864, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks (2) related to a table when a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request is sent.");
+                    ModelHelper.CaptureRequirement(864, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks related to a table when a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request is sent.");
                 }
 
                 // After restrict Table Rop, attempts to use the bookmark will fail with ecInvalidBookmark.
                 if (restrictFlags.ContainsValue(true))
                 {
-                    ModelHelper.CaptureRequirement(865, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks (2) related to a table when a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request is sent.");
+                    ModelHelper.CaptureRequirement(865, @"[In Processing RopCreateBookmark] If the client does not send a RopFreeBookmark ROP request ([MS-OXCROPS] section 2.2.5.14), the server MUST release all bookmarks related to a table when a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request is sent.");
                 }
 
-                ModelHelper.CaptureRequirement(545, @"[In Processing RopFreeBookmark] The RopFreeBookmark ROP ([MS-OXCROPS] section 2.2.5.14) MUST release any resources on the server used to keep track of the bookmark (2) (created using a RopCreateBookmark ROP ([MS-OXCROPS] section 2.2.5.11)).");
+                ModelHelper.CaptureRequirement(545, @"[In Processing RopFreeBookmark] The RopFreeBookmark ROP ([MS-OXCROPS] section 2.2.5.14) MUST release any resources on the server used to keep track of the bookmark (created using a RopCreateBookmark ROP ([MS-OXCROPS] section 2.2.5.11)).");
                 return TableRopReturnValues.ecInvalidBookmark;
             }
             else if (validBookmark)
@@ -1224,8 +1251,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     // The previous restriction is reset
                     case TableRopType.RESTRICT:
                         {
-                            ModelHelper.CaptureRequirement(555, @"[In Processing RopResetTable] The RopResetTable ROP MUST remove the restriction (2) previously applied to the table using RopRestrict ROP ([MS-OXCROPS] section 2.2.5.3) (if any).");
-                            ModelHelper.CaptureRequirement(556, @"[In Processing RopResetTable] The table MUST afterwards appear as if the RopRestrict ROP had never been sent on it; that is, as if it had no restriction (2) (all rows MUST be present).");
+                            ModelHelper.CaptureRequirement(555, @"[In Processing RopResetTable] The RopResetTable ROP MUST remove the restriction previously applied to the table using RopRestrict ROP ([MS-OXCROPS] section 2.2.5.3) (if any).");
+                            ModelHelper.CaptureRequirement(556, @"[In Processing RopResetTable] The table MUST afterwards appear as if the RopRestrict ROP had never been sent on it; that is, as if it had no restriction (all rows MUST be present).");
                             break;
                         }
 
@@ -1264,7 +1291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 if (requirementContainer[748])
                 {
-                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<15> Section 2.2.2.17.1: Exchange 2013 does not support a value greater than 0 for the MaxRowCount field.)");
+                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<16> Section 2.2.2.17.1: Exchange 2013 and Exchange 2016 do not support a value greater than 0 for the MaxRowCount field.)");
                     return TableRopReturnValues.ecNotSupported;
                 }
             }
@@ -1300,8 +1327,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             // means the row specified by the CategoryId field was not collapsed
             if (noncollapsedCategoryId)
             {
-                ModelHelper.CaptureRequirement(571, @"[In Processing RopExpandRow] The error code ecNotCollapased will be returned with value 0x000004F8,%xF8.04.00.00 means the row specified by the CategoryId field was not collapsed.");
+                ModelHelper.CaptureRequirement(571, @"[In Processing RopExpandRow] The error code ecNotCollapsed will be returned with value 0x000004F8,%xF8.04.00.00 means the row specified by the CategoryId field was not collapsed.");
                 return TableRopReturnValues.ecNotCollapsed;
+            }
+
+            // Before a success SetColumnsRop, RopExpandRow will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8273])
+                {
+                    ModelHelper.CaptureRequirement(8273, @"[In Appendix A: Product Behavior] If a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             ModelHelper.CaptureRequirement(567, @"[In Processing RopExpandRow] The RopExpandRow ROP ([MS-OXCROPS] section 2.2.5.16) sets a category row to expanded state.");
@@ -1378,6 +1419,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 return TableRopReturnValues.ecNotExpanded;
             }
 
+            // Before a success SetColumnsRop, RopCollapseRow will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8271])
+                {
+                    ModelHelper.CaptureRequirement(8271, @"[In Appendix A: Product Behavior] If a RopCollapseRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
+            }
+
             return TableRopReturnValues.success;
         }
         #endregion
@@ -1407,6 +1462,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(290, @"[In RopGetCollapseState ROP] This ROP is valid only on Table objects.");
                 return TableRopReturnValues.ecNotSupported;
+            }
+
+            // Before a success SetColumnsRop, RopGetCollapseState will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8275])
+                {
+                    ModelHelper.CaptureRequirement(8275, @"[In Appendix A: Product Behavior] If a RopGetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             ModelHelper.CaptureRequirement(579, @"[In Processing RopGetCollapseState] The RopGetCollapseState ROP ([MS-OXCROPS] section 2.2.5.18) MUST send the collapsed state of the whole table in the CollapseState field of the ROP response.");
@@ -1454,6 +1523,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 // is referred as a folderId, for details, see the table initial method in adapter project
                 ModelHelper.CaptureRequirement(306, "[In RopSetCollapseState ROP] This ROP is valid only on Table objects");
                 return TableRopReturnValues.ecNotSupported;
+            }
+
+            // Before a success SetColumnsRop, RopSetCollapseState will fail in Exchange2010 and above
+            if (!setColumnsFlags.ContainsValue(true))
+            {
+                if (requirementContainer[8277])
+                {
+                    ModelHelper.CaptureRequirement(8277, @"[In Appendix A: Product Behavior] If a RopSetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with ""ecNullObject"". (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    return TableRopReturnValues.ecNullObject;
+                }
+                else
+                {
+                    return TableRopReturnValues.unexpected;
+                }
             }
 
             // The RopGetCollapseState must be called before RopSetCollapseState, and if RopSetCollapseState is successful, then a book mark is returned, so the following requirement can be verified.
@@ -1558,6 +1641,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         }
         #endregion
 
+        #region RopRelease
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        [Rule(Action = "RopRelease()")]
+        public static void RopRelease()
+        {
+            ropReleaseDone = true;
+        }
+        #endregion
+
         #region Helpers
 
         /// <summary>
@@ -1615,10 +1709,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     // Here it can partially verify MS-OXCTABL_R116 by verifying the same order
                     ModelHelper.CaptureRequirement(116, @"[In RopQueryRows ROP Response Buffer] Each row MUST have the same columns and ordering of columns as specified in the last RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1).");
 
-                    ModelHelper.CaptureRequirement(66, @"[In RopSortTable ROP Request Buffer] The first categories (5) of the ExpandedCount field are initially expanded.");
-                    ModelHelper.CaptureRequirement(67, @"[In RopSortTable ROP Request Buffer] If the value of the CategoryCount field is equal to the value of the ExpandedCount field, then all categories (5) are expanded.");
-                    ModelHelper.CaptureRequirement(71, @"[In RopSortTable ROP Request Buffer] When the value of the SortOrderCount field exceeds the value of the CategoryCount field, indicating that there are more sort keys than categories (5), categories (5) are created from the SortOrder structures that appear first in the SortOrders array.");
-                    ModelHelper.CaptureRequirement(72, @"[In RopSortTable ROP Request Buffer] The remaining SortOrder structures are used to sort the rows within the categories (5).");
+                    ModelHelper.CaptureRequirement(66, @"[In RopSortTable ROP Request Buffer] The first categories of the ExpandedCount field are initially expanded.");
+                    ModelHelper.CaptureRequirement(67, @"[In RopSortTable ROP Request Buffer] If the value of the CategoryCount field is equal to the value of the ExpandedCount field, then all categories are expanded.");
+                    ModelHelper.CaptureRequirement(71, @"[In RopSortTable ROP Request Buffer] When the value of the SortOrderCount field exceeds the value of the CategoryCount field, indicating that there are more sort keys than categories, categories are created from the SortOrder structures that appear first in the SortOrders array.");
+                    ModelHelper.CaptureRequirement(72, @"[In RopSortTable ROP Request Buffer] The remaining SortOrder structures are used to sort the rows within the categories.");
                     ModelHelper.CaptureRequirement(76, @"[In RopSortTable ROP Request Buffer] If the Order member of a SortOrder structure is set to ""Ascending"", the table will be sorted in ascending order by the column specified in the PropertyType and PropertyId members.");
                     ModelHelper.CaptureRequirement(77, @"[In RopSortTable ROP Request Buffer] If the Order member of a SortOrder structure is set to ""Descending"", the table will be sorted in descending order by the column specified in the PropertyType and PropertyId members.");
                 }
@@ -1665,8 +1759,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 if (isLastSuccessRopData)
                 {
-                    ModelHelper.CaptureRequirement(451, @"[In Processing RopRestrict] When a RopRestrict ROP request ([MS-OXCROPS] section 2.2.5.3) is received, the server MUST apply the restriction (2) to the table, and subsequent requests that operate on the table MUST consider the new restriction (2).");
-                    ModelHelper.CaptureRequirement(452, @"[In Processing RopRestrict] If a restriction (2) is applied to a table, the table MUST appear as if it only contains the rows that match the restriction (2).");
+                    ModelHelper.CaptureRequirement(451, @"[In Processing RopRestrict] When a RopRestrict ROP request ([MS-OXCROPS] section 2.2.5.3) is received, the server MUST apply the restriction to the table, and subsequent requests that operate on the table MUST consider the new restriction.");
+                    ModelHelper.CaptureRequirement(452, @"[In Processing RopRestrict] If a restriction is applied to a table, the table MUST appear as if it only contains the rows that match the restriction.");
                     ModelHelper.CaptureRequirement(117, @"[In RopQueryRows ROP Response Buffer] The RowData field MUST NOT include rows that don't match the criteria specified in the last RopRestrict ROP request ([MS-OXCROPS] section 2.2.5.3).");
                 }
             }
@@ -1682,7 +1776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 if (requirementContainer[456])
                 {
-                    ModelHelper.CaptureRequirement(456, @"[In Appendix A: Product Behavior] If a RopRestrict ROP fails, the implementation does invalidate the table restriction (2) until a successful RopRestrict ROP request is made. (Microsoft Exchange Server 2007 and above follow this behavior.)");
+                    ModelHelper.CaptureRequirement(456, @"[In Appendix A: Product Behavior] If a RopRestrict ROP fails, the implementation does invalidate the table restriction until a successful RopRestrict ROP request is made. (Microsoft Exchange Server 2007 and above follow this behavior.)");
                 }
             }
         }

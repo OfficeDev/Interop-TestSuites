@@ -44,6 +44,7 @@
     <None Include="MS-OXORULE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXORULE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXORULE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXORULE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXORULE_TestSuite.deployment.ptfconfig" />
     <None Include="MS-OXORULE_TestSuite.ptfconfig" />
   </ItemGroup>

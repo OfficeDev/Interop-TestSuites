@@ -5,12 +5,56 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
     using System.Text;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
-
+    using System.Runtime.InteropServices;
+    using System.Net;
+    using System.Collections;
+    
     /// <summary>
     /// Help method collection.
     /// </summary>
     public class AdapterHelper
     {
+        /// <summary>
+        /// The current session context cookies for the request.
+        /// </summary>
+        private static CookieCollection sessionContextCookies;
+
+        /// <summary>
+        /// The transport used by the test suite.
+        /// </summary>
+        private static string transport;
+
+
+        /// <summary>
+        /// Gets or sets the current session context cookies for the request.
+        /// </summary>
+        public static CookieCollection SessionContextCookies
+        {
+            get
+            {
+                if (sessionContextCookies == null)
+                {
+                    sessionContextCookies = new CookieCollection();
+                }
+
+                return sessionContextCookies;
+            }
+
+            set
+            {
+                sessionContextCookies = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the transport used by the test suite.
+        /// </summary>
+        public static string Transport
+        {
+            get { return AdapterHelper.transport; }
+            set { AdapterHelper.transport = value; }
+        }
+
         /// <summary>
         /// Get a TaggedPropertyValue structure from buffer.
         /// </summary>
@@ -1370,6 +1414,889 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
 
             pidTagRuleCondition.Value = GenerateContentRestriction(taggedProperty);
             list.Add(pidTagRuleCondition);
+        }
+
+        /// <summary>
+        /// Allocate memory for stat instance.
+        /// </summary>
+        /// <param name="stat">The stat instance.</param>
+        /// <returns>The pointer points to the allocated memory.</returns>
+        public static IntPtr AllocStat(STAT stat)
+        {
+            IntPtr ptr = Marshal.AllocHGlobal(Marshal.SizeOf(stat));
+            int offset = 0;
+            Marshal.WriteInt32(ptr, offset, (int)stat.SortType);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.ContainerID);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.CurrentRec);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, stat.Delta);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.NumPos);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.TotalRecs);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.CodePage);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.TemplateLocale);
+            offset += sizeof(int);
+            Marshal.WriteInt32(ptr, offset, (int)stat.SortLocale);
+
+            return ptr;
+        }
+
+        /// <summary>
+        /// Allocate memory for the specific property values.
+        /// </summary>
+        /// <param name="pta_r">PropertyTagArray_r instance.</param>
+        /// <returns>A pointer points to the allocated memory.</returns>
+        public static IntPtr AllocPropertyTagArray_r(PropertyTagArray_r pta_r)
+        {
+            int offset = 0;
+            int cb = (int)(sizeof(uint) + (pta_r.Values * sizeof(uint)));
+
+            IntPtr ptr = Marshal.AllocHGlobal(cb);
+
+            Marshal.WriteInt32(ptr, offset, (int)pta_r.Values);
+            offset += sizeof(uint);
+
+            for (int i = 0; i < pta_r.Values; i++)
+            {
+                Marshal.WriteInt32(ptr, offset, (int)pta_r.AulPropTag[i]);
+                offset += sizeof(uint);
+            }
+
+            return ptr;
+        }
+
+        /// <summary>
+        /// Parse EphemeralEntryID structure from byte array.
+        /// </summary>
+        /// <param name="bytes">The byte array to be parsed.</param>
+        /// <returns>An EphemeralEntryID structure instance.</returns>
+        public static EphemeralEntryID ParseEphemeralEntryIDFromBytes(byte[] bytes)
+        {
+            int index = 0;
+
+            EphemeralEntryID entryID = new EphemeralEntryID
+            {
+                IDType = bytes[index++],
+                R1 = bytes[index++],
+                R2 = bytes[index++],
+                R3 = bytes[index++],
+                ProviderUID = new FlatUID_r
+                {
+                    Ab = new byte[Constants.FlatUIDByteSize]
+                }
+            };
+            for (int i = 0; i < Constants.FlatUIDByteSize; i++)
+            {
+                entryID.ProviderUID.Ab[i] = bytes[index++];
+            }
+
+            // R4: 4 bytes
+            entryID.R4 = (uint)BitConverter.ToInt32(bytes, index);
+            index += 4;
+
+            // DisplayType: 4 bytes
+            entryID.DisplayType = (DisplayTypeValue)BitConverter.ToInt32(bytes, index);
+            index += 4;
+
+            // Mid: 4 bytes
+            entryID.Mid = (uint)BitConverter.ToInt32(bytes, index);
+            index += 4;
+
+            return entryID;
+        }
+
+        /// <summary>
+        /// Parse PermanentEntryID structure from byte array.
+        /// </summary>
+        /// <param name="bytes">The byte array to be parsed.</param>
+        /// <returns>An PermanentEntryID structure instance.</returns>
+        public static PermanentEntryID ParsePermanentEntryIDFromBytes(byte[] bytes)
+        {
+            int index = 0;
+
+            PermanentEntryID entryID = new PermanentEntryID
+            {
+                IDType = bytes[index++],
+                R1 = bytes[index++],
+                R2 = bytes[index++],
+                R3 = bytes[index++],
+                ProviderUID = new FlatUID_r
+                {
+                    Ab = new byte[Constants.FlatUIDByteSize]
+                }
+            };
+            for (int i = 0; i < Constants.FlatUIDByteSize; i++)
+            {
+                entryID.ProviderUID.Ab[i] = bytes[index++];
+            }
+
+            // R4: 4 bytes
+            entryID.R4 = (uint)BitConverter.ToInt32(bytes, index);
+            index += 4;
+
+            // DisplayType: 4 bytes
+            entryID.DisplayTypeString = (DisplayTypeValue)BitConverter.ToInt32(bytes, index);
+            index += 4;
+
+            // DistinguishedName: variable 
+            entryID.DistinguishedName = System.Text.Encoding.Default.GetString(bytes, index, bytes.Length - index - 1);
+            return entryID;
+        }
+
+        /// <summary>
+        /// Parse a STAT structure instance from pointer.
+        /// </summary>
+        /// <param name="ptr">Pointer points to the memory.</param>
+        /// <returns>A STAT structure.</returns>
+        public static STAT ParseStat(IntPtr ptr)
+        {
+            STAT stat = new STAT();
+            int offset = 0;
+
+            stat.SortType = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.ContainerID = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.CurrentRec = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.Delta = Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.NumPos = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.TotalRecs = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.CodePage = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.TemplateLocale = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(int);
+
+            stat.SortLocale = (uint)Marshal.ReadInt32(ptr, offset);
+
+            return stat;
+        }
+
+        /// <summary>
+        /// Parse Binary_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of Binary_r structure.</returns>
+        public static Binary_r ParseBinary_r(IntPtr ptr)
+        {
+            Binary_r b_r = new Binary_r
+            {
+                Cb = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (b_r.Cb == 0)
+            {
+                b_r.Lpb = null;
+            }
+            else
+            {
+                b_r.Lpb = new byte[b_r.Cb];
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr baddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    for (uint i = 0; i < b_r.Cb; i++)
+                    {
+                        b_r.Lpb[i] = Marshal.ReadByte(baddr, (int)i);
+                    }
+                }
+                else
+                {
+                    for (uint i = 0; i < b_r.Cb; i++)
+                    {
+                        b_r.Lpb[i] = Marshal.ReadByte(ptr, (int)i + sizeof(uint));
+                    }
+                }
+            }
+
+            return b_r;
+        }
+
+        /// <summary>
+        /// Parse GUIDs.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of GUIDs.</returns>
+        public static FlatUID_r ParseFlatUID_r(IntPtr ptr)
+        {
+            FlatUID_r fuid_r = new FlatUID_r
+            {
+                Ab = new byte[Constants.FlatUIDByteSize]
+            };
+            for (int i = 0; i < Constants.FlatUIDByteSize; i++)
+            {
+                fuid_r.Ab[i] = Marshal.ReadByte(ptr, i);
+            }
+
+            return fuid_r;
+        }
+
+        /// <summary>
+        /// Parse ShortArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of ShortArray_r structure.</returns>
+        public static ShortArray_r ParseShortArray_r(IntPtr ptr)
+        {
+            ShortArray_r shortArray = new ShortArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (shortArray.CValues == 0)
+            {
+                shortArray.Lpi = null;
+            }
+            else
+            {
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr saaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    ptr = saaddr;
+                }
+
+                shortArray.Lpi = new short[shortArray.CValues];
+                int offset = 0;
+                for (uint i = 0; i < shortArray.CValues; i++, offset += sizeof(short))
+                {
+                    shortArray.Lpi[i] = Marshal.ReadInt16(ptr, offset);
+                }
+            }
+
+            return shortArray;
+        }
+
+        /// <summary>
+        /// Parse LongArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of LongArray_r structure.</returns>
+        public static LongArray_r ParseLongArray_r(IntPtr ptr)
+        {
+            LongArray_r longArray = new LongArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (longArray.CValues == 0)
+            {
+                longArray.Lpl = null;
+            }
+            else
+            {
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr laaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    ptr = laaddr;
+                }
+
+                longArray.Lpl = new int[longArray.CValues];
+                int offset = 0;
+                for (uint i = 0; i < longArray.CValues; i++, offset += sizeof(int))
+                {
+                    longArray.Lpl[i] = Marshal.ReadInt32(ptr, offset);
+                }
+            }
+
+            return longArray;
+        }
+
+        /// <summary>
+        /// Parse String_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of String_r structure.</returns>
+        public static byte[] ParseString_r(IntPtr ptr)
+        {
+            List<byte> stringArray = new List<byte>();
+            if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+            {
+                IntPtr szaPtr = new IntPtr(Marshal.ReadInt32(ptr));
+
+                if (szaPtr == IntPtr.Zero)
+                {
+                    return null;
+                }
+
+                ptr = szaPtr;
+            }
+
+            int offsetOfszA = 0;
+            byte curValueOfszA = 0;
+            ArrayList listOfszA = new ArrayList();
+            while (Marshal.ReadByte(ptr, offsetOfszA) != '\0')
+            {
+                curValueOfszA = Marshal.ReadByte(ptr, offsetOfszA);
+                offsetOfszA++;
+                listOfszA.Add(curValueOfszA);
+            }
+
+            for (int i = 0; i < listOfszA.Count; i++)
+            {
+                stringArray.Add(byte.Parse(listOfszA[i].ToString()));
+            }
+
+            return stringArray.ToArray();
+        }
+
+        /// <summary>
+        /// Parse WString_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of WString_r structure.</returns>
+        public static byte[] ParseWString_r(IntPtr ptr)
+        {
+            List<byte> stringArray = new List<byte>();
+
+            if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+            {
+                IntPtr szwPtr = new IntPtr(Marshal.ReadInt32(ptr));
+
+                if (szwPtr == IntPtr.Zero)
+                {
+                    return null;
+                }
+
+                ptr = szwPtr;
+            }
+
+            int offsetOfszW = 0;
+            byte curValueOfszW = 0;
+            short shortValueOfszW = Marshal.ReadInt16(ptr, offsetOfszW);
+            ArrayList listOfszW = new ArrayList();
+
+            while (shortValueOfszW != '\0')
+            {
+                curValueOfszW = Marshal.ReadByte(ptr, offsetOfszW);
+                offsetOfszW++;
+                listOfszW.Add(curValueOfszW);
+
+                if (offsetOfszW % 2 == 0)
+                {
+                    shortValueOfszW = Marshal.ReadInt16(ptr, offsetOfszW);
+                }
+            }
+
+            for (int i = 0; i < listOfszW.Count; i++)
+            {
+                stringArray.Add(byte.Parse(listOfszW[i].ToString()));
+            }
+
+            return stringArray.ToArray();
+        }
+
+        /// <summary>
+        /// Parse StringArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of StringArray_r structure.</returns>
+        public static StringArray_r ParseStringArray_r(IntPtr ptr)
+        {
+            StringArray_r stringArray = new StringArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (stringArray.CValues == 0)
+            {
+                stringArray.LppszA = null;
+            }
+            else
+            {
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr szaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    stringArray.LppszA = new string[stringArray.CValues];
+                    int offset = 0;
+                    for (uint i = 0; i < stringArray.CValues; i++)
+                    {
+                        stringArray.LppszA[i] = Marshal.PtrToStringAnsi(new IntPtr(Marshal.ReadInt32(szaddr, offset)));
+                        offset += 4;
+                    }
+                }
+                else
+                {
+                    stringArray.LppszA = new string[stringArray.CValues];
+                    for (uint i = 0; i < stringArray.CValues; i++)
+                    {
+                        stringArray.LppszA[i] = BitConverter.ToString(ParseString_r(ptr));
+                    }
+                }
+            }
+
+            return stringArray;
+        }
+
+        /// <summary>
+        /// Allocate memory for GUIDs.
+        /// </summary>
+        /// <param name="fuid_r">Instance of GUIDs.</param>
+        /// <returns>A pointer points to the allocated memory.</returns>
+        public static IntPtr AllocFlatUID_r(FlatUID_r fuid_r)
+        {
+            IntPtr ptr = Marshal.AllocHGlobal(Constants.FlatUIDByteSize);
+
+            for (int i = 0; i < Constants.FlatUIDByteSize; i++)
+            {
+                Marshal.WriteByte(ptr, i, fuid_r.Ab[i]);
+            }
+
+            return ptr;
+        }
+
+        /// <summary>
+        /// Parse BinaryArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of BinaryArray_r structure.</returns>
+        public static BinaryArray_r ParseBinaryArray_r(IntPtr ptr)
+        {
+            BinaryArray_r binaryArray = new BinaryArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (binaryArray.CValues == 0)
+            {
+                binaryArray.Lpbin = null;
+            }
+            else
+            {
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr baaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    binaryArray.Lpbin = new Binary_r[binaryArray.CValues];
+                    for (uint i = 0; i < binaryArray.CValues; i++)
+                    {
+                        binaryArray.Lpbin[i] = ParseBinary_r(baaddr);
+                        baaddr = new IntPtr(baaddr.ToInt32() + 8);
+                    }
+                }
+                else
+                {
+                    binaryArray.Lpbin = new Binary_r[binaryArray.CValues];
+                    for (uint i = 0; i < binaryArray.CValues; i++)
+                    {
+                        binaryArray.Lpbin[i] = ParseBinary_r(ptr);
+                    }
+                }
+            }
+
+            return binaryArray;
+        }
+
+        /// <summary>
+        /// Parse WStringArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of WStringArray_r structure.</returns>
+        public static WStringArray_r ParseWStringArray_r(IntPtr ptr)
+        {
+            WStringArray_r wsa_r = new WStringArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (wsa_r.CValues == 0)
+            {
+                wsa_r.LppszW = null;
+            }
+            else
+            {
+                if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                {
+                    IntPtr szwaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                    wsa_r.LppszW = new string[wsa_r.CValues];
+                    for (uint i = 0; i < wsa_r.CValues; i++)
+                    {
+                        wsa_r.LppszW[i] = Marshal.PtrToStringUni(new IntPtr(Marshal.ReadInt32(szwaddr)));
+                        szwaddr = new IntPtr(szwaddr.ToInt32() + 4);
+                    }
+                }
+                else
+                {
+                    wsa_r.LppszW = new string[wsa_r.CValues];
+                    for (uint i = 0; i < wsa_r.CValues; i++)
+                    {
+                        wsa_r.LppszW[i] = BitConverter.ToString(ParseWString_r(ptr));
+                    }
+                }
+            }
+
+            return wsa_r;
+        }
+
+        /// <summary>
+        /// Parse FlatUIDArray_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of FlatUIDArray_r structure.</returns>
+        public static FlatUIDArray_r ParseFlatUIDArray_r(IntPtr ptr)
+        {
+            FlatUIDArray_r fuida_r = new FlatUIDArray_r
+            {
+                CValues = (uint)Marshal.ReadInt32(ptr)
+            };
+
+            if (fuida_r.CValues == 0)
+            {
+                fuida_r.Lpguid = null;
+            }
+            else
+            {
+                fuida_r.Lpguid = new FlatUID_r[fuida_r.CValues];
+                IntPtr fuidaddr = new IntPtr(Marshal.ReadInt32(ptr, sizeof(uint)));
+                for (uint i = 0; i < fuida_r.CValues; i++)
+                {
+                    fuida_r.Lpguid[i] = ParseFlatUID_r(new IntPtr(Marshal.ReadInt32(fuidaddr)));
+                    fuidaddr = new IntPtr(fuidaddr.ToInt32() + 4);
+                }
+            }
+
+            return fuida_r;
+        }
+
+
+        /// <summary>
+        /// Parse PROP_VAL_UNION structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <param name="proptype">Property Types.</param>
+        /// <returns>Instance of PROP_VAL_UNION structure.</returns>
+        public static PROP_VAL_UNION ParsePROP_VAL_UNION(IntPtr ptr, PropertyTypeValue proptype)
+        {
+            PROP_VAL_UNION pvu = new PROP_VAL_UNION();
+
+            switch (proptype)
+            {
+                case PropertyTypeValue.PtypInteger16:
+                    pvu.I = Marshal.ReadInt16(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypInteger32:
+                    pvu.L = Marshal.ReadInt32(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypBoolean:
+                    if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                    {
+                        pvu.B = (ushort)Marshal.ReadInt16(ptr);
+                    }
+                    else
+                    {
+                        pvu.B = (byte)Marshal.ReadByte(ptr);
+                    }
+
+                    break;
+
+                case PropertyTypeValue.PtypString8:
+                    pvu.LpszA = ParseString_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypBinary:
+                    pvu.Bin = ParseBinary_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypString:
+                    pvu.LpszW = ParseWString_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypGuid:
+                    if (AdapterHelper.Transport.ToLower(System.Globalization.CultureInfo.CurrentCulture) != "mapi_http")
+                    {
+                        IntPtr uidaddr = new IntPtr(Marshal.ReadInt32(ptr));
+
+                        if (uidaddr == IntPtr.Zero)
+                        {
+                            pvu.Lpguid = null;
+                        }
+                        else
+                        {
+                            pvu.Lpguid = new FlatUID_r[1];
+                            pvu.Lpguid[0] = ParseFlatUID_r(uidaddr);
+                        }
+                    }
+                    else
+                    {
+                        if (ptr == IntPtr.Zero)
+                        {
+                            pvu.Lpguid = null;
+                        }
+                        else
+                        {
+                            pvu.Lpguid = new FlatUID_r[1];
+                            pvu.Lpguid[0] = ParseFlatUID_r(ptr);
+                        }
+                    }
+
+                    break;
+
+                case PropertyTypeValue.PtypTime:
+                    pvu.Ft.LowDateTime = (uint)Marshal.ReadInt32(ptr);
+                    pvu.Ft.HighDateTime = (uint)Marshal.ReadInt32(ptr, sizeof(uint));
+                    break;
+
+                case PropertyTypeValue.PtypErrorCode:
+                    pvu.Err = Marshal.ReadInt32(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypMultipleInteger16:
+                    pvu.MVi = ParseShortArray_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypMultipleInteger32:
+                    pvu.MVl = ParseLongArray_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypMultipleString8:
+                    uint isFound = (uint)Marshal.ReadInt32(ptr);
+
+                    if (isFound == (uint)ErrorCodeValue.NotFound)
+                    {
+                        pvu.MVszA.CValues = 0;
+                        pvu.MVszA.LppszA = null;
+                    }
+                    else
+                    {
+                        pvu.MVszA = ParseStringArray_r(ptr);
+                    }
+
+                    break;
+
+                case PropertyTypeValue.PtypMultipleBinary:
+                    pvu.MVbin = ParseBinaryArray_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypMultipleString:
+                    pvu.MVszW = ParseWStringArray_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypMultipleGuid:
+                    pvu.MVguid = ParseFlatUIDArray_r(ptr);
+                    break;
+
+                case PropertyTypeValue.PtypNull:
+                case PropertyTypeValue.PtypEmbeddedTable:
+                    pvu.Reserved = Marshal.ReadInt32(ptr);
+                    break;
+
+                default:
+                    throw new ParseException("Parsing PROP_VAL_UNION failed!");
+            }
+
+            return pvu;
+        }
+
+        /// <summary>
+        /// Parse PROP_VAL_UNION structure.
+        /// </summary>
+        /// <param name="propertyValue">The property value used for parsing.</param>
+        /// <param name="proptype">The Property Types used for parsing.</param>
+        /// <returns>Instance of PROP_VAL_UNION structure.</returns>
+        public static PROP_VAL_UNION ParsePROP_VAL_UNION(AddressBookPropertyValue propertyValue, PropertyTypeValue proptype)
+        {
+            PROP_VAL_UNION pvu = new PROP_VAL_UNION();
+            IntPtr valuePtr = IntPtr.Zero;
+            valuePtr = Marshal.AllocHGlobal(propertyValue.Value.Length);
+            Marshal.Copy(propertyValue.Value, 0, valuePtr, propertyValue.Value.Length);
+            pvu = AdapterHelper.ParsePROP_VAL_UNION(valuePtr, proptype);
+            Marshal.FreeHGlobal(valuePtr);
+            return pvu;
+        }
+
+        /// <summary>
+        /// Parse PropertyRowSet_r structure.
+        /// </summary>
+        /// <param name="columns">The columns which contain property tags.</param>
+        /// <param name="rowCount">The row count of the PropertyRowSet_r.</param>
+        /// <param name="rowData">The row data which contain the property values.</param>
+        /// <returns>Instance of PropertyRowSet_r structure.</returns>
+        public static PropertyRowSet_r ParsePropertyRowSet_r(LargePropTagArray columns, uint rowCount, AddressBookPropertyRow[] rowData)
+        {
+            PropertyRowSet_r propertyRowSet_r = new PropertyRowSet_r();
+
+            propertyRowSet_r.Rows = rowCount;
+            propertyRowSet_r.PropertyRowSet = new PropertyRow_r[rowCount];
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                propertyRowSet_r.PropertyRowSet[i].Reserved = 0;
+                propertyRowSet_r.PropertyRowSet[i].Values = columns.PropertyTagCount;
+                propertyRowSet_r.PropertyRowSet[i].Props = new PropertyValue_r[columns.PropertyTagCount];
+                for (int j = 0; j < columns.PropertyTagCount; j++)
+                {
+                    propertyRowSet_r.PropertyRowSet[i].Props[j].PropTag = BitConverter.ToUInt32(columns.PropertyTags[j].Serialize(), 0);
+                    propertyRowSet_r.PropertyRowSet[i].Props[j].Reserved = 0;
+                    propertyRowSet_r.PropertyRowSet[i].Props[j].Value = AdapterHelper.ParsePROP_VAL_UNION(rowData[i].ValueArray.ToArray()[j], (PropertyTypeValue)columns.PropertyTags[j].PropertyType);
+                }
+            }
+
+            return propertyRowSet_r;
+        }
+
+        /// <summary>
+        /// Parse PropertyRowSet_r structure.
+        /// </summary>
+        /// <param name="rowsCount">The row count of the PropertyRowSet_r.</param>
+        /// <param name="rows">The rows which contains property tags and property values.</param>
+        /// <returns>Instance of PropertyRowSet_r structure.</returns>
+        public static PropertyRowSet_r ParsePropertyRowSet_r(uint rowsCount, AddressBookPropValueList[] rows)
+        {
+            PropertyRowSet_r propertyRowSet_r = new PropertyRowSet_r();
+
+            propertyRowSet_r.Rows = rowsCount;
+            if (rowsCount == 0)
+            {
+                propertyRowSet_r.PropertyRowSet = null;
+            }
+            else
+            {
+                propertyRowSet_r.PropertyRowSet = new PropertyRow_r[rowsCount];
+
+                for (int i = 0; i < rowsCount; i++)
+                {
+                    propertyRowSet_r.PropertyRowSet[i].Reserved = 0;
+                    propertyRowSet_r.PropertyRowSet[i].Values = rows[i].PropertyValueCount;
+                    propertyRowSet_r.PropertyRowSet[i].Props = new PropertyValue_r[rows[i].PropertyValueCount];
+                    for (int j = 0; j < rows[i].PropertyValueCount; j++)
+                    {
+                        propertyRowSet_r.PropertyRowSet[i].Props[j].PropTag = BitConverter.ToUInt32(rows[i].PropertyValues[j].PropertyTag.Serialize(), 0);
+                        propertyRowSet_r.PropertyRowSet[i].Props[j].Reserved = 0;
+                        propertyRowSet_r.PropertyRowSet[i].Props[j].Value = AdapterHelper.ParsePROP_VAL_UNION((AddressBookPropertyValue)rows[i].PropertyValues[j], (PropertyTypeValue)rows[i].PropertyValues[j].PropertyTag.PropertyType);
+                    }
+                }
+            }
+
+            return propertyRowSet_r;
+        }
+
+        /// <summary>
+        /// Parse the PropertyRow_r structure.
+        /// </summary>
+        /// <param name="row">The row which contains property tags and property values</param>
+        /// <returns>Instance of the PropertyRow_r.</returns>
+        public static PropertyRow_r ParsePropertyRow_r(AddressBookPropValueList row)
+        {
+            PropertyRow_r propertyRow_r = new PropertyRow_r();
+            propertyRow_r.Reserved = 0;
+            propertyRow_r.Values = row.PropertyValueCount;
+            propertyRow_r.Props = new PropertyValue_r[row.PropertyValueCount];
+            for (int i = 0; i < row.PropertyValueCount; i++)
+            {
+                propertyRow_r.Props[i].PropTag = BitConverter.ToUInt32(row.PropertyValues[i].PropertyTag.Serialize(), 0);
+                propertyRow_r.Props[i].Reserved = 0;
+                propertyRow_r.Props[i].Value = AdapterHelper.ParsePROP_VAL_UNION((AddressBookPropertyValue)row.PropertyValues[i], (PropertyTypeValue)row.PropertyValues[i].PropertyTag.PropertyType);
+            }
+
+            return propertyRow_r;
+        }
+
+        /// <summary>
+        /// Parse PropertyValue_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of PropertyValue_r structure.</returns>
+        public static PropertyValue_r ParsePropertyValue_r(IntPtr ptr)
+        {
+            PropertyValue_r protertyValue = new PropertyValue_r();
+
+            int offset = 0;
+
+            protertyValue.PropTag = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(uint);
+
+            protertyValue.Reserved = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(uint);
+
+            IntPtr newPtr = new IntPtr(ptr.ToInt32() + offset);
+            protertyValue.Value = ParsePROP_VAL_UNION(newPtr, (PropertyTypeValue)(protertyValue.PropTag & 0x0000FFFF));
+
+            return protertyValue;
+        }
+
+        /// <summary>
+        /// Parse PropertyRow_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of PropertyRow_r structure.</returns>
+        public static PropertyRow_r ParsePropertyRow_r(IntPtr ptr)
+        {
+            PropertyRow_r protertyRow = new PropertyRow_r();
+            int offset = 0;
+
+            protertyRow.Reserved = (uint)Marshal.ReadInt32(ptr);
+            offset += sizeof(uint);
+
+            protertyRow.Values = (uint)Marshal.ReadInt32(ptr, offset);
+            offset += sizeof(uint);
+
+            if (protertyRow.Values == 0)
+            {
+                protertyRow.Props = null;
+            }
+            else
+            {
+                protertyRow.Props = new PropertyValue_r[protertyRow.Values];
+                IntPtr pvaddr = new IntPtr(Marshal.ReadInt32(ptr, offset));
+
+                const int PropertyValueLengthInBytes = 16;
+
+                for (uint i = 0; i < protertyRow.Values; i++)
+                {
+                    protertyRow.Props[i] = ParsePropertyValue_r(pvaddr);
+                    pvaddr = new IntPtr(pvaddr.ToInt32() + PropertyValueLengthInBytes);
+                }
+            }
+
+            return protertyRow;
+        }
+
+        /// <summary>
+        /// Parse PropertyRowSet_r structure.
+        /// </summary>
+        /// <param name="ptr">A pointer points to the allocated memory.</param>
+        /// <returns>Instance of PropertyRowSet_r structure.</returns>
+        public static PropertyRowSet_r ParsePropertyRowSet_r(IntPtr ptr)
+        {
+            PropertyRowSet_r prs_r = new PropertyRowSet_r();
+            int offset = 0;
+
+            prs_r.Rows = (uint)Marshal.ReadInt32(ptr);
+            offset += sizeof(uint);
+
+            const int PropertyRowLengthInBytes = 12;
+
+            if (prs_r.Rows == 0)
+            {
+                prs_r.PropertyRowSet = null;
+            }
+            else
+            {
+                ptr = new IntPtr(ptr.ToInt32() + offset);
+                prs_r.PropertyRowSet = new PropertyRow_r[prs_r.Rows];
+
+                for (uint i = 0; i < prs_r.Rows; i++)
+                {
+                    prs_r.PropertyRowSet[i] = ParsePropertyRow_r(ptr);
+                    ptr = new IntPtr(ptr.ToInt32() + PropertyRowLengthInBytes);
+                }
+            }
+
+            return prs_r;
         }
     }
 }

@@ -31,8 +31,6 @@
     <Property name="R106601Enabled" value="false" />
     <!-- Set R106602Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecNoCreateSubfolderRight in the ReturnValue of the ROP response, if the client does not have permissions to create the folder, as specified in section 3.2.5.2. Set R106602Enabled to false to disable this requirement. -->
     <Property name="R106602Enabled" value="true" />
-    <!-- Set R49601Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecNotSupported in the ReturnValue of the ROP response, if the client attempts to create a search folder (2) on a public folders store, as specified in section 3.2.5.2. Set R49601Enabled to false to disable this requirement. -->
-    <Property name="R49601Enabled" value="false" />
     <!-- Set R116001Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the operation with ecInvalidParam in the ReturnValue of the ROP response, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116001Enabled to false to disable this requirement. -->
     <Property name="R116001Enabled" value="true" />
     <!-- Set R116002Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the operation, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116002Enabled to false to disable this requirement. -->
@@ -85,7 +83,17 @@
     <Property name="R1340Enabled" value="false"/>
     <!-- Set R1017Enabled to true to verify that for ROP RopGetContentsTable the implementation if this bit [SoftDeletes] is set, the contents table lists only the messages that are soft deleted. Set R1017Enabled to false to disable this requirement.-->
     <Property name="R1017Enabled" value="false"/>
+    <!-- Set R10660201Enabled to true to verify that if the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError. Set R10660201Enabled to false to disable this requirement.-->
+    <Property name="R10660201Enabled" value="true"/>
+    <!-- Set R10660202Enabled to true to verify that if the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. Set R10660202Enabled to false to disable this requirement.-->
+    <Property name="R10660202Enabled" value="false"/>
     <!-- Set R99999Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R99999Enabled to false to disable this requirement.-->
     <Property name="R99999Enabled" value="true"/>
+    <!-- Set R1238001Enabled to true to verify that implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. Set R1238001Enabled to false to disable this requirement.-->
+    <Property name="R1238001Enabled" value="true"/>
+    <!-- Set R1238002Enabled to true to verify that implementation does not be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. Set R1238002Enabled to false to disable this requirement.-->
+    <Property name="R1238002Enabled" value="false"/>
+    <!-- Set R350002Enabled to true to verify that The implementation does support the PidTagAddressBookEntryId property. Set R350002Enabled to false to disable this requirement.-->
+    <Property name="R350002Enabled" value="true"/>
   </Properties>
 </TestSite>

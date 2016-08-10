@@ -9,9 +9,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!--The PublicDbNameOnServer1 property specifies the name of the public database on the first SUT. -->
     <Property name="PublicDbNameOnServer1" value="PublicFolderDatabase" />
-    <!-- The UserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have “Owner” permission level to the public folder. -->
-    <Property name="UserName" value="MSOXCSTOR_TestUser" />
-    <!-- The UserPassword property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
+    <!-- The AdminUserName property specifies a username which can be used by a client to access the mailbox. The user corresponding to the username should have “Owner” permission level to the public folder. -->
+    <Property name="AdminUserName" value="MSOXCSTOR_TestUser" />
+    <!-- The UserPassword property specifies the password for the user specified in the AdminUserName property. The property value is case-sensitive. -->
     <Property name="UserPassword" value="Password01!" />
     <!--The UserNameOfMailboxOnServer1 property specifies a user whose mailbox is hosted on the first SUT. -->
     <Property name="UserNameOfMailboxOnServer1" value="MSOXCSTOR_TestUser01" />
@@ -25,7 +25,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="UserNameForDisableMailbox" value="MSOXCSTOR_TestUser03" />
     <!--The UserPasswordForDisableMailbox property specifies the password for the user specified in the UserNameForDisableMailbox property. The property value is case-sensitive. -->
     <Property name="UserPasswordForDisableMailbox" value="Password01!" />
-    <!--The UserEssdn property is a string that contains the distinguished name (DN) of the user specified in the UserName property. On the Windows platform, the value of the UserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
+    <!--The UserEssdn property is a string that contains the distinguished name (DN) of the user specified in the AdminUserName property. On the Windows platform, the value of the UserEssdn property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
     <Property name="UserEssdn" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=MSOXCSTOR_TestUser" />
     <!--The UserEssdnOfMailboxOnServer1 property is a string that contains the distinguished name (DN) of the user specified in the UserNameOfMailboxOnServer1 property. On the Windows platform, the value of the UserEssdnOfMailboxOnServer1 property is the same as the value in the legacyExchangeDN property on the Exchange server. -->
     <Property name="UserEssdnOfMailboxOnServer1" value="/o=contoso/ou=Exchange Administrative Group (FYDIBOHF23SPDLT)/cn=Recipients/cn=838a6158649f4e6f86b9ef858b5ac7bf-MSOXCSTOR_TestUs" />

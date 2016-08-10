@@ -682,7 +682,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1069</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagEntryId Property] [The first two bytes of this property specify the number of bytes that follow.] The remaining bytes constitute the PermanentEntryID structure ([MS-OXNSPI] section 2.3.8.3).</ns1:Description>
+		<ns1:Description>[In PidTagEntryId Property] [The first two bytes of this property specify the number of bytes that follow.] The remaining bytes constitute the PermanentEntryID structure ([MS-OXNSPI] section 2.3.9.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -709,7 +709,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.771) specifies the unique identifier that the server generates for each user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.773) specifies the unique identifier that the server generates for each user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -754,7 +754,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R81</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.772) specifies the user-readable name of the user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.774) specifies the user-readable name of the user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -808,7 +808,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R87</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.773) specifies the folder permissions that are granted to the specified user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.775) specifies the folder permissions that are granted to the specified user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1051,21 +1051,22 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] If this flag [FolderOwner] is set, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions.</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] If this flag [FolderOwner] is set, the server SHOULD &lt;3&gt; allow the specified user's client to modify properties, including the folder permissions, that are set on the folder itself.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCPERM_R115002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] If this flag [FolderOwner] is not set, the server MUST NOT allow the specified user's client to make those modifications [Modifying the folder's properties].</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] If this flag [FolderOwner] is not set, the server SHOULD NOT &lt;4&gt; allow the specified user's client to make those modifications [Modifying the folder's properties].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCPERM_R116001, MS-OXCPERM_R116002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R105</ns1:REQ_ID>
@@ -1169,7 +1170,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R98</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1385,7 +1386,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R160</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Adding Folder Permissions] When copying the ACL from the Calendar folder to the Freebusy Data folder, the client SHOULD&lt;4&gt; set the ReplaceRows flag in the RopModifyPermissions ROP request buffer.</ns1:Description>
+		<ns1:Description>[In Adding Folder Permissions] When copying the ACL from the Calendar folder to the Freebusy Data folder, the client SHOULD&lt;6&gt; set the ReplaceRows flag in the RopModifyPermissions ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1707,9 +1708,52 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPERM_R115001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When flag FolderOwner is set, the Implementation does not allow the specified user's client to modify properties. &lt;3&gt; Section 2.2.7:  Exchange 2007 does not allow the properties of a folder to be modified when the FolderOwner flag is set.</ns1:Description>
+		<ns1:Derived>MS-OXCPERM_R11:I, MS-OXCPERM_R115:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPERM_R115002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When flag FolderOwner is set, the Implementation does allow the specified user's client to modify properties, including the folder permissions, that are set on the folder itself. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCPERM_R11:I, MS-OXCPERM_R115:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPERM_R116001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When this flag FolderOwner is not set, the Implementation does not allow the specified user's client to modify the folder's properties. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCPERM_R11:I, MS-OXCPERM_R116:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPERM_R116002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] When this flag FolderOwner is not set, the Implementation does allow the specified user's client to modify the folder's properties. &lt;4&gt; Section 2.2.7:  Exchange 2007 and Exchange 2010 allow the properties of a folder to be modified when the FolderOwner flag is not set.</ns1:Description>
+		<ns1:Derived>MS-OXCPERM_R11:I, MS-OXCPERM_R116:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1182</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;3&gt; Section 2.2.7: Exchange 2007, Exchange 2010, and Exchange 2013 include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, and Exchange 2013 use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.7: Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1718,7 +1762,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1183</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 3.1.4.2: Office Outlook 2003 and Office Outlook 2007 do not set the ReplaceRows flag in the RopModifyPermissions ROP request buffer ([MS-OXCROPS] section 2.2.10.1.1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 3.1.4.2: Office Outlook 2003 and Office Outlook 2007 do not set the ReplaceRows flag in the RopModifyPermissions ROP request buffer ([MS-OXCROPS] section 2.2.10.1.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -1777,6 +1777,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
 
             return (TableRopReturnValues)setCollapseStateResponse.ReturnValue;
         }
+
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        public void RopRelease()
+        {
+            RopReleaseRequest ropReleaseRequest;
+
+            ropReleaseRequest.RopId = 0x01;
+            ropReleaseRequest.LogonId = 0x00;
+            ropReleaseRequest.InputHandleIndex = 0x00;
+
+            this.DoSingleCallROP(ropReleaseRequest, this.tableHandle, ref this.response, ref this.rawData);
+        }
         #endregion
 
         /// <summary>
@@ -1920,7 +1934,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             this.userDefinedBookmarkPosition = 0;
             this.userDefinedBookmarkSize = 1;
 
-            this.propertyValues = new List<PropertyValue>();
             this.collapseState = new byte[] { 0x00 };
             this.collapseStateSize = 1;
 
@@ -2270,18 +2283,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         /// <summary>
         /// Disconnect from the server.
         /// </summary>
-        /// <returns>Result of disconnecting.</returns>
-        private bool Disconnect()
+        public void Disconnect()
         {
+            if (this.tableType == TableType.CONTENT_TABLE || this.tableType == TableType.RULES_TABLE || this.tableType == TableType.HIERARCHY_TABLE || this.tableType == TableType.ATTACHMENTS_TABLE)
+            {
+                this.CleanInbox();
+            }
+
             bool ret = this.oxcropsClient.Disconnect();
             if (ret)
             {
                 this.isConnected = false;
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
 

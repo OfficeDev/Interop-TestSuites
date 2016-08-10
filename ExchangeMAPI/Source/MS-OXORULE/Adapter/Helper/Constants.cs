@@ -17,12 +17,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <summary>
         /// The user name of User1's mailbox.
         /// </summary>
-        public const string User1Name = "User1Name";
+        public const string User1Name = "AdminUserName";
 
         /// <summary>
         /// The user password of User1's mailbox.
         /// </summary>
-        public const string User1Password = "User1Password";
+        public const string User1Password = "AdminUserPassword";
 
         /// <summary>
         /// The user name of User2's mailbox.
@@ -37,7 +37,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// <summary>
         /// The ESSDN of TestUser1.
         /// </summary>
-        public const string User1ESSDN = "User1ESSDN";
+        public const string User1ESSDN = "AdminUserESSDN";
 
         /// <summary>
         /// The ESSDN of TestUser2.
@@ -392,6 +392,36 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
         /// </summary>
         public const string InvalidateEntryId = "0x00, 0x01";
         #endregion
+
+        /// <summary>
+        /// Size of FlatUID_r structure in byte.
+        /// </summary>
+        public const int FlatUIDByteSize = 16;
+
+        /// <summary>
+        /// The maximum number of rows for the NspiGetMatches method to return in a restricted address book container.
+        /// </summary>
+        public const uint GetMatchesRequestedRowNumber = 5000;
+
+        /// <summary>
+        /// The maximum number of rows for the NspiQueryRows method to return in a restricted address book container.
+        /// </summary>
+        public const uint QueryRowsRequestedRowNumber = 5000;
+
+        /// <summary>
+        /// A string which specifies a user name which doesn't exist.
+        /// </summary>
+        public const string UnresolvedName = "XXXXXX";
+
+        /// <summary>
+        /// A CodePage that server does not recognize (0xFFFFFFFF).
+        /// </summary>
+        public const string UnrecognizedCodePage = "4294967295";
+
+        /// <summary>
+        /// A Minimal Entry ID that server does not recognize (0xFFFFFFFF).
+        /// </summary>
+        public const string UnrecognizedMID = "4294967295";
         #endregion
     }
 }

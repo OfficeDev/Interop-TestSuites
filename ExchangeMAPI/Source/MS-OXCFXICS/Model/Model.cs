@@ -378,7 +378,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // Because only if the folder is right can return a valid folderIdIndex, then the requirement is verified.
                     ModelHelper.CaptureRequirement(
                         1890,
-                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers (2), commonly known as Folder ID structures ([MS-OXCDATA] section 2.2.1.1) for folders.");
+                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers, commonly known as Folder ID structures ([MS-OXCDATA] section 2.2.1.1) for folders.");
                 }
 
                 result = RopResult.Success;
@@ -455,7 +455,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // Because only if the folder is right can return a valid message handle index, then the requirement is verified.
                     ModelHelper.CaptureRequirement(
                         1890001,
-                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers (2), commonly known as Message ID structures ([MS-OXCDATA] section 2.2.1.2) for messages.");
+                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers, commonly known as Message ID structures ([MS-OXCDATA] section 2.2.1.2) for messages.");
                 }
 
                 result = RopResult.Success;
@@ -576,7 +576,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     currentMessage.MessageIdIndex = AdapterHelper.GetObjectIdIndex();
 
                     // Because if Create a new messageID then the action which convert GID to a short-term internal identifier and assign it to an imported object execute in MS_OXCFXICSAdapter. So cover this requirement here.
-                    ModelHelper.CaptureRequirement(1910, "[In Identifying Objects and Maintaining Change Numbers]	Convert the GID structure ([MS-OXCDATA] section 2.2.1.3) to a short-term internal identifier (2) and assign it to an imported object, if the external identifier is a GID value.");
+                    ModelHelper.CaptureRequirement(1910, "[In Identifying Objects and Maintaining Change Numbers] 	Convert the GID structure ([MS-OXCDATA] section 2.2.1.3) to a short-term internal identifier and assign it to an imported object, if the external identifier is a GID value.");
                 }
 
                 // Set value for the current Message
@@ -605,7 +605,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // When the prior operate is create message and in this ROP return a valid messageIDIndex means this requirement verified.
                     ModelHelper.CaptureRequirement(
                         1890001,
-                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers (2), commonly known as Message ID structures ([MS-OXCDATA] section 2.2.1.2) for messages.");
+                        @"[In Identifying Objects and Maintaining Change Numbers] On creation, objects in the mailbox are assigned internal identifiers, commonly known as Message ID structures ([MS-OXCDATA] section 2.2.1.2) for messages.");
                 }
 
                 result = RopResult.Success;
@@ -1426,7 +1426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 result = RopResult.InvalidParameter;
                 ModelHelper.CaptureRequirement(
                     3509001,
-                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. <40> Section 3.2.5.9.4.2: Exchange 2010 and Exchange 2013 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
+                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. <40> Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
 
                 return result;
             }
@@ -1436,7 +1436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 result = RopResult.Success;
                 ModelHelper.CaptureRequirement(
                     350900201,
-                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. <40> Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
+                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. <41> Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
             }
 
             // Get ConnectionData value.
@@ -2142,7 +2142,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                     // Because only if result is success and the idcount larger than 0 indicate a range of internal identifiers (2) for the purpose of assigning them to client-originated objects in a local replica are allocated.
                     ModelHelper.CaptureRequirement(
                         925,
-                        @"[In RopGetLocalReplicaIds ROP] The RopGetLocalReplicaIds ROP ([MS-OXCROPS] section 2.2.13.13) allocates a range of internal identifiers (2) for the purpose of assigning them to client-originated objects in a local replica.");
+                        @"[In RopGetLocalReplicaIds ROP] The RopGetLocalReplicaIds ROP ([MS-OXCROPS] section 2.2.13.13) allocates a range of internal identifiers for the purpose of assigning them to client-originated objects in a local replica.");
                 }
             }
 
@@ -2255,7 +2255,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                         // When the ROP return invalid parameter this requirement verified.
                         ModelHelper.CaptureRequirement(
                         3442003,
-                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  <31> Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010 and Exchange Server 2013 follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  <31> Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010, Exchange Server 2013 and  Exchange Server 2016 follow this behavior.)");
                     }
                 }
 
@@ -3097,7 +3097,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                                         ModelHelper.CaptureRequirement(
                                                     2046,
                                                     @"[In Determining What Differences To Download] [For every object in the synchronization scope, servers MUST do the following:] If the NoDeletions flag of the SynchronizationFlags field is not set, include the deletions element, as specified in section 2.2.4.3.3, for objects that either: 
-Have their internal identifiers (2) present in the value of the MetaTagIdsetGiven property (section 2.2.1.1.1) and are missing from the server replica.Are folders that have never been reported as deleted folders.
+Have their internal identifiers present in the value of the MetaTagIdsetGiven property (section 2.2.1.1.1) and are missing from the server replica.Are folders that have never been reported as deleted folders.
 Are folders that have never been reported as deleted folders.");
 
                                         ModelHelper.CaptureRequirement(
@@ -3108,7 +3108,7 @@ Are folders that have never been reported as deleted folders.");
                                         ModelHelper.CaptureRequirement(
                                             2045,
                                             @"[In Determining What Differences To Download] [For every object in the synchronization scope, servers MUST do the following:] If the NoDeletions flag of the SynchronizationFlag field is not set, include the deletions element, as specified in section 2.2.4.3.3, for objects that either:
-	                                         Have their internal identifiers (2) present in the value of the MetaTagIdsetGiven property (section 2.2.1.1.1) and are missing from the server replica.Are folders that have never been reported as deleted folders.
+	                                         Have their internal identifiers present in the value of the MetaTagIdsetGiven property (section 2.2.1.1.1) and are missing from the server replica.Are folders that have never been reported as deleted folders.
                                             Are folders that have never been reported as deleted folders.");
 
                                         // Identify the current ExchangeServer Version.
@@ -3198,7 +3198,7 @@ Are folders that have never been reported as deleted folders.");
                                 abstractFastTransferStream.AbstractState.IdSetGiven = new Set<int>();
                                 ModelHelper.CaptureRequirement(
                                     350400101,
-                                    @"[In Appendix A: Product Behavior] Implementation does use this behavior. <39> Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.");
+                                    @"[In Appendix A: Product Behavior] Implementation does use this behavior. <40> Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.");
                             }
                             else
                             {
@@ -3442,7 +3442,7 @@ Are folders that have never been reported as deleted folders.");
                                                             newMessageChange.IsRTFformat = false;
                                                             ModelHelper.CaptureRequirement(
                                                                 3118002,
-                                                                @"[In Appendix A: Product Behavior] Implementation does only support the message body (2) which is always in the original format. [In Appendix A: Product Behavior]  <3> Section 2.2.3.1.1.1.1: In Exchange 2013, the message body (2) is always in the original format.");
+                                                                @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. <3> Section 2.2.3.1.1.1.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(2117002) && requirementContainer[2117002])
@@ -3453,7 +3453,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is not set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                 2117002,
-                                                                @"[In Appendix A: Product Behavior] <33> Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies (2) in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
+                                                                @"[In Appendix A: Product Behavior] <33> Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(3118003) && requirementContainer[3118003])
@@ -3475,7 +3475,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                    499001,
-                                                                   @"[In Appendix A: Product Behavior] Implementation does only support the message body (2) which is always in the original format. [In Appendix A: Product Behavior] <5> Section 2.2.3.1.1.3.1: In Exchange 2013, the message body (2) is always in the original format.");
+                                                                   @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. <5> Section 2.2.3.1.1.3.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(2182002) && requirementContainer[2182002])
@@ -3486,7 +3486,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                    2182002,
-                                                                   @"[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (<37> Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
+                                                                   @"[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (<38> Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
                                                         }
                                                     }
                                                 }
@@ -4332,7 +4332,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                     if (requirementContainer.ContainsKey(211501) && requirementContainer[211501])
                                     {
                                         abstractFastTransferStream.AbstractMessageContent.IsRTFFormat = false;
-                                        ModelHelper.CaptureRequirement(211501, @"[In Receiving a RopFastTransferSourceCopyTo ROP Request] Implementation does output the message body (2), and the body of the Embedded Message object, in their original format, if the BestBody flag of the CopyFlags field is set. (Microsoft Exchange Server 2007 and above follow this behavior.)");
+                                        ModelHelper.CaptureRequirement(211501, @"[In Receiving a RopFastTransferSourceCopyTo ROP Request] Implementation does output the message body, and the body of the Embedded Message object, in their original format, if the BestBody flag of the CopyFlags field is set. (Microsoft Exchange Server 2007 and above follow this behavior.)");
                                     }
 
                                     if (requirementContainer.ContainsKey(3118003) && requirementContainer[3118003])
@@ -4495,7 +4495,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             // The AttachmentPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as attachment.
                                             ModelHelper.CaptureRequirement(
                                                 2276,
-                                                @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients (1)) was filtered in, but was empty, and where it was filtered out.");
+                                                @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients) was filtered in, but was empty, and where it was filtered out.");
 
                                             ModelHelper.CaptureRequirement(
                                                 3464,
@@ -4517,7 +4517,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             // The RecipientPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as recipients.
                                             ModelHelper.CaptureRequirement(
                                                 2276,
-                                                @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients (1)) was filtered in, but was empty, and where it was filtered out.");
+                                                @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients) was filtered in, but was empty, and where it was filtered out.");
                                         }
                                     }
                                     else if (currentDownloadContext.RelatedFastTransferOperation == EnumFastTransferOperation.FastTransferSourceCopyTo)
@@ -4565,7 +4565,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                         // The RecipientPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as recipients.
                                         ModelHelper.CaptureRequirement(
                                             2276,
-                                            @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients (1)) was filtered in, but was empty, and where it was filtered out.");
+                                            @"[In Effect of Property and Subobject Filters on Download] Whenever subobject filters have an effect, servers MUST output a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) immediately before outputting subobjects of a particular type, to differentiate between the cases where a set of subobjects (such as attachments or recipients) was filtered in, but was empty, and where it was filtered out.");
                                     }
                                 }
                             }
@@ -4625,7 +4625,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                     if (requirementContainer.ContainsKey(211601) && requirementContainer[211601])
                                     {
                                         abstractFastTransferStream.AbstractMessageContent.IsRTFFormat = false;
-                                        ModelHelper.CaptureRequirement(211601, @"[In Receiving a RopFastTransferSourceCopyMessages ROP Request] Implementation does output the message body (2), and the body of the Embedded Message object, in their original format, If the BestBody flag of the CopyFlags field is set. (Microsoft Exchange Server 2007 and above follow this behavior.)");
+                                        ModelHelper.CaptureRequirement(211601, @"[In Receiving a RopFastTransferSourceCopyMessages ROP Request] Implementation does output the message body, and the body of the Embedded Message object, in their original format, If the BestBody flag of the CopyFlags field is set. (Microsoft Exchange Server 2007 and above follow this behavior.)");
                                     }
 
                                     if (requirementContainer.ContainsKey(499003) && requirementContainer[499003])
@@ -4822,7 +4822,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                     uploadContextHandleIndex = -1;
                     ModelHelper.CaptureRequirement(
                                   3492001,
-                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. <35> Section 3.2.5.8.2.1: Exchange 2010 and Exchange 2013 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.");
+                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. <36> Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.");
 
                     return result;
                 }
@@ -4859,7 +4859,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                     // Exchange 2007 ignore unknown values of the CopyFlags field.
                     ModelHelper.CaptureRequirement(
                                   3492002,
-                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. <36> Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.");
+                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. <37> Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.");
 
                     return result;
                 }

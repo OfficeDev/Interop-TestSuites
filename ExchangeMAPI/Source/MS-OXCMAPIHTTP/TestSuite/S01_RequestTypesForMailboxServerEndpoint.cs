@@ -70,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 connectResponse.DNPrefix.EndsWith("\0"),
                 215,
-                @"[In Connect Request Type Success Response Body] DnPrefix: A null-terminated ASCII string that specifies the DN (1) prefix to be used for building message recipients (1).");
+                @"[In Connect Request Type Success Response Body] DnPrefix (variable): A null-terminated ASCII string that specifies the DN (1) prefix to be used for building message recipients (1).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R216: the DisplayName field in Connect success response should is {0} and actual is  {1}", this.AdminUserName.Replace("\0", string.Empty), connectResponse.DisplayName.Replace("\0", string.Empty));
@@ -79,7 +79,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsTrue(
                 string.Compare(this.AdminUserName, connectResponse.DisplayName, true) == 0,
                 216,
-                @"[In Connect Request Type Success Response Body] DisplayName: A null-terminated Unicode string that specifies the display name of the user who is specified in the UserDn field of the Connect request type request body.");
+                @"[In Connect Request Type Success Response Body] DisplayName (variable): A null-terminated Unicode string that specifies the display name of the user who is specified in the UserDn field of the Connect request type request body.");
 
             Site.Assert.IsNotNull(
                 headers["Set-Cookie"],
@@ -93,7 +93,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             // So the requirement R1219 is verified.
             this.Site.CaptureRequirement(
                 1219,
-                @"[In Responding to a Connect or Bind Request Type Request] The server creates a new Session Context and associates it with a session context cookie, and includes the Connect request type response body as specified in section 2.2.4.1.2 if successful.");
+                @"[In Responding to a Connect or Bind Request Type Request] The server creates a new Session Context and associates it with a session context cookie.");
+
+            // According to steps above, the server returned the Connect success response body are included in the response.
+            // So the requirement R2224 is verified.
+            this.Site.CaptureRequirement(
+                2224,
+                @"[In Responding to a Connect or Bind Request Type Request] If successful, the server's response includes the Connect request type success response body, as specified in section 2.2.4.1.2.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2226");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2226
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                0,
+                connectResult,
+                2226,
+                @"[In Responding to All Request Type Requests] After the request has been authorized, authenticated, parsed, and validated, the server MUST return a X-ResponseCode with a value of 0 (zero) to indicate that the request has been accepted.");
             #endregion
 
             #region Send an Execute request type that is used to send Logon ROP to server.
@@ -125,7 +141,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 expectClientInfo,
                 actualClientInfo,
                 156,
-                @"[In X-ClientInfo Header Field] The server MUST return this header [X-ClientInfo] with the same opaque information in the response back to the client.");
+                @"[In X-ClientInfo Header Field] The server MUST return this header [X-ClientInfo] with the same information in the response back to the client.");
 
             string secondGUIDPortionOfRequestId = executeHeaders["X-RequestId"].Substring(0, executeHeaders["X-RequestId"].IndexOf(":"));
             int secondCounterOfRequestId = int.Parse(executeHeaders["X-RequestId"].Substring(executeHeaders["X-RequestId"].IndexOf(":") + 1));
@@ -138,7 +154,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 firstGUIDPortionOfRequestId,
                 secondGUIDPortionOfRequestId,
                 1432,
-                @"[In X-RequestId Header Field] The GUID portion of the X-RequestId header is same in two different responses in one client instance.");
+                @"[In X-RequestId Header Field] The GUID portion of the X-RequestId header is same in two different responses in one Session Contexts.");
 
             Site.Assert.AreEqual<int>(firstCounterOfRequestId + 1, secondCounterOfRequestId, "The counter portion of X-RequesutId header value should increase with every new HTTP request.");
 
@@ -173,7 +189,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 responseBody,
                 1250,
-                @"[In Responding to a Disconnect or Unbind Request Type Request] The server sends a response of the Disconnect request type, as specified in section 2.2.2.2, including the response body that is specified in section 2.2.4.3.2 if the request was successful.");
+                @"[In Responding to a Disconnect or Unbind Request Type Request] The server sends a response, as specified in section 2.2.2.2, to a Disconnect request type or Unbind request type request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2234");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2234
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+                responseBody,
+                typeof(DisconnectSuccessResponseBody),
+                2234,
+                @"[In Responding to a Disconnect or Unbind Request Type Request] If successful, the server's response includes the Disconnect request type success response body, as specified in section 2.2.4.3.2.");
             #endregion
 
             #region Send an Execute request after disconnect with server.
@@ -217,12 +243,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 10,
                 responseCodeAfterDisconenct,
                 1253,
-                @"[In Responding to a Disconnect or Unbind Request Type Request] If the client attempts to use this session context cookie [which is released by server] again, the server MUST fail the request to indicate to the client that the Session Context is no longer valid.");
+                @"[In Responding to a Disconnect or Unbind Request Type Request] If the client attempts to use an invalid session context cookie [which is released by server] in a request, the server MUST fail the request to indicate to the client that the Session Context is not valid.");
 
-            // The above capture codes ensures that all state information associated with the Session Context and the session context cookies are no longer available after disconnecting with server. So R1252 can be verified directly.
-            this.Site.CaptureRequirement(
-                1252,
-                @"[In Responding to a Disconnect or Unbind Request Type Request] If successful, the server releases all state information associated with the Session Context and invalidates the associated session context cookie (and all other cookies) passed in the request.");
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2236");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2236
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                10,
+                responseCodeAfterDisconenct,
+                2236,
+                @"[In Responding to a Disconnect or Unbind Request Type Request] Once the session context cookie has been invalidated by the server, the client cannot use it in subsequent requests.");
             #endregion
 
             #region Send a valid Connect request type to establish a Session Context with the server.
@@ -237,7 +268,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 firstGUIDPortionOfRequestId,
                 thirdGUIDPortionOfRequestId,
                 1464,
-                @"[In X-RequestId Header Field] The GUID portion of the X-RequestId header is different for different client instance.");
+                @"[In X-RequestId Header Field] The GUID portion of the X-RequestId header is different for different Session Contexts.");
             #endregion
 
             #region Send a Disconnect request type request to destroy the Session Context.
@@ -407,6 +438,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 AdapterHelper.GetFinalResponseCode(executeHeaders["X-ResponseCode"]),
                 141,
                 @"[In X-ResponseCode Header Field] Invalid Request Type (5): The request has an invalid X-RequestType header.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2232");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2232
+            this.Site.CaptureRequirementIfIsNull(
+                responseBody,
+                2232,
+                @"[In Responding to All Request Type Requests] If an additional X-ResponseCode header is returned and if it indicates a failure, then the response body can be empty or can include failure data in a format that is specified by an additional Content-Type header as specified in section 2.2.3.2.2.");
+
             #endregion
 
             #region Send an Execute request which misses cookie.
@@ -672,28 +713,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 @"[In Response Meta-Tags] DONE: The server has completed the processing of the request and additional response headers and the response body follow the DONE meta-tag.");
 
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1268");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1268
-            // According to the Open Specification, the final response must include the DONE meta-tag. And the response body is parsed according to the description of this requirement.
-            // So if the last meta-tag is DONE and code can reach here, MS-OXCMAPIHTTP_R1136 can be verified.
-            this.Site.CaptureRequirementIfAreEqual<string>(
-                "DONE",
-                metaTags[metaTags.Count - 1],
-                1268,
-                @"[In Using Response Meta-Tags] When the request finally completes, the server's final response MUST include the DONE meta-tag followed by additional response headers, such as a final X-ResponseCode header, and then, ultimately, the Execute request type response data.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1264");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1264
-            this.Site.CaptureRequirementIfAreEqual<uint>(
-                0,
-                AdapterHelper.GetFinalResponseCode(executeHeaders["X-ResponseCode"]),
-                1264,
-                @"[In Using Response Meta-Tags] After the request has been authorized, authenticated, parsed, and validated, the server MUST return a X-ResponseCode with a value of 0 (zero) to indicate that the request has been accepted.");
-
-            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1266. The header value of Transfer-Encoding is {0} and Content-Length is {1}.", executeHeaders["Transfer-Encoding"], executeHeaders["Content-Length"]);
 
             // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1266
@@ -701,8 +720,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR1266,
-                1266,
-                @"[In Using Response Meta-Tags] If the server is using the ""chunked"" transfer coding, it MUST flush this [""chunked"" transfer coding] to the client (being careful to make sure it disables any internal Nagle algorithms, as described in [RFC896], that might attempt to buffer response data).");
+                2227,
+                @"[In Responding to All Request Type Requests] If the server is using the ""chunked"" transfer coding, it MUST flush this to the client (being careful to make sure it disables any internal Nagle algorithms, as described in [RFC896], that might attempt to buffer response data).");
 
             // Add the debug information
             this.Site.Log.Add(
@@ -741,7 +760,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 metaTags[metaTags.Count - 1],
                 "DONE",
                 1244,
-                @"[In Responding to All Request Type Requests] After the server finishes processing the request it finishes the ""chunked"" inner response stream with the DONE meta-tag, as specified in section 2.2.7; followed by the final X-ResponseCode header, as specified in section 2.2.3.3.3; and the request type response body for the initiating request type.");
+                @"[In Responding to All Request Type Requests] After the server finishes processing the request it finishes with the DONE meta-tag, as specified in section 2.2.7; followed by any additional response headers.");
 
             #endregion
             #endregion
@@ -862,14 +881,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1375");
 
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1375
-            // A pending event is registered in step 3 and triggered in step 4, so MS-OXCMAPIHTTP_R1375 can be verified if the value of EventPending flag is 0x00000001.
-            this.Site.CaptureRequirementIfAreEqual<uint>(
-                0x00000001,
-                notificationWaitResponseBody.EventPending,
-                1375,
-                @"[In NotificationWait Request Type Success Response Body] NotificationPending (0x00000001): Signals that events are pending for the client on the Session Context on the server.");
-
             // The pending event is registered and triggered in the above steps, so MS-OXCMAPIHTTP_R1258 can be verified if code can reach here.
             this.Site.CaptureRequirement(
                 1258,
@@ -902,7 +913,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             this.Site.CaptureRequirementIfIsNotNull(
                 executeSuccessResponse.RopBuffer,
                 318,
-                @"[In NotificationWait Request Type Success Response Body] [ulFlagsOut] [NotificationPending (0x00000001)] The server will return the event details in the Execute request type response buffer.");
+                @"[In NotificationWait Request Type Success Response Body] [EventPending] The server will return the event details in the Execute request type response body.");
             #endregion
 
             #region Send a Disconnect request to destroy the Session Context.
@@ -932,6 +943,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             List<string> metaTags = new List<string>();
 
             ExecuteSuccessResponseBody executeSuccessResponse = this.SendExecuteRequest(requestBody, ref executeHeaders, out metaTags) as ExecuteSuccessResponseBody;
+            #region Capture code
+            string pendingPeriodHeader = executeHeaders["X-PendingPeriod"];
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1182");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1182
+            this.Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(pendingPeriodHeader),
+                1182,
+                @"[In Handling a Chunked Response] The immediate response includes an X-PendingPeriod header, specified in section 2.2.3.3.5, to tell the client the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream during the time a request is currently being processed on the server.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1183");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1183
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "15000",
+                pendingPeriodHeader,
+                1183,
+                @"[In Handling a Chunked Response] The default value for the keep-alive interval is 15 seconds, until the request is done.");
+            #endregion
             #endregion
 
             #region Call NotificationWait Request Type to get the pending event.
@@ -1102,6 +1135,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             AdapterHelper.ClientInstance = Guid.NewGuid().ToString();
             AdapterHelper.Counter = 1;
             headers = AdapterHelper.InitializeHTTPHeader(RequestType.Connect, AdapterHelper.ClientInstance, AdapterHelper.Counter);
+            string requestIdValue = headers["X-RequestId"];
             cookies = new CookieCollection();
             this.Adapter.Connect(this.AdminUserName, this.AdminUserPassword, this.AdminUserDN, ref cookies, out response, ref headers, out httpStatusCodeSucceed);
             Site.Assert.AreEqual<uint>(0, uint.Parse(headers["X-ResponseCode"]), "The server should return a Status 0 in X-ResponseCode header if client connect to server succeeded.");
@@ -1115,6 +1149,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 httpStatusCodeSucceed,
                 48,
                 @"[In Common Response Format] The server returns a ""200 OK"" HTTP status code when the request succeeds.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2040");
+
+            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R2040
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                requestIdValue,
+                headers["X-RequestId"],
+                2040,
+                @"[In X-RequestId Header Field] the server MUST return this header [X-RequestId] with the same information in the response back to the client.");
             #endregion
 
             #region Send a Disconnect request type request to destroy the Session Context.

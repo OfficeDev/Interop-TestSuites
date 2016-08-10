@@ -3,15 +3,16 @@
   <Description>These are the default test settings for running all MS-OXCSTOR test cases.</Description>
   <Deployment>
     <DeploymentItem filename="MS-OXCSTOR.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCSTOR_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-OXCSTOR_TestSuite.ptfconfig" />
-    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
-    <DeploymentItem filename="TestSuite\MS-OXCSTOR_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\" />
-    <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\MS-OXCSTOR_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

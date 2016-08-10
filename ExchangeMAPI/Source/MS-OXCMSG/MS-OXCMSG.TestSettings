@@ -2,14 +2,15 @@
 <TestSettings name="MS-OXCMSG" id="6f34cecb-9a0b-4979-b94f-187ae43011d5" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXCMSG test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXCMSG.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCMSG_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
-    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCMSG_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXCMSG_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCMSG_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCMSG.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
+    <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>

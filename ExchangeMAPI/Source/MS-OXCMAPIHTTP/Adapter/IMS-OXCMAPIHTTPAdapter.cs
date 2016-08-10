@@ -117,6 +117,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         GetPropsResponseBody GetProps(GetPropsRequestBody getPropsRequestBody);
 
         /// <summary>
+        /// This method is used by the client to get specific properties on an object.
+        /// </summary>
+        /// <param name="getPropsRequestBody">The GetProps request type request body.</param>
+        /// <param name="responseCodeHeader">The value of X-ResponseCode header</param>
+        /// <returns>The response body of the GetProps request type.</returns>
+        GetPropsResponseBody GetProps(GetPropsRequestBody getPropsRequestBody, out uint responseCodeHeader);
+
+        /// <summary>
         /// This method is used by the client to get a special table, which can be either an address book hierarchy table or an address creation table.
         /// </summary>
         /// <param name="getSpecialTableRequestBody">The GetSpecialTable request type request body.</param>

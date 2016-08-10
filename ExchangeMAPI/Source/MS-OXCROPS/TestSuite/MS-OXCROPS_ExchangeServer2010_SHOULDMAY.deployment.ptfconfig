@@ -63,7 +63,7 @@
       <!-- Set R8670901Enabled to true to verify that the implementation does implement the RopCopyToStream ROP. Set R8670901Enabled to false to disable this requirement.-->
       <Property name="R8670901Enabled" value="false"/>
       <!-- Set R6000101Enabled to true to verify that if a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field. Set R6000101Enabled to false to disable this requirement.-->
-      <Property name="R6000101Enabled" value="true"/>
+      <Property name="R6000101Enabled" value="false"/>
       <!-- Set R469303Enabled to true to verify that the implementation does include a RopPending ROP response even though the ROP output buffer contains all queued RopNotify ROP responses. Set R469303Enabled to false to disable this requirement.-->
       <Property name="R469303Enabled" value="false"/>
       <!-- Set R4693031Enabled to true to verify that the implementation does not include a RopPending ROP response if the ROP output buffer contains all queued RopNotify ROP responses. Set R4693031Enabled to false to disable this requirement.-->
@@ -74,5 +74,7 @@
       <Property name="R5000Enabled" value="false"/>
       <!-- Set R5001Enabled to true to verify that the implementation does support an ncacn_ip_tcp transport. Set R5001Enabled to false to disable this requirement.-->
       <Property name="R5001Enabled" value="true"/>
+      <!-- Set R20009Enabled to true to verify that the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value. Set R20009Enabled to false to disable this requirement.-->
+      <Property name="R20009Enabled" value="false"/>
   </Properties>
 </TestSite>

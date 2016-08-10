@@ -442,5 +442,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             return aux_client_connectionInfo.Serialize();
         }
         #endregion
+
+        /// <summary>
+        /// Convert the three DWORD version into a normalized version.
+        /// </summary>
+        /// <param name="version">The three DWORD version.</param>
+        /// <param name="normalizeVersion">The returned normalized version.</param>
+        public static void ConvertVersion(ushort[] version, out ushort[] normalizeVersion)
+        {
+            normalizeVersion = new ushort[ConstValues.NormalizedVersionSize];
+
+            if ((version[1] & ConstValues.HighBitMask) != 0)
+            {
+                normalizeVersion[0] = (ushort)((version[0] & ConstValues.HighByteMask) >> ConstValues.StepDistanceOfOneByte);
+                normalizeVersion[1] = (ushort)(version[0] & ConstValues.LowByteMask);
+                normalizeVersion[2] = (ushort)(version[1] & (~ConstValues.HighBitMask));
+                normalizeVersion[3] = version[2];
+            }
+            else
+            {
+                normalizeVersion[0] = version[0];
+                normalizeVersion[1] = 0;
+                normalizeVersion[2] = version[1];
+                normalizeVersion[3] = version[2];
+            }
+        }
     }
 }

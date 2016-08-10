@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
+﻿namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 {
     using System;
     using System.Collections.Generic;
@@ -866,7 +866,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagBodyHtml],
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagRtfCompressed],
                 PropertyHelper.PropertyTagDic[PropertyNames.PidTagRtfInSync],
-                PropertyHelper.PropertyTagDic[PropertyNames.PidTagInternetCodepage]
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagInternetCodepage],
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagObjectType],
+                PropertyHelper.PropertyTagDic[PropertyNames.PidTagRecordKey]
             };
 
             propertyValues = this.GetSpecificPropertiesOfMessage(logonResponse.FolderIds[4], saveMessageResp.MessageId, this.insideObjHandle, propertiesOfMessage);
@@ -1889,6 +1891,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             propertyNameList.Add(contentClassName);
             PropertyNameObject contentType = new PropertyNameObject(PropertyNames.PidNameContentType, "Content-Type", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
             propertyNameList.Add(contentType);
+            PropertyNameObject keywords = new PropertyNameObject(PropertyNames.PidNameKeywords, "Keywords", PropertySet.PSPUBLICSTRINGS, PropertyType.PtypMultipleString);
+            propertyNameList.Add(keywords);
 
             #region Call RopCreateMessage to create Message object.
             targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
@@ -1899,6 +1903,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.SetNamedProperty(targetMessageHandle, acceptLanguageName, Common.GetBytesFromUnicodeString(TestDataOfPidNameAcceptLanguage));
             this.SetNamedProperty(targetMessageHandle, contentClassName, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentClass));
             this.SetNamedProperty(targetMessageHandle, contentType, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentType));
+            this.SetNamedProperty(targetMessageHandle, keywords, Common.GetBytesFromMutiUnicodeString(new string[] { TestDataOfPidNameKeywords }));
             #endregion
 
             #region Get properties value in message

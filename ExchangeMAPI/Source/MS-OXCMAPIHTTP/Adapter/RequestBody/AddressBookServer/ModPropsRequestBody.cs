@@ -32,7 +32,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropTagArray structure that specifies the properties that the client is requesting to be removed.
         /// </summary>
-        public LargePropTagArray PropertyTagsToRemove { get; set; }
+        public LargePropertyTagArray PropertyTagsToRemove { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the PropertyValues field is present.
@@ -40,9 +40,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         public bool HasPropertyValues { get; set; }
 
         /// <summary>
-        /// Gets or sets a buffer of AddressBookPropValueList structure that specifies the properties to modified.
+        /// Gets or sets a buffer of AddressBookPropertyValueList structure that specifies the properties to modified.
         /// </summary>
-        public AddressBookPropValueList PropertyVaules { get; set; }
+        public AddressBookPropertyValueList PropertyVaules { get; set; }
 
         /// <summary>
         /// Serialize the instance to byte array.

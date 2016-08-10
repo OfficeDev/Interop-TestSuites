@@ -63,13 +63,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         uint CheckPidTagMemberRightsBehavior(PermissionTypeEnum permission, string userName);
 
         /// <summary>
-        /// The user connects to the server and logons to the mailbox of the user configured by "User2Name" in ptfconfig.
+        /// The user connects to the server and logons to the mailbox of the user configured by "AdminUserName" in ptfconfig.
         /// </summary>
-        /// <param name="userName">The user to logon to the mailbox of the user configured by "User2Name" in ptfconfig</param>
+        /// <param name="userName">The user to logon to the mailbox of the user configured by "AdminUserName" in ptfconfig</param>
         void Logon(string userName);
 
         /// <summary>
-        /// Create a new message in the mail box folder of the user configured by "User2Name" by the logon user.
+        /// Create a new message in the mail box folder of the user configured by "AdminUserName" by the logon user.
         /// </summary>
         /// <returns>The return value from the server. 0x00000000 indicates success, others indicate error occurs.</returns>
         uint CreateMessageByLogonUser();

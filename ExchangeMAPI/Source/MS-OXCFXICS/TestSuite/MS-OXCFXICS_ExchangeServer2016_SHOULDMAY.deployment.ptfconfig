@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R1111Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, implementation does not include any data following the MetaTagNewFXFolder meta-property in the buffer 
+    returned by the RopFastTransferSourceGetBuffer ROP, if there is a valid replica (1) of the public folder on the server and the folder content has not replicated to the server yet, 
+    the folder content is not included in the FastTransfer stream as part of the folderContent element, as specified in section 2.2.4.3.6. 
+    Set R1111Enabled to false to disable this requirement. -->
+    <Property name="R1111Enabled" value="false"/>
+    <!-- Set R5561Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, implementation does only have TransferBuffer field 
+    in RopFastTransferSourceGetBuffer ROP Response Buffer if the value of the ReturnValue field is Success (0x00000000), as specified in section 2.2.3.1.1.5.2. 
+    Set R5561Enabled to false to disable this requirement. -->
+    <Property name="R5561Enabled" value="true"/>
+    <!-- Set R3134Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, in RopFastTransferSourceCopyMessages request, if SendEntryId(0x20) of CopyFlags is not set, the PidTagSourceKey, 
+    PidTagChangeKey, PidTagLastModificationTime, PidTagPredecessorChangeList, and PidTagOriginalEntryId properties are not included in the FastTransfer stream, 
+    as specified in section 2.2.3.1.1.3.1. Set R3134Enabled to false to disable this requirement. -->
+    <Property name="R3134Enabled" value="true"/>
+    <!-- Set R3150001Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, implementation does not set the NoRoom value for TransferStatus field, as specified in 
+    section 2.2.3.1.1.5.2. Set R3150001Enabled to false to disable this requirement. -->
+    <Property name="R3150001Enabled" value="false"/>
+    <!--Set R315000201Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, in RopFastTransferSourceGetBuffer response, implementation does support NoRoom value for 
+    TransferStatus field, as specified in section 2.2.3.1.1.5.2. Set R315000201Enabled to false to disable this requirement.-->
+    <Property name="R315000201Enabled" value="true"/>
+    <!--Set R348901Enabled to true to verify for RopFastTransferSourceGetBuffer ROP, Implementation does fail the successive calls with the same error as previous failed operations, 
+    as specified in section 3.2.5.8.1.5. Set R348901Enabled to false to disable this requirement.-->
+    <Property name="R348901Enabled" value="true"/>
+
+    <!-- Set R2117002Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, the implementation does support the BestBody flag, if the BestBody flag of the CopyFlags field is not set, 
+    implementation does output message bodies (2) in the compressed RTF, as specified in section 3.2.5.8.1.3. 
+    Set R2117002Enabled to false to disable this requirement. -->
+    <Property name="R2117002Enabled" value="false"/>
+    <!-- Set R499001Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, the implementation does only support the message body (2) in the original format, 
+    as specified in section 2.2.3.1.1.3.1. Set R499001Enabled to false to disable this requirement. -->
+    <Property name="R499001Enabled" value="true"/>
+    <!-- Set R499003Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, the implementation does support the BestBody CopyFlags flag,, 
+    as specified in section 2.2.3.1.1.3.1. Set R499003Enabled to false to disable this requirement. -->
+    <Property name="R499003Enabled" value="false"/>
+    <!--Set R2631Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, implementation does not output any objects in a FastTransfer stream that the client does not have 
+    permissions to delete, if the Move flag of the CopyFlags field is set for a download operation, as specified in section 3.2.5.8.1.3.
+    Set R2631Enabled to false to disable this requirement.  -->
+    <Property name="R2631Enabled" value="true"/>
+    <!--Set R3479Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyMessage request if any unknown SendOptions flag bits are set, as specified in section 3.2.5.8.1.3. Set R3479Enabled to false to disable this requirement.-->
+    <Property name="R3479Enabled" value="true"/>
+    <!--Set R211601Enabled to true to verify for RopFastTransferSourceCopyMessages ROP, implementation does output the message body (2), and the body of the Embedded Message object, in their original format, 
+    if the BestBody flag of the CopyFlags field is set, as specified in section 3.2.5.8.1.3. Set R211601Enabled to false to disable this requirement.-->
+    <Property name="R211601Enabled" value="true"/>
+    
+    <!-- Set R31701Enabled to true to verify for RopFastTransferDestinationPutBuffer ROP, implementation does set the InProgressCount field to 0x0000 in RopFastTransferDestinationPutBuffer 
+    ROP Response Buffer, as specified in section 2.2.3.1.2.2.2. Set R31701Enabled to false to disable this requirement. -->
+    <Property name="R31701Enabled" value="true"/>
+    <!-- Set R318200101Enabled to true to verify for RopFastTransferDestinationPutBuffer ROP, in RopFastTransferDestinationPutBuffer Response Buffer, implementation does return a value for 
+    the BufferSizeUsed field that is equal to the value of the TransferDataSize field, as specified in section 2.2.3.1.2.2.2. 
+    Set R318200101Enabled to false to disable this requirement. -->
+    <Property name="R318200101Enabled" value="true"/>
+    <!--Set R3178001Enabled to true to verify for RopFastTransferDestinationPutBuffer ROP, in RopFastTransferDestinationPutBuffer ROP response, implementation does set TotalStepCount 
+    value to 0x0000, as specified in section 2.2.3.1.2.2.2. Set R3178001Enabled to false to disable this requirement.-->
+    <Property name="R3178001Enabled" value="true"/>
+    <!--Set R317800201Enabled to true to verify for RopFastTransferDestinationPutBuffer ROP, in RopFastTransferDestinationPutBuffer ROP response, implementation does set TotalStepCount 
+    value to 0x0001, as specified in section 2.2.3.1.2.2.2. Set R317800201Enabled to false to disable this requirement.-->
+    <Property name="R317800201Enabled" value="false"/>
+
+    <!--Set R3492001Enabled to true to verify for RopFastTransferDestinationConfigure ROP, if unknown flags in the CopyFlags field are set, implementation does fail the operation, 
+    as specified in section 3.2.5.8.2.1. Set R3492001Enabled to false to disable this requirement.-->
+    <Property name ="R3492001Enabled" value ="true"/>
+    <!--Set R3492002Enabled to true to verify for RopFastTransferDestinationConfigure ROP, if unknown flags in the CopyFlags field are set, implementation does not fail the operation, 
+    as specified in section 3.2.5.8.2.1. Set R3492002Enabled to false to disable this requirement.-->
+    <Property name ="R3492002Enabled" value ="false"/>
+
+    <!--Set R3454Enabled to true to verify for RopFastTransferSourceCopyTo ROP, in RopFastTransferSourceCopyTo Request, when UseCpid only, the properties are not stored in Unicode 
+    on the server, the server MUST send the string using the code page property type of the code page in which the property is stored on the server, as specified in section 3.2.5.8.1.1. 
+    Set R3454Enabled to false to disable this requirement.-->
+    <Property name ="R3454Enabled" value ="false"/>
+    <!-- Set R3118002Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does only support the message body (2) in the original format, 
+    as specified in section 2.2.3.1.1.1.1. Set R3118002Enabled to false to disable this requirement. -->
+    <Property name="R3118002Enabled" value="true"/>
+    <!-- Set R3118003Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does support the BestBody CopyFlags flag, as specified in section 2.2.3.1.1.1.1. 
+    Set R3118003Enabled to false to disable this requirement. -->
+    <Property name="R3118003Enabled" value="false"/>
+    <!--Set R2667Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does not output any objects in a FastTransfer stream that the client does not have permissions 
+    to delete, if the Move flag of the CopyFlags field is set, as specified in section 3.2.5.8.1.1. Set R2667Enabled to false to disable this requirement.  -->
+    <Property name="R2667Enabled" value="true"/>
+    <!--Set R3445Enabled to true to verify for RopFastTransferSourceCopyTo ROP, in RopFastTransferSourceCopyTo request, implementation does fail the ROP if unknown CopyFlags flag bits 
+    are set, as specified in section 3.2.5.8.1.1. Set R3445Enabled to false to disable this requirement.-->
+    <Property name="R3445Enabled" value="true"/>
+    <!--Set R3463Enabled to true to verify for RopFastTransferSourceCopyTo ROP, in RopFastTransferSourceCopyTo request, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyTo request if any unknown SendOptions flag bits are set, as specified in section 3.2.5.8.1.1. Set R3463Enabled to false to disable this requirement.-->
+    <Property name="R3463Enabled" value="true"/>
+    <!--Set R3442001Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does not support the Move flag, as specified in section 6. 
+    Set R3442001Enabled to false to disable this requirement.-->
+    <Property name="R3442001Enabled" value="true"/>
+    <!--Set R3442002Enabled to true to verify for RopFastTransferSourceCopyTo ROP, Implementation does support the Move flag, as specified in section 6. 
+    Set R3442002Enabled to false to disable this requirement.-->
+    <Property name="R3442002Enabled" value="false"/>
+    <!--Set R3442003Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does fail the operation with an error code InvalidParameter (0x80070057)
+    if the server receives the Move flag, as specified in section 6. Set R3442003Enabled to false to disable this requirement.-->
+    <Property name="R3442003Enabled" value="true"/>
+    <!--Set R3442004Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does not fail the operation, as specified in section 6. 
+    Set R3442004Enabled to false to disable this requirement.-->
+    <Property name="R3442004Enabled" value="false"/>
+    <!--Set R211501Enabled to true to verify for RopFastTransferSourceCopyTo ROP, implementation does output the message body (2), and the body of the Embedded Message object, in their original format, 
+    if the BestBody flag of the CopyFlags field is set, as specified in section 3.2.5.8.1.1. Set R211501Enabled to false to disable this requirement.-->
+    <Property name="R211501Enabled" value="true"/>
+
+    <!-- Set R90205002Enabled to true to verify for RopSynchronizationImportDeletes ROP, implementation does support HardDelete flag, as specified in section 2.2.3.2.4.5.1. 
+    Set R90205002Enabled to false to disable this requirement. -->
+    <Property name="R90205002Enabled" value="true"/>
+    <!--Set R2652Enabled to true to verify for RopSynchronizationImportDeletes ROP, implementation does record deletions of objects that never existed in the server replica, 
+    in order to prevent the RopSynchronizationImportHierarchyChange (section 2.2.3.2.4.3) or RopSynchronizationImportMessageChange (section 2.2.3.2.4.2) ROPs from restoring them back,
+    as specified in section 3.2.5.9.4.5. Set R2652Enabled to false to disable this requirement.-->
+    <Property name="R2652Enabled" value="true"/>
+    <!--Set R35121Enabled to true to verify for RopSynchronizationImportDeletes ROP, implementation does fail the ROP before performing any deletions, as opposed to partially 
+    completing the ROP, if a deletion will not succeed, as specified in section 3.2.5.9.4.5. Set R35121Enabled to false to disable this requirement.-->
+    <Property name="R35121Enabled" value="true"/>
+    <!--Set R2254001Enabled to true to verify for RopSynchronizationImportDeletes ROP, in RopSynchronizationImportDeletes request, implementation does fail the ROP if unknown 
+    ImportDeleteFlags flag bits are set, as specified in section 3.2.5.9.4.5. Set R2254001Enabled to false to disable this requirement.-->
+    <Property name="R2254001Enabled" value="false"/>
+    <!--Set R2593Enabled to true to verify for RopSynchronizationImportDeletes ROP, in RopSynchronizationImportDeletes request, the HardDelete flag is not supported by Exchange 2003 
+    or Exchange 2007, as specified in section 2.2.3.2.4.5.1. Set R2593Enabled to false to disable this requirement.-->
+    <Property name="R2593Enabled" value="false"/>
+
+    <!--Set R3509001Enabled to true to verify for RopSynchronizationImportMessageChange ROP, implementation does fail the operation if unknown flags are set, as specified in section 3.2.5.9.4.2. 
+    Set R3509001Enabled to false to disable this requirement.-->
+    <Property name ="R3509001Enabled" value ="true"/>
+    <!--Set R350900201Enabled to true to verify for RopSynchronizationImportMessageChange ROP, implementation does not fail the operation if unknown flags are set, as specified in 
+    section 3.2.5.9.4.2. Set R350900201Enabled to false to disable this requirement.-->
+    <Property name ="R350900201Enabled" value ="false"/>
+
+    <!--Set R3793001Enabled to true to verify for RopFastTransferSourceCopyFolder ROP, implementation does ignore this Move bit flag on receipt, as specified in section 2.2.3.1.1.4.1. 
+    Set R3793001Enabled to false to disable this requirement.-->
+    <Property name="R3793001Enabled" value="false"/>
+    <!--Set R3483Enabled to true to verify for RopFastTransferSourceCopyFolder ROP, in RopFastTransferSourceCopyFolder request, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyFolder request if any unknown CopyFlags flag bits are set, as specified in section 3.2.5.8.1.4. Set R3483Enabled to false to disable this requirement.-->
+    <Property name="R3483Enabled" value="true"/>
+    <!--Set R3487Enabled to true to verify for RopFastTransferSourceCopyFolder ROP, in RopFastTransferSourceCopyFolder request, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyFolder request if any unknown SendOptions flag bits are set as specified in section 3.2.5.8.1.4. Set R3487Enabled to false to disable this requirement.-->
+    <Property name="R3487Enabled" value="true"/>
+    <!--Set R526001Enabled to true to verify for RopFastTransferSourceCopyFolder ROP, in RopFastTransferSourceCopyFolder request, implementation does set the Move flag on a download 
+    operation to indicate the following: The server does not output any objects in a FastTransfer stream that the client does not have permissions to delete, 
+    as specified in 2.2.3.1.1.4.1. Set R526001Enabled to false to disable this requirement.-->
+    <Property name="R526001Enabled" value="false"/>
+    <!--Set R3513001Enabled to true to verify for RopSynchronizationImportReadStateChanges ROP, Implementation does support fail the ROP before performing any read state changes, as opposed to partially completing the ROP if a read state change will not succeed. Set R3513001Enabled to false to disable this requirement.-->
+    <Property name="R3513001Enabled" value="false"/>
+
+    <!--Set R2669Enabled to true to verify for RopFastTransferSourceCopyProperties ROP, implementation does not output any objects in a FastTransfer stream that the client does not have 
+    permissions to delete, if the Move flag of the CopyFlags field is specified for a download operation, as specified in section 3.2.5.8.1.2.
+    Set R2669Enabled to false to disable this requirement.  -->
+    <Property name="R2669Enabled" value="true"/>
+    <!--Set R3466Enabled to true to verify for RopFastTransferSourceCopyProperties ROP, in RopFastTransferSourceCopyProperties request, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyProperties request if any unknown CopyFlag flag bits are set, as specified in section 3.2.5.8.1.2. Set R3466Enabled to false to disable this requirement.-->
+    <Property name="R3466Enabled" value="true"/>
+    <!--Set R3470Enabled to true to verify for RopFastTransferSourceCopyProperties ROP, in RopFastTransferSourceCopyProperties request, implementation does fail the ROP in receiving a 
+    RopFastTransferSourceCopyProperties request if any unknown SendOptions flag bits are set as specified in section 3.2.5.8.1.2. Set R3470Enabled to false to disable this requirement.-->
+    <Property name="R3470Enabled" value="true"/>
+    
+    <!--Set R2675Enabled to true to verify for RopSynchronizationConfigure ROP, implementation does inject the progressTotal element, as specified in section 2.2.4.3.19, into the 
+    FastTransfer stream, if the Progress flag of the SynchronizationFlag field is set, as specified in section 3.2.5.9.1.1. Set R2675Enabled to false to disable this requirement.  -->
+    <Property name="R2675Enabled" value="true"/>
+    <!--Set R3498Enabled to true to verify for RopSynchronizationConfigure ROP, in RopSynchronizationConfigure request, implementation does fail the ROP if unknown flag bits are set, 
+    as specified in section 3.2.5.9.1.1. Set R3498Enabled to false to disable this requirement.-->
+    <Property name="R3498Enabled" value="true"/>
+    <!--Set R34991Enabled to true to verify for RopSynchronizationConfigure ROP, in RopSynchronizationConfigure request, implementation does not fail the ROP if additional flags, 
+    used only in server-to-server communications are set, as specified in section 3.2.5.9.1.1. Set R34991Enabled to false to disable this requirement.-->
+    <Property name="R34991Enabled" value="true"/>
+    <!--Set R2642Enabled to true to verify for RopSynchronizationConfigure ROP, implementation does exclude properties and subobjects output for folders and top-level messages, 
+    if they are listed in PropertyTags, if the SynchronizationFlag OnlySpecifiedProperties flag is not set, as specified in section 3.2.5.9.1.1.
+    Set R2642Enabled to false to disable this requirement.-->
+    <Property name="R2642Enabled" value="false"/>
+    <!--Set R2172Enabled to true to verify for RopSynchronizationConfigure ROP, in RopSynchronizationConfigure request, if the FAI flag of the SynchronizationFlag field is set, the server 
+    MUST download information about changes to FAI messages, as specified by the folderContents element in section 2.2.4.3.7, as specified in section 3.2.5.9.1.1. 
+    Set R2172Enabled to false to disable this requirement.-->
+    <Property name="R2172Enabled" value="false"/>
+    <!--Set R2646Enabled to true to verify for for RopSynchronizationConfigure ROP, in RopSynchronizationConfigure request, if the OnlySpecifiedProperties flag of the SynchronizationFlags 
+    field is set, the server SHOULD limit properties and subobjects written to the FastTransfer stream for top-level messages to the properties listed in the PropertyTags field, 
+    as specified by the folderContents element in section 2.2.4.3.7, as specified in section 3.2.5.9.1.1. Set R2646Enabled to false to disable this requirement.-->
+    <Property name="R2646Enabled" value="true"/>
+    <!--Set R2695Enabled to true to verify for RopSynchronizationConfigure ROP, in RopSynchronizationConfigure request, servers MUST fail the ROP if the value of the SynchronizationType 
+    field is unknown, as specified by the folderContents element in section 3.2.5.9.1.1. Set R2695Enabled to false to disable this requirement.-->
+    <Property name="R2695Enabled" value="false"/>
+    <!-- Set R2182002Enabled to true to verify for RopSynchronizationConfigure ROP, the implementation does support BestBody flag, 
+    as specified in section 3.2.5.9.1.1. Set R2182002Enabled to false to disable this requirement. -->
+    <Property name="R2182002Enabled" value="false"/>
+    <!--Set R218300301Enabled to true to verify for RopSynchronizationConfigure ROP, If the OnlySpecifiedProperties flag is not set, the server MUST return same value wether the IgnoreSpecifiedOnFAI flag is set or not. Set R218300301Enabled to false to disable this requirement.-->
+    <Property name="R218300301Enabled" value="true"/>
+    <!-- Set R118201Enabled to true to verify for RopSynchronizationConfigure ROP, the implementation does include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. Set R118201Enabled to false to disable this requirement. -->
+    <Property name="R118201Enabled" value="false"/>
+    
+    <!--Set R2246Enabled to true to verify for RopSynchronizationImportMessageMove ROP, upon successful completion of this ROP, the ICS state on the synchronization context MUST be updated 
+    to include change numbers of messages in the destination folder in the MetaTagCnsetSeen (section 2.2.1.1.2) when the message is a normal message, as specified in section 3.2.5.9.4.3.
+    Set R2246Enabled to false to disable this requirement.-->
+    <Property name="R2246Enabled" value="true"/>
+
+    <!-- Set R2813Enabled to true to verify for permission check. The implementation does need check whether the object has the related permission to do something, such as delete permission, 
+    as specified in section 2.2.4.3.6. Set R2813Enabled to false to disable this requirement. -->
+    <Property name="R2813Enabled" value="false"/>
+
+    <!-- Set R2734Enabled to true to verify that implementation does assign the successor a Predecessor Change List (PCL) created by merging the PCLs of all conflicting versions, 
+    as specified in section 3.1.5.6.2. Set R2734Enabled to false to disable this requirement. -->
+    <Property name="R2734Enabled" value="true"/>
+    <!--Set R1113Enabled to true to verify that under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.715) included in a subFolder 
+    element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1), as specified in section 2.2.4.3.6. Set R1113Enabled to false to disable this requirement.-->
+    <Property name ="R1113Enabled" value ="true"/>
+    <!--Set R34381Enabled to true to verify that implementation does output the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in a FastTransfer stream if a permission check for 
+    an object fails, wherever allowed by its syntactical structure, to signal a client about incomplete content, as specified in section 3.2.5.8.1. 
+    Set R34381Enabled to false to disable this requirement.-->
+    <Property name ="R34381Enabled" value ="true"/>
+    <!--Set R6001Enabled to true to verify that if a message within a folder changes, the folder change number is not updated, as specified in section 3.1.5.3. 
+    Set R6001Enabled to false to disable this requirement.-->
+    <Property name ="R6001Enabled" value ="false"/>
+    <!--Set R6003Enabled to true to verify that if a message is deleted within the folder, the value of the folder change number does not change, as specified in section 3.1.5.3. 
+    Set R6003Enabled to false to disable this requirement.-->
+    <Property name ="R6003Enabled" value ="false"/>
+    <!--Set R1062Enabled to true to verify implementation does not present deletions element if the NoDeletions flag of the SynchronizationFlag field, as specified in section 2.2.3.2.1.1.1,
+    was set when the synchronization download operation was configured, as specified in section 2.2.4.3.3. Set R1062Enabled to false to disable this requirement.  -->
+    <Property name="R1062Enabled" value="true"/>
+    <!--Set R1168Enabled to true to verify implementation does output MetaTagEcWarning meta-property (section 2.2.4.1.5.2) if a client does not have the permissions necessary to access it,
+    as specified in section 3.2.5.8.1. Set R1168Enabled to false to disable this requirement.  -->
+    <Property name="R1168Enabled" value="true"/>
+    <!--Set R1193Enabled to true to verify implementation does not present this element if the ReadState flag of the SynchronizationFlag field was not set when configuring the synchronization 
+    download operation, as specified in section 2.2.4.3.22. Set R1193Enabled to false to disable this requirement.  -->
+    <Property name="R1193Enabled" value="true"/>
+    <!--Set R2665Enabled to true to verify implementation does assign a new value to the separate change number(the read state change number) on the message, whenever the read state of 
+    a message changes on the server, as specified in section 3.2.5.6. Set R2665Enabled to false to disable this requirement.  -->
+    <Property name="R2665Enabled" value="true"/>
+    <!--Set R2666Enabled to true to verify implementation does not modify the change number of the message unless other changes to a message were made at the same time, as specified in 
+    section 3.2.5.6. Set R2666Enabled to false to disable this requirement.  -->
+    <Property name="R2666Enabled" value="true"/>
+    <!--Set R2657Enabled to true to verify that in MetaTagIdsetGiven ICS State Property, implementation does accept this MetaTagIdsetGiven property when the property tag identifies 
+    it as PtypInteger32, as specified in section 2.2.1.1.1. Set R2657Enabled to false to disable this requirement.-->
+    <Property name="R2657Enabled" value="true"/>
+    <!--Set R224Enabled to true to verify that in ProgressInformation structure, implementation does set the padding (2 bytes) value to 0x0000 in ProgressInformation structure, 
+    as specified in section 2.2.2.7. Set R224Enabled to false to disable this requirement.-->
+    <Property name="R224Enabled" value="true"/>
+    <!--Set R233Enabled to true to verify that in ProgressInformation structure, implementation does set the padding (4 bytes) value to 0x00000000 in ProgressInformation structure,
+    as specified in section 2.2.2.7. Set R233Enabled to false to disable this requirement.-->
+    <Property name="R233Enabled" value="true"/>
+    <!--Set R33541Enabled to true to verify that in PidTagIdsetGiven ICS state property, implementation does send the PidTagIdsetGiven property (section 2.2.1.1.1) with a property
+    tag that defines it as PtypInteger32, as specified in section 3.1.5.2.1. Set R33541Enabled to false to disable this requirement.-->
+    <Property name="R33541Enabled" value="true"/>
+    <!--Set R33551Enabled to true to verify that in PidTagIdsetGiven ICS state property, implementation does accept this PidTagIdsetGiven property when the property tag identifies
+    it as PtypInteger32 or PtypBinary as specified in section 3.1.5.2.1. Set R33551Enabled to false to disable this requirement.-->
+    <Property name="R33551Enabled" value="true"/>
+    <!--Set R2660Enabled to true to verify that in Push Command, implementation does use the Push command when multiple GLOBCNT structure values share the same high-order values,
+    as specified in section 3.1.5.4.3.1.1. Set R2660Enabled to false to disable this requirement.-->
+    <Property name="R2660Enabled" value="true"/>
+    <!--Set R2661Enabled to true to verify that in Range Command, implementation does push these common high-order bytes, that are shared by the low and high GLOBCNT values, 
+    onto the common byte stack by using the Push command, as specified in section 2.2.2.6.1, prior to using the Range command. Set R2661Enabled to false to disable this requirement.-->
+    <Property name="R2661Enabled" value="true"/>
+    <!--Set R2656Enabled to true to verify that in MetaTagIdsetGiven ICS State Property, implementation does send the MetaTagIdsetGiven property (section 2.2.1.1.1) with a property
+    tag that defines it as PtypInteger32 as specified in section 2.2.1.1.1. Set R2656Enabled to false to disable this requirement.-->
+    <Property name="R2656Enabled" value="true"/>
+    <!--Set R2658Enabled to true to verify that in MetaTagIdsetGiven ICS State Property, implementation does accept this MetaTagIdsetGiven property when the property tag identifies
+    it as PtypBinary as specified in section 2.2.1.1.1. Set R2658Enabled to false to disable this requirement.-->
+    <Property name="R2658Enabled" value="true"/>
+    <!--Set R3305001Enabled to true to verify that in messageChangePartial element, implementation does support partial item downloads, as specified in section 2.2.4.3.15.
+    Set R3305001Enabled to false to disable this requirement.-->
+    <Property name="R3305001Enabled" value="true"/>
+    <!--Set R2645Enabled to true to verify that Implementation does exclude properties and subobjects from the FastTransfer stream for folders and top-level messages, 
+    if the property is listed in the PropertyTags field, and if the OnlySpecifiedProperties flag is not set, as specified in section 3.2.5.9.1.1.
+    Set R2645Enabled to false to disable this requirement.-->  
+    <Property name="R2645Enabled" value="false"/>
+    <!--Set R2648Enabled to true to verify that Implementation does exclude these special parts from output for top-level messages, while inclusion of properties that denote 
+    message subobjects in the PropertyTags field, as specified in section 3.2.5.9.1.1. Set R2648Enabled to false to disable this requirement.-->
+    <Property name="R2648Enabled" value="false"/>
+    <!--Set R2647Enabled to true to verify that inclusion of properties that denote message subobjects in the PropertyTags field means that the server SHOULD include these special parts 
+    from the FastTransfer stream for top-level messages, as specified by the folderContents element in section 2.2.4.3.7, as specified in section 3.2.5.9.1.1.
+    Set R2647Enabled to false to disable this requirement.-->
+    <Property name="R2647Enabled" value="true"/>
+    <!--Set R350400101Enabled to true to verify that implementation does use the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) to return a checkpoint ICS state that 
+    is reflective of the current status, as specified in section 2.2.3.2.3.1. Set R350400101Enabled to false to disable this requirement.-->
+    <Property name="R350400101Enabled" value="false"/>
+    <!--Set R325901Enabled to true to verify that implementation output string values with the terminating nulls for PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, 
+    as specified in section 2.2.4.1.3. Set R325901Enabled to false to disable this requirement.-->
+    <Property name="R325901Enabled" value="true"/>
+    <!-- Set R5100Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R5100Enabled to false to disable this requirement.-->
+    <Property name="R5100Enabled" value="true"/>
+    <!-- Set R2625Enabled to true to verify that the implementation servers MUST fail the operation if the size of data being sent is larger than the maximum size imposed by an implementation, rather than truncating the data. Set R2625Enabled to false to disable this requirement.-->
+    <Property name="R2625Enabled" value="false"/>
+  </Properties>
+</TestSite>

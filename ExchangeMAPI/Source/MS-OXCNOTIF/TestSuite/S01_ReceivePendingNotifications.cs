@@ -103,6 +103,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                     @"[In EcDoRpcExt] [When the value of pcbOut is 0x190, ]The RopPending ROP ([MS-OXCROPS] section 2.2.14.3) notifies the client that there are pending notifications on the server for the client. (Exchange 2010 and above follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(8201001, this.Site))
+            {
+                if (Common.GetConfigurationPropertyValue("TransportSeq", this.Site) == "mapi_http")
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R8201001");
+
+                    // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R8201001
+                    this.Site.CaptureRequirementIfAreEqual<string>(
+                        "RopPendingResponse",
+                        response.Last().GetType().Name,
+                        8201001,
+                        @"[In Appendix A: Product Behavior] This ROP RopPending does appear in response buffers of the Execute request type.<7> Section 2.2.1.3.4: The Execute request type was introduced in Exchange 2013 SP1. (Exchange 2013SP1 and above follow this behavior).");
+                }
+            }
             #endregion
 
             #region Verify that the pending notification is returned when the response buffer is full.
@@ -111,6 +126,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             {
                 if (response[i] is RopNotifyResponse)
                 {
+                    RopNotifyResponse notifyResponse = (RopNotifyResponse)response[i];
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R97001");
+
+                    // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R97001
+                    this.Site.CaptureRequirementIfAreEqual<byte>(
+                        0x00,
+                        notifyResponse.LogonId,
+                        97001,
+                        @"[In RopNotify ROP Response Buffer] [LogonId] An unsigned integer that specifies the logon associated with the notification event.");
+
                     isNotifyResponse = true;
                 }
                 else
@@ -187,8 +213,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
         {
             this.CheckWhetherSupportMAPIHTTP();
             this.NotificationInitialize();
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(343, this.Site), "This case runs only under Exchange 2007, since Exchange 2010 and Exchange 2013 do not support send a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts");
-
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(342, this.Site), "This case runs only under Exchange 2007, since Exchange 2010,Exchange 2013 and Exchange 2016 do not support Session Context linking.");
+       
             #region Subscribe ObjectCreated event on server using receiver context handle.
             this.CNOTIFAdapter.RegisterNotification(NotificationType.ObjectCreated);
             #endregion
@@ -222,8 +248,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             #region Get notification details and a pending notification using receiver context handle.
             IList<IDeserializable> response = this.CNOTIFAdapter.GetNotification(true);
             RopNotifyResponse notifyResponse = (RopNotifyResponse)response.First(x => x is RopNotifyResponse);
-            Site.Assert.AreEqual<NotificationType>(NotificationType.ObjectCreated, notifyResponse.NotificationType, "ObjectCreated event should be returned successfully.");
+            Site.Assert.AreEqual<NotificationType>(NotificationType.ObjectCreated, notifyResponse.NotificationData.NotificationType, "ObjectCreated event should be returned successfully.");
             Site.Assert.AreEqual<string>("RopPendingResponse", response.Last().GetType().Name, "There should be a RopPending response.");
+
             #endregion
 
             #region Get all the left notification details on the receiver context handle.
@@ -251,20 +278,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             this.CNOTIFAdapter.LogonHandle = logonHandleForLinkedSession;
             IList<IDeserializable> response2 = this.CNOTIFAdapter.GetNotification(true);
             RopNotifyResponse notifyResponse2 = (RopNotifyResponse)response2.First(x => x is RopNotifyResponse);
-            Site.Assert.AreEqual<NotificationType>(NotificationType.ObjectCreated, notifyResponse2.NotificationType, "ObjectCreated event should be returned successfully.");
+            Site.Assert.AreEqual<NotificationType>(NotificationType.ObjectCreated, notifyResponse2.NotificationData.NotificationType, "ObjectCreated event should be returned successfully.");
 
             #endregion
 
             #region Verify that the pending notification is returned on the linked session context handle.
             // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R343: the last response buffer for notification is {0}", response2.Last().GetType().Name);
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R342: the last response buffer for notification is {0}", response2.Last().GetType().Name);
 
-            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R343 
+            // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R342 
             this.Site.CaptureRequirementIfAreEqual<string>(
                 "RopPendingResponse",
                 response2.Last().GetType().Name,
-                343,
-                @"[In Appendix A: Product Behavior] Implementation does send a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts. (<15> Section 3.1.5.6: Exchange 2007 sends a RopPending ROP response (section 2.2.1.3.4) to the client whenever there are pending notifications on any linked session contexts.)");
+                342,
+                @"[In Sending a RopPending ROP Response] The server sends a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts.");
             #endregion
 
             #region Get all the left notification details on the linked session context handle.
@@ -755,7 +782,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             #region Get notification details.
             IList<IDeserializable> response = this.CNOTIFAdapter.GetNotification(true);
             RopNotifyResponse notifyResponse = (RopNotifyResponse)response.First(x => x is RopNotifyResponse);
-            Site.Assert.AreEqual<NotificationType>(NotificationType.NewMail, notifyResponse.NotificationType, "New mail should be returned successfully.");
+            Site.Assert.AreEqual<NotificationType>(NotificationType.NewMail, notifyResponse.NotificationData.NotificationType, "New mail should be returned successfully.");
 
             bool isSupportRpcNotif = false;
             foreach (IDeserializable resp in response)
@@ -963,7 +990,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                 1,
                 notificationWaitResponseBody.EventPending,
                 482,
-                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 follows this behavior.)");
+                "[In Appendix A: Product Behavior] Implementation uses NotificationWait request type to notify the client of pending notifications. (Exchange 2013 SP1 and above follow this behavior.)");
             #endregion
         }
         #endregion

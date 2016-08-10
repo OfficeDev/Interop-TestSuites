@@ -17,7 +17,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         /// <summary>
         /// The user name
         /// </summary>
-        public const string UserName = "UserName";
+        public const string UserName = "AdminUserName";
 
         /// <summary>
         /// The user name on Server1

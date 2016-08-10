@@ -49,7 +49,8 @@
     <None Include="MS-OXCNOTIF_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCNOTIF_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCNOTIF_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="MS-OXCNOTIF_TestSuite.deployment.ptfconfig" />
+    <None Include="MS-OXCNOTIF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />    
+    <None Include="MS-OXCNOTIF_TestSuite.deployment.ptfconfig" />    
     <None Include="MS-OXCNOTIF_TestSuite.ptfconfig" />
   </ItemGroup>
   <ItemGroup>

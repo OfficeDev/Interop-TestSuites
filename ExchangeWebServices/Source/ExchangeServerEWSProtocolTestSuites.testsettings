@@ -40,6 +40,7 @@
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSFOLD\Adapter\SUTControlAdapter\Implementation\DoNotSetManagedFolderStoreQuota.ps1" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSTASK\TestSuite\MS-OXWSTASK_TestSuite.deployment.ptfconfig" />
@@ -55,6 +56,7 @@
     <DeploymentItem filename="MS-OXWSATT\TestSuite\MS-OXWSATT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS\TestSuite\MS-OXWSMTGS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-OXWSFOLD\Adapter\SUTControlAdapter\Implementation\SetManagedFolderStoreQuota.ps1" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXWSCONT\TestSuite\MS-OXWSCONT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />

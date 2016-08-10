@@ -31,7 +31,7 @@
       <!-- Set R4713Enabled to true to verify that the server use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. Set R4713Enabled to false to disable this requirement.-->
       <Property name="R4713Enabled" value="false"/>
       <!-- Set R454509Enabled to true to verify that the server fails the RPC with 0x0000047D If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value. Set R454509Enabled to false to disable this requirement.-->
-      <Property name="R454509Enabled" value="false"/>
+      <Property name="R454509Enabled" value="true"/>
       <!-- Set R469306Enabled to true to verify that the server returns ecBufferTooSmall to fail the ROP if the first ROP in the RPC buffer creates a response that exceeds the maximum ROP buffer size and there are no additional ROPs in the RPC buffer. Set R469306Enabled to false to disable this requirement.-->
       <Property name="R469306Enabled" value="false"/>
       <!-- Set R321501Enabled to true to verify that for operation RopReadStream the server RPC call fails with error code 0x000004B6 if MaximumByteCount is greater than 0x80000000. Set R321501Enabled to false to disable this requirement.-->
@@ -74,5 +74,7 @@
       <Property name="R5000Enabled" value="true"/>
       <!-- Set R5001Enabled to true to verify that the implementation does support an ncacn_ip_tcp transport. Set R5001Enabled to false to disable this requirement.-->
       <Property name="R5001Enabled" value="false"/>
-  </Properties>
+      <!-- Set R20009Enabled to true to verify that the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value. Set R20009Enabled to false to disable this requirement.-->
+      <Property name="R20009Enabled" value="true"/>
+      </Properties>
 </TestSite>

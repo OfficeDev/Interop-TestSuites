@@ -64,10 +64,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             PropertyTagArray_r propTagsInstance = new PropertyTagArray_r();
             propTagsInstance.CValues = 3;
             propTagsInstance.AulPropTag = new uint[3]
-            {     
+            {
                 (uint)AulProp.PidTagEntryId,
-                (uint)AulProp.PidTagDisplayName, 
-                (uint)AulProp.PidTagDisplayType, 
+                (uint)AulProp.PidTagDisplayName,
+                (uint)AulProp.PidTagDisplayType,
             };
             PropertyTagArray_r? propTags = propTagsInstance;
             this.Result = this.ProtocolAdatper.NspiQueryRows(flagsOfQueryRows, ref stat, tableCount, table, count, propTags, out rowsOfQueryRows);
@@ -111,10 +111,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             stat.CurrentRec = mids.Value.AulPropTag[0];
             Restriction_r? filter = null;
             PropertyTagArray_r propTags1 = new PropertyTagArray_r();
-            propTags1.CValues = 1;
-            propTags1.AulPropTag = new uint[1]
+            propTags1.CValues = 2;
+            propTags1.AulPropTag = new uint[2]
             {
-                (uint)AulProp.PidTagAddressBookX509Certificate
+                (uint)AulProp.PidTagAddressBookX509Certificate,
+                (uint)AulProp.PidTagUserX509Certificate
             };
             PropertyTagArray_r? propTagsOfGetMatches = propTags1;
 
@@ -131,18 +132,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #endregion
 
             #region Call NspiModProps method with specific PidTagAddressBookX509Certificate property value.
-            uint reservedOfModProps = 0;
+            uint reservedOfModProps = 1;
             BinaryArray_r emptyValue = new BinaryArray_r();
             PropertyRow_r rowOfModProps = new PropertyRow_r();
-            rowOfModProps.LpProps = new PropertyValue_r[1];
+            rowOfModProps.LpProps = new PropertyValue_r[2];
             rowOfModProps.LpProps[0].PropTag = (uint)AulProp.PidTagAddressBookX509Certificate;
             rowOfModProps.LpProps[0].Value.MVbin = emptyValue;
+            rowOfModProps.LpProps[1].PropTag = (uint)AulProp.PidTagUserX509Certificate;
+            rowOfModProps.LpProps[1].Value.MVbin = emptyValue;
 
             PropertyTagArray_r instanceOfModProps = new PropertyTagArray_r();
-            instanceOfModProps.CValues = 1;
-            instanceOfModProps.AulPropTag = new uint[1]
+            instanceOfModProps.CValues = 2;
+            instanceOfModProps.AulPropTag = new uint[2]
             {
-                (uint)AulProp.PidTagAddressBookX509Certificate
+                (uint)AulProp.PidTagAddressBookX509Certificate,
+                (uint)AulProp.PidTagUserX509Certificate
             };
             PropertyTagArray_r? propTagsOfModProps = instanceOfModProps;
 
@@ -158,8 +162,62 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Result,
                 1305,
                 @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [constraint 12] If no other return values have been specified by these constraints [constraints 1-11], the server MUST return the return value ""Success"".");
-            #endregion
 
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                5309,
+                @"[In PidTagAddressBookX509Certificate] Property ID: 0x8C6A.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                5310,
+                @"[In PidTagAddressBookX509Certificate] Data type: PtypMultipleBinary, 0x1102.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                8875,
+                @"[In PidTagUserX509Certificate] Property ID: 0x3A70.");
+
+            // If the codes can reach here, the requirement based on this must have been captured, so it can be captured directly.
+            Site.CaptureRequirement(
+                "MS-OXPROPS",
+                8876,
+                @"[In PidTagUserX509Certificate] Data type: PtypMultipleBinary, 0x1102.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1267");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1267
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                1267,
+                @"[In NspiModProps] The NspiModProps method is used to modify the properties of an object in the address book.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1268");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1268
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                1268,
+                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1044) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.");
+
+            bool isR1289Verified = reservedOfModProps != 0 && ErrorCodeValue.Success == this.Result;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1289");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1289
+            Site.CaptureRequirementIfIsTrue(
+                isR1289Verified,
+                1289,
+                @"[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the Reserved input parameter contains any value other than 0, the server MUST ignore the value.");
+            #endregion
             #endregion
 
             #region Call NspiUnbind method to destroy the context handle.
@@ -176,7 +234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         {
             this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
-            bool isR1340Enabled = Common.IsRequirementEnabled(1340, this.Site);
+            bool isR2003009Enabled = Common.IsRequirementEnabled(2003009, this.Site);
 
             #region Call NspiBind to initiate a session between the client and the server.
             uint flags = 0;
@@ -336,7 +394,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 
             // Add the property value.
             ErrorCodeValue result1;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result1 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
 
@@ -348,11 +406,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     ErrorCodeValue.Success,
                     result1,
                     1340,
-                    @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"".");
+                    @"[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If no other return values have been specified by these constraints [constraints 1-8], the server MUST return the return value ""Success"" (0x00000000).");
             }
             else
             {
                 result1 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId, false);
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003009");
+
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003009
+                Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                    ErrorCodeValue.GeneralFailure,
+                    result1,
+                    2003009,
+                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <6> Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
             }
 
             this.IsRequireToDeleteAddressBookMember = true;
@@ -404,19 +472,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 addressBookMemberTagAfterAdd != 0x8009000a,
                 129,
-                @"[In NspiModLinkAtt Flags] The default behavior [Without setting the fDelete flag] is that the server adds values when modifying.");
+                @"[In NspiModLinkAtt Flags] If the fDelete flag is not set, the server adds values when modifying.");
 
             // MS-OXNSPI_R129 has already verified that modifying property PidTagAddressBookMember succeeds, so MS-OXNSPI_R1893 can be verified directly here.
             this.Site.CaptureRequirement(
                 1893,
                 @"[In NspiModLinkAtt] This protocol supports modifying the value of the PidTagAddressBookMember ([MS-OXPROPS] section 2.541) property of an address book object with display type DT_DISTLIST.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1306");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1306
+            this.Site.CaptureRequirement(
+                1306,
+                @"[In NspiModLinkAtt] The NspiModLinkAtt method modifies the values of a specific property of a specific row in the address book.");
+
             #endregion
             #endregion
 
             #region Call NspiModLinkAtt with fDelete flag to delete the specified value.
             flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
             ErrorCodeValue result2;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result2 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result2, "NspiModLinkAtt method should return Success.");
@@ -487,7 +564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             }
 
             ErrorCodeValue result3;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result3 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result3, "NspiModLinkAtt method should return Success.");
@@ -504,7 +581,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #region Call NspiModLinkAtt to delete value with the changed Display Type in EphemeralEntryID.
             flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
             ErrorCodeValue result4;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 result4 = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, result4, "NspiModLinkAtt method should return Success.");
@@ -713,7 +790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         {
             this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
-            bool isR1340Enabled = Common.IsRequirementEnabled(1340, this.Site);
+            bool isR2003009Enabled = Common.IsRequirementEnabled(2003009, this.Site);
 
             #region Call NspiBind to initiate a session between the client and the server.
             uint flags = 0;
@@ -864,7 +941,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             }
 
             ErrorCodeValue flag1Result;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag1Result = this.ProtocolAdatper.NspiModLinkAtt(flag1, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag1Result, "NspiModLinkAtt method should return Success.");
@@ -901,7 +978,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
 
             #region Call NspiModLinkAtt method to delete the specified PidTagAddressBookPublicDelegates value.
             uint flagsOfModLinkAtt = (uint)NspiModLinkAtFlag.fDelete;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 this.Result = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiModLinkAtt method should return Success.");
@@ -957,7 +1034,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             flag1 = 0xff;
             uint flag2 = 0xfe;
 
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag1Result = this.ProtocolAdatper.NspiModLinkAtt(flag1, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag1Result, "NspiModLinkAtt method should return Success.");
@@ -970,7 +1047,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.IsRequireToDeleteAddressBookPublicDelegate = true;
 
             ErrorCodeValue flag2Result;
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 flag2Result = this.ProtocolAdatper.NspiModLinkAtt(flag2, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, flag2Result, "NspiModLinkAtt method should return Success.");
@@ -992,7 +1069,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             #endregion
 
             #region Call NspiModLinkAtt method to delete the specified PidTagAddressBookPublicDelegates value.
-            if (isR1340Enabled)
+            if (!isR2003009Enabled)
             {
                 this.Result = this.ProtocolAdatper.NspiModLinkAtt(flagsOfModLinkAtt, propTagOfModLinkAtt, midOfModLinkAtt, entryId);
                 Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiModLinkAtt method should return Success.");

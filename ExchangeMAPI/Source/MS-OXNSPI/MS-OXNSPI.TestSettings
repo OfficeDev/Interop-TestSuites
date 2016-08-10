@@ -2,15 +2,16 @@
 <TestSettings name="Local" id="60bd11e4-aa21-4a99-b8fa-e53ec129bfe3" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXNSPI.runsettings" />
-    <DeploymentItem filename="Stub\Debug\MS-OXNSPI_Stub.dll" />
-    <DeploymentItem filename="TestSuite\MS-OXNSPI_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\MS-OXNSPI_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXNSPI_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXNSPI_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXNSPI_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\NSPIStub\Debug\MS-OXNSPI_Stub.dll" />
     <DeploymentItem filename="TestSuite\MS-OXNSPI_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXNSPI_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXNSPI_RequirementSpecification.xml" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\" />
+    <DeploymentItem filename="MS-OXNSPI.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXNSPI_TestSuite.deployment.ptfconfig" />
   </Deployment>
   <Execution>
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

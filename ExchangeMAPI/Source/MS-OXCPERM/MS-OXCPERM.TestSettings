@@ -2,15 +2,16 @@
 <TestSettings name="MS-OXCPERM" id="6f34cecb-9a0b-4979-b94f-187ae43011d6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXCPERM test cases.</Description>
   <Deployment>
+    <DeploymentItem filename="TestSuite\MS-OXCPERM_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPERM.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCPERM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCPERM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCPERM_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
     <DeploymentItem filename="TestSuite\MS-OXCPERM_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCPERM_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCPERM_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-OXCPERM_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
+    <DeploymentItem filename="TestSuite\MS-OXCPERM_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCPERM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -43,4 +44,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

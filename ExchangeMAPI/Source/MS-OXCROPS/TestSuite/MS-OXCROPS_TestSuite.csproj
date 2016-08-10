@@ -45,8 +45,9 @@
     <None Include="MS-OXCROPS_TestSuite.ptfconfig" />
     <None Include="MS-OXCROPS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXCROPS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="MS-OXCROPS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-  </ItemGroup>
+    <None Include="MS-OXCROPS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />    
+    <None Include="MS-OXCROPS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="S10_FastTransferROPs.cs" />

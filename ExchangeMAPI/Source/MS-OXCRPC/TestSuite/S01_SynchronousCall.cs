@@ -401,7 +401,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     firstPulTimeStamp,
                     this.pulTimeStamp,
                     508,
-                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<9> Section 3.1.4.1] [In Exchange 2010 and Exchange 2013, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.");
+                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<8> Section 3.1.4.1] [In Exchange 2010, Exchange 2013 and Exchange 2016, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.");
             }
 
             if (Common.IsRequirementEnabled(1435, this.Site))
@@ -414,7 +414,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     firstPulTimeStamp,
                     this.pulTimeStamp,
                     1435,
-                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<12> Section 3.1.4.1] Rather [in Exchange 2010 and Exchange 2013, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to the server], it [the server] will then return the same value in the pulTimeStamp that was passed in.");
+                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<11> Section 3.1.4.1] Rather [in Exchange 2010, Exchange 2013, and Exchange 2016, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to the server], it [the server] will then return the same value in the pulTimeStamp that was passed in.");
             }
             #endregion 
 
@@ -534,21 +534,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             #endregion
 
             #region Client connects with Server when cbAuxIn is equal to TooBigcbAuxIn
-            if (Common.IsRequirementEnabled(4875, this.Site))
-            {
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-                this.rgbAuxIn = new byte[ConstValues.TooBigcbAuxIn];
-                this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
-                    ref this.pcxh,
-                    TestSuiteBase.UlIcxrLinkForNoSessionLink,
-                    ref this.pulTimeStamp,
-                    this.rgbAuxIn,
-                    this.userDN,
-                    ref this.pcbAuxOut,
-                    this.rgwClientVersion,
-                    out this.rgwBestVersion,
-                    out this.picxr);
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.rgbAuxIn = new byte[ConstValues.TooBigcbAuxIn];
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                this.rgbAuxIn,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
 
+            if (Common.IsRequirementEnabled(4875, this.Site))
+            {            
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R4875");
 
@@ -593,7 +593,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR1436,
                     1436,
-                    @"[In Appendix B: Product Behavior] Implementation does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008. <15> Section 3.1.4.1: Exchange 2007 does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008.");
+                    @"[In Appendix B: Product Behavior] Implementation does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008. <14> Section 3.1.4.1: Exchange 2007 does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008.");
             }
 
             if (Common.IsRequirementEnabled(1940, this.Site))
@@ -707,41 +707,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 System.Threading.Thread.Sleep(1000);
             }
 
+            #region Client connects with Server
+            // Since method EcDoRpcExt2 may destroy pcxh for implementation-specific error especially when input parameters are invalid, connect to server every time before calling method EcDoRpcExt2 to make sure the error code is just caused by the invalid parameter.
+            this.pcxh = IntPtr.Zero;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.pulTimeStamp = 0;
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                null,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx is the precondition for EcDoRpcExt2 and should succeed. '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+
+            #region Call EcDoRpcExt2 when cbIn is equal to BigcbIn
+            this.rgbIn = new byte[ConstValues.BigcbIn];
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+
             if (Common.IsRequirementEnabled(1374, this.Site))
             {
-                #region Client connects with Server
-                // Since method EcDoRpcExt2 may destroy pcxh for implementation-specific error especially when input parameters are invalid, connect to server every time before calling method EcDoRpcExt2 to make sure the error code is just caused by the invalid parameter.
-                this.pcxh = IntPtr.Zero;
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-                this.pulTimeStamp = 0;
-                this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
-                    ref this.pcxh,
-                    TestSuiteBase.UlIcxrLinkForNoSessionLink,
-                    ref this.pulTimeStamp,
-                    null,
-                    this.userDN,
-                    ref this.pcbAuxOut,
-                    this.rgwClientVersion,
-                    out this.rgwBestVersion,
-                    out this.picxr);
-                Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx is the precondition for EcDoRpcExt2 and should succeed. '0' is expected to be returned. The returned value is {0}.", this.returnValue);
-                #endregion
-
-                #region Call EcDoRpcExt2 when cbIn is equal to BigcbIn
-                this.rgbIn = new byte[ConstValues.BigcbIn];
-                this.pcbOut = ConstValues.ValidpcbOut;
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-
-                this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
-                    ref this.pcxh,
-                    PulFlags.NoCompression | PulFlags.NoXorMagic,
-                    this.rgbIn,
-                    ref this.pcbOut,
-                    null,
-                    ref this.pcbAuxOut,
-                    out this.response,
-                    ref this.responseSOHTable);
-
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1374");
 
@@ -752,20 +752,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000004b6,
                     this.returnValue,
                     1374,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFormat if the request buffer is larger than 0x00008007 bytes in size. <20> Section 3.1.4.2: Exchange 2007 and 2010 will fail with error code ecRpcFormat (0x000004B6) if the request buffer is larger than 0x00008007 bytes in size.");
-                #endregion
-
-                #region Client disconnects with Server
-                if (this.pcxh != IntPtr.Zero)
-                {
-                    this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
-                    Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
-                }
-                #endregion
-
-                // Wait one second before sending next invalid request to avoid many invalid requests received by server in short time.
-                System.Threading.Thread.Sleep(1000);
+                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFormat if the request buffer is larger than 0x00008007 bytes in size. <19> Section 3.1.4.2: Exchange 2007 and 2010 will fail with error code ecRpcFormat (0x000004B6) if the request buffer is larger than 0x00008007 bytes in size.");
             }
+
+            if (Common.IsRequirementEnabled(2001, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R2001");
+
+                // Verify MS-OXCRPC requirement: MS-OXCRPC_R2001
+                // The condition that cbIn is less than 0x00000008 is controlled by constant "TooSmallcbIn" defined in ConstValues.cs.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80040115,
+                    this.returnValue,
+                    2001,
+                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFailed (0x80040115) if the request buffer is larger than 0x00008007 bytes in size. (Microsoft Exchange Server 2010 Service Pack 2 (SP2), Microsoft Exchange Server 2013 Service Pack 1 (SP1), and Exchange 2016 will fail with error code ecRpcFailed (0x80040115) if the request buffer is larger than 0x00008007 bytes in size.)");
+            }
+            #endregion
+
+            #region Client disconnects with Server
+            if (this.pcxh != IntPtr.Zero)
+            {
+                this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
+                Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            }
+            #endregion
+
+            // Wait one second before sending next invalid request to avoid many invalid requests received by server in short time.
+            System.Threading.Thread.Sleep(1000);
 
             if (Common.IsRequirementEnabled(1939, this.Site))
             {
@@ -812,7 +826,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000006F7,
                     this.returnValue,
                     1939,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with the RPC status code of RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00040000 bytes in size. (Microsoft Exchange Server 2013 follows this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with the RPC status code of RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00040000 bytes in size. (Microsoft Exchange Server 2010 Service Pack 2 (SP2) and above follow this behavior.)");
                 #endregion
 
                 #region Client disconnects with Server
@@ -832,41 +846,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         public void MSOXCRPC_S01_TC04_TestInvalidParameterpcbOutForEcDoRpcExt2()
         {
             this.CheckTransport();
+                        
+            #region Client connects with Server
+            this.pcxh = IntPtr.Zero;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.pulTimeStamp = 0;
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                null,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx is the precondition for EcDoRpcExt2 and should succeed. '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+
+            #region Call EcDoRpcExt2 when pcbOut is equal to SmallpcbOut
+            // Parameter inObjHandle is no use for RopLogon command, so set it to unUsedInfo.
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
+            this.pcbOut = ConstValues.SmallpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
 
             if (Common.IsRequirementEnabled(1924, this.Site))
             {
-                #region Client connects with Server
-                this.pcxh = IntPtr.Zero;
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-                this.pulTimeStamp = 0;
-                this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
-                    ref this.pcxh,
-                    TestSuiteBase.UlIcxrLinkForNoSessionLink,
-                    ref this.pulTimeStamp,
-                    null,
-                    this.userDN,
-                    ref this.pcbAuxOut,
-                    this.rgwClientVersion,
-                    out this.rgwBestVersion,
-                    out this.picxr);
-                Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx is the precondition for EcDoRpcExt2 and should succeed. '0' is expected to be returned. The returned value is {0}.", this.returnValue);
-                #endregion
-
-                #region Call EcDoRpcExt2 when pcbOut is equal to SmallpcbOut
-                // Parameter inObjHandle is no use for RopLogon command, so set it to unUsedInfo.
-                this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
-                this.pcbOut = ConstValues.SmallpcbOut;
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-                this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
-                    ref this.pcxh,
-                    PulFlags.NoCompression | PulFlags.NoXorMagic,
-                    this.rgbIn,
-                    ref this.pcbOut,
-                    null,
-                    ref this.pcbAuxOut,
-                    out this.response,
-                    ref this.responseSOHTable);
-
                 // Add the debug information 
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1924");
 
@@ -877,19 +891,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     this.returnValue,
                     1924,
                     @"[In Appendix B: Product Behavior] Implementation does fail with ecRpcFormat (0x000004B6) if the output buffer is less than 0x00008007. (Microsoft Exchange Server 2007 follows this behavior).");
-                #endregion
+            }            
+            #endregion
 
-                #region Client disconnects with Server
-                if (this.pcxh != IntPtr.Zero)
-                {
-                    this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
-                    Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
-                }
-                #endregion
-
-                // Wait one second before sending next invalid request to avoid many invalid requests received by server in short time.
-                System.Threading.Thread.Sleep(1000);
+            #region Client disconnects with Server
+            if (this.pcxh != IntPtr.Zero)
+            {
+                this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
+                Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
             }
+            #endregion
+
+            // Wait one second before sending next invalid request to avoid many invalid requests received by server in short time.
+            System.Threading.Thread.Sleep(1000);
 
             #region Client connects with Server
             this.pcxh = IntPtr.Zero;
@@ -936,9 +950,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x80040115,
                     this.returnValue,
                     664,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFailed (0x80040115) if the value in pcbOut on input is less than 0x00000008. (Microsoft Exchange Server 2010 and above follow this behavior).");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFailed (0x80040115) if the value in pcbOut on input is less than 0x00000008. (Microsoft Exchange Server 2010 follows this behavior).");
             }
 
+			if (Common.IsRequirementEnabled(2002, this.Site))
+            {
+                // Add the debug information 
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R2002");
+
+                // Verify MS-OXCRPC requirement: MS-OXCRPC_R2002
+                // The condition that pcbOut is less than 0x00000008 is controlled by constant "TooSmallpcbOut" defined in ConstValues.cs.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x00000000,
+                    this.returnValue,
+                    2002,
+                    @"[In Appendix B: Product Behavior] Implementation does succeed if output buffer is less than 0x00000008, but no request ROPs will have been processed. (Microsoft Exchange Server 2013 and Microsoft Exchange Server 2016 follow this behavior).");
+            }
+			
             if (Common.IsRequirementEnabled(1900, this.Site))
             {
                 // Add the debug information
@@ -950,7 +978,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000004B6,
                     this.returnValue,
                     1900,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFormat (0x000004B6) if the value in pcbOut is less than 0x00000008. (Microsoft Exchange Server 2007 follows this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with error code ecRpcFormat (0x000004B6) if the value in pcbOut is less than 0x00000008. (<20> Section 3.1.4.2: Exchange 2007, and Microsoft Exchange Server 2010 Service Pack 1 (SP1) fail with error code ecRpcFormat (0x000004B6) if the value in the cbIn parameter is less than 0x00000008. )");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R697");
@@ -1065,23 +1093,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             #endregion
 
             #region Call EcDoRpcExt2 when cbAuxIn is equal to TooBigcbAuxIn
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.rgbAuxIn = new byte[ConstValues.TooBigcbAuxIn];
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                this.rgbAuxIn,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+
             if (Common.IsRequirementEnabled(4877, this.Site))
             {
-                this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
-                this.pcbOut = ConstValues.ValidpcbOut;
-                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
-                this.rgbAuxIn = new byte[ConstValues.TooBigcbAuxIn];
-
-                this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
-                    ref this.pcxh,
-                    PulFlags.NoCompression | PulFlags.NoXorMagic,
-                    this.rgbIn,
-                    ref this.pcbOut,
-                    this.rgbAuxIn,
-                    ref this.pcbAuxOut,
-                    out this.response,
-                    ref this.responseSOHTable);
-
                 // Add the debug information 
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R4877");
 
@@ -1091,8 +1119,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000006F7,
                     this.returnValue,
                     4877,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with return code 0x000006F7 if the request buffer value of the cbAuxIn parameter is larger than 0x00001008 bytes in size. (<23> Section 3.1.4.2: Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with return code 0x000006F7 if the request buffer value of the cbAuxIn parameter is larger than 0x00001008 bytes in size. (<22> Section 3.1.4.2: Exchange 2010 and above follow this behavior.)");
             }
+
             #endregion
 
             #region Client disconnects with Server
@@ -1153,7 +1182,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR1381,
                     1381,
-                    @"[In Appendix B: Product Behavior] Implementation does fail with ecRpcFailed (0x80040115) if the cbAuxIn parameter is greater than 0x00000000 and less than 0x00000008. (<24> Section 3.1.4.2: Exchange 2010 follows this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does fail with ecRpcFailed (0x80040115) if the cbAuxIn parameter is greater than 0x00000000 and less than 0x00000008. (<23> Section 3.1.4.2: Exchange 2010 follows this behavior.)");
             }
             #endregion
 
@@ -2636,7 +2665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x80070005,
                     this.returnValue,
                     4887,
-                    @"[In Appendix B: Product Behavior] Implementation does return ecAccessDenied (0x80070005) if the szUserDN parameter is empty. (<16> Section 3.1.4.1: Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return ecAccessDenied (0x80070005) if the szUserDN parameter is empty. (<15> Section 3.1.4.1: Exchange 2010 and above follow this behavior.)");
             }
 
             ushort[] rgwServerVersion;
@@ -2667,7 +2696,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x00000000,
                     this.returnValue,
                     1437,
-                    @"[In Appendix B: Product Behavior] [<16> Section 3.1.4.1] Implementation returns ecNone (0x00000000) if the szUserDN parameter is empty. (Microsoft Exchange Server 2007 follows this behavior.)");
+                    @"[In Appendix B: Product Behavior] [<15> Section 3.1.4.1] Implementation returns ecNone (0x00000000) if the szUserDN parameter is empty. (Microsoft Exchange Server 2007 follows this behavior.)");
             }
             #endregion
 
@@ -2940,7 +2969,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x80040102,
                     this.returnValue,
                     1558,
-                    @"[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. <28> Section 3.1.4.5: Exchange 2013 does not support the EcRRegisterPushNotification RPC and always returns ecNotSupported.");
+                    @"[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. <27> Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and always returns ecNotSupported.");
             }
 
             if (Common.IsRequirementEnabled(1845, this.Site))
@@ -3404,7 +3433,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 638,
                 @"[In EcDoRpcExt2 Method (opnum 11)] [pulFlags] If pulFlags contains NoXorMagic (0x00000002), the server MUST NOT obfuscate the ROP response payload (rgbOut).");
 
-            if (Common.IsRequirementEnabled(1403, this.Site))
+            if (this.rgbAuxOut.Length != 0)
             {
                 short flagsInRgbAuxOut = BitConverter.ToInt16(this.rgbAuxOut, 2);
 
@@ -3479,7 +3508,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 634,
                 @"[In EcDoRpcExt2 Method (opnum 11)] [pulFlags] If pulFlags contains NoCompression (0x00000001), the server MUST NOT compress ROP response payload (rgbOut).");
 
-            if (Common.IsRequirementEnabled(1403, this.Site))
+            if (this.rgbAuxOut.Length != 0)
             {
                 // Because NoCompression is contained in pulFlag when calling EcDoRpcExt2 method.
                 // So R1304 will be verified if Flags in RPC_HEADER_EXT doesn't contain 0x0001.
@@ -3672,7 +3701,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         {
             ushort[] normalizeVersion;
             bool isServerVersionSupport = false;
-            this.ConvertVersion(version, out normalizeVersion);
+            AdapterHelper.ConvertVersion(version, out normalizeVersion);
 
             // Ignore the last (four) number: build minor number as this digit always means larger or equal to 0.
             // Transform the first three number to a long version in hexadecimal
@@ -3752,31 +3781,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             }
 
             return isServerVersionSupport;
-        }
-
-        /// <summary>
-        /// Convert the three DWORD version into a normalized version.
-        /// </summary>
-        /// <param name="version">The three DWORD version.</param>
-        /// <param name="normalizeVersion">The returned normalized version.</param>
-        private void ConvertVersion(ushort[] version, out ushort[] normalizeVersion)
-        {
-            normalizeVersion = new ushort[ConstValues.NormalizedVersionSize];
-
-            if ((version[1] & ConstValues.HighBitMask) != 0)
-            {
-                normalizeVersion[0] = (ushort)((version[0] & ConstValues.HighByteMask) >> ConstValues.StepDistanceOfOneByte);
-                normalizeVersion[1] = (ushort)(version[0] & ConstValues.LowByteMask);
-                normalizeVersion[2] = (ushort)(version[1] & (~ConstValues.HighBitMask));
-                normalizeVersion[3] = version[2];
-            }
-            else
-            {
-                normalizeVersion[0] = version[0];
-                normalizeVersion[1] = 0;
-                normalizeVersion[2] = version[1];
-                normalizeVersion[3] = version[2];
-            }
         }
 
         /// <summary>

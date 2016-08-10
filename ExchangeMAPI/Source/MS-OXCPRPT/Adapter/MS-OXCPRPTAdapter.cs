@@ -607,56 +607,69 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
 
             TaggedPropertyValue[] taggedPropertyValueArray = new TaggedPropertyValue[1];
             RopSetPropertiesResponse ropSetPropertiesResponse;
+            if (objType == ServerObjectType.Attachment)
+            {
+                // Add this property to attachment1.
+                this.cprptCurrentType = ServerObjectType.Attachment;
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                ropSetPropertiesResponse = this.RopSetProperties(cprptAttachmentHandle[0], taggedPropertyValueArray, true);
+                Site.Assert.AreEqual<uint>(0, ropSetPropertiesResponse.ReturnValue, "The properties should be set for the first object successfully.");
+                RopSaveChangesAttachmentResponse ropSaveAttachmentResponse = this.RopSaveChangesAttachment(cprptAttachmentHandle[0], true);
+                Site.Assert.AreEqual<uint>(0, ropSaveAttachmentResponse.ReturnValue, "The changes on Attachment should be saved successfully.");
+                this.RopSaveChangesMessage(cprptMessageHandle[0], true);
 
-            // Add this property to attachment1.
-            this.cprptCurrentType = ServerObjectType.Attachment;
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            ropSetPropertiesResponse = this.RopSetProperties(cprptAttachmentHandle[0], taggedPropertyValueArray, true);
-            Site.Assert.AreEqual<uint>(0, ropSetPropertiesResponse.ReturnValue, "The properties should be set for the first object successfully.");
-            RopSaveChangesAttachmentResponse ropSaveAttachmentResponse = this.RopSaveChangesAttachment(cprptAttachmentHandle[0], true);
-            Site.Assert.AreEqual<uint>(0, ropSaveAttachmentResponse.ReturnValue, "The changes on Attachment should be saved successfully.");
+                // Add this property to attachment2.
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptAttachmentHandle[1], taggedPropertyValueArray, true);
+                this.RopSaveChangesAttachment(cprptAttachmentHandle[1], true);
+                this.RopSaveChangesMessage(cprptMessageHandle[0], true);
+            }
 
-            // Add this property to attachment2.
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptAttachmentHandle[1], taggedPropertyValueArray, true);
-            this.RopSaveChangesAttachment(cprptAttachmentHandle[1], true);
+            if (objType == ServerObjectType.Message)
+            {
+                // Add this property to message1.
+                this.cprptCurrentType = ServerObjectType.Message;
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptMessageHandle[0], taggedPropertyValueArray, true);
+                this.RopSaveChangesMessage(cprptMessageHandle[0], true);
 
-            // Add this property to message1.
-            this.cprptCurrentType = ServerObjectType.Message;
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptMessageHandle[0], taggedPropertyValueArray, true);
-            this.RopSaveChangesMessage(cprptMessageHandle[0], true);
+                // Add this property to message2.
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptMessageHandle[1], taggedPropertyValueArray, true);
+                this.RopSaveChangesMessage(cprptMessageHandle[1], true);
+            }
 
-            // Add this property to message2.
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptMessageHandle[1], taggedPropertyValueArray, true);
-            this.RopSaveChangesMessage(cprptMessageHandle[1], true);
+            if (objType == ServerObjectType.Folder)
+            {
+                // Add this property to folder1.
+                this.cprptCurrentType = ServerObjectType.Folder;
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptFolderHandle[0], taggedPropertyValueArray, true);
 
-            // Add this property to folder1.
-            this.cprptCurrentType = ServerObjectType.Folder;
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptFolderHandle[0], taggedPropertyValueArray, true);
+                // Add this property to folder2.
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptFolderHandle[1], taggedPropertyValueArray, true);
 
-            // Add this property to folder2.
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.SecondObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptFolderHandle[1], taggedPropertyValueArray, true);
+                // Set PTagRulesData property for folder1 and folder2
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.ThirdObject);
+                taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
+                this.RopSetProperties(cprptFolderHandle[0], taggedPropertyValueArray, true);
+                this.RopSetProperties(cprptFolderHandle[1], taggedPropertyValueArray, true);
+            }
 
-            // Set PTagRulesData property for folder1 and folder2
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.ThirdObject);
-            taggedPropertyValueArray[0].Value = Common.AddInt16LengthBeforeBinaryArray(taggedPropertyValueArray[0].Value);
-            this.RopSetProperties(cprptFolderHandle[0], taggedPropertyValueArray, true);
-            this.RopSetProperties(cprptFolderHandle[1], taggedPropertyValueArray, true);
-
-            // Add this property to logon.
-            this.cprptCurrentType = ServerObjectType.Logon;
-            taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
-            this.RopSetProperties(this.cprptLogonHandle, taggedPropertyValueArray, true);
+            if (objType == ServerObjectType.Logon)
+            {
+                // Add this property to logon.
+                this.cprptCurrentType = ServerObjectType.Logon;
+                taggedPropertyValueArray[0] = this.GetTaggedPropertyTag(ObjectToOperate.FirstObject);
+                this.RopSetProperties(this.cprptLogonHandle, taggedPropertyValueArray, true);
+            }
 
             // Set current type.
             this.cprptCurrentType = objType;

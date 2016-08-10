@@ -420,11 +420,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
         protected byte[] rawData;
 
         /// <summary>
-        /// A counter for input payload size calculation.
-        /// </summary>
-        protected int counter;
-
-        /// <summary>
         /// This property is used to Logon a specific mailbox.
         /// </summary>
         protected string userDN = string.Empty;
@@ -1284,7 +1279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                         ConnectionType.PrivateMailboxServer,
                         Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                         Common.GetConfigurationPropertyValue("Domain", this.Site),
-                        Common.GetConfigurationPropertyValue("UserName", this.Site),
+                        Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                         Common.GetConfigurationPropertyValue("PassWord", this.Site));
                     logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
                     #endregion
@@ -1541,7 +1536,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PrivateMailboxServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
                 logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
                 #endregion
@@ -1647,7 +1642,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                         ConnectionType.PrivateMailboxServer,
                         Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                         Common.GetConfigurationPropertyValue("Domain", this.Site),
-                        Common.GetConfigurationPropertyValue("UserName", this.Site),
+                        Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                         Common.GetConfigurationPropertyValue("PassWord", this.Site));
                     logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
 
@@ -1810,7 +1805,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     ConnectionType.PrivateMailboxServer,
                     Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
                     Common.GetConfigurationPropertyValue("Domain", this.Site),
-                    Common.GetConfigurationPropertyValue("UserName", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
                 logonResponse = this.Logon(LogonType.Mailbox, this.userDN, out this.inputObjHandle);
 
@@ -1932,7 +1927,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 return;
             }
 
-            string userName = Common.GetConfigurationPropertyValue("UserName", this.Site);
+            string userName = Common.GetConfigurationPropertyValue("AdminUserName", this.Site);
             string passWord = Common.GetConfigurationPropertyValue("PassWord", this.Site);
 
             // Hard Delete Messages and Subfolders of Inbox
