@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00000502,
                     createFolderResponse.ReturnValue,
                     106602,
-                    @"[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. (<10> Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.)");
+                    @"[In Appendix A: Product Behavior] Implementation returns ecNoCreateSubfolderRight if the client does not have permissions to create the folder. <11> Section 3.2.5.2: Exchange 2010 returns ecNoCreateSubfolderRight.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1074");
@@ -170,7 +170,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80070005,
                     createFolderResponse.ReturnValue,
                     106601,
-                    @"[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. (<10> Section 3.2.5.2: Exchange 2007 and Exchange 2013 return ecAccessdenied.)");
+                    @"[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. <11> Section 3.2.5.2: Exchange 2007, Exchange 2013 and Exchange 2016 return ecAccessdenied.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1071");
@@ -641,7 +641,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.OpenFolder(logonHandle, commonUserSubfolderId2, ref commonUserRootSubfolderHandle2);
             #endregion
 
-            #region Step 8. The client calls RopCopyFolder to copy target folder [MSOXCFOLDSubfolder1] from the root folder to destination folder [MSOXCFOLDSubfolder2].
+            #region Step 8. The client calls RopMoveFolder to move target folder [MSOXCFOLDSubfolder1] from the root folder to destination folder [MSOXCFOLDSubfolder2].
 
             // Initialize a server object handle table.
             List<uint> handleList = new List<uint>
@@ -649,7 +649,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 commonUserRootFolderHandle, commonUserRootSubfolderHandle2
             };
 
-            // Call the RopCopyFolder operation to copy the folder.
+            // Call the RopMoveFolder operation to move the folder.
             RopMoveFolderRequest moveFolderRequest = new RopMoveFolderRequest
             {
                 RopId = (byte)RopId.RopMoveFolder,

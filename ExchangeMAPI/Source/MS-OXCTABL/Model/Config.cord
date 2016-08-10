@@ -956,22 +956,16 @@ machine S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario() : Actions
 					RopCreateBookmark;
 					(	
 						(
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(true, true, true);
 							RopSeekRowBookmarkResponse(true, true, false, true, false)
 						)
 						|
 						(
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(false, true, false);
 							RopSeekRowBookmarkResponse(true, false, true, true, false) 
 						)
 						|
 						(	
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);
 							RopSeekRowBookmark(true, true, false);
 							RopSeekRowBookmarkResponse(true, false, true, true, false) 
 						)
@@ -982,8 +976,6 @@ machine S03_BookmarkRops_SeekRowBookMarkSuccess_Scenario() : Actions
 					InitializeTable(TableType.HIERARCHY_TABLE);
 					RopSetColumns(1,false,false,false);
 					RopCreateBookmark;
-					CheckRequirementEnabled(872, out _);
-					CheckRequirementEnabled(761, out _);
 					RopSeekRowBookmark(true, true, true);
 					RopSeekRowBookmarkResponse(true, true, false, true, false)                                      
 				) 
@@ -1048,6 +1040,49 @@ machine S03_BookmarkRops_SeekRowBookMarkNotSupported_TestSuite() : Actions where
     S03_BookmarkRops_SeekRowBookMarkNotSupported_SlicedModel
 }
 
+// Scenario S03 definition for testing the ecNullObject error code for the SeekRowBookmark ROP
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+        (
+            return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+		    (
+                (			
+			        CheckRequirementEnabled(8276, out _);
+			        RopSeekRowBookmark(true, true, true); 
+		        )
+                |
+		        (
+			        RopSetColumns(1,false,false,false);
+			        RopCreateBookmark;
+                    RopRelease;
+			        RopSeekRowBookmark(true, true, true); 
+		        )
+            )
+        )
+	)
+}
+
+// Sliced model based on S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_SlicedModel(): Actions
+{
+    S03_BookmarkRops_SeekRowBookMarkecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNullObject error code for the SeekRowBookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_SeekRowBookMarkecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_SeekRowBookMarkecNullObject_SlicedModel       
+}
+
 // Scenario S03 definition for testing the SeekRowBookmark ROP after the bookmark is invalid
 machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Actions
 {
@@ -1062,44 +1097,24 @@ machine S03_BookmarkRops_SeekRowBookmarkAfterInvalidBookmark_Scenario() : Action
 			RopCreateBookmark;  
 			(
 				(
-					RopResetTable;  
-					call CheckRequirementEnabled(909, out _);
-					(
-						(
-							return CheckRequirementEnabled(909, out false);
-						)
-						|
-						(
-							return CheckRequirementEnabled(909, out true);
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _); 
-							RopSeekRowBookmark(true, true, true);
-						)
-					)
+					RopResetTable;
+                    CheckRequirementEnabled(908, out _);
+                    CheckRequirementEnabled(909, out _);
+                    RopSetColumns(1,false,false,false);
+			        RopSeekRowBookmark(true, true, true);					
 				)
 				|
 				(
 					RopSortTable(1, true, false,true, true, true, false,false);
 					CheckRequirementEnabled(904, out _);  
 					CheckRequirementEnabled(905, out _); 
-					CheckRequirementEnabled(872, out _);
-					CheckRequirementEnabled(761, out _);    
 					RopSeekRowBookmark(true, true, true);
 				)	
 				|
 				(
 					RopRestrict(1,true,false,false);   
-					call CheckRequirementEnabled(906, out _);
-					(
-						return CheckRequirementEnabled(906, out false);
-						|
-						(
-							return CheckRequirementEnabled(906, out true);
-							CheckRequirementEnabled(872, out _);
-							CheckRequirementEnabled(761, out _);      
-							RopSeekRowBookmark(true, true, true);
-						)
-					)  
+					CheckRequirementEnabled(906, out _);
+					RopSeekRowBookmark(true, true, true);
 				) 
 			)
 		)                           
@@ -1243,48 +1258,6 @@ machine S03_BookmarkRops_SeekRowFractionalNotSupported_TestSuite() : Actions whe
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S03_BookmarkRops_SeekRowFractionalNotSupported_SlicedModel
 }
-
-// Scenario S03 definition for testing CreateBookmark ROP before RopSetColumns
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario() : Actions
-{
-	call CheckMAPIHTTPTransportSupported(out _);
-	(
-		return CheckMAPIHTTPTransportSupported(out false);
-		|
-		(
-			return CheckMAPIHTTPTransportSupported(out true);
-			InitializeTable(TableType.CONTENT_TABLE);
-			RopCreateBookmark;
-			call CheckRequirementEnabled(872, out _);
-			(
-				return CheckRequirementEnabled(872, out false);
-				|
-				(
-					return CheckRequirementEnabled(872, out true);
-					CheckRequirementEnabled(761, out _);
-					RopSeekRowBookmark(true, true, true); 
-				)
-			) 
-		)                               
-    ) 
-}
-
-// Sliced model based on S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel(): Actions
-{
-    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_Scenario()
-    ||
-    OXCTABLModelProgramCoverage 
-}
-
-// S03 Test Suite Definition: test for CreateBookmark ROP before RopSetColumns
-// The TestEnable switch should be set to true for generating test suite code
-machine S03_BookmarkRops_CreateBookmarkBeforeSetColumns_TestSuite() : Actions where TestEnabled = true
-{
-	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
-    S03_BookmarkRops_CreateBookmarkBeforeSetColumns_SlicedModel
-}
-
 // Scenario S03 definition for testing the ecNotSupported error code for the CreateBookmarkNotSupported ROP
 machine S03_BookmarkRops_CreateBookmarkNotSupported_Scenario() : Actions
 {
@@ -1339,8 +1312,6 @@ machine S03_BookmarkRops_Freebookmark_HierarchyTable_Scenario() : Actions
 			RopCreateBookmark;
 			CheckRequirementEnabled(549, out _);     
 			RopFreeBookmark;
-			CheckRequirementEnabled(872, out _);
-			CheckRequirementEnabled(761, out _);
 			RopSeekRowBookmark(true, true, true);
 		)
 	)	
@@ -1472,6 +1443,39 @@ machine S03_BookmarkRops_FreebookmarkNotSupported_TestSuite() : Actions where Te
     S03_BookmarkRops_FreebookmarkNotSupported_SlicedModel
 }
 
+// Scenario S03 definition for testing the ecNullObject error code for the FreeBookmark ROP
+machine S03_BookmarkRops_FreeBookmarkecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			CheckRequirementEnabled(549, out _);
+			CheckRequirementEnabled(8274, out _);
+			RopFreeBookmark;
+		)
+	)
+}
+
+// Sliced model based on S03_BookmarkRops_FreeBookmarkecNullObject_Scenario
+machine S03_BookmarkRops_FreeBookmarkecNullObject_SlicedModel(): Actions
+{
+    S03_BookmarkRops_FreeBookmarkecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S03 Test Suite Definition: test the ecNullObject error code for the FreeBookmark ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S03_BookmarkRops_FreeBookmarkecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S03_BookmarkRops_FreeBookmarkecNullObject_SlicedModel       
+}
+
 // Scenario S04 definition for testing success for the CollapseorExpandRow ROP
 machine S04_ExpandRowRops_CollapseorExpandRow_Scenario() : Actions
 {
@@ -1590,6 +1594,53 @@ machine S04_ExpandRowRops_CollapseorExpandRowNotSupported_TestSuite() : Actions 
 {
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S04_ExpandRowRops_CollapseorExpandRowNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNullObject error code for the CollapseRow and ExpandRow ROP
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+            RopSetColumns(1,false,false,false);
+			RopQueryRows(QueryRowsFlags.Advance,true);  
+            Disconnect;
+            InitializeTable(TableType.CONTENT_TABLE);
+			(
+			    (
+				    CheckRequirementEnabled(8271, out _);
+				    RopCollapseRow(false,false)
+				)
+				|
+				(
+				    CheckRequirementEnabled(748, out _);
+					CheckRequirementEnabled(8273, out _);
+					RopExpandRow(false,false,false);
+					RopExpandRowResponse(false);
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNullObject error code for the CollapseRow and ExpandRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_CollapseorExpandRowecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_CollapseorExpandRowecNullObject_SlicedModel       
 }
 
 // Scenario S04 definition for testing the ecNotSupported error code for the CollapseorExpandRowMaxRowCountinvalid ROP
@@ -1732,6 +1783,51 @@ machine S04_ExpandRowRops_GetorSetCollapseRowNotSupported_TestSuite() : Actions 
 {
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S04_ExpandRowRops_GetorSetCollapseRowNotSupported_SlicedModel
+}
+
+// Scenario S04 definition for testing the ecNullObject error code for the GetCollapseState and SetCollapseState ROP
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_Scenario() : Actions
+{
+	call CheckMAPIHTTPTransportSupported(out _);
+	(
+		return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+			return CheckMAPIHTTPTransportSupported(out true);
+			InitializeTable(TableType.CONTENT_TABLE);
+			(
+			    (
+				    RopSetColumns(1,false,false,false);
+				    RopQueryRows(QueryRowsFlags.Advance,true);  
+                    Disconnect;
+                    InitializeTable(TableType.CONTENT_TABLE);
+				    CheckRequirementEnabled(8275, out _);
+					RopGetCollapseState;
+				)
+				|
+				(
+				    CheckRequirementEnabled(8277, out _);
+					RopSetCollapseState;
+				)
+			)
+		)
+	)
+}
+
+// Sliced model based on S04_ExpandRowRops_CollapseorExpandRowecNullObject_Scenario
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_SlicedModel(): Actions
+{
+    S04_ExpandRowRops_GetorSetCollapseRowecNullObject_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S04 Test Suite Definition: test the ecNullObject error code for the GetCollapseState and SetCollapseState ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S04_ExpandRowRops_GetorSetCollapseRowecNullObject_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
+    S04_ExpandRowRops_GetorSetCollapseRowecNullObject_SlicedModel       
 }
 
 // Scenario S05 definition for testing success for the ResetTable ROP

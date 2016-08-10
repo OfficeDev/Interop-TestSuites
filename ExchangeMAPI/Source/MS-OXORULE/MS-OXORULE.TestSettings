@@ -2,16 +2,17 @@
 <TestSettings name="MS-OXORULE" id="01cc78ca-b250-4d0f-bb31-477a94f84a5e" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-OXORULE test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXORULE.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\NSPIStub\Debug\MS-OXNSPI_Stub.dll" />
     <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="NspiStub\Debug\MS-OXORULE_NspiStub.dll" />
-    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXORULE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXORULE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXORULE.runsettings" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

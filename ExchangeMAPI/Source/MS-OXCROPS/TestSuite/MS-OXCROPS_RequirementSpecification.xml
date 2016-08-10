@@ -12,7 +12,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] The ROP  input/output buffer, as specified in  section 2.2.1, is sent as part of the payload of the EcDoRpcExt2 RPC method, as specified in  [MS-OXCRPC] section3.1.4.12.</ns1:Description>
+		<ns1:Description>[In Transport] The ROP  input/output buffer, as specified in  section 2.2.1, is sent as part of either the payload of the EcDoRpcExt2 RPC method, as specified in  [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22,7 +22,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R400001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] The ROP  input/output buffer, as specified in  section 2.2.1, is sent as part of the request or response body of the Execute request type&lt;4&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Transport] The ROP  input/output buffer, as specified in  section 2.2.1, is sent as part of the payload of or the Execute request type, &lt;1&gt; as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -51,7 +51,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4666</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ROP Input and Output Buffers] The ROP input and output buffers are transmitted between the client and the server as part of the payload of the EcDoRpcExt2 method, as specified in [MS-OXCRPC] section 3.1.4.12.</ns1:Description>
+		<ns1:Description>[In ROP Input and Output Buffers] The ROP input and output buffers are transmitted between the client and the server as part of the payload of either the EcDoRpcExt2 method, as specified in [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -61,7 +61,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R46661</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ROP Input and Output Buffers] The ROP input and output buffers are transmitted between the client and the server as the Execute request type&lt;5&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In ROP Input and Output Buffers] The ROP input and output buffers are transmitted between the client and the server as part of the payload of or the Execute request type, &lt;2&gt; as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -217,7 +217,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In The Table of RopIds] When the server encounters a RopId value that is associated with a reserved ROP, it SHOULD&lt;6&gt; return an error for the RPC, as specified in [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
+		<ns1:Description>[In The Table of RopIds] When the server encounters a RopId value that is associated with a reserved ROP, it SHOULD&lt;3&gt; return an error for the RPC, as specified in [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -227,7 +227,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R180001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In The Table of RopIds] When the server encounters a RopId value that is associated with a reserved ROP, it SHOULD&lt;6&gt; return an error for the Execute request type&lt;7&gt; response, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
+		<ns1:Description>[In The Table of RopIds] When the server encounters a RopId value that is associated with a reserved ROP, it SHOULD&lt;3&gt; return an error for the Execute request type&lt;4&gt; response, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1126,16 +1126,25 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): A GUID.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes):  A GUID that specifies the replica GUID associated with the replica ID that is specified in the ReplId field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R107</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCROPS_R20001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] ReplGuid (16 bytes): This field specifies the replica GUID associated with the replica ID that is specified in the ReplId field.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid (16 bytes): This field is not used and is ignored by the client. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid (16 bytes): The server SHOULD set this field to all zeroes.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2165,7 +2174,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.5), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] Rows (variable): The ValueArray field of either the StandardPropertyRow structure or the FlaggedPropertyRow structure MUST include only the PidTagFolderId ([MS-OXCFOLD] section 2.2.2.2.1.6), PidTagMessageClass ([MS-OXCMSG] section 2.2.1.3), and PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2) properties, in that order, and no other properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2255,7 +2264,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R223</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStoreState ROP] The RopGetStoreState ROP gets the current state of the message store for the logged on user.</ns1:Description>
+		<ns1:Description>[In RopGetStoreState ROP] The RopGetStoreState ROP gets the current state of the mailbox for the logged on user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2436,7 +2445,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R240</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure.</ns1:Description>
+		<ns1:Description>[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): A flags structure that contains flags that indicate the state of the mailbox for the logged on user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2450,16 +2459,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R242</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStoreState ROP Success Response Buffer] StoreState (4 bytes): These flags specify the state related to the logged on user.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-OXCSTOR_R3228,MS-OXCSTOR_R334.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R24301</ns1:REQ_ID>
@@ -5577,7 +5576,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R556</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenFolder ROP Success Response Buffer] HasRules (1 byte): This value indicates whether the folder has rules (1) associated with it.</ns1:Description>
+		<ns1:Description>[In RopOpenFolder ROP Success Response Buffer] HasRules (1 byte): This value indicates whether the folder has rules associated with it.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6212,7 +6211,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R622</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This field is present if the IsExistingFolder field is nonzero and the folder is a public folder.</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This field is present if the IsExistingFolder field is nonzero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6228,18 +6227,9 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4614</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): otherwise[if the folder is not a public folder], it is not present.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R624</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This value indicates whether the folder has rules (1) associated with it.</ns1:Description>
+		<ns1:Description>[In RopCreateFolder ROP Success Response Buffer] HasRules (1 byte): This value indicates whether the folder has rules associated with it.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6752,7 +6742,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R676</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP sets the search criteria for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP] The RopSetSearchCriteria ROP sets the search criteria for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6870,7 +6860,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R687</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): A restriction (2) packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): A restriction packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6888,7 +6878,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R690</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): The restriction specifies the filter for this search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] RestrictionData (variable): The restriction specifies the filter for this search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6953,7 +6943,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R697</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): These contain flags that control the search for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopSetSearchCriteria ROP Request Buffer] SearchFlags (4 bytes): These contain flags that control the search for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7144,7 +7134,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R715</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] UseUnicode (1 byte): This value specifies whether the client requests the restriction (2) data (returned in the RestrictionData field of the response) to be specified with Unicode strings or with ASCII strings. .</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] UseUnicode (1 byte): This value specifies whether the client requests the restriction data (returned in the RestrictionData field of the response) to be specified with Unicode strings or with ASCII strings. .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7163,7 +7153,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R717</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): This value specifies whether the server includes the restriction (2) information in the response.</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Request Buffer] IncludeRestriction (1 byte): This value specifies whether the server includes the restriction information in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7292,7 +7282,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R730</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Success Response Buffer] RestrictionData (variable): A restriction (2) packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Success Response Buffer] RestrictionData (variable): A restriction packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7396,7 +7386,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R742</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetSearchCriteria ROP Success Response Buffer] SearchFlags (4 bytes): These contain flags that control the search for a search folder (2).</ns1:Description>
+		<ns1:Description>[In RopGetSearchCriteria ROP Success Response Buffer] SearchFlags (4 bytes): These contain flags that control the search for a search folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11381,7 +11371,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1137</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopRestrict ROP Request Buffer] RestrictionData (variable): A restriction (2) packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopRestrict ROP Request Buffer] RestrictionData (variable): A restriction packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13255,7 +13245,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1323</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In RopSeekRowBookmark ROP] The RopSeekRowBookmark ROP moves the cursor to a location specified relative to a user-defined bookmark (2).</ns1:Description>
+		<ns1:Description>[In RopSeekRowBookmark ROP] The RopSeekRowBookmark ROP moves the cursor to a location specified relative to a user-defined bookmark.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14086,7 +14076,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1404</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.11.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateBookmark ROP Success Response Buffer] Bookmark (variable): This array specifies the bookmark (2) created.</ns1:Description>
+		<ns1:Description>[In RopCreateBookmark ROP Success Response Buffer] Bookmark (variable): This array specifies the bookmark created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14641,7 +14631,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1459</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopFindRow ROP Request Buffer] RestrictionData (variable): A restriction (2) packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopFindRow ROP Request Buffer] RestrictionData (variable): A restriction packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14731,7 +14721,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1470</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopFindRow ROP Request Buffer] Bookmark (variable): This array specifies the bookmark (2) to use as the origin.</ns1:Description>
+		<ns1:Description>[In RopFindRow ROP Request Buffer] Bookmark (variable): This array specifies the bookmark to use as the origin.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14830,7 +14820,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1480</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.13.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFindRow ROP Success Response Buffer] RowNoLongerVisible (1 byte): This value specifies whether the bookmark (2) target is no longer visible.</ns1:Description>
+		<ns1:Description>[In RopFindRow ROP Success Response Buffer] RowNoLongerVisible (1 byte): This value specifies whether the bookmark target is no longer visible.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14976,7 +14966,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1495</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In RopFreeBookmark ROP] The RopFreeBookmark ROP releases a bookmark (2).</ns1:Description>
+		<ns1:Description>[In RopFreeBookmark ROP] The RopFreeBookmark ROP releases a bookmark.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15112,7 +15102,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1508</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.14.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopFreeBookmark ROP Request Buffer] Bookmark (variable): This array specifies the bookmark (2) to be freed.</ns1:Description>
+		<ns1:Description>[In RopFreeBookmark ROP Request Buffer] Bookmark (variable): This array specifies the bookmark to be freed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17570,7 +17560,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R1761</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopCreateMessage ROP Request Buffer,FolderId (8 bytes)]This value identifies the parent folder.</ns1:Description>
+		<ns1:Description>[In RopCreateMessage ROP Request Buffer,FolderId (8 bytes)]This value specifies the parent folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20197,11 +20187,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R2046</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.9.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetMessageStatus ROP Response Buffers ] The response buffers for this ROP are the same as those for the RopSetMessageStatus ROP, as specified in sections 2.2.6.8.2 and 2.2.6.8.3, except that the RopId field is set to 0x1F.</ns1:Description>
+		<ns1:Description>[In RopGetMessageStatus ROP Response Buffers ] The response buffers for this ROP are the same as those for the RopSetMessageStatus ROP, as specified in sections 2.2.6.8.2 and 2.2.6.8.3. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.6.9.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopGetMessageStatus ROP Response Buffers ] The value of the RopId field for RopGetMessageStatus responses MUST be 0x20, which is the same as that for the RopSetMessageStatus responses.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R2047</ns1:REQ_ID>
@@ -24937,7 +24936,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R2548</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.9</ns1:Doc_Sect>
-		<ns1:Description>[In RopOptionsData ROP]The RopOptionsData ROP retrieves the options data that is associated with an address type.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In RopOptionsData ROP]The RopOptionsData ROP retrieves the options data that is associated with an address type.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25217,7 +25216,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R2577</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.9.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopOptionsData ROP Success Response Buffer,OptionsInfo (variable)] Servers SHOULD return this field as an empty array.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In RopOptionsData ROP Success Response Buffer,OptionsInfo (variable)] Servers SHOULD return this field as an empty array.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25408,7 +25407,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4647</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.9.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopOptionsData ROP Failure Response Buffer]ReturnValue (4 bytes): For this response[Failure Response], this field SHOULD be set to a value other than 0x00000000&lt;11&gt;.</ns1:Description>
+		<ns1:Description>[In RopOptionsData ROP Failure Response Buffer]ReturnValue (4 bytes): For this response[Failure Response], this field SHOULD be set to a value other than 0x00000000&lt;8&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31084,7 +31083,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3212</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopReadStream ROP Request Buffer,MaximumByteCount (4 bytes)]This value specifies the maximum number of bytes to read if the value of the ByteCount field is equal to 0xBABE.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In RopReadStream ROP Request Buffer,MaximumByteCount (4 bytes)]This value specifies the maximum number of bytes to read if the value of the ByteCount field is equal to 0xBABE.&lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32076,7 +32075,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4648</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetStreamSize ROP Request Buffer,StreamSize (8 bytes)] If no value is specified in a configuration file, then the maximum size is 2^31 bytes.&lt;13&gt;</ns1:Description>
+		<ns1:Description>[In RopSetStreamSize ROP Request Buffer,StreamSize (8 bytes)] If no value is specified in a configuration file, then the maximum size is 2^31 bytes.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32850,7 +32849,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3410</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.8.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopCopyToStream ROP Null Destination Failure Response Buffer,ReadByteCount (8 bytes)] for this response,this field SHOULD be set to  0x0000000000000000.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In RopCopyToStream ROP Null Destination Failure Response Buffer,ReadByteCount (8 bytes)] for this response,this field SHOULD be set to  0x0000000000000000.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32869,7 +32868,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3414</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.8.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopCopyToStream ROP Null Destination Failure Response Buffer,WrittenByteCount (8 bytes)]for this response[of written to the destination object],this field SHOULD be set to  0x0000000000000000&lt;15&gt;.</ns1:Description>
+		<ns1:Description>[In RopCopyToStream ROP Null Destination Failure Response Buffer,WrittenByteCount (8 bytes)]for this response[of written to the destination object],this field SHOULD be set to  0x0000000000000000&lt;12&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34251,7 +34250,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3562</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.11.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopModifyRules ROP] The RopModifyRules ROP modifies the rules (1) associated with a folder.</ns1:Description>
+		<ns1:Description>[In RopModifyRules ROP] The RopModifyRules ROP modifies the rules associated with a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37673,7 +37672,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3926</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.13.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationConfigure ROP Request Buffer, RestrictionData (variable):] A restriction (2)  packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationConfigure ROP Request Buffer, RestrictionData (variable):] A restriction packet, as specified in [MS-OXCDATA] section 2.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -41475,7 +41474,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4333</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] NotificationTypes (1 byte): A flags structure.</ns1:Description>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] NotificationTypes (2 bytes): A flags structure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -41484,7 +41483,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4334</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, NotificationTypes (1 byte):] The possible values [0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80] are specified in [MS-OXCNOTIF] section 2.2.1.2.1.1.</ns1:Description>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, NotificationTypes (2 bytes):] The possible values [0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80] are specified in [MS-OXCNOTIF] section 2.2.1.2.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -41493,7 +41492,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4335</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, NotificationTypes (1 byte):] These flags specify the types of events to register for.</ns1:Description>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, NotificationTypes (2 bytes):] These flags specify the types of events to register for.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -41513,6 +41512,15 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:REQ_ID>MS-OXCROPS_R433601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] Reserved (1 byte):This field MUST be set to zero.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] Reserved (1 byte): This field is optional and will only be present if the Extended (0x0400) flag is set in the NotificationTypes field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -41573,6 +41581,15 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, FolderId (8 bytes):] If the notification is scoped to a specific folder, MessageId SHOULD be zero.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4343</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] MessageId (8 bytes): An identifier.</ns1:Description>
@@ -41603,6 +41620,15 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:REQ_ID>MS-OXCROPS_R4345</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, MessageId (8 bytes):] This value specifies the message to register notifications for.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.14.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer, MessageId (8 bytes):] If the notification is scoped to a specific message, FolderId SHOULD specify the parent folder of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -42478,7 +42504,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R46991</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Logging On] Prior to logging on, the client begins an RPC session by calling the Connect request type&lt;16&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Logging On] Prior to logging on, the client begins an RPC session by calling the Connect request type&lt;13&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -42732,7 +42758,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4520</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing the RopBufferTooSmall Response Buffer] The client SHOULD&lt;17&gt; resend the unprocessed ROP requests in a new call to the server via the EcDoRpcExt2 method.</ns1:Description>
+		<ns1:Description>[In Processing the RopBufferTooSmall Response Buffer] The client SHOULD&lt;14&gt; resend the unprocessed ROP requests in a new call to the server via the EcDoRpcExt2 method.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -42741,7 +42767,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R45201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing the RopBufferTooSmall Response Buffer] The client SHOULD&lt;17&gt; resend the unprocessed ROP requests in a new call to the server via the Execute request type&lt;18&gt;.</ns1:Description>
+		<ns1:Description>[In Processing the RopBufferTooSmall Response Buffer] The client SHOULD&lt;14&gt; resend the unprocessed ROP requests in a new call to the server via the Execute request type&lt;15&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -42786,7 +42812,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R452202</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopNotify and RopPending] A RopPending ROP response SHOULD&lt;19&gt; be present only if the ROP output buffer does not contain all queued RopNotify ROP responses.</ns1:Description>
+		<ns1:Description>[In RopNotify and RopPending] A RopPending ROP response SHOULD&lt;16&gt; be present only if the ROP output buffer does not contain all queued RopNotify ROP responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43039,7 +43065,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4727</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page for Strings,The code page for a Server object is determined as follows:] If the Server object is not owned by a message, then the Server object uses the code page specified in the Connect request type&lt;20&gt;.</ns1:Description>
+		<ns1:Description>[In Code Page for Strings,The code page for a Server object is determined as follows:] If the Server object is not owned by a message, then the Server object uses the code page specified in the Connect request type&lt;17&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43147,7 +43173,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4540</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Initialization] When a connection is first set up between a client and server via the Connect request type&lt;21&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1, the Server Object Map and Logon Map ADM elements are empty.</ns1:Description>
+		<ns1:Description>[In Initialization] When a connection is first set up between a client and server via the Connect request type&lt;18&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1, the Server Object Map and Logon Map ADM elements are empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43165,7 +43191,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R453902</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending Notifications to the Client] If not all queued RopNotify ROP responses can fit in the ROP output buffer, the server SHOULD&lt;22&gt; include a RopPending ROP response (section 2.2.14.3.1) in the ROP output buffer.</ns1:Description>
+		<ns1:Description>[In Sending Notifications to the Client] If not all queued RopNotify ROP responses can fit in the ROP output buffer, the server SHOULD&lt;19&gt; include a RopPending ROP response (section 2.2.14.3.1) in the ROP output buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43183,7 +43209,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4541</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the RopBackoff ROP Response] When the server determines that a ROP request is required to be delayed, the server MUST either respond with a RopBackoff ROP response (section 2.2.15.2)  or fail the RPC.</ns1:Description>
+		<ns1:Description>[In Sending the RopBackoff ROP Response] When the server determines that a ROP request is required to be delayed, the server MUST either respond with a RopBackoff ROP response (section 2.2.15.2)  or fail the ExDoRpcExt2 method, as specified in [MS-OXCRPC] section 3.1.4.2, or the Execute request type,&lt;20&gt; as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43201,7 +43227,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4543</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the RopBackoff ROP Response] If either the client or the server are earlier versions, the server MUST instead fail the RPC by raising the RPC_S_SERVER_TOO_BUSY exception, as specified in [MS-OXCRPC] section 3.2.4.4.</ns1:Description>
+		<ns1:Description>[In Sending the RopBackoff ROP Response] If either the client or the server are earlier versions, the server MUST instead fail either the ExDoRpcExt2 method by raising the RPC_S_SERVER_TOO_BUSY exception, as specified in [MS-OXCRPC], or the Execute request type with an HTTP status code of 200, a value of 0 (success) in the X-ResponseCode header, and a value of 0x000006BB in the StatusCode field of the Execute request type failure response body, as specified in [MS-OXCMAPIHTTP].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43213,33 +43239,6 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Description>[In Sending the RopBackoff ROP Response] If ROPs are specified in a RopBackoff ROP response, all subsequent ROP requests SHOULD NOT be processed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R45441</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the RopBackoff ROP Response] If MAPI extensions to HTTP &lt;23&gt; are used, The RPC_S_SERVER_TOO_BUSY exception is raised.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R45442</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the RopBackoff ROP Response] It [RPC_S_SERVER_TOO_BUSY exception] includes an HTTP status code of 200 and a response code of 0 (success).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R45443</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the RopBackoff ROP Response] A MapiHttp status code, a DWORD with a value of 0x6BB, immediately follows the response code.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -43273,7 +43272,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454503</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] In this case[the ROP output buffer can be resized to accommodate the remaining ROPs], the client can resubmit the ROP requests in a new EcDoRpcExt2 RPC, as specified in [MS-OXCRPC] section 3.1.4.2, with the pcbOut parameter set to an appropriate value.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] In this case[the ROP output buffer can be resized to accommodate the remaining ROPs], the client can resubmit the ROP requests in a new EcDoRpcExt2 method call with the pcbOut parameter set to an appropriate value, as specified in [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43282,7 +43281,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R45451</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] In this case [the ROP output buffer can be resized to accommodate the remaining ROPs], the client can resubmit the ROP requests in an Execute request type&lt;24&gt;, as specified in  [MS-OXCMAPIHTTP] section 2.2.4.2, with the pcbOut parameter set to an appropriate value.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] In this case [the ROP output buffer can be resized to accommodate the remaining ROPs], the client can resubmit the ROP requests in a new Execute request type with the MaxRopOut field set to an appropriate value,&lt;21&gt; as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43300,7 +43299,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454505</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value, then the server SHOULD&lt;25&gt; fail the RPC with 0x0000047D.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of the EcDoRpcExt2 response, as specified in [MS-OXCRPC] section 3.1.4.2, is set to the maximum value, then the server SHOULD&lt;22&gt; fail the EcDoRpcExt2 method with a return value of 0x0000047D.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43310,11 +43309,12 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4546</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when the cbOut parameter of the Execute request type is set to the maximum value, then the server SHOULD&lt;25&gt; fail the RPC with 0x0000047D.</ns1:Description>
+		<ns1:Description>[In Responding to Insufficient Output Buffer Space] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then the server SHOULD fail the Execute request type with a value of 0x0000047D in the StatusCode field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCROPS_R20009.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454507</ns1:REQ_ID>
@@ -43391,7 +43391,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4712</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a ROP Input Buffer] If the index is invalid, the server SHOULD &lt;26&gt;fails the ROP with the ReturnValue field set to 0x000004B9.</ns1:Description>
+		<ns1:Description>[In Processing a ROP Input Buffer] If the index is invalid, the server SHOULD &lt;23&gt; fails the ROP with the ReturnValue field set to 0x000004B9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43419,7 +43419,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4555</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a Input ROP Buffer] If any lookup in the Logon Map ADM element fails, the server SHOULD&lt;27&gt; fill in a failure ROP response with a nonzero return value.</ns1:Description>
+		<ns1:Description>[In Processing a Input ROP Buffer] If any lookup in the Logon Map ADM element fails, the server SHOULD&lt;24&gt; fill in a failure ROP response with a nonzero return value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43565,7 +43565,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4580</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Processing the RopRelease ROP Request] The server MUST release the resources associated with it.&lt;16&gt;</ns1:Description>
+		<ns1:Description>[In Processing the RopRelease ROP Request] The server MUST release the resources associated with it.&lt;25&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43685,7 +43685,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40010</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;4&gt; Section 2.1: Exchange 2003 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;1&gt; Section 2.1: Exchange 2003 follows this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43694,25 +43694,16 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;4&gt; Section 2.1: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;1&gt; Section 2.1: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R40011</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.1: Office Outlook 2003 does not support the Execute request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.1: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.1: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43721,7 +43712,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40004</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.1: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.1: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43730,7 +43721,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40005</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;4&gt; Section 2.1: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;1&gt; Section 2.1: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43738,36 +43729,18 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>Verified by requirement: MS-OXCMAPIHTTP_R226.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R40012</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;5&gt; Section 2.2.1: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40006</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;5&gt; Section 2.2.1: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;2&gt; Section 2.2.1: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R40013</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1: Office Outlook 2003 does not support the Execute request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40007</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.1: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43776,7 +43749,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40008</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.1: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43785,7 +43758,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R40009</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;5&gt; Section 2.2.1: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;2&gt; Section 2.2.1: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43793,18 +43766,9 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>Verified by requirement: MS-OXCMAPIHTTP_R226.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R19</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.2: Exchange 2003 behavior is undefined when they encounter a reserved value in a RopId field.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4590</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation behavior is undefined when they encounter a reserved value in a RopId field.(Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation behavior is undefined when they encounter a reserved value in a RopId field.(&lt;3&gt; Section 2.2.2:  Exchange 2007 behavior is undefined when they encounter a reserved value in a RopId field.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R18:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -43823,38 +43787,19 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R180006</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;7&gt; Section 2.2.2: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R180001:i,MS-OXCROPS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R180002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;7&gt; Section 2.2.2: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;4&gt; Section 2.2.2: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R180001:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R180007</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;7&gt; Section 2.2.2: Office Outlook 2003 does not support the Execute request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R180003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;7&gt; Section 2.2.2: Office Outlook 2003, Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.2: Office Outlook 2003, Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43863,7 +43808,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R180004</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;7&gt; Section 2.2.2: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.2: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43872,7 +43817,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R180005</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (&lt;7&gt; Section 2.2.2: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return an error for the Execute request type when the server encounters a RopId value that is associated with a reserved ROP. (&lt;4&gt; Section 2.2.2: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R180001:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -43883,8 +43828,8 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4720</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;8&gt; Section 2.2.3.1.3: Implementation does not set the PerUserGuid field to an empty GUID. (Exchange 2007 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R107:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the PerUserGuid field to an empty GUID. (&lt;5&gt; Section 2.2.3.1.3: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R20002:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43895,7 +43840,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:REQ_ID>MS-OXCROPS_R214</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] PerUserGuid (16 bytes): Implementation does set this field to an empty GUID (all zeroes). (Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R107:i</ns1:Derived>
+		<ns1:Derived>MS-OXCROPS_R20002:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43905,25 +43850,16 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R472101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.7.9: Outlook 2010 does not use the RopOptionsData ROP (section 2.2.7.9).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not use the RopOptionsData ROP . &lt;6&gt; Section 2.2.7.9: Outlook 2010 does not use the RopOptionsData ROP (section 2.2.7.9).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R2927</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;10&gt; Section 2.2.7.9.2: Exchange 2003 does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R2928</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return [OptionsInfo (variable) field as] an empty array in the OptionsInfo field. (&lt;7&gt; Section 2.2.7.9.2: Exchange 2007, and Exchange 2010 do not return an empty array in the OptionsInfo field.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R2577:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -43945,7 +43881,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4690</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;11&gt; Section 2.2.7.9.3: Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP. (&lt;8&gt; Section 2.2.7.9.3: Exchange 2007 sets the ReturnValue field for the RopOptionsData ROP response (section 2.2.7.9) to 0x00000000 regardless of the failure of the ROP.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R4647:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -43967,7 +43903,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3208</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;12&gt; Section 2.2.9.2.1: Exchange 2003 limits the stream size to 32 kilobytes.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.9.2.1: Exchange 2003 limits the stream size to 32 kilobytes.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43976,7 +43912,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3209</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;12&gt; Section 2.2.9.2.1: [Exchange 2003 limits the stream size to 32 kilobytes.] Therefore, if the value of the ByteCount field in the RopReadStream ROP request buffer (section 2.2.9.2) is greater than 0x8000, the server returns the RopBufferTooSmall ROP (section 2.2.15.1).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.9.2.1: [Exchange 2003 limits the stream size to 32 kilobytes.] Therefore, if the value of the ByteCount field in the RopReadStream ROP request buffer (section 2.2.9.2) is greater than 0x8000, the server returns the RopBufferTooSmall ROP (section 2.2.15.1).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43985,7 +43921,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3210</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;12&gt; Section 2.2.9.2.1:  [Exchange 2003 limits the stream size to 32K bytes.] The MaximumByteCount field is never present in the request buffer because the ByteCount field is never set to 0xBABE.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 2.2.9.2.1:  [Exchange 2003 limits the stream size to 32K bytes.] The MaximumByteCount field is never present in the request buffer because the ByteCount field is never set to 0xBABE.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43994,7 +43930,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3319</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;13&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 do not use a configuration setting.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;10&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 do not use a configuration setting.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44003,7 +43939,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4649</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;13&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 always limit the maximum size of the stream to 231 bytes.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;10&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 always limit the maximum size of the stream to 231 bytes.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44012,7 +43948,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4692</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning. (Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning. (&lt;11&gt; Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R3410:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44032,27 +43968,9 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R469201</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;14&gt; Section 2.2.9.8.3: Exchange 2003 do not set the field[ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R469301</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;15&gt; Section 2.2.9.8.3: Exchange 2003 do not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not set the field[WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. (&lt;12&gt; Section 2.2.9.8.3: Exchange 2007 do not set the field to 0x0000000000000000, but the nonzero value has no meaning.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R3414:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44072,36 +43990,18 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R341501</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;16&gt; Section 3.1.4.2: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R341502</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;16&gt; Section 3.1.4.2: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;13&gt; Section 3.1.4.2: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R341503</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;16&gt; Section 3.1.4.2: Office Outlook 2003 doesn't support the Connect request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R341504</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;16&gt; Section 3.1.4.2: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;13&gt; Section 3.1.4.2: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44110,7 +44010,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R341505</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;16&gt; Section 3.1.4.2: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;13&gt; Section 3.1.4.2: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44120,7 +44020,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R341506</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;16&gt; Section 3.1.4.2: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;13&gt; Section 3.1.4.2: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44139,16 +44039,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469302</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;17&gt; Section 3.1.5.1.2: Failing the ROP when it satisfies these conditions[In Update Rollup 3 for Exchange 2010 SP2, if the first ROP in the RPC buffer creates a response that exceeds the maximum ROP buffer size and there are no additional ROPs in the RPC buffer] indicates to the client that there is no client action possible to make that ROP response fit in the ROP buffer.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R469307</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;18&gt; Section 3.1.5.1.2: Exchange 2003 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;14&gt; Section 3.1.5.1.2: Failing the ROP when it satisfies these conditions[In Update Rollup 3 for Exchange 2010 SP2, if the first ROP in the RPC buffer creates a response that exceeds the maximum ROP buffer size and there are no additional ROPs in the RPC buffer] indicates to the client that there is no client action possible to make that ROP response fit in the ROP buffer.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44157,25 +44048,16 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469308</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;18&gt; Section 3.1.5.1.2: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;15&gt; Section 3.1.5.1.2: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693092</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;18&gt; Section 3.1.5.1.2: Office Outlook 2003 does not support the Execute request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469310</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;18&gt; Section 3.1.5.1.2: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;15&gt; Section 3.1.5.1.2: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44184,7 +44066,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469311</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;18&gt; Section 3.1.5.1.2: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;15&gt; Section 3.1.5.1.2: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44193,7 +44075,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469312</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;18&gt; Section 3.1.5.1.2: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;15&gt; Section 3.1.5.1.2: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44201,19 +44083,9 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>Verified by requirement: MS-OXCMAPIHTTP_R226.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693032</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include a RopPending ROP response (section 2.2.14.3) even though the ROP output buffer contains all queued RopNotify ROP responses (section 2.2.14.2). (&lt;19&gt; Section 3.1.5.1.3:  Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCROPS_R452202:i, MS-OXCROPS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469303</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include a RopPending ROP response (section 2.2.14.3) even though the ROP output buffer contains all queued RopNotify ROP responses (section 2.2.14.2). (&lt;19&gt; Section 3.1.5.1.3: Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include a RopPending ROP response (section 2.2.14.3) even though the ROP output buffer contains all queued RopNotify ROP responses (section 2.2.14.2). (&lt;16&gt; Section 3.1.5.1.3: Exchange 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R452202:i, MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44233,36 +44105,18 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693041</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;20&gt; Section 3.1.5.4: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693051</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;20&gt; Section 3.1.5.4: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;17&gt; Section 3.1.5.4: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693061</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;20&gt; Section 3.1.5.4: Office Outlook 2003 doesn't support the Connect request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693071</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;20&gt; Section 3.1.5.4: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;17&gt; Section 3.1.5.4: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44271,7 +44125,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693081</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;20&gt; Section 3.1.5.4: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;17&gt; Section 3.1.5.4: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44281,43 +44135,25 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693091</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;20&gt; Section 3.1.5.4: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;17&gt; Section 3.1.5.4: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693101</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;21&gt; Section 3.2.3: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4693111</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;21&gt; Section 3.2.3: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support the Connect request type. (&lt;18&gt; Section 3.2.3: Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4693121</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;21&gt; Section 3.2.3: Office Outlook 2003 doesn't support the Connect request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469313</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;21&gt; Section 3.2.3: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;18&gt; Section 3.2.3: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44326,7 +44162,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469314</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;21&gt; Section 3.2.3: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Connect request type. (&lt;18&gt; Section 3.2.3: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44336,7 +44172,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469315</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;21&gt; Section 3.2.3: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;18&gt; Section 3.2.3: Office Outlook 2013 SP1 does support the Connect request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44345,97 +44181,25 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469304</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;22&gt; Section 3.2.4.1: Exchange 2003 and Exchange 2007 sometimes include a RopPending ROP response (section 2.2.14.3) even though all queued RopNotify ROP responses (section 2.2.14.2) fit in the ROP output buffer.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;19&gt; Section 3.2.4.1: Exchange 2007 sometimes include a RopPending ROP response (section 2.2.14.3) even though all queued RopNotify ROP responses (section 2.2.14.2) fit in the ROP output buffer.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544105</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the MAPI extensions to HTTP. (&lt;23&gt; Section 3.2.4.2: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544101</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support MAPI extensions to HTTP. (&lt;23&gt; Section 3.2.4.2: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544106</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 3.2.4.2: Office Outlook 2003 does not support MAPI extensions to HTTP.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544102</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 3.2.4.2: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support MAPI extensions to HTTP.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544103</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 3.2.4.2: MAPI extensions to HTTP were introduced in Outlook 2013 SP1.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544104</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does raise the RPC_S_SERVER_TOO_BUSY exception if MAPI extensions to HTTP are used. (&lt;23&gt; Section 3.2.4.2: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R45441010</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;24&gt; Section 3.2.4.3: Exchange 2003 follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R45441011</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;24&gt; Section 3.2.4.3: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. (&lt;20&gt; Section 3.2.4.3: Exchange 2007, Exchange 2010 and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4544107</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;24&gt; Section 3.2.4.3: Office Outlook 2003 does not support the Execute request type.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4544108</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;24&gt; Section 3.2.4.3: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;20&gt; Section 3.2.4.3: Office Outlook 2007, Outlook 2010, and the initial release of Outlook 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44444,7 +44208,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4544109</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;24&gt; Section 3.2.4.3: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;20&gt; Section 3.2.4.3: The Execute request type was introduced in Outlook 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44453,7 +44217,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4544110</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;24&gt; Section 3.2.4.3: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the Execute request type. (&lt;20&gt; Section 3.2.4.3: Exchange 2013 SP1 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44461,18 +44225,9 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>Verified by requirement: MS-OXCMAPIHTTP_R226.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R469305</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;25&gt; Section 3.2.4.3: Exchange 2003 do not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R469309</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D. (Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not fail the EcDoRpcExt2 remote procedure call RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D if one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value. (&lt;22&gt; Section 3.2.4.3: Exchange 2007 do not fail the EcDoRpcExt2 RPC and instead fail the individual ROP with the ReturnValue field of the ROP response buffer set to 0x0000047D.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R454505:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44482,8 +44237,19 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R454509</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value, then implementation does fail the RPC with 0x0000047D. (Exchange 2010  follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when either the pcbOut parameter of EcDoRpcExt2 response is set to the maximum value, then implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D. (Exchange 2010  and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R454505:i,MS-OXCROPS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20009</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value, then implementation does fail the Execute request type with a value of 0x0000047D in the StatusCode field. (Exchange 2013 SP1  and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R4546:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44493,7 +44259,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4713</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (Exchange 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] For some ROPs, Implementation does use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. (&lt;23&gt; Section 3.2.5.1: For some ROPs, Exchange 2007 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R4712:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44513,18 +44279,20 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R471301</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCROPS_R4714</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;26&gt; Section 3.2.5.1:: For some ROPs, Exchange 2003 use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does fail the RPC if any lookup in the Logon Map ADM element fails. ( &lt;24&gt; Section 3.2.5.1: Exchange 2007 fail the RPC.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R4555:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCROPS_R4714</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCROPS_R4714001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 3.2.5.1: Exchange 2003 and Exchange 2007 fail the RPC if any lookup in the Logon Map ADM element fails.</ns1:Description>
+		<ns1:Description>[In Processing a Input ROP Buffer] Implementation does fill in a failure ROP response with a nonzero return value if any lookup in the Logon Map ADM element fails. (Exchange 2010 and above follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R4555:i,MS-OXCROPS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44533,11 +44301,22 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R471401</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;28&gt; Section 3.2.5.3: In Exchange 2010, in instances where multiple ROPs are being processed in one RPC and the RopRelease ROP is the last ROP in the call, the RopRelease ROP (section 2.2.15.3) replaces the handle of the released Server object handle table entry with a value that is considered invalid by both server and client and is not 0xFFFFFFFF. This invalid handle value is then returned as the Server object handle in the ROP responses for the other ROPs in the RPC.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;25&gt; Section 3.2.5.3: In instances where multiple ROPs are being processed in one RPC and the RopRelease ROP is the last ROP in the call, implementation does replace the handle of the released Server object handle table entry with a value that is considered invalid by both server and client and is not 0xFFFFFFFF. This invalid handle value is then returned as the Server object handle in the ROP responses for the other ROPs in the RPC. (Exchange 2010 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R4580:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCROPS_R20010</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does release the resources associated with it. (Exchange 2007, Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCROPS_R4580:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R321501</ns1:REQ_ID>
@@ -44674,7 +44453,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R6000101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field. (Exchange 2010 and above follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field. (Exchange 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCROPS_R622:i,MS-OXCFOLD_R60:i,MS-OXCFOLD_R60001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -44860,7 +44639,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R123</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In RopAbort ROP] The RopAbort ROP ([MS-OXCROPS] section 2.2.5.5) attempts to stop any asynchronous table operations that are currently in progress.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In RopAbort ROP] The RopAbort ROP ([MS-OXCROPS] section 2.2.5.5) attempts to stop any asynchronous table operations that are currently in progress.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44870,7 +44649,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R128</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStatus ROP] The RopGetStatus ROP ([MS-OXCROPS] section 2.2.5.6) retrieves information about the current status of asynchronous operations being performed on the table.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In RopGetStatus ROP] The RopGetStatus ROP ([MS-OXCROPS] section 2.2.5.6) retrieves information about the current status of asynchronous operations being performed on the table.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44880,7 +44659,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R602</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;9&gt; Section 2.2.2.6: Exchange 2010 and Exchange 2013 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;10&gt; Section 2.2.2.6: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44890,7 +44669,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R604</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;11&gt; Section 2.2.2.7: Exchange 2010 and Exchange 2013 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;12&gt; Section 2.2.2.7: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44900,7 +44679,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;15&gt; Section 2.2.2.17.1: Exchange 2013 does not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;16&gt; Section 2.2.2.17.1: Exchange 2013 and Exchange 2016 do not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44910,7 +44689,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.18</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In RopGetValidAttachments ROP] The RopGetValidAttachments ROP ([MS-OXCROPS] section 2.2.6.18) gets the attachment IDs for all attachments that have previously been saved and have been assigned a valid numeric identifier.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44930,7 +44709,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;12&gt; implement this ROP [RopCopyToStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;13&gt; implement this ROP [RopCopyToStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44940,7 +44719,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R597</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;13&gt; implement this ROP [RopProgress].</ns1:Description>
+		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;14&gt; implement this ROP [RopProgress].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44950,7 +44729,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R607</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;14&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44960,7 +44739,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R620</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;16&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44970,7 +44749,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;16&gt;  implement this ROP [RopWriteAndCommitStream].</ns1:Description>
+		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;17&gt; implement this ROP [RopWriteAndCommitStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44980,7 +44759,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75606</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;17&gt; implement this ROP [RopCloneStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;18&gt; implement this ROP [RopCloneStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45008,7 +44787,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86709</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;12&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45018,7 +44797,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R866</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;13&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;14&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45028,7 +44807,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;14&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;15&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45038,7 +44817,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;15&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45048,7 +44827,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R752</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45058,7 +44837,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R753</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -45078,7 +44857,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R60001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. (&lt;3&gt; Section 2.2.1.2.2: Exchange 2010 and Exchange 2013 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. &lt;3&gt; Section 2.2.1.2.2: Exchange 2010 Exchange 2013 and Exchange 2016 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

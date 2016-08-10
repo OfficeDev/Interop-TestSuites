@@ -77,7 +77,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 542,
-                @"[In Absolute Positioning] [step 4] The server MUST support the special Minimal Entry ID MID_BEGINNING_OF_TABLE, as specified in section 2.2.8.");
+                @"[In Absolute Positioning] [step 4] The server MUST support the special Minimal Entry ID MID_BEGINNING_OF_TABLE, as specified in section 2.2.1.8.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R800");
@@ -577,6 +577,50 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 549,
                 @"[In Absolute Positioning] [step 6] If the value of Delta is positive, the Current Position is moved toward the end of the table.");
             #endregion
+
+            uint previousTotalRecs = stat.TotalRecs;
+            previousPosition = stat.NumPos;
+            stat.InitiateStat();
+            stat.NumPos = 1;
+            stat.Delta = 1;
+            delta = 0;
+            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return Success!");
+
+            #region Capture code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R326001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R326001
+            // NumPos returned are same regardless of the value of NumPos set in request, this requirement can be captured.
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                previousPosition,
+                stat.NumPos,
+                326001,
+                @"[In STAT] [NumPos] If absolute positioning, as specified in section 3.1.4.5.1, is used, the value of this field specified by the client will be ignored by the server. ");
+            #endregion
+
+            stat.InitiateStat();
+            stat.TotalRecs = 1;
+            stat.Delta = 1;
+            delta = 0;
+            this.Result = this.ProtocolAdatper.NspiUpdateStat(reserved, ref stat, ref delta);
+            Site.Assert.AreEqual<ErrorCodeValue>(ErrorCodeValue.Success, this.Result, "NspiUpdateStat should return Success!");
+
+            #region Capture code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R331001");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R331001
+            this.Site.CaptureRequirementIfAreEqual<uint>(
+                previousTotalRecs,
+                stat.TotalRecs,
+                331001,
+                @"[In STAT] [TotalRecs] If absolute positioning, as specified in section 3.1.4.5.1, is used, the value of this field specified by the client will be ignored by the server. ");
+            #endregion
+
             #endregion
 
             #region Call NspiUpdateStat with Delta set to 0 to keep the position in the table.
@@ -628,7 +672,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             // MS-OXNSPI_R548 has been verified with the CurrentRec field set to MID_BEGINNING_OF_TABLE and the server locates that row as the initial position row, MS-OXNSPI_R791 can be verified directly.
             this.Site.CaptureRequirement(
                 791,
-                @"[In NspiUpdateStat] [Server Processing Rules: Upon receiving message NspiUpdateStat, the server MUST process the data from the message subject to the following constraints:] [Constraint 5: The server locates the initial position row in the table specified by the ContainerID field of the input parameter pStat as follows:] If the row specified by the CurrentRec field of the input parameter pStat is not MID_CURRENT, the server locates that row as the initial position row.");
+                @"[In NspiUpdateStat] [Server Processing Rules: Upon receiving message NspiUpdateStat, the server MUST process the data from the message subject to the following constraints:] [Constraint 5: The server locates the initial position row in the table specified by the ContainerID field of the input parameter pStat as follows:] If the row specified by the CurrentRec field of the input parameter pStat is not MID_CURRENT, the server locates that row as the initial position row using the absolute position, as specified in section 3.1.4.5.1. ");
 
             #endregion
             #endregion
@@ -1052,7 +1096,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsNotNull(
                 entryID,
                 901,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If input parameter dwFlags does not contain the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Permanent Entry ID format, as specified in section 2.3.8.3.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If input parameter dwFlags does not contain the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Permanent Entry ID format, as specified in section 2.2.9.3.");
 
             this.VerifyServerUsesListSpecifiedBypPropTagsInNspiGetProps(propTags, rows);
 
@@ -1110,7 +1154,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsNotNull(
                 entryID2,
                 899,
-                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.3.8.2.");
+                @"[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If input parameter dwFlags contains the bit flag fEphID and the PidTagEntryId property is present in the list of proptags, the server MUST return the values of the PidTagEntryId property in the Ephemeral Entry ID format, as specified in section 2.2.9.2.");
             #endregion
             #endregion
 
@@ -3182,10 +3226,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 AdapterHelper.AreTwoPropertyRowEqual(rowsOfQueryRows.Value.ARow[rowsOfQueryRows.Value.CRows - 1], rows),
                 1694,
                 @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The Rows placed into the RowSet are exactly those rows that would be returned to the client in the ppRows output parameter of the NspiGetProps method, as specified in section 3.1.4.1.7, using the following parameters:
-                The NspiQueryRows parameter hRpc is used as the NspiGetProps parameter hRpc. 
-                The NspiQueryRows parameter dwFlags is used as the NspiGetProps parameter dwFlags. 
-                The NspiQueryRows output parameter pStat (as modified by the prior constraints) is used as the NspiGetProps parameter pStat. The CurrentRec field is set to the Minimal Entry ID of the row being returned.
-                The list of proptags the server constructs as specified by constraint 5 is used as the NspiGetProps parameter pPropTags.");
+                  The NspiQueryRows parameter hRpc is used as the NspiGetProps parameter hRpc. 
+                  The NspiQueryRows parameter dwFlags is used as the NspiGetProps parameter dwFlags. 
+                  The NspiQueryRows input parameter pStat is used as the NspiGetProps parameter pStat. The CurrentRec field is set to the Minimal Entry ID of the row being returned.
+                  The list of proptags the server constructs as specified by constraint 6 is used as the NspiGetProps parameter pPropTags.");
 
             this.VerifyRowsReturnedFromNspiQueryRowsIsNotNull(rowsOfQueryRows);
 
@@ -3317,10 +3361,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 isVerifyR1701,
                 1701,
                 @"[In NspiQueryRows] [Server Processing Rules: Upon receiving message NspiQueryRows, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] This update [update the status of the table] MUST be exactly the same update that would occur via the NspiUpdateStat method with the following parameters:
-                The NspiQueryRows parameter hRpc is used as the NspiUpdateStat parameter hRpc.
-                The value 0 is used as NspiUpdateStat parameter Reserved. 
-                The NspiQueryRows output parameter pStat (as modified by the prior constraints) is used as the NspiGetProps parameter pStat. The number of rows returned in the NspiQueryRows output parameter ppRows is added to the Delta field.
-                The value NULL is used as the NspiUpdateStat parameter plDelta. The list of proptags the server constructs as specified by constraint 5 is used as the NspiGetProps parameter pPropTags.");
+                 The NspiQueryRows parameter hRpc is used as the NspiUpdateStat parameter hRpc.
+                 The value 0 is used as NspiUpdateStat parameter Reserved. 
+                 The NspiQueryRows output parameter pStat (as modified by the prior constraints) is used as the NSPIUpdateStat parameter pStat. The number of rows returned in the NspiQueryRows output parameter ppRows is added to the Delta field.
+                 The value NULL is used as the NspiUpdateStat parameter plDelta. ");
 
             #endregion Capture
             #endregion
@@ -3442,6 +3486,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 AdapterHelper.IsSortByName(rowsOfGetMatches, 1),
                 100,
                 @"[In Table Sort Orders] SortTypeDisplayName_W (0x000003E9): The table is sorted ascending on the PidTagDisplayName property.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R101");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R101
+            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                ErrorCodeValue.Success,
+                this.Result,
+                101,
+                "[In Table Sort Orders] [SortTypeDisplayName_W] The client MUST set this value only when using the NspiGetMatches method to open a writable table on an object-valued property.");
             #endregion
             #endregion
 
@@ -3793,7 +3847,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC21_GetMatchesComparedWithNspiQueryRows()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -3999,7 +4053,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC22_ResortRestrictionSuccess()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4282,7 +4336,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC24_ResortRestrictionIgnoreSomeFields()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4395,7 +4449,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC25_ResortRestrictionCurrentRecFieldNotInETable()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4500,7 +4554,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC26_CompareMIdsSuccessWithCompareMid1AndMid2()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4625,7 +4679,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC27_CompareMIdsIgnoreReserved()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4700,7 +4754,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC28_DNToMIdSuccess()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4844,12 +4898,12 @@ this.CheckProductSupported();
             Site.CaptureRequirementIfIsTrue(
                 firstDNMapright && secondDNMapright,
                 1263,
-                @"[In NspiDNToMId] [Server Processing Rules: Upon receiving message NspiDNToMId, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] The list is in a one-to-one order preserving correspondence with the list of DNs (1) in the input parameter pNames.");
+                @"[In NspiDNToMId] [Server Processing Rules: Upon receiving message NspiDNToMId, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] The list is in a one-to-one order preserving correspondence with the list of DNs in the input parameter pNames.");
 
             // Since the mapping work has been done in this step, so MS-OXNSPI_R1243 can be captured directly.
             this.Site.CaptureRequirement(
                 1243,
-                @"[In NspiDNToMId] The NspiDNToMId method maps a set of DNs (1) to a set of Minimal Entry ID.");
+                @"[In NspiDNToMId] The NspiDNToMId method maps a set of DNs to a set of Minimal Entry ID.");
             #endregion Capture
             #endregion
 
@@ -4865,7 +4919,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC29_DNToMIdUnableToLocate()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -4907,7 +4961,7 @@ this.CheckProductSupported();
                 0x0,
                 mids.Value.AulPropTag[0],
                 1260,
-                @"[In NspiDNToMId] [Server Processing Rules: Upon receiving message NspiDNToMId, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the server is unable to locate an appropriate mapping between a DN (1) and a Minimal Entry ID, it [server] MUST map the DN (1) to a Minimal Entry ID with the value 0.");
+                @"[In NspiDNToMId] [Server Processing Rules: Upon receiving message NspiDNToMId, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the server is unable to locate an appropriate mapping between a DN and a Minimal Entry ID, it [server] MUST map the DN to a Minimal Entry ID with the value 0.");
 
             #endregion Capture
             #endregion
@@ -4924,7 +4978,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC30_DNToMIdIgnoreReserved()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5006,7 +5060,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC31_NspiGetMatchesRestrictionVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5367,7 +5421,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC32_NspiGetPropsStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5509,7 +5563,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC33_NspiQueryRowsStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5655,7 +5709,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC34_NspiGetMatchesStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -5822,7 +5876,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC35_NspiSeekEntriesStringConversion()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6015,7 +6069,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC36_NspiSeekEntriesWithpPropTagsSetNull()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6181,7 +6235,7 @@ The NspiSeekEntries parameter pPropTags is used as the NspiQueryRows parameter p
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC37_MinimalEntryIDVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6326,7 +6380,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC38_PermanentEntryIDVerification()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.
@@ -6412,7 +6466,7 @@ this.CheckProductSupported();
         [TestCategory("MSOXNSPI"), TestMethod()]
         public void MSOXNSPI_S02_TC39_GetMatchesWithDifferentDeltaAndContainerID()
         {
-this.CheckProductSupported();
+            this.CheckProductSupported();
             this.CheckMAPIHTTPTransportSupported();
 
             #region Call NspiBind to initiate a session between the client and the server.

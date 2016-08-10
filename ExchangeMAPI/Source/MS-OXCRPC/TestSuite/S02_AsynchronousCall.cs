@@ -118,7 +118,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     isR1930Verified,
                     1930,
-                    @"[In Appendix B: Product Behavior] Implementation does return the call and will not set the NotificationPending flag in the pulFlagsOut field, If no events are available within five minutes of the time that the client last accessed the server through a call to EcDoRpcExt2. (Microsoft Exchange Server 2010 and Microsoft Exchange Server 2013 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return the call and will not set the NotificationPending flag in the pulFlagsOut field, If no events are available within five minutes of the time that the client last accessed the server through a call to EcDoRpcExt2. (Microsoft Exchange Server 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1907, this.Site))
@@ -132,7 +132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     isR1907Verified,
                     1907,
-                    @"[In Appendix B: Product Behavior] Implementation does complete the call every 5 minutes regardless of the client's last activity time. [In Appendix B: Product Behavior] <38> Section 3.3.4.1: Exchange 2007 completes the call every 5 minutes regardless of the client's last activity time.");
+                    @"[In Appendix B: Product Behavior] Implementation does complete the call every 5 minutes regardless of the client's last activity time. [In Appendix B: Product Behavior] <37> Section 3.3.4.1: Exchange 2007 completes the call every 5 minutes regardless of the client's last activity time.");
             }
 
             // Add the debug information
@@ -156,7 +156,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0,
                     this.returnValue,
                     1922,
-                    @"[In Appendix B: Product Behavior] <37> Section 3.3.4: Implementation does support AsyncEMSMDB method EcDoAsyncWaitEx. (Microsoft Exchange Server 2007 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] <36> Section 3.3.4: Implementation does support AsyncEMSMDB method EcDoAsyncWaitEx. (Microsoft Exchange Server 2007 and above follow this behavior.)");
             }
 
             #endregion
@@ -526,7 +526,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     TestSuiteBase.ResultSuccess,
                     this.returnValueForInvalidCXH,
                     1908,
-                    @"[In Appendix B: Product Behavior] Implementation does reject the request if the asynchronous context handle is invalid. (<39> Section 3.3.4.1: Exchange 2007 and Exchange 2010 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does reject the request if the asynchronous context handle is invalid. (<38> Section 3.3.4.1: Exchange 2007 and Exchange 2010 follow this behavior.)");
             }
             #endregion
 
@@ -556,7 +556,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             Site.CaptureRequirementIfIsTrue(
                 isR1343Verified,
                 1343,
-                @"[In EcDoAsyncWaitEx Method (opnum 0)] [Return Values] [Rejected (0x000007EE)] An EcDoAsyncWaitEx method call is already outstanding on this asynchronous context handle.<39>");
+                @"[In EcDoAsyncWaitEx Method (opnum 0)] [Return Values] [Rejected (0x000007EE)] An EcDoAsyncWaitEx method call is already outstanding on this asynchronous context handle.<38>");
 
             #endregion
 
@@ -647,7 +647,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x000007EE,
                     this.returnValue,
                     1941,
-                    @"[In Appendix B: Product Behavior] Implementation does not return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. [In Appendix B: Product Behavior]  <27> Section 3.1.4.4: Exchange 2010 and Exchange 2013 do not return the ecRejected error code.");
+                    @"[In Appendix B: Product Behavior] Implementation does not return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. [In Appendix B: Product Behavior]  <26> Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.");
             }
 
             if (Common.IsRequirementEnabled(1757, this.Site))
@@ -660,7 +660,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 0x000007EE,
                 this.returnValue,
                 1757,
-                @"[In Appendix B: Product Behavior] Implementation does not return the ecRejected error code, when the Server has asynchronous RPC notifications disabled. (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior] Implementation does not return the ecRejected error code, when the Server has asynchronous RPC notifications disabled. (<26> Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.)");
             }
 
             #endregion
@@ -758,7 +758,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 }
 
                 tryToConnectCount++;
-                Thread.Sleep(waitTime);
+                Thread.Sleep(waitTime*3);
             }
 
             return false;

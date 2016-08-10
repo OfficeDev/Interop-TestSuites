@@ -173,18 +173,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.AddRecipients(modifyRecipientRow, embeddedMessageHandle, propertyTag, out modifyRecipientsResponse);
             #endregion
 
-            if (Common.IsRequirementEnabled(911, this.Site))
+            if (Common.IsRequirementEnabled(3014, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R911");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3014");
 
-                // Verify MS-OXCMSG requirement: MS-OXCMSG_R911
-                // The response of RopModifyRecipients is not successful because the embedded message is opened as read-only, so MS-OXCMSG_R911 can be verified.
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3014
+                // The response of RopModifyRecipients is not successful because the embedded message is opened as read-only, so MS-OXCMSG_R3014 can be verified.
                 this.Site.CaptureRequirementIfAreNotEqual<uint>(
                     TestSuiteBase.Success,
                     modifyRecipientsResponse.ReturnValue,
-                    911,
-                    @"[In RopOpenEmbeddedMessage ROP Request Buffer] [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read only.");
+                    3014,
+                    @"[In Appendix A: Product Behavior] [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read only. (Exchange 2007 follows this behavior.)");
+            }
+
+            if(Common.IsRequirementEnabled(3013,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3013");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3013
+                // The response of RopModifyRecipients is successful because the embedded message is opened as read/write, so MS-OXCMSG_R3013 can be verified.
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    TestSuiteBase.Success,
+                    modifyRecipientsResponse.ReturnValue,
+                    3013,
+                    @"[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (<17> Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)");
             }
 
             #region Call RopRelease to release the embedded message.

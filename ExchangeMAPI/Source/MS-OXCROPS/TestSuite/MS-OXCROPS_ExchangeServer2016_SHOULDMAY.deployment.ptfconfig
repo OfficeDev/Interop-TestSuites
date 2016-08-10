@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+      <!-- Set R213Enabled to true to verify that the server return an error for the RPC, when it encounters a RopId value that is associated with a reserved ROP. Set R213Enabled to false to disable this requirement.-->
+      <Property name="R213Enabled" value="true"/>
+      <!-- Set R214Enabled to true to verify that for operation RopLogon the server set this field [PerUserGuid] to an empty GUID (all zeroes). Set R214Enabled to false to disable this requirement.-->
+      <Property name="R214Enabled" value="true"/>
+      <!-- Set R2578Enabled to true to verify that for operation RopOptionsData the server returns this field [OptionsInfo] as an empty array. Set R2578Enabled to false to disable this requirement.-->
+      <Property name="R2578Enabled" value="true"/>
+      <!-- Set R3411Enabled to true to verify that for operation RopCopyToStream the server sets this field [ReadByteCount] to 0x0000000000000000. Set R3411Enabled to false to disable this requirement.-->
+      <Property name="R3411Enabled" value="true"/>
+      <!-- Set R3415Enabled to true to verify that for operation RopCopyToStream the server sets this field [WrittenByteCount] to 0x0000000000000000. Set R3415Enabled to false to disable this requirement.-->
+      <Property name="R3415Enabled" value="true"/>
+      <!-- Set R4691Enabled to true to verify that for operation RopOptionsData the server sets this field [ReturnValue] to a value other than 0x00000000. Set R4691Enabled to false to disable this requirement.-->
+      <Property name="R4691Enabled" value="true"/>
+      <!-- Set R4720Enabled to true to verify that for operation RopLogon the server does not set the PerUserGuid field to an empty GUID. Set R4720Enabled to false to disable this requirement.-->
+      <Property name="R4720Enabled" value="false"/>
+      <!-- Set R2928Enabled to true to verify that for operation RopOptionsData the server do not return [OptionsInfo (variable) field as] an empty array. Set R2928Enabled to false to disable this requirement.-->
+      <Property name="R2928Enabled" value="false"/>
+      <!-- Set R4692Enabled to true to verify that for operation RopCopyToStream the server does not set the field [ReadByteCount] to 0x0000000000000000, but the non zero value has no meaning. Set R4692Enabled to false to disable this requirement.-->
+      <Property name="R4692Enabled" value="false"/>
+      <!-- Set R4693Enabled to true to verify that for operation RopCopyToStream the server does not set the field [WrittenByteCount] to 0x0000000000000000, but the non zero value has no meaning. Set R4693Enabled to false to disable this requirement.-->
+      <Property name="R4693Enabled" value="false"/>
+      <!-- Set R4690Enabled to true to verify that for operation RopOptionsData the server sets the ReturnValue field to 0x00000000 regardless of the failure of the ROP. Set R4690Enabled to false to disable this requirement.-->
+      <Property name="R4690Enabled" value="false"/>
+      <!-- Set R471201Enabled to true to verify that If the index is invalid, the server fail the ROP [no matter which ROP] with the ReturnValue field set to 0x000004B9. Set R471201Enabled to false to disable this requirement.-->
+      <Property name="R471201Enabled" value="true"/>
+      <!-- Set R4713Enabled to true to verify that the server use different methods to resolve the Server object and, therefore, do not fail the ROP if the index is invalid. Set R4713Enabled to false to disable this requirement.-->
+      <Property name="R4713Enabled" value="false"/>
+      <!-- Set R454509Enabled to true to verify that the server fails the RPC with 0x0000047D If one of the ROP responses will not fit in the ROP output buffer when the pcbOut parameter of EcDoRpcExt2 is set to the maximum value. Set R454509Enabled to false to disable this requirement.-->
+      <Property name="R454509Enabled" value="true"/>
+      <!-- Set R469306Enabled to true to verify that the server returns ecBufferTooSmall to fail the ROP if the first ROP in the RPC buffer creates a response that exceeds the maximum ROP buffer size and there are no additional ROPs in the RPC buffer. Set R469306Enabled to false to disable this requirement.-->
+      <Property name="R469306Enabled" value="false"/>
+      <!-- Set R321501Enabled to true to verify that for operation RopReadStream the server RPC call fails with error code 0x000004B6 if MaximumByteCount is greater than 0x80000000. Set R321501Enabled to false to disable this requirement.-->
+      <Property name="R321501Enabled" value="true"/>
+      <!-- Set R312601Enabled to true to verify that the implementation does implement the RopGetStoreState remote operation (ROP). Set R312601Enabled to false to disable this requirement.-->
+      <Property name="R312601Enabled" value="false"/>
+      <!-- Set R74801Enabled to true to verify that implementation does support a value greater than 0 for the MaxRowCount field for RopExpandRow. Set R74801Enabled to false to disable this requirement.-->
+      <Property name="R74801Enabled" value="false"/>
+      <!-- Set R60401Enabled to true to verify that the implementation does support asynchronous operations (RopGetStatus) on tables and ignore the TABL_ASYNC flags. Set R60401Enabled to false to disable this requirement.-->
+      <Property name="R60401Enabled" value="false"/>
+      <!-- Set R60201Enabled to true to verify that the implementation does support asynchronous operations (RopAbort) on tables and ignore the TABL_ASYNC flags. Set R60201Enabled to false to disable this requirement.-->
+      <Property name="R60201Enabled" value="false"/>
+      <!-- Set R171501Enabled to true to verify that the implementation does support the RopgetValidAttachments ROP. Set R171501Enabled to false to disable this requirement.-->
+      <Property name="R171501Enabled" value="false"/>
+      <!-- Set R1772Enabled to true to verify that for operation RopCreateMessage the server response success after RopSetSpooler. Set R1772Enabled to false to disable this requirement.-->
+      <Property name="R1772Enabled" value="false"/>
+      <!-- Set R86601Enabled to true to verify that implementation does implement the RopProgress ROP. Set R86601Enabled to false to disable this requirement.-->
+      <Property name="R86601Enabled" value="true"/>
+      <!-- Set R3155Enabled to true to verify that for operation RopProgress the server return fail response. Set R3155Enabled to false to disable this requirement.-->
+      <Property name="R3155Enabled" value="true"/>
+      <!-- Set R752001Enabled to true to verify that the implementation does implement the RopWriteAndCommitStream ROP. Set R752001Enabled to false to disable this requirement.-->
+      <Property name="R752001Enabled" value="false"/>
+      <!-- Set R750001Enabled to true to verify that the implementation does implement the RopLockRegionStream ROP. Set R750001Enabled to false to disable this requirement.-->
+      <Property name="R750001Enabled" value="false"/>
+      <!-- Set R751001Enabled to true to verify that the implementation does implement the RopUnlockRegionStream ROP. Set R751001Enabled to false to disable this requirement.-->
+      <Property name="R751001Enabled" value="false"/>
+      <!-- Set R753001Enabled to true to verify that the implementation does implement the RopCloneStream ROP. Set R753001Enabled to false to disable this requirement.-->
+      <Property name="R753001Enabled" value="false"/>
+      <!-- Set R8670901Enabled to true to verify that the implementation does implement the RopCopyToStream ROP. Set R8670901Enabled to false to disable this requirement.-->
+      <Property name="R8670901Enabled" value="true"/>
+      <!-- Set R6000101Enabled to true to verify that if a folder with the name given by the DisplayName field of the request buffer (RopCreateFolder) already exists, implementation does set a nonzero value to IsExistingFolder field as specified in MS-OXCFOLD section 2.2.1.2.2. Set R6000101Enabled to false to disable this requirement.-->
+      <Property name="R6000101Enabled" value="false"/>
+      <!-- Set R469303Enabled to true to verify that the implementation does include a RopPending ROP response even though the ROP output buffer contains all queued RopNotify ROP responses. Set R469303Enabled to false to disable this requirement.-->
+      <Property name="R469303Enabled" value="false"/>
+      <!-- Set R4693031Enabled to true to verify that the implementation does not include a RopPending ROP response if the ROP output buffer contains all queued RopNotify ROP responses. Set R4693031Enabled to false to disable this requirement.-->
+      <Property name="R4693031Enabled" value="true"/>
+      <!-- Set R180005Enabled to true to verify that the implementation returns an error for the MAPIHTTP, when it encounters a RopId value that is associated with a reserved ROP. Set R180005Enabled to false to disable this requirement.-->
+      <Property name="R180005Enabled" value="true"/>
+      <!-- Set R5000Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R5000Enabled to false to disable this requirement.-->
+      <Property name="R5000Enabled" value="true"/>
+      <!-- Set R5001Enabled to true to verify that the implementation does support an ncacn_ip_tcp transport. Set R5001Enabled to false to disable this requirement.-->
+      <Property name="R5001Enabled" value="false"/>
+      <!-- Set R20009Enabled to true to verify that the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value. Set R20009Enabled to false to disable this requirement.-->
+      <Property name="R20009Enabled" value="true"/>
+   </Properties>
+</TestSite>

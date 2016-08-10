@@ -629,6 +629,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     @"[In Appendix A: Product Behavior] Implementation does set the PidTagAttachSize property (section 2.2.2.5) to 0x00000040. (Exchange 2007 and 2010 follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(1649, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1649");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R1649
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0x00000000,
+                    Convert.ToInt32(pidTagAttachSize.Value),
+                    1649,
+                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagAttachSize property (section 2.2.2.5) to 0x00000000. (Exchange 2013 and above follow this behavior.)");
+            }
+
             int pidTagAccessLevelInitialValue = Convert.ToInt32(pidTagAccessLevel.Value);
             if (Common.IsRequirementEnabled(1920, this.Site))
             {
@@ -671,7 +684,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifyR1651,
                     1651,
-                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagLastModificationTime property (section 2.2.2.2) to a value that is within 100 nanoseconds of the value of the PidTagCreationTime property (section 2.2.2.3). (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1650, this.Site))
@@ -684,7 +697,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     0x00000000,
                     pidTagAccessLevelInitialValue,
                     1650,
-                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does set the PidTagAccessLevel property ([MS-OXCPRPT] section 2.2.1.2) to 0x00000000. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
 
@@ -821,6 +834,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     @"[In PidTagAttachMethod Property] [afByValue (0x00000001)] The PidTagAttachDataBinary property (section 2.2.2.7) contains the attachment data.");
             }
 
+            if(Common.IsRequirementEnabled(3008,this.Site))
+            {
+                PropertyObj pidTagObjectType = PropertyHelper.GetPropertyByName(ps, PropertyNames.PidTagObjectType);
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3008");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R3008
+                this.Site.CaptureRequirementIfIsNotNull(
+                    pidTagObjectType.Value,
+                    3008,
+                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagObjectType property. (Exchange 2007 follows this behavior.)");
+            }
             #endregion
 
             #region Call RopRelease to release the created message and the created attachment
@@ -1741,10 +1767,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopSaveChangesAttachment to save the attachment.
+            RopSaveChangesAttachmentRequest saveChangesAttachmentRequest = new RopSaveChangesAttachmentRequest()
+            {
+                RopId = (byte)RopId.RopSaveChangesAttachment,
+                LogonId = CommonLogonId,
+                ResponseHandleIndex = CommonOutputHandleIndex, // This index specifies the location in the Server object handle table that is referenced in the response. 
+                InputHandleIndex = CommonInputHandleIndex,
+                SaveFlags = (byte)SaveFlags.ForceSave
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesAttachmentRequest, attachmentHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            saveChangesAttachmentResponse = (RopSaveChangesAttachmentResponse)this.response;
+            
             if (Common.IsRequirementEnabled(1922, this.Site))
             {
-                this.SaveAttachment(attachmentHandle, out saveChangesAttachmentResponse);
-
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1922");
 
@@ -1755,10 +1790,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     1922,
                     @"[In Appendix A: Product Behavior] Implementation doesn't return an error if pending changes include changes to read-only property PidTagAttachSize. (Exchange 2007 follows this behavior.)");
             }
+            else
+            {
+                Site.Assert.AreNotEqual<uint>(TestSuiteBase.Success, saveChangesAttachmentResponse.ReturnValue, "If pending changes include changes to read-only property PidTagAttachSize, call RopSaveChangesAttachment should failure.");
+            }
             #endregion
 
             #region Call RopGetPropertiesSpecific to get the read-only property PidTagAttachSize again.
             getPropertiesSpecificResponse = this.GetSpecificPropertiesOfMessage(attachmentHandle, tagArray);
+            PropertyObj pidTagAttachSizeAgain = PropertyHelper.GetPropertyByName(propertySpecsFir, PropertyNames.PidTagAttachSize);
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R231");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R231
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                Convert.ToInt32(pidTagAttachSizeFir.Value),
+                Convert.ToInt32(pidTagAttachSizeAgain.Value),
+                231,
+                @"[In PidTagAttachSize Property] This property [PidTagAttachSize] is read-only for the client.");
             #endregion
 
             #region Call RopRelease to release the created message and attachment.
@@ -2072,7 +2121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         /// <returns>PropertyTag array</returns>
         private PropertyTag[] CreateAttachmentPropertyTagsForCapture()
         {
-            PropertyTag[] tags = new PropertyTag[28];
+            PropertyTag[] tags = new PropertyTag[29];
             tags[0] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagLastModificationTime];
             tags[1] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagCreationTime];
             tags[2] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagDisplayName];
@@ -2101,7 +2150,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             tags[25] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagAttachContentLocation];
             tags[26] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagAttachContentBase];
             tags[27] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagTextAttachmentCharset];
-
+            tags[28] = PropertyHelper.PropertyTagDic[PropertyNames.PidTagObjectType];
             return tags;
         }
 

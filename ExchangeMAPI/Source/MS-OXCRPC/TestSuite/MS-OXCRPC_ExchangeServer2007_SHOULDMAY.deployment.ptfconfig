@@ -92,5 +92,9 @@
     <Property name="R1943Enabled" value="true"/>
     <!-- Set R1944Enabled to true to verify that for EcDoAsyncConnectEx, if no such Session Context state is found, the implementation does not fail the EcDoConnectEx call, but simply does not do linking. Set R1944Enabled to false to disable this requirement.-->
     <Property name="R1944Enabled" value="true"/>
+    <!-- Set R2001Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFailed if the request buffer is larger than 0x00008007 bytes in size. Set R2001Enabled to false to disable this requirement.-->
+    <Property name="R2001Enabled" value="false"/>
+    <!-- Set R2002Enabled to true to verify that for EcDoRpcExt2, implementation does succeed if the value in pcbOut on input is less than 0x00000008. Set R2002Enabled to false to disable this requirement.-->
+    <Property name="R2002Enabled" value="false"/>
   </Properties>
 </TestSite>

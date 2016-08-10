@@ -35,8 +35,10 @@
     <Property name="R3145Enabled" value="true"/>
     <!-- Set R790Enabled to true to verify that for RopLogon ROP if the user's configured mailbox is not hosted by this server, fail the ROP with a ReturnValue of ecWrongServer. Set R790Enabled to false to disable this requirement.-->
     <Property name="R790Enabled" value="false"/>
-    <!-- Set R3103Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server MUST fail the operation with ecServerPaused. Set R3103Enabled to false to disable this requirement.-->
-    <Property name="R3103Enabled" value="false"/>
+    <!-- Set R3103001Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. Set R3103001Enabled to false to disable this requirement.-->
+    <Property name="R3103001Enabled" value="true"/>
+    <!-- Set R3103002Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. Set R3103002Enabled to false to disable this requirement.-->
+    <Property name="R3103002Enabled" value="false"/>
     <!-- Set R1410001Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x00000000 if the mailbox currently has any active search folders. Set R1410001Enabled to false to disable this requirement.-->
     <Property name="R1410001Enabled" value="true"/>
     <!-- Set R59781Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x01000000 if the mailbox currently has any active search folders. Set R59781Enabled to false to disable this requirement.-->
@@ -63,19 +65,33 @@
     <Property name="R999Enabled" value="true"/>
     <!-- Set R997Enabled to true to verify that for RopReadPerUserInformation the implementation compare the value of MaxDataSize to some suitable maximum value. Set R997Enabled to false to disable this requirement.-->
     <Property name="R997Enabled" value="true"/>
-    <!-- Set R975Enabled to true to verify that for RopReadPerUserInformation the implementation serialize the change number set into a binary large object (BLOB) that is formatted as a serialized IDSET with REPLGUID structure. Set R975Enabled to false to disable this requirement.-->
-    <Property name="R975Enabled" value="false"/>
     <!-- Set R1337Enabled to true to verify that for RopLongTermIdFromId ROP if the ObjectId field is set to zero, the server returns ecNone. Set R1337Enabled to false to disable this requirement.-->
     <Property name="R1337Enabled" value="false"/>
     <!-- Set R1355Enabled to true to verify that for RopLongTermIdFromId ROP the implementation does fail the operation with 0x8004010F if the REPLID is not in the REPLID and REPLGUID to-and-from mapping table. Set R1355Enabled to false to disable this requirement.-->
     <Property name="R1355Enabled" value="true"/>
-    <!-- Set R6280Enabled to true to verify for PidTagComment property the implementation can return success through RopGetPropertiesSpecific ROP. Set R6280Enabled to false to disable this requirement-->
-    <Property name="R6280Enabled" value="true"/>
-    <!-- Set R3068003Enabled to true to verify for PidTagDisplayName property the implementation can return success through RopGetPropertiesSpecific ROP. Set R3068003Enabled to false to disable this requirement-->
-    <Property name="R3068003Enabled" value="true"/>
+    <!-- Set R6280001Enabled to true to verify implementation does support the PidTagComment property as read-only. Set R6280001Enabled to false to disable this requirement-->
+    <Property name="R6280001Enabled" value="false"/>
+    <!-- Set R6280002Enabled to true to verify implementation does support the PidTagComment property as read-write. Set R6280002Enabled to false to disable this requirement-->
+    <Property name="R6280002Enabled" value="true"/>
+    <!-- Set R306800301Enabled to true to verify implementation does support PidTagDisplayName  property as read-only. Set R306800301Enabled to false to disable this requirement-->
+    <Property name="R306800301Enabled" value="false"/>
+    <!-- Set R306800302Enabled to true to verify implementation does support PidTagDisplayName  property as read-write. Set R306800302Enabled to false to disable this requirement-->
+    <Property name="R306800302Enabled" value="true"/>
     <!-- Set R300000001Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R300000001Enabled to false to disable this requirement-->
     <Property name="R300000001Enabled" value="false"/>
     <!-- Set R1911Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R1911Enabled to false to disable this requirement.-->
     <Property name="R1911Enabled" value="true"/>
+    <!-- Set R94801001Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field. Set R94801001Enabled to false to disable this requirement.-->
+    <Property name="R94801001Enabled" value="false"/>
+    <!-- Set R94801002Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field. Set R94801002Enabled to false to disable this requirement.-->
+    <Property name="R94801002Enabled" value="true"/>
+    <!-- Set R1268001Enabled to true to verify that implementation returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser if the client attempts to log on to a mailbox that is disabled. Set R1268001Enabled to false to disable this requirement.-->
+    <Property name="R1268001Enabled" value="false"/>
+    <!-- Set R5979301Enabled to true to verify that implementation returns the Folder ID of Public Folders Root Folder, Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, NNTP Article Index, Empty, Empty, Empty in RopLogon ROP Success Response Buffer for Public Folders. Set R5979301Enabled to false to disable this requirement.-->
+    <Property name="R5979301Enabled" value="true"/>
+    <!-- Set R155Enabled to true to verify that implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index in RopLogon ROP Success Response Buffer for Public Folders. Set R155Enabled to false to disable this requirement.-->
+    <Property name="R155Enabled" value="false"/>
+    <!-- Set R3905001Enabled to true to verify that implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. Set R3905001Enabled to false to disable this requirement.-->
+    <Property name="R3905001Enabled" value="false"/>
   </Properties>
 </TestSite>

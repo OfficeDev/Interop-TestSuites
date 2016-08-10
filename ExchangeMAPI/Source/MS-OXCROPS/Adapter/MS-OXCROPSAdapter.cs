@@ -1016,7 +1016,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
         {
             byte[] rgbIn = this.BuildRequestBuffer(requestROPs, requestSOHTable);
             uint ret = this.oxcropsClient.RopCall(requestROPs, requestSOHTable, ref responseROPs, ref responseSOHTable, ref rawData, pcbOut);
-            uint backupOfpcbOut = pcbOut;
 
             if (ret != OxcRpcErrorCode.ECNone)
             {
@@ -1057,14 +1056,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 Site.Assert.Fail("Error RPC Format");
             }
 
-            if (ret == OxcRpcErrorCode.ECResponseTooBig && backupOfpcbOut == MS_OXCROPSAdapter.MaxPcbOut)
-            {
-                this.VerifyFailRPCForMaxPcbOut(ret, backupOfpcbOut);
-                return ret;
-            }
-
             if (ret == OxcRpcErrorCode.ECResponseTooBig)
             {
+                this.VerifyFailRPCForMaxPcbOut(ret);
                 this.VerifyFailRPCForInsufficientOutputBuffer(ret);
                 return ret;
             }

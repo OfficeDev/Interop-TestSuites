@@ -5,5 +5,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Properties>
     <!-- Set the value of the property MS-OXCMAPIHTTP_Supported to true to indicate that the SUT supports the MS-OXCMAPIHTTP protocol. Otherwise set the value to false. -->
     <Property name="MS-OXCMAPIHTTP_Supported" value="true"/>
+    <!-- Set R2237Enabled to true to that if the type of the returned property is PtypObject or PtypEmbeddedTable, implementation will return value 1 for the X-ResponseCode header. Set R2237Enabled to false to disable this requirement. -->
+    <Property name="R2237Enabled" value="true" />
   </Properties>
 </TestSite>

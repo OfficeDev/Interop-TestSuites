@@ -310,7 +310,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         {
                             this.oxcstorAdapter.DisconnectEx();
 
-                            if (Common.IsRequirementEnabled(193, this.Site))
+                            if (Common.IsRequirementEnabled(193, this.Site)
+                                || Common.IsRequirementEnabled(1268001, this.Site))
                             {
                                 string userForDisableMailbox = Common.GetConfigurationPropertyValue(ConstValues.UserForDisableMailbox, this.Site);
                                 string essdn = this.sutControlAdapter.GetUserDN(this.server1Name, userForDisableMailbox);
@@ -1097,8 +1098,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
         /// <summary>
         /// Generate a valid IDSETWithReplGuid structure
         /// </summary>
+        /// <param name="bigData">The default value is false, if the value is true, this function will generate big data which length is greater than 4096</param>
         /// <returns>Return IDSETWithReplGuid</returns>
-        protected IDSETWithReplGuid GenerateRandomValidIdset()
+        protected IDSETWithReplGuid GenerateRandomValidIdset(bool bigData = false)
         {
             IDSETWithReplGuid idset = new IDSETWithReplGuid
             {
@@ -1127,6 +1129,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             globcnt.Command = push;
             globCntList.Add(globcnt);
+
+            if (bigData)
+            {
+                for (int i = 0; i < 1400; i++)
+                {
+                    globcnt = new GlobCnt();
+                    push = new PushCommand
+                    {
+                        Command = 0x06
+                    };
+                    System.Threading.Thread.Sleep(1);
+                    push.GenerateRandomCommandBytes();
+
+                    // The first three byte must be zero
+                    push.CommandBytes[0] = 0x00;
+                    push.CommandBytes[1] = 0x00;
+                    push.CommandBytes[2] = 0x00;
+
+                    globcnt.Command = push;
+                    globCntList.Add(globcnt);
+                }
+            }
 
             GlobCnt globcnt1 = new GlobCnt();
 

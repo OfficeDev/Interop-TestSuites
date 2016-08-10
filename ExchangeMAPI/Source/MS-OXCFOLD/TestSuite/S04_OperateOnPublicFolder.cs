@@ -79,37 +79,49 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             RopCreateFolderResponse createFolderResponse;
 
             #region Step 1. The client calls RopCreateFolder to create a search folder named [MSOXCFOLDSearchFolder1] under the root public folder.
-            if (Common.IsRequirementEnabled(49601, this.Site))
+            createFolderRequest = new RopCreateFolderRequest()
             {
-                createFolderRequest = new RopCreateFolderRequest()
-                {
-                    RopId = (byte)RopId.RopCreateFolder,
-                    LogonId = Constants.CommonLogonId,
-                    InputHandleIndex = Constants.CommonInputHandleIndex,
-                    OutputHandleIndex = Constants.CommonOutputHandleIndex,
-                    FolderType = (byte)FolderType.Searchfolder,
-                    UseUnicodeStrings = 0x0,
-                    OpenExisting = 0x01,
-                    Reserved = 0x0,
-                    DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder),
-                    Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
-                };
-                object response = null;
-                this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
+                RopId = (byte)RopId.RopCreateFolder,
+                LogonId = Constants.CommonLogonId,
+                InputHandleIndex = Constants.CommonInputHandleIndex,
+                OutputHandleIndex = Constants.CommonOutputHandleIndex,
+                FolderType = (byte)FolderType.Searchfolder,
+                UseUnicodeStrings = 0x0,
+                OpenExisting = 0x01,
+                Reserved = 0x0,
+                DisplayName = Encoding.ASCII.GetBytes(Constants.SearchFolder),
+                Comment = Encoding.ASCII.GetBytes(Constants.SearchFolder)
+            };
+            object response = null;
+            uint result = this.Adapter.DoRopCall(createFolderRequest, this.publicRootFolderHandle, ref response, ref this.responseHandles);
 
+            if (Common.IsRequirementEnabled(10660201, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10660201");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10660201
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80004005,
+                    result,
+                    10660201,
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError <12> Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError.");
+            }
+
+            if (Common.IsRequirementEnabled(10660202, this.Site))
+            {
                 createFolderResponse = (RopCreateFolderResponse)response;
 
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R49601");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10660202");
 
-                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R49601
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R10660202
                 Site.CaptureRequirementIfAreEqual<uint>(
                     0x80040102,
                     createFolderResponse.ReturnValue,
-                    49601,
-                    @"[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder (2) on a public folders message store.");
+                    10660202,
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. <12> Exchange 2013 and Exchange 2016 return ecNotSupported.");
             }
-
             #endregion
 
             #region Step 2. The client calls RopCreateFolder to create a generic folder named [MSOXCFOLDSubfolder1].
@@ -221,7 +233,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Site.CaptureRequirementIfIsTrue(
                     isR60001Verified,
                     60001,
-                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. (<3> Section 2.2.1.2.2: Exchange 2010 and Exchange 2013 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. <3> Section 2.2.1.2.2: Exchange 2010 Exchange 2013 and Exchange 2016 always return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.");
             }
 
             if (Common.IsRequirementEnabled(60002, this.Site))
@@ -280,26 +292,50 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             #endregion
 
             #region Step 5. The client gets the PidTagAddressBookEntryId property of the [MSOXCFOLD_PublicFolderMailEnabled].
-
-            PropertyTag[] propertyTagArray = new PropertyTag[1];
-            PropertyTag propertyTag = new PropertyTag
+            if (Common.IsRequirementEnabled(350002, this.Site))
             {
-                PropertyId = (ushort)FolderPropertyId.PidTagAddressBookEntryId,
-                PropertyType = (ushort)PropertyType.PtypBinary
-            };
-            propertyTagArray[0] = propertyTag;
+                PropertyTag[] propertyTagArray = new PropertyTag[1];
+                PropertyTag propertyTag = new PropertyTag
+                {
+                    PropertyId = (ushort)FolderPropertyId.PidTagAddressBookEntryId,
+                    PropertyType = (ushort)PropertyType.PtypBinary
+                };
+                propertyTagArray[0] = propertyTag;
 
-            RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
-            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
-            getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
-            getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
-            getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
-            getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
-            getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
-            getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
+                RopGetPropertiesSpecificRequest getPropertiesSpecificRequest = new RopGetPropertiesSpecificRequest();
+                RopGetPropertiesSpecificResponse getPropertiesSpecificResponse;
+                getPropertiesSpecificRequest.RopId = (byte)RopId.RopGetPropertiesSpecific;
+                getPropertiesSpecificRequest.LogonId = Constants.CommonLogonId;
+                getPropertiesSpecificRequest.InputHandleIndex = Constants.CommonInputHandleIndex;
+                getPropertiesSpecificRequest.PropertySizeLimit = 0xFFFF;
+                getPropertiesSpecificRequest.PropertyTagCount = (ushort)propertyTagArray.Length;
+                getPropertiesSpecificRequest.PropertyTags = propertyTagArray;
 
-            getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
-            Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+                getPropertiesSpecificResponse = this.Adapter.GetFolderObjectSpecificProperties(getPropertiesSpecificRequest, subfolderHandle1, ref this.responseHandles);
+                Site.Assert.AreEqual<uint>(0, getPropertiesSpecificResponse.ReturnValue, "RopGetPropertiesSpecific ROP operation performs successfully!");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R350002");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R350002.
+                // The property value is returned if Flag value is 0x00.
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    getPropertiesSpecificResponse.RowData.Flag,
+                    350002,
+                    @"[In Appendix A: Product Behavior] The implementation does support the PidTagAddressBookEntryId property. (Exchange 2007 and Exchange 2010 follow this behavior).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R350");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R350.
+                // The property value is returned if Flag value is 0x00.
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    getPropertiesSpecificResponse.RowData.Flag,
+                    350,
+                    @"[In PidTagAddressBookEntryId Property] This property is set only for public folders.");
+            }
             #endregion
 
             #region Step 6. The client calls RopGetPropertiesAll on [MSOXCFOLD_PublicFolderGhosted].

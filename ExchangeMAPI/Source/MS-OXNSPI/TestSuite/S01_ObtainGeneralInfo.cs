@@ -195,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 1,
                 returnValue1,
                 712,
-                @"[In NspiUnbind] [Server Processing Rules: Upon receiving message NspiUnbind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the server successfully destroys the context handle, the server MUST return the value ""UnbindSuccess"", as specified in section 2.2.2.");
+                @"[In NspiUnbind] [Server Processing Rules: Upon receiving message NspiUnbind, the server MUST process the data from the message subject to the following constraints:] [constraint 1] If the server successfully destroys the context handle, the server MUST return the value ""UnbindSuccess"", as specified in section 2.2.1.2.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R701");
@@ -573,7 +573,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 isString8Type,
                 116,
-                @"[In NspiQueryColumns Flag] The default behavior [Without setting the NspiUnicodeProptypes] is that the server MUST return all proptags specifying values with string representations as having the PtypString8 property type.");
+                @"[In NspiQueryColumns Flag] If the NspiUnicodeProptypes flag is not set, the server MUST return all proptags specifying values with string representations as having the PtypString8 property type. ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R827");
@@ -960,7 +960,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 (uint)AulProp.PidTagScriptData,
                 data.Value.LpProps[0].PropTag,
                 121,
-                @"[In NspiGetTemplateInfo Flags] TI_SCRIPT (0x00000004): Specifies that the server is to return the value of the script that ia associated with a template.");
+                @"[In NspiGetTemplateInfo Flags] TI_SCRIPT (0x00000004): Specifies that the server is to return the value of the script that is associated with a template.");
 
             #endregion Capture
             #endregion
@@ -1029,6 +1029,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 }
             }
             #endregion
+
+            #region Capture
+            if (Common.IsRequirementEnabled(2003004, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R2003004");
+
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R2003004
+                Site.CaptureRequirementIfIsTrue(
+                    Common.IsDNMatchABNF(dn, DNFormat.Dn),
+                    2003004,
+                    @"[In Appendix A: Product Behavior] Implementation does follow the ABNF format. (Microsoft Exchange Server 2010 Service Pack 3 (SP3) follows this behavior).");
+            }
+            #endregion Capture
 
             #region Call NspiGetTemplateInfo method with DN set to a non-null value.
             uint flagsOfGetTemplateInfo = (uint)NspiGetTemplateInfoFlag.TI_SCRIPT;
@@ -1146,7 +1160,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowEqual(data, data1),
                 1692,
-                @"[In NspiGetTemplateInfo] [dwFlags] If the bits are set to different values other than the bit flags TI_HELPFILE_NAME, TI_HELPFILE_CONTENTS, TI_SCRIPT, TI_TEMPLATE and TI_EMT, the server will return the same value.");
+                @"[In NspiGetTemplateInfo] [dwFlags] If the bits are set to different values other than the bit flags TI_SCRIPT and TI_TEMPLATE, the server will return the same value.");
 
             #endregion Capture
             #endregion
@@ -1491,10 +1505,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Site.CaptureRequirementIfIsTrue(
                     permanentEntryID.ToString() != null && isHasContainer && isAddresslistDNFormat,
                     1865,
-                    @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] 
-                        [Constraint 16] The PidTagEntryId property MUST be in the form of a PermanentEntryID structure, as section 2.3.8.3, with its PidTagDisplayType property 
-                        having the value DT_CONTAINER, as specified in section 2.2.3, and its DN (1) following the addresslist-dn format specification, as specified in [MS-OXOABK] 
-                        section 2.2.1.1.");
+                    @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] The PidTagEntryId property MUST be in the form of a PermanentEntryID structure, as section 2.2.9.3, with its PidTagDisplayType property having the value DT_CONTAINER, as specified in section 2.2.1.3, and its DN following the addresslist-dn format specification, as specified in [MS-OXOABK] section 2.2.1.1.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXOABK_R29.");
@@ -1521,7 +1532,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     this.Site.CaptureRequirementIfIsTrue(
                         isAddresslistDNFormat,
                         1866,
-                        @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] When the object is the Global Address List (GAL) container, its DN (1) MUST follow the gal-addrlist-dn format specification.");
+                        @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] When the object is the Global Address List (GAL) container, its DN MUST follow the gal-addrlist-dn format specification.");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXOABK_R30.");
@@ -1543,7 +1554,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             // The handle is used as the input parameter by all other NSPI methods. So MS-OXNSPI_R675 can be verified if all cases are passed.
             this.Site.CaptureRequirement(
                 675,
-                @"[In NspiBind] contextHandle: An RPC context handle, as specified in section 2.3.9.");
+                @"[In NspiBind] contextHandle: An RPC context handle, as specified in section 2.2.10.");
 
             // The handle is used as the input parameter by all other NSPI methods. So MS-OXNSPI_R668 can be verified if all cases are passed.
             this.Site.CaptureRequirement(

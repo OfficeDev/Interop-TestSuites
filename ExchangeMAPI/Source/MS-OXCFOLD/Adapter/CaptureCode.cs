@@ -276,7 +276,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Constants.SuccessCode,
                 getSearchCriteriaResponse.ReturnValue,
                 120,
-                @"[In RopGetSearchCriteria ROP] The RopGetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.5) obtains the search criteria and the status of a search for a search folder (2).");
+                @"[In RopGetSearchCriteria ROP] The RopGetSearchCriteria ROP ([MS-OXCROPS] section 2.2.4.5) obtains the search criteria and the status of a search for a search folder.");
 
             if (getSearchCriteriaResponse.RestrictionData != null)
             {
@@ -289,7 +289,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // The RestrictionData in RopGetSearchCriteria ROP response were deserialized successfully, MS-OXCFOLD_R137 can be verified directly.
                 Site.CaptureRequirement(
                     137,
-                    @"[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): A packet of structures that specify restrictions (2) for the search folder (2).");
+                    @"[In RopGetSearchCriteria ROP Response Buffer] RestrictionData (variable): A packet of structures that specify restrictions for the search folder.");
 
                 byte restrictions = getSearchCriteriaResponse.RestrictionData[0];
                 bool isVerifiedR510 = restrictions == 0
@@ -313,7 +313,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     isVerifiedR510,
                     Constants.MSOXCDATA,
                     510,
-                    @"[In Restrictions] Although the packet formats differ, the first 8 bits always store RestrictType, an unsigned byte value specifying the type of restriction (2).");
+                    @"[In Restrictions] Although the packet formats differ, the first 8 bits always store RestrictType, an unsigned byte value specifying the type of restriction.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R958");
@@ -1304,6 +1304,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                             "[In PidTagDeletedCountTotal Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).");
                         #endregion
                         break;
+                    case (ushort)FolderPropertyId.PidTagFolderFlags:
+
+                        #region PidTagFolderFlags
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R35101");
+
+                        // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R35101
+                        Site.CaptureRequirementIfAreEqual<ushort>(
+                            (ushort)PropertyType.PtypInteger32,
+                            tag.PropertyType,
+                            35101,
+                            "[In PidTagFolderFlags Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)");
+                        break;
+                        #endregion
                     default:
                         break;
                 }

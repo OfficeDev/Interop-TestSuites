@@ -290,6 +290,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         /// </summary>
         /// <returns>Table ROP return value</returns>
         TableRopReturnValues RopSetCollapseState();
+
+        /// <summary>
+        /// This method is used to release a table
+        /// </summary>
+        void RopRelease();
         #endregion
 
         /// <summary>
@@ -310,5 +315,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
         /// </summary>
         /// <param name="isSupported">The transport is supported or not.</param>
         void CheckMAPIHTTPTransportSupported(out bool isSupported);
+
+        /// <summary>
+        /// Disconnect from the server.
+        /// </summary>
+        void Disconnect();
     }
 }

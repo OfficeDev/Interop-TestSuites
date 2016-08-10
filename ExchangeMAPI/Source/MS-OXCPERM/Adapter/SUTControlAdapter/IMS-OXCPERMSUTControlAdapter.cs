@@ -17,7 +17,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         /// <para>"1": means "Detailed", which indicates detailed information about the appointments on the calendar;</para>
         /// <para>"2": means the appointment free/busy information can't be viewed or error occurs, which indicates the user has no permission to get information about the appointments on the calendar;</para>
         /// </returns>
-        [MethodHelp(@"Log in as testUserName to get the free/busy information of User2. The value of User2 is defined in the ""User2Name"" property in the MS-OXCPERM_TestSuite.deployment.ptfconfig.\r\n"
+        [MethodHelp(@"Log in as testUserName to get the free/busy information of User2. The value of User2 is defined in the ""AdminUserName"" property in the MS-OXCPERM_TestSuite.deployment.ptfconfig.\r\n"
             + "Log in as User2 to view the calendar and create an appointment. Note: It is not necessary to create an appointment if User2's calendar already has one.\r\n"
             + "Log in as testUserName to view the appointment on User2's calendar.\r\n"
             + "testUserName: Use this account to open User2's calendar.\r\n"

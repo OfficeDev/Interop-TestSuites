@@ -4,8 +4,12 @@
 
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
-    <!-- Set R115Enabled to true to verify that if the client sets the FolderOwner flag, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions. Set R115Enabled to false to disable this requirement.-->
-    <Property name="R115Enabled" value="true"/>
+    <!-- Set R115002Enabled to true to verify that if the client sets the FolderOwner flag, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions. Set R115Enabled to false to disable this requirement.-->
+    <Property name="R115002Enabled" value="true"/>
+    <!-- Set R116001Enabled to true to verify that if the client sets the FolderOwner flag, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions. Set R115Enabled to false to disable this requirement.-->
+    <Property name="R116001Enabled" value="false"/>
+    <!-- Set R116002Enabled to true to verify that if the client sets the FolderOwner flag, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions. Set R115Enabled to false to disable this requirement.-->
+    <Property name="R116002Enabled" value="true"/>
     <!-- Set R1184Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1184Enabled to false to disable this requirement.-->
     <Property name="R1184Enabled" value="false"/>
   </Properties>

@@ -19,7 +19,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// An array of variable-sized structures that contains the property values.
         /// </summary>
-        public PropertyValue[] ValueArray;
+        public AddressBookPropertyValue[] ValueArray;
 
         /// <summary>
         /// Parse the AddressBookPropertyRow structure.
@@ -28,40 +28,40 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <param name="propTagArray">The list of property tags.</param>
         ///  <param name="index">The start index.</param>
         /// <returns>Return an instance of AddressBookPropertyRow.</returns>
-        public static AddressBookPropertyRow Parse(byte[] rawBuffer, LargePropTagArray propTagArray, ref int index)
+        public static AddressBookPropertyRow Parse(byte[] rawBuffer, LargePropertyTagArray propTagArray, ref int index)
         {
             AddressBookPropertyRow addressBookPropertyRow = new AddressBookPropertyRow();
             addressBookPropertyRow.Flag = rawBuffer[index];
             index++;
-            List<PropertyValue> valueArray = new List<PropertyValue>();
+            List<AddressBookPropertyValue> valueArray = new List<AddressBookPropertyValue>();
 
             Context.Instance.PropertyBytes = rawBuffer;
             Context.Instance.CurIndex = index;
             Context.Instance.CurProperty = new Property(PropertyType.PtypUnspecified);
 
-            // If the value of the Flags field is set to 0x00: The array contains either a PropertyValue structure, or a TypedPropertyValue structure.
-            // If the value of the Flags field is set to 0x01: The array contains either a FlaggedPropertyValue structure, or a FlaggedPropertyValueWithType structure. 
+            // If the value of the Flags field is set to 0x00: The array contains either a AddressBookPropertyValue structure, or a AddressBookTypedPropertyValue structure.
+            // If the value of the Flags field is set to 0x01: The array contains either a AddressBookFlaggedPropertyValue structure, or a AddressBookFlaggedPropertyValueWithType structure. 
             if (addressBookPropertyRow.Flag == 0x00)
             {
                 foreach (PropertyTag propertyTag in propTagArray.PropertyTags)
                 {
                     if (propertyTag.PropertyType == 0x0000)
                     {
-                        // If the value of the Flags field is set to 0x00: The array contains a TypedPropertyValue structure, if the type of property is PtyUnspecified.
-                        TypedPropertyValue typedPropertyValue = new TypedPropertyValue();
+                        // If the value of the Flags field is set to 0x00: The array contains a AddressBookTypedPropertyValue structure, if the type of property is PtyUnspecified.
+                        AddressBookTypedPropertyValue typedPropertyValue = new AddressBookTypedPropertyValue();
 
-                        // Parse the TypedPropertyValue with the instance of the context which contains the datas and start index.
+                        // Parse the AddressBookTypedPropertyValue with the instance of the context which contains the datas and start index.
                         typedPropertyValue.Parse(Context.Instance);
                         valueArray.Add(typedPropertyValue);
                         index = Context.Instance.CurIndex;
                     }
                     else
                     {
-                        // If the value of the Flags field is set to 0x00: The array contains a PropertyValue structure, if the type of property is specified.
+                        // If the value of the Flags field is set to 0x00: The array contains a AddressBookPropertyValue structure, if the type of property is specified.
                         Context.Instance.CurProperty.Type = (PropertyType)propertyTag.PropertyType;
-                        PropertyValue propertyValue = new PropertyValue();
+                        AddressBookPropertyValue propertyValue = new AddressBookPropertyValue();
 
-                        // Parse the TypedPropertyValue with the instance of the context which contains the datas and start index.
+                        // Parse the AddressBookTypedPropertyValue with the instance of the context which contains the datas and start index.
                         propertyValue.Parse(Context.Instance);
                         valueArray.Add(propertyValue);
                         index = Context.Instance.CurIndex;
@@ -74,21 +74,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 {
                     if (propertyTag.PropertyType == 0x0000)
                     {
-                        // If the value of the Flags field is set to 0x01: The array contains a FlaggedPropertyValueWithType structure, if the type of property is PtyUnspecified.
-                        FlaggedPropertyValueWithType flaggedPropertyValue = new FlaggedPropertyValueWithType();
+                        // If the value of the Flags field is set to 0x01: The array contains a AddressBookFlaggedPropertyValueWithType structure, if the type of property is PtyUnspecified.
+                        AddressBookFlaggedPropertyValueWithType flaggedPropertyValue = new AddressBookFlaggedPropertyValueWithType();
 
-                        // Parse the TypedPropertyValue with the instance of the context which contains the datas and start index.
+                        // Parse the AddressBookTypedPropertyValue with the instance of the context which contains the datas and start index.
                         flaggedPropertyValue.Parse(Context.Instance);
                         valueArray.Add(flaggedPropertyValue);
                         index = Context.Instance.CurIndex;
                     }
                     else
                     {
-                        // If the value of the Flags field is set to 0x01: The array contains a FlaggedPropertyValue structure, if the type of property is specified.
+                        // If the value of the Flags field is set to 0x01: The array contains a AddressBookFlaggedPropertyValue structure, if the type of property is specified.
                         Context.Instance.CurProperty.Type = (PropertyType)propertyTag.PropertyType;
-                        FlaggedPropertyValue propertyValue = new FlaggedPropertyValue();
+                        AddressBookFlaggedPropertyValue propertyValue = new AddressBookFlaggedPropertyValue();
 
-                        // Parse the TypedPropertyValue with the instance of the context which contains the datas and start index.
+                        // Parse the AddressBookTypedPropertyValue with the instance of the context which contains the datas and start index.
                         propertyValue.Parse(Context.Instance);
                         valueArray.Add(propertyValue);
                         index = Context.Instance.CurIndex;

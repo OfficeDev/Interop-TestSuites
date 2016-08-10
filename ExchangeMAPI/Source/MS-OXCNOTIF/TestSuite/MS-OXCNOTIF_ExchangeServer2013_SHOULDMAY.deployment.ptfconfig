@@ -51,8 +51,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R331Enabled" value="false"/>
     <!-- Set R335Enabled to true to verify that for operation RopNotify the implementation does include as many RopNotify ROP responses as will fit in the response, and then include a RopPending ROP response as specified in section 3.1.5.7. Set R335Enabled to false to disable this requirement. -->
     <Property name="R335Enabled" value="true"/>
-    <!-- Set R343Enabled to true to verify that for operation RopPending the implementation does send a RopPending ROP response to the client whenever there are pending notifications on any linked session contexts as specified in section 6. Set R343Enabled to false to disable this requirement. -->
-    <Property name="R343Enabled" value="false"/>
+    <!-- Set R342Enabled to true to implementation does support Session Context linking. Set R342Enabled to false to disable this requirement. -->
+    <Property name="R342Enabled" value="false"/>
     <!-- Set R346Enabled to true to verify that for operation RopNotify the implementation does send a RopNotify ROP response to the client for each pending notification on the session context that is associated with the client as specified in section 3.1.5.7. Set R346Enabled to false to disable this requirement. -->
     <Property name="R346Enabled" value="true"/>
     <!-- Set R348Enabled to true to verify that for operation RopNotify the implementation does send as many RopNotify ROP responses as the response buffer allows as specified in section 3.1.5.7. Set R348Enabled to false to disable this requirement. -->
@@ -81,8 +81,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R81001Enabled" value="false"/>
     <!-- Set R81002Enabled to true to verify that for for operation RopPending the implementation does notify the client that there are pending notifications on the server for the client, when the value of pcbOut is 0x190. Set R81002Enabled to false to disable this requirement. -->
     <Property name="R81002Enabled" value="true"/>
-    <!-- Set R214Enabled to true to verify that for operation RopNotify the implementation does support MessageFlags specifies the message flags of new mail that has been received. Set R214Enabled to false to disable this requirement. -->
-    <Property name="R214Enabled" value="false"/>
+    <!-- Set R214001Enabled to true to verify that for operation RopNotify the implementation does support MessageFlags specifies the message flags of new mail that has been received. Set R214001Enabled to false to disable this requirement. -->
+    <Property name="R214001Enabled" value="false"/>
+    <!-- Set R214002Enabled to true to verify that for operation RopNotify the implementation does return zero for MessageFlags. Set R214002Enabled to false to disable this requirement. -->
+    <Property name="R214002Enabled" value="true"/>
     <!-- Set R475Enabled to true to verify that for asynchronous calls the implementation does support using the MAPI extensions to HTTP. Set R475Enabled to false to disable this requirement. -->
     <Property name="R475Enabled" value="true"/>
     <!-- Set R482Enabled to true to verify that for NotificationWait request type the implementation does notify the client that there are pending notifications on the server for the client. Set R482Enabled to false to disable this requirement. -->
@@ -99,5 +101,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R539Enabled" value="false"/>
     <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
     <Property name="R1340Enabled" value="true"/>
+    <!-- Set R8201001Enabled to true to verify that the implementation does support Execute request type. Set R8201001Enabled to false to disable this requirement.-->
+    <Property name="R8201001Enabled" value="true"/>
   </Properties>
 </TestSite>

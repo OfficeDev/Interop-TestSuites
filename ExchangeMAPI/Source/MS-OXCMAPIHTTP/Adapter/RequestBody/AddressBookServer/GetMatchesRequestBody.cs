@@ -82,7 +82,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropertyTagArray structure that specifies the columns that the client is requesting.
         /// </summary>
-        public LargePropTagArray Columns { get; set; }
+        public LargePropertyTagArray Columns { get; set; }
 
         /// <summary>
         /// Serialize the instance to byte array.

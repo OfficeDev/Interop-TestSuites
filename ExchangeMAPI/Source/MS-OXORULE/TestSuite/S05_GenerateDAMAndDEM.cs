@@ -83,6 +83,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 {
                     PropertyId = (ushort)PropertyId.PidTagRuleName,
                     PropertyType = (ushort)PropertyType.PtypString
+                },
+                new PropertyTag
+                {
+                    PropertyId = (ushort)PropertyId.PidTagRuleId,
+                    PropertyType = (ushort)PropertyType.PtypInteger64
+                },
+                new PropertyTag
+                {
+                    PropertyId = (ushort)PropertyId.PidTagRuleSequence,
+                    PropertyType = (ushort)PropertyType.PtypInteger32
                 }
             };
 
@@ -93,6 +103,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             // Add two rules to the Inbox folder, so if get rule table successfully and the rule count is 2,
             // it means the server is returning a table with the rules added by the test suite.
             Site.Assert.AreEqual(2, queryRowResponse.RowCount, @"There should be 2 rules returned, actual returned row count is {0}.", queryRowResponse.RowCount);
+            byte[] pidTagRuleId1 = null;
+            if (AdapterHelper.PropertyValueConvertToUint(queryRowResponse.RowData.PropertyRows[0].PropertyValues[2].Value) == 0)
+            {
+                pidTagRuleId1 = queryRowResponse.RowData.PropertyRows[0].PropertyValues[1].Value;
+            }
+            else
+            {
+                pidTagRuleId1 = queryRowResponse.RowData.PropertyRows[1].PropertyValues[1].Value;
+            }
             this.VerifyRuleTable();
             #endregion
 
@@ -172,8 +191,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR908,
                 908,
-                @"[In Generating a DAM] The implementation does this [pack information about more than one ""OP_DEFER_ACTION"" actions (3) for any given message into one DAM] when there are more than one ""OP_DEFER_ACTION"" actions (3) that belong to the same rule provider. (Exchange 2003 and above follow this behavior.)");
+                @"[In Generating a DAM] The implementation does this [pack information about more than one ""OP_DEFER_ACTION"" actions (2) for any given message into one DAM] when there are more than one ""OP_DEFER_ACTION"" actions (2) that belong to the same rule provider. (Exchange 2003 and above follow this behavior.)");
 
+            byte[] pidTagRuleIds = AdapterHelper.PropertyValueConvertToBinary(ropQueryRowsResponseOfDAM.RowData.PropertyRows[0].PropertyValues[6].Value);
+
+            System.Collections.Generic.List<byte> temp = new System.Collections.Generic.List<byte>();
+            temp.AddRange(pidTagRuleId1);
+            temp.AddRange(pidTagRuleId1);
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R368");
+
+            // Verify MS-OXORULE requirement: MS-OXORULE_R368
+            Site.CaptureRequirementIfIsTrue(
+                Common.CompareByteArray(temp.ToArray(), pidTagRuleIds),
+                368,
+                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.941) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
             #endregion
             #endregion
         }
@@ -445,7 +478,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR571,
                 571,
-                 @"[In Generating a DAM]The server MUST generate separate DAMs for ""OP_DEFER_ACTION"" actions (3) that belong to separate rule providers.");
+                 @"[In Generating a DAM]The server MUST generate separate DAMs for ""OP_DEFER_ACTION"" actions (2) that belong to separate rule providers.");
             #endregion
             #endregion
 
@@ -680,7 +713,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ActionType.OP_DEFER_ACTION,
                 pidTagClientActionsOfDAM.Actions[0].ActionType,
                 883,
-                @"[In PidTagClientActions Property] The server is required to set values in this property according to the relevant actions (3) as they were set by the client when the rule (4) was changed by using the RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1).");
+                @"[In PidTagClientActions Property] The server is required to set values in this property according to the relevant actions (2) as they were set by the client when the rule (2) was changed by using the RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1).");
             #endregion
         }
 
@@ -833,59 +866,59 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     "IPC.Microsoft Exchange 4.0.Deferred Error",
                     messageClassValue,
                     909,
-                    @"[In Handling Errors During Rule Processing] The implementation does generate a DEM when it encounters an error processing a rule (4) on an incoming message. (Exchange 2003 and above follow this behavior.)");
+                    @"[In Handling Errors During Rule Processing] The implementation does generate a DEM when it encounters an error processing a rule (2) on an incoming message. (Exchange 2003 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(713, this.Site))
+            if (Common.IsRequirementEnabled(7132, this.Site))
             {
                 // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R713.");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7132.");
 
-                // Verify MS-OXORULE requirement: MS-OXORULE_R713.
+                // Verify MS-OXORULE requirement: MS-OXORULE_R7132.
                 // The messageEntryIdInbyte get from the inboxFolder is the message that was being processed by the server when this error was encountered.
-                bool isVerifyR713 = pidTagDamOriginalEntryId.Length == messageEntryId.Length;
-                if (isVerifyR713)
+                bool isVerifyR7132 = pidTagDamOriginalEntryId.Length == messageEntryId.Length;
+                if (isVerifyR7132)
                 {
                     for (int i = 0; i < pidTagDamOriginalEntryId.Length; i++)
                     {
                         if (pidTagDamOriginalEntryId[i] != messageEntryId[i])
                         {
-                            isVerifyR713 = false;
+                            isVerifyR7132 = false;
                             break;
                         }
                     }
                 }
 
                 Site.CaptureRequirementIfIsTrue(
-                    isVerifyR713,
-                    713,
-                    @"[In PidTagDamOriginalEntryId Property] The PidTagDamOriginalEntryId property (section 2.2.6.3) MUST be set to the EntryID of the message that was being processed by the server when this error was encountered (that is, the ""delivered message"").");
+                    isVerifyR7132,
+                    7132,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagDamOriginalEntryId  to the EntryID of the message that was being processed by the server when this error was encountered (this is, the ""delivered message""). (Exchange 2010 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(715, this.Site))
+            if (Common.IsRequirementEnabled(7152, this.Site))
             {
                 // Add the debug information.
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R715.");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7152.");
 
-                // Verify MS-OXORULE requirement: MS-OXORULE_R715.
+                // Verify MS-OXORULE requirement: MS-OXORULE_R7152.
                 // The inboxFolder is the folder where the rule that triggered in this case.
-                bool isVerifyR715 = pidTagRuleFolderEntryId.Length == inboxFolderEntryId.Length;
-                if (isVerifyR715)
+                bool isVerifyR7152 = pidTagRuleFolderEntryId.Length == inboxFolderEntryId.Length;
+                if (isVerifyR7152)
                 {
                     for (int i = 0; i < pidTagRuleFolderEntryId.Length; i++)
                     {
                         if (pidTagRuleFolderEntryId[i] != inboxFolderEntryId[i])
                         {
-                            isVerifyR715 = false;
+                            isVerifyR7152 = false;
                             break;
                         }
                     }
                 }
 
                 Site.CaptureRequirementIfIsTrue(
-                    isVerifyR715,
-                    715,
-                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property (section 2.2.6.5) MUST be set to the EntryID of the folder where the rule (4) that triggered the generation of this DEM is stored.");
+                    isVerifyR7152,
+                    7152,
+                    @"[[In Appendix A: Product Behavior] Implementation does set PidTagRuleFolderEntryId   to the EntryID of the folder where the rule (2) that triggered the generation of this DEM is stored. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(896, this.Site))
@@ -900,7 +933,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     "IPC.Microsoft Exchange 4.0.Deferred Error",
                     messageClassValue,
                     896,
-                    @"[In DEM Syntax] Implementation does create a DEM when an error is encountered while executing a rule (4). (Exchange 2003 and above follow this behavior.)");
+                    @"[In DEM Syntax] Implementation does create a DEM when an error is encountered while executing a rule (2). (Exchange 2003 and above follow this behavior.)");
             }
 
             // Add the debug information.
@@ -913,7 +946,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 "IPC.Microsoft Exchange 4.0.Deferred Error",
                 messageClassValue,
                 903,
-                @"[In Processing DAMs and DEMs] The server places a message in the DAF when it encounters a problem performing an action (3) of a server-side rule (DEM).");
+                @"[In Processing DAMs and DEMs] The server places a message in the DAF when it encounters a problem performing an action (2) of a server-side rule (DEM).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R810");
@@ -1049,7 +1082,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 1,
                 ruleActionNumber,
                 707,
-                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.932) MUST be set to the zero-based index of the action (3) that failed. (For example, if specific to an action (3), a property value of 0x00000000 means that the first action (3) failed, 0x00000001 means that the second action (3) failed.)");
+                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.934) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R709");
@@ -1059,7 +1092,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 709,
-                @"[In PidTagRuleActionNumber Property] The ActionType field value of the action (3) at this index MUST be the same value as the value of the PidTagRuleActionType property (section 2.2.7.3) in this DEM.");
+                @"[In PidTagRuleActionNumber Property] The ActionType field value of the action (2) at this index MUST be the same value as the value of the PidTagRuleActionType property (section 2.2.7.3) in this DEM.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R750");
@@ -1069,7 +1102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 750,
-                @"[In PidTagRuleActionType Property] This property [PidTagRuleActionType] MUST be set to the value of the ActionType field, as specified in section 2.2.5.1. [if the failure is specific to an action (3).]");
+                @"[In PidTagRuleActionType Property] This property [PidTagRuleActionType] MUST be set to the value of the ActionType field, as specified in section 2.2.5.1. [if the failure is specific to an action (2).]");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R1009");
@@ -1079,7 +1112,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 1009,
-                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.934) specifies the action (3) of the rule (4) that failed.");
+                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.936) specifies the action (2) of the rule (2) that failed.");
             #endregion
             #endregion
 
@@ -1238,7 +1271,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR913,
                     913,
-                    @"[In Handling Errors During Rule Processing] The first time the server finds a server-side rule to be in error and has generated a DEM for it, the implementation does set the ST_ERROR flag in the PidTagRuleState property (section 2.2.1.3.1.3) of that rule (4). (Exchange 2003 and above follow this behavior.)");
+                    @"[In Handling Errors During Rule Processing] The first time the server finds a server-side rule to be in error and has generated a DEM for it, the implementation does set the ST_ERROR flag in the PidTagRuleState property (section 2.2.1.3.1.3) of that rule (2). (Exchange 2003 and above follow this behavior.)");
             }
 
             // Add the debug information.
@@ -1273,7 +1306,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ruleIdInRule,
                 ruleIdInDEM,
                 717,
-                @"[In PidTagRuleId Property] The PidTagRuleId (section 2.2.1.3.1.1) property MUST be set to the same value as the value of the PidTagRuleId property on the rule (4) that has generated this error.");
+                @"[In PidTagRuleId Property] The PidTagRuleId (section 2.2.1.3.1.1) property MUST be set to the same value as the value of the PidTagRuleId property on the rule (2) that has generated this error.");
             #endregion
             #endregion
         }
@@ -1473,7 +1506,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR741,
                     741,
-                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.937) MUST be set to the EntryID of the folder where the rule (4) that triggered the generation of this DAM is stored.");
+                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.939) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.");
             }
 
             RuleAction pidTagClientActionsOfDAM = AdapterHelper.PropertyValueConvertToRuleAction(pidTagClientActionsOfDAMOfBytes);
@@ -1486,7 +1519,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ActionType.OP_DEFER_ACTION,
                 pidTagClientActionsOfDAM.Actions[0].ActionType,
                 365,
-                @"[In PidTagClientActions] The server is required to set values in this property according to the relevant actions (3) as they were set by the client when the rule (4) was created by using the RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1).");
+                @"[In PidTagClientActions] The server is required to set values in this property according to the relevant actions (2) as they were set by the client when the rule (2) was created by using the RopModifyRules ROP ([MS-OXCROPS] section 2.2.11.1).");
 
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R808.");
 
@@ -1507,7 +1540,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ruleProperties.Provider,
                 pidTagRuleProviderOfDAM,
                 359,
-                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.949) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
+                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.951) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
 
             // Add the debug information.
             string pidTagMessageClassOfDAM = AdapterHelper.PropertyValueConvertToString(pidTagMessageClassOfDAMOfBytes);
@@ -1527,7 +1560,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR563,
                 563,
-                @"[In Generating a DAM]A server MUST generate a DAM when a rule (4) condition evaluates to ""TRUE"" but the server cannot perform the actions (3) specified in the rule (4).");
+                @"[In Generating a DAM]A server MUST generate a DAM when a rule (2) condition evaluates to ""TRUE"" but the server cannot perform the actions (2) specified in the rule (2).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R724: the value of PidTagHasDeferredActionMessages is {0}, and PidTagSubject is {1}", pidTagHasDeferredActionMessagesOfDAM, subject);
@@ -1559,7 +1592,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 pidTagHasDeferredActionMessagesOfDAM,
                 536,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DEFER_ACTION"": The server MUST also set the PidTagHasDeferredActionMessages property (section 2.2.9.1) to ""TRUE"" on the message.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DEFER_ACTION"": The server MUST also set the PidTagHasDeferredActionMessages property (section 2.2.9.1) to ""TRUE"" on the message.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R426: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM);
@@ -1571,7 +1604,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR426,
                 426,
-                @"[In Processing DAMs and DEMs] The server places a message in the DAF when it needs the client to perform an action (3) as a result of a client-side rule (DAM).");
+                @"[In Processing DAMs and DEMs] The server places a message in the DAF when it needs the client to perform an action (2) as a result of a client-side rule (DAM).");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R932: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM);
@@ -1582,7 +1615,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR932,
                 932,
-                @"[In Processing Incoming Messages to a Folder] When executing a rule (4) whose condition evaluates to ""TRUE"" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST generate a DAM for the client to process as specified in section 3.2.5.1.2 in the case of a client-side rule.");
+                @"[In Processing Incoming Messages to a Folder] When executing a rule (2) whose condition evaluates to ""TRUE"" as per the restriction (2) in the PidTagRuleCondition property (section 2.2.1.3.1.9), then the server MUST generate a DAM for the client to process as specified in section 3.2.5.1.2 in the case of a client-side rule.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R354.");
@@ -1632,7 +1665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR535,
                 535,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (3) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DEFER_ACTION"": The server MUST generate a DAM as specified in section 3.2.5.1.2.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_DEFER_ACTION"": The server MUST generate a DAM as specified in section 3.2.5.1.2.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R313: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM);
@@ -1645,7 +1678,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR313,
                 313,
-                @"[In OP_DEFER_ACTION ActionData Structure] If one or more actions (3) for a specific rule (4) cannot be executed on the server, the rule (4) is required to be a client-side rule, with a value in the ActionType field of ""OP_DEFER_ACTION"".");
+                @"[In OP_DEFER_ACTION ActionData Structure] If one or more actions (2) for a specific rule (2) cannot be executed on the server, the rule (2) is required to be a client-side rule, with a value in the ActionType field of ""OP_DEFER_ACTION"".");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R257: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM);
@@ -1658,7 +1691,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR257,
                 257,
-                @"[In ActionBlock Structure] The meaning of action type OP_DEFER_ACTION: Used for actions (3) that cannot be executed by the server (like playing a sound).");
+                @"[In ActionBlock Structure] The meaning of action type OP_DEFER_ACTION: Used for actions (2) that cannot be executed by the server (like playing a sound).");
 
             // The error code for NotFound is 0x8004010f, which is represented as notFoundError.
             byte[] notFoundError = new byte[4] { 0x0f, 0x01, 0x04, 0x80 };
@@ -1712,7 +1745,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR321,
                 321,
-                @"[In OP_DEFER_ACTION ActionData Structure] When a message that satisfies the rule (4) condition is received, the server creates a DAM and places the entire content of the ActionBlocks field of the RuleAction structure in the PidTagClientActions property (section 2.2.6.6) on the DAM as specified in sections 3.2.5.1.2, 2.2.6, and 2.2.6.6.");
+                @"[In OP_DEFER_ACTION ActionData Structure] When a message that satisfies the rule (2) condition is received, the server creates a DAM and places the entire content of the ActionBlocks field of the RuleAction structure in the PidTagClientActions property (section 2.2.6.6) on the DAM as specified in sections 3.2.5.1.2, 2.2.6, and 2.2.6.6.");
             #endregion
             #endregion
             #endregion

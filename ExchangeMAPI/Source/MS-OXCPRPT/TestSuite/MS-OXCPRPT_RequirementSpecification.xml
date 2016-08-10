@@ -338,7 +338,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.755) contains the name of the last mail user to modify the object.</ns1:Description>
+		<ns1:Description>[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.757) contains the name of the last mail user to modify the object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -410,7 +410,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagObjectType Property] The PidTagObjectType property ([MS-OXPROPS] section 2.802) indicates the type of Server object.</ns1:Description>
+		<ns1:Description>[In PidTagObjectType Property] The PidTagObjectType property ([MS-OXPROPS] section 2.804) indicates the type of Server object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -527,7 +527,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRecordKey Property] The PidTagRecordKey property ([MS-OXPROPS] section 2.899) contains a unique binary-comparable identifier for a specific object</ns1:Description>
+		<ns1:Description>[In PidTagRecordKey Property] The PidTagRecordKey property ([MS-OXPROPS] section 2.901) contains a unique binary-comparable identifier for a specific object</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -581,7 +581,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R54</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSearchKey Property] The PidTagSearchKey property ([MS-OXPROPS] section 2.1061) contains a unique binary-comparable key that identifies an object for a search.</ns1:Description>
+		<ns1:Description>[In PidTagSearchKey Property] The PidTagSearchKey property ([MS-OXPROPS] section 2.988) contains a unique binary-comparable key that identifies an object for a search.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3516,21 +3516,11 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenStream ROP]Only single-valued properties that are of the following types MAY be supported for Folder objects: PtypBinary and PtypString.</ns1:Description>
+		<ns1:Description>[In RopOpenStream ROP]Only single-valued properties that are of the following types MUST be supported for Folder objects: PtypBinary.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCPRPT_R2561, MS-OXCPRPT_R2563.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCPRPT_R2562</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In RopOpenStream ROP]Only single-valued properties that are of the following types MAY be supported for Folder objects: PtypString8.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R258</ns1:REQ_ID>
@@ -6021,6 +6011,24 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R466</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>If this is the first ROP in the request buffer, and the maximum size of a ROP response buffer is used, and the serialized response would not fit, the server SHOULD&lt;5&gt; fail the EcDoRpcExt2 method with a return value of 0x000003F0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R467</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>If this is the first ROP in the request buffer, and the maximum size of a ROP response buffer is used, and the serialized response would not fit, the server fails the Execute request type with a value of 0x000003F0 in the StatusCode field. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R9070301</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetPropertiesAll] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
@@ -6696,7 +6704,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070502</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyTo] If the Move flag is set in the CopyFlags field of the ROP request buffer, the server MAY&lt;7&gt; delete the copied properties from the source object.</ns1:Description>
+		<ns1:Description>[In Processing RopCopyTo] If the Move flag is set in the CopyFlags field of the ROP request buffer, the server MAY&lt;8&gt; delete the copied properties from the source object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6715,7 +6723,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070505</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyTo] If any other bits are set in the CopyFlags field, the server SHOULD&lt;8&gt; return an InvalidParameter error (0x80070057).</ns1:Description>
+		<ns1:Description>[In Processing RopCopyTo] If any other bits are set in the CopyFlags field, the server SHOULD&lt;9&gt; return an InvalidParameter error (0x80070057).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6762,7 +6770,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070512</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyTo] The server SHOULD&lt;9&gt; return a NotSupported error if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object.</ns1:Description>
+		<ns1:Description>[In Processing RopCopyTo] The server SHOULD&lt;10&gt; return a NotSupported error if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7131,7 +7139,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R88501</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.11</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopOpenStream] The server SHOULD&lt;10&gt; return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly.</ns1:Description>
+		<ns1:Description>[In Processing RopOpenStream] The server SHOULD&lt;11&gt; return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7332,7 +7340,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R55706</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopWriteStream] The server SHOULD&lt;11&gt; return the TooBig error code if it writes less than the amount requested.</ns1:Description>
+		<ns1:Description>[In Processing RopWriteStream] The server SHOULD&lt;12&gt; return the TooBig error code if it writes less than the amount requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7698,7 +7706,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;12&gt; implement this ROP [RopCopyToStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;13&gt; implement this ROP [RopCopyToStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7772,7 +7780,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R597</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;13&gt; implement this ROP [RopProgress].</ns1:Description>
+		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;14&gt; implement this ROP [RopProgress].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7844,7 +7852,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R607</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;14&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7953,7 +7961,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R620</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
+		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;16&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8017,7 +8025,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;16&gt;  implement this ROP [RopWriteAndCommitStream].</ns1:Description>
+		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;17&gt;  implement this ROP [RopWriteAndCommitStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8081,7 +8089,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75606</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;17&gt; implement this ROP [RopCloneStream].</ns1:Description>
+		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;18&gt; implement this ROP [RopCloneStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8219,28 +8227,6 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCPRPT_R2561</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypBinary for Folder objects. (Exchange 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCPRPT_R256:i,MS-OXCPRPT_R2:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCPRPT_R2563</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypString for Folder objects. (Exchange 2007 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCPRPT_R256:i,MS-OXCPRPT_R2:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86703</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>Implementation does not ignore the PropertySizeLimit field. (&lt;4&gt; Section 3.2.5.1: Exchange 2003 and Exchange 2007 do not ignore the PropertySizeLimit field. When the property is a PtypBinary type, a PtypObject type, or a string property, Exchange 2003 and Exchange 2007 return the PtypErrorCode type with a value of NotEnoughMemory (0x8007000E) in place of the property value if the value is larger than either the available space in the ROP response buffer or the size specified in the PropertySizeLimit field of the ROP request buffer.)</ns1:Description>
@@ -8328,7 +8314,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86704</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>Implementation does remove the properties from the source object, [if the Move flag is set in the CopyFlags field of the ROP request buffer.](&lt;5&gt; Section 3.2.5.7: Exchange 2003 and Exchange 2007 remove the properties from the source object.)</ns1:Description>
+		<ns1:Description>Implementation does remove the properties from the source object, [if the Move flag is set in the CopyFlags field of the ROP request buffer.](&lt;6&gt; Section 3.2.5.7: Exchange 2003 and Exchange 2007 remove the properties from the source object.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R501:i, MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8350,7 +8336,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86705</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>Implementation does ignore invalid bits and doesn't return the InvalidParameter error code. &lt;6&gt; Section 3.2.5.7: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).</ns1:Description>
+		<ns1:Description>Implementation does ignore invalid bits and doesn't return the InvalidParameter error code. &lt;7&gt; Section 3.2.5.7: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R880:i, MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8361,7 +8347,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86707</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>Implementation does delete the property. &lt;7&gt; Section 3.2.5.8: Exchange 2003, Exchange 2007, and Exchange 2010 delete the properties from the source object.)</ns1:Description>
+		<ns1:Description>Implementation does delete the property. &lt;8&gt; Section 3.2.5.8: Exchange 2003, Exchange 2007, and Exchange 2010 delete the properties from the source object.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070502:i, MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8449,7 +8435,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86708</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return the InvalidParameter error code (0x80070057). &lt;8&gt; Section 3.2.5.8: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).</ns1:Description>
+		<ns1:Description>Implementation does not return the InvalidParameter error code (0x80070057). &lt;9&gt; Section 3.2.5.8: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070505:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8515,7 +8501,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070515</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;9&gt; Section 3.2.5.8: Exchange 2003 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;10&gt; Section 3.2.5.8: Exchange 2003 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070512:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8525,7 +8511,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070513</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;9&gt; Section 3.2.5.8: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;10&gt; Section 3.2.5.8: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070512:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8536,7 +8522,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070514</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;9&gt; Section 3.2.5.8: Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;10&gt; Section 3.2.5.8: Exchange 2013 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070512:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8547,7 +8533,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R8850101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;10&gt; Section 3.2.5.11: Exchange 2003 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;11&gt; Section 3.2.5.11: Exchange 2003 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R88501:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8557,7 +8543,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R8850102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;10&gt; Section 3.2.5.11: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;11&gt; Section 3.2.5.11: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R88501:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8567,7 +8553,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R8850103</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;10&gt; Section 3.2.5.11: Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;11&gt; Section 3.2.5.11: Exchange 2013 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R88501:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8577,7 +8563,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86706</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the StreamSizeError error code. (&lt;11&gt; Section 3.2.5.13: Exchange 2003 and Exchange 2007 return the StreamSizeError error code if they write less than the amount requested.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the StreamSizeError error code. (&lt;12&gt; Section 3.2.5.13: Exchange 2003 and Exchange 2007 return the StreamSizeError error code if they write less than the amount requested.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R55706:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8588,7 +8574,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86709</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;12&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R59201:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8598,7 +8584,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R867091</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (&lt;12&gt; Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R59201:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8609,7 +8595,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R866</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;13&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;14&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8671,7 +8657,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;14&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;15&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R607:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8692,7 +8678,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;15&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R620:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8713,7 +8699,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R752</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R80506:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8734,7 +8720,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R753</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R75606:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8745,7 +8731,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5000</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

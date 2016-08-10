@@ -34,7 +34,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         /// <summary>
         /// Gets or sets a LargePropTagArray structure that specifies the properties that client requires for the row returned.
         /// </summary>
-        public LargePropTagArray PropertyTags { get; set; }
+        public LargePropertyTagArray PropertyTags { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the Names field is present.

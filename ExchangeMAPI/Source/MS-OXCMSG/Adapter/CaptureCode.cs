@@ -3,7 +3,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
     using System;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
-
+    using System.Collections.Generic;
     /// <summary>
     /// MS_OXCMSGAdapter partial class
     /// </summary>
@@ -111,6 +111,41 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 @"[In General Properties] The Property PidTagSearchKey exists on the Message objects.");
         }
 
+        /// <summary>
+        /// Verify requirements related with PidTagObjectType and PidTagRecordKey
+        /// </summary>
+        /// <param name="pidTagObjectType"></param>
+        /// <param name="pidTagRecordKey"></param>
+        private void VerifyPidTagObjectTypeAndPidTagRecordKey(PropertyObj pidTagObjectType, PropertyObj pidTagRecordKey)
+        {
+            if (Common.IsRequirementEnabled(3002, this.Site))
+            {
+                if(PropertyHelper.IsPropertyValid(pidTagObjectType))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3002");
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R3002
+                    this.Site.CaptureRequirement(
+                        3002,
+                        @"[In Appendix A: Product Behavior] Implementation does support the PidTagObjectType property. (Exchange 2007 follows this behavior.)");
+                } 
+            }
+
+            if (Common.IsRequirementEnabled(3004, this.Site))
+            {
+                if (PropertyHelper.IsPropertyValid(pidTagRecordKey))
+                {
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R3004");
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R3004
+                    this.Site.CaptureRequirement(
+                        3004,
+                        @"[In Appendix A: Product Behavior] Implementation does support the PidTagRecordKey property. (Exchange 2007 follows this behavior.)");
+                }
+            }
+        }
         /// <summary>
         /// Verify properties PidTagAccessLevel and PidTagRecordKey exist on any Attachment object.
         /// </summary>
@@ -1174,6 +1209,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         @"[In PidLidCommonStart Property] Type: PtypTime ([MS-OXCDATA] section 2.11.1).");
                     break;
 
+                case PropertyNames.PidLidCategories:
+                     // Add the debug information
+                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1153");
+
+                     // Verify MS-OXCMSG requirement: MS-OXCMSG_R1153
+                     this.Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypMultipleString,
+                         propertyObj.ValueType,
+                         1153,
+                         @"[In PidLidCategories Property] Type: PtypMultipleString ([MS-OXCDATA] section 2.11.1).");
+
+                     break;
+
                 case PropertyNames.PidLidCommonEnd:
 
                     // Add the debug information
@@ -1906,6 +1954,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         2046,
                         @"[In PidTagRecipientDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1).");
                     break;
+                case PropertyNames.PidNameKeywords:
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R108");
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R108
+                    Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypMultipleString,
+                         propertyObj.ValueType,
+                         108,
+                         @"[In PidNameKeywords Property] Type: PtypMultipleString ([MS-OXCDATA] section 2.11.1).");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R110");
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R110
+                    Site.CaptureRequirementIfIsTrue(
+                         ((string[])propertyObj.Value).Length<256,
+                         110,
+                         @"[In PidNameKeywords Property] The length of each string within the multivalue string is less than 256 characters.");
+
+                    break;
                 default:
                     break;
             }
@@ -2023,8 +2092,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                          637,
                          @"[In PidTagAttachmentFlags Property] This property [PidTagAttachmentFlags] MUST be set to 0x00000000 unless overridden by other protocols that extend the Message and Attachment Object Protocol as noted in section 1.4.");
                     break;
-
-                default:
+                 default:
                     break;
             }
         }

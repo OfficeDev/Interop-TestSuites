@@ -161,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             RequestBufferFlags bufferFlag = new RequestBufferFlags();
             FolderTypeEnum folderType = FolderTypeEnum.CommonFolderType;
 
-            // Here the user configured by "User2Name" logons on to the server. 
+            // Here the user configured by "AdminUserName" logons on to the server. 
             // Create 2 messages by the logon user to verify the EditAny or DeleteAny rights in subsequent operations.
             responseValue = OxcpermAdapter.CreateMessageByLogonUser();
             Site.Assert.AreEqual<uint>(TestSuiteBase.UINT32SUCCESS, responseValue, "0 indicates the server create a message successfully.");
@@ -301,7 +301,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             this.Site.CaptureRequirementIfIsTrue(
                 permissionList.Contains(PermissionTypeEnum.ReadAny),
                 87,
-                @"[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.773) specifies the folder permissions that are granted to the specified user.");
+                @"[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.775) specifies the folder permissions that are granted to the specified user.");
 
             // Verify MS-OXCPERM requirement: MS-OXCPERM_R182
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCPERM_R182: When the ReadAny is disabled, the ReadAny flag can{0} be retrieved.", permissionList.Contains(PermissionTypeEnum.ReadAny) ? string.Empty : " not");
@@ -718,8 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             #region Check FolderOwner permission
 
             #region Set the FolderOwner right flag and necessary right flags, keep other right flags unchanged.
-            if (Common.IsRequirementEnabled(115, this.Site))
-            {
+           
                 OxcpermAdapter.Logon(this.User2);
 
                 permissionList.Clear();
@@ -743,19 +742,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                     isR1187Verified,
                     1187,
                     @"[In RopModifyPermissions ROP Request Buffer] If this flag [ReplaceRows] is not set, the server MUST update entries in the current permissions list according to the changes specified [PermissionDataFlags is ModifyRow] in the PermissionsData field [when the PermissionDataFlags flag is set to ModifyRow].");
-
+                if (Common.IsRequirementEnabled(115002, this.Site))
+                {
                 OxcpermAdapter.Logon(this.User1);
 
                 // Check the user has the set permission to handle the corresponding behavior.
                 responseValue = OxcpermAdapter.CheckPidTagMemberRightsBehavior(PermissionTypeEnum.FolderOwner, this.User1);
 
-                // Verify MS-OXCPERM requirement: MS-OXCPERM_R115
+                // Verify MS-OXCPERM requirement: MS-OXCPERM_R115002
                 Site.CaptureRequirementIfAreEqual<uint>(
                     TestSuiteBase.UINT32SUCCESS,
                     responseValue,
-                    115,
-                    "[In PidTagMemberRights Property] If this flag [FolderOwner] is set, the server MUST allow the specified user's client to modify properties set on the folder itself, including the folder permissions.");
-            }
+                    115002,
+                    "[In Appendix A: Product Behavior] When flag FolderOwner is set, the Implementation does allow the specified user's client to modify properties, including the folder permissions, that are set on the folder itself. (Exchange 2010 and above follow this behavior.)");
+                }
+                
             #endregion
 
             #region Disable the FolderOwner right flag, keep other right flags unchanged.
@@ -775,14 +776,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             // Check the user doesn't have the set permission to handle the corresponding behavior.
             responseValue = OxcpermAdapter.CheckPidTagMemberRightsBehavior(PermissionTypeEnum.FolderOwner, this.User1);
 
-            // Verify MS-OXCPERM requirement: MS-OXCPERM_R116
-            Site.CaptureRequirementIfAreNotEqual<uint>(
-                TestSuiteBase.UINT32SUCCESS,
-                responseValue,
-                116,
-                @"[In PidTagMemberRights Property] If this flag [FolderOwner] is not set, the server MUST NOT allow the specified user's client to make those modifications [Modifying the folder's properties].");
+            if (Common.IsRequirementEnabled(116001, this.Site))
+            {
+                // Verify MS-OXCPERM requirement: MS-OXCPERM_R116001
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    TestSuiteBase.UINT32SUCCESS,
+                    responseValue,
+                    116001,
+                    @"[In Appendix A: Product Behavior] When this flag FolderOwner is not set, the Implementation does not allow the specified user's client to modify the folder's properties. (Exchange 2013 and above follow this behavior.)");
 
-            // Verify MS-OXCPERM requirement: MS-OXCPERM_R181
+            }
+
+            if (Common.IsRequirementEnabled(116002, this.Site))
+            {
+                // Verify MS-OXCPERM requirement: MS-OXCPERM_R116002
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    TestSuiteBase.UINT32SUCCESS,
+                    responseValue,
+                    116002,
+                    @"[In Appendix A: Product Behavior] When this flag FolderOwner is not set, the Implementation does allow the specified user's client to modify the folder's properties. <4> Section 2.2.7:  Exchange 2007 and Exchange 2010 allow the properties of a folder to be modified when the FolderOwner flag is not set.");
+
+            }
+                // Verify MS-OXCPERM requirement: MS-OXCPERM_R181
             Site.CaptureRequirementIfAreNotEqual<uint>(
                 TestSuiteBase.UINT32SUCCESS,
                 responseValue,
@@ -932,7 +947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
                 TestSuiteBase.UINT32SUCCESS,
                 responseValue,
                 98,
-                @"[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.<3>");
+                @"[In PidTagMemberRights Property] If this flag [FreeBusySimple] is not set, the server MUST NOT allow the specified user's client to retrieve information through the Availability Web Service Protocol.<5>");
             #endregion
 
             #endregion Check FreeBusySimple permission
@@ -1087,7 +1102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
         {
             this.OxcpermAdapter.InitializePermissionList();
 
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(115, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(115002, this.Site) || Common.IsRequirementEnabled(116001, this.Site), "This case runs only when the implementation supports the FolderOwner permission.");
             uint responseValue = 0;
             List<PermissionTypeEnum> permissionList = new List<PermissionTypeEnum>();
             RequestBufferFlags bufferFlag = new RequestBufferFlags
@@ -1096,7 +1111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             };
             FolderTypeEnum folderType = FolderTypeEnum.CommonFolderType;
 
-            // Here the user configured by "User2Name" logons on to the server. 
+            // Here the user configured by "AdminUserName" logons on to the server. 
             // Create 2 messages by the logon user to verify the EditAny or DeleteAny rights in subsequent operations.
             responseValue = OxcpermAdapter.CreateMessageByLogonUser();
             Site.Assert.AreEqual<uint>(TestSuiteBase.UINT32SUCCESS, responseValue, "0 indicates the server create a message successfully.");

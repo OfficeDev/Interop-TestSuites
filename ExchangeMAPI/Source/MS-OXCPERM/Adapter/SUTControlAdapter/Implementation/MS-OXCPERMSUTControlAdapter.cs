@@ -62,7 +62,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             availabilityRequest.TimeZone = timezone;
 
             // Specifies the mailbox to query for availability information.
-            string user = Common.GetConfigurationPropertyValue("User2Name", this.Site);
+            string user = Common.GetConfigurationPropertyValue("AdminUserName", this.Site);
             EmailAddress emailAddress = new EmailAddress()
             {
                 Address = string.IsNullOrEmpty(user) ? string.Empty : user + "@" + domain

@@ -361,6 +361,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <param name="responseSOHTable">ROP response server object handle table.</param>
         /// <param name="rgbRopOut">The response payload bytes.</param>
         /// <param name="pcbOut">The maximum size of the rgbOut buffer to place Response in.</param>
+        /// <param name="mailBoxUserName">Autodiscover find the mailbox according to this username.</param>
         /// <returns>0 indicates success, other values indicate failure. </returns>
         public uint RopCall(
             List<ISerializable> requestROPs,
@@ -368,7 +369,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             ref List<IDeserializable> responseROPs,
             ref List<List<uint>> responseSOHTable,
             ref byte[] rgbRopOut,
-            uint pcbOut)
+            uint pcbOut,
+            string mailBoxUserName = null)
         {
             // Log the rop requests
             if (requestROPs != null)
@@ -457,14 +459,35 @@ namespace Microsoft.Protocols.TestSuites.Common
                     if (string.Compare(this.MapiContext.TransportSequence, "ncacn_http", true) == 0)
                     {
                         rpcProxyOptions = "RpcProxy=" + this.originalServerName + "." + this.domainName;
+
+                        bool connectionReturnValue = this.RpcConnect(serverName, this.userDN, this.domainName, this.userName, this.userPassword, rpcProxyOptions);
+                        this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
                     }
                     else if (string.Compare(this.MapiContext.TransportSequence, "mapi_http", true) == 0)
                     {
-                        this.site.Assert.Fail("Rop Logon returns 0x478, server name:{0}", serverName);
-                    }
+                        if (mailBoxUserName == null)
+                        {
+                            mailBoxUserName = Common.GetConfigurationPropertyValue("AdminUserName", this.site);
+                            if (mailBoxUserName == null || mailBoxUserName == "")
+                            {
+                                this.site.Assert.Fail(@"There must be ""AdminUserName"" configure item in the ptfconfig file.");
+                            }
+                        }
 
-                    bool connectionReturnValue = this.RpcConnect(serverName, this.userDN, this.domainName, this.userName, this.userPassword, rpcProxyOptions);
-                    this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
+                        string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);                        
+                        requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
+                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, mailBoxUserName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
+
+                        this.privateMailboxServer = autoDiscoverProperties.PrivateMailboxServer;
+                        this.privateMailboxProxyServer = autoDiscoverProperties.PrivateMailboxProxy;
+                        this.publicFolderServer = autoDiscoverProperties.PublicMailboxServer;
+                        this.publicFolderProxyServer = autoDiscoverProperties.PublicMailboxProxy;
+                        this.privateMailStoreUrl = autoDiscoverProperties.PrivateMailStoreUrl;
+                        this.publicFolderUrl = autoDiscoverProperties.PublicMailStoreUrl;
+
+                        bool connectionReturnValue = this.MapiConnect(this.privateMailStoreUrl, this.userDN, this.domainName, this.userName, this.userPassword);
+                        this.site.Assert.IsTrue(connectionReturnValue, "RpcConnect_Internal should be successful here.");
+                    }                    
 
                     ret = this.RopCall(
                         requestROPs,

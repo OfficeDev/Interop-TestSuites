@@ -42,6 +42,8 @@
     <Compile Include="ExchangeMapiClient\HttpMessages\NotificationWaitRequestBody.cs" />
     <Compile Include="ExchangeMapiClient\HttpMessages\NotificationWaitSuccessResponseBody.cs" />
     <Compile Include="ExchangeMapiClient\OxcRpcErrorCode.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\AvailableFieldsType.cs" />
+    <Compile Include="ExchangeMapiClient\RopMessages\NotificationROPs\NotificationData.cs" />
     <Compile Include="ExchangeMapiClient\RpcAdapter.cs" />
     <Compile Include="ExchangeMapiClient\MapiHttpAdapter.cs" />
     <Compile Include="ExchangeMapiClient\HttpMessages\ChunkedResponse.cs" />

@@ -24,9 +24,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
         public bool HasPropertyValues { get; set; }
 
         /// <summary>
-        /// Gets or sets a AddressBookPropValueList structure that contains the values of properties requested.
+        /// Gets or sets a AddressBookPropertyValueList structure that contains the values of properties requested.
         /// </summary>
-        public AddressBookPropValueList? PropertyValues { get; set; }
+        public AddressBookPropertyValueList? PropertyValues { get; set; }
 
         /// <summary>
         /// Parse the GetProps request type response body.
@@ -48,7 +48,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             index += sizeof(bool);
             if (responseBody.HasPropertyValues)
             {
-                responseBody.PropertyValues = AddressBookPropValueList.Parse(rawData, ref index);
+                responseBody.PropertyValues = AddressBookPropertyValueList.Parse(rawData, ref index);
             }
             else
             {

@@ -411,7 +411,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR258,
                 258,
-                @"[In ActionBlock Structure] The meaning of action type OP_DEFER_ACTION: MUST NOT be used in a public folder rule (4).");
+                @"[In ActionBlock Structure] The meaning of action type OP_DEFER_ACTION: MUST NOT be used in a public folder rule (2).");
 
             #region TestUser2 prepares rules' data.
             MoveCopyActionData moveCopyActionData = new MoveCopyActionData();
@@ -448,7 +448,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR839,
                 839,
-                @"[In ActionBlock Structure] The meaning of action type OP_MOVE: MUST NOT be used in a public folder rule (4).");
+                @"[In ActionBlock Structure] The meaning of action type OP_MOVE: MUST NOT be used in a public folder rule (2).");
 
             #region TestUser2 adds OP_COPY rule to the public folder.
             ruleProperties.Name = Common.GenerateResourceName(this.Site, Constants.RuleNameMoveTwo);
@@ -467,7 +467,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR840,
                 840,
-                @"[In ActionBlock Structure] The meaning of action type OP_COPY: MUST NOT be used in a public folder rule (4).");
+                @"[In ActionBlock Structure] The meaning of action type OP_COPY: MUST NOT be used in a public folder rule (2).");
             #endregion
         }
     }

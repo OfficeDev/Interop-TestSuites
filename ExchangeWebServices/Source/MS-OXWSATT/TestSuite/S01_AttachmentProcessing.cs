@@ -583,9 +583,6 @@ Contains the status and result of a single DeleteAttachment operation.");
         public void MSOXWSATT_S01_TC04_ProcessContactItemTypeItemAttachment()
         {
             #region Step 1 Create an item attachment, which contains a ContactItemType item as the child item, on an item.
-
-            // A bool value indicate whether the R55003 needs to be captured.
-            bool isR550Implemented = Common.IsRequirementEnabled(550, Site);
             
             // Create an item attachment by CreateAttachment operation.
             CreateAttachmentResponseType createAttachmentResponse = this.CallCreateAttachmentOperation(this.ItemId.Id, AttachmentTypeValue.ContactAttachment);

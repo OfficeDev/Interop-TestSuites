@@ -922,24 +922,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     error = CPRPTErrorCode.NotSupported;
                 }            
             }
-
-            if (globalObj == ServerObjectType.Folder && propertyType == PropertyTypeName.PtypString && objectToOperate == ObjectToOperate.FifthObject && requirementContainer[2563])
-            {
-                isStreamOpenedSuccess = true;
-                error = CPRPTErrorCode.NotSupported;
-                ModelHelper.CaptureRequirement(
-                   2563,
-                   @"[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypString for Folder objects. (Exchange 2007 and above follow this behavior.)");
-            }
-
-            if (globalObj == ServerObjectType.Folder && propertyType == PropertyTypeName.PtypBinary && objectToOperate == ObjectToOperate.FifthObject && requirementContainer[2561])
-            {
-                isStreamOpenedSuccess = true;
-                error = CPRPTErrorCode.NotSupported;
-                ModelHelper.CaptureRequirement(
-                   2561,
-                   @"[In Appendix A: Product Behavior] Implementation does not support the single-valued properties that is of type PtypBinary for Folder objects. (Exchange 2007 and above follow this behavior.)");
-            }
         }
 
         /// <summary>
@@ -1081,7 +1063,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     error = CPRPTErrorCode.StreamSizeError;
                     ModelHelper.CaptureRequirement(
                         86706,
-                        @"[In Appendix A: Product Behavior] Implementation does return the StreamSizeError error code. (<11> Section 3.2.5.13: Exchange 2003 and Exchange 2007 return the StreamSizeError error code if they write less than the amount requested.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return the StreamSizeError error code. (<12> Section 3.2.5.13: Exchange 2003 and Exchange 2007 return the StreamSizeError error code if they write less than the amount requested.)");
                 }
 
                 // For Exchange 2010, toobig error code returned.
@@ -1212,7 +1194,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 {
                     ModelHelper.CaptureRequirement(
                         867091,
-                        @"[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (<12> Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (<13> Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)");
                 }
                 
                 ModelHelper.CaptureRequirement(
@@ -1486,7 +1468,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                                 Condition.IsTrue(isPropertiesDeleted);
                                 ModelHelper.CaptureRequirement(
                                     86704,
-                                    @"Implementation does remove the properties from the source object, [if the Move flag is set in the CopyFlags field of the ROP request buffer.](<5> Section 3.2.5.7: Exchange 2003 and Exchange 2007 remove the properties from the source object.)");
+                                    @"Implementation does remove the properties from the source object, [if the Move flag is set in the CopyFlags field of the ROP request buffer.](<6> Section 3.2.5.7: Exchange 2003 and Exchange 2007 remove the properties from the source object.)");
 
                                 ModelHelper.CaptureRequirement(
                                     159,
@@ -1512,7 +1494,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
 
                                 ModelHelper.CaptureRequirement(
                                     86705,
-                                    @"Implementation does ignore invalid bits and doesn't return the InvalidParameter error code. <6> Section 3.2.5.7: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).");
+                                    @"Implementation does ignore invalid bits and doesn't return the InvalidParameter error code. <7> Section 3.2.5.7: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).");
                             }
                             else
                             {
@@ -1694,7 +1676,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                         {
                             ModelHelper.CaptureRequirement(
                                 86707,
-                                @"Implementation does delete the property. <7> Section 3.2.5.8: Exchange 2003, Exchange 2007, and Exchange 2010 delete the properties from the source object.)");
+                                @"Implementation does delete the property. <8> Section 3.2.5.8: Exchange 2003, Exchange 2007, and Exchange 2010 delete the properties from the source object.)");
                         }
                     }
                     else if (clientCopyFlag == CopyFlags.Other)
@@ -1704,7 +1686,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                             Condition.IsTrue(error == CPRPTErrorCode.None);
                             ModelHelper.CaptureRequirement(
                                 86708,
-                                @"Implementation does not return the InvalidParameter error code (0x80070057). <8> Section 3.2.5.8: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).");
+                                @"Implementation does not return the InvalidParameter error code (0x80070057). <9> Section 3.2.5.8: Exchange 2003 and Exchange 2007 ignore invalid bits and do not return the InvalidParameter error code (0x80070057).");
                         }
 
                         if (requirementContainer[5070506])

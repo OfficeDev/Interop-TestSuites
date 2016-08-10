@@ -2,14 +2,15 @@
 <TestSettings name="MS-OXCMAPIHTTP" id="bb5e6c00-5085-492e-9b3f-84083b78ce1b" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXCMAPIHTTP.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_RequirementSpecification.xml" />
-    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCMAPIHTTP.runsettings" />
     <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCMAPIHTTP_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

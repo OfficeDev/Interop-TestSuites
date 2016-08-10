@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R891Enabled to true to verify that for RopModifyRules ROP the implementation does not set the PidTagRuleMessageUserFlags property on the FAI message as specified in section 2.2.4.1.5. Set R891Enabled to false to disable this requirement.-->
+    <Property name="R891Enabled" value="true"/>
+    <!-- Set R892Enabled to true to verify that for RopModifyRules ROP the implementation does set the PidTagRuleMessageLevel property on the FAI message as specified in section 2.2.4.1.6. Set R892Enabled to false to disable this requirement.-->
+    <Property name="R892Enabled" value="true"/>
+    <!-- Set R894Enabled to true to verify that for RopModifyRules ROP the implementation does set the PidTagRuleMessageName property on the FAI message as specified in section 2.2.4.1.1. Set R894Enabled to false to disable this requirement.-->
+    <Property name="R894Enabled" value="true"/>
+    <!-- Set R895Enabled to true to verify that for RopModifyRules ROP no rules does require more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer on the implementation as specified in section 3.2.5.1.3.4.1. Set R895Enabled to false to disable this requirement.-->
+    <Property name="R895Enabled" value="true"/>
+    <!-- Set R802Enabled to true to verify that the implementation does not support forwarding messages as SMS text messages as specified in section 2.2.5.1.2. Set R802Enabled to false to disable this requirement.-->
+    <Property name="R802Enabled" value="false"/>
+    <!-- Set R799Enabled to true to verify that the implementation does forward messages that have been forwarded to the sender as specified in section 3.2.5.1. Set R799Enabled to false to disable this requirement.-->
+    <Property name="R799Enabled" value="false"/>
+    <!-- Set R897Enabled to true to verify that the implementation does forward the message as a Short Message Service (SMS) text message as specified in section 2.2.5.1.2. Set R897Enabled to false to disable this requirement.-->
+    <Property name="R897Enabled" value="true"/>
+    <!-- Set R907Enabled to true to verify that the implementation does not forward messages that have been forwarded to the sender as specified in section 3.2.5.1. Set R907Enabled to false to disable this requirement.-->
+    <Property name="R907Enabled" value="true"/>
+    <!-- Set R800Enabled to true to verify that for RopGetRulesTable ROP the implementation does ignore the x bits and does not return an error for nonzero values as specified in section 2.2.2.1. Set R800Enabled to false to disable this requirement.-->
+    <Property name="R800Enabled" value="false"/>
+    <!-- Set R836Enabled to true to verify that for RopGetRulesTable ROP the implementation does ignore the x bits and returns ecSuccess in this case as specified in section 3.2.5.3. Set R836Enabled to false to disable this requirement.-->
+    <Property name="R836Enabled" value="false"/>
+    <!-- Set R889Enabled to true to verify that for RopGetRulesTable ROP the implementation does return an error if these bits are nonzero but can ignore them as specified in section 2.2.2.1. Set R889Enabled to false to disable this requirement.-->
+    <Property name="R889Enabled" value="true"/>
+    <!-- Set R920Enabled to true to verify that for RopGetRulesTable ROP the implementation does return the error code ecNotSupported if one or more of the x bits on the TableFlags field is set to a nonzero value as specified in section 3.2.5.3. Set R920Enabled to false to disable this requirement.-->
+    <Property name="R920Enabled" value="true"/>
+    <!-- Set R294Enabled to true to verify that the implementation does support the OP_MOVE or OP_COPY ActionData structure as specified in section 2.2.5.1.2.1 of the MS-OXORULE specification. Set R294 to false to disable this requirement.-->
+    <Property name="R294Enabled" value="true"/>
+    <!-- Set R914Enabled to true to verify that for RopModifyRules ROP the implementation does start using the newly modified rules (4) when processing messages delivered to that folder as soon as it successfully processes the RopModifyRules ROP request as specified in section 3.2.5.5. Set R914Enabled to false to disable this requirement.-->
+    <Property name="R914Enabled" value="true"/>
+    <!-- Set R904Enabled to true to verify that the implementation does create multiple copies of the message and then delete the original message, if multiple "OP_MOVE" operations apply to the same message as specified in section 3.2.5.1. Set R904Enabled to false to disable this requirement.-->
+    <Property name="R904Enabled" value="true"/>
+    <!-- Set R906Enabled to true to verify that for RopModifyRules ROP the  implementation does set the value of the PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) on the reply message to "IPM.Note.rules.OOFTemplate" in addition as specified in section 3.2.5.1. Set R906Enabled to false to disable this requirement.-->
+    <Property name="R906Enabled" value="true"/>
+    <!-- Set R899Enabled to true to verify that for RopModifyRules ROP the DAF does support notifications on its contents table object on the implementation as specified in section 3.2.3. Set R899Enabled to false to disable this requirement.-->
+    <Property name="R899Enabled" value="true"/>
+    <!-- Set R908Enabled to true to verify that for RopModifyRules ROP the implementation does pack information about more than one "OP_DEFER_ACTION" actions (3) for any given message into one DAM when there are more than one "OP_DEFER_ACTION" actions that belong to the same rule provider as specified in section 3.2.5.1.2. Set R908Enabled to false to disable this requirement.-->
+    <Property name="R908Enabled" value="true"/>
+    <!-- Set R893Enabled to true to verify that for RopModifyRules ROP the implementation does not set the PidTagRuleMessageProviderData property ([MS-OXPROPS] section 2.1018) on the FAI message as specified in section 2.2.4.1.8. Set R893Enabled to false to disable this requirement.-->
+    <Property name="R893Enabled" value="true"/>
+    <!-- Set R929Enabled to true to verify that the implementation does support action OP_MOVE when FolderInThisStore is set to 0. Set R929Enabled to false to disable this requirement.-->
+    <Property name="R929Enabled" value="false"/>
+    <!-- Set R298Enabled to true to verify that the implementation does support action OP_COPY when FolderInThisStore is set to 0. Set R298Enabled to false to disable this requirement.-->
+    <Property name="R298Enabled" value="false"/>
+    <!-- Set R583Enabled to true to verify that the implementation does keep a list of rules with ST_KEEP_OOF_HIST flag. Set R583Enabled to false to disable this requirement.-->
+    <Property name="R583Enabled" value="false"/>
+    <!-- Set R646Enabled to true to verify that for RopModifyRules ROP the implementation will process the standard rule for a message but will only process the first two extended rules it encounters per folder as specified in section 3.2.4.1. Set R646Enabled to false to disable this requirement.-->
+    <Property name="R646Enabled" value="false"/>
+    <!-- Set R633Enabled to true to verify that for RopModifyRules ROP the implementation does set Reserved to 0x00 as specified in section 2.2.5.1.3.4.1. Set R633Enabled to false to disable this requirement.-->
+    <Property name="R633Enabled" value="true"/>
+    <!-- Set R632Enabled to true to verify that for RopModifyRules ROP the implementation does set Reserved to 0x01 as specified in section 2.2.5.1.3.4.1. Set R632Enabled to false to disable this requirement.-->
+    <Property name="R632Enabled" value="false"/>
+    <!-- Set R909Enabled to true to verify that for RopModifyRules ROP the implementation does generate a DEM when it encounters an error processing a rule on an incoming message as specified in section 3.2.5.1.3. Set R909Enabled to false to disable this requirement.-->
+    <Property name="R909Enabled" value="true"/>
+    <!-- Set R913Enabled to true to verify that for RopModifyRules ROP the implementation does set the ST_ERROR flag in the PidTagRuleState property of that rule when first time finds a server-side rule to be in error and has generated a DEM for it as specified in section 3.2.5.1.3. Set R913Enabled to false to disable this requirement.-->
+    <Property name="R913Enabled" value="true"/>
+    <!-- Set R636Enabled to true to verify that for RopModifyRules ROP the implementation does require the PidTagEntryId property for action OP_FORWARD as specified in section 2.2.5.1.3.4.1. Set R636Enabled to false to disable this requirement.-->
+    <Property name="R636Enabled" value="false"/>
+    <!-- Set R896Enabled to true to verify that for RopModifyRules ROP the implementation does require the PidTagEntryId property for action OP_FORWARD as specified in section 2.2.5.1.3.4.1. Set R896Enabled to false to disable this requirement.-->
+    <Property name="R896Enabled" value="true"/>
+    <!-- Set R621Enabled to true to verify that for RopModifyRules ROP the implementation uses bit flags 0x00000080 and 0x00000100 to store information about Out of Office functionality as specified in section 2.2.1.3.1.3. Set R621Enabled to false to disable this requirement.-->
+    <Property name="R621Enabled" value="false"/>
+    <!-- Set R624Enabled to true to verify that for RopModifyRules ROP the bit flag 0x00000080 is used to disable a specific Out of Office rule on the implementation as specified in section 2.2.1.3.2.3. Set R624Enabled to false to disable this requirement.-->
+    <Property name="R624Enabled" value="false"/>
+    <!-- Set R625Enabled to true to verify that for RopModifyRules ROP the bit flag 0x00000100 has the same semantics as the ST_ONLY_WHEN_OOF bit flag on the implementation as specified in section 2.2.1.3.2.3. Set R625Enabled to false to disable this requirement.-->
+    <Property name="R625Enabled" value="false"/>
+    <!-- Set R888Enabled to true to verify that for RopModifyRules ROP the RopModifyRules ROP replies the same response whether the bit locations marked with x are set to 0 or 1 on the implementation as specified in section 2.2.1.3.1.3. Set R888Enabled to false to disable this requirement.-->
+    <Property name="R888Enabled" value="true"/>
+    <!-- Set R898Enabled to true to verify that for RopModifyRules ROP the implementation does delete the incoming messages as specified in section 2.2.5.1.3.7. Set R898Enabled to false to disable this requirement.-->
+    <Property name="R898Enabled" value="true"/>
+    <!-- Set R343Enabled to true to verify that for RopModifyRules ROP the implementation does deny the incoming messages as specified in section 2.2.5.1.3.5. Set R343Enabled to false to disable this requirement.-->
+    <Property name="R343Enabled" value="true"/>
+    <!-- Set R7202Enabled to true to verify that the implementation does set the PidTagHasRules property to true when the folder has any rule. Set R7202Enabled to false to disable this requirement.-->
+    <Property name="R7202Enabled" value="true"/>
+    <!-- Set R8851Enabled to true to verify that the implementation does set PidTagHasRules to FALSE when no rule (2) is set on a folder. Set R8851Enabled to false to disable this requirement.-->
+    <Property name="R8851Enabled" value="false"/>
+    <!-- Set R933Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R933Enabled to false to disable this requirement.-->
+    <Property name="R933Enabled" value="true"/>
+    <!-- Set R7132Enabled to true to verify that the implementation does support PidTagDamOriginalEntryId property for DEM. Set R7132Enabled to false to disable this requirement.-->
+    <Property name="R7132Enabled" value="true"/>
+    <!-- Set R7152Enabled to true to verify that the implementation does support PidTagRuleFolderEntryId property for DEM. Set R7152Enabled to false to disable this requirement.-->
+    <Property name="R7152Enabled" value="true"/>
+    <!-- Set R740Enabled to true to verify that the implementation does support PidTagDamOriginalEntryId property for DAM. Set R740Enabled to false to disable this requirement.-->
+    <Property name="R740Enabled" value="true"/>
+    <!-- Set R741Enabled to true to verify that the implementation does support PidTagRuleFolderEntryId property for DAM. Set R741Enabled to false to disable this requirement.-->
+    <Property name="R741Enabled" value="true"/>
+    <!-- Set R7411Enabled to true to verify that the implementation does not skip evaluation of this rule (ST_SKIP_IF_SCL_IS_SAFE) if the delivered message's PidTagContentFilterSpamConfidenceLevel property has a value of 0xFFFFFFFF. Set R7411Enabled to false to disable this requirement.-->
+    <Property name="R7411Enabled" value="true"/>
+    <!-- Set R10191Enabled to true to verify that the implementation does send a reply message if the ActionType is "OP_OOF_REPLY" when action flavor is NS. Set R10191Enabled to false to disable this requirement.-->
+    <Property name="R10191Enabled" value="false"/>
+    <!-- Set R5281Enabled to true to verify that the implementation does not avoid sending replies to automatically generated messages to avoid generating endless autoreply loops for "OP_REPLY". Set R5281Enabled to false to disable this requirement.-->
+    <Property name="R5281Enabled" value="true"/>
+    <!-- Set R5462Enabled to true to verify that the implementation does send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox. Set R5462Enabled to false to disable this requirement.-->
+    <Property name="R5462Enabled" value="true"/>
+    <!-- Set R5472Enabled to true to verify that the implementation does not support the original message appears in the user's mailbox. Set R5472Enabled to false to disable this requirement.-->
+    <Property name="R5472Enabled" value="true"/>
+    <!-- Set R5572Enabled to true to verify that the implementation does not evaluate the rule (2) when the sender is on the list. Set R5572Enabled to false to disable this requirement.-->
+    <Property name="R5572Enabled" value="true"/>
+    <!-- Set R7032Enabled to true to verify that the implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. Set R7032Enabled to false to disable this requirement.-->
+    <Property name="R7032Enabled" value="true"/>
+  </Properties>
+</TestSite>

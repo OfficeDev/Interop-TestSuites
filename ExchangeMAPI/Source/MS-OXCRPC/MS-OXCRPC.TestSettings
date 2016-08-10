@@ -2,19 +2,20 @@
 <TestSettings name="Local Test Run" id="ef168843-855d-47ff-82cb-d7da7e1dee38" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>This is a default test run configuration for a local test run.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OXCRPC.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DisableAsyncRPCNotification.ps1" />
-    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\EnableAsyncRPCNotification.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetOSVersions.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\EnableAsyncRPCNotification.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\OXCRPCStub\Debug\MS-OXCRPC_RPCStub.dll" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCRPC.runsettings" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\CreateMailItem.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DisableAsyncRPCNotification.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
