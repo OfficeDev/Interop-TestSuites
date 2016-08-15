@@ -3,7 +3,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2938</ns1:REQ_ID>
 		<ns1:Doc_Sect>2</ns1:Doc_Sect>
-		<ns1:Description>[In Messages]In the following sections, the schema definition might be less restrictive than  the processing rules imposed by the protocol.</ns1:Description>
+		<ns1:Description>[In Messages]In the following sections, the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21,7 +21,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2940</ns1:REQ_ID>
 		<ns1:Doc_Sect>2</ns1:Doc_Sect>
-		<ns1:Description>[In Messages]The text that introduces the WSDL specifies additional restrictions that reflect actual Microsoft product behavior.</ns1:Description>
+		<ns1:Description>[In Messages]The text that introduces the WSDL might specify differences that reflect actual Microsoft product behavior.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -497,11 +497,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeeting]HostTitle: The name of the meeting organizer.</ns1:Description>
+		<ns1:Description>[In AddMeeting]HostTitle: The title of the site in which the meeting workspace is located.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R26</ns1:REQ_ID>
@@ -655,9 +655,9 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2933</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In UnsignedIntOrEmpty]The definition of the UnsignedIntOrEmpty simple type is as follows:
-&lt;s:simpleType name="UnsignedIntOrEmpty"&gt;
-  &lt;s:union memberTypes="s:unsignedInt tns:Empty"/&gt;
+		<ns1:Description>[In IntOrEmpty]The definition of the IntOrEmpty simple type is as follows:
+&lt;s:simpleType name="IntOrEmpty"&gt;
+  &lt;s:union memberTypes="s:Int tns:Empty"/&gt;
 &lt;/s:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -667,7 +667,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R3030</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In UnsignedIntOrEmpty]The Empty element type is specified in section 2.2.5.4.</ns1:Description>
+		<ns1:Description>[In IntOrEmpty]The Empty simple type is specified in section 2.2.5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -816,7 +816,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2975</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model]A user can access the Web site (2) managed by the protocol to attend a meeting or a series of meetings, each of which has its own meeting workspace.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model]A user can access the Web site managed by the protocol to attend a meeting or a series of meetings, each of which has its own meeting workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -834,7 +834,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2977</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model]The data type "Meeting workspace" specifies that each Web site (2) has zero or more meeting workspace subsites.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model]The data type "Meeting workspace" specifies that each Web site has zero or more meeting workspace subsites.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -879,7 +879,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2982</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "AddMeetingFromICal" adds a meeting to an existing workspace, based on a calendar object.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "AddMeetingFromICal" adds a meeting to an existing workspace, based on a iCalendar object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -906,7 +906,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2985</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "GetMeetingsInformation" queries information from a Web site (2) about meeting workspaces on it or information about a meeting workspace itself.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "GetMeetingsInformation" queries information from a Web site about meeting workspaces on it or information about a meeting workspace itself.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -969,7 +969,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2992</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "UpdateMeetingFromICal" updates content of a meeting in a workspace, based on a calendar object.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules]The Operation "UpdateMeetingFromICal" updates content of a meeting in a workspace, based on a iCalendar object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1079,15 +1079,6 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R46</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingSoapOut]The SOAP action value of the message [AddMeetingSoapOut]is defined as follows: http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeeting.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In AddMeetingSoapOut]The SOAP body contains an AddMeetingResponse element (section 3.1.4.1.2.2).</ns1:Description>
@@ -1099,7 +1090,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R48</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeeting]This element [AddMeeting]specifies the input parameters for the AddMeeting operation (section 3.1.4.1). </ns1:Description>
+		<ns1:Description>[In AddMeeting]The AddMeeting element specifies the input parameters for the AddMeeting operation (section 3.1.4.1). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1166,6 +1157,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R521</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeeting]If this parameter [organizerEmail] is an invalid e-mail address, the response MUST be a SOAP fault with SOAP fault code "0x0000000a".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In AddMeeting]uid: The UID that represents this meeting [to be added in Addmeeting operation].</ns1:Description>
@@ -1173,6 +1173,15 @@
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R531</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeeting]If one meeting with this UID exists, the operation will update the content of this meeting just as UpdateMeeting operation (section 3.1.4.11) does.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2994</ns1:REQ_ID>
@@ -1313,9 +1322,18 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R651</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeetingResponse]AddMeeting: This element contains information about a meeting instance newly added to a workspace, as specified in section 2.2.4.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R66</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingResponse]If this operation [AddMeeting]is sent to a Web site (2) that is not a meeting workspace, the response [AddMeetingResponse]MUST be a SOAP fault with SOAP Fault code "0x00000006".</ns1:Description>
+		<ns1:Description>[In AddMeetingResponse]If this operation [AddMeeting]is sent to a Web site that is not a meeting workspace, the response [AddMeetingResponse]MUST be a SOAP fault with SOAP Fault code "0x00000006".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1324,16 +1342,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R67</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingResponse]If adding the meeting to a meeting workspace fails for a reason not covered by the preceding error, the response MUST be a SOAP fault with SOAP fault code "0x00000007".</ns1:Description>
+		<ns1:Description>[In AddMeetingResponse]If adding the meeting to a meeting workspace fails for a reason not covered by the preceding error, the response can be a SOAP fault with SOAP fault code "0x00000007" or  with any other implementation-specific SOAP fault codes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2996</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingFromICal]The AddMeetingFromICal operation adds a meeting to an existing workspace, based on a calendar object.</ns1:Description>
+		<ns1:Description>[In AddMeetingFromICal]The AddMeetingFromICal operation adds a meeting to an existing workspace, based on a iCalendar object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1425,15 +1443,6 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R76</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingFromICalSoapOut]The SOAP action value of the message [AddMeetingFromICalSoapOut]is defined as follows. http://schemas.microsoft.com/sharepoint/soap/meetings/AddMeetingFromICal</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In AddMeetingFromICalSoapOut]The SOAP body contains an AddMeetingFromICalResponse element (section 3.1.4.2.2.2).</ns1:Description>
@@ -1503,6 +1512,15 @@
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R29971</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeetingFromICal]If this parameter [organizerEmail] is an invalid e-mail address, the response MUST be a SOAP fault with SOAP fault code "0x0000000a".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R2998</ns1:REQ_ID>
@@ -1601,7 +1619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R88</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddMeetingFromICalResponse]If this operation [AddMeetingFromICal] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
+		<ns1:Description>[In AddMeetingFromICalResponse]If this operation [AddMeetingFromICal] is sent to a Web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1623,6 +1641,43 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R901</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeetingFromICal]The AddMeetingFromICal complex type specifies information about a meeting instance newly added or updated in a workspace. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R902</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeetingFromICal]This type is defined as follows.
+ &lt;s:complexType name="AddMeetingFromICal"&gt;
+   &lt;s:complexContent&gt;
+     &lt;s:extension base="tns:AddMeeting"&gt;
+       &lt;s:sequence&gt;
+         &lt;s:element name="AttendeeUpdateStatus" type="tns:AttendeeUpdateStatus" /&gt;
+       &lt;/s:sequence&gt;
+     &lt;/s:extension&gt;
+   &lt;/s:complexContent&gt;
+ &lt;/s:complexType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R903</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddMeetingFromICal]AttendeeUpdateStatus: This element contains information about a meeting instance newly added or updated, as specified in section 2.2.4.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -1711,15 +1766,6 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R98</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWorkspaceSoapOut]The SOAP action value of the message [CreateWorkspaceSoapOut]is defined as follows. http://schemas.microsoft.com/sharepoint/soap/meetings/CreateWorkspace</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateWorkspaceSoapOut]The SOAP body contains a CreateWorkspaceResponse element (section 3.1.4.3.2.2).</ns1:Description>
@@ -1766,15 +1812,6 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R3002</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWorkspace]This [title]is the subject of the associated meeting request.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateWorkspace]This string [title]is 255 characters or less in length.</ns1:Description>
@@ -1802,6 +1839,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R1051</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateWorkspace]"MPS" will be used [for templateName] if templateName is not set.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R106</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateWorkspace]lcid: The LCID for the new workspace.</ns1:Description>
@@ -1813,7 +1859,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R4005</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWorkspace]If this parameter[lcid] is absent, the LCID of the parent Web site (2) is used.</ns1:Description>
+		<ns1:Description>[In CreateWorkspace]If this parameter[lcid] is absent, the LCID of the parent Web site is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1929,7 +1975,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R113</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWorkspaceResponse]If this operation[CreateWorkspace] is sent to a Web site (2) that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000001".</ns1:Description>
+		<ns1:Description>[In CreateWorkspaceResponse]If this operation[CreateWorkspace] is sent to a Web site that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000001".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2358,7 +2404,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R155</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWorkspace]This operation [DeleteWorkspace] fails if sent to a Web site (2) that is not a meeting workspace.</ns1:Description>
+		<ns1:Description>[In DeleteWorkspace]This operation [DeleteWorkspace] fails if sent to a Web site that is not a meeting workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2399,15 +2445,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R160</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWorkspaceSoapOut]The SOAP action value of the message [DeleteWorkspaceSoapOut]is defined as follows. http://schemas.microsoft.com/sharepoint/soap/meetings/DeleteWorkspace</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R161</ns1:REQ_ID>
@@ -2462,7 +2499,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWorkspaceResponse]If this operation[DeleteWorkspace] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000004".</ns1:Description>
+		<ns1:Description>[In DeleteWorkspaceResponse]If this operation[DeleteWorkspace] is sent to a Web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000004".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2471,7 +2508,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R167</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformation]The GetMeetingsInformation operation queries information from a Web site (2) about meeting workspaces on it or information about a meeting workspace itself.</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformation]The GetMeetingsInformation operation queries information from a Web site about meeting workspaces on it or information about a meeting workspace itself.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2545,16 +2582,6 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R175</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformationSoapOut]]The SOAP action value of the message [GetMeetingsInformationSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R176</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetMeetingsInformationSoapOut]The SOAP body contains a GetMeetingsInformationResponse element  (section 3.1.4.5.2.2).</ns1:Description>
@@ -2601,7 +2628,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R180</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformation]Any or all bits [of requestFlags]can be are set.</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformation]Any or all bits [of requestFlags]can be set.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2619,7 +2646,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R181</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformation]If the value 0x1 is set, the request is to query whether the user has permission to create meeting workspaces on this Web site (2) [the operation is sent to].</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformation]If the value 0x1 is set, the request is to query whether the user has permission to create meeting workspaces on this Web site [the operation is sent to].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2775,7 +2802,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R195</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformationResponse]When bit flag 0x1 is specified, the operation [GetMeetingsInformation] MUST be sent to a parent Web site (2), as opposed to a meeting workspace subsite itself.</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformationResponse]When bit flag 0x1 is specified, the operation [GetMeetingsInformation] MUST be sent to a parent web site, as opposed to a meeting workspace subsite itself.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2784,7 +2811,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformationResponse]If the operation [GetMeetingsInformation]is sent to a Web site (2) that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000001".</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformationResponse]If the operation [GetMeetingsInformation]is sent to a web site that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000001".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2981,7 +3008,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 &lt;s:element name="WorkspaceStatus" type="tns:WorkspaceStatus" minOccurs="0"/&gt;
   &lt;s:complexType name="WorkspaceStatus"&gt;
     &lt;s:attribute name="UniquePermissions" type="tns:CaseInsensitiveTrueFalseOrEmpty"/&gt;
-    &lt;s:attribute name="MeetingCount" type="tns:UnsignedIntOrEmpty"/&gt;
+    &lt;s:attribute name="MeetingCount" type="tns:IntOrEmpty"/&gt;
     &lt;s:attribute name="AnonymousAccess" type="tns:CaseInsensitiveTrueFalseOrEmpty"/&gt;
     &lt;s:attribute name="AllowAuthenticatedUsers" type="tns:CaseInsensitiveTrueFalseOrEmpty"/&gt;
   &lt;/s:complexType&gt;
@@ -3030,7 +3057,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R3044</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingsInformationResponse]The element type UnsignedIntOrEmpty is specified in section 2.2.5.3.</ns1:Description>
+		<ns1:Description>[In GetMeetingsInformationResponse]The element type IntOrEmpty is specified in section 2.2.5.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3075,7 +3102,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingsInformation</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R219</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingWorkspaces]The GetMeetingWorkspaces operation obtains a list of created meeting workspace subsites from a parent Web site (2).</ns1:Description>
+		<ns1:Description>[In GetMeetingWorkspaces]The GetMeetingWorkspaces operation obtains a list of created meeting workspace subsites from a parent web site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3159,16 +3186,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R225</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingWorkspacesSoapOut]The SOAP action value of the message [GetMeetingWorkspacesSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R226</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetMeetingWorkspacesSoapOut]The SOAP body contains a GetMeetingWorkspacesResponse element (section 3.1.4.6.2.2).</ns1:Description>
@@ -3205,7 +3222,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R229</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetMeetingWorkspaces]recurring: Specifies whether the meeting workspaces returned are limited to those that can be associated with a recurring meeting.</ns1:Description>
+		<ns1:Description>[In GetMeetingWorkspaces]recurring: Specifies whether meeting workspaces returned are limited to those that can be associated with a recurring meeting.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3224,6 +3241,15 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 		<ns1:REQ_ID>MS-MEETS_R231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetMeetingWorkspaces]If [the value of recurring is]true, only empty workspaces are returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R2311</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetMeetingWorkspaces]If [the value of recurring is] not specified, the server will treat it as false.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3327,7 +3353,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveMeeting]The RemoveMeeting operation deletes a meeting from an existing workspace.</ns1:Description>
+		<ns1:Description>[In RemoveMeeting]The RemoveMeeting operation moves the association between a meeting and a meeting workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3367,7 +3393,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R242</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveMeeting]If the meeting organizer deletes a meeting instance on the protocol client, and the meeting is associated with a meeting workspace, then the protocol client calls this operation to delete the meeting from the workspace.</ns1:Description>
+		<ns1:Description>[In RemoveMeeting]If the meeting organizer wants to remove a meeting instance from the protocol client, and the meeting is associated with a meeting workspace, then the protocol client calls this operation to remove the association between the meeting and the meeting workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3404,16 +3430,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/GetMeetingWorkspaces</ns1:
 		<ns1:REQ_ID>MS-MEETS_R246</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RemoveMeetingSoapOut]The RemoveMeetingSoapOut message contains the response for the RemoveMeeting operation (section 3.1.4.7).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R247</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveMeetingSoapOut]The SOAP action value of the message [RemoveMeetingSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3539,6 +3555,15 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-MEETS_R2571</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveMeeting]If not specified [for cancelMeeting], the server will treat it as false.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R3010</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In RemoveMeetingResponse]The RemoveMeetingResponse element specifies the output of the RemoveMeeting operation (section 3.1.4.7).</ns1:Description>
@@ -3566,7 +3591,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting</ns1:Descrip
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R260</ns1:REQ_ID>
@@ -3606,7 +3631,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/RemoveMeeting</ns1:Descrip
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R3048</ns1:REQ_ID>
@@ -3658,16 +3683,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/RestoreMeeting.</ns1:Descr
 		<ns1:REQ_ID>MS-MEETS_R268</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RestoreMeetingSoapOut]The RestoreMeetingSoapOut response is sent when a meeting is restored.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R269</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RestoreMeetingSoapOut]The SOAP action value of the message [RestoreMeetingSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/RestoreMeeting</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3840,16 +3855,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R283</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In SetAttendeeResponseSoapOut]The SOAP action value of the message [SetAttendeeResponseSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R284</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In SetAttendeeResponseSoapOut]The SOAP body contains a SetAttendeeResponseResponse element (section 3.1.4.9.2.2).</ns1:Description>
@@ -3861,7 +3866,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R3013</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In SetAttendeeResponse]The SetAttendeeResponse element specifies the output of SetAttendeeResponse operation (section 3.1.4.9).</ns1:Description>
+		<ns1:Description>[In SetAttendeeResponse]The SetAttendeeResponse element specifies the input of SetAttendeeResponse operation (section 3.1.4.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4104,16 +4109,16 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R305</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SetWorkspaceTitle]When a meeting workspace contains a single meeting instance, the meeting workspace title is the subject of the meeting instance.</ns1:Description>
+		<ns1:Description>[In SetWorkspaceTitle]When a meeting workspace contains a single meeting instance and they have the same title, the meeting workspace title can be treated as the subject of the meeting instance.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R306</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SetWorkspaceTitle]If the meeting organizer changes the subject of a meeting instance and that instance is connected with a meeting workspace, the protocol client uses this operation to update the workspace title.</ns1:Description>
+		<ns1:Description>[In SetWorkspaceTitle]If the meeting organizer changes the title of a meeting instance and that instance is connected with a meeting workspace, the protocol client uses this operation to update the workspace title.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4150,16 +4155,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/SetAttendeeResponse</ns1:D
 		<ns1:REQ_ID>MS-MEETS_R310</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In SetWorkspaceTitleSoapOut]The SetWorkspaceTitleSoapOut message is the response to the SetWorkspaceTitle operation (section 3.1.4.10).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R311</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.10.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In SetWorkspaceTitleSoapOut]The SOAP action value of the message [SetWorkspaceTitleSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/SetWorkspaceTitle</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4250,7 +4245,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/SetWorkspaceTitle</ns1:Des
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R320</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SetWorkspaceTitleResponse]If this operation[SetWorkspaceTitle] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
+		<ns1:Description>[In SetWorkspaceTitleResponse]If this operation[SetWorkspaceTitle] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4355,15 +4350,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting</ns1:Descrip
 		<ns1:REQ_ID>MS-MEETS_R330</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateMeetingSoapOut]The UpdateMeetingSoapOut message contains the response to the UpdateMeeting operation (section 3.1.4.11).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R331</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.11.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateMeetingSoapOut]The SOAP action value of the message [UpdateMeetingSoapOut]is defined as follows. http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4550,7 +4536,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R350</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateMeetingResponse]If this operation [UpdateMeeting] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
+		<ns1:Description>[In UpdateMeetingResponse]If this operation [UpdateMeeting] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4559,7 +4545,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeeting</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R351</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateMeetingFromICal]The UpdateMeeting operation updates content of a meeting in a workspace, based on a calendar object.</ns1:Description>
+		<ns1:Description>[In UpdateMeetingFromICal]The UpdateMeeting operation updates content of a meeting in a workspace, based on a iCalendar object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4651,16 +4637,6 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal</ns1
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-MEETS_R361</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateMeetingFromICalSoapOut]The SOAP action value of the message [UpdateMeetingFromICalSoapOut]is defined as follows.
-http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R362</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateMeetingFromICalSoapOut]The SOAP body contains an UpdateMeetingFromICalResponse element (section 3.1.4.12.2.2).</ns1:Description>
@@ -4685,7 +4661,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal</ns1
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
       &lt;s:element name="icalText" type="s:string" minOccurs="0"/&gt;
-      &lt;s:element name="ignoreAttendees" type="s:boolean" minOccurs="0"/&gt;
+      &lt;s:element name="ignoreAttendees" type="s:boolean" maxOccurs="1" minOccurs="1"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -4853,7 +4829,7 @@ http://schemas.microsoft.com/sharepoint/soap/meetings/UpdateMeetingFromICal</ns1
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-MEETS_R380</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateMeetingFromICalResponse]If this operation [UpdateMeetingFromICal] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
+		<ns1:Description>[In UpdateMeetingFromICalResponse]If this operation [UpdateMeetingFromICal] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code "0x00000006".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
