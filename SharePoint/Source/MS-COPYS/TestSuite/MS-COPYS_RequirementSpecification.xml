@@ -1525,16 +1525,6 @@ This value is used to indicate an error for all other error conditions for a giv
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1047</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the URL parameter is an invalid URI format string, the protocol server SHOULD return a SOAP fault.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-COPYS_R1048.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R177</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the protocol server implements permission settings for files and the file at the source location cannot be read based on the permission settings for the file, the protocol server MUST report a failure by using HTTP Status-Code 401 Unauthorized, as defined in [RFC2616].</ns1:Description>
@@ -2807,17 +2797,6 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R228:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1048</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault if the URL parameter is an invalid URI format string. (Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1047:i, MS-COPYS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
