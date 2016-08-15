@@ -436,7 +436,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2026</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[Abstract Data Model]For an overview of site (2), site collection and site definition and protocol sever in general, see [MS-WSSTS] section 2.1.2.6 Site, [MS-WSSTS] section 2.1.2.5 Site Collection, and [MS-WSSTS] section 2.1.3.1 Site Definition.</ns1:Description>
+		<ns1:Description>[Abstract Data Model]For an overview of site, site collection and site definition and protocol sever in general, see [MS-WSSTS] section 2.1.2.6 Site, [MS-WSSTS] section 2.1.2.5 Site Collection, and [MS-WSSTS] section 2.1.3.1 Site Definition.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -633,9 +633,26 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R18001</ns1:REQ_ID>
+		<ns1:Description>[In CreateSiteSoapIn] If the LCID is less than zero, server MUST create the site with current server language. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSiteSoapIn]If the  LCID is not installed, then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
+		<ns1:Description>[In CreateSiteSoapIn]Otherwise, if the LCID is invalid [or not installed], then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R18002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateSiteSoapIn]Otherwise, if the LCID is [invalid or] not installed, then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -672,16 +689,6 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R2037</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateSiteSoapOut]The response message in reply to the request initiated with the CreateSiteSoapIn message to create a site collection.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R80</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSiteSoapOut]The SOAP action value of the message[CreateSiteSoapOut message] is as follows:
-http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -770,7 +777,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R28</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]Its[Url's] maximum length, not including http://ServerName, is 128 characters.</ns1:Description>
+		<ns1:Description>[In CreateSite]Its[Url's] maximum length, not including http://ServerName or http://ServerName:PortNumber, is 128 characters.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -788,7 +795,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2042</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be either 80 or the port number used by the Administration Web Service on the protocol server.</ns1:Description>
+		<ns1:Description>[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be the port number used by either the web application or the Administration Web Service on the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -860,36 +867,6 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R33</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]It[Description] MUST be less than or equal to 255 characters.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirements: MS-ADMINS_R3018, MS-ADMINS_R3035.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R3018</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]If the length of the Description is 254 characters, the CreateSite operation will succeed.</ns1:Description>
-		<ns1:Derived>MS-ADMINS_R33:p</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R3035</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]If the length of the Description is 255 characters, the CreateSite operation will succeed.</ns1:Description>
-		<ns1:Derived>MS-ADMINS_R33:p</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2046</ns1:REQ_ID>
@@ -968,6 +945,15 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R2050</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateSite]If it[OwnerLogin] is missing, the server MUST return a SOAP fault.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2050001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateSite]If it[OwnerLogin] is empty, the server MUST return a SOAP fault.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1257,6 +1243,15 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R1077001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateSiteResponse]It[CreateSiteResult] MUST be returned if the CreateSite operation succeeds.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2064</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In DeleteSite]This operation [the DeleteSite operation] deletes the specified site collection.</ns1:Description>
@@ -1363,16 +1358,6 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteSite</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R2068</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In DeleteSiteSoapOut][DeleteSiteSoapOut message is] The response message reply to the request initiated with the DeleteSiteSoapIn message to delete the site collection.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R91</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteSiteSoapOut]The SOAP action value of the message[DeleteSiteSoapOut message] is as follows:
-http://schemas.microsoft.com/sharepoint/soap/DeleteSite</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1506,16 +1491,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetLanguages</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R97</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetLanguagesSoapOut]The SOAP action value of the message[GetLanguagesSoapOut message] is as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetLanguages</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R98</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetLanguagesSoapOut]The SOAP body contains a GetLanguagesResponse element.</ns1:Description>
@@ -1584,6 +1559,24 @@ http://schemas.microsoft.com/sharepoint/soap/GetLanguages</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R94</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetLanguagesResponse]GetLanguagesResult: Provides the locale identifiers (LCIDs) of languages used in the deployment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R94001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetLanguagesResponse] Languages: Specifies the languages used in the deployment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R94002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetLanguagesResponse] LCID: Specifies the locale identifier (LCID) of a language used in the deployment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1666,16 +1659,6 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R108</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RefreshConfigCacheSoapOut]The SOAP action value of the message[RefreshConfigCacheSoapOut message] is:
-http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R109</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RefreshConfigCacheSoapOut]The SOAP body contains a RefreshConfigCacheResponse element.</ns1:Description>
@@ -1712,7 +1695,16 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R100</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RefreshConfigCache]VirtualServerId: The GUID for Web application (1).</ns1:Description>
+		<ns1:Description>[In RefreshConfigCache]VirtualServerId: A s1:guid (as specified in section 3.1.4.4.4) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R100001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In RefreshConfigCache] Represents the GUID for web application.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1746,6 +1738,46 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2095</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.4</ns1:Doc_Sect>
+		<ns1:Description>[Simple Types]The following table summarizes the XML schema simple definitions that are specific to this operation:s1:guid.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2095001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.4</ns1:Doc_Sect>
+		<ns1:Description>[Simple Types] s1:guid: Represents a GUID.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2095002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.4.1</ns1:Doc_Sect>
+		<ns1:Description>[s1:guid] The s1:guid simple type is used to represent a GUID value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2095003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.4.1</ns1:Doc_Sect>
+		<ns1:Description>[s1:guid] &lt;s:simpleType name="s1:guid"&gt;
+     &lt;s:restriction base="s:string"&gt;
+       &lt;s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" /&gt;
+     &lt;/s:restriction&gt;
+ &lt;/s:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R1002</ns1:REQ_ID>
@@ -1790,7 +1822,7 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2085</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]&lt;2&gt; Section 3.1.4.1.2.1: The max length for OwnerLogin is 20 characters on Windows Server 2008.</ns1:Description>
+		<ns1:Description>[In CreateSite]&lt;2&gt; Section 3.1.4.1.2.1: The max length for OwnerLogin is 20 characters on Windows Server 2008 operating system with Service Pack 2 (SP2).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
