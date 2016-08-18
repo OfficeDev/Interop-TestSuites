@@ -365,7 +365,7 @@ Version-Number = "1.0"</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R52</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In MS-BinDiff Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Description>[In MS-BinDiff Header] Because the server ignores this header unless it is included in an HTTP PUT request, there are no usage specifications for this header.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -428,6 +428,15 @@ Version-Number = "12" "." "0" "." 4DIGIT</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Header] Because the server ignores this header, there are no usage specifications for this header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R61</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In MODUU Extensions Property] When the Repl:collblob and Repl:repl elements appear in a response to a WebDAV client request, the response MUST also include this schema alias.
@@ -459,7 +468,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R64</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Repl:collblob Element] The Repl:collblob element usage is specified in section 3.1.4.9 and section 3.2.4.2.</ns1:Description>
+		<ns1:Description>[In Repl:collblob Element] The Repl:collblob element usage is specified in section 3.1.4.10 and section 3.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -495,7 +504,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R68</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Repl:repl Element Collection] The Repl:repl element collection usage is specified in sections 3.1.4.9 and 3.2.4.2.</ns1:Description>
+		<ns1:Description>[In Repl:repl Element Collection] The Repl:repl element collection usage is specified in sections 3.1.4.10 and 3.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -694,7 +703,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In MS-BinDiff Header] The MS-BinDiff header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Description>[In MS-BinDiff Header] The MS-BinDiff header is ignored by WebDAV servers unless it is included in an HTTP PUT request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -706,6 +715,15 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
 		<ns1:Description>[In MS-BinDiff Header] [The reply of implementation does be the same whether MS-BinDiff header is included in the request or not.]</ns1:Description>
 		<ns1:Derived>MS-WDVMODUU_R89:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R901</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In MS-BinDiff Header] If the MS-BinDiff header is included in an HTTP PUT request, the server MUST fail the request and response with a message containing HTTP status code "415 UNSUPPORTED MEDIA TYPE".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -732,8 +750,28 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WDVMODUU_R99</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-WDVMODUU_R921</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Header] The User-Agent Header header is ignored by WebDAV servers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-WDVMODUU_R922.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R922</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Description>[In User-Agent Header] The reply of implementation does be the same whether WebDAV header is included in the request or not.</ns1:Description>
+		<ns1:Derived>MS-WDVMODUU_R921:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WDVMODUU_R99</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] The existence of a Repl:collblob element in a PROPFIND request restricts the set of results returned by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -742,7 +780,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R100</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -751,7 +789,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R101</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, [it includes a response element for each resource in the multistatus element] that is a descendant of the Request-URI</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -760,7 +798,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R102</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, [it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI] (limited by the Depth header specified in [RFC2518])</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -769,7 +807,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R104</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource was last modified later than 5 minutes before the timestamp.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -778,8 +816,8 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R105</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource is a descendant of a resource that has changed.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
+		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource is a descendant of a resource that has changed later than or equal to 5 minutes before the timestamp.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -787,7 +825,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R106</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp] In addition, the server includes the Repl:repl element collection in the response as specified.
 &lt;!ELEMENT multistatus (repl, response+, responsedescription?) &gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -797,7 +835,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R107</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
 		<ns1:Description>[In Repl:collblob and Repl:repl]  [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, the server includes the Repl:repl element collection in the response.] The value of the repl:collblob element is the server time when it processed this request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -915,7 +953,7 @@ xmlns:Repl="http://schemas.microsoft.com/repl/"</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WDVMODUU_R125</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 1.5:  Office 2007 SP1 system clients use MODUU extensions only against a Document Workspace site.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 1.5:  Microsoft Office 2007 Service Pack 1 (SP1) system clients use MODUU extensions only against a Document Workspace site.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
