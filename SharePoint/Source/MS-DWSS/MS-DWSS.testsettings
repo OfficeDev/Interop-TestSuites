@@ -2,16 +2,17 @@
 <TestSettings name="MS-DWSS" id="9c3910ca-16a5-47ae-8fbb-d82ea906ebf6" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for running all MS-DWSS test cases.</Description>
   <Deployment>
+    <DeploymentItem filename="TestSuite\MS-DWSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
     <DeploymentItem filename="TestSuite\MS-DWSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\Schemas\ComplexTypes.xsd" />
     <DeploymentItem filename="Adapter\Schemas\Elements.xsd" />
     <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-DWSS_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Proxy\MS-DWSS.wsdl" />
-    <DeploymentItem filename="TestSuite\MS-DWSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\Schemas\ComplexTypes.xsd" />
     <DeploymentItem filename="MS-DWSS.runsettings" />
     <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-DWSS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\Schemas\SimpleTypes.xsd" />
     <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -46,4 +47,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
