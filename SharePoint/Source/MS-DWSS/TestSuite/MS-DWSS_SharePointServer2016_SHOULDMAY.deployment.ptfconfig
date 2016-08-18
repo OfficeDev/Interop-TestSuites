@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R695Enabled to true to verify that the implementation returns a created name, such as a GUID, as specified in section 3.1.4.1.2.1. Set R695Enabled to false to disable this requirement. -->
+    <Property name="R695Enabled" value="true" />
+    <!-- Set R686Enabled to true to verify that the implementation additionally supports SOAP over HTTPS for securing communication with protocol clients, as specified in section 2.1. Set R686Enabled to false to disable this requirement. -->
+    <Property name="R686Enabled" value="true" />
+    <!-- Set R687Enabled to true to verify that the implementation replies with a Result element as specified in FindDwsDocResponse containing an absolute URL to the specified document, as specified in section 3.1.4.6. Set R687Enabled to false to disable this requirement. -->
+    <Property name="R687Enabled" value="true" />
+    <!-- Set R688Enabled to true to verify that the implementation returns an Error element with the ListNotFound code, as specified in section 3.1.4.7. Set R688Enabled to false to disable this requirement. -->
+    <Property name="R688Enabled" value="true" />
+    <!-- Set R689Enabled to true to verify that the implementation returns a response in which MtgInstance is empty, as specified in section 3.1.4.8.2.2. Set R689Enabled to false to disable this requirement. -->
+    <Property name="R689Enabled" value="true" />
+    <!-- Set R1164Enabled to true to verify that [If the specified Document Workspace does not exist, ] Implementation returns HTTP status code 404 with response body which contains text ""404 FILE NOT FOUND"", as specified in section 3.1.4.4. Set R1164Enabled to false to disable this requirement. -->
+    <Property name="R1164Enabled" value="true" />
+    <!-- Set R1278Enabled to true to verify that implementation does set the DocUrl to the value of document from the GetDwsMetaData request if the value of document is specified. (Windows® SharePoint® Services 3.0 and above products follow this behavior.) Set R1278Enabled to false to disable this requirement. -->
+    <Property name="R1278Enabled" value="true" />
+    <!-- Set R1279Enabled to true to verify that implementation does set the DocUrl to be empty if the value of document is not specified in the GetDwsMetaData request. (Windows® SharePoint® Services 3.0 and above products follow this behavior.) Set R1279Enabled to false to disable this requirement. -->
+    <Property name="R1279Enabled" value="true" />
+    <!-- Set R1680Enabled to true to verify that implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (<8>Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".) Set R1680Enabled to false to disable this requirement. -->
+    <Property name="R1680Enabled" value="true" />
+    <!-- Set R1682Enabled to true to verify that implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (<8>Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".) Set R1682Enabled to false to disable this requirement. -->
+    <Property name="R1682Enabled" value="true" />
+    <!-- Set R1683Enabled to true to verify that Implementation does return error ServerFailure when a site (2) with the specified name already exists on this site (2). (<4> When a site (2) with the specified name already exists on this site (2), Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.) Set R1683Enabled to false to disable this requirement. -->
+    <Property name="R1683Enabled" value="true" />
+    <!-- Set R2164Enabled to true to verify that [If the specified Document Workspace does not exist, ] Implementation returns HTTP status code 404 with response body which contains text ""404 NOT FOUND"", as specified in section 3.1.4.4. Set R2164Enabled to false to disable this requirement. -->
+    <Property name="R2164Enabled" value="false" />
+    <!-- Set R3164Enabled to true to verify that [If the specified Document Workspace does not exist, ] Implementation returns HTTP status code 404 with an empty response body, as specified in section 3.1.4.4. Set R3164Enabled to false to disable this requirement. -->
+    <Property name="R3164Enabled" value="false" />
+  </Properties>
+</TestSite>
