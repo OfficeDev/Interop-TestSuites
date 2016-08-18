@@ -366,7 +366,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation "Mode" retrieves the authentication mode that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation "Mode" retrieves the authentication mode that a Web application uses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -375,7 +375,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Login] The Login operation logs a user onto a Web application (1) by using the user’s logon name and password.</ns1:Description>
+		<ns1:Description>[In Login] The Login operation logs a user onto a Web application by using the user’s logon name and password.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -503,15 +503,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-AUTHWS_R58</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In LoginSoapOut] The SOAP action value of the message [LoginSoapOut message] is defined as [follows]: http://schemas.microsoft.com/sharepoint/soap/Login</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R59</ns1:REQ_ID>
@@ -692,11 +683,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In LoginResult] TimeoutSeconds: An integer that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires.</ns1:Description>
+		<ns1:Description>[In LoginResult] TimeoutSeconds: An integer that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. &lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-AUTHWS_R190,MS-AUTHWS_R191.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R77</ns1:REQ_ID>
@@ -822,7 +814,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R86</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode that a Web application uses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -831,7 +823,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Forms] that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Forms] that a Web application uses.</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R86:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -841,7 +833,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R134</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [None] that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [None] that a Web application uses.</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R86:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -851,7 +843,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R135</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Windows] that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Windows] that a Web application uses.</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R86:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -861,7 +853,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R136</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Passport] that a Web application (1) uses.</ns1:Description>
+		<ns1:Description>[In Mode] The Mode operation retrieves the authentication mode [Passport] that a Web application uses.</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R86:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -944,16 +936,6 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-AUTHWS_R96</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In ModeSoapOut] The SOAP action value of the message [ModeSoapOut message] is defined as:
-http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R97</ns1:REQ_ID>
@@ -1040,7 +1022,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R105</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AuthenticationMode] The AuthenticationMode simple type specifies the authentication mode for the Login WSDL operation.</ns1:Description>
+		<ns1:Description>[In AuthenticationMode] The AuthenticationMode simple type specifies the authentication mode for the Mode WSDL operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1075,17 +1057,17 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "None", no authentication is used [or a custom authentication scheme is used].</ns1:Description>
+		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "None"&lt;3&gt;, no authentication is used [or a custom authentication scheme is used].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-AUTHWS_R192,MS-AUTHWS_R193.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "None", a custom authentication scheme is used.</ns1:Description>
+		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "None"&lt;3&gt;, a custom authentication scheme is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1112,7 +1094,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "Passport&lt;2&gt;", Windows Live ID is used for authentication.</ns1:Description>
+		<ns1:Description>[In AuthenticationMode] If the AuthenticationMode is "Passport&lt;4&gt;", Windows Live ID is used for authentication.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1168,7 +1150,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R126</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the default value of the CookieName which is "FedAuth".(The Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the default value of the CookieName which is "FedAuth".(The Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R73:i,MS-AUTHWS_R117:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -1188,9 +1170,53 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-AUTHWS_R190</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the element TimeoutSeconds. (&lt;2&gt; Section 3.1.4.1.3.1:  Windows SharePoint Services 3.0 does not return this element.)</ns1:Description>
+		<ns1:Derived>MS-AUTHWS_R76:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-AUTHWS_R191</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the element TimeoutSeconds that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. (The Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-AUTHWS_R76:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-AUTHWS_R192</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return "Forms" when the value for AuthenticationMode is "None". (&lt;3&gt; Section 3.1.4.2.4.1:  Microsoft SharePoint Foundation 2010 Service Pack 1 returns "Forms" when the value for AuthenticationMode is "None".)</ns1:Description>
+		<ns1:Derived>MS-AUTHWS_R115:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-AUTHWS_R193</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not use authentication if the AuthenticationMode is "None". (Windows SharePoint Services 3.0, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-AUTHWS_R115:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 3.1.4.2.4.1: Use of Windows Live ID for authentication is not supported by Windows Server 2008.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.2.4.1: Use of Windows Live ID for authentication is not supported by Windows Server 2008 operating system with Service Pack 2 (SP2) and Windows Server 2012 operating system.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

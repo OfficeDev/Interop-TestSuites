@@ -3,7 +3,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R112</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] This protocol operates against a site (2) that is identified by a URL that is known by protocol clients. </ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol operates against a site that is identified by a URL that is known by protocol clients. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12,7 +12,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] The protocol server endpoint is formed by appending "/_vti_bin/Dws.asmx" to the site (2) URL—for example "www.contoso.com/Repository/_vti_bin/Dws.asmx".</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] The protocol server endpoint is formed by appending "/_vti_bin/Dws.asmx" to the site URL—for example "www.contoso.com/Repository/_vti_bin/Dws.asmx".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -30,7 +30,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R119</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] The account that accesses this Web service is assigned an appropriate role in the Document Workspace Members group or for the site (2) that contains, or will contain, the Document Workspace site.</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] The account that accesses this Web service is assigned an appropriate role in the Document Workspace Members group or for the site that contains, or will contain, the Document Workspace site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -39,7 +39,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R327</ns1:REQ_ID>
 		<ns1:Doc_Sect>2</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] In the following sections[Section 2], the schema definition might be less restrictive than the processing rules imposed by the protocol.</ns1:Description>
+		<ns1:Description>[In Messages] In the following sections[Section 2], the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -57,7 +57,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>2</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] The text that introduces the WSDL specifies additional restrictions that reflect actual Microsoft product behavior. </ns1:Description>
+		<ns1:Description>[In Messages] The text that introduces the WSDL might specify differences that reflect actual Microsoft product behavior. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -220,7 +220,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R335</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] Assignees means: Returns a list (1) of assigned members (1) for a Document Workspace.</ns1:Description>
+		<ns1:Description>[In Elements] Assignees means: Returns a list of assigned members for a Document Workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -256,7 +256,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R339</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] Member means: Returns data about a user or group (2).</ns1:Description>
+		<ns1:Description>[In Elements] Returns data about a user or group.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -274,7 +274,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Assignees] This element [Assignees] holds the list (1) of assigned users for a Document Workspace.</ns1:Description>
+		<ns1:Description>[In Assignees] This element [Assignees] holds the list of assigned users for a Document Workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -314,7 +314,7 @@
   &lt;xs:element name="Assignees"&gt;
     &lt;xs:complexType&gt;
       &lt;xs:sequence&gt;
-        &lt;xs:element ref="tns:Member" maxOccurs="unbounded"/&gt;
+        &lt;xs:element ref="tns:Member" minOccurs="0" maxOccurs="unbounded"/&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:complexType&gt;
   &lt;/xs:element&gt;                                            </ns1:Description>
@@ -740,7 +740,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In List] This element [List] returns the information about the contents of a list (1).</ns1:Description>
+		<ns1:Description>[In List] This element [List] returns the information about the contents of a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -762,7 +762,7 @@
               &lt;xs:choice&gt;
                 &lt;xs:element ref="tns:Error" minOccurs="0"/&gt;
                 &lt;xs:sequence&gt;
-                  &lt;xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other"/&gt;
+                  &lt;xs:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents='skip'/&gt;
                 &lt;/xs:sequence&gt;
               &lt;/xs:choice&gt;
             &lt;/xs:sequence&gt;
@@ -807,7 +807,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R352</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In List] Name: Describes the list (1) contents.</ns1:Description>
+		<ns1:Description>[In List] Name: Describes the list contents.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -834,7 +834,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In List] Task: The list (1) of tasks associated with this workspace.</ns1:Description>
+		<ns1:Description>[In List] Task: The list of tasks associated with this workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -933,7 +933,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In List] TooManyItems means: The number of lists (1) exceeds an implementation-specific size&lt;1&gt;</ns1:Description>
+		<ns1:Description>[In List] TooManyItems means: The number of lists exceeds an implementation-specific size&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -979,7 +979,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R365</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Member] This element [Member] contains information about a member (1) of the workspace.</ns1:Description>
+		<ns1:Description>[In Member] This element [Member] contains information about a member of the workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1024,7 +1024,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R700</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Member] ID: A positive integer that MUST uniquely identify a group (2).</ns1:Description>
+		<ns1:Description>[In Member] ID: A positive integer that MUST uniquely identify a group.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1078,7 +1078,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R370</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Member] IsDomainGroup: A Boolean value specifying whether this record is associated with a user or group (2).</ns1:Description>
+		<ns1:Description>[In Member] IsDomainGroup: A Boolean value specifying whether this record is associated with a user or group.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1234,7 +1234,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R713</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In MemberData] This type [MemberData] returns information about a user or group (2) or an error condition that occurred while accessing the user or group data.</ns1:Description>
+		<ns1:Description>[In MemberData] This type [MemberData] returns information about a user or group or an error condition that occurred while accessing the user or group data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1243,7 +1243,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R73</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In MemberData] This type [MemberData] returns information about a user or group (2) or an error condition that occurred while accessing the user or group data.</ns1:Description>
+		<ns1:Description>[In MemberData] This type [MemberData] returns information about a user or group or an error condition that occurred while accessing the user or group data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1421,7 +1421,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In MemberData] TooManyItems	 means: The number of members (1) exceeds an implementation-specific size.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In MemberData] TooManyItems means: The number of members exceeds an implementation-specific size.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1526,7 +1526,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R392</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Types] ListType means: A string that indicates the type of list (1) being returned.</ns1:Description>
+		<ns1:Description>[In Simple Types] ListType means: A string that indicates the type of list being returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1586,6 +1586,7 @@
       &lt;xs:enumeration value="Contributor"/&gt;
       &lt;xs:enumeration value="WebDesigner"/&gt;
       &lt;xs:enumeration value="Administrator"/&gt;
+      &lt;xs:enumeration value="Editor"/&gt;
     &lt;/xs:restriction&gt;
   &lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -1623,7 +1624,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R93</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RoleType] Reader means: Has read-only rights to view items, personalize Web Parts, use alerts (1),  and create a top-level Web site by using Self-Service Site Creation.</ns1:Description>
+		<ns1:Description>[In RoleType] Reader means: Has read-only rights to view items, personalize Web Parts, use alerts,  and create a top-level Web site by using Self-Service Site Creation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1641,7 +1642,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R398</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RoleType] Reader means: When a user is granted the role of reader and creates a site (2) by using Self-Service Site Creation, the user becomes the site owner and a member (1) of the administrator class for the new site (2).</ns1:Description>
+		<ns1:Description>[In RoleType] Reader means: When a user is granted the role of reader and creates a site by using Self-Service Site Creation, the user becomes the site owner and a member of the administrator class for the new site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1650,7 +1651,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R399</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In RoleType] Reader means: This does not affect membership for any other site (2).</ns1:Description>
+		<ns1:Description>[In RoleType] Reader means: This does not affect membership for any other site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1747,6 +1748,24 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R40601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In RoleType] Editor&lt;3&gt;: Has Contributor rights, plus the rights to manage lists.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R40602</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In RoleType] Editor&lt;3&gt;: Editors can create new lists or document libraries.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R306</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In Attributes] This specification does not define any common XML schema attribute definitions.</ns1:Description>
@@ -1776,7 +1795,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R407</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] In the following sections [Section 3], the schema definition might be less restrictive than the processing rules imposed by the protocol. </ns1:Description>
+		<ns1:Description>[In Protocol Details] In the following sections [Section 3], the schema definition might differ from the processing rules imposed by the protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1794,7 +1813,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R409</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] The text that introduces the WSDL specifies additional restrictions that reflect actual Microsoft product behavior.</ns1:Description>
+		<ns1:Description>[In Protocol Details] The text that introduces the WSDL might specifies additional restrictions that reflect actual Microsoft product behavior.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1803,7 +1822,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R410</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, present, and not null.</ns1:Description>
+		<ns1:Description>[In Protocol Details] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, and present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1857,7 +1876,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model] A Document Workspace is a site (2) that is set up for collaboration by workgroups.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model] A Document Workspace is a site that is set up for collaboration by workgroups.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1875,7 +1894,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R418</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model] The Document Workspace provides tools to assist in the collaboration, including these lists, keeping version history for documents, providing a check out service for documents, and supporting alert (1) subscriptions on documents and lists in the workspace.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model] The Document Workspace provides tools to assist in the collaboration, including these lists, keeping version history for documents, providing a check out service for documents, and supporting alert subscriptions on documents and lists in the workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1911,7 +1930,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R421</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] CanCreateDwsUrl: It also returns a URL that is unique for the current site (2).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] CanCreateDwsUrl: It also returns a URL that is unique for the current site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1983,7 +2002,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R429</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] RemoveDwsUser: Deletes the specified user from the list (1) of authorized Document Workspace users.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] RemoveDwsUser: Deletes the specified user from the list of authorized Document Workspace users.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2050,7 +2069,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1021</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CanCreateDwsUrl] The server MUST respond with an Error element, as specified in section 2.2.3.2, with [the identifier set to 2 and] a restricted string of "Failed" when the length of the site (2) URL is greater than an implementation-dependent length.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In CanCreateDwsUrl] The server MUST respond with an Error element, as specified in section 2.2.3.2, with [the identifier set to 2 and] a restricted string of "Failed" when the length of the site (2) URL is greater than an implementation-dependent length.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2212,7 +2231,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CanCreateDwsUrl.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R110</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CanCreateDwsUrl] The URL MUST be unique for the site (2).</ns1:Description>
+		<ns1:Description>[In CanCreateDwsUrl] The URL MUST be unique for the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2566,7 +2585,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R458</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateDws] If this is non-empty and another site (2) with the same name already exists on the site (2) on which the workspace is being created, the protocol server MUST return a ServerFailure error code (see section 2.2.3.2).</ns1:Description>
+		<ns1:Description>[In CreateDws] If this is non-empty and another site with the same name already exists on the site on which the workspace is being created, the protocol server MUST return a ServerFailure error code (see section 2.2.3.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2603,14 +2622,20 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R132</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateDws] When the string[users] is not empty, the XML MUST conform to the following XSD:
-&lt;s:complexType&gt;
-  &lt;s:sequence&gt;
-    &lt;s:element name="item"&gt;
-      &lt;s:attribute name="Name" type="s:string" use="required"/&gt;
-      &lt;s:attribute name="Email" type="s:string" use="required"/&gt;
+ &lt;s:complexType&gt;
+   &lt;s:element name="items"&gt;
+     &lt;s:complexType&gt;
+       &lt;s:sequence&gt;
+         &lt;s:element name="item" maxOccurs="unbounded"&gt;
+           &lt;xs:complexType&gt;
+              &lt;s:attribute name="Name" type="s:string" use="required"/&gt;
+              &lt;s:attribute name="Email" type="s:string" use="required"/&gt;
+           &lt;/xs:complexType&gt;
+          &lt;/s:element&gt;
+         &lt;/s:sequence&gt;
+      &lt;/s:complexType&gt;
     &lt;/s:element&gt;
-  &lt;/s:sequence&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2693,7 +2718,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R468</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateDws] Documents: String in XML format that contains information to be stored as a key-value pair in the site (2) metadata.</ns1:Description>
+		<ns1:Description>[In CreateDws] Documents: String in XML format that contains information to be stored as a key-value pair in the site metadata.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2712,14 +2737,20 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R137</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateDws] If it[Documents] is not empty, it MUST conform to the following XSD:
-&lt;s:complexType&gt;
-  &lt;s:sequence&gt;
-    &lt;s:element name="item"&gt;
-      &lt;s:attribute name="Name" type="s:string" /&gt;
-      &lt;s:attribute name="ID" type="s:string" /&gt;
-    &lt;/s:element&gt;
-  &lt;/s:sequence&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;s:complexType&gt;
+   &lt;s:element name="items"&gt;
+     &lt;s:complexType&gt;
+       &lt;s:sequence&gt;
+         &lt;s:element name="item" maxOccurs="unbounded"&gt;
+           &lt;xs:complexType&gt;
+              &lt;s:attribute name="Name" type="s:string" /&gt;
+              &lt;s:attribute name="ID" type="s:string" /&gt;
+           &lt;/xs:complexType&gt;
+         &lt;/s:element&gt;
+      &lt;/s:sequence&gt;
+     &lt;/s:complexType&gt;
+   &lt;/s:element&gt;
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2781,23 +2812,23 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R138</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateDwsResponse] The string [CreateDwsResult] MUST conform to the following XSD:
-&lt;s:complexType&gt;
-  &lt;s:choice&gt;
-    &lt;s:element name="Error" type="Error"/&gt;
-    &lt;s:element name="Results"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:sequence&gt;
-          &lt;s:element name="Url" type="s:string" /&gt;
-          &lt;s:element name="DoclibUrl" type="s:string" /&gt;
-          &lt;s:element name="ParentWeb" type="s:string"/&gt;
-          &lt;s:element name="FailedUsers" type="tns:UserType" minOccurs="0" maxOccurs="unbounded"/&gt;
-          &lt;s:element name="AddUsersUrl" type="s:string"/&gt;
-          &lt;s:element name="AddUsersRole" type="s:string"/&gt;
-        &lt;/s:sequence&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-  &lt;/s:choice&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;s:complexType&gt;
+   &lt;s:choice&gt;
+         &lt;s:element ref="tns:Error"/&gt;
+     &lt;s:element name="Results"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:sequence&gt;
+           &lt;s:element name="Url" type="s:string" /&gt;
+           &lt;s:element name="DoclibUrl" type="s:string" /&gt;
+           &lt;s:element name="ParentWeb" type="s:string"/&gt;
+           &lt;s:element name="FailedUsers" type="tns:UserType" minOccurs="0" maxOccurs="unbounded"/&gt;
+           &lt;s:element name="AddUsersUrl" type="s:string"/&gt;
+           &lt;s:element name="AddUsersRole" type="s:string"/&gt;
+         &lt;/s:sequence&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+   &lt;/s:choice&gt;
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2842,7 +2873,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R486</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateDwsResponse] AlreadyExists&lt;4&gt;, Identifier is "13", means: A site (2) with the specified name already exists on this site (2).</ns1:Description>
+		<ns1:Description>[In CreateDwsResponse] AlreadyExists&lt;5&gt;, Identifier is "13", means: A site with the specified name already exists on this site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2870,7 +2901,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R475</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateDwsResponse] DoclibUrl: Site-relative URL for the shared documents list (1) associated with the workspace.</ns1:Description>
+		<ns1:Description>[In CreateDwsResponse] DoclibUrl: Site-relative URL for the shared documents list associated with the workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2897,7 +2928,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R478</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateDwsResponse] FailedUsers: A list of users from the CreateDws Users field that could not be added to the list of authorized users in the new workspace.</ns1:Description>
+		<ns1:Description>[In CreateDwsResponse] FailedUsers: A list of users from the users field of CreateDws that could not be added to the list of authorized users in the new workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3162,7 +3193,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateFolder</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R495</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateFolder] url: This is a site-relative URL with the full path for the new folder&lt;5&gt;.</ns1:Description>
+		<ns1:Description>[In CreateFolder] url: This is a site-relative URL with the full path for the new folder&lt;6&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3278,7 +3309,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/CreateFolder</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R164</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteDws] If the specified Document Workspace does not exist, the protocol server SHOULD&lt;6&gt; return HTTP status code 404 with response body which contains text "404 FILE NOT FOUND".</ns1:Description>
+		<ns1:Description>[In DeleteDws] If the specified Document Workspace does not exist, the protocol server SHOULD&lt;7&gt; return HTTP status code 404 with response body which contains text "404 FILE NOT FOUND".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3513,7 +3544,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/DeleteDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R170</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteFolder] This operation[DeleteFolder] deletes a folder from a document library on the site (2).</ns1:Description>
+		<ns1:Description>[In DeleteFolder] This operation[DeleteFolder] deletes a folder from a document library on the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3571,7 +3602,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/DeleteDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R177</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteFolder] If none of the prior conditions apply, the protocol server MUST delete the folder specified in the CreateFolder element and return a Result element as specified in DeleteDwsResponse (section 3.1.4.5.2.2).</ns1:Description>
+		<ns1:Description>[In DeleteFolder] If none of the prior conditions apply, the protocol server MUST delete the folder specified in the CreateFolder element and return a Result element as specified in DeleteFolderResponse (section 3.1.4.5.2.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3976,7 +4007,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/FindDwsDoc</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R532</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In FindDwsDoc] ID: See the description of the ID attribute of the Documents element of CreateDws, specified in section 3.1.4.2.2.1.</ns1:Description>
+		<ns1:Description>[In FindDwsDoc] id: See the description of the ID attribute of the Documents element of CreateDws, specified in section 3.1.4.2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4043,7 +4074,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/FindDwsDoc</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R193</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsData] This operation[GetDwsData] returns general information about the Document Workspace site, as well as its members (1), documents, links, and tasks.</ns1:Description>
+		<ns1:Description>[In GetDwsData] This operation[GetDwsData] returns general information about the Document Workspace site, as well as its members, documents, links, and tasks.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4238,7 +4269,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R545</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsData] document: A site (2)-based URL of a document in the document library in the Document Workspace.</ns1:Description>
+		<ns1:Description>[In GetDwsData] document: A site-based URL of a document in the document library in the Document Workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4247,7 +4278,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R546</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsData] This argument [document] provides the context for the documents list (1) in the reply.</ns1:Description>
+		<ns1:Description>[In GetDwsData] This argument [document] provides the context for the documents list in the reply.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4329,48 +4360,12 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R207</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetDwsDataResponse] The XML MUST conform to the following schema:
-&lt;s:complexType name="GetDwsDataResultType"&gt;
-  &lt;s:choice&gt;
-    &lt;s:element ref="tns:Error"/&gt;
-    &lt;s:element name="Results"&gt;
-      &lt;xs:sequence&gt;
-        &lt;xs:element name="Title" type="xs:string"/&gt;
-        &lt;xs:element name="LastUpdate" type="xs:integer"/&gt;
-        &lt;xs:element name="User"&gt;
-          &lt;xs:complexType&gt;
-            &lt;xs:sequence&gt;
-              &lt;xs:element name="ID" type="xs:string"/&gt;
-              &lt;xs:element name="Name" type="xs:string"/&gt;
-              &lt;xs:element name="LoginName" type="xs:string"/&gt;
-              &lt;xs:element name="Email" type="xs:string"/&gt;
-              &lt;xs:element name="IsDomainGroup"/&gt;
-                &lt;s:simpleType&gt;
-                  &lt;s:restriction base="s:string"&gt;
-                    &lt;s:enumeration value="True" /&gt;
-                    &lt;s:enumeration value="False" /&gt;
-                  &lt;/s:restriction&gt;
-                &lt;/s:simpleType&gt;
-              &lt;xs:element name="IsSiteAdmin"/&gt;
-                &lt;s:simpleType&gt;
-                  &lt;s:restriction base="s:string"&gt;
-                    &lt;s:enumeration value="True" /&gt;
-                    &lt;s:enumeration value="False" /&gt;
-                  &lt;/s:restriction&gt;
-                &lt;/s:simpleType&gt;
-            &lt;/xs:sequence&gt;
-          &lt;/xs:complexType&gt;
-        &lt;/xs:element&gt;
-        &lt;xs:element name="Members" type="tns:MemberData"/&gt;
-        &lt;xs:sequence minOccurs="0"&gt;
-          &lt;xs:element ref="tns:Assignees"/&gt;
-          &lt;xs:element ref="tns:List"/&gt;
-          &lt;xs:element ref="tns:List"/&gt;
-          &lt;xs:element ref="tns:List"/&gt;
-        &lt;/xs:sequence&gt;
-      &lt;/xs:sequence&gt;
-    &lt;/s:element&gt;
-  &lt;/s:choice&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;s:complexType name="GetDwsDataResultType"&gt;
+   &lt;s:choice&gt;
+     &lt;s:element ref="tns:Error"/&gt;
+     &lt;s:element ref="tns:Results"/&gt;
+   &lt;/s:choice&gt;
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4380,6 +4375,65 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R1207</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetDwsDataResponse] Error: An Error element as specified in section 2.2.3.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R120701</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetDwsDataResponse] Results: The Results element contains the requested data as a string.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R120702</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetDwsDataResponse] Results: It MUST conform to the following schema:
+   &lt;s:element name="Results"&gt;
+     &lt;xs:complexType&gt;
+       &lt;xs:sequence&gt;
+         &lt;xs:element name="Title" type="xs:string"/&gt;
+         &lt;xs:element name="LastUpdate" type="xs:integer"/&gt;
+         &lt;xs:element name="User"&gt;
+           &lt;xs:complexType&gt;
+             &lt;xs:sequence&gt;
+               &lt;xs:element name="ID" type="xs:string"/&gt;
+               &lt;xs:element name="Name" type="xs:string"/&gt;
+               &lt;xs:element name="LoginName" type="xs:string"/&gt;
+               &lt;xs:element name="Email" type="xs:string"/&gt;
+               &lt;xs:element name="IsDomainGroup"&gt;
+                 &lt;s:simpleType&gt;
+                   &lt;s:restriction base="s:string"&gt;
+                     &lt;s:enumeration value="True" /&gt;
+                     &lt;s:enumeration value="False" /&gt;
+                   &lt;/s:restriction&gt;
+                 &lt;/s:simpleType&gt;
+               &lt;/xs:element&gt;
+               &lt;xs:element name="IsSiteAdmin"&gt;
+                 &lt;s:simpleType&gt;
+                   &lt;s:restriction base="s:string"&gt;
+                     &lt;s:enumeration value="True" /&gt;
+                     &lt;s:enumeration value="False" /&gt;
+                   &lt;/s:restriction&gt;
+                 &lt;/s:simpleType&gt;
+               &lt;/xs:element&gt;
+             &lt;/xs:sequence&gt;
+           &lt;/xs:complexType&gt;
+         &lt;/xs:element&gt;
+         &lt;xs:element name="Members" type="tns:MemberData"/&gt;
+         &lt;xs:sequence minOccurs="0"&gt;
+           &lt;xs:element ref="tns:Assignees"/&gt;
+           &lt;xs:element ref="tns:List"/&gt;
+           &lt;xs:element ref="tns:List"/&gt;
+           &lt;xs:element ref="tns:List"/&gt;
+         &lt;/xs:sequence&gt;
+       &lt;/xs:sequence&gt;
+     &lt;/xs:complexType&gt;
+   &lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4424,7 +4478,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R556</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsDataResponse] User: The member (1) information for the user who requested the GetDwsData operation.</ns1:Description>
+		<ns1:Description>[In GetDwsDataResponse] User: The member information for the user who requested the GetDwsData operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4772,7 +4826,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsMetaData</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1577</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [The description of] ListInfo [is] Contains metadata about a list (1) in a Document Workspace.</ns1:Description>
+		<ns1:Description>[In Elements] [The description of] ListInfo [is] Contains metadata about a list in a Document Workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4808,7 +4862,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsMetaData</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R579</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaData] document: This is a site-relative URL that specifies the list (1) or document to describe in the response.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaData] document: This is a site-relative URL that specifies the list or document to describe in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4826,16 +4880,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsMetaData</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaData] If this parameter[id] is not NULL the server will ignore the document parameter, and get a value according to the key id from the Documents key-value pair, then update the document parameter with the value.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-DWSS_R12311</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaData] If this parameter[id] is not empty the server will ignore the document parameter.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaData] If this parameter[id] is not NULL or empty, the server will ignore the document parameter, and get a value according to the key id from the Documents key-value pair, then update the document parameter with the value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4853,8 +4898,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsMetaData</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R582</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaData] If [Minimal is] false, the protocol server MUST return the following elements[, and MUST NOT return them otherwise]:
-From the GetDwsMetaData Results element:
+		<ns1:Description>[In GetDwsMetaData] If [Minimal is] false, the protocol server MUST return the following elements from the Results element of GetDwsMetaData, and MUST NOT return them otherwise:
 	SubscribeUrl
 	ListInfo (Tasks)
 	ListInfo (Documents) 
@@ -5102,13 +5146,13 @@ From the GetDwsMetaData Results element:
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetDwsMetaDataResponse] The element[GetDwsMetaDataResponse] contains a string that is stand-alone XML, defined as follows:
       &lt;s:element name="GetDwsMetaDataResponse"&gt;
-        &lt;s:complexType&gt;
-          &lt;s:sequence&gt;
-            &lt;s:element minOccurs="0" maxOccurs="1"
-                       name="GetDwsMetaDataResult" type="s:string" /&gt;
-          &lt;/s:sequence&gt;
-        &lt;/s:complexType&gt;
-      &lt;/s:element&gt;</ns1:Description>
+         &lt;s:complexType&gt;
+           &lt;s:sequence&gt;
+             &lt;s:element minOccurs="0" maxOccurs="1"
+                        name="GetDwsMetaDataResult" type="tns:GetDwsMetaDataResultType"/&gt;
+           &lt;/s:sequence&gt;
+         &lt;/s:complexType&gt;
+       &lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5118,12 +5162,47 @@ From the GetDwsMetaData Results element:
 		<ns1:REQ_ID>MS-DWSS_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetDwsMetaDataResponse] GetDwsMetaDataResult: This element contains a string that is stand-alone XML, encoded either as an Error element as specified in section 2.2.3.2 or a Result element defined as follows:
-&lt;s:complexType&gt;
-  &lt;s:choice&gt;
-    &lt;s:element ref="tns:Error"/&gt;
-    &lt;s:element name="Results" type="s:string"/&gt;
-  &lt;/s:choice&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;s:complexType name="GetDwsMetaDataResultType"&gt;
+   &lt;s:choice&gt;
+     &lt;s:element ref="tns:Error"/&gt;
+     &lt;s:element name="Results"&gt;
+        &lt;xs:complexType&gt;
+         &lt;xs:sequence&gt;
+            &lt;xs:element name="SubscribeUrl" type="xs:string" minOccurs="0"/&gt;
+            &lt;xs:element name="MtgInstance" type="xs:string"/&gt;
+            &lt;xs:element name="SettingUrl" type="xs:string"/&gt;
+            &lt;xs:element name="PermsUrl" type="xs:string"/&gt;
+            &lt;xs:element name="UserInfoUrl" type="xs:string"/&gt;
+            &lt;xs:element ref="tns:Roles"/&gt;
+            &lt;xs:element ref="tns:Schema" minOccurs="0" maxOccurs="3"/&gt;
+            &lt;xs:element ref="tns:ListInfo" minOccurs="0" maxOccurs="3"/&gt;
+            &lt;xs:element name="Permissions"&gt;
+               &lt;xs:complexType&gt;
+                  &lt;xs:choice&gt;
+                   &lt;xs:element ref="tns:Error"/&gt;
+                   &lt;xs:sequence&gt;
+                       &lt;xs:element name="ManageSubwebs" minOccurs="0"/&gt;
+                       &lt;xs:element name="ManageWeb" minOccurs="0"/&gt;
+                       &lt;xs:element name="ManageRoles" minOccurs="0"/&gt;
+                       &lt;xs:element name="ManageLists" minOccurs="0"/&gt;
+                       &lt;xs:element name="InsertListItems" minOccurs="0"/&gt;
+                       &lt;xs:element name="EditListItems" minOccurs="0"/&gt;
+                       &lt;xs:element name="DeleteListItems" minOccurs="0"/&gt;
+                  &lt;/xs:sequence&gt;
+                 &lt;/xs:choice&gt;
+               &lt;/xs:complexType&gt;
+            &lt;/xs:element&gt;
+            &lt;xs:element name="HasUniquePerm"/&gt;
+            &lt;xs:element name="WorkspaceType"/&gt;
+            &lt;xs:element name="IsADMode"/&gt;
+            &lt;xs:element name="DocUrl"/&gt;
+            &lt;xs:element name="Minimal"/&gt;
+            &lt;s:element ref="tns:Results"/&gt;
+         &lt;/xs:sequence&gt;
+       &lt;/xs:complexType&gt;
+    &lt;/s:element&gt;
+   &lt;/s:choice&gt;
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5150,7 +5229,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R245</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] DocumentNotFound means: Site (2) or document could not be found.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] DocumentNotFound means: Site or document could not be found.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5185,64 +5264,6 @@ From the GetDwsMetaData Results element:
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-DWSS_R598</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] Results: The Results element contains the requested metadata as a string.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-DWSS_R246</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] It[Results] MUST conform to the following schema:
-&lt;xs:element name="Results"&gt;
-  &lt;xs:complexType&gt;
-    &lt;xs:sequence&gt;
-       &lt;xs:element name="SubscribeUrl" type="xs:string" minOccurs="0"/&gt;
-       &lt;xs:element name="MtgInstance" type="xs:string"/&gt;
-       &lt;xs:element name="SettingUrl" type="xs:string"/&gt;
-   &lt;xs:element name="PermsUrl" type="xs:string"/&gt;
-       &lt;xs:element name="UserInfoUrl" type="xs:string"/&gt;
-       &lt;xs:element ref="tns:Roles"/&gt;
-   &lt;xs:element ref="Schema" type="xs:string"/&gt;
-       &lt;xs:element ref="Schema" type="xs:string"/&gt;
-       &lt;xs:element ref="Schema" type="xs:string"/&gt;
-       &lt;xs:element ref="tns:ListInfo"/&gt;
-       &lt;xs:element ref="tns:ListInfo"/&gt;
-       &lt;xs:element ref="tns:ListInfo"/&gt;
-   &lt;xs:element name="Permissions"&gt;
-        &lt;xs:complexType&gt;
-           &lt;xs:choice&gt;
-            &lt;xs:element ref="tns:Error"/&gt;
-              &lt;xs:sequence&gt;
-                &lt;xs:element name="ManageSubwebs" minOccurs="0"/&gt;
-                &lt;xs:element name="ManageWeb" minOccurs="0"/&gt;
-                &lt;xs:element name="ManageRoles" minOccurs="0"/&gt;
-                &lt;xs:element name="ManageLists" minOccurs="0"/&gt;
-                &lt;xs:element name="InsertListItems" minOccurs="0"/&gt;
-                &lt;xs:element name="EditListItems" minOccurs="0"/&gt;
-                &lt;xs:element name="DeleteListItems" minOccurs="0"/&gt;
-              &lt;/xs:sequence&gt;
-            &lt;/xs:choice&gt;
-          &lt;/xs:complexType&gt;
-      &lt;/xs:element&gt;
-      &lt;xs:element name="HasUniquePerm"/&gt;
-      &lt;xs:element name="WorkspaceType"/&gt;
-      &lt;xs:element name="IsADMode"/&gt;
-      &lt;xs:element name="DocUrl"/&gt;
-      &lt;xs:element name="Minimal"/&gt;
-    &lt;s:element name="GetDwsDataResult" type="tns:GetDwsDataResultType"/&gt;
-    &lt;/xs:sequence&gt;
-  &lt;/xs:complexType&gt;
-&lt;/xs:element&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R599</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetDwsMetaDataResponse] SubscribeUrl: This is the URI of a page that enables users to subscribe to changes in the document specified in the parameters.</ns1:Description>
@@ -5254,7 +5275,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R600</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] See [MS-OSALER] and [MS-ALERTSS] for more information about alert (1) subscriptions.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] See [MS-OSALER] and [MS-ALERTSS] for more information about alert subscriptions.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5263,7 +5284,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R249</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] MtgInstance: If document element specifies a meeting item, this element MUST represent a string that contains the meeting information.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] MtgInstance: If document element specifies a meeting item, this element MUST represent a string that contains the meeting information. The meeting information contains the instance identifier of the meeting. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5272,7 +5293,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R250</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] Otherwise [if document element does not specify a meeting item], the element [MtgInstance] SHOULD be empty.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] MtgInstance: Otherwise, the element [MtgInstance] SHOULD be empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5300,7 +5321,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R604</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] UserInfoUrl: URI of a page that enables the list (1) of users to be modified.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] UserInfoUrl: URI of a page that enables the list of users to be modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5327,7 +5348,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R253</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] Schema: Contains the schema information for the workspace Tasks list.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] Schema: Contains the schema information for the following workspace lists appearing in a sequence as below. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5336,25 +5357,20 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R254</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] The element[Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] The element[Schema] MUST conform to the Schema element in the xml element specified in section 2.2.4.2.
+Tasks&lt;9&gt;
+Documents
+Links</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-DWSS_R255</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] Schema: Contains the schema information for the workspace list.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-DWSS_R256, MS-DWSS_R257 and MS-DWSS_R258.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] The element[Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Tasks&lt;9&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5363,16 +5379,16 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R257</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] Schema: This element contains the schema information for the workspace Links list.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Documents.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R258</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] This element [Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Links.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5381,7 +5397,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R259</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] ListInfo: This element contains list information for the workspace Tasks list.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] ListInfo: This element contains list information for the following workspace lists appearing in a sequence as below. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5390,25 +5406,29 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R260</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in 3.1.4.8.2.3.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in section 3.1.4.8.2.3.
+Tasks
+Documents
+Links</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-DWSS_R261, MS-DWSS_R262 and MS-DWSS_R263.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R261</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Tasks.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-DWSS_R261</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] ListInfo: This element contains list information for the workspace Documents list.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R262</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in 3.1.4.8.2.3.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Documents.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5417,11 +5437,11 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R263</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] ListInfo: This element contains list information for the workspace Links list.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Links.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R606</ns1:REQ_ID>
@@ -5525,7 +5545,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R614</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] If the site(2) is not one of those types ["DWS", "MWS", or an empty string.], an empty string MUST be returned.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] If the site is not one of those types ["DWS", "MWS", or an empty string.], an empty string MUST be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5534,7 +5554,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R616</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] IsADMode: Set to TRUE if, and only if, the workspace is set to Active Directory mode, that is, a mode in which new site (2) members are created in Active Directory Domain Services (AD DS).</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] IsADMode: Set to TRUE if, and only if, the workspace is set to Active Directory mode, that is, a mode in which new site members are created in Active Directory Domain Services (AD DS).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5543,7 +5563,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R617</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] IsADMode: Set to FALSE if, and only if, the workspace is not set to Active Directory mode, that is, a mode in which new site (2) members are not created in Active Directory Domain Services (AD DS).</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] IsADMode: Set to FALSE if, and only if, the workspace is not set to Active Directory mode, that is, a mode in which new site members are not created in Active Directory Domain Services (AD DS).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5590,7 +5610,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R282</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetDwsMetaDataResponse] GetDwsDataResult: This element is identical to the GetDwsDataResult element specified in section 3.1.4.7.2.2, with the exception that it MUST contain Results element.</ns1:Description>
+		<ns1:Description>[In GetDwsMetaDataResponse] Results: This element is identical to Results element of the GetDwsDataResult element specified in section 3.1.4.7.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5608,7 +5628,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R619</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] The ListInfo element contains metadata about a list (1) in a Document Workspace.</ns1:Description>
+		<ns1:Description>[In ListInfo] The ListInfo element contains metadata about a list in a Document Workspace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5618,28 +5638,35 @@ From the GetDwsMetaData Results element:
 		<ns1:REQ_ID>MS-DWSS_R620</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In ListInfo] This element[ListInfo] is defined as follows:
-&lt;xs:element name="ListInfo"&gt;
-  &lt;xs:complexType&gt;
-    &lt;xs:choice&gt;
-      &lt;xs:element ref="tns:Error" minOccurs="0"/&gt;
-      &lt;xs:sequence&gt;
-        &lt;xs:element name="Moderated" type="xs:boolean"/&gt;
-        &lt;xs:element name="ListPermissions"&gt;
-          &lt;xs:complexType&gt;
-              &lt;xs:sequence&gt;
-                &lt;xs:element name="InsertListItems" minOccurs="0"/&gt;
-                &lt;xs:element name="EditListItems" minOccurs="0"/&gt;
-                &lt;xs:element name="DeleteListItems" minOccurs="0"/&gt;
-                &lt;xs:element name="ManageLists" minOccurs="0"/&gt;
-                &lt;xs:element ref="tns:Error" minOccurs="0"/&gt;
-              &lt;/xs:sequence&gt;
-          &lt;/xs:complexType&gt;
-        &lt;/xs:element&gt;
-      &lt;/xs:sequence&gt;
-    &lt;/xs:choice&gt;
-    &lt;xs:attribute name="Name" type="xs:string" use="required"/&gt;
-  &lt;/xs:complexType&gt;
-&lt;/xs:element&gt;</ns1:Description>
+ &lt;xs:element name="ListInfo"&gt;
+   &lt;xs:complexType&gt;
+     &lt;xs:choice&gt;
+       &lt;xs:element ref="tns:Error" minOccurs="0"/&gt;
+       &lt;xs:sequence&gt;
+         &lt;xs:element name="Moderated"/&gt;
+          &lt;s:simpleType&gt;
+            &lt;s:restriction base="s:string"&gt;
+            &lt;s:enumeration value="True" /&gt;
+            &lt;s:enumeration value="False" /&gt;
+            &lt;/s:restriction&gt;
+          &lt;/s:simpleType&gt;
+         &lt;/xs:element&gt;
+         &lt;xs:element name="ListPermissions"&gt;
+           &lt;xs:complexType&gt;
+               &lt;xs:sequence&gt;
+                 &lt;xs:element name="InsertListItems" minOccurs="0"/&gt;
+                 &lt;xs:element name="EditListItems" minOccurs="0"/&gt;
+                 &lt;xs:element name="DeleteListItems" minOccurs="0"/&gt;
+                 &lt;xs:element name="ManageLists" minOccurs="0"/&gt;
+                 &lt;xs:element ref="tns:Error" minOccurs="0"/&gt;
+               &lt;/xs:sequence&gt;
+           &lt;/xs:complexType&gt;
+         &lt;/xs:element&gt;
+       &lt;/xs:sequence&gt;
+     &lt;/xs:choice&gt;
+     &lt;xs:attribute name="Name" type="xs:string" use="required"/&gt;
+   &lt;/xs:complexType&gt;
+ &lt;/xs:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5666,7 +5693,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R693</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] NoAccess&lt;10&gt; means: Current user does not have sufficient permissions to access list permission information.</ns1:Description>
+		<ns1:Description>[In ListInfo] NoAccess means: The current user does not have sufficient permissions to access list permission information.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5676,7 +5703,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R694</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] NoAccess means: The AccessUrl attribute MUST NOT be present in this element[ListInfo].</ns1:Description>
+		<ns1:Description>[In ListInfo] NoAccess means: The AccessUrl attribute MUST NOT be present in this element[ListInfo]. &lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5703,7 +5730,7 @@ From the GetDwsMetaData Results element:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R627</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] ListPermissions: This element displays the current user permissions that are associated with the list (1).</ns1:Description>
+		<ns1:Description>[In ListInfo] ListPermissions: This element displays the current user permissions that are associated with the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6307,7 +6334,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/RenameDws</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R657</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateDwsData] This method[UpdateDwsData] is deprecated and SHOULD NOT be called by the protocol client.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In UpdateDwsData] This method[UpdateDwsData] is deprecated and SHOULD NOT be called by the protocol client.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6484,7 +6511,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R666</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateDwsData] updates: This is a string that contains CAML instructions specifying how to update the workspace information. The format of the string is specified as the Batch element in [MS-WSSCAP] section 2.2.3.1. &lt;?xml version="1.0" encoding="UTF-8"?&gt; needs to be added in front of the Batch element, and the Version attribute of the Batch element is optional..</ns1:Description>
+		<ns1:Description>[In UpdateDwsData] updates: This is a string that contains CAML instructions specifying how to update the workspace information. The format of the string is specified as the Batch element in [MS-WSSCAP] section 2.2.3.1. &lt;?xml version="1.0" encoding="UTF-8"?&gt; needs to be added in front of the Batch element, and the Version attribute of the Batch element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6493,7 +6520,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R667</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateDwsData] meetingInstance : If UpdateDwsData is used to update a meeting item, this element MUST represent a string that contains the meeting information. </ns1:Description>
+		<ns1:Description>[In UpdateDwsData] meetingInstance: If UpdateDwsData is used to update a meeting item, this element MUST represent a string that contains the meeting information. The meeting information contains the instance identifier of the meeting. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6697,7 +6724,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1683</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error ServerFailure when a site (2) with the specified name already exists on this site (2). (&lt;4&gt; When a site (2) with the specified name already exists on this site (2), Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error ServerFailure when a site with the specified name already exists on this site. (&lt;5&gt; When a site with the specified name already exists on this site, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R486:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6708,7 +6735,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R678</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.4.3.2.1: For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, if url contains multiple folders and the first folder in the url doesn't exist in the site (2), the server will ignore the first folder in the url and replace it with "Shared Documents".</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.4.3.2.1: For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, if url contains multiple folders and the first folder in the url doesn't exist in the site, the server will ignore the first folder in the url and replace it with "Shared Documents".</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6728,7 +6755,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R2164</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with an empty response body. (&lt;6&gt;For WSS3, the text is empty)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with an empty response body. (&lt;7&gt;For WSS3, the text is empty)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R164:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6739,7 +6766,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R3164</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist, ] Implementation does return HTTP status code 404 with response body which contains text "404 NOT FOUND". (&lt;6&gt;For wss4, the text is "404 NOT FOUND". )</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist, ] Implementation does return HTTP status code 404 with response body which contains text "404 NOT FOUND". (&lt;7&gt;For wss4, the text is "404 NOT FOUND". )</ns1:Description>
 		<ns1:Derived>MS-DWSS_R164:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6750,7 +6777,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (&lt;8&gt;Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R243:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6761,7 +6788,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1682</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (&lt;10&gt;Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R693:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6772,7 +6799,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1681</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] (&lt;8&gt;Office Word 2007 uses UpdateDwsData.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] (Microsoft Office Word 2007 uses UpdateDwsData.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

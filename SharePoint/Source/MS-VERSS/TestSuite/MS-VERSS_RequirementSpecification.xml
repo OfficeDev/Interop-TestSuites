@@ -3,7 +3,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R241</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] This protocol operates against a site (2) that is identified by a URL that protocol clients recognize.</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol operates against a site that is identified by a URL that protocol clients recognize.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12,7 +12,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R242</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] The protocol server endpoint is formed by appending "/_vti_bin/versions.asmx" to the URL of the site (2).</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] The protocol server endpoint is formed by appending "/_vti_bin/versions.asmx" to the URL of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -329,7 +329,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In fileName] The fileName element MUST be specified in one of the following formats: The URL of the file; The location of the file relative to the site (2) that contains it.</ns1:Description>
+		<ns1:Description>[In fileName] The fileName element MUST be specified in one of the following formats: The URL of the file; The location of the file relative to the site that contains it.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -347,7 +347,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R27</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In fileName] The placeholders are defined as follows: The folder1 and folder2 placeholders represent the names of folders; folder1 represents the topmost folder on the site (2); The file-name placeholder represents the name of the file.</ns1:Description>
+		<ns1:Description>[In fileName] The placeholders are defined as follows: The folder1 and folder2 placeholders represent the names of folders; folder1 represents the topmost folder on the site; The file-name placeholder represents the name of the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -467,7 +467,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R161</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Results] list: Contains information about the document library that is represented by this list (1).</ns1:Description>
+		<ns1:Description>[In Results] list: Contains information about the document library that is represented by this list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1083,6 +1083,33 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R88011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] DeleteAllVersions specify the input data for the DeleteAllVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R88012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] DeleteAllVersionsResponse specifies the result data for the DeleteAllVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R88013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAllVersions] The DeleteAllVersions element specifies the input data for the DeleteAllVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In DeleteAllVersions]
@@ -1104,6 +1131,15 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 		<ns1:Description>[In DeleteAllVersions] fileName: An element as specified in section 2.2.3.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R88014</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteAllVersionsResponse] The DeleteAllVersionsResponse element specifies the result data for the DeleteAllVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -1165,7 +1201,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205,MS-VERSS_R1930207,MS-VERSS_R1930208</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17203</ns1:REQ_ID>
@@ -1326,6 +1362,33 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R107011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] DeleteVersion specifies the input data for the DeleteVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R107012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] DeleteVersionResponse specifies the result data for the DeleteVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R107013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteVersion] The DeleteVersion element specifies the input data for the DeleteVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R108</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In DeleteVersion]
@@ -1357,6 +1420,15 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Description>[In DeleteVersion] fileVersion: An element as specified in section 2.2.3.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R11001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteVersionResponse] The DeleteVersionResponse element specifies the result data for the DeleteVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -1426,7 +1498,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17801</ns1:REQ_ID>
@@ -1435,7 +1507,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17802</ns1:REQ_ID>
@@ -1454,7 +1526,8 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17802011,MS-VERSS_R17802012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1780202</ns1:REQ_ID>
@@ -1463,7 +1536,8 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17802021,MS-VERSS_R17802022.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R118</ns1:REQ_ID>
@@ -1517,7 +1591,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R12202</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] [The description of message] GetVersionsSoapIn is the WSDL request message for a WSDL GetVersions operation.</ns1:Description>
+		<ns1:Description>[In Messages] [The description of message] GetVersionsSoapIn is the WSDL request message for a GetVersions WSDL operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1526,7 +1600,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R12203</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] [The description of message] GetVersionsSoapOut is the WSDL response message for a WSDL GetVersions operation.</ns1:Description>
+		<ns1:Description>[In Messages] [The description of message] GetVersionsSoapOut is the WSDL response message for WSDL GetVersions WSDL operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1588,6 +1662,33 @@ http://schemas.microsoft.com/sharepoint/soap/GetVersions.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R127011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetVersions specifies the input data for the GetVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R127012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] GetVersionsResponse specifies the result data for the GetVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R127013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetVersions] The GetVersions element specifies the input data for the GetVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R128</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetVersions]
@@ -1609,6 +1710,15 @@ http://schemas.microsoft.com/sharepoint/soap/GetVersions.</ns1:Description>
 		<ns1:Description>[In GetVersions] fileName: An element as specified in section 2.2.3.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1291</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetVersionsResponse] The GetVersionsResponse element specifies the result data for the GetVersions WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -1874,6 +1984,33 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R147011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] RestoreVersion specifies the input data for the RestoreVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R147012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] RestoreVersionResponse specifies the result data for the RestoreVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R147013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In RestoreVersion] The RestoreVersion element specifies the input data for the RestoreVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In RestoreVersion] 
@@ -1905,6 +2042,15 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Description>[In RestoreVersion] fileVersion: An element as specified in section 2.2.3.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1501</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In RestoreVersionResponse] The RestoreVersionResponse element specifies the result data for the RestoreVersion WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -1951,7 +2097,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R153</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In RestoreVersionResponse] No error code element returned indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site (2).&lt;8&gt; </ns1:Description>
+		<ns1:Description>[In RestoreVersionResponse] No error code element returned indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site.&lt;8&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2159,7 +2305,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17211</ns1:REQ_ID>
@@ -2320,7 +2466,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930111</ns1:REQ_ID>
@@ -2501,6 +2647,28 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1930207</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 if fileName contains equals sign (=). (&lt;4&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), Windows SharePoint Services 3.0 returns error code 0x81070906.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1930208</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (&lt;4&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010 and SharePoint Foundation 2013 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17601</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid characters, invalid character contains ("),(%),(&amp;),(*),(:),(&lt;),(=)(&gt;),({),(|),(}),(~),(/),(..) and Any character that has a value less than 32 or greater than 126. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
@@ -2579,7 +2747,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17611</ns1:REQ_ID>
@@ -2751,7 +2919,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19611</ns1:REQ_ID>
@@ -2946,7 +3114,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:REQ_ID>MS-VERSS_R1780200</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the value specified by the fileVersion element is the current version of the file. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-VERSS_R17802:i,MS-VERSS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-VERSS_R17802:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2956,8 +3124,52 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R198</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of "Object reference not set to an instance of an object." (&lt;7&gt; Section 3.1.4.2.2.2:  When fileVersion is the current version of the file, Windows SharePoint Services 3.0 does not return an error code element but does return an error string of "Object reference not set to an instance of an object.")</ns1:Description>
-		<ns1:Derived>MS-VERSS_R17802:i,MS-VERSS_R1:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of "Object reference not set to an instance of an object." when the fileVersion is the current version of the file. (&lt;7&gt; Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of "Object reference not set to an instance of an object.")</ns1:Description>
+		<ns1:Derived>MS-VERSS_R17802:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R17802011</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the value specified by the fileVersion element is the publised version of the file. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1780201:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R17802012</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of "Object reference not set to an instance of an object." when the fileVersion is the published version of the file. (&lt;7&gt; Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of "Object reference not set to an instance of an object.")</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1780201:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R17802021</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the file does not exist. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1780202:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R17802022</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of "Object reference not set to an instance of an object." when the file does not exist. (&lt;7&gt; Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of "Object reference not set to an instance of an object.")</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1780202:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2967,7 +3179,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R15301</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site (2). (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R153:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2978,7 +3190,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R15302</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site (2). (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R15301:c</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2988,7 +3200,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R15303</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site (2). (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R15301:c</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2998,7 +3210,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R204</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web."  to indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site (2). (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web."  to indicate that the file specified by the fileName and fileVersion elements of the RestoreVersion element could not be found on the site. (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
 		<ns1:Derived>MS-VERSS_R153:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3009,7 +3221,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R20401</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web." to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site (2). (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web." to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site. (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
 		<ns1:Derived>MS-VERSS_R204:c</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3019,7 +3231,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R20402</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web." to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site (2). (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description "There is no file with URL fileName in this Web." to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site. (&lt;8&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, "There is no file with URL fileName in this Web.")</ns1:Description>
 		<ns1:Derived>MS-VERSS_R204:c</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
