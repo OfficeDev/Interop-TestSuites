@@ -239,6 +239,7 @@
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-SITESS.wsdl" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\SOAP11.xsd" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_RequirementSpecification.xml" />
