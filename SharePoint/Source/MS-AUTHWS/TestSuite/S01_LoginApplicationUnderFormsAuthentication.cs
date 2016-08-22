@@ -151,13 +151,17 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "If the Login with Forms mode succeeds, and the TimeoutSeconds returned which type is int, MS-AUTHWS_R76 can be verified.");
 
-            // If the Login with Forms mode succeeds, and the TimeoutSeconds returned which type is int, MS-AUTHWS_R76 can be verified.
-            bool isTimeoutSecondsReturned = loginResult.TimeoutSeconds.GetType() == typeof(int);
+            // Set R191Enabled to true to verify that implementation does return the element TimeoutSeconds that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. Set R191Enabled to false to disable this requirement.
+            if (Common.IsRequirementEnabled(191, this.Site))
+            {
+                // If the Login with Forms mode succeeds, and the TimeoutSeconds returned which type is int, MS-AUTHWS_R76 can be verified.
+                bool isTimeoutSecondsReturned = loginResult.TimeoutSeconds.GetType() == typeof(int);
 
-            Site.CaptureRequirementIfIsTrue(
-                isTimeoutSecondsReturned,
-                76,
-                @"[In LoginResult] TimeoutSeconds: An integer that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires.");
+                Site.CaptureRequirementIfIsTrue(
+                    isTimeoutSecondsReturned,
+                    191,
+                    @"[In LoginResult] TimeoutSeconds: An integer that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires.");
+            }
 
             // Set R126Enabled to true to verify that the default value of the CookieName is "FedAuth" in operation "Login" response. Set R126Enabled to false to disable this requirement.
             if (Common.IsRequirementEnabled(126, this.Site))
