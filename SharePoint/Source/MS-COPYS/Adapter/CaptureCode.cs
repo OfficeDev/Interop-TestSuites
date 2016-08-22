@@ -636,32 +636,5 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems");
                                                57,
                                                "[In CopyResultCollection] This collection MUST contain exactly one entry for each IRI in the DestinationUrlCollection complex type (section 2.2.4.1).");
         }
-
-        /// <summary>
-        /// A method used to verify the detail element definition of a soap exception. 
-        /// </summary>
-        /// <param name="soapEx">A parameter represents the soap exception instance which should contain a "detail" element.</param>
-        private void VerifySoapExceptionDetailCapture(SoapException soapEx)
-        {
-            // Validate the detail element schema definition.
-            SoapFaultDetailSchemaHelper.ValidateSoapFaultDetail(soapEx, this.Site);
-
-            // If there are no any schema issues, then capture the R22, R24
-            this.Site.CaptureRequirement(
-                                        22,
-                                        "[In SOAP Fault Message] In a SOAP fault response, the detail element contains application-specific error information.");
-
-            // Verified requirement: MS-COPYS_R24
-            this.Site.CaptureRequirement(
-                                        24,
-                                        @"[In SOAP Fault Message] The following schema specifies the structure of the detail element in the SOAP fault response that is used by this protocol: <s:schema xmlns:s=""http://www.w3.org/2001/XMLSchema"" targetNamespace="" http://schemas.microsoft.com/sharepoint/soap"">
-                                         <s:complexType name=""SOAPFaultDetails"">
-                                            <s:sequence>
-                                               <s:element name=""errorstring"" type=""s:string""/>
-                                               <s:element name=""errorcode"" type=""s:string"" minOccurs=""0""/>
-                                            </s:sequence>
-                                         </s:complexType>
-                                      </s:schema>");
-        }
     }
 }

@@ -571,117 +571,11 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         }
 
         /// <summary>
-        /// This test case is used to verify if the destination location does not point to an existing folder for CopyItem operation,
-        /// "Unknown" error code should be returned.
-        /// </summary>
-        [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC10_CopyIntoItems_DesLocationNotExist()
-        {
-            // Get the value of the source file URL.
-            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
-
-           // Get the first destination location.
-            string desFileUrl1 = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
-
-            // Generate invalid file URL by construct a not-existing file name. 
-            string invalieFileUrl = this.GenerateInvalidFolderPathForFileUrl(desFileUrl1);
-
-            string[] desUrls = new string[] { invalieFileUrl };
-
-            // Retrieve content and metadata for a file that is stored in a source location.
-            GetItemResponse getitemsResponse = MSCopysAdapter.GetItem(sourceFileUrl);
-
-            // Switch to destination SUT.
-            MSCopysAdapter.SwitchTargetServiceLocation(ServiceLocation.DestinationSUT);
-
-            // Copy a file to the destination server when one of the destination URL is invalid.
-            CopyIntoItemsResponse copyIntoItemsResponse = MSCopysAdapter.CopyIntoItems(
-                                                                                    sourceFileUrl,
-                                                                                    desUrls,
-                                                                                    getitemsResponse.Fields,
-                                                                                    getitemsResponse.StreamRawValues);
-
-            // Verify MS-COPYS requirement: MS-COPYS_R271          
-            this.Site.CaptureRequirementIfAreEqual(
-                CopyErrorCode.Unknown,
-                copyIntoItemsResponse.Results[0].ErrorCode,
-                271,
-                @"[In CopyIntoItems] If the [source or] destination location does not point to an existing folder 
-                [or the protocol client does not have permission to access the source file], the protocol server MUST 
-                report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute 
-                set to ""Unknown"" for all of the destination locations.");
-        }
-
-        /// <summary>
-        /// This test case is used to verify if the protocol client does not have permission to access the source file,
-        /// "Unknown" error code should be returned.
-        /// </summary>
-        [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC11_CopyIntoItems_NoPermison()
-        {
-            // Get the value of the source file URL.
-            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
-
-            // Get the first destination location.
-            string desFileUrl1 = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
-
-            // Get the section destination location.
-            string desFileUrl2 = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
-
-            string[] desUrls = new string[] { desFileUrl1, desFileUrl2 };
-
-            // Retrieve content and metadata for a file that is stored in a source location.
-            GetItemResponse getitemsResponse = MSCopysAdapter.GetItem(sourceFileUrl);
-
-            // Switch to destination SUT.
-            MSCopysAdapter.SwitchTargetServiceLocation(ServiceLocation.DestinationSUT);
-
-            // Change the user which is no permission.
-            MSCopysAdapter.SwitchUser(
-                                      Common.GetConfigurationPropertyValue("MSCOPYSNoPermissionUser", this.Site),
-                                      Common.GetConfigurationPropertyValue("PasswordOfNoPermissionUser", this.Site),
-                                      Common.GetConfigurationPropertyValue("Domain", this.Site));
-
-            // Copy a file to the destination server.
-            CopyIntoItemsResponse copyIntoItemsResponse = MSCopysAdapter.CopyIntoItems(
-                                                                                    sourceFileUrl,
-                                                                                    desUrls,
-                                                                                    getitemsResponse.Fields,
-                                                                                    getitemsResponse.StreamRawValues);
-
-            // Collect files from specified file URLs.
-            this.CollectFileByUrl(desUrls);
-
-            this.Site.Assert.IsNotNull(copyIntoItemsResponse.Results, "The element Results should be return if CopyIntoItems operation executes successfully");
-            this.Site.Assert.IsTrue(2 == copyIntoItemsResponse.Results.Length, "The Results element should contain one CopyResult element.");
-
-            // Verify MS-COPYS requirement: MS-COPYS_R272
-            this.Site.Assert.AreEqual(
-                                    CopyErrorCode.Unknown,
-                                    copyIntoItemsResponse.Results[0].ErrorCode,
-                                    "The CopyIntoItems operation should fail and return Unknown error when the user have no permission to access the source file");
-            this.Site.Assert.AreEqual(
-                                    CopyErrorCode.Unknown,
-                                    copyIntoItemsResponse.Results[1].ErrorCode,
-                                    "The CopyIntoItems operation should fail and return Unknown error when the user have no permission to access the source file");
-
-            // if the protocol client does not have permission to access the source file, "Unknown" error code should be returned, MS-COPYS_R272 should be directly covered.
-            this.Site.CaptureRequirement(
-                272,
-                @"[In CopyIntoItems] If [the source or destination location does not point to an existing folder or] 
-                the protocol client does not have permission to access the source file, the protocol server MUST report a 
-                failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" 
-                for all of the destination locations.");
-        }
-
-        /// <summary>
         /// This test case is used to verify if the destination location is a malformed IRI, server should have different responses.
         /// </summary>
-       [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC12_CopyIntoItems_malformedIRI()
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S01_TC10_CopyIntoItems_malformedIRI()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(1041, this.Site), @"This is executed only when R1041Enable is set to true.");
-
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
 
@@ -704,20 +598,19 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                         getitemsResponse.Fields,
                                                                                         getitemsResponse.StreamRawValues);
 
-            // Verify MS-COPYS requirement: MS-COPYS_R1041
+            // Verify MS-COPYS requirement: MS-COPYS_R104
             this.Site.CaptureRequirementIfAreEqual(
                 CopyErrorCode.InvalidUrl,
                 copyIntoItemsResponse.Results[0].ErrorCode,
-                1041,
-                @"[In CopyErrorCode] [For CopyIntoItems operation] Implementation does return an ErrorCode of ""InvalidUrl""
-                when a destination location is a malformed IRI.(SharePoint Foundation 2013 follow this behavior.)");
+                104,
+                @"[In CopyErrorCode] InvalidUrl:  This value is used to indicate an error when the IRI of a destination location is malformed.");
         }
 
-       /// <summary>
+        /// <summary>
        /// This test case is used to verify the ContentTypeId map to field type on different products.
        /// </summary>
-       [TestCategory("MSCOPYS"), TestMethod()]
-       public void MSCOPYS_S01_TC13_GetItem_ContentTypeId()
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S01_TC11_GetItem_ContentTypeId()
        {
            // Get the value of the source file URL.
            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -771,7 +664,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// This test case is used to verify if the Fields collection is empty, the CopyIntoItems operation can succeed.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC14_CopyIntoItems_EmptyFieldsCollection()
+        public void MSCOPYS_S01_TC12_CopyIntoItems_EmptyFieldsCollection()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -851,7 +744,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// This test case is used to verify the field EncodedAbsUrl does not be copied when call CopyIntoItems operation on Windows SharePoint Services 3.0.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC15_CopyIntoItems_EncodedAbsUrlField()
+        public void MSCOPYS_S01_TC13_CopyIntoItems_EncodedAbsUrlField()
         {
             this.Site.Assume.IsTrue(Common.IsRequirementEnabled(230, this.Site), @"This is executed only when R230Enable is set to true.");
 
@@ -915,7 +808,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// does equal to the value of source location on SharePoint Foundation 2010.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC16_CopyIntoItems_CopySourceField()
+        public void MSCOPYS_S01_TC14_CopyIntoItems_CopySourceField()
         {
             this.Site.Assume.IsTrue(Common.IsRequirementEnabled(148, this.Site), @"This is executed only when R148Enable is set to true.");
 
@@ -976,7 +869,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// This test case is used to verify the WorkflowEventType map to Error field type.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC17_GetItem_WorkflowEventType()
+        public void MSCOPYS_S01_TC15_GetItem_WorkflowEventType()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1005,7 +898,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// an empty value, or not be present.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC18_CopyIntoItems_ValueAttribute()
+        public void MSCOPYS_S01_TC16_CopyIntoItems_ValueAttribute()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1105,7 +998,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// the Fields and Stream elements in the GetItemResponse element will be removed.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC19_GetItems_FileNotExist()
+        public void MSCOPYS_S01_TC17_GetItems_FileNotExist()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1130,7 +1023,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// source location to all destination locations.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC20_CopyIntoItems_CheckFileContent()
+        public void MSCOPYS_S01_TC18_CopyIntoItems_CheckFileContent()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1207,7 +1100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// exactly one record for each destination location.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC21_CopyIntoItems_CheckResultNumber()
+        public void MSCOPYS_S01_TC19_CopyIntoItems_CheckResultNumber()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1265,7 +1158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         /// in the destination locations collection.
         /// </summary>
         [TestCategory("MSCOPYS"), TestMethod()]
-        public void MSCOPYS_S01_TC22_CopyIntoItems_CheckResultOrder()
+        public void MSCOPYS_S01_TC20_CopyIntoItems_CheckResultOrder()
         {
             // Get the value of the source file URL.
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
@@ -1316,6 +1209,44 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             this.Site.CaptureRequirement(
                 209,
                 @"[In CopyIntoItems] The DestinationUrl attribute of the CopyResult element (section 2.2.4.2) that corresponds to the destination location MUST be set to the value of the destination location.");
+        }
+
+        /// <summary>
+        /// This test case is used to verify if the file cannot be created at the given destination location,
+        /// protocol server should return "Unknown" error code and provide a string value that describes the error in the
+        /// ErrorMessage attribute.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S01_TC21_CopyIntoItems_UnknowForCannotCreateFileAtDestination()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
+            string desFileUrl1 = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
+            string invalieFileUrl = this.GenerateInvalidFolderPathForFileUrl(desFileUrl1);
+
+            string[] desUrls = new string[] { invalieFileUrl };
+
+            GetItemResponse getitemsResponse = MSCopysAdapter.GetItem(sourceFileUrl);
+            MSCopysAdapter.SwitchTargetServiceLocation(ServiceLocation.DestinationSUT);
+
+            // Copy a file to the destination server when one of the destination URL is invalid.
+            CopyIntoItemsResponse copyIntoItemsResponse = MSCopysAdapter.CopyIntoItems(
+                sourceFileUrl,
+                desUrls,
+                getitemsResponse.Fields,
+                getitemsResponse.StreamRawValues);
+
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-COPYS_R224, returned error code is '{0}'", copyIntoItemsResponse.Results[0].ErrorCode);
+
+            bool isR224Verified = copyIntoItemsResponse.Results[0].ErrorCode == CopyErrorCode.Unknown
+                && !string.IsNullOrEmpty(copyIntoItemsResponse.Results[0].ErrorMessage);
+
+            // Verify MS-COPYS requirement: MS-COPYS_R224  
+            this.Site.CaptureRequirementIfIsTrue(
+                isR224Verified,
+                224,
+                @"[In CopyIntoItems] If the file cannot be created at the given destination location, the protocol server MUST
+                  report a failure for this destination location by setting the ErrorCode attribute of the corresponding CopyResult
+                  element to ""Unknown"" and provide a string value that describes the error in the ErrorMessage attribute.");
         }
     }
 }
