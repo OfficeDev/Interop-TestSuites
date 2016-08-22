@@ -15,7 +15,7 @@
     <!-- Set R121Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. Set R121Enabled to false to disable this requirement. -->
     <Property name="R121Enabled" value="true" />
     <!-- Set R191Enabled to true to verify that implementation does return the element TimeoutSeconds that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. Set R191Enabled to false to disable this requirement. -->
-    <Property name="R191Enabled" value="false" />
+    <Property name="R191Enabled" value="true" />
     <!-- Set R193Enabled to true to verify that implementation does not use authentication if the AuthenticationMode is "None". Set R193Enabled to false to disable this requirement. -->
     <Property name="R193Enabled" value="false" />
   </Properties>
