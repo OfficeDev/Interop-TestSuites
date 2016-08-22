@@ -22,7 +22,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] , section 4 or in [SOAP1.2/1] , section 5.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] , section 4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31,7 +31,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R8</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned [using HTTP Status-Codes as specified in [RFC2616] , section 10 or] using SOAP faults as specified in [SOAP1.1] , section 4.4 or [SOAP1.2/1] , section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned [using HTTP Status-Codes as specified in [RFC2616] , section 10 or] using SOAP faults as specified in [SOAP1.1] , section 4.4 Scope[[#Headers],[Description]]or [SOAP1.2/1] , section 5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -40,7 +40,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R596</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned using HTTP Status-Codes as specified in [RFC2616] , section 10 [or using SOAP faults as specified in [SOAP1.1] , section 4.4 or [SOAP1.2/1] , section 5.4].</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned using HTTP Status-Codes as specified in [RFC2616] , section 10 [or using SOAP faults as specified in [SOAP1.1] , section 4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -274,7 +274,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] Description of complex type SPClaim: The claim associated with an entity.</ns1:Description>
+		<ns1:Description>[In Complex Types] Description of complex type SPClaim: The claim associated with a login name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -511,7 +511,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In ArrayOfSPSchemaElement] SPSchemaElement: The user interface display characteristics of a field in a login entity.</ns1:Description>
+		<ns1:Description>[In ArrayOfSPSchemaElement] SPSchemaElement: The user interface display characteristics of a field in a login name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -735,7 +735,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R65</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SPClaim] SPClaim: The claim (2) associated with a login entity. 
+		<ns1:Description>[In SPClaim] SPClaim: The claim (2) associated with a login name. 
 &lt;xs:complexType name="SPClaim" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;xs:sequence&gt;
     &lt;xs:element minOccurs="0" maxOccurs="1" name="ClaimType" type="xs:string"/&gt;
@@ -770,7 +770,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R68</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SPClaim] ValueType: The type of the claim value.</ns1:Description>
+		<ns1:Description>[In SPClaim] ValueType: The type of the claim value.&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -932,6 +932,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R540001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In SPProviderHierarchyElement] This value[HierarchyNodeID] is empty for the hierarchy provider and the root element of the hierarchy tree.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R541</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
 		<ns1:Description>[In SPProviderHierarchyElement] IsLeaf: Whether or not the element [SPProviderHierarchyElement] is a leaf element.</ns1:Description>
@@ -979,7 +988,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R546</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In SPProviderHierarchyElement] Count: The number of PickerEntity objects in this element [SPProviderHierarchyElement] and all child elements, calculated recursively.</ns1:Description>
+		<ns1:Description>[In SPProviderHierarchyElement] Count: The number of PickerEntity objects in this element [SPProviderHierarchyElement] and all child elements, calculated recursively.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1274,7 +1283,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In SPPrincipalType] [The allowable value for SPPrincipalType]  SharePointGroup: No picker entity is included in the output claims provider hierarchy tree.</ns1:Description>
+		<ns1:Description>[In SPPrincipalType] [The allowable value for SPPrincipalType]  SharePointGroup: Picker entities of the site group are  included in the output claims provider hierarchy tree.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1283,7 +1292,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In SPPrincipalType] [The allowable value for SPPrincipalType]  All: No picker entity is included in the output claims provider hierarchy tree.</ns1:Description>
+		<ns1:Description>[In SPPrincipalType] [The allowable value for SPPrincipalType]  All: All picker entities are included in the output claims provider hierarchy tree.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1677,7 +1686,7 @@ A claim value type.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R562</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [Description of WSDL Operation Search:] If a hierarchy provider is available, the protocol server MAY move results returned by claims providers to hierarchy provider hierarchy tree.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [Description of WSDL Operation Search:] If a hierarchy provider is available, the protocol server MUST also retrieve the hierarchy provider hierarchy tree and MAY move results returned by claims providers to hierarchy provider hierarchy tree.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1750,7 +1759,7 @@ The claim providers are listed in the provider names in the input message.</ns1:
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R146</ns1:REQ_ID>
@@ -1760,6 +1769,15 @@ The claim providers are listed in the provider names in the input message.</ns1:
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R146001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimTypes] The protocol server will remove the duplicated claim types from the known basic claim types and the claim providers’ claim types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R565</ns1:REQ_ID>
@@ -1894,6 +1912,15 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimTyp
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R157001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimTypesResponse] The claim type should format as a URI.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R158</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In ClaimValueTypes] This operation is used to retrieve a list of claim value types from a list of claims providers.</ns1:Description>
@@ -1933,7 +1960,16 @@ The claims providers are listed in the provider names in the input message.</ns1
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R163001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimValueTypes] The protocol server will remove the duplicated claim value types from the known basic claim value types and claims providers' claim value types.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R165</ns1:REQ_ID>
@@ -2075,6 +2111,15 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimVal
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R174001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ClaimValueTypesResponse] The claim value type should format as a URI. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R175</ns1:REQ_ID>
@@ -2312,6 +2357,15 @@ The claims provider supports hierarchy.</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R194001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In GetHierarchy] The protocol server MUST retrieve a hierarchy provider hierarchy tree if the name of an available hierarchy provider is specified in the input message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R578</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] The following table summarizes the set of WSDL message definitions that are specific to this operation. Message: IClaimProviderWebService_GetHierarchy_InputMessage; Description: The request WSDL message for the GetHierarchy WSDL operation.</ns1:Description>
@@ -2460,7 +2514,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R210</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetHierarchy] numberOfLevels: The maximum number of levels that can be returned by the protocol server in any of the output claims provider hierarchy tree.</ns1:Description>
+		<ns1:Description>[In GetHierarchy] numberOfLevels: The maximum number of levels that can be returned by the protocol server in any of the output claims provider hierarchy tree.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2482,7 +2536,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R212</ns1:REQ_ID>
@@ -2491,7 +2545,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R583</ns1:REQ_ID>
@@ -2562,7 +2616,10 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:REQ_ID>MS-CPSWS_R219</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In GetHierarchyAll] The protocol server MUST retrieve claims provider hierarchy trees from claims providers that meet all the following criteria:
-The claims providers are associated with the Web application (1) specified in the input message.
+The claims providers are associated with the Web application (1) specified in the input message the meet one of the following criteria:
+The claims providers are enabled and used by default in situations where the administrator has not specified the claims providers.
+The claims providers are associated with the authentication method for the Web application (1).
+The custom claims providers are configured for the Web application (1).
 The claims providers are listed in the provider names in the input message.
 The claims providers support hierarchy.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2577,7 +2634,16 @@ The claims providers support hierarchy.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R584001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In GetHierarchyAll] The name of the hierarchy provider is prefixed with "_HierarchyProvider_".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R222</ns1:REQ_ID>
@@ -2718,7 +2784,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetHierarchyAll] numberOfLevels: The maximum number of levels that can be returned by the protocol server in any of the output claims provider hierarchy trees.</ns1:Description>
+		<ns1:Description>[In GetHierarchyAll] numberOfLevels: The maximum number of levels that can be returned by the protocol server in any of the output claims provider hierarchy trees.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2740,7 +2806,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R236</ns1:REQ_ID>
@@ -2749,7 +2815,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R591</ns1:REQ_ID>
@@ -2940,7 +3006,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Hierarch
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In HierarchyProviderSchema] HierarchyProviderSchemaResult: The list of hierarchy claims provider schemas.</ns1:Description>
+		<ns1:Description>[In HierarchyProviderSchema] HierarchyProviderSchemaResult: The schema of the current hierarchy provider.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2982,12 +3048,12 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Hierarch
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
 		<ns1:Description>[In ProviderSchemas] The protocol server MUST retrieve claims provider schemas from claims providers that meet all the following criteria:
 The claims providers are enabled for the Web application specified in the input message.
-The claims providers are listed in the provider names in the input message  or SharePoint Groups provider.
+The claims providers are listed in the provider names in the input message  or site group provider.
 The claims providers support search and resolve.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R263</ns1:REQ_ID>
@@ -3371,11 +3437,11 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Resolve<
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R616</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Resolve] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException&lt;"resolveInput"&gt; message.</ns1:Description>
+		<ns1:Description>[In Resolve] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException&lt;"value"&gt; message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R298</ns1:REQ_ID>
@@ -4082,11 +4148,11 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveM
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R632</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ResolveMultipleClaim] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException&lt;"searchPattern"&gt; message.</ns1:Description>
+		<ns1:Description>[In ResolveMultipleClaim] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException&lt;"resolveInput"&gt; message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R367</ns1:REQ_ID>
@@ -4193,7 +4259,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ResolveM
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R635</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In Search] If a hierarchy provider is available, the protocol server MAY move results returned by claims providers to hierarchy provider hierarchy tree.</ns1:Description>
+		<ns1:Description>[In Search] If a hierarchy provider is available, the protocol server MUST also retrieve the hierarchy provider hierarchy tree and MAY move results returned by claims providers to hierarchy provider hierarchy tree.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4236,7 +4302,7 @@ The claims providers support search.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R381</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In Search] If no provider names are specified, the protocol server MUST use all the available claims providers.</ns1:Description>
+		<ns1:Description>[In Search] If no provider names are specified, the protocol server MUST use all the available claims providers.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4395,6 +4461,15 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/Search</
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R398001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Search] The way in which the protocol server performs the search is implementation-specific. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R652</ns1:REQ_ID>
@@ -4776,6 +4851,15 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAl
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R432001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.13.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In SearchAll The way in which the protocol server performs the search is implementation-specific.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R433</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In SearchAll] searchPattern: If list of provider names is NULL, the protocol server MUST search for each string in all claims providers.</ns1:Description>
@@ -4843,7 +4927,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAl
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R4</ns1:REQ_ID>
@@ -4873,5 +4957,14 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAl
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R381001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Search] For this operation[Search], the server will not use any available claims providers. [In Appendix B: Product Behavior](&lt;5&gt; Section 3.1.4.12: Windows SharePoint Services 3.0 and above follow this behavior)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 </ns1:ReqTable>
