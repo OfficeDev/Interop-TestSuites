@@ -160,7 +160,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                 Site.CaptureRequirementIfIsTrue(
                     isTimeoutSecondsReturned,
                     191,
-                    @"[In LoginResult] TimeoutSeconds: An integer that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires.");
+                    @"[In Appendix B: Product Behavior] Implementation does return the element TimeoutSeconds that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. (The Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)");
             }
 
             // Set R126Enabled to true to verify that the default value of the CookieName is "FedAuth" in operation "Login" response. Set R126Enabled to false to disable this requirement.
