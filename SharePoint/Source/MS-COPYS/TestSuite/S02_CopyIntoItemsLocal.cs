@@ -404,7 +404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
 
             string[] desUrls = new string[] { desFileUrl };
- 
+
             // Retrieve the contents and metadata for a file from the specified location.
             GetItemResponse getitemsResponse = MSCopysAdapter.GetItem(sourceFileUrl);
 
@@ -438,12 +438,15 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 "EncodedAbsUrl",
                                                                                 FieldAttributeType.InternalName);
 
-            // Verify MS-COPYS requirement: MS-COPYS_R232           
-            this.Site.CaptureRequirementIfAreNotEqual(
+            if (Common.IsRequirementEnabled(232, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R232           
+                this.Site.CaptureRequirementIfAreNotEqual(
                 fieldInfoScource.Value.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 232,
                 @"[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>
@@ -462,7 +465,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
 
             string[] desUrls = new string[] { desFileUrl };
- 
+
             // Copy a file to the destination server.
             CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
                                                                                     sourceFileUrl,
@@ -484,13 +487,16 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 getitemsResponseDes.Fields,
                                                                                 "_CopySource",
                                                                                 FieldAttributeType.InternalName);
-            
-            // Verify MS-COPYS requirement: MS-COPYS_R149
-            this.Site.CaptureRequirementIfAreEqual(
+
+            if (Common.IsRequirementEnabled(149, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R149
+                this.Site.CaptureRequirementIfAreEqual(
                 sourceFileUrl.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 149,
                 @"[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>

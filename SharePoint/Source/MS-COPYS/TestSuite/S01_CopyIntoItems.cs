@@ -763,7 +763,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
 
             // Select a field by specified field attribute value.
             FieldInformation fieldInfoScource = this.SelectFieldBySpecifiedAtrribute(
-                                                                                getitemsResponse.Fields, 
+                                                                                getitemsResponse.Fields,
                                                                                 "EncodedAbsUrl",
                                                                                 FieldAttributeType.InternalName);
 
@@ -794,12 +794,15 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 "EncodedAbsUrl",
                                                                                 FieldAttributeType.InternalName);
 
-            // Verify MS-COPYS requirement: MS-COPYS_R230           
-            this.Site.CaptureRequirementIfAreNotEqual(
+            if (Common.IsRequirementEnabled(230, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R230           
+                this.Site.CaptureRequirementIfAreNotEqual(
                 fieldInfoScource.Value.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 230,
                 @"[In Appendix B: Product Behavior] CopyIntoItems operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>
@@ -850,16 +853,19 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 getitemsResponseDes.Fields,
                                                                                 "_CopySource",
                                                                                 FieldAttributeType.InternalName);
-            
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-COPYS_R148");
-        
-            // Verify MS-COPYS requirement: MS-COPYS_R148
-            this.Site.CaptureRequirementIfAreEqual(
-                sourceFileUrl.ToLower(),
-                fieldInfoDes.Value.ToLower(),
-                148,
-                @"[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+
+            if (Common.IsRequirementEnabled(148, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-COPYS_R148");
+
+                // Verify MS-COPYS requirement: MS-COPYS_R148
+                this.Site.CaptureRequirementIfAreEqual(
+                    sourceFileUrl.ToLower(),
+                    fieldInfoDes.Value.ToLower(),
+                    148,
+                    @"[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>

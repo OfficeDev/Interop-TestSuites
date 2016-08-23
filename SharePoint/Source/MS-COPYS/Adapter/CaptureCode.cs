@@ -24,7 +24,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
 
             this.VerifyTransPortAndSOAPCapture();
 
-            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R169, MS-COPYS_R171, MS-COPYS_R183, MS-COPYS_R184, MS-COPYS_R191, MS-COPYS_R192 and MS-COPYS_R195 can be directly captured.
+            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R169, MS-COPYS_R171, MS-COPYS_R184, MS-COPYS_R191, MS-COPYS_R192 and MS-COPYS_R195 can be directly captured.
             this.Site.CaptureRequirement(
                 169,
                 @"[In GetItem] [The GetItem schema is:]: <wsdl:operation name=""GetItem"">
