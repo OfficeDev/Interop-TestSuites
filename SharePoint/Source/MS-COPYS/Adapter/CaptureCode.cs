@@ -37,12 +37,6 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 171,
                 @"[In GetItem] [The protocol client sends a GetItemSoapIn request message (section 3.1.4.1.1.1) and] the protocol server responds with a GetItemSoapOut response message (section 3.1.4.1.1.2) as follows:");
 
-            // Verified requirement: MS-COPYS_R183
-            this.Site.CaptureRequirement(
-                183,
-                @"[In GetItemSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/GetItem");
-
             // Verified requirement: MS-COPYS_R184
             this.Site.CaptureRequirement(
                 184,
@@ -92,7 +86,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem");
 
             this.VerifyTransPortAndSOAPCapture();
 
-            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R268, MS-COPYS_R295, MS-COPYS_R296, MS-COPYS_R297, MS-COPYS_R306, MS-COPYS_R307, MS-COPYS_R266 and MS-COPYS_R309 can be directly captured. 
+            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R268, MS-COPYS_R295, MS-COPYS_R297, MS-COPYS_R306, MS-COPYS_R307, MS-COPYS_R266 and MS-COPYS_R309 can be directly captured. 
             this.Site.CaptureRequirement(
                 268,
                 @"[In CopyIntoItemsLocal] [The protocol client sends a CopyIntoItemsLocalSoapIn request message (section 3.1.4.3.1.1) and] the protocol server responds with a CopyIntoItemsLocalSoapOut response message (section 3.1.4.3.1.2) as follows:");
@@ -109,13 +103,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem");
             this.Site.CaptureRequirement(
                 295,
                 @"[In CopyIntoItemsLocalSoapOut] The CopyIntoItemsLocalSoapOut message is the response WSDL message for a CopyIntoItemsLocal WSDL operation (section 3.1.4.3).");
-
-            // Verified requirement: MS-COPYS_R296
-            this.Site.CaptureRequirement(
-                296,
-                @"[In CopyIntoItemsLocalSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal");
-
+                        
             // Verified requirement: MS-COPYS_R297
             this.Site.CaptureRequirement(
                 297,
@@ -166,7 +154,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal");
 
             this.VerifyTransPortAndSOAPCapture();
 
-            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R204, MS-COPYS_R239, MS-COPYS_R240, MS-COPYS_R241, MS-COPYS_R255, MS-COPYS_R258 can be directly captured. 
+            // If schema validation is successful, the request and response schema definition related requirements: MS-COPYS_R204, MS-COPYS_R239, MS-COPYS_R241, MS-COPYS_R255, MS-COPYS_R258 can be directly captured. 
             this.Site.CaptureRequirement(
                 204,
                 @"[In CopyIntoItems] [The protocol client sends a CopyIntoItemsoapIn request message (section 3.1.4.2.1.1) and] the protocol server responds with a CopyIntoItemsoapOut response message (section 3.1.4.2.1.2 ) as follows.");
@@ -175,12 +163,6 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal");
             this.Site.CaptureRequirement(
                 239,
                 @"[In CopyIntoItemsSoapOut] The CopyIntoItemsSoapOut message is the response WSDL message for a CopyIntoItems WSDL operation (section 3.1.4.2).");
-
-            // Verified requirement: MS-COPYS_R240
-            this.Site.CaptureRequirement(
-                240,
-                @"[In CopyIntoItemsSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems");
 
             // Verified requirement: MS-COPYS_R241
             this.Site.CaptureRequirement(
@@ -530,7 +512,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems");
             // if the CopyResult is not null, then capture R59
             this.Site.CaptureRequirement(
                                         59,
-                                        @"[In CopyResultCollection] CopyResult: Specifies the status of the copy operation for a single destination location, as defined in section 2.2.4.2.");
+                                        @"[In CopyResultCollection] CopyResult: Specifies the copy status for each destination location, as defined in section 2.2.4.2.");
             
             // if the schema validation is successful, then capture R58
             this.Site.CaptureRequirement(

@@ -329,7 +329,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 CopyErrorCode.Unknown,
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 271,
-                @"[In CopyIntoItems] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
+                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
 
             // Verify MS-COPYS requirement: MS-COPYS_R289
             this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
@@ -443,8 +443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 fieldInfoScource.Value.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 232,
-                @"[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.
-                (Windows SharePoint Services 3.0 follow this behavior.)");
+                @"[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
         }
 
         /// <summary>
@@ -491,7 +490,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 sourceFileUrl.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 149,
-                @"[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(SharePoint Foundation 2010 follow this behavior.)");
+                @"[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
         }
 
         /// <summary>
@@ -719,9 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 CopyErrorCode.Unknown,
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 270,
-                @"[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client,
-                  then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning
-                  the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
+                @"[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
         }
 
         /// <summary>
@@ -746,9 +743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 CopyErrorCode.SourceInvalid,
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 273,
-                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points
-                  to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode
-                  attribute set to ""SourceInvalid"" for this destination location. ");
+                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to ""SourceInvalid"" for this destination location. ");
 
             // Verify MS-COPYS requirement: MS-COPYS_R98
             this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(

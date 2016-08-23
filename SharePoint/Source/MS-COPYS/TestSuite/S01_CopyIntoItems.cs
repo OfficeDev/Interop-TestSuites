@@ -799,8 +799,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 fieldInfoScource.Value.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 230,
-                @"[In Appendix B: Product Behavior] CopyIntoItems operation does not copy the EncodedAbsUrl field.(Windows SharePoint 
-                Services 3.0 follow this behavior.)");
+                @"[In Appendix B: Product Behavior] CopyIntoItems operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
         }
 
         /// <summary>
@@ -860,9 +859,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 sourceFileUrl.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 148,
-                @"[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with
-                internal name _CopySource ] does equal to the value of source location.(SharePoint Foundation 2010 follow 
-                this behavior.)");
+                @"[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
         }
 
         /// <summary>
@@ -1015,7 +1012,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             // Verify MS-COPYS requirement: MS-COPYS_R176
             this.Site.CaptureRequirement(
                 176,
-                @"[In GetItem] [The protocol server returns results based on the following conditions:] If the source location does not point to an existing file on the protocol server, the protocol server MUST report a failure by omitting the Fields and Stream elements in the GetItemResponse element (section 3.1.4.1.2.2).");
+                @"[In GetItem] [The protocol server returns results based on the following conditions:] If the source location does not point to an existing file on the protocol server, the protocol server MUST omit the Fields and Stream elements in the GetItemResponse element (section 3.1.4.1.2.2).");
         }
 
         /// <summary>
@@ -1244,9 +1241,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             this.Site.CaptureRequirementIfIsTrue(
                 isR224Verified,
                 224,
-                @"[In CopyIntoItems] If the file cannot be created at the given destination location, the protocol server MUST
-                  report a failure for this destination location by setting the ErrorCode attribute of the corresponding CopyResult
-                  element to ""Unknown"" and provide a string value that describes the error in the ErrorMessage attribute.");
+                @"[In CopyIntoItems] If the file cannot be created at the given destination location, the protocol server MUST report a failure for this destination location by setting the ErrorCode attribute of the corresponding CopyResult element to ""Unknown"" and provide a string value that describes the error in the ErrorMessage attribute.");
         }
     }
 }
