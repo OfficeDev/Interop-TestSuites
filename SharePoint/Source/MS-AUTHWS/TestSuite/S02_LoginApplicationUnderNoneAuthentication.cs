@@ -79,6 +79,18 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                     @"[In AuthenticationMode] If the AuthenticationMode is ""None"", no authentication is used [or a custom authentication scheme is used].");
             }
 
+            // Set R193Enabled to true to verify that implementation does not use authentication if the AuthenticationMode is "None". Set R193Enabled to false to disable this requirement.
+            if (Common.IsRequirementEnabled(193, this.Site))
+            {
+                bool isVerifyNoneMode = AuthenticationMode.None == authMode;
+
+                // If the retrieved authentication mode equals to None, MS-AUTHWS_193 can be verified. 
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyNoneMode,
+                    193,
+                    @"[In Appendix B: Product Behavior] Implementation does not use authentication if the AuthenticationMode is ""None"". (Windows SharePoint Services 3.0, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)");
+            }
+
             // Invoke the Login operation.
             LoginResult loginResult = this.authwsAdapter.Login(this.validUserName, this.validPassword);
             Site.Assert.IsNotNull(loginResult, "Login result is not null");
