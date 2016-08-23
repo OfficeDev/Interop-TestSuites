@@ -634,16 +634,17 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateSiteSoapIn] If the LCID is less than zero, server MUST create the site with current server language. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSiteSoapIn]Otherwise, if the LCID is invalid [or not installed], then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
+		<ns1:Description>[In CreateSiteSoapIn] If the LCID is invalid [or not installed], then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -652,7 +653,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSiteSoapIn]Otherwise, if the LCID is [invalid or] not installed, then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
+		<ns1:Description>[In CreateSiteSoapIn] If the LCID is [invalid or] not installed, then the server MUST return a SOAP fault with error code 0x8102005e.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -799,7 +800,27 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2042001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be the port number used by the web application  on the protocol server.</ns1:Description>
+		<ns1:Derived>MS-ADMINS_R2042:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ADMINS_R2042002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be the port number used by or the Administration Web Service on the protocol server.</ns1:Description>
+		<ns1:Derived>MS-ADMINS_R2042:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2043</ns1:REQ_ID>
@@ -1744,7 +1765,7 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 		<ns1:Doc_Sect>3.1.4.4.4</ns1:Doc_Sect>
 		<ns1:Description>[Simple Types]The following table summarizes the XML schema simple definitions that are specific to this operation:s1:guid.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -1753,18 +1774,18 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
 		<ns1:Doc_Sect>3.1.4.4.4</ns1:Doc_Sect>
 		<ns1:Description>[Simple Types] s1:guid: Represents a GUID.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2095002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.4.1</ns1:Doc_Sect>
 		<ns1:Description>[s1:guid] The s1:guid simple type is used to represent a GUID value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2095003</ns1:REQ_ID>
@@ -1775,9 +1796,9 @@ http://schemas.microsoft.com/sharepoint/soap/RefreshConfigCache</ns1:Description
      &lt;/s:restriction&gt;
  &lt;/s:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R1002</ns1:REQ_ID>

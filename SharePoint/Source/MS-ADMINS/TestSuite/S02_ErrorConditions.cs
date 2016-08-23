@@ -393,8 +393,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             Site.CaptureRequirementIfAreEqual<string>(
                 "0x8102005e",
                 strErrorCode,
-                18,
-                @"[In CreateSiteSoapIn]If the  LCID is not installed, then the server MUST return a SOAP fault with error code 0x8102005e.");
+                18002,
+                @"[In CreateSiteSoapIn] If the LCID is invalid [or not installed], then the server MUST return a SOAP fault with error code 0x8102005e.");
         }
 
         /// <summary>
@@ -403,6 +403,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
         [TestCategory("MSADMINS"), TestMethod()]
         public void MSADMINS_S02_TC09_CreateSiteFailed_LcidInvalid()
         {
+            string strErrorCode = string.Empty;
             int invalidLcid = TestSuiteBase.GenerateRandomNumber(0, 99);
             string title = TestSuiteBase.GenerateUniqueSiteTitle();
             string url = TestSuiteBase.GenerateUrlPrefixWithPortNumber() + title;
@@ -421,8 +422,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             }
             catch (SoapException exp)
             {
+                strErrorCode = Common.ExtractErrorCodeFromSoapFault(exp);
                 Site.Log.Add(LogEntryKind.Debug, "Soap exception returned, it means the create site operation failed with invalid LCID inputting, the message is: {0}", exp.Message);
             }
+
+            // If the returned error code equals to 0x8102005e, then MS-ADMINS_R18 can be captured.
+            Site.CaptureRequirementIfAreEqual<string>(
+                "0x8102005e",
+                strErrorCode,
+                18,
+                @"[In CreateSiteSoapIn] If the LCID is invalid [or not installed], then the server MUST return a SOAP fault with error code 0x8102005e.");
         }
 
         /// <summary>
@@ -539,6 +548,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                 isSoapFaultReturn,
                 2050,
                 @"[In CreateSite]If it[OwnerLogin] is missing, the server MUST return a SOAP fault.");
+
+            isSoapFaultReturn = false;
+            try
+            {
+                // Call CreateSite method to create a site collection with empty owner login.
+                this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, string.Empty, ownerName, ownerEmail, portalUrl, portalName);
+            }
+            catch (SoapException)
+            {
+                isSoapFaultReturn = true;
+            }
+
+            // If a SOAP fault is returned, then MS-ADMINS_R2050 can be captured.
+            Site.CaptureRequirementIfIsTrue(
+                isSoapFaultReturn,
+                2050001,
+                @"[In CreateSite]If it[OwnerLogin] is empty, the server MUST return a SOAP fault.");
         }
 
         /// <summary>
