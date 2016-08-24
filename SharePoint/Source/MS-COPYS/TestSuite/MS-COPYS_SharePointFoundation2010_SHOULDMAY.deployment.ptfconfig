@@ -20,9 +20,9 @@
     <!--Set R126Enabled to true to ContentTypeId field type map to Text field type is supported. R126Enabled to false to disable this requirement. -->
     <Property name="R126Enabled" value="true" />
     <!--Set R230Enabled to true to copy the CopyItems operation ID field is not supported. R230Enabled to false to disable this requirement. -->
-    <Property name="R230Enabled" value="false" />
+    <Property name="R230Enabled" value="true" />
     <!--Set R232Enabled to true to copy the CopyItems operation ID field is not supported. R232Enabled to false to disable this requirement. -->
-    <Property name="R232Enabled" value="false" />
+    <Property name="R232Enabled" value="true" />
     <!--Set R1048Enabled to true to support returning a SOAP fault if the URL parameter of GetItem operation is an invalid URL format string. R1048Enabled to false to disable this requirement. -->
     <Property name="R1048Enabled" value="true" />
     <!--Set R2781Enabled to true to verify that implementation does return empty result if the source location and the destination locaiotn refer to different servers. R2781Enabled to false to disable this requirement. -->
