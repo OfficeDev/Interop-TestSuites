@@ -10,9 +10,9 @@
     <!--Set R1044Enabled to true to return an ErrorCode of "Unknown" when a destination location  is a malformed IRI is supported. R1044Enabled to false to disable this requirement. -->
     <Property name="R1044Enabled" value="true" />
     <!--Set R148Enabled to true to equal to the value of source location for CopyIntoItem operation is supported. R148Enabled to false to disable this requirement. -->
-    <Property name="R148Enabled" value="false" />
+    <Property name="R148Enabled" value="true" />
     <!--Set R149Enabled to true to equal to the value of source location for CopyIntoItemLocation operation is supported. R149Enabled to false to disable this requirement. -->
-    <Property name="R149Enabled" value="false" />
+    <Property name="R149Enabled" value="true" />
     <!--Set R124Enabled to true to ContentTypeId field type map to the Text field type is supported. R124Enabled to false to disable this requirement. -->
     <Property name="R124Enabled" value="false" />
     <!--Set R125Enabled to true to ContentTypeId field type map to error field type is supported. R125Enabled to false to disable this requirement. -->
