@@ -246,6 +246,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                 getLanguagesResult.Languages.Length > 0,
                 94,
                 @"[In GetLanguagesResponse]GetLanguagesResult: Provides the locale identifiers (LCIDs) of languages used in the deployment.");
+
+            Site.CaptureRequirementIfIsTrue(
+                getLanguagesResult.Languages.Length > 0,
+                94001,
+                @"[In GetLanguagesResponse] Languages: Specifies the languages used in the deployment.");
+
+            Site.CaptureRequirementIfIsTrue(
+                getLanguagesResult.Languages.Length > 0,
+                94002,
+                @"[In GetLanguagesResponse] LCID: Specifies the locale identifier (LCID) of a language used in the deployment.");
         }
     }
 }

@@ -29,9 +29,9 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
       $retValue = ""
       try
 	  {
-			if (($proName -eq "Title") -or ($proName -eq "Description") -or ($proName -eq "WebTemplate"))
+			if (($proName -eq "Title") -or ($proName -eq "Description") -or ($proName -eq "WebTemplate") -or ($proName -eq "Configuration"))
 			{
-				$retValue = $spSite.rootweb.($proName)
+				$retValue = $spSite.rootweb.($proName).ToString();
             }
 			elseif($proName -eq "OwnerName")
 			{
