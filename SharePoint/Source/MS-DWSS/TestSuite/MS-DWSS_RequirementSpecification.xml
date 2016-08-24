@@ -5365,7 +5365,7 @@ Links</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-DWSS_R256, MS-DWSS_R257 and MS-DWSS_R258.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-DWSS_R256, MS-DWSS_R257 and MS-DWSS_R258.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R256</ns1:REQ_ID>
@@ -5374,7 +5374,8 @@ Links</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-DWSS_R2561, MS-DWSS_R2562.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R257</ns1:REQ_ID>
@@ -5693,7 +5694,7 @@ Links</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R693</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] NoAccess means: The current user does not have sufficient permissions to access list permission information.</ns1:Description>
+		<ns1:Description>[In ListInfo] NoAccess means: The current user does not have sufficient permissions to access list permission information. &lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5703,7 +5704,7 @@ Links</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R694</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In ListInfo] NoAccess means: The AccessUrl attribute MUST NOT be present in this element[ListInfo]. &lt;10&gt;</ns1:Description>
+		<ns1:Description>[In ListInfo] NoAccess means: The AccessUrl attribute MUST NOT be present in this element[ListInfo]. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6695,7 +6696,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R675</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return TooManyItems error when the number of lists (1) exceeds 99. (&lt;1&gt;The Document Workspace limit for lists in Windows SharePoint Services is 99.)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R361:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Derived>MS-DWSS_R361:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6705,7 +6706,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R676</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return TooManyItems error when the number of members (1) exceeds 99. (&lt;2&gt;The Document Workspace limit for a members list in Windows SharePoint Services is 99.)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R83:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Derived>MS-DWSS_R83:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6715,7 +6716,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R677</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does respond with an Error element with the identifier set to 2 [ and a restricted string of "Failed"] when the length of the site (2) URL is greater than 441. (&lt;3&gt;The maximum length for the root site (2) URL in Windows SharePoint Services is 441 in this case.)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R102:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Derived>MS-DWSS_R102:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6725,7 +6726,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 		<ns1:REQ_ID>MS-DWSS_R1683</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error ServerFailure when a site with the specified name already exists on this site. (&lt;5&gt; When a site with the specified name already exists on this site, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R486:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Derived>MS-DWSS_R486:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6735,7 +6736,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R678</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.4.3.2.1: For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, if url contains multiple folders and the first folder in the url doesn't exist in the site, the server will ignore the first folder in the url and replace it with "Shared Documents".</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;6&gt; Section 3.1.4.3.2.1: For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, if url contains multiple folders and the first folder in the url doesn't exist in the site, the server will ignore the first folder in the url and replace it with "Shared Documents".</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6744,7 +6745,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1164</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with response body which contains text "404 FILE NOT FOUND". (Microsoft SharePoint Foundation 2013 Preview follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with response body which contains text "404 FILE NOT FOUND". (Microsoft SharePoint Foundation 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R164:i,MS-DWSS_R309:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6777,8 +6778,8 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R243:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R243:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6786,20 +6787,62 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R16801</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return NoAccess if the authenticated user is not permitted to access this information. (Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R243:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1682</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".)</ns1:Description>
-		<ns1:Derived>MS-DWSS_R693:i,MS-DWSS_R309:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the current user does not have sufficient permissions to access list permission information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return "NoAccess" error code and will return HTTP status code 401 with response body which contains text "401 Unauthorized".)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R693:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R16821</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return NoAccess if the current user does not have sufficient permissions to access list permission information. (Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R693:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R2561</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the Schema element for Tasks. (&lt;9&gt; Section 3.1.4.8.2.2: SharePoint Foundation 2013 does not return this Schema element.)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R256:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-DWSS_R2562</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the Schema element for Tasks. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, and Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-DWSS_R256:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1681</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] (Microsoft Office Word 2007 uses UpdateDwsData.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;11&gt; Section 3.1.4.11: Microsoft Office Word 2007 uses UpdateDwsData.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
