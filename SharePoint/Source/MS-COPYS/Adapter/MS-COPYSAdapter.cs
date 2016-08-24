@@ -166,7 +166,6 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             }
             catch (SoapException soapEx)
             {
-                this.VerifySoapExceptionDetailCapture(soapEx);
                 throw;
             }
 
@@ -193,7 +192,6 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             }
             catch (SoapException soapEx)
             {
-                this.VerifySoapExceptionDetailCapture(soapEx);
                 throw;
             }
 
@@ -221,7 +219,6 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             }
             catch (SoapException soapEx)
             {
-                this.VerifySoapExceptionDetailCapture(soapEx);
                 throw;
             }
 

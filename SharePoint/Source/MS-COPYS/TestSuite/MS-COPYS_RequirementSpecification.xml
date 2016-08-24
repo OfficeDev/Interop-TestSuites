@@ -170,7 +170,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R23</ns1:REQ_ID>
@@ -195,7 +195,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R25</ns1:REQ_ID>
@@ -248,7 +248,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R30</ns1:REQ_ID>
@@ -266,7 +266,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R32</ns1:REQ_ID>
@@ -275,7 +275,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R33</ns1:REQ_ID>
@@ -930,17 +930,6 @@ This value is used to indicate an error when the file on the destination locatio
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1040</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyErrorCode] InvalidUrl: 
-This value SHOULD be used to indicate an error when the IRI of a destination location is malformed.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R1041, MS-COPYS_R1043, MS-COPYS_R1044.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R109</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
 		<ns1:Description>[In CopyErrorCode] Unknown: 
@@ -1513,7 +1502,7 @@ This value is used to indicate an error for all other error conditions for a giv
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R176</ns1:REQ_ID>
@@ -2334,7 +2323,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R271</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2343,16 +2332,16 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R272</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R273</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2412,7 +2401,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R281, MS-COPYS_R282, MS-COPYS_R285, MS-COPYS_R286, MS-COPYS_R287, MS-COPYS_R289.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R281, MS-COPYS_R282, MS-COPYS_R285, MS-COPYS_R286, MS-COPYS_R287, MS-COPYS_R289, MS-COPYS_R1043, MS-COPYS_R1044.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R281</ns1:REQ_ID>
@@ -2672,21 +2661,10 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1041</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In CopyErrorCode] [For CopyIntoItems operation] Implementation does return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRI.(SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R1043</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In CopyErrorCode] [For CopyIntoItemsLocal operation] Implementation does return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRI.(SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-COPYS_R280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2697,7 +2675,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:REQ_ID>MS-COPYS_R1044</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In CopyErrorCode] [For CopyIntoItemsLocal operation] Implementation does return an ErrorCode of "Unknown" when a destination location  is a malformed IRI on Windows SharePoint Services 3.0 and SharePoint Foundation 2010.</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-COPYS_R280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2817,7 +2795,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R12332</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exceptionif the source location URL is in an invalid format. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception if the source location URL is in an invalid format. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R1233:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
