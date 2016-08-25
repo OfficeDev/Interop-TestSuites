@@ -95,6 +95,7 @@
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
