@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------
+﻿#-------------------------------------------------------------------------
 # Configuration script exit code definition:
 # 1. A normal termination will set the exit code to 0
 # 2. An uncaught THROW will set the exit code to 1
@@ -224,7 +224,7 @@ else
 # Start to automatic services required by test case
 #----------------------------------------------------------------------------
 iisreset /restart
-#StartService "MSSQL*" "Auto"
+StartService "MSSQL*" "Auto"
 
 #----------------------------------------------------------------------------
 # Try to get the SharePoint Server Version
