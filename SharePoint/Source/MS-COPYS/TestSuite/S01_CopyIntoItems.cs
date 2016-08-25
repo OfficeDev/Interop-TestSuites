@@ -109,9 +109,9 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         [TestCategory("MSCOPYS"), TestMethod()]
         public void MSCOPYS_S01_TC02_GetItem_Fail()
         {
-            if (!Common.IsRequirementEnabled(1048, this.Site))
+            if (!Common.IsRequirementEnabled(12332, this.Site))
             {
-                this.Site.Assume.Inconclusive(@"The test case is only executed when the SHOULDMAY switch ""R1048Enabled"" is set to true.");
+                this.Site.Assume.Inconclusive(@"The test case is only executed when the SHOULDMAY switch ""R12332Enabled"" is set to true.");
             }
 
             // Generate invalid file URL by construct a unique and random string.
@@ -132,8 +132,8 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             // Verify MS-COPYS requirement: MS-COPYS_R1048
             this.Site.CaptureRequirementIfIsTrue(
                 isCoughtException,
-                1048,
-                @"[In Appendix B: Product Behavior] Implementation does return a SOAP fault if the URL parameter is an invalid URI format string. (Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                12332,
+                @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception if the source location URL is in an invalid format. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
         }
 
         /// <summary>

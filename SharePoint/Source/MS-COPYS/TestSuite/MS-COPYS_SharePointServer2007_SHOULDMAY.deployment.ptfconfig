@@ -10,9 +10,9 @@
     <!--Set R1044Enabled to true to return an ErrorCode of "Unknown" when a destination location  is a malformed IRI is supported. R1044Enabled to false to disable this requirement. -->
     <Property name="R1044Enabled" value="true" />
     <!--Set R148Enabled to true to equal to the value of source location for CopyIntoItem operation is supported. R148Enabled to false to disable this requirement. -->
-    <Property name="R148Enabled" value="false" />
+    <Property name="R148Enabled" value="true" />
     <!--Set R149Enabled to true to equal to the value of source location for CopyIntoItemLocation operation is supported. R149Enabled to false to disable this requirement. -->
-    <Property name="R149Enabled" value="false" />
+    <Property name="R149Enabled" value="true" />
     <!--Set R124Enabled to true to ContentTypeId field type map to the Text field type is supported. R124Enabled to false to disable this requirement. -->
     <Property name="R124Enabled" value="false" />
     <!--Set R125Enabled to true to ContentTypeId field type map to error field type is supported. R125Enabled to false to disable this requirement. -->
@@ -23,8 +23,8 @@
     <Property name="R230Enabled" value="true" />
     <!--Set R232Enabled to true to copy the CopyItems operation ID field is not supported. R232Enabled to false to disable this requirement. -->
     <Property name="R232Enabled" value="true" />
-    <!--Set R1048Enabled to true to support returning a SOAP fault if the URL parameter of GetItem operation is an invalid URL format string. R1048Enabled to false to disable this requirement. -->
-    <Property name="R1048Enabled" value="false" />
+    <!--Set R12332Enabled to true to verify that implementation does return a SOAP exception if the source location URL is in an invalid format. R12332Enabled to false to disable this requirement. -->
+    <Property name="R12332Enabled" value="false" />
     <!--Set R2781Enabled to true to verify that implementation does return empty result if the source location and the destination locaiotn refer to different servers. R2781Enabled to false to disable this requirement. -->
     <Property name="R2781Enabled" value="true" />
   </Properties>
