@@ -57,6 +57,11 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 if (!provider.ProviderName.StartsWith(Common.GetConfigurationPropertyValue("HierarchyProviderPrefix", this.Site)) && provider.Children.Length != 0)
                 {
                     providerName = provider.ProviderName;
+                    //Verify MS-CPSWS requirement: MS-CPSWS_R540001 
+                    Site.CaptureRequirementIfIsTrue(
+                        provider.HierarchyNodeID.Length == 0,
+                        540001,
+                        @"[In SPProviderHierarchyElement] This value[HierarchyNodeID] is empty for the hierarchy provider and the root element of the hierarchy tree.");
 
                     if (providerName != null)
                     {
@@ -66,7 +71,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             }
 
             Site.Assume.IsNotNull(providerName, "The providerName should not be null!");
-
+            
             // Call GetHierarchy method to get a claims provider hierarchy tree with a null hierarchyNodeID in the request.
             SPProviderHierarchyTree responseOfGetHierarchyResult = CPSWSAdapter.GetHierarchy(providerName, principalType, null, numberOfLevels);
             Site.Assert.AreEqual<string>("true", responseOfGetHierarchyResult.IsRoot.ToString().ToLower(CultureInfo.CurrentCulture), "Should return the existing root of current claims provider hierarchy tree.");

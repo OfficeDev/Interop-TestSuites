@@ -1,5 +1,6 @@
 namespace Microsoft.Protocols.TestSuites.MS_CPSWS
 {
+    using System;
     using System.ServiceModel;
     using System.Web.Services.Protocols;
     using System.Xml;
@@ -78,6 +79,14 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             {
                 this.ValidArrayOfStringComplexType();
             }
+            //Verify MS-CPSWS_R157001
+            foreach (string claim in claimTypesResult)
+            {
+                Site.CaptureRequirementIfIsTrue(
+                    Uri.IsWellFormedUriString(claim, UriKind.Absolute),
+                    157001,
+                    @"[In ClaimTypesResponse] The claim type should format as a URI.");
+            }
         }
 
         /// <summary>
@@ -126,6 +135,14 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             if (claimValueTypesResult != null)
             {
                 this.ValidArrayOfStringComplexType();
+            }
+            //Verify MS-CPSWS_R174001
+            foreach (string claim in claimValueTypesResult)
+            {
+                Site.CaptureRequirementIfIsTrue(
+                    Uri.IsWellFormedUriString(claim, UriKind.Absolute),
+                    174001,
+                    @"[In ClaimValueTypesResponse] The claim value type should format as a URI. ");
             }
         }
 
@@ -224,7 +241,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             if (getHierarchyResult != null)
             {
                 this.VerifySPProviderHierarchyTreeComplexType(getHierarchyResult);
-            } 
+            }
         }
 
         /// <summary>
@@ -235,6 +252,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
         {
             XmlElement xmlResponse = SchemaValidation.LastRawResponseXml;
             bool isResponseValid = SchemaValidation.ValidationResult == ValidationResult.Success;
+            bool isPrefix = false;
 
             // The response have been received successfully, then the following requirement can be captured.
             Site.CaptureRequirementIfIsTrue(
@@ -274,6 +292,19 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             {
                 this.VerifyArrayOfSPProviderHierarchyTreeComplexType(getHierarchyAllResult);
             }
+            string namePrefixed = Common.GetConfigurationPropertyValue("HierarchyProviderPrefix", this.Site);
+            foreach (SPProviderHierarchyTree element in getHierarchyAllResult)
+            {
+                if (element.ProviderName.StartsWith(namePrefixed))
+                {
+                    isPrefix = true;
+                    break;
+                }
+            }
+           Site.CaptureRequirementIfIsTrue(
+                isPrefix,
+                584001,
+                @"[In GetHierarchyAll] The name of the hierarchy provider is prefixed with ""_HierarchyProvider_"".");
         }
 
         /// <summary>
@@ -1091,7 +1122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             Site.CaptureRequirementIfIsNotNull(
                 exception,
                 8,
-                @"[In Transport] Protocol server faults MUST be returned [using HTTP Status-Codes as specified in [RFC2616] , section 10 or] using SOAP faults as specified in [SOAP1.1] , section 4.4 or [SOAP1.2/1] , section 5.4.");
+                @"[In Transport] Protocol server faults MUST be returned [using HTTP Status-Codes as specified in [RFC2616] , section 10 or] using SOAP faults as specified in [SOAP1.1] , section 4.4 Scope[[#Headers],[Description]]or [SOAP1.2/1] , section 5.4.");
         }
     }
 }
