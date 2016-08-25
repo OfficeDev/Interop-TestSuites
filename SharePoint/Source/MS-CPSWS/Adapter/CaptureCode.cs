@@ -1110,7 +1110,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             Site.CaptureRequirementIfIsTrue(
                 isR7Verified,
                 7,
-                @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] , section 4 or in [SOAP1.2/1] , section 5.");
+                @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] , section 4.");
         }
 
         /// <summary>

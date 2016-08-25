@@ -400,6 +400,28 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
         }
 
         /// <summary>
+        ///  A method used to verify remove the duplicated item.
+        /// </summary>
+        /// <param name="resultByProtocol">A parameter represents an expected type list from protocol.</param>
+        /// <returns>Return true value represents the protocol server remove the duplicated item, else return false</returns>
+        public bool VierfyRemoveDuplicate(ArrayOfString resultByProtocol)
+        {
+            for (int i = 0; i < resultByProtocol.Count; i++)
+            {
+                string claimType = resultByProtocol[i];
+
+                for (int j = i + 1; j < resultByProtocol.Count; j++)
+                {
+                    if (claimType == resultByProtocol[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Initialize the variable for the test suite.
         /// </summary>
         [TestInitialize]

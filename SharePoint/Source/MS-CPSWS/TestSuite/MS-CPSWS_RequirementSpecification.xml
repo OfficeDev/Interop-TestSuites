@@ -2536,7 +2536,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R212</ns1:REQ_ID>
@@ -2545,7 +2545,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R583</ns1:REQ_ID>
@@ -2806,7 +2806,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R236</ns1:REQ_ID>
@@ -2815,7 +2815,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/GetHiera
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R591</ns1:REQ_ID>
@@ -3053,7 +3053,7 @@ The claims providers support search and resolve.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R263</ns1:REQ_ID>
@@ -4957,14 +4957,5 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/SearchAl
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-CPSWS_R381001</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Search] For this operation[Search], the server will not use any available claims providers. [In Appendix B: Product Behavior](&lt;5&gt; Section 3.1.4.12: Windows SharePoint Services 3.0 and above follow this behavior)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 </ns1:ReqTable>

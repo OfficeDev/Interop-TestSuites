@@ -173,6 +173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
 
             // Requirement capture condition.
             bool searchAllSuccess = false;
+            bool isMatchSearchSearchPattern = false;
 
             foreach (SPProviderHierarchyTree providerTree in responseOfSearchResult)
             {
@@ -196,6 +197,16 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 {
                     Site.Assert.Fail("The provider names in the SearchAll result should be contained in the provider names in the input message!");
                 }
+
+                if (providerTree.ProviderName == "System")
+                {
+                    SPProviderHierarchyNode children = providerTree.Children[0];
+
+                    if(TestSuiteBase.SearchPattern== children.Nm)
+                    {
+                        isMatchSearchSearchPattern = true;
+                    }
+                }
             }
 
             // Capture requirement 417 by matching the input provider name with the result claims provider name,
@@ -207,6 +218,11 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 The claims providers are associated with the Web application (1) specified in the input message.
                 The claims providers are listed in the provider names in the input message.
                 The claims providers support search.");
+
+            Site.CaptureRequirementIfIsTrue(
+                 isMatchSearchSearchPattern,
+                 438,
+                @"[In SearchAllResponse] The protocol server MUST return one claims provider hierarchy tree for each claims provider that contains entities that match the search string.");
         }
 
         /// <summary>
