@@ -247,6 +247,21 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                       </s:complexType>
                     </s:element>");
 
+            // Verifies MS-MEETS requirement: MS-MEETS_R902.
+            Site.CaptureRequirementIfIsTrue(
+                isResponseValid,
+                902,
+                @"[In AddMeetingFromICal]This type is defined as follows.
+                 <s:complexType name=""AddMeetingFromICal"">
+                   < s:complexContent >
+                     < s:extension base = ""tns:AddMeeting"" >
+                       < s:sequence >
+                         < s:element name = ""AttendeeUpdateStatus"" type = ""tns:AttendeeUpdateStatus"" />
+                       </ s:sequence >
+                     </ s:extension >
+                   </ s:complexContent >
+                 </ s:complexType > ");
+
             if (result != null)
             {
                 // If AddMeetingFromICalResult element exist, and the server response pass the validation successfully, 
@@ -553,14 +568,14 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                     isResponseValid,
                     21201,
                     @"[In GetMeetingsInformationResponse][WorkspaceStatus element is defined as follows:]
-                      <s:element name=""WorkspaceStatus"" type=""tns:WorkspaceStatus"" minOccurs=""0""/>
-                        <s:complexType name=""WorkspaceStatus"">
-                           <s:attribute name=""UniquePermissions"" type=""tns:CaseInsensitiveTrueFalseOrEmpty""/>
-                           <s:attribute name=""MeetingCount"" type=""tns:UnsignedIntOrEmpty""/>
-                           <s:attribute name=""AnonymousAccess"" type=""tns:CaseInsensitiveTrueFalseOrEmpty""/>
-                           <s:attribute name=""AllowAuthenticatedUsers"" type=""tns:CaseInsensitiveTrueFalseOrEmpty""/>
-                        </s:complexType>
-                       </s:element>");
+                    <s:element name=""WorkspaceStatus"" type=""tns: WorkspaceStatus"" minOccurs=""0""/>
+                      < s:complexType name = ""WorkspaceStatus"" >
+                        < s:attribute name = ""UniquePermissions"" type = ""tns:CaseInsensitiveTrueFalseOrEmpty"" />
+                        < s:attribute name = ""MeetingCount"" type = ""tns:IntOrEmpty"" />
+                        < s:attribute name = ""AnonymousAccess"" type = ""tns:CaseInsensitiveTrueFalseOrEmpty"" />
+                        < s:attribute name = ""AllowAuthenticatedUsers"" type = ""tns:CaseInsensitiveTrueFalseOrEmpty"" />
+                      </ s:complexType >
+                    </ s:element > ");
 
                     // Verifies MS-MEETS requirement: MS-MEETS_R18801.          
                     Site.CaptureRequirementIfIsTrue(
@@ -589,10 +604,10 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                     Site.CaptureRequirementIfIsTrue(
                         isResponseValid,
                         2933,
-                        @"[In UnsignedIntOrEmpty]The definition of the UnsignedIntOrEmpty simple type is as follows:
-                    <s:simpleType name=""UnsignedIntOrEmpty"">
-                      <s:union memberTypes=""s:unsignedInt tns:Empty""/>
-                    </s:simpleType>");
+                        @"[In IntOrEmpty]The definition of the IntOrEmpty simple type is as follows:
+                        <s:simpleType name=""IntOrEmpty"">
+                          < s:union memberTypes = ""s:Int tns:Empty"" />
+                        </ s:simpleType > ");
 
                     // Verifies MS-MEETS requirement: MS-MEETS_R2934.                       
                     Site.CaptureRequirementIfIsTrue(

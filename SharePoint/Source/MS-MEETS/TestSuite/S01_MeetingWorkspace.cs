@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             Site.CaptureRequirementIfIsTrue(
                 isR181R194Verified,
                 181,
-                @"[In GetMeetingsInformation]If the value 0x1 is set, the request is to query whether the user has permission to create meeting workspaces on this Web site (2) [the operation is sent to].");
+                @"[In GetMeetingsInformation]If the value 0x1 is set, the request is to query whether the user has permission to create meeting workspaces on this Web site [the operation is sent to].");
 
             Site.CaptureRequirementIfIsTrue(
                 isR181R194Verified,
@@ -198,7 +198,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000001",
                 createNewWorkspaceResult.GetErrorCode(),
                 113,
-                @"[In CreateWorkspaceResponse]If this operation[CreateWorkspace] is sent to a Web site (2) that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000001"".");
+                @"[In CreateWorkspaceResponse]If this operation[CreateWorkspace] is sent to a Web site that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000001"".");
 
             // The SOAP fault code is the error information which Detail element contains. MS-MEETS_R9 can be verified directly.
             Site.CaptureRequirement(
@@ -226,7 +226,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000006",
                 setWorkspaceTitleResult.GetErrorCode(),
                 320,
-                @"[In SetWorkspaceTitleResponse]If this operation[SetWorkspaceTitle] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
+                @"[In SetWorkspaceTitleResponse]If this operation[SetWorkspaceTitle] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
 
             // Send DeleteWorkspace to a web site that is not a meeting workspace.
             SoapResult<Null> deleteWorkspaceResult = this.meetsAdapter.DeleteWorkspace();
@@ -235,14 +235,14 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             Site.CaptureRequirementIfIsNotNull(
                 deleteWorkspaceResult.Exception,
                 155,
-                @"[In DeleteWorkspace]This operation [DeleteWorkspace] fails if sent to a Web site (2) that is not a meeting workspace.");
+                @"[In DeleteWorkspace]This operation [DeleteWorkspace] fails if sent to a Web site that is not a meeting workspace.");
 
             // If the response contains the SOAP fault code "0x00000004", MS-MEETS_R166 can be verified.
             Site.CaptureRequirementIfAreEqual<string>(
                 "0x00000004",
                 deleteWorkspaceResult.GetErrorCode(),
                 166,
-                @"[In DeleteWorkspaceResponse]If this operation[DeleteWorkspace] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000004"".");
+                @"[In DeleteWorkspaceResponse]If this operation[DeleteWorkspace] is sent to a Web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000004"".");
         }
 
         /// <summary>
@@ -265,7 +265,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000001",
                 getMeetingsInformastionResult.GetErrorCode(),
                 196,
-                @"[In GetMeetingsInformationResponse]If the operation [GetMeetingsInformation]is sent to a Web site (2) that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000001"".");
+                @"[In GetMeetingsInformationResponse]If the operation [GetMeetingsInformation]is sent to a web site that is a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000001"".");
 
             // Clean up the SUT.
             this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
@@ -549,7 +549,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR195,
                 195,
-                @"[In GetMeetingsInformationResponse]When bit flag 0x1 is specified, the operation [GetMeetingsInformation] MUST be sent to a parent Web site (2), as opposed to a meeting workspace subsite itself.");
+                @"[In GetMeetingsInformationResponse]When bit flag 0x1 is specified, the operation [GetMeetingsInformation] MUST be sent to a parent web site, as opposed to a meeting workspace subsite itself.");
 
             // Clean up the SUT.
             this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
