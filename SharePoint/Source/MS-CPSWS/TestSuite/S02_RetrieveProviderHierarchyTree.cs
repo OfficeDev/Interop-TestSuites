@@ -291,10 +291,6 @@ The claims providers support hierarchy.");
                 if (providerHierarchyTree.ProviderName.Contains("_HierarchyProvider_"))
                 {
                     isHierarchyProviderHierarchyTree = true;
-
-                    Site.CaptureRequirement(
-                        584001,
-                        @"[In GetHierarchyAll] The name of the hierarchy provider is prefixed with ""_HierarchyProvider_"".");
                     break;
                 }
             }
