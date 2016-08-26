@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------
+﻿#-------------------------------------------------------------------------
 # Configuration script exit code definition:
 # 1. A normal termination will set the exit code to 0
 # 2. An uncaught THROW will set the exit code to 1
@@ -253,8 +253,11 @@ if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -e
 }elseif($SharePointVersion -eq $WindowsSharePointServices3[0] -or $SharePointVersion -eq $SharePointServer2007[0]) 
 { 
 	$product = "12.0" 
+}elseif ($SharePointVersion -eq $SharePointServer2016[0])
+{
+    $product = "16.0" 
 }
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
 	$SharePointShellSnapIn = Get-PSSnapin | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
 	if($SharePointShellSnapIn -eq $null)
@@ -399,7 +402,7 @@ if($useClaims)
 #-----------------------------------------------------
 # Start to configure SUT for MS-SHDACCWS.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
 	Output "Start to configure MS-SHDACCWS." "White"
 
@@ -434,8 +437,8 @@ Output "Steps for manual configuration:" "Yellow"
 Output "Create a site collection named $MSSITESSSiteCollectionName ..." "Yellow"
 $MSSITESSSiteCollectionObject  = CreateSiteCollection $MSSITESSSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 
-# Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013.
-if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+# Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013 and SharePoint Server 2016.
+if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Steps for manual configuration:" "Yellow"
     Output "Active the workflows feature on site collection feature page ..." "Yellow"
@@ -595,7 +598,7 @@ $WebApplicationName = GetWebAPPName $defaultWebAppName
 AddHTTPSBinding "$sutComputerName" $SharePointVersion $WebApplicationName $httpsPortNumberOnAdminSite $true
 
 # Activate the feature DocumentManagement and DocumentSet for SharePoint Server 2013.
-if($SharePointVersion -eq $SharePointServer2013[0])
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     $siteUrl = [Microsoft.SharePoint.Administration.SPAdministrationWebApplication]::Local.sites[0].Url
 	
@@ -631,7 +634,7 @@ Output "Create a site collection named $MSMEETSSiteCollectionName ..." "Yellow"
 $MSMEETSSiteCollectionObject = CreateSiteCollection $MSMEETSSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 $MSMEETSSiteCollectionObject.Dispose()
 
-if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0])
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     $webTempfileName = "$env:CommonProgramFiles\Microsoft Shared\Web Server Extensions\15\TEMPLATE\1033\XML\WEBTEMP.XML"
 	$meetingTemplates = "Basic Meeting Workspace","Blank Meeting Workspace","Decision Meeting Workspace","Social Meeting Workspace","Multipage Meeting Workspace"
@@ -667,7 +670,7 @@ iisreset /restart
 # Start to configure SUT for MS-WWSP.
 #-----------------------------------------------------
 
-if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2007[0] )
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2007[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Start to run configurations of MS-WWSP." "White"
 
@@ -707,7 +710,7 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     CreateListItem $MSWWSPSiteCollectionObject.RootWeb $MSWWSPDocumentLibrary 101
 
     # Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013.
-    if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+    if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
     {
         Output "Steps for manual configuration:" "Yellow"
         Output "Active the workflows feature on site collection feature page ..." "Yellow"
@@ -837,7 +840,7 @@ $webFilePath = $rootWebFilePath.SubString(0,$rootWebFilePath.LastIndexOf("\"))
 Output "Steps for manual configuration:" "Yellow"
 Output "Create three web applications named $MSAUTHWSFormsWebAPPName,$MSAUTHWSPassportWebAPPName and $MSAUTHWSNoneWebAPPName." "Yellow"
 
-if($product -eq "15.0" -or $product -eq "14.0")
+if($product -eq "15.0" -or $product -eq "14.0" -or $product -eq "16.0")
 {
 	$poolAccount = ($domain.split(".")[0] + "\" + $userName)	
 	CreateWebApplication $sutComputerName $poolAccount $MSAUTHWSFormsWebAPPPort $MSAUTHWSFormsWebAPPName $MSAUTHWSFormsWebAPPName $password $SharePointVersion $true		
@@ -889,7 +892,7 @@ Output "Steps for manual configuration:" "Yellow"
 Output "Configure HTTPS service in SUT web-site $MSAUTHWSNoneWebAPPName." "Yellow"
 AddHTTPSBinding "$sutComputerName" $SharePointVersion $MSAUTHWSNoneWebAPPName $MSAUTHWSNoneWebAPPHTTPSPort $false $MSAUTHWSNoneWebAPPPort
 
-if($product -eq "15.0")
+if($product -eq "15.0" -or $product -eq "16.0")
 {   
     Output "Steps for manual configuration:" "Yellow"
 	Output "Create a web application named $MSAUTHWSWindowsWebAPPName." "Yellow"
@@ -916,7 +919,7 @@ if($product -eq "12.0" -or $product -eq "14.0")
 {
     $authwsLocalPorts= "$MSAUTHWSFormsWebAPPPort,$MSAUTHWSFormsWebAPPHTTPSPort,$MSAUTHWSNoneWebAPPPort,$MSAUTHWSNoneWebAPPHTTPSPort"
 }
-elseif($product -eq "15.0")
+elseif($product -eq "15.0" -or $product -eq "16.0")
 { 
     $authwsLocalPorts= "$MSAUTHWSFormsWebAPPPort,$MSAUTHWSFormsWebAPPHTTPSPort,$MSAUTHWSNoneWebAPPPort,$MSAUTHWSNoneWebAPPHTTPSPort,$MSAUTHWSWindowsWebAPPPort,$MSAUTHWSWindowsWebAPPHTTPSPort" 
 }
@@ -925,7 +928,7 @@ AddFirewallInboundRule  "Enable authws site port number" "TCP" $authwsLocalPorts
 #-----------------------------------------------------
 # Start to configure SUT for MS-CPSWS.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] )
 {
 	Output "Start to run configurations of MS-CPSWS." "White"
 	
@@ -954,7 +957,7 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
 #-----------------------------------------------------
 # Start to configure SUT for MS-WSSREST.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Start to run configurations of MS-WSSREST." "White"
 	Output "Steps for manual configuration:" "Yellow"
@@ -1083,7 +1086,7 @@ Output "1. Open Active Directory Users and Computers..." "Yellow"
 Output "2. Create user $MSOFFICIALFILEReadUser..." "Yellow"
 CreateUserOnDC $MSOFFICIALFILEReadUser $MSOFFICIALFILEReadUserPassword
 
-if($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+if($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {	
 	Output "Steps for manual configuration:" "Yellow"
 	Output "Create a subsite named $MSOFFICIALFILERoutingRepositorySite under site collection MSOFFICIALFILESiteCollectionName ..." "Yellow"
