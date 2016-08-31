@@ -897,7 +897,8 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
         /// Validate the requirements related to schema for GetDwsMetaData results element.
         /// </summary>
         /// <param name="respResults">Results element in GetDwsMetaDataResult element.</param>
-        private void ValidateGetDwsMetaDataResultResults(GetDwsMetaDataResultTypeResults respResults)
+        /// <param name="isMinimal">A Boolean value that specifies whether to return information.</param>
+        private void ValidateGetDwsMetaDataResultResults(GetDwsMetaDataResultTypeResults respResults, bool isMinimal)
         {
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R373");
@@ -991,7 +992,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             // If MS-DWSS_R620 is verified correctly, this requirements also can be verified directly.
             Site.CaptureRequirement(
                 262,
-                @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in 3.1.4.8.2.3.");
+                @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Documents.");
 
             // If MS-DWSS_R620 is verified correctly, this requirements also can be verified directly.
             Site.CaptureRequirement(
@@ -1102,14 +1103,14 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     258,
                     @"[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Links.");
 
-                if (Common.IsRequirementEnabled(2561, this.Site))
+                if (isMinimal && Common.IsRequirementEnabled(2561, this.Site))
                 {
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R2561");
 
                     // Verify MS-DWSS requirement: MS-DWSS_R2561
                     Site.CaptureRequirementIfIsFalse(
-                        isLinksSchemaContained,
+                        isTasksSchemaContained,
                         2561,
                         @"[In Appendix B: Product Behavior] Implementation does not return the Schema element for Tasks. (<9> Section 3.1.4.8.2.2: SharePoint Foundation 2013 does not return this Schema element.)");
                 }
@@ -1120,8 +1121,8 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R2562");
 
                     // Verify MS-DWSS requirement: MS-DWSS_R2562
-                    Site.CaptureRequirementIfIsFalse(
-                        isLinksSchemaContained,
+                    Site.CaptureRequirementIfIsTrue(
+                        isTasksSchemaContained,
                         2562,
                         @"[In Appendix B: Product Behavior] Implementation does return the Schema element for Tasks. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, and Microsoft SharePoint Server 2016 and above follow this behavior.)");
                 }
