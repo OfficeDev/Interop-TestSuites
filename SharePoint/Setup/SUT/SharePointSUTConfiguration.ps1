@@ -636,7 +636,8 @@ $MSMEETSSiteCollectionObject.Dispose()
 
 if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
-    $webTempfileName = "$env:CommonProgramFiles\Microsoft Shared\Web Server Extensions\15\TEMPLATE\1033\XML\WEBTEMP.XML"
+    $productversion = $product.Split(".")[0]
+    $webTempfileName = "$env:CommonProgramFiles\Microsoft Shared\Web Server Extensions\$productversion\TEMPLATE\1033\XML\WEBTEMP.XML"
 	$meetingTemplates = "Basic Meeting Workspace","Blank Meeting Workspace","Decision Meeting Workspace","Social Meeting Workspace","Multipage Meeting Workspace"
 	
     if(Test-Path $webTempfileName)
