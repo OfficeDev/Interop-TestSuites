@@ -179,7 +179,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1297,
-                @"[The schema of DataDefinition is defined as:]"
+                @"[The schema of DataDefinition is defined as:] "
                 + @"<s:complexType name=""DataDefinition"" mixed=""true"">"
                 + @"  <s:sequence>"
                 + @"    <s:any minOccurs=""0"" maxOccurs=""unbounded""/>"
@@ -395,6 +395,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirement(
                 1348,
                @"[The schema of ListDefinitionCT is defined as:]<s:complexType name=""ListDefinitionCT"">
+                  <s:complexType name=""ListDefinitionCT"">
                   <s:attribute name=""DocTemplateUrl"" type=""s:string"" />
                   <s:attribute name=""DefaultViewUrl"" type=""s:string"" use=""required"" />
                   <s:attribute name=""MobileDefaultViewUrl"" type=""s:string"" />
@@ -416,7 +417,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""WebImageHeight"" type=""s:string"" />
                   <s:attribute name=""Flags"" type=""s:int"" />
                   <s:attribute name=""ItemCount"" type=""s:int"" use=""required"" />
-                  <s:attribute name=""AnonymousPermMask"" type=""s:int64"" />
+                  <s:attribute name=""AnonymousPermMask"" type=""unsignedLong"" />
                   <s:attribute name=""RootFolder"" type=""s:string"" />
                   <s:attribute name=""ReadSecurity"" type=""s:int"" use=""required"" />
                   <s:attribute name=""WriteSecurity"" type=""s:int"" use=""required"" />
@@ -435,7 +436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""WorkFlowId"" type=""s:string"" />
                   <s:attribute name=""HasUniqueScopes"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""NoThrottleListOperations"" type=""core:TRUEFALSE"" />
-                  <s:attribute name=""HasRelatedLists"" type=""core:TRUEFALSE"" />
+                  <s:attribute name=""HasRelatedLists"" type=""s:string"" />
                   <s:attribute name=""AllowDeletion"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""AllowMultiResponses"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""EnableAttachments"" type=""core:TRUEFALSE"" />
@@ -452,6 +453,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""RequireCheckout"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""ThrottleListOperations"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""ExcludeFromOfflineClient"" type=""core:TRUEFALSE"" />
+                  <s:attribute name=""CanOpenFileAsync"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""EnableFolderCreation"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""IrmEnabled"" type=""core:TRUEFALSE"" />
                   <s:attribute name=""IsApplicationList"" type=""core:TRUEFALSE"" />
@@ -461,7 +463,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""MaxItemsPerThrottledOperation"" type=""s:int"" />
                   <s:attribute name=""EnableAssignedToEmail"" type=""core:TRUEFALSE"" use=""optional""/>
                   <s:attribute name=""Followable"" type=""core:TRUEFALSE"" />
-                </s:complexType> ");
+                  </s:complexType> ");
 
             if (Common.IsRequirementEnabled(5417, this.Site))
             {
@@ -1081,7 +1083,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirement(
                 1433,
                 @"[The schema of ListItemChangeDefinition is defined as:]"
-                + @"<s:complexType name=""ListItemChangeDefinition"">"
+                + @"  <s:complexType name=""ListItemChangeDefinition"" mixed=""true"">"
                 + @"  <s:attribute name=""ChangeType"" type=""tns:ChangeTypeEnum"" />"
                 + @"  <s:attribute name=""AfterListId"" type=""core:UniqueIdentifierWithOrWithoutBraces"" />"
                 + @"  <s:attribute name=""AfterItemId"" type=""s:unsignedInt"" />"
@@ -1521,7 +1523,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + @"<s:element name=""AddListResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
-                + @"      <s:element name=""AddListResult"" >"
+                + @"      <s:element minOccurs=""0"" maxOccurs=""1"" name=""AddListResult"" >"
                 + @"        <s:complexType mixed=""true"">"
                 + @"          <s:sequence>"
                 + @"            <s:element name=""List"" type=""tns:ListDefinitionSchema"" />"
@@ -1581,8 +1583,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1621,
-                @"[The schema of AddListFromFeatureResponse is defined as:]"
-                + @"<s:element name=""AddListFromFeatureResponse"">"
+                @"[The schema of AddListFromFeatureResponse is defined as:] "
+                + @"<s:element minOccurs=""0"" maxOccurs=""1"" name=""AddListFromFeatureResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
                 + @"      <s:element name=""AddListFromFeatureResult"">"
@@ -1652,8 +1654,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1635,
-                @"[The schema of ApplyContentTypeToListResponse is defined as:]"
-                + @"<s:element name=""ApplyContentTypeToListResponse"">"
+                @"[The schema of ApplyContentTypeToListResponse is defined as:] "
+                + @"<s:element minOccurs=""0"" maxOccurs=""1"" name=""ApplyContentTypeToListResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
                 + @"      <s:element name=""ApplyContentTypeToListResult"">"
@@ -1849,10 +1851,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured  
             Site.CaptureRequirement(
                 1695,
-                @"[CreateContentTypeResponse]<s:element name=""CreateContentTypeResponse"">"
+                @"[CreateContentTypeResponse] <s:element name=""CreateContentTypeResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
-                + @"      <s:element name=""CreateContentTypeResult"" type=""core:ContentTypeId"" />"
+                + @"      <s:element minOccurs=""0"" maxOccurs=""1"" name=""CreateContentTypeResult"" type=""s:string"" />"
                 + @"    </s:sequence>"
                 + @"  </s:complexType>"
                 + @"</s:element>");
@@ -2451,11 +2453,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1813,
-                @"[GetListContentTypeResponse]"
+                @"[GetListContentTypeResponse] "
                 + @"<s:element name=""GetListContentTypeResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
-                + @"      <s:element name=""GetListContentTypeResult"" minOccurs=""0"">"
+                + @"       <s:element minOccurs=""0"" maxOccurs=""1"" name=""GetListContentTypeResult"">"
+                + @"        <s:complexType mixed=""true"">"
                 + @"        <s:complexType >"
                 + @"            <s:sequence>"
                 + @"              <s:element name=""ContentType"" type=""core:ContentTypeDefinition""/>"
@@ -2858,9 +2861,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1856,
-                @"[The schema of GetListItemChangesResponse is defined as:]"
-                + @"<s:element name=""GetListItemChangesResponse"">"
-                + @"  <s:complexType>    "
+                @"[The schema of GetListItemChangesResponse is defined as:] "
+                + @"<s:element minOccurs=""0"" maxOccurs=""1"" name=""GetListItemChangesResult"">"
+                + @"   <s:complexType mixed=""true"">"
                 + @"    <s:sequence>"
                 + @"      <s:element name=""GetListItemChangesResult"">"
                 + @"        <s:complexType>"
@@ -3008,11 +3011,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1897,
-                @"[The schema of GetListItemChangesSinceTokenResponse is defined as:]<s:element name=""GetListItemChangesSinceTokenResponse"">
+                @"[The schema of GetListItemChangesSinceTokenResponse is defined as:] <s:element name=""GetListItemChangesSinceTokenResponse"">
               <s:complexType>
                 <s:sequence>
-                  <s:element name=""GetListItemChangesSinceTokenResult"">
-                    <s:complexType>
+                    <s:element minOccurs=""0"" maxOccurs=""1"" name=""GetListItemChangesSinceTokenResult"">
+                     <s:complexType mixed=""true"">
                       <s:sequence>
                         <s:element name=""listitems"" >
                           <s:complexType>
@@ -3026,14 +3029,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                   </s:sequence>
                                   <s:attribute name=""LastChangeToken"" type=""s:string"" />
                                   <s:attribute name=""MoreChanges"" type=""core:TRUEFALSE"" />
-                                  <s:attribute name=""MinTimeBetweenSyncs"" 
-                                               type=""s:unsignedInt"" />
-                                  <s:attribute name=""RecommendedTimeBetweenSyncs"" 
-                                               type=""s:unsignedInt"" />
-                                  <s:attribute name=""MaxBulkDocumentSyncSize"" 
-                                               type=""s:unsignedInt"" />
-                                  <s:attribute name=""MaxRecommendedEmbeddedFileSize""
-                                               type=""s:unsignedInt"" />
+                                  <s:attribute name=""MinTimeBetweenSyncs"" type=""s:unsignedInt"" />
+                                  <s:attribute name=""RecommendedTimeBetweenSyncs"" type=""s:unsignedInt"" />
+                                  <s:attribute name=""MaxBulkDocumentSyncSize"" type=""s:unsignedInt"" />
+                                  <s:attribute name=""MaxRecommendedEmbeddedFileSize"" type=""s:unsignedInt"" />
                                   <s:attribute name=""AlternateUrls"" type=""s:string"" />
                                   <s:attribute name=""EffectivePermMask"" type=""s:string"" />
                                 </s:complexType>
@@ -3045,8 +3044,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                       </s:sequence>
                     </s:complexType>
                   </s:element>
-                </s:sequence>
-                <s:anyAttribute />      
+                </s:sequence>     
               </s:complexType>
             </s:element>");
 
@@ -3063,7 +3061,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1908,
-                @"[GetListItemChangesSinceTokenResponse]The listitems element also contains an inner element named rs:data, which is of type DataDefinition.");
+                @"[GetListItemChangesSinceTokenResponse]The listitems element also contains an inner element named rs:data, which is of type DataDefinition ListItemCollectionPositionNext (section 2.2.4.7).");
 
             // Verify R2486
             if (Common.IsRequirementEnabled(2486, this.Site))
@@ -3173,8 +3171,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 <s:element name=""GetListItemChangesWithKnowledgeResponse"">
                   <s:complexType>
                     <s:sequence>
-                      <s:element name=""GetListItemChangesWithKnowledgeResult"">
-                        <s:complexType>
+                      <s:element minOccurs=""0"" maxOccurs=""1"" name=""GetListItemChangesWithKnowledgeResult"">
+                        <s:complexType mixed=""true"">
                           <s:sequence>
                             <s:element name=""listitems"" >
                               <s:complexType>
@@ -3185,7 +3183,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                         <s:element name=""MadeWithKnowledge"" minOccurs=""0"" maxOccurs=""1"">
                                           <s:complexType>
                                             <s:sequence>
-                                              <s:element name=""syncKnowledge"" type=""sync:syncKnowledge"" />
+                                              <s:element ref=""sync:syncKnowledge"" />
                                             </s:sequence>
                                           </s:complexType>
                                         </s:element>
@@ -3195,14 +3193,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                       <s:attribute name=""SchemaChanged"" type=""core:TRUEFALSE"" />
                                       <s:attribute name=""ServerTime"" type=""s:string"" />
                                       <s:attribute name=""MoreChanges"" type=""core:TRUEFALSE"" />
-                                      <s:attribute name=""MinTimeBetweenSyncs"" 
-                                                   type=""s:unsignedInt"" />
-                                      <s:attribute name=""RecommendedTimeBetweenSyncs"" 
-                                                   type=""s:unsignedInt"" />
-                                      <s:attribute name=""MaxBulkDocumentSyncSize"" 
-                                                   type=""s:unsignedInt"" />
-                                      <s:attribute name=""MaxRecommendedEmbeddedFileSize""
-                                                   type=""s:unsignedInt"" />
+                                      <s:attribute name=""MinTimeBetweenSyncs"" type=""s:unsignedInt"" />
+                                      <s:attribute name=""RecommendedTimeBetweenSyncs"" type=""s:unsignedInt"" />
+                                      <s:attribute name=""MaxBulkDocumentSyncSize"" type=""s:unsignedInt"" />
+                                      <s:attribute name=""MaxRecommendedEmbeddedFileSize"" type=""s:unsignedInt"" />
                                       <s:attribute name=""AlternateUrls"" type=""s:string"" />
                                       <s:attribute name=""EffectivePermMask"" type=""s:string"" />
                                     </s:complexType>
@@ -3214,8 +3208,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                           </s:sequence>
                         </s:complexType>
                       </s:element>
-                    </s:sequence>
-                    <s:anyAttribute />      
+                    </s:sequence>     
                   </s:complexType>
                 </s:element>");
 
@@ -3241,7 +3234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirement(
                     1145,
                     @"[In GetListItemChangesWithKnowledgeResponse]The listitems element also "
-                    + "contains an inner element named rs:data, which is of type DataDefinition.");
+                    + "contains an inner element named rs:data, which is of type DataDefinition. (section 2.2.4.7)");
 
                 // Verify MS-LISTSWS requirement: MS-LISTSWS_R1361
                 // If the Created can be parsed to a DateTime, capture R1135
@@ -3362,11 +3355,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1935,
-                @"[The schema of GetListItemsResponse is defined as:]"
+                @"[The schema of GetListItemsResponse is defined as:] "
                 + @"<s:element name=""GetListItemsResponse"">"
-                + @"  <s:complexType>"
+                + @"  <s:complexType mixed=""true"">"
                 + @"    <s:sequence>"
-                + @"      <s:element name=""GetListItemsResult"">"
+                + @"      <s:element minOccurs=""0"" maxOccurs=""1"" name=""GetListItemsResult"">"
                 + @"        <s:complexType>"
                 + @"          <s:sequence>"
                 + @"            <s:element name=""listitems"" >"
@@ -3380,7 +3373,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + @"        </s:complexType>"
                 + @"      </s:element>"
                 + @"    </s:sequence>"
-                + @"    <s:anyAttribute />                    "
                 + @"  </s:complexType>"
                 + @"</s:element>");
 
@@ -3659,12 +3651,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1993,
-                @"[UpdateContentTypeResponse]"
+                @"[UpdateContentTypeResponse] "
                 + @"<s:element name=""UpdateContentTypeResponse"">"
                 + @"  <s:complexType>"
                 + @"    <s:sequence>"
-                + @"      <s:element name=""UpdateContentTypeResult"" minOccurs=""0"">"
-                + @"        <s:complexType>"
+                + @"      <s:element minOccurs=""0"" maxOccurs=""1"" name=""UpdateContentTypeResult"">"
+                + @"        <s:complexType mixed=""true"">"
                 + @"          <s:sequence>"
                 + @"            <s:element name=""Results"">"
                 + @"              <s:complexType>"

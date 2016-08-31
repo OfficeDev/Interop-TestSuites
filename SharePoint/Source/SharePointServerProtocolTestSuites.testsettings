@@ -19,6 +19,7 @@
     <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\AddOneFileToDocumentLibrary.ps1" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\UploadFileWithFolder.ps1" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />

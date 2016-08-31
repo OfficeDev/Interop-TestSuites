@@ -213,8 +213,6 @@
     <Property name="R18321Enabled" value="true" />
     <!-- Set R7081Enabled to true to verify that operation GetListItemChangesSinceTokenResponse does not return MaxRecommendedEmbeddedFileSize attribute in section 3.1.4.22.2.2 Set R7081Enabled to false to disable this requirement. -->
     <Property name="R7081Enabled" value="true" />
-    <!-- Set R10842Enabled to true to verify that operation GetListItemChangesWithKnowledge does not return a SOAP fault with error code 0x82000006 in section 3.1.4.23.2.2 Set R10842Enabled to false to disable this requirement. -->
-    <Property name="R10842Enabled" value="true" />
     <!-- Set R11461Enabled to true to verify that operation GetListItemChangesWithKnowledgeResponse does not return MaxRecommendedEmbeddedFileSize attribute in section 3.1.4.23.2.2 Set R11461Enabled to false to disable this requirement. -->
     <Property name="R11461Enabled" value="true" />
     <!-- Set R3101Enabled to true to verify that the server does support AddDiscussionBoardItem operation in section 3.1.4.2. Set R3101Enabled to false to disable this requirement. -->

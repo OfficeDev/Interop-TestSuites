@@ -279,7 +279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsTrue(
                                          isVerifiedR3921,
                                          1641,
-                                         @"[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<30> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined"".] This indicates that the parameter pageUrl is invalid.");
+                                         @"[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<32> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined"".] This indicates that the parameter pageUrl is invalid.");
             }
 
             if (Common.IsRequirementEnabled(3922, this.Site))
@@ -529,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsTrue(
                                          string.IsNullOrEmpty(errorCode),
                                          1664,
-                                         @"[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<32> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined."". ]There is no error code for this fault.");
+                                         @"[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<34> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined."". ]There is no error code for this fault.");
             }
 
             if (Common.IsRequirementEnabled(4082, this.Site))

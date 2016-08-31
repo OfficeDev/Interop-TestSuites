@@ -1954,7 +1954,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1804,
-                    @"[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should<47> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should<49> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -2821,7 +2821,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1825,
-                    @"[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should<49> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should<51> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -3269,7 +3269,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                        "0x82000006",
                        exp.Detail.LastChild.InnerText,
                        2026,
-                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<76> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<77> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
                 }
             }
             finally
@@ -4036,7 +4036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1975,
-                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<72> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<73> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
