@@ -23,15 +23,6 @@
     <Property name="R269Enabled" value="true"/>
     <!-- Set R357Enabled to true to indicate that the SharePoint 2010 server returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R357Enabled to true to enable this requirement. -->
     <Property name="R357Enabled" value="false"/>   
-    
-    <!-- Set R1045Enabled to true to indicate that the SharePoint 2010 server does not include the CustomProcessingResult element. R1045Enabled to true to enable this requirement. -->
-    <Property name="R1045Enabled" value="false"/>
-
-    <!-- Set R1046Enabled to true to indicate that the SharePoint 2010 server does not set the CustomProcessingResult element if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. [<11> Section 3.1.4.6:] The CustomProcessingResult element is not set if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. ] R1046Enabled to true to enable this requirement. -->
-    <Property name="R1046Enabled" value="true"/>  
-    
-    <!-- Set R1047Enabled to true to indicate that the SharePoint 2010 server does not include the CustomProcessingResult element. <12> Section 3.1.4.6:. R1047Enabled to true to enable this requirement. -->
-    <Property name="R1047Enabled" value="false"/>
     <!-- Set R1066Enabled to true to indicate that the SharePoint 2010 server set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. <13> Section 3.1.4.6:. R1066Enabled to true to enable this requirement. -->
     <Property name="R1066Enabled" value="false"/>
     <!-- Set R1067Enabled to true to indicate that the SharePoint 2010 server sets the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. Set R1067Enabled to false to disable this requirement. -->
@@ -48,16 +39,17 @@
     <Property name="R362Enabled" value="false"/>
     <!-- Set R364Enabled to true to indicate that the SharePoint 2010 server GetRecordingRoutingCollection is deprecated and can not be called. Set R364Enabled to true to enable this requirement. -->
     <Property name="R364Enabled" value="false"/>
-
-    <!-- Set R203Enabled to true to indicate that the SharePoint 2010 server does response Moreinformation code when there is no applicable rule. Set R203Enabled to false to disable this requirement. -->
-    <Property name="R203Enabled" value="true"/>
-    <!-- Set R204Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when there is no applicable rule. Set R204Enabled to false to disable this requirement. -->
-    <Property name="R204Enabled" value="true"/>
+    <!-- Set R203001Enabled to true to indicate that the SharePoint 2010 server does response Moreinformation code when there is no applicable rule. Set R203001Enabled to false to disable this requirement. -->
+    <Property name="R203001Enabled" value="true"/>
+    <!-- Set R204001Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when there is no applicable rule. Set R204001Enabled to false to disable this requirement. -->
+    <Property name="R204001Enabled" value="true"/>
     <!-- Set R2081Enabled to true to indicate that the SharePoint 2010 server does response Moreinformation code when the required properties are not present. Set R2081Enabled to false to disable this requirement. -->
     <Property name="R2081Enabled" value="true"/>
     <!-- Set R2082Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when the required properties are not present. Set R2082Enabled to false to disable this requirement. -->
     <Property name="R2082Enabled" value="true"/>
     <!-- Set R201Enabled to true to indicate that the SharePoint 2010 server can be configured to disable the record routing. Set R201Enabled to false to disable this requirement. -->
     <Property name="R201Enabled" value="true"/>
+    <!-- Set R360Enabled to true to indicate that implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult.Set R360Enabled to false to disable this requirement. -->
+    <Property name="R360Enabled" value="true"/>
   </Properties>
 </TestSite>
