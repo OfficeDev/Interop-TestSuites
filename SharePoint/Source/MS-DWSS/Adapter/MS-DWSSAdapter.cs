@@ -398,7 +398,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             if (resp.Item is GetDwsMetaDataResultTypeResults)
             {
                 // Validate the requirements related to Results element in GetDwsMetaDataResult element.
-                this.ValidateGetDwsMetaDataResultResults(resp.Item as GetDwsMetaDataResultTypeResults);
+                this.ValidateGetDwsMetaDataResultResults(resp.Item as GetDwsMetaDataResultTypeResults, isMinimal);
             }
 
             return resp.Item as GetDwsMetaDataResultTypeResults;
