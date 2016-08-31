@@ -1173,7 +1173,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
 
                 // Verify MS-DWSS requirement: MS-DWSS_R263
                 Site.CaptureRequirementIfIsTrue(
-                    isDocumentListInfoContained,
+                    isLinksListInfoContained,
                     263,
                     @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Links.");
             }
