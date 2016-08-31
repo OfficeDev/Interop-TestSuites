@@ -20,18 +20,16 @@
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\UploadFileWithFolder.ps1" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\Adapter\ViewHtmlFile\ViewHtmlConfigure.xml" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-AUTHWS.wsdl" />
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\SetFilePublish.ps1" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-VERSS.wsdl" />
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\DeleteItemsInListFromRecycleBin.ps1" />
@@ -49,7 +47,6 @@
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\ADOXML-BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882.xsd" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_TestSuite.deployment.ptfconfig" />
@@ -79,9 +76,10 @@
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\UploadFile.ps1" />
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\DwsResponseResult.xsd" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_TestSuite.ptfconfig" />
-    <DeploymentItem filename="Common\Proxy\MS-SHDACCWS.wsdl" />
+    <DeploymentItem filename="Common\Proxy\MS-COPYS.wsdl" />
+    <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_2010.xml" />
+    <DeploymentItem filename="Common\Proxy\MS-WSSREST.wsdl" />
     <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_Claim_2007.xml" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
@@ -95,7 +93,6 @@
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -105,6 +102,7 @@
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\GetSiteGuid.ps1" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-LISTSWS\TestSuite\Resources\Message.txt" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_TestSuite.deployment.ptfconfig" />
@@ -112,10 +110,11 @@
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_Claim_2010.xml" />
     <DeploymentItem filename="Common\Proxy\MS-DWSS.wsdl" />
-    <DeploymentItem filename="Common\Proxy\MS-WSSREST.wsdl" />
+    <DeploymentItem filename="Common\Proxy\MS-OUTSPS.wsdl" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Script\Get-ConfigurationPropertyValue.ps1" />
-    <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\UploadFileWithFolder.ps1" />
+    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\GetFileVersions.ps1" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\GetWebAppRecycleBin.ps1" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_TestSuite.ptfconfig" />
@@ -127,14 +126,14 @@
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\GetListUrlByName.ps1" />
-    <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\GetWorkflowAssociationIdByName.ps1" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\GetWebAppPresence.ps1" />
-    <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\PropertyElementConfig\PropertyConfig.xml" />
+    <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\SetSendToNameAndUrl.ps1" />
     <DeploymentItem filename="Common\Proxy\MS-VIEWSS.wsdl" />
@@ -148,7 +147,7 @@
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-MEETS.wsdl" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_TestSuite.ptfconfig" />
-    <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\EmptyDocumentLibrary.ps1" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
@@ -163,6 +162,7 @@
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_TestSuite.ptfconfig" />
+    <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\RemoveWeb.ps1" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_TestSuite.deployment.ptfconfig" />
@@ -187,9 +187,8 @@
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_RequirementSpecification.xml" />
     <DeploymentItem filename="Common\Proxy\MS-WSSCAML.xsd" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Common\Proxy\MS-COPYS.wsdl" />
+    <DeploymentItem filename="Common\Proxy\MS-SHDACCWS.wsdl" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Common\Proxy\MS-OUTSPS.wsdl" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
@@ -205,7 +204,7 @@
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\GetCurrentWebTitle.ps1" />
-    <DeploymentItem filename="MS-LISTSWS\TestSuite\Resources\Message.txt" />
+    <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\Adapter\SUTControlAdapter\Implementation\GetObjectId.ps1" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
@@ -214,11 +213,11 @@
     <DeploymentItem filename="MS-OFFICIALFILE\Adapter\SUTControlAdapter\Implementation\SwitchFileMetaDataParsingFeature.ps1" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\PropertyElementConfig\PropertyConfig.xml" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_RequirementSpecification.xml" />
-    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\Adapter\SUTControlAdapter\Implementation\SetUserProfileService.ps1" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\Resources\" />
@@ -230,9 +229,11 @@
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\IsFileExistInRecycleBin.ps1" />
     <DeploymentItem filename="Common\Proxy\MS-OFFICIALFILE.wsdl" />
-    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_2010.xml" />
+    <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\GetBaseIdOfWorkFlowAssociation.ps1" />
+    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\UploadFileToDocumentLibrary.ps1" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
@@ -288,4 +289,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
