@@ -213,6 +213,7 @@
     <DeploymentItem filename="MS-OFFICIALFILE\Adapter\SUTControlAdapter\Implementation\SwitchFileMetaDataParsingFeature.ps1" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\PropertyElementConfig\PropertyConfig.xml" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />

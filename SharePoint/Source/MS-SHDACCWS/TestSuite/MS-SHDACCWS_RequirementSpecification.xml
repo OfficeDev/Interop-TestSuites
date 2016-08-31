@@ -24,7 +24,7 @@
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
 		<ns1:Description>[Transport:] 
 Implementation does additionally support SOAP over HTTPS for securing communication with clients.
-(Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 products follow this behavior.)</ns1:Description>
+(Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 products follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SHDACCWS_R2:i,MS-SHDACCWS_R58:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -48,7 +48,7 @@ Implementation does additionally support SOAP over HTTPS for securing communicat
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SHDACCWS_R6</ns1:REQ_ID>
