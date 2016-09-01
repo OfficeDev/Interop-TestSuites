@@ -185,6 +185,13 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             SoapResult<AddMeetingResponseAddMeetingResult> addMeetingResultFst = this.meetsAdapter.AddMeeting(organizerEmail, Guid.NewGuid().ToString(), null, DateTime.Now, meetingTitleFst, meetingLocationFst, DateTime.Now, DateTime.Now.AddHours(1), null);
             Site.Assert.IsNull(addMeetingResultFst.Exception, "Add meeting should succeed");
 
+            // According to MS-ADMINS_R3017,  the site will have a default title of "Team Site".
+            Site.CaptureRequirementIfAreEqual<string>(
+                "Team Site",
+                addMeetingResultFst.Result.AddMeeting.HostTitle,
+                25,
+                @"[In AddMeeting]HostTitle: The title of the site in which the meeting workspace is located.");
+
             // Get workspace status, make sure there is only one meeting in workspace.
             SoapResult<GetMeetingsInformationResponseGetMeetingsInformationResult> getWorkspaceInfoResultFst = this.meetsAdapter.GetMeetingsInformation(MeetingInfoTypes.QueryOthers, null);
             Site.Assert.IsNull(getWorkspaceInfoResultFst.Exception, "Get meeting information should succeed");
@@ -369,6 +376,26 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             // Remove the meeting with all parameters specified.
             SoapResult<Null> removeMeetingResult = this.meetsAdapter.RemoveMeeting(null, uid, null, null, null);
             Site.Assert.IsNull(removeMeetingResult.Exception, "RemoveMeeting should succeed");
+
+            // Restore a meeting in the workspace.
+            SoapResult<Null> restoreMeetingResult = this.meetsAdapter.RestoreMeeting(uid);
+            Site.Assert.IsNull(removeMeetingResult.Exception, "Restore should succeed");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R259");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R259
+            Site.CaptureRequirement(
+                259,
+                @"[In RestoreMeeting]The RestoreMeeting operation restores a previously deleted meeting to a workspace.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R263");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R263
+            Site.CaptureRequirement(
+                263,
+                @"[In RestoreMeeting]This operation [RestoreMeeting]undoes a previous action [previously deleted meeting].");
 
             // Clean up the SUT.
             this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
