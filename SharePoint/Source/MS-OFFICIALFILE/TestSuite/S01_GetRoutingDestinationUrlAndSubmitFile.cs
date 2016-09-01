@@ -388,7 +388,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                      docRoutingResult.CollisionSetting,
                      "MS-OFFICIALFILE",
                      75,
-                     @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:] 12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to ""NoCollision"" and return.");
+                     @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:] 12. If the ResultType is set to ""Success"", ""SuccessToDropOffLibrary"" or ""PermissionDeniedAtDestination"": When a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to ""NoCollision"" and return.");
 
             Site.CaptureRequirementIfAreEqual<DocumentRoutingCollisionSetting>(
                      DocumentRoutingCollisionSetting.NoCollision,
@@ -445,7 +445,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                          docRoutingResult.CollisionSetting,
                          "MS-OFFICIALFILE",
                          366,
-                         @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to ""NoCollision"" and return.] If the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to ""UseSharePointVersioning"" and return.");
+                         @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If the ResultType is set to ""Success"", ""SuccessToDropOffLibrary"" or ""PermissionDeniedAtDestination"": When  a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to ""NoCollision"" and return;]  when a file with the same name does exist, if the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to ""UseSharePointVersioning"" and return.");
 
                 Site.CaptureRequirementIfAreEqual<DocumentRoutingCollisionSetting>(
                          DocumentRoutingCollisionSetting.UseSharePointVersioning,
@@ -520,7 +520,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                          docRoutingResult.CollisionSetting,
                          "MS-OFFICIALFILE",
                          77,
-                         @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to ""NoCollision"" and return. If the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to ""UseSharePointVersioning"" and return. ] Otherwise the protocol server MUST set CollisionSetting to ""AppendUniqueSuffixes"".");
+                         @"[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If the ResultType is set to ""Success"", ""SuccessToDropOffLibrary"" or ""PermissionDeniedAtDestination"": When a file with the same name does not already exist at the location determined by the rule, then the protocol server MUST set CollisionSetting to ""NoCollision"" and return; when a file with the same name does exist, if the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to ""UseSharePointVersioning"" and return, ] otherwise the protocol server MUST set CollisionSetting to ""AppendUniqueSuffixes"".");
 
                 Site.CaptureRequirementIfAreEqual<DocumentRoutingCollisionSetting>(
                          DocumentRoutingCollisionSetting.AppendUniqueSuffixes,
@@ -632,7 +632,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                      docRoutingResult,
                      "MS-OFFICIALFILE",
                      353,
-                     @"[In Appendix C: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                     @"[In Appendix B: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
         }
 
         /// <summary>
@@ -906,9 +906,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
         [TestCategory("MSOFFCIALFILE"), TestMethod()]
         public void MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties()
         {
-            if (!Common.Common.IsRequirementEnabled(2081, this.Site) && !Common.Common.IsRequirementEnabled(2082, this.Site) && !Common.Common.IsRequirementEnabled(1047, this.Site))
+            if (!Common.Common.IsRequirementEnabled(2081, this.Site) && !Common.Common.IsRequirementEnabled(2082, this.Site))
             {
-                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties, at least one of the requirements MS-OFFCIIALFILE_R2081, MS-OFFICIALFILE_R2082 and MS-OFFICIALFILE_R1047 needs to be enable.");
+                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties, at least one of the requirements MS-OFFCIIALFILE_R2081 and MS-OFFICIALFILE_R2082 needs to be enable.");
             }
 
             // Initial parameters to use a repository that is configured for routing content.
@@ -940,7 +940,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              submitFileResult1.ResultCode,
                              "MS-OFFICIALFILE",
                              2081,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission and SHOULD<12> set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.](Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
 
                 if (Common.Common.IsRequirementEnabled(2082, this.Site))
@@ -949,24 +949,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              submitFileResult1.ResultUrl,
                              "MS-OFFICIALFILE",
                              2082,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission [and SHOULD<12> set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.](Microsoft SharePoint Server 2010 and above follow this behavior.)");
-                }
-
-                // The file properties will contain all the common properties and partial required properties.
-                fileProperties = this.ConstructPartialRequiredProperties().Union(this.ConstructAllCommonProperties()).ToArray();
-                SubmitFileResult submitFileResult2 = this.Adapter.SubmitFile(fileToSubmit, fileProperties, this.DocumentContentTypeName, randomFileName, this.SubmitUserName);
-                if (Common.Common.IsRequirementEnabled(1047, this.Site))
-                {
-                    // When whether the common properties are send or not, the server will not responses CustomProcessingResult element, then requirement MS-OFFCIAILFILE_R1047 can be captured.
-                    Site.Assert.IsNull(
-                        submitFileResult1.CustomProcessingResult,
-                        "When none of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery and _dlc_hold_searchcontexturl are present, Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
-
-                    Site.CaptureRequirementIfIsNull(
-                             submitFileResult2.CustomProcessingResult,
-                             "MS-OFFICIALFILE",
-                             1047,
-                             @"[In Appendix C: Product Behavior][If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element] Implementation does not include the CustomProcessingResult element. <12> Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
+                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
             }
             finally
@@ -1068,7 +1051,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              submitFileResult.CustomProcessingResult,
                              "MS-OFFICIALFILE",
                              1049,
-                             @"[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does not include the CustomProcessingResult element. <14> Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
+                             @"[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does not include the CustomProcessingResult element. <17> Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
                 }
 
                 if (Common.Common.IsRequirementEnabled(215001, this.Site))
@@ -1083,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              submitFileResult.CustomProcessingResult.HoldProcessingResult,
                              "MS-OFFICIALFILE",
                              215001,
-                             @"[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Success. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             @"[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Success. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
 
                     Site.CaptureRequirementIfAreEqual(
                              HoldProcessingResult.Success,
@@ -1106,7 +1089,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              submitFileResult.CustomProcessingResult,
                              "MS-OFFICIALFILE",
                              1050,
-                             @"[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If, however, at least one but not all of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl are contained in the properties element] Implementation does not include the CustomProcessingResult element. <15> Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
+                             @"[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If, however, at least one but not all of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl are contained in the properties element] Implementation does not include the CustomProcessingResult element.");
                 }
             }
             finally
@@ -1133,12 +1116,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
         [TestCategory("MSOFFCIALFILE"), TestMethod()]
         public void MSOFFICIALFILE_S01_TC21_SubmitFile_NoApplicableRule()
         {
-            if (!Common.Common.IsRequirementEnabled(203, this.Site)
-                && !Common.Common.IsRequirementEnabled(204, this.Site)
-                && !Common.Common.IsRequirementEnabled(1045, this.Site)
-                && !Common.Common.IsRequirementEnabled(1046, this.Site))
+            if (!Common.Common.IsRequirementEnabled(203001, this.Site)
+                && !Common.Common.IsRequirementEnabled(204001, this.Site))
             {
-                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC21_SubmitFile_NoApplicableRule, at least one of the requirements MS-OFFCIIALFILE_R203, MS-OFFICIALFILE_R204, MS-OFFICIALFILE_R1045 and MS-OFFICIALFILE_R1046 needs to be enable.");
+                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC21_SubmitFile_NoApplicableRule, at least one of the requirements MS-OFFCIIALFILE_R203001 and MS-OFFICIALFILE_R204001 needs to be enable.");
             }
 
             // Initial parameters to use a repository that is configured for routing content.
@@ -1161,16 +1142,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                 // Call SubmitFile on a repository that is configured for routing content and no configured routing rule for the specified content type name parameter, expect the server responses MoreInformation.
                 SubmitFileResult submitFileResult1 = this.Adapter.SubmitFile(fileToSubmit, fileProperties, this.NotSupportedContentTypeName, this.GenerateRandomTextFileName(), this.SubmitUserName);
 
-                if (Common.Common.IsRequirementEnabled(203, this.Site))
+                if (Common.Common.IsRequirementEnabled(203001, this.Site))
                 {
-                    // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R203
+                    // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R203001
                     Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
                              SubmitFileResultCode.MoreInformation,
                              submitFileResult1.ResultCode,
                              "MS-OFFICIALFILE",
-                             203,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-                             If no applicable rule is found: 1. The protocol server sets the ResultCode element to MoreInformation. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             203001,
+                             @"[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultCode element to MoreInformation when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
 
                     // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R249
                     Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
@@ -1181,24 +1161,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              @"[In SubmitFileResultCode] [If] The operation [SubmitFile] is successful but further action is needed. [SubmitFileResultCode] Value is MoreInformation.");
                 }
 
-                if (Common.Common.IsRequirementEnabled(204, this.Site))
+                if (Common.Common.IsRequirementEnabled(204001, this.Site))
                 {
                     Site.CaptureRequirementIfIsNotNull(
                              submitFileResult1.ResultUrl,
                              "MS-OFFICIALFILE",
-                             204,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] 
-                             If no applicable rule is found: 2. The protocol server MUST set the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
-                }
-
-                if (Common.Common.IsRequirementEnabled(1046, this.Site))
-                {
-                    // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R1046
-                    Site.CaptureRequirementIfIsNull(
-                             submitFileResult1.CustomProcessingResult,
-                             "MS-OFFICIALFILE",
-                             1046,
-                             @"[In Appendix C: Product Behavior] Implementation does not set the CustomProcessingResult element if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. [<11> Section 3.1.4.6:] The CustomProcessingResult element is not set if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. ](Office SharePoint Server 2010 and above follow this behavior.)");
+                             204001,
+                             @"[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultUrl element to an implementation-specific URL to enter more information about the submission when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
 
                 // Call SubmitFile on a repository that is configured for routing content and no configured routing rule for the specified content type name parameter 
@@ -1206,40 +1175,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                 fileProperties = this.ConstructAllProperties();
                 SubmitFileResult submitFileResult2 = this.Adapter.SubmitFile(fileToSubmit, fileProperties, this.NotSupportedContentTypeName, this.GenerateRandomTextFileName(), this.SubmitUserName);
 
-                if (Common.Common.IsRequirementEnabled(203, this.Site))
+                if (Common.Common.IsRequirementEnabled(203001, this.Site))
                 {
-                    // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R203
+                    // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R203001
                     Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
                              SubmitFileResultCode.MoreInformation,
                              submitFileResult2.ResultCode,
                              "MS-OFFICIALFILE",
-                             203,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-                             If no applicable rule is found: 1. The protocol server sets the ResultCode element to MoreInformation. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             203001,
+                             @"[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultCode element to MoreInformation when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
 
-                if (Common.Common.IsRequirementEnabled(204, this.Site))
+                if (Common.Common.IsRequirementEnabled(204001, this.Site))
                 {
                     Site.CaptureRequirementIfIsNotNull(
                              submitFileResult2.ResultUrl,
                              "MS-OFFICIALFILE",
-                             204,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] 
-                             If no applicable rule is found: 2. The protocol server MUST set the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
-                }
-
-                if (Common.Common.IsRequirementEnabled(1045, this.Site))
-                {
-                    // When whether the common properties are send or not, the server will not responses CustomProcessingResult element, then requirement MS-OFFCIAILFILE_R1045 can be captured.
-                    Site.Assert.IsNull(
-                        submitFileResult1.CustomProcessingResult,
-                        "When none of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery and _dlc_hold_searchcontexturl are present, Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
-
-                    Site.CaptureRequirementIfIsNull(
-                             submitFileResult2.CustomProcessingResult,
-                             "MS-OFFICIALFILE",
-                             1045,
-                             @"[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If no applicable rule is found:] Implementation does not include the CustomProcessingResult element. <11> Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.");
+                             204001,
+                             @"[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultUrl element to an implementation-specific URL to enter more information about the submission when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
             }
             finally
@@ -1280,7 +1233,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                      "MS-OFFICIALFILE",
                      213,
                      @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-                     [If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server MUST set the ResultCode element to Success [and SHOULD<13> set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.]");
+[If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server MUST set the ResultCode element to Success [and SHOULD<16> set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.]");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R248
             Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
@@ -1296,7 +1249,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                          submitFileResult.ResultUrl,
                          "MS-OFFICIALFILE",
                          1067,
-                         @"[In Appendix C: Product Behavior] Implementation does set the ResultCode element to Success and set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file if implementation-specific errors doesn't occur while determining the storage location for the submission or while storing the file. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does set the ResultCode element to Success and set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file if implementation-specific errors doesn't occur while determining the storage location for the submission or while storing the file. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
             }
 
             if (Common.Common.IsRequirementEnabled(1066, this.Site))
@@ -1306,7 +1259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                          submitFileResult.AdditionalInformation,
                          "MS-OFFICIALFILE",
                          1066,
-                         @"[In Appendix C: Product Behavior] Implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. <13> Section 3.1.4.6:  Office SharePoint Server 2007 returns the URL in the AdditionalInformation element.");
+                         @"[In Appendix B: Product Behavior] Implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. <16> Section 3.1.4.6:  Office SharePoint Server 2007 returns the URL in the AdditionalInformation element.");
             }
         }
         #endregion

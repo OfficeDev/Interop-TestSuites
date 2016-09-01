@@ -20,7 +20,7 @@
     <!-- Set R269Enabled to true to indicate that implementation does return "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R269Enabled to false to disable this requirement. -->
     <Property name="R269Enabled" value="false"/>
     <!-- Set R357Enabled to true to indicate that implementation does return "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R357Enabled to true to enable this requirement. -->
-    <Property name="R357Enabled" value="true"/>
+    <Property name="R357Enabled" value="false"/>
     <!-- Set R1066Enabled to true to indicate that implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. <13> Section 3.1.4.6:. R1066Enabled to true to enable this requirement. -->
     <Property name="R1066Enabled" value="false"/>
     <!-- Set R1067Enabled to true to indicate that implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. Set R1067Enabled to false to disable this requirement. -->
