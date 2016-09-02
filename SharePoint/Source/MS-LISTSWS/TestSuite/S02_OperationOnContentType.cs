@@ -3574,7 +3574,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateContentTypeContentTypeProperties updateProperties = new UpdateContentTypeContentTypeProperties();
 
             // Call UpdateContentType operation to update the content type. updateFields and deleteFields should success, addFields should fail.
-            this.listswsAdapter.UpdateContentType(
+            UpdateContentTypeResponseUpdateContentTypeResult updateResult = this.listswsAdapter.UpdateContentType(
                                                    listName,
                                                    contentTypeId,
                                                    updateProperties,
@@ -3582,6 +3582,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                    updateFields,
                                                    deleteFields,
                                                    Convert.ToString(true));
+
+            bool isCaptured = updateResult.Results.Method[1].ErrorCode == "0x82000007";
+
+            // Capture R807 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                807,
+                @"[In UpdateContentType operation] [The protocol server adds the appropriate fields to the content type.] If the fields to be added do not exist in the specified list, the protocol server MUST return a SOAP faultResponse with error code 0x82000007. ");
         }
 
         /// <summary>
@@ -3769,6 +3777,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             Site.Assert.IsNotNull(updateResult, "The result of UpdateContentType operation should not be NULL");
 
+            bool isCaptured = updateResult.Results.Method[0].ErrorCode == "0x82000007";
+
+            // Capture R805 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                805,
+                @"[In UpdateContentType operation][If the specified content type is found, the protocol server deletes the appropriate fields from the content type. ]If the fields to be deleted do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ");
+
             // Call GetListContentType operation to get the content type.
             GetListContentTypeResponseGetListContentTypeResult getResult = this.listswsAdapter.GetListContentType(
                                             listName,
@@ -3828,9 +3844,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Capture R830 if the error code is "0x00000000".
             Site.CaptureRequirementIfIsTrue(
-            isCaptured,
-            830,
-            @"[In UpdateContentType operation] [In UpdateContentTypeResponse element] [In ErrorCode element] For an update operation, if a reference to the field to be updated is found on the content type, the value MUST be ""0x00000000"".");
+                isCaptured,
+                830,
+                @"[In UpdateContentType operation] [In UpdateContentTypeResponse element] [In ErrorCode element] For an update operation, if a reference to the field to be updated is found on the content type, the value MUST be ""0x00000000"".");
 
             // Construct an FieldDefinition, to verify the value of the Field.
             FieldDefinition dieldDef = result.Results.Method[0].Field;
@@ -4145,6 +4161,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                     Convert.ToString(true));
 
             Site.Assert.IsNotNull(updateResult, "The result of UpdateContentType operation should not be NULL");
+
+            bool isCaptured = updateResult.Results.Method[2].ErrorCode == "0x82000007";
+
+            // Capture R811 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                811,
+                @"[In UpdateContentType operation] [The protocol server updates the appropriate fields on the content type.] If the fields to be updated do not exist in the specified contentType or they do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ");
 
             // Call GetListContentType operation to get the content type.
             GetListContentTypeResponseGetListContentTypeResult getResult = this.listswsAdapter.GetListContentType(

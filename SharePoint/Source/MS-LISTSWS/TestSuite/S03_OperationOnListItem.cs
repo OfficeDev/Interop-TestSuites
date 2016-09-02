@@ -7302,6 +7302,27 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     sutVersion);
             }
 
+            try
+            {
+                result = this.listswsAdapter.UpdateListItems(
+                                                    Guid.NewGuid().ToString(),
+                                                    updates);
+            }
+            catch (SoapException exp)
+            {
+                errorCode = TestSuiteHelper.GetErrorCode(exp);
+                isSoapFault = true;
+            }
+
+            if (Common.IsRequirementEnabled(27701, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<string>(
+                   "0x81020026",
+                   errorCode,
+                   27701,
+                   @"[In Appendix B: Product Behavior] [In UpdateListItems operation] Implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. (SharePoint Foundation 2013 follow this behavior.)");
+            }
+
             // Create a list.
             string listId = TestSuiteHelper.CreateList();
 

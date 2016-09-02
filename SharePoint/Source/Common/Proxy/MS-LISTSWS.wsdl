@@ -1925,6 +1925,10 @@ elementFormDefault='qualified'>
         <s:attribute name="MaxItemsPerThrottledOperation" type="s:int" />
         <s:attribute name="EnableAssignedToEmail" type="core:TRUEFALSE" use="optional"/>
         <s:attribute name="Followable" type="core:TRUEFALSE" />
+        <s:attribute name="Acl" type="s:string" use="optional"/>
+        <s:attribute name="Flags2" type="s:string" use="optional"/>
+        <s:attribute name="RootFolderId" type="s:string" use="optional"/>
+        <s:attribute name="IrmSyncable" type="core:TRUEFALSE" use="optional"/>
       </s:complexType>
 
       <!--Add a UpdateListFieldsRequest complexType described in [MS-LISTSWS] section 2.2.4.15 -->

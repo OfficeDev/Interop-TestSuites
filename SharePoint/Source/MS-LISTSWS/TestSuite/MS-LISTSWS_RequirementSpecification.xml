@@ -16110,15 +16110,6 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-LISTSWS_R2298</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.27</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentType operation] [The protocol server updates the content type with the given properties.] [If an error is encountered during this operation, the protocol server MUST return a SOAP fault.]There is no specific error code for this fault</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R821</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.27</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentType operation] If changes to the content type are not allowed, the protocol server MUST NOT carry out operations other than deleting, adding, or updating fields.</ns1:Description>
@@ -18218,7 +18209,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R2770, MS-LISTSWS_R2510.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R2770.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2068</ns1:REQ_ID>
@@ -22262,8 +22253,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2511</ns1:REQ_ID>

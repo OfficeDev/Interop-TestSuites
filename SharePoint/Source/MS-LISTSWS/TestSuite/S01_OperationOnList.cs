@@ -1079,7 +1079,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
                 // Set Presence and RecycleBinEnable value to True.
                 sutControlAdapter.SetWebAppPresence(true);
+                System.Threading.Thread.Sleep(10000);
                 sutControlAdapter.SetWebAppRecycleBin(true);
+                System.Threading.Thread.Sleep(10000);
 
                 // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
                 GetListResponseGetListResult getResult = this.listswsAdapter.GetList(addResult.List.ID);
@@ -1127,7 +1129,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
                 // Set Presence and RecycleBinEnable value to True.
                 sutControlAdapter.SetWebAppPresence(false);
+                System.Threading.Thread.Sleep(10000);
                 sutControlAdapter.SetWebAppRecycleBin(false);
+                System.Threading.Thread.Sleep(10000);
 
                 // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
                 getResult = this.listswsAdapter.GetList(addResult.List.ID);
@@ -1146,7 +1150,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
                 // Restore Presence and RecycleBinEnable settings for WebApp.
                 sutControlAdapter.SetWebAppPresence(presenceEnabled);
+                System.Threading.Thread.Sleep(10000);
                 sutControlAdapter.SetWebAppRecycleBin(recycleBinEnable);
+                System.Threading.Thread.Sleep(10000);
 
                 // Call method GetList to get the list from server.
                 // If the GetListResponse is returned, then capture R555 and R557.
