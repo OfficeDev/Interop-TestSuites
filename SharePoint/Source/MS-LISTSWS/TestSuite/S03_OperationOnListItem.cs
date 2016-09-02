@@ -186,7 +186,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 isSoapFaultGenerated
                 && "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).".Equals(errorstring, StringComparison.OrdinalIgnoreCase),
                 2429,
-                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<24> Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<26> Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
         }
 
         /// <summary>
@@ -797,7 +797,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsFalse(
                     getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
                     7081,
-                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <59> Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0, and SharePoint Foundation 2010.");
+                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <62> Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0, and SharePoint Foundation 2010.");
             }
             #endregion
         }
@@ -1343,7 +1343,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         isR6612Verified,
                         6612,
                         @"[In GetListItemChangesSinceToken operation] Implementation does return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"", "
-                        + @"if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID.  (<56> Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"") ");
+                        + @"if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID.  (<58> Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"") ");
                 }
             }
         }
@@ -1392,7 +1392,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2483,
                     2483,
-                    @"[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (<57> Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)");
+                    @"[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (<59> Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)");
             }
 
             this.Site.Assert.IsTrue(isSoapFaultExist, "Call GetListItemChangesSinceToken operation with invalid ListName must generate a Soap Fault");
@@ -1437,7 +1437,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     40,
                     AdapterHelper.ExtractData(result.listitems.data.Any).Rows.Count,
                     2484,
-                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <58> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40, only the first 40 items that changed are returned.");
+                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <60> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40, only the first 40 items that changed are returned.");
 
                 int leftInsertListItemCount = addedItemUnmber - 40;
 
@@ -1483,7 +1483,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     40,
                     AdapterHelper.ExtractData(result.listitems.data.Any).Rows.Count,
                     2485,
-                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <58> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40, only the first 40 items that changed are returned.");
+                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <60> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40, only the first 40 items that changed are returned.");
             }
         }
 
@@ -1540,7 +1540,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         errorCode,
                         6581,
-                        @"[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (<55> Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)");
+                        @"[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (<57> Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)");
                 }
             }
 
@@ -2258,7 +2258,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsFalse(
                     getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
                     11461,
-                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <63> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
+                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <64> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
             }
 
             #endregion
@@ -3027,7 +3027,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2480,
                     2480,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<53> Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<55> Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isSoapFaultExist, "Call GetListItemChanges operation with invalid ListName must generate a Soap Fault.");
@@ -3127,7 +3127,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isR5882Verified,
                     5882,
-                    @"[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( <52> Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)");
+                    @"[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( <54> Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)");
             }
 
             // If error code "0x82000006" is returned, capture R30183.
@@ -3325,7 +3325,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isR5894Verified,
                     5894,
-                    @"[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (<65> Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)");
+                    @"[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (<66> Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)");
             }
 
             // If error code "0x82000006" is returned, capture R30193.
@@ -4145,7 +4145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2489,
                     2489,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<64> Section 3.1.4.24: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<65> Section 3.1.4.24: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isSoapFault, "Call GetListItems operation with invalid ListName must generate a Soap Fault");
@@ -4457,7 +4457,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 isSoapFaultGenerated
                 && "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).".Equals(errorString, StringComparison.OrdinalIgnoreCase),
                 2492,
-                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<67> Section 3.1.4.25: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<68> Section 3.1.4.25: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
         }
 
         /// <summary>
@@ -7240,7 +7240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirementIfIsTrue(
                 expectedErrorString.Equals(errorString, StringComparison.OrdinalIgnoreCase),
                 2510,
-                @"[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (<80> Section 3.1.4.31: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                @"[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (<81> Section 3.1.4.31: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
         }
 
         /// <summary>
@@ -8355,7 +8355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         isR30231Verified,
                         30231,
                         @"[In UpdateListItems operation] Implementation does return the SOAP fault: ""Object reference not set to an instance of an object."", if listName is an empty string. "
-                        + @"(<81> Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: ""Object reference not set to an instance of an object"".)");
+                        + @"(<82> Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: ""Object reference not set to an instance of an object"".)");
                 }
 
                 if (Common.IsRequirementEnabled(30232, this.Site))

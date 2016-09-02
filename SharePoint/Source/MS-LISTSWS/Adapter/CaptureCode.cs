@@ -470,7 +470,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsNull(
                   list.Followable,
                   5417,
-                  @"Implementation does not return this attribute[ListDefinitionCT.Followable]. [In Appendix B: Product Behavior] <15> Section 2.2.4.11: This attribute[ListDefinitionCT.Followable] is not returned in Windows SharePoint Services 3.0 and SharePoint Foundation 2010.");
+                  @"Implementation does not return this attribute[ListDefinitionCT.Followable]. [In Appendix B: Product Behavior] <16> Section 2.2.4.11: This attribute[ListDefinitionCT.Followable] is not returned in Windows SharePoint Services 3.0 and SharePoint Foundation 2010.");
             }
 
             // Verify MS-LISTSWS requirement: MS-LISTSWS_R1352
@@ -740,7 +740,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.EnableFolderCreation,
                     2404,
-                    @"Implementation does not return this attribute[ListDefinitionCT.EnableFolderCreation]. [In Appendix B: Product Behavior]<8> Section 2.2.4.11: This attribute is not returned by Windows SharePoint Services 3.0 servers.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.EnableFolderCreation]. [In Appendix B: Product Behavior]<9> Section 2.2.4.11: This attribute is not returned by Windows SharePoint Services 3.0 servers.");
             }
 
             if (Common.IsRequirementEnabled(2406, this.Site))
@@ -749,7 +749,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.IrmEnabled,
                     2406,
-                    @"Implementation does not return this attribute[ListDefinitionCT.IrmEnabled]. [In Appendix B: Product Behavior] <9> Section 2.2.4.11: This attribute[ListDefinitionCT.IrmEnabled] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.IrmEnabled]. [In Appendix B: Product Behavior] <10> Section 2.2.4.11: This attribute[ListDefinitionCT.IrmEnabled] is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2408, this.Site))
@@ -758,7 +758,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.IsApplicationList,
                     2408,
-                    @"Implementation does not return this attribute[ListDefinitionCT.IsApplicationList]. [In Appendix B: Product Behavior] <10> Section 2.2.4.11: This attribute[ListDefinitionCT.IsApplicationList] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.IsApplicationList]. [In Appendix B: Product Behavior] <11> Section 2.2.4.11: This attribute[ListDefinitionCT.IsApplicationList] is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2410, this.Site))
@@ -767,7 +767,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.PreserveEmptyValues,
                     2410,
-                    @"Implementation does not return this attribute[ListDefinitionCT.PreserveEmptyValues]. [In Appendix B: Product Behavior] <11> Section 2.2.4.11: This attribute[ListDefinitionCT.PreserveEmptyValues] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.PreserveEmptyValues]. [In Appendix B: Product Behavior] <12> Section 2.2.4.11: This attribute[ListDefinitionCT.PreserveEmptyValues] is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2412, this.Site))
@@ -776,7 +776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.StrictTypeCoercion,
                     2412,
-                    @"Implementation does not return this attribute[ListDefinitionCT.StrictTypeCoercion]. [In Appendix B: Product Behavior] <12> Section 2.2.4.11: This attribute[ListDefinitionCT.StrictTypeCoercion] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.StrictTypeCoercion]. [In Appendix B: Product Behavior] <13> Section 2.2.4.11: This attribute[ListDefinitionCT.StrictTypeCoercion] is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2414, this.Site))
@@ -785,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsFalse(
                     list.MaxItemsPerThrottledOperationSpecified,
                     2414,
-                    @"Implementation does not return this attribute[ListDefinitionCT.MaxItemsPerThrottledOperation]. [In Appendix B: Product Behavior] <13> Section 2.2.4.11: This attribute[ListDefinitionCT.MaxItemsPerThrottledOperation] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.MaxItemsPerThrottledOperation]. [In Appendix B: Product Behavior] <14> Section 2.2.4.11: This attribute[ListDefinitionCT.MaxItemsPerThrottledOperation] is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2416, this.Site))
@@ -794,7 +794,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.EnforceDataValidation,
                     2416,
-                    @"Implementation does not return this attribute[ListDefinitionCT.EnforceDataValidation]. [In Appendix B: Product Behavior] <14> Section 2.2.4.11: This attribute[ListDefinitionCT.EnforceDataValidation] is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListDefinitionCT.EnforceDataValidation]. [In Appendix B: Product Behavior] <15> Section 2.2.4.11: This attribute[ListDefinitionCT.EnforceDataValidation] is not returned in Windows SharePoint Services 3.0.");
             }
         }
 
@@ -1033,7 +1033,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2418,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <16> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <17> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2420, this.Site))
@@ -1042,7 +1042,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2420,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <17> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <18> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2422, this.Site))
@@ -1051,7 +1051,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.ValidationDisplayNames,
                         2422,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <18> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <19> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
                 }
             }
         }
@@ -1121,7 +1121,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.UniqueId,
                     2423,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <19> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <20> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2424, this.Site))
@@ -1130,7 +1130,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.MetaInfo_vti_clientid,
                     2424,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <20> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <21> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2425, this.Site))
@@ -1140,7 +1140,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     change.ServerChangeUnit,
                     2425,
                     @"[In Appendix B: Product Behavior] Implemementation does not return this attribute[ServerChangeUnit]. "
-                    + "<21> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
+                    + "<22> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
             }
         }
 
@@ -3072,7 +3072,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsFalse(
                         isFileFragmentExist,
                         2486,
-                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <60> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
+                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <61> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
                 }
             }
 
@@ -3881,7 +3881,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                       <s:element name=""UpdateContentTypeXmlDocumentResult"" minOccurs=""0"">
                         <s:complexType mixed=""true"">
                           <s:sequence>
-                            <s:any />
+                             <s:element name=""Success"" minOccurs=""0"">
+                            <s:complexType />
+                            </s:element>
                           </s:sequence>
                         </s:complexType>
                       </s:element>
@@ -4046,35 +4048,34 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 2111,
-                @"[The schema of UpdateListItemsResponse is defined as:]<s:element name=""UpdateListItemsResponse"">
-                  <s:complexType>
-                    <s:sequence>
-                      <s:element name=""UpdateListItemsResult"">
-                        <s:complexType>
-                          <s:sequence>
-                            <s:element name=""Results"" >
-                              <s:complexType>
-                                <s:sequence>
-                                  <s:element name=""Result"" maxOccurs=""unbounded"">
-                                    <s:complexType>
-                                      <s:sequence>
-                                        <s:element name=""ErrorCode"" type=""s:string"" />
-                                        <s:any maxOccurs=""unbounded"" />
-                                      </s:sequence>
-                                      <s:attribute name=""ID"" type=""s:string"" />
-                                      <s:attribute name=""List"" type=""s:string""/>
-                                      <s:attribute name=""Version"" type=""s:string""/>
-                                    </s:complexType>
-                                  </s:element>
-                                </s:sequence>
-                              </s:complexType>
-                            </s:element>
-                          </s:sequence>
-                        </s:complexType>
-                      </s:element>
-                    </s:sequence>
-                    <s:anyAttribute />                                
-                  </s:complexType></s:element>");
+                @"[The schema of UpdateListItemsResponse is defined as:]  <s:element name=""UpdateListItemsResponse"">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs=""0"" maxOccurs=""1"" name=""UpdateListItemsResult"">
+                      <s:complexType mixed=""true"">
+                        <s:sequence>
+                          <s:element name=""Results"" >
+                            <s:complexType>
+                              <s:sequence>
+                                <s:element name=""Result"" maxOccurs=""unbounded"">
+                                  <s:complexType>
+                                    <s:sequence>
+                                      <s:element name=""ErrorCode"" type=""s:string"" />
+                                              <s:any minOccurs=""0"" maxOccurs=""unbounded"" />
+                                    </s:sequence>
+                                  <s:attribute name=""ID"" type=""s:string"" />
+                                <s:attribute name=""List"" type=""s:string""/>
+                              <s:attribute name=""Version"" type=""s:string""/>
+                            </s:complexType>
+                          </s:element>
+                        </s:sequence>
+                      </s:complexType>
+                    </s:element>
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:complexType></s:element>");
 
             // Ensure the SOAP result is de-serialized successfully.
             Site.Assume.IsNotNull(
@@ -4166,11 +4167,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
                 Site.CaptureRequirement(
                     1175,
-                    @"[The schema of UpdateListItemsWithKnowledgeresponse is defined as: ]<s:element name=""UpdateListItemsWithKnowledgeResponse"">
+                    @"[The schema of UpdateListItemsWithKnowledgeresponse is defined as: ] <s:element name=""UpdateListItemsWithKnowledgeResponse"">
                   <s:complexType>
                     <s:sequence>
-                      <s:element name=""UpdateListItemsWithKnowledgeResult"">
-                        <s:complexType>
+                      <s:element minOccurs=""0"" maxOccurs=""1"" name=""UpdateListItemsWithKnowledgeResult"">
+                        <s:complexType mixed=""true"">
                           <s:sequence>
                             <s:element name=""Results"" >
                               <s:complexType>
@@ -4192,8 +4193,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                           </s:sequence>
                         </s:complexType>
                       </s:element>
-                    </s:sequence>
-                    <s:anyAttribute />                                
+                    </s:sequence>                               
                   </s:complexType>
                 </s:element>");
 

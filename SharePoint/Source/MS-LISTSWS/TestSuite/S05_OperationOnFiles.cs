@@ -287,7 +287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExisted,
                     3922,
-                    @"[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<30>SharePoint Service 3.0 follow this behavior.)");
+                    @"[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<32> Section 3.1.4.7:  Windows SharePoint Services 3.0 does not return a SOAP fault..)");
             }
 
             #endregion
@@ -537,7 +537,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExist,
                     4082,
-                    @"[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<32>SharePoint Service 3.0 follow this behavior.)");
+                    @"[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<34> Section 3.1.4.8:  wss3 does not return a SOAP fault.)");
             }
 
             #endregion
@@ -778,7 +778,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExist,
                     7851,
-                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL.(<70> Section 3.1.4.26: Windows® SharePoint® Services 3.0 does not return a SOAP fault.)");
+                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. <71> Section 3.1.4.26: wss3 does not return a SOAP fault.");
             }
 
             if (Common.IsRequirementEnabled(7852, this.Site))
