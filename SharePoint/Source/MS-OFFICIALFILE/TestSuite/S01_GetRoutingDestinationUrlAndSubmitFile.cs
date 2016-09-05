@@ -1076,6 +1076,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                              @"[In HoldProcessingResult] [If] The processing of a legal hold is successful. [HoldProcessingResult] Value is Success.");
                 }
 
+                if(Common.Common.IsRequirementEnabled(360,this.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual(
+                         HoldProcessingResult.Success,
+                         submitFileResult.CustomProcessingResult.HoldProcessingResult,
+                         "MS-OFFICIALFILE",
+                         360,
+                         @"[In Appendix B: Product Behavior] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                }
+
                 // Remove one of the common properties with the property name _dlc_hold_url
                 fileProperties = this.ConstructAllProperties();
                 fileProperties = fileProperties.Where(p => p.Name != "_dlc_hold_url").ToArray();

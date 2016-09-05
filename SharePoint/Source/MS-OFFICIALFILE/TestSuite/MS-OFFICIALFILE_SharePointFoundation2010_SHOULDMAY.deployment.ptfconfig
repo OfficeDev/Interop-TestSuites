@@ -13,8 +13,8 @@
     <Property name="R1031Enabled" value="false"/>
     <!-- Set R353Enabled to true to indicate that the SharePoint 2013 server provide this method [GetFinalRoutingDestinationFolderUrl]. . R353Enabled to false to disable this requirement. -->
     <Property name="R353Enabled" value="false"/>
-    <!-- Set R354Enabled to true to indicate that the SharePoint 2013 server provide this method [GetHoldsInfo]. . R354Enabled to false to disable this requirement. -->
-    <Property name="R354Enabled" value="false"/>
+    <!-- Set R354Enabled to true to indicate that the implementation does provide this method [GetHoldsInfo]. R354Enabled to false to disable this requirement. -->
+    <Property name="R354Enabled" value="true"/>
     <!-- Set R268Enabled to true to indicate that the SharePoint 2013 server returns "Microsoft.Office.Server" as the ServerType and "Microsoft.Office.OfficialFileSoap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.. R268Enabled to false to disable this requirement. -->
     <Property name="R268Enabled" value="false"/>
     <!-- Set R269Enabled to true to indicate that the SharePoint 2013 server returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion. R269Enabled to false to disable this requirement. -->
@@ -45,5 +45,7 @@
     <Property name="R2082Enabled" value="false"/>
     <!-- Set R201Enabled to true to indicate that the SharePoint 2013 server can be configured to disable the record routing. Set R201Enabled to false to disable this requirement. -->
     <Property name="R201Enabled" value="false"/>
+    <!-- Set R360Enabled to true to indicate that implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult.Set R360Enabled to false to disable this requirement. -->
+    <Property name="R360Enabled" value="true"/>
   </Properties>
 </TestSite>
