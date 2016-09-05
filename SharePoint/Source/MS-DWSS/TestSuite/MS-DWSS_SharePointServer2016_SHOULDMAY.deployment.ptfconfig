@@ -30,8 +30,8 @@
     <!-- Set R3164Enabled to true to verify that [If the specified Document Workspace does not exist, ] Implementation returns HTTP status code 404 with an empty response body, as specified in section 3.1.4.4. Set R3164Enabled to false to disable this requirement. -->
     <Property name="R3164Enabled" value="false" />
     <!-- Set R2561Enabled to true to verify that implementation does not return the Schema element for Tasks. Set R2561Enabled to false to disable this requirement. -->
-    <Property name="R2561Enabled" value="true" />
+    <Property name="R2561Enabled" value="false" />
     <!-- Set R2562Enabled to true to verify that implementation does return the Schema element for Tasks. Set R2562Enabled to false to disable this requirement. -->
-    <Property name="R2562Enabled" value="false" />
+    <Property name="R2562Enabled" value="true" />
   </Properties>
 </TestSite>
