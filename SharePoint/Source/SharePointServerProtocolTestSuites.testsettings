@@ -144,6 +144,7 @@
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\SetWebAppPresence.ps1" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\XML.xsd" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-MEETS.wsdl" />
