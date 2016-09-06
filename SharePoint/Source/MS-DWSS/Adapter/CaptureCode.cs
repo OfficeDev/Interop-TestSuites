@@ -1115,7 +1115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                         @"[In Appendix B: Product Behavior] Implementation does not return the Schema element for Tasks. (<9> Section 3.1.4.8.2.2: SharePoint Foundation 2013 does not return this Schema element.)");
                 }
 
-                if (Common.IsRequirementEnabled(2562, this.Site))
+                if (this.IsListAdded && Common.IsRequirementEnabled(2562, this.Site))
                 {
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R2562");

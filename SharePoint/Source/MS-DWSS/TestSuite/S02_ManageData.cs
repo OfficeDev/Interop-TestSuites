@@ -891,10 +891,9 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             
             bool isAddLinksList = this.sutControlAdapterInstance.AddList("Links", 103, baseUrl);
             this.Site.Assert.IsTrue(isAddLinksList, "Failed to add the Links list.");
-            
+
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") ||
-                string.Equals(sutVersion, "SharePointServer2013"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
             {
                 bool isAddDocList = this.sutControlAdapterInstance.AddList("Documents", 101, baseUrl);
                 this.Site.Assert.IsTrue(isAddDocList, "Failed to add the Documents list.");
@@ -904,7 +903,8 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 bool isAddDocList = this.sutControlAdapterInstance.AddList("Shared Documents", 101, baseUrl);
                 this.Site.Assert.IsTrue(isAddDocList, "Failed to add the Shared Documents list.");
             }
-            
+
+            this.dwsAdapter.IsListAdded = true;
             GetDwsMetaDataResultTypeResults getDwsMetaDataResult2 = this.dwsAdapter.GetDwsMetaData(docUrl, docId, false, out error);
             this.Site.Assert.IsNull(error, "The server should not return an error.");
 
@@ -973,7 +973,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.Assert.IsTrue(isDeleteLinksList, "Failed to delete the Links List.");
             
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
             {
                 bool isDeleteDocList = this.sutControlAdapterInstance.DeleteList("Documents", baseUrl);
                 this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
@@ -982,14 +982,9 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             {
                 bool isDeleteDocList = this.sutControlAdapterInstance.DeleteList("Shared Documents", baseUrl);
                 this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
-
-                if (string.Equals(sutVersion, "SharePointServer2016"))
-                {
-                    isDeleteDocList = this.sutControlAdapterInstance.DeleteList("Documents", baseUrl);
-                    this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
-                }
             }
 
+            this.dwsAdapter.IsListAdded = false;
             GetDwsMetaDataResultTypeResults getDwsMetaDataResult3 = this.dwsAdapter.GetDwsMetaData(docUrl, docId, false, out error);
             this.Site.Assert.IsNull(error, "The server should not return an error.");
             

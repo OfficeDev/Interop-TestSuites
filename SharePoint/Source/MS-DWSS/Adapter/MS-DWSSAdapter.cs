@@ -28,6 +28,11 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
         /// </summary>
         private SoapVersion soapVersion;
 
+        /// <summary>
+        /// Indicates weather the "Tasks", "Documents" and "Links" is added in the new created workspace.
+        /// </summary>
+        private bool isListAdded = false;
+
         #endregion Variables
 
         #region Properties
@@ -61,6 +66,22 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             set
             {
                 this.dwsService.Credentials = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the private variable isListAdded.
+        /// </summary>
+        public bool IsListAdded
+        {
+            get
+            {
+                return this.isListAdded;
+            }
+
+            set
+            {
+                this.isListAdded = value;
             }
         }
 
