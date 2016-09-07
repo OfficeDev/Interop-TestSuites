@@ -77,7 +77,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
                                                60,
                                                @"[Transport:] 
                                                Implementation does additionally support SOAP over HTTPS for securing communication with clients.
-                                               (Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 products follow this behavior.)");
+                                               (Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 products follow this behavior.)");
                         }
 
                         break;
