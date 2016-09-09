@@ -3140,7 +3140,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     }
                 }
             }
-
+            // Verify R1907
+            // The response have been received successfully, then the following requirement can be captured.
+            // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                    1907,
                    @"[GetListItemChangesSinceTokenResponse]Note that set of fields returned by the method is restricted by the viewField or viewName parameter.");
@@ -4141,7 +4143,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + "server MUST use the method identification to match up the request made to the "
                 + "protocol server with the protocol server response.");
                 //
-                if (updateListItemsResult.Results[i].ID == null || updateListItemsResult.Results[i].ID.ToString() == "")
+                if ((updateListItemsResult.Results[i].ID == null || updateListItemsResult.Results[i].ID.ToString() == "") && (updateListItemsResult.Results[i].ErrorCode != ""))
                 {
                 Site.CaptureRequirement(
                     2323001,
