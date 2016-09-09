@@ -622,7 +622,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 
 #### MS-AUTHWS 
 
-1.  Web Applications named
+1.  Create three web Applications named
     **MSAUTHWS\_FormsWebAPP**, **MSAUTHWS\_NoneWebAPP**, and
     **MSAUTHWS\_PassportWebAPP** with authentication mode set to Forms,
     None, and Passport respectively.
@@ -930,22 +930,22 @@ to run the test suites.
 
 1.  Create a site collection named **MSCOPYS\_SiteCollection**.
 
-2.  Create a document library *MSCOPYS\_SourceDocumentLibrary*
+2.  Create a document library **MSCOPYS\_SourceDocumentLibrary**
     on MSCOPYS\_SiteCollection.
 
 3.  Create subsites named **MSCOPYS\_SubSiteMeetingWorkspace**
     in MSCOPYS\_SiteCollection.
 
-For Microsoft SharePoint Server, use the *Basic Meeting Workspace* site template.
+For Microsoft SharePoint Server, use the **Basic Meeting Workspace** site template.
 
-1.  Create column named **MSCOPYS\_TestReadOnlyField** in list
+4.  Create column named **MSCOPYS\_TestReadOnlyField** in list
     MSCOPYS\_SourceDocumentLibrary with “Text” type, set the default
     value to **MSCOPYS\_Source**.
 
-2.  Create a column named **MSCOPYS\_WorkFlowEventField** in list
+5.  Create a column named **MSCOPYS\_WorkFlowEventField** in list
     MSCOPYS\_SourceDocumentLibrary with “WorkFlowEvent” type.
 
-3.  Upload a file MSCOPYS\_SourceFile.txt use a form of ANSI with the
+6.  Upload a file MSCOPYS\_SourceFile.txt use a form of ANSI with the
     content **MSCOPYS\_SourceFile** to MSCOPYS\_SourceDocumentLibrary
     under MSCOPYS\_SiteCollection.
 
