@@ -932,6 +932,29 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 @"[In GetListItemChangesSinceToken operation] If the specified listName is a "
                     + "valid GUID and corresponds to the identification of a list on the site, use "
                     + "that list.");
+
+            // Call GetList operation to get all the list field.
+            GetListResponseGetListResult listResult;
+            listResult = this.listswsAdapter.GetList(listId);
+
+            bool startWithOwsFirst;
+            bool correspondNamesFirst;
+            DataTable firstData = AdapterHelper.ExtractData(getListItemChangesSinceToken.listitems.data.Any);
+            //DataTable secondData = AdapterHelper.ExtractData(getListItemChangesSinceToken.listitems.data.Any);
+
+            ValidateOwsPrefixAndAttributeName(
+                    firstData,
+                    listResult,
+                    out startWithOwsFirst,
+                    out correspondNamesFirst);
+
+            // If both the data element's z:row attribute names start with ows_, capture the requirement R1863.
+            Site.CaptureRequirementIfIsTrue(
+                startWithOwsFirst,
+                1906,
+                @"[GetListItemChangesSinceTokenResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by ""ows_"".");
+
+
         }
 
         /// <summary>
@@ -7317,7 +7340,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             if (Common.IsRequirementEnabled(27701, this.Site))
             {
                 Site.CaptureRequirementIfAreEqual<string>(
-                   "0x81020026",
+                   "0x82000006",
                    errorCode,
                    27701,
                    @"[In Appendix B: Product Behavior] [In UpdateListItems operation] Implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. (SharePoint Foundation 2013 follow this behavior.)");

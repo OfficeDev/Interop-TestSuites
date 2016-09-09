@@ -807,6 +807,19 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     errorCode,
                     470,
                     @"[In DeleteAttachment operation] If the listItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault. There is no error code for this fault.");
+                
+                //Verify MS-LISTSWS requirement: MS-LISTSWS_R465001
+                Site.CaptureRequirementIfIsNull(
+                    errorCode,
+                    465001,
+                    @"[In DeleteAttachment operation] If the listItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault.");
+
+                //Verify MS-LISTSWS requirement: MS-LISTSWS_R465002
+                Site.CaptureRequirementIfIsNull(
+                    errorCode,
+                    465002,
+                    @"There is no error code for this fault.");
+            
             }
 
             #endregion

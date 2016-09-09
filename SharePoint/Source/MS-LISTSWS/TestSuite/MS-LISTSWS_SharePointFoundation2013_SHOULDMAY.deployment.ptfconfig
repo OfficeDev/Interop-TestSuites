@@ -261,5 +261,9 @@
     <Property name="R267001Enabled" value="true" />
     <!-- Set R27701Enabled to true to verify that implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. Set R27701Enabled to false to disable this requirement. -->
     <Property name="R27701Enabled" value="true" />
+    <!-- Set R1401002002Enabled to true to verify that implementation does not return to the client, when the client attempts to open files asynchronously from the server. Set R1401002002Enabled to false to disable this requirement. -->
+    <Property name="R1401002002Enabled" value="false" />
+    <!-- Set R1401002001Enabled to true to verify that implementation does return to the client, when the client attempts to open files asynchronously from the server. Set R1401002001Enabled to false to disable this requirement. -->
+    <Property name="R1401002001Enabled" value="true" />
   </Properties>
 </TestSite>

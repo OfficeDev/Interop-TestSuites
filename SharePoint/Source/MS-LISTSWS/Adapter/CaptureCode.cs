@@ -515,7 +515,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 1356,
                 @"[ListDefinitionCT.Name is ]The internal name for the list.");
 
+            //Verify MS-LISTSWS requirement: MS-LISTSWS_R1356001
             Site.Assert.IsTrue(list.Name == list.ID, "The Name is equal to ID.");
+            Site.CaptureRequirement(
+                1356001,
+                @"[ListDefinitionCT.Name] The Name is equal to ID.");
 
             // Verify MS-LISTSWS requirement: MS-LISTSWS_R52.
             // If the actual BaseType value is contained in the expected domain of 
@@ -733,7 +737,22 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     2402,
                     @"Implementation does not return this attribute[ListDefinitionCT.ExcludeFromOfflineClient]. [In Appendix B: Product Behavior] <7> Section 2.2.4.11: This attribute[ListDefinitionCT.ExcludeFromOfflineClient] is not returned by Windows SharePoint Services 3.0 servers.");
             }
-
+            if (Common.IsRequirementEnabled(1401002002, this.Site))
+            { 
+                //Verify 1401002002
+                Site.CaptureRequirementIfIsNull(
+                    list.CanOpenFileAsync,
+                    1401002002,
+                    @"Implementation does not return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 and SharePoint Server 2016 follow this behavior.)");
+            }
+            if (Common.IsRequirementEnabled(1401002001, this.Site))
+            {
+                //Verify 1401002002
+                Site.CaptureRequirementIfIsNotNull(
+                    list.CanOpenFileAsync,
+                    1401002001,
+                    @"Implementation does return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 and SharePoint Server 2016 follow this behavior.)");
+            }
             if (Common.IsRequirementEnabled(2404, this.Site))
             {
                 // Verify R2404
@@ -2409,6 +2428,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 if (listDefinitionCTItem.HasRelatedLists != null)
                 {
                     this.Site.Assert.AreEqual<string>(string.Empty, listDefinitionCTItem.HasRelatedLists, "[ListDefinitionCT.HasRelatedLists] When it is returned in GetListCollection (section 3.1.4.17) this value will be an empty string.");
+                    //Verify MS-LISTSWS requirement: MS-LISTSWS_R3010002
+                    Site.CaptureRequirement(
+                        3010002,
+                        @"[ListDefinitionCT.HasRelatedLists] When it is returned by GetListCollection (section 3.1.4.17) this value will be an empty string.");
                 }
             }
         }
@@ -3117,6 +3140,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     }
                 }
             }
+
+            Site.CaptureRequirement(
+                   1907,
+                   @"[GetListItemChangesSinceTokenResponse]Note that set of fields returned by the method is restricted by the viewField or viewName parameter.");
         }
 
         /// <summary>
@@ -4113,6 +4140,13 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + "element] [In Method element] If the Method ID attribute is unique, the protocol "
                 + "server MUST use the method identification to match up the request made to the "
                 + "protocol server with the protocol server response.");
+                //
+                if (updateListItemsResult.Results[i].ID == null || updateListItemsResult.Results[i].ID.ToString() == "")
+                {
+                Site.CaptureRequirement(
+                    2323001,
+                    @"An empty ID element following the ErrorCode element is included, which is reserved for future use. ");
+                }
             }
 
             // Verify R2115
