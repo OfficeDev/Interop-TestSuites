@@ -940,8 +940,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             bool startWithOwsFirst;
             bool correspondNamesFirst;
             DataTable firstData = AdapterHelper.ExtractData(getListItemChangesSinceToken.listitems.data.Any);
-            //DataTable secondData = AdapterHelper.ExtractData(getListItemChangesSinceToken.listitems.data.Any);
-
             ValidateOwsPrefixAndAttributeName(
                     firstData,
                     listResult,

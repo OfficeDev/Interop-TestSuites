@@ -786,9 +786,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 @"[In CreateContentType operation] The protocol server attempts to create a new content type on the list with the given parent content type and display name. If an error specified in section 3.1.4.9.2.1 is encountered during this operation, the protocol server MUST return a SOAP fault.");
 
             #endregion test CreateContentType
-
-            
-
         }
 
         /// <summary>
