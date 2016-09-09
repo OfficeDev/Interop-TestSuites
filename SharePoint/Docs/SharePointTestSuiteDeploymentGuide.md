@@ -936,7 +936,7 @@ to run the test suites.
 3.  Create subsites named **MSCOPYS\_SubSiteMeetingWorkspace**
     in MSCOPYS\_SiteCollection.
 
-For Microsoft SharePoint Server, use the **Basic Meeting Workspace** site template.
+	For Microsoft SharePoint Server, use the **Basic Meeting Workspace** site template.
 
 4.  Create column named **MSCOPYS\_TestReadOnlyField** in list
     MSCOPYS\_SourceDocumentLibrary with “Text” type, set the default
