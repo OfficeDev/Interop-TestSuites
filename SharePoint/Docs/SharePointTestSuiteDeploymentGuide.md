@@ -121,7 +121,7 @@ The following diagram is an example of what a typical SharePoint test
 suite environment may look like. This example uses an IPv4, but IPv6 is
 also supported in a test suite environment.
 
-![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RequiredSUTRoles.png)
+![alt tag](./Doc-Images/SP_RequiredSUTRoles.png)
 
 ###  Test suite client
 
@@ -170,12 +170,12 @@ steps to successfully configure the test suites.
 ----------------------------------------------------------------------------------------------------------------------------------------
 1.  Right-click xxx.ps1 and select **Properties**.   
   
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_Deploy1.png)                                              
+  ![alt tag](./Doc-Images/SP_Deploy1.png)                                              
 ---------------------------------------------------- -----------------------------------------------------------------------------------
 
 2.  Click **Unblock** and click **OK**.             
 												   
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_Deploy2.png)                                         
+  ![alt tag](./Doc-Images/SP_Deploy2.png)                                         
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 Using test suite directories
@@ -1130,24 +1130,24 @@ folder. You can run a single or multiple test cases in Visual Studio.
  
   1.  Open **SharePointServerProtocolTestSuites.sln** in Visual Studio.                                                                        
    
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS1.png)
+	![alt tag](./Doc-Images/SP_RunningTS1.png)
                                                                                                                                                
   -------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------
   1.  In the **Solution Explorer** pane, right-click **Solution ‘SharePointServerProtocolTestSuites’**, and then click **Rebuild Solution**.                                                                                                   
     
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS2.png)
+	![alt tag](./Doc-Images/SP_RunningTS2.png)
 
 	-------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------	
 
   1.  Open **Test Explorer**. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**.                   
                                                                                                                                                
-    ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS3.png)
+    ![alt tag](./Doc-Images/SP_RunningTS3.png)
 
 	-------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------	
 
   1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.                                                                                                                                                      
        
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS4.png)
+	![alt tag](./Doc-Images/SP_RunningTS4.png)
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A Visual Studio solution file
@@ -1159,24 +1159,24 @@ A Visual Studio solution file
   ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
   1.  Open **MS-DWSS.sln** in Visual Studio.
 
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS5.png)
+  ![alt tag](./Doc-Images/SP_RunningTS5.png)
    ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
   
   1.  In the Solution Explorer pane, right-click **Solution ‘MS-DWSS**’, and then click **Rebuild Solution**.
   
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS6.png)
+  ![alt tag](./Doc-Images/SP_RunningTS6.png)
   
    ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
 
   1.  Open Test Explorer. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**
   
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS7.png)
+  ![alt tag](./Doc-Images/SP_RunningTS7.png)
   
    ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
 
   1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
   
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/SharePoint/Docs/Doc-Images/SP_RunningTS8.png)
+  ![alt tag](./Doc-Images/SP_RunningTS8.png)
 
 
 Batch scripts

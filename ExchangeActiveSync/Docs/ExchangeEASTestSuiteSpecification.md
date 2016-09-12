@@ -143,7 +143,7 @@ Architecture
 The following figure illustrates the Exchange EAS Protocol Test Suites
 architecture.
 
-![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_Spec_Architecture.png)
+![alt tag](./Doc-Images/EAS_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 

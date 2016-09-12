@@ -85,7 +85,7 @@ The following diagram is an example of what a typical SharePoint File
 Sync and WOPI Protocol Test Suite environment may look like. This
 example uses an IPv4, but IPv6 is also supported by the test suites.
 
-![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RequiredSUTRoles.png)
+![alt tag](./Doc-Images/FssWopi_RequiredSUTRoles.png)
 
 ### Test suite client
 
@@ -136,11 +136,11 @@ downloaded the test suites, perform the following steps to successfully configur
   
 1.  Right click xxx.ps1 and select **Properties**.   
   
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_Deploy1.png)                                                
+	![alt tag](./Doc-Images/FssWopi_Deploy1.png)                                                
 												   
 1.  Click **Unblock** and then click **OK**.         
   
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_Deploy2.png)	  
+	![alt tag](./Doc-Images/FssWopi_Deploy2.png)	  
 												   
 Using test suite directories
 ============================================================================================================================================================================================================================
@@ -604,22 +604,22 @@ A Visual Studio solution file
 
   1.  Open **SharePointFileSyncAndWOPIProtocolTestSuites.sln** in Visual Studio.                                                                            
                                                                                                                                                             
-       ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS1.png)                                                                                                                                                   
+       ![alt tag](./Doc-Images/FssWopi_RunningTS1.png)                                                                                                                                                   
   --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
   1.  In the **Solution Explorer** pane, right-click **Solution** ‘**SharePointFileSyncAndWOPIProtocolTestSuites**’, and then click **Rebuild Solution**.                                                                                                                           
          
-  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS2.png)	
+  ![alt tag](./Doc-Images/FssWopi_RunningTS2.png)	
 
   --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------  
 
   1.  Open **Test Explorer**. On the ribbon, click **TEST,** then click **Windows**, and finally click **Test Explorer**.                                   
       
-   ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS3.png)                                                                                                                                                        
+   ![alt tag](./Doc-Images/FssWopi_RunningTS3.png)                                                                                                                                                        
     --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------                                                                                                                                                        
 
   1.  Select the test case to run, right-click the test case and then select **Run Selected Tests**.                                                        
                                                                                                                                                             
-      ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS4.png)                                                                                                                                                  
+      ![alt tag](./Doc-Images/FssWopi_RunningTS4.png)                                                                                                                                                  
     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A Visual Studio solution file
@@ -631,25 +631,25 @@ A Visual Studio solution file
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
   1.  Open **MS-FSSHTTP-FSSHTTPB.sln** in Visual Studio.
   
-    ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS5.png)
+    ![alt tag](./Doc-Images/FssWopi_RunningTS5.png)
 	
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
 
   1.  In the **Solution Explorer** pane, right-click **Solution** ‘**MS-FSSHTTP-FSSHTTPB**’, and then click **Rebuild Solution**.
   
-    ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS6.png)
+    ![alt tag](./Doc-Images/FssWopi_RunningTS6.png)
 	
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
 
   1.  Open **Test Explorer**. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**.
   
-    ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS7.png)
+    ![alt tag](./Doc-Images/FssWopi_RunningTS7.png)
 	
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
 
   1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
   
-    ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/FileSyncandWOPI/Docs/Doc-Images/FssWopi_RunningTS8.png)
+    ![alt tag](./Doc-Images/FssWopi_RunningTS8.png)
 
 
 Batch scripts

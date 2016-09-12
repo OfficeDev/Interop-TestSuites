@@ -121,7 +121,7 @@ Architecture
 The following figure illustrates the Exchange MAPI Protocol Test Suites
 architecture.
 
-![alt tag] (https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeMAPI/Docs/Doc-Images/ExMAPI_Spec_Architecture.png)
+![alt tag] (./Doc-Images/ExMAPI_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 

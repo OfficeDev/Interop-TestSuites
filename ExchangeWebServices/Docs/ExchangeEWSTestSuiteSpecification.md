@@ -114,7 +114,7 @@ Architecture
 The following figure illustrates the Exchange EWS Protocol Test Suites
 architecture.
 
-![alt tag] (https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeWebServices/Docs/Doc-Images/EWS_Spec_Architecture.png)
+![alt tag] (./Doc-Images/EWS_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 

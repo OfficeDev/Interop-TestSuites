@@ -87,7 +87,7 @@ Exchange Server on a domain controller (DC) is not recommended.
 The following diagram is an example of what a typical Exchange test suite environment may look like. This example uses an IPv4, but IPv6 is also supported by the test suites.
 
 **Note** When AD DC and SUT are on the same machine, test cases for MS-ASRM will fail.
-![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RequiredSUTroles.png)
+ ![alt tag](./Doc-Images/EAS_RequiredSUTroles.png)
 
 ### Test suite client
 
@@ -132,12 +132,12 @@ PowerShell scripts and the MS\_OXWSDLGM\_ServerAdapter.dll file.
 
  1.  Right-click xxxx.ps1, and then click **Properties**. 
  
- ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_Deploy1.png)  
+   ![alt tag](./Doc-Images/EAS_Deploy1.png)
                                                              
                                                              
   ---------------------------------------------------------- --
  1.  Click **Unblock,** and then click **OK**.              
- ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_Deploy2.png)                                                                                                                         
+   ![alt tag](./Doc-Images/EAS_Deploy2.png)                                                                                                                          
 
 To unblock MS\_OXWSDLGM\_ServerAdapter.dll, do the following:
 
@@ -146,11 +146,11 @@ To unblock MS\_OXWSDLGM\_ServerAdapter.dll, do the following:
   ------------------------------------------------------------------------------------------
 1.  Right click **MS\_OXWSDLGM\_ServerAdapter.dll,** and then click **Properties**.   
    
-   ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_Deploy3.png)                                                                                        
+   ![alt tag](./Doc-Images/EAS_Deploy3.png)                                                                                        
                                                                                           
   --------------------------------------------------------------------------------------- --
 1.  Click **Unblock,** and then click **OK**.                                           
-      ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_Deploy4.png)                                                                                       
+   ![alt tag](./Doc-Images/EAS_Deploy4.png)                                                                                       
                                                                                           
 
 Using test suite directories
@@ -667,20 +667,20 @@ Studio.
 
   1.  Open **ExchangeServerEASProtocolTestSuites.sln** in Visual Studio                                                                         
                                                                                                                                                 
-      ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS1.png)                                                                                                                                          
+      ![alt tag](./Doc-Images/EAS_RunningTS1.png)                                                                                                                                          
   --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------
   1.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeServerEASProtocolTestSuites’**, and then click **Rebuild Solution**.   
                                                                                                                                                 
-      ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS2.png)                                                                                                                                         
+      ![alt tag](./Doc-Images/EAS_RunningTS2.png)                                                                                                                                         
   --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------
   1.  Open **Test Explorer**. On the ribbon, click **TEST** then click **Windows**, and finally click **Test Explorer**.                        
       
-	  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS3.png)                                                                                                                                         
+	  ![alt tag](./Doc-Images/EAS_RunningTS3.png)                                                                                                                                         
   --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------                                                                                                                      
 
   1.  Select the test case to run. Right-click and then select **Run Selected Tests**.
 	  
-	  ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS4.png)
+	  ![alt tag](./Doc-Images/EAS_RunningTS4.png)
  
 
 A Visual Studio solution file
@@ -691,18 +691,20 @@ A Visual Studio solution file
   ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
   1.  Open **MS-ASDOC.sln** in Visual Studio. 
     
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS5.png)
+	![alt tag](./Doc-Images/EAS_RunningTS5.png)
 	
    ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------ 
 
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘MS-ASDOC’**, and then click **Rebuild Solution**. ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS6.png)
+  1.  In the **Solution Explorer** pane, right-click **Solution ‘MS-ASDOC’**, and then click **Rebuild Solution**. 
+  ![alt tag](./Doc-Images/EAS_RunningTS6.png)
   ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
   
-  1.  Open Test Explorer. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**. ![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS7.png)
+  1.  Open Test Explorer. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**. 
+  ![alt tag](./Doc-Images/EAS_RunningTS7.png)
   ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
   1.  Select the test case to run. Right-click and then select **Run Selected Tests**. 
     
-	![alt tag](https://github.com/ClareMSYanGit/Interop-TestSuites/blob/EASDeployGuide/ExchangeActiveSync/Docs/Doc-Images/EAS_RunningTS8.png)
+	![alt tag](./Doc-Images/EAS_RunningTS8.png)
 
   -------------------------------------------------------------------------------------------------------------------------------------
 
