@@ -541,7 +541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 "1",
                 Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_fRecurrence"),
                 286,
-                "[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is recurring,");
+                "[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is a recurring event or an exception,");
 
             // Verify MS-OUTSPS requirement: MS-OUTSPS_R984
             this.Site.CaptureRequirementIfAreEqual(
@@ -1495,7 +1495,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In Complex Types]The RecurrenceXML complex type contains a RecurrenceDefinition (section 2.2.4.3).
                     <s:complexType name=""RecurrenceXML"">
                       <s:sequence>
-                        <s:element name=""recurrence"" type=""s1:RecurrenceDefinition"" />
+                        <s:element name=""recurrence"" type=""tns:RecurrenceDefinition"" />
                         <s:element name=""deleteExceptions"" type=""s:string"" fixed=""true"" minOccurs=""0"" maxOccurs=""1"" />
                       </s:sequence>
                     </s:complexType>");
@@ -1513,7 +1513,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In RecurrenceDefinition complex type] The RecurrenceDefinition complex type contains a RecurrenceRule (section 2.2.4.2).   
                     <s:complexType name=""RecurrenceDefinition"">
                       <s:sequence>
-                        <s:element name=""rule"" type=""s1:RecurrenceRule"" />
+                        <s:element name=""rule"" type=""tns:RecurrenceRule"" />
                       </s:sequence>
                     </s:complexType>");
 
@@ -1530,8 +1530,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In RecurrenceRule complex type] The RecurrenceRule complex type defines when a recurrence takes place.
                     <s:complexType name=""RecurrenceRule"">
                       <s:sequence>
-                        <s:element name=""firstDayOfWeek"" type=""s1:DayOfWeekOrMonth"" />
-                        <s:element name=""repeat"" type=""s1:RepeatPattern"" />
+                        <s:element name=""firstDayOfWeek"" type=""tns:DayOfWeekOrMonth"" />
+                        <s:element name=""repeat"" type=""tns:RepeatPattern"" />
                         <s:choice>
                           <s:element name=""windowEnd"" type=""s:dateTime"" />
                           <s:element name=""repeatForever"">
@@ -1564,87 +1564,97 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 902,
                 @"[In Complex Types]The RepeatPattern complex type contains a choice of elements which describe what days a recurrence occurs on.
                     <s:complexType name=""RepeatPattern"">
-                      <s:choice>
-                        <s:element name=""daily"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""monthlyByDay"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekday"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekend_day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""monthFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""weekdayOfMonth"" type=""s1:WeekdayOfMonth"" default=""first"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""monthly"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""monthFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                               <s:attribute name=""day"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""yearly"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""yearFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""month"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                           </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""yearlyByDay"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                               <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                              <s:a name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekday"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekend_day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""yearFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""month"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""weekdayOfMonth"" type=""s1:WeekdayOfMonth"" default=""first"" use=""optional"" />
-                             </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                      </s:choice>
-                    </s:complexType>
+                        < s:choice >
+                            < s:element name = ""daily"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""dayFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""weekly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""monthlyByDay"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekend_day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""monthFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""weekdayOfMonth"" type = ""tns:WeekdayOfMonth"" default= ""first"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""monthly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""monthFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""yearly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""yearFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""month"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""yearlyByDay"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekend_day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""yearFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""month"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""weekdayOfMonth"" type = ""tns:WeekdayOfMonth"" default= ""first"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                        </ s:choice >
+                        </ s:complexType >
                     ");
 
             #endregion
@@ -4052,7 +4062,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 // Verify MS-OUTSPS requirement: MS-OUTSPS_R8120
                 this.Site.CaptureRequirement(
                                         8120,
-                                        @"[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (<12> Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, and SharePoint Foundation 2010 allow this).");
+                                        @"[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (<12> Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 allow this).");
             }
         }
 
