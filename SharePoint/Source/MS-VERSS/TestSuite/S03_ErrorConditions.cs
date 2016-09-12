@@ -241,7 +241,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         Site.CaptureRequirementIfIsNull(
                             errorCode,
                             15302,
-                            @"[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site (2). (SharePoint Foundation 2010 and above follow this behavior.)");
+                            @"[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site. (SharePoint Foundation 2010 and above follow this behavior.)");
                     }
 
                     if (Common.IsRequirementEnabled(204, this.Site))
@@ -258,7 +258,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                            "0x81070906",
                            errorCode,
                            20401,
-                           @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description ""There is no file with URL fileName in this Web."" to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site (2). (<8> Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, ""There is no file with URL fileName in this Web."")");
+                           @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description ""There is no file with URL fileName in this Web."" to indicate that the file specified by the fileName elements of the RestoreVersion element could not be found on the site. (<8> Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, ""There is no file with URL fileName in this Web."")");
                     }
                 }
             }
@@ -387,7 +387,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         Site.CaptureRequirementIfIsNull(
                             errorCode,
                             15303,
-                            @"[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site (2). (SharePoint Foundation 2010 and above follow this behavior.)");
+                            @"[In Appendix B: Product Behavior] Implementation does not return error code to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site. (SharePoint Foundation 2010 and above follow this behavior.)");
                     }
 
                     if (Common.IsRequirementEnabled(204, this.Site))
@@ -404,7 +404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                            "0x81070906",
                            errorCode,
                            20402,
-                           @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description ""There is no file with URL fileName in this Web."" to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site (2). (<8> Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, ""There is no file with URL fileName in this Web."")");
+                           @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070906 with the description ""There is no file with URL fileName in this Web."" to indicate that the file specified by the fileVersion elements of the RestoreVersion element could not be found on the site. (<8> Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0 returns error code 0x81070906 with the description, ""There is no file with URL fileName in this Web."")");
                     }
                 }
             }
@@ -550,7 +550,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         // Verify MS-VERSS requirement: MS-VERSS_R198
                         Site.CaptureRequirement(
                             198,
-                            @"[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."" (<7> Section 3.1.4.2.2.2:  When fileVersion is the current version of the file, Windows SharePoint Services 3.0 does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."")");
+                            @"[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."" when the fileVersion is the current version of the file. (<7> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."")");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R98");
@@ -1297,22 +1297,16 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         }
                         else if (invalidCharacter == "=")
                         {
-                            string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
-                            if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013"
-                                || sutVersion == "SharePointFoundation2010" || sutVersion == "SharePointServer2010")
+                            if (Common.IsRequirementEnabled(1930208, this.Site))
                             {
-                                Site.Assert.IsNull(errorCode, "{0} does not return an error code element, the errorCode is {1}.", sutVersion, errorCode);
-                                Site.Assert.IsNotNull(errorString, "{0} returns a SOAP exception without an error code, the errorString is {0}.", sutVersion, errorString);
-                            }
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1930208");
 
-                            if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
-                            {
-                                Site.Assert.AreEqual<string>(
-                                    "0x81070906",
+                                // Verify MS-VERSS requirement: MS-VERSS_R1930208
+                                Site.CaptureRequirementIfIsNull(
                                     errorCode,
-                                    "{0} returns error code, the error code is {1}.",
-                                    sutVersion,
-                                    errorCode);
+                                    1930208,
+                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (<4> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010 and SharePoint Foundation 2013 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == ">")
