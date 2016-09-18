@@ -11,7 +11,7 @@
     <!-- Set R1780200Enabled to true to verify that the server returns error code 0x80131600, when the file does not exist. Set R1780200Enabled to false to disable this requirement. -->
     <Property name="R1780200Enabled" value="true"/>
     <!-- Set R17201Enabled to true to verify that the server returns error code 0x81020030 to indicate that the fileName element of the DeleteAllVersions element contains invalid characters except contains pound sign (#), question marks (?) and tab (\t) or backward slash (\) is at the end of fileName. Set R17201Enabled to false to disable this requirement. -->
-    <Property name="R17201Enabled" value="true"/>
+    <Property name="R17201Enabled" value="false"/>
     <!-- Set R17601Enabled to true to verify that the server returns error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid characters. Set R17601Enabled to false to disable this requirement. -->
     <Property name="R17601Enabled" value="true"/>
     <!-- Set R19201Enabled to true to verify that the server returns error code 0x81020073 to indicate that the fileName element of the RestoreVersion element contains invalid characters. Set R19201Enabled to false to disable this requirement. -->
@@ -86,6 +86,7 @@
     <Property name="R1930202Enabled" value="true"/>
     <!-- Set R1930205Enabled to true to verify that the server does not return an error to indicate that the backward slash (\) character is at the end of the fileName for DeleteAllVersions. Set R1930205Enabled to false to disable this requirement. -->
     <Property name="R1930205Enabled" value="true"/>
-
+    <!-- Set R1930208Enabled to true to verify that the server returns a SOAP exception without an error code if fileName contains equals sign (=) for DeleteAllVersions. Set R1930208Enabled to false to disable this requirement. -->
+    <Property name="R1930208Enabled" value="false"/>
   </Properties>
 </TestSite>

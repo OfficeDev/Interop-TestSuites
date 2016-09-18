@@ -945,11 +945,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             this.Site.CaptureRequirementIfIsTrue(
                                                isPassTheSchemaValidation,
                                                775,
-                                               @"[In Task-Specific Schema][The schema definition of CHOICES is:]<s:complexType name=""CHOICES"">
-   <s:sequence>
-      <s:element name=""CHOICE"" type=""string"" minOccurs=""0"" maxOccurs=""unbounded"" />
-   </s:sequence>
-</s:complexType>");
+                                               @"[In Task-Specific Schema][The schema definition of CHOICES is:]<s:element name=""CHOICES"" >
+   < s:sequence >
+      < s:element name = ""CHOICE"" type = ""string"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+   </ s:sequence >
+</ s:element > ");
 
             this.Site.CaptureRequirementIfIsTrue(
                                                isPassTheSchemaValidation,

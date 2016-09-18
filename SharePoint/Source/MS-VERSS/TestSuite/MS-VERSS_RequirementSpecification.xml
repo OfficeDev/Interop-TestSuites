@@ -1201,7 +1201,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205,MS-VERSS_R1930207,MS-VERSS_R1930208</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205,MS-VERSS_R1930208</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17203</ns1:REQ_ID>
@@ -2298,16 +2298,6 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-VERSS_R17210</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81020030 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Equal sign (=). (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-VERSS_R17201:c</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17211</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81020030 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right angle bracket (&gt;). (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
@@ -2654,8 +2644,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930208</ns1:REQ_ID>
