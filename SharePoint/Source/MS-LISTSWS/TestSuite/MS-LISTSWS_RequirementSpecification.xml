@@ -22438,10 +22438,10 @@ The request to make inserts, updates, and deletions to specified list items in a
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-LISTSWS_R976001001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-LISTSWS_R742001001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled.</ns1:Description>
-		<ns1:Derived>MS-LISTSWS_R976:I, MS-LISTSWS_R976001001</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. (SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-LISTSWS_R976:I,LISTSWS_R742001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

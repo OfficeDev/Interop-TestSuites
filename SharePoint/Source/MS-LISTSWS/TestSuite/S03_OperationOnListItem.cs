@@ -4117,6 +4117,52 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 isSame,
                 2272,
                 @"If each of the query, viewFields, queryOptions, and rowLimit parameters are specified, the response of protocol server will be same even if viewName parameter are different.");
+
+            // Call GetListItems operation with not empty ViewFields element.
+            CamlViewFields viewFields1 = new CamlViewFields();
+            viewFields1.ViewFields = new CamlViewFieldsViewFields();
+            viewFields1.ViewFields.FieldRef = new CamlViewFieldsViewFieldsFieldRef[1];
+            viewFields1.ViewFields.FieldRef[0] = new CamlViewFieldsViewFieldsFieldRef();
+            viewFields1.ViewFields.FieldRef[0].Name = "Attachments";
+
+            GetListItemsResponseGetListItemsResult getListResultView1 = null;
+            getListResultView1 = this.listswsAdapter.GetListItems(strList_GUID, null, null, viewFields1, null, null, null);
+
+            DataTable getListData1 = AdapterHelper.ExtractData(getListResultView1.listitems.data.Any);
+            bool isRR742001Verified = true;
+            foreach (DataColumn column in getListData1.Columns)
+            {
+                if (column.ColumnName.Contains("Attachments"))
+                {
+                    isRR742001Verified = false;
+                    break; }
+                
+            }
+            CamlViewFields viewFields2 = new CamlViewFields();
+            viewFields2.ViewFields = new CamlViewFieldsViewFields();
+            viewFields2.ViewFields.FieldRef = new CamlViewFieldsViewFieldsFieldRef[1];
+            viewFields2.ViewFields.FieldRef[0] = new CamlViewFieldsViewFieldsFieldRef();
+
+            GetListItemsResponseGetListItemsResult getListResultView2 = null;
+            getListResultView2 = this.listswsAdapter.GetListItems(strList_GUID, null, null, viewFields2, null, null, null);
+
+            DataTable getListData2 = AdapterHelper.ExtractData(getListResultView2.listitems.data.Any);
+            bool isRR742001Verified2 = true;
+            foreach (DataColumn column in getListData2.Columns)
+            {
+                if (column.ColumnName.Contains("Attachments"))
+                {
+                    isRR742001Verified2 = false;
+                    break;
+                }
+
+            }
+            //Verify requirement: MS-LISTSWS_R742001001
+            Site.CaptureRequirementIfIsFalse(
+                isRR742001Verified && isRR742001Verified2,
+                742001001,
+                @"[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. (SharePoint Foundation 2010 and above follow this behavior.)");
+
         }
 
         /// <summary>
