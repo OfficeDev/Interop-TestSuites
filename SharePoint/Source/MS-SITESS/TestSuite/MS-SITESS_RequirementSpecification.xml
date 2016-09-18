@@ -285,8 +285,8 @@
 		<ns1:Description>[In ArrayOfString] string: A file full path or URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R345</ns1:REQ_ID>
@@ -837,7 +837,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-SITESS_R328, MS-SITESS_R329, MS-SITESS_R443001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-SITESS_R328, MS-SITESS_R329, MS-SITESS_R433001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R60</ns1:REQ_ID>
@@ -1245,7 +1245,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R95</ns1:REQ_ID>
@@ -4232,7 +4232,7 @@
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R443001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-SITESS_R433001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] [&lt;3&gt; Section 3.1.4.2:] If the export operation succeeds, this file also includes the list of the content migration package files created. (Microsoft Office SharePoint Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R433:i,MS-SITESS_R1:i</ns1:Derived>
