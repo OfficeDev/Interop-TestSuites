@@ -263,5 +263,7 @@
     <Property name="R1401002002Enabled" value="true" />
     <!-- Set R1401002001Enabled to true to verify that implementation does return to the client, when the client attempts to open files asynchronously from the server. Set R1401002001Enabled to false to disable this requirement. -->
     <Property name="R1401002001Enabled" value="false" />
+    <!-- Set R742001001Enabled to true to verify that implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. Set R742001001Enabled to false to disable this requirement. -->
+    <Property name="R742001001Enabled" value="true" />
   </Properties>
 </TestSite>

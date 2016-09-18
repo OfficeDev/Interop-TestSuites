@@ -4158,11 +4158,13 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             }
             //Verify requirement: MS-LISTSWS_R742001001
-            Site.CaptureRequirementIfIsFalse(
-                isRR742001Verified && isRR742001Verified2,
-                742001001,
-                @"[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. (SharePoint Foundation 2010 and above follow this behavior.)");
-
+            if (Common.IsRequirementEnabled(742001001, this.Site))
+            {
+                Site.CaptureRequirementIfIsFalse(
+                    isRR742001Verified && isRR742001Verified2,
+                    742001001,
+                    @"[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. (Windows SharePoint Services 3.0 and above follow this behavior.)");
+            }
         }
 
         /// <summary>

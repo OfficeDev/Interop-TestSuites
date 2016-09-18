@@ -743,7 +743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.CanOpenFileAsync,
                     1401002002,
-                    @"Implementation does not return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 and SharePoint Server 2016 follow this behavior.)");
+                    @"Implementation does not return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 follows this behavior.)");
             }
             if (Common.IsRequirementEnabled(1401002001, this.Site))
             {
@@ -751,7 +751,15 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNotNull(
                     list.CanOpenFileAsync,
                     1401002001,
-                    @"Implementation does return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 and SharePoint Server 2016 follow this behavior.)");
+                    @"Implementation does return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2013 and SharePoint Server 2016 follow this behavior.)");
+
+                //Verify requirement: MS-LISTSWS_R1401001
+                Site.CaptureRequirementIfIsNotNull
+                    (
+                    list.CanOpenFileAsync,
+                    1401001,
+                    @"[ListDefinitionCT.CanOpenFileAsync:] True, if the client attempts to open files asynchronously from the server.");
+
             }
             if (Common.IsRequirementEnabled(2404, this.Site))
             {
