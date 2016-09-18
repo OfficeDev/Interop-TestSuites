@@ -747,7 +747,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             }
             if (Common.IsRequirementEnabled(1401002001, this.Site))
             {
-                //Verify 1401002002
+                //Verify 1401002001
                 Site.CaptureRequirementIfIsNotNull(
                     list.CanOpenFileAsync,
                     1401002001,
