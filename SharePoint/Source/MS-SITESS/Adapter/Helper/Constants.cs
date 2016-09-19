@@ -216,6 +216,11 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         public const string SharePointServer2013 = "SharePointServer2013";
 
         /// <summary>
+        /// Microsoft SharePoint Server 2016 Preview.
+        /// </summary>
+        public const string SharePointServer2016 = "SharePointServer2016";
+
+        /// <summary>
         /// The name of the property which specifies the language code identifier (LCID) for the display language of the specified subsite got by SUT control adapter.
         /// </summary>
         public const string SubSitePropertyLanguage = "SubSitePropertyLanguage";
@@ -303,7 +308,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// <summary>
         /// A string should be contained in the security validation error information for posting the web form has timed out on SharePoint Server 2013.
         /// </summary>
-        public const string TimeOutInformationForSP2013 = "The remote server returned an error: (403) Forbidden.";
+        public const string TimeOutInformationForSP2013AndSP2016 = "The remote server returned an error: (403) Forbidden.";
 
         /// <summary>
         /// The char value for item split.

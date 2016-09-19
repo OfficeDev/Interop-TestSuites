@@ -81,9 +81,10 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             formDigestExpired = this.sutAdapter.PostWebForm(currentFormDigest, webPageUrl);
             if (Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointFoundation2013 ||
-                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013)
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013 || 
+                Common.GetConfigurationPropertyValue(Constants.SutVersion,this.Site) == Constants.SharePointServer2016)
             {
-                Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013), "digest expired");
+                Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013AndSP2016), "digest expired");
             }
             else
             {
@@ -155,9 +156,10 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             var formDigestExpired = this.sutAdapter.PostWebForm(currentInfo.DigestValue, webPageUrl);
             if (Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointFoundation2013 ||
-                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013)
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013 || 
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2016)
             {
-                Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013), "digest expired");
+                Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013AndSP2016), "digest expired");
             }
             else
             {
