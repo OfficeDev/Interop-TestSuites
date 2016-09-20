@@ -4317,7 +4317,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R1561</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In GetSiteTemplatesResponse] [TemplateList:] In case the LCID included in the request message indicates a language that is not installed on the server, Implementation does return a SOAP fault with the error code [0x81070209] specified in the following table.&lt;7&gt; (Windows SharePoint Services 3.0, Office SharePoint Server 2007 and SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In GetSiteTemplatesResponse] [TemplateList:] In case the LCID included in the request message indicates a language that is not installed on the server, Implementation does return a SOAP fault with the error code [0x81070209] specified in the following table.&lt;7&gt; (Windows SharePoint Services 3.0, and Office SharePoint Server 2007 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R156:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
