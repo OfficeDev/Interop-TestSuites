@@ -9,7 +9,7 @@
     <!-- Set R400Enabled to true to verify that for GetSiteTemplates operation, if the language specified by the LCID parameter is not installed, protocol server does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element, as specified in section 7. Set R400Enabled to false to disable this requirement. -->
     <Property name="R400Enabled" value="false"/>
     <!-- Set R1561Enabled to true to verify that for GetSiteTemplates operation, if the language specified by the LCID parameter is not installed, protocol server does return the SOAP fault with error code [0x81070209]. Set R1561Enabled to false to disable this requirement. -->
-    <Property name="R1561Enabled" value="true"/>
+    <Property name="R1561Enabled" value="false"/>
     <!-- Set R332Enabled to true to verify that for getUpdateFormDigest operation, protocol server implementation of the security validation consists of two values separated by a comma, as specified in section 7. Set R332Enabled to false to disable this requirement. -->
     <Property name="R332Enabled" value="true"/>
     <!-- Set R368Enabled to true to verify that for getUpdateFormDigest operation, the second value of the security validation is a time stamp in Coordinated Universal Time (UTC) format, as specified in section 7. Set R368Enabled to false to disable this requirement. -->
