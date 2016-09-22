@@ -229,7 +229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR405,
                 405,
-                @"[In GetUpdatedFormDigestInformation] [url:] Otherwise[If this element is neither omitted altogether nor included as an empty string], the protocol server MUST return the FormDigestInformation of the site (2) that contains the page specified by this element.");
+                @"[In GetUpdatedFormDigestInformation] [url:] Otherwise[If this element is neither omitted altogether nor included as an empty string], the protocol server MUST return the FormDigestInformation of the site that contains the page specified by this element.");
 
             // If code can run to here, it means that Microsoft SharePoint Foundation 2010 and above support method GetUpdatedFormDigestInformation.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R5381, Microsoft SharePoint Foundation 2010 and above support method GetUpdatedFormDigestInformation.");

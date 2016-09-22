@@ -18,6 +18,8 @@
     <Property name="R328Enabled" value="true"/>
     <!-- Set R329Enabled to true to verify that if the export operation is called successfully, the log file which contains the result of the export operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R329Enabled to false to disable this requirement. -->
     <Property name="R329Enabled" value="true"/>
+    <!-- Set R433001Enabled to true to verify that if the export operation succeeds, this file also includes the list of the content migration package files created. Set R433001Enabled to false to disable this requirement. -->
+    <Property name="R433001Enabled" value="true"/>
     <!-- Set R339Enabled to true to verify that if the import operation is called successfully, protocol server creates a log file that contains the result of the import operation in the server location specified in the request message, as specified in section 7. Set R339Enabled to false to disable this requirement. -->
     <Property name="R339Enabled" value="true"/>
     <!-- Set R340Enabled to true to verify that if the import operation is called successfully, the log file which contains the result of the import operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R340Enabled to false to disable this requirement. -->

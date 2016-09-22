@@ -682,7 +682,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR400,
                     400,
-                    @"[In Appendix B: Product Behavior] <7> Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] <7> Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1561, this.Site))
@@ -694,7 +694,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.CaptureRequirementIfIsTrue(
                     isErrorOccured && errorCode.Equals("0x81070209"),
                     1561,
-                    @"[In GetSiteTemplatesResponse] [TemplateList:] In case the LCID included in the request message indicates a language that is not installed on the server, Implementation does return a SOAP fault with the error code [0x81070209] specified in the following table.<7> (Windows SharePoint Services 3.0, and Office SharePoint Server 2007 follow this behavior.)");
+                    @"[In GetSiteTemplatesResponse] [TemplateList:] In case the LCID included in the request message indicates a language that is not installed on the server, Implementation does return a SOAP fault with the error code [0x81070209] specified in the following table.<7> (Windows SharePoint Services 3.0, Office SharePoint Server 2007 and SharePoint Server 2016 follow this behavior.)");
             }
             #endregion Capture requirements
         }
