@@ -2071,11 +2071,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             bool isR1109Verified = !isItemChangesExist && data.Rows.Count == 100;
 
-            Site.CaptureRequirementIfIsTrue(
-                    isR1109Verified,
-                    1109,
-                    @"[In GetListItemChangesWithKnowledge]This operation does not return list items that have been deleted on the protocol server.");
-        }
+           }
 
         /// <summary>
         /// This test case is used to verify GetListItemChangesWithKnowledge operation with specified knowledge.
