@@ -4040,6 +4040,18 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirement(
                 2066,
                 @"[UpdateListResponse]UpdateFields: The container element for the results of any update field requests. See section 2.2.4.14.");
+               
+            //Verify requirement: MS-LISTSWS_R3010001
+            if (Common.IsRequirementEnabled(3010001, this.Site))
+            {
+                if (!bool.Parse(updateListResult.Results.ListProperties.HasRelatedLists))
+                {
+                    Site.CaptureRequirement(
+                    3010001,
+                    @"[ListDefinitionCT.HasRelatedLists] Otherwise [if this list does not have any related lists] is ""False"".");
+                }
+            }
+            
         }
 
         /// <summary>

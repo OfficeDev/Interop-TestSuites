@@ -1266,7 +1266,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
         public void MSLISTSWS_S01_TC22_UpdateList_FailureErrorCodeInUpdateListFieldResults()
         {
             string listName = TestSuiteHelper.GetUniqueListName();
-            TestSuiteHelper.CreateList(listName);
+            //TestSuiteHelper.CreateList(listName);
+            string listId = TestSuiteHelper.CreateList(listName);
 
             // This field does not exist in current list, and construct a method in request to delete this field.
             string nonExistentField = Guid.NewGuid().ToString("N");
@@ -1274,7 +1275,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             this.Site.Assert.IsNotNull(deleteFields, "CreateDeleteListFieldsRequest operation should succeed.");
             UpdateListResponseUpdateListResult updateListResult = null;
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, deleteFields, null);
+            updateListResult = this.listswsAdapter.UpdateList(listId, null, null, null, deleteFields, null);
 
             if (null == updateListResult || null == updateListResult.Results || null == updateListResult.Results.DeleteFields
                 || updateListResult.Results.DeleteFields.Length != 1)
@@ -1531,7 +1532,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
         public void MSLISTSWS_S01_TC27_UpdateList_InvalidViewNameInUpdateListFieldResults()
         {
             string listName = TestSuiteHelper.GetUniqueListName();
-            TestSuiteHelper.CreateList(listName);
+            //TestSuiteHelper.CreateList(listName);
+            string listId = TestSuiteHelper.CreateList (listName);
 
             bool isNotGUIDFieldInView = false;
             bool isEmptyStringFieldInView = false;
@@ -1574,8 +1576,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             viewNames.Add(null);
 
             UpdateListFieldsRequest newFields = TestSuiteHelper.CreateAddListFieldsRequest(fieldNames, fieldTypes, viewNames);
-            this.listswsAdapter.UpdateList(listName, null, newFields, null, null, null);
-
+            this.listswsAdapter.UpdateList(listId, null, newFields, null, null, null);
             GetListAndViewResponseGetListAndViewResult getResultValid = this.listswsAdapter.GetListAndView(listName, string.Empty);
             isDefaultView = bool.Parse(getResultValid.ListAndView.View.DefaultView);
             this.Site.Assert.IsTrue(isDefaultView, "The response of GetListAndView operation should contain the default view when the viewName parameter is not set or empty value.");
@@ -1994,7 +1995,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #region Call method UpdateList with non-GUID listname if success capture R885
 
             // Update list with non-GUID list name
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, null, null);
+            updateListResult = this.listswsAdapter.UpdateList(listGuid, null, null, null, null, null);
             isListUpdateSuccessfully = updateListResult != null && updateListResult.Results.ListProperties != null && !string.IsNullOrEmpty(updateListResult.Results.ListProperties.ID);
 
             // If UpdateList operation success, capture R885
@@ -2014,7 +2015,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #region Call method UpdateList with listVersion which is set to 'null'. Requirements covered in this step:R887, R888
 
             // Update list with listVersion set to null.
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, null, null);
+            updateListResult = this.listswsAdapter.UpdateList(listGuid, null, null, null, null, null);
             isListUpdateSuccessfully = updateListResult != null && updateListResult.Results.ListProperties != null && !string.IsNullOrEmpty(updateListResult.Results.ListProperties.ID);
 
             // If UpdateList operation succeeds, then capture R887 and R888.

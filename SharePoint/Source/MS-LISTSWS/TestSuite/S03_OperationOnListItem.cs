@@ -469,6 +469,18 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             }
 
             // Here all the 120 changes cannot be returned at once, so MoreChanges is TRUE.
+            // Then can capture MS-LISTSWS_R713 MS-LISTSWS_R987.
+            Site.CaptureRequirementIfAreEqual<string>(
+                bool.TrueString.ToUpper(CultureInfo.CurrentCulture),
+                getListItemChangesSinceToken.listitems.Changes.MoreChanges.ToUpper(CultureInfo.CurrentCulture),
+                713,
+                @"[In GetListItemChangesSinceToken operation] [In "
+                    + "GetListItemChangesSinceToken element] [In "
+                    + "GetListItemChangesSinceTokenResult element] [In listitems element] [In "
+                    + "Changes element] [MoreChanges attribute] The Changes element in the "
+                    + @"response MUST include the attribute MoreChanges set to ""TRUE"" if "
+                    + "more changes are known to the protocol server than were returned to the "
+                    + "protocol client.");
 
             if (Common.IsRequirementEnabled(4006, this.Site))
             {
@@ -799,6 +811,33 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     7081,
                     @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <62> Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0, and SharePoint Foundation 2010.");
             }
+            #endregion
+            #region CaptureRequirement 1906
+
+            bool captureR1906 = true;
+            foreach (XmlElement row in getListItemChangesresult.listitems.data.Any)
+            {
+                System.Collections.IEnumerator attributeEnumerator = row.Attributes.GetEnumerator();
+                while (attributeEnumerator.MoveNext())
+                {
+                    XmlAttribute curAttribute = (XmlAttribute)attributeEnumerator.Current;
+                    string attributeName = curAttribute.Name;
+                    string prefix = attributeName.Substring(0, 4);
+                    if (prefix != "ows_")
+                    {
+                        captureR1906 = false;
+                        string errorInfo = string.Format("The prefix of attribute {0} is not \"ows_\"", attributeName);
+                        Site.Log.Add(LogEntryKind.CheckFailed, errorInfo);
+                        break;
+                    }
+                }
+            }
+
+            Site.CaptureRequirementIfIsTrue(
+                   captureR1906,
+                   1906,
+                  "[GetListItemChangesSinceTokenResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by \"ows_\".");
+
             #endregion
         }
 
@@ -2032,11 +2071,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             bool isR1109Verified = !isItemChangesExist && data.Rows.Count == 100;
 
-            Site.CaptureRequirementIfIsTrue(
-                    isR1109Verified,
-                    1109,
-                    @"[In GetListItemChangesWithKnowledge]This operation does not return list items that have been deleted on the protocol server.");
-        }
+           }
 
         /// <summary>
         /// This test case is used to verify GetListItemChangesWithKnowledge operation with specified knowledge.
