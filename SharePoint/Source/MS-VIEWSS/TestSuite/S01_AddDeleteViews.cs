@@ -766,9 +766,6 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response.");
-
-
-
         }
 
         /// <summary>
