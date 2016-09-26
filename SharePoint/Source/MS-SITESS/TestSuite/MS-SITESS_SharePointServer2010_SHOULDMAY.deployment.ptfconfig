@@ -44,5 +44,15 @@
     <Property name="R3791Enabled" value="true"/>
     <!-- Set R7411Enabled to true to verify that ExportWeb operation does need ExportWebUrl to be case-sensitive as specified in section 3.1.4.2.2.1. Set R7411Enabled to false to disable this requirement. -->
     <Property name="R7411Enabled" value="false"/>
+    <!-- Set R532Enabled to true to verify that if the value of cabSize is less than zero, implementation does return a value of 1 or 7 but the server does not successfully complete the operation. Set R532Enabled to false to disable this requirement. -->
+    <Property name="R532Enabled" value="true"/>
+    <!-- Set R523001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523001Enabled to false to disable this requirement. -->
+    <Property name="R523001Enabled" value="true"/>
+    <!-- Set R523002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523002Enabled to false to disable this requirement. -->
+    <Property name="R523002Enabled" value="false"/>
+    <!-- Set R527001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R527001Enabled to false to disable this requirement. -->
+    <Property name="R527001Enabled" value="true"/>
+    <!-- Set R527002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R527002Enabled to false to disable this requirement. -->
+    <Property name="R527002Enabled" value="false"/>
   </Properties>
 </TestSite>

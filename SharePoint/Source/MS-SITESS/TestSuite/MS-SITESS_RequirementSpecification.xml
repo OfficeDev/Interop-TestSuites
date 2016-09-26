@@ -1480,15 +1480,6 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R3961</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWorkflowTemplate] [workflowTemplateName] [If a workflow template with the specified name does not exist, the server MUST return a SOAP fault] The SOAP fault doesn't contain error code.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In ExportWorkflowTemplate] destinationListUrl: The server-relative URL of the document library in which the solution file needs to be created.</ns1:Description>

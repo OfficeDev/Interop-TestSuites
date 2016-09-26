@@ -456,6 +456,28 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             this.VerifyOperationExportWeb();
 
             #endregion Capture requirements
+
+            this.sutAdapter.EmptyDocumentLibrary(string.Empty, string.Empty, Common.GetConfigurationPropertyValue(Constants.ValidLibraryName, this.Site));
+
+            // Invoke the ExportWeb operation with cabSize set to 0x0018, 1 is expected to be returned and only one cmp file is expected to be exported.
+            exportWebResult = 0;
+            cabSize = -1;
+            exportJobName = Constants.ExportJobName + Common.FormatCurrentDateTime();
+            exportWebResult = this.sitessAdapter.ExportWeb(exportJobName, exportUrl, dataPath, true, true, true, cabSize);
+
+            if (Common.IsRequirementEnabled(532, this.Site))
+            {
+                bool isR532Verified = exportWebResult == 1 || exportWebResult == 7;
+
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R532");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R239
+                Site.CaptureRequirementIfIsTrue(
+                    isR532Verified,
+                    532,
+                    @"[In Appendix B: Product Behavior] <4> Section 3.1.4.2.2.1: If the value of cabSize is less than zero, Implementation does return a value of 1 or 7  but the server does not successfully complete the operation. The return code is not deterministic.(Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 follow this behavior.)");
+            }
+
         }
 
         /// <summary>
