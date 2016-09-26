@@ -1680,6 +1680,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
         protected XmlNode[] GetListItemsChangesFromSUT(string listId)
         {
             XmlNode[] listItemsChanges = this.GetListItemsChangesFromSUT(listId, null);
+            int listItemIndex = this.GetZrowItemIndexByListItemId(listItemsChanges, "1");
+
+            string contentTypeId = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_ContentTypeId");
+            string id = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_ID");
+            string hiddenversion = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_owshiddenversion");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+            // 
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                208,
+                "[In Common Schema]Unless stated otherwise[Categories, Modified, ReplicationID], all fields in this section[Attachments, ContentTypeId, Created, ID, owshiddenversion, ReplicationID, vti_versionhistory] MUST be present on all item types<20> and contain valid data.");
 
             return listItemsChanges;
         }

@@ -1116,7 +1116,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R946</ns1:REQ_ID>
@@ -1166,7 +1166,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R951</ns1:REQ_ID>
@@ -1201,7 +1201,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R953</ns1:REQ_ID>
@@ -5002,11 +5002,11 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R208</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Schema]Unless stated otherwise[Categories, Modified, ReplicationID], all fields in this section[Attachments, ContentTypeId, Created, ID, owshiddenversion, ReplicationID, vti_versionhistory] MUST be present on all item types&lt;20&gt; and contain valid data.</ns1:Description>
+		<ns1:Description>[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types&lt;20&gt; and contain valid data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R584</ns1:REQ_ID>
@@ -6014,7 +6014,6 @@ Subtract the EventDate value from step 2.2 from the EndDate value from step 2.2.
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OUTSPS_R2812.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R439</ns1:REQ_ID>
@@ -10676,8 +10675,7 @@ Description,Duration,EndDate,EventDate,EventType,FooterInfo,fRecurrence,HeaderIn
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R833</ns1:REQ_ID>

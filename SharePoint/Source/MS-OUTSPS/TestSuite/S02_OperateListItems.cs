@@ -115,8 +115,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             int listItemIndex = this.GetZrowItemIndexByListItemId(zrowitems, "1");
             string actualEventDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EventDate");
             string actualEndDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EndDate");
-
+            string actualTimeZone = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_XMLTZone");
             #region Capture code
+            
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R879
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                this.GetTimeZoneXMLString(customPacificTimeZone),
+                actualTimeZone,
+                879,
+                "[In Complex Types][The complex type]TimeZoneRule Contains daylight saving time (DST) biases and TransitionDate elements (section 2.2.4.8).");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R880
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                880,
+                "[In Complex Types][The complex type]TimeZoneXML Contains a TimeZoneRule (section 2.2.4.6).");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R950
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                950,
+                @"[In TimeZoneXML complex type]The TimeZoneXML complex type contains a TimeZoneRule (section 2.2.4.6) to define a time zone.
+                <s:complexType name=""TimeZoneXML"">
+                  <s:sequence>
+                    <s:element name=""timeZoneRule"" type=""tns:TimeZoneRule"" />
+                  </s:sequence>
+                </s:complexType>");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R952
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                952,
+                @"[In TransitionDate complex type] The TransitionDate complex type contains transition dates for DST.
+                <s:complexType name=""TransitionDate"">
+                  <s:sequence>
+                    <s:element name=""transitionRule"">
+                      <s:complexType>
+                        <s:simpleContent>
+                          <s:extension base=""s:string"">
+                            <s:attribute name=""day"" type=""tns:DayOfWeek"" default=""su"" use=""optional"" />
+                            <s:attribute name=""month"" type=""s:integer"" use=""required"" />
+                            <s:attribute name=""dayOfMonth"" type=""s:integer"" use=""optional"" />
+                            <s:attribute name=""weekdayOfMonth"" type=""tns:WeekdayOfMonth"" default=""first"" use=""optional"" />
+                          </s:extension>
+                        </s:simpleContent>
+                      </s:complexType>
+                    </s:element>
+                    <s:element name=""transitionTime"" type=""s:string"" />
+                  </s:sequence>
+                </s:complexType>");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R881
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                this.GetTimeZoneXMLString(customPacificTimeZone),
+                actualTimeZone,
+                881,
+                "[In Complex Types][The complex type]TransitionDate Contains DST transition dates.");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R945
+            // TimeZoneRule is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                945,
+                @"[In TimeZoneRule complex type] The TimeZoneRule complex type contains DST biases and TransitionDate (section 2.2.4.8) elements.
+                <s:complexType name=""TimeZoneRule"">
+                  <s:sequence>
+                    <s:element name=""standardBias"" type=""s:integer"" />
+                    <s:element name=""additionalDaylightBias"" type=""s:integer"" minOccurs=""0"" />
+                    <s:element name=""standardDate"" type=""s1:TransitionDate"" minOccurs=""0"" />
+                    <s:element name=""daylightDate"" type=""s1:TransitionDate"" minOccurs=""0"" />
+                  </s:sequence>
+                </s:complexType>");
 
             // If the EndDate and EventDate fields' values equal to the values the client set in upon steps, then capture R1264
             DateTime actualEndDate;
@@ -4290,7 +4358,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
 
             // Verify these two item are contain in the response of GetListItemChangesSinceToken. If there are no any match zrow items found in zrow items array, the GetZrowItemIndexByFileRef method will throw Assert exception.
             this.GetZrowItemIndexByFileRef(zrowItems, folderName);
-            this.GetZrowItemIndexByFileRef(zrowItems, uploadFileName);
+            int index =  this.GetZrowItemIndexByFileRef(zrowItems, uploadFileName);
+
+            string fileName = Common.GetZrowAttributeValue(zrowItems, index, "ows_LinkFilename");
+            string fileSize = Common.GetZrowAttributeValue(zrowItems, index, "ows_FileSizeDisplay");
+            string fileAbsUrl = Common.GetZrowAttributeValue(zrowItems, index, "ows_EncodedAbsUrl");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R63
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(fileSize) && !string.IsNullOrEmpty(fileAbsUrl),
+                63,
+                @"[In Documents]The document item MUST include information for the file name, size, and how or where to get the file itself.");
 
             // Delete the folder item.
             bool deleteFolderResult = SutControlAdapter.DeleteFolder(listTitle, folderName);
@@ -4940,6 +5018,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 XmlNode[] zrowItems = this.GetZrowItems(listItemChangesRes.listitems.data.Any);
                 int zrowIndex = this.GetZrowItemIndexByListItemId(zrowItems, updatedDiscussionBoardItemIds[0]);
 
+                string contentTypeId = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ContentTypeId");
+                string id = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ID");
+                string hiddenversion = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_owshiddenversion");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+                this.Site.CaptureRequirementIfIsTrue(
+                    !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                    208,
+                    "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
+
                 // Ignore the fieldsValueSettings
                 string bodyValueInSetting = fieldsValueSettings["Body"];
                 fieldsValueSettings.Remove("Body");
@@ -5122,6 +5210,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
 
                 // Current list only have two items, the first is the folder item, the second is the file item. so the list item is 2.
                 int zrowIndex = this.GetZrowItemIndexByListItemId(zrowItems, "2");
+
+                string contentTypeId = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ContentTypeId");
+                string id = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ID");
+                string hiddenversion = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_owshiddenversion");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+                this.Site.CaptureRequirementIfIsTrue(
+                    !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                    208,
+                    "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R188
+                this.Site.CaptureRequirementIfIsTrue(
+                    contentTypeId.StartsWith("0x012002", StringComparison.CurrentCultureIgnoreCase),
+                    188,
+                    "[In Common Schema]ContentTypeId begins with 0x012002 corresponds to Discussion item Content / item type name.");
 
                 string encodedAbsUrl = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_EncodedAbsUrl");
                 string fileSizeDisplay = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_FileSizeDisplay");
