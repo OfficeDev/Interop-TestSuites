@@ -952,7 +952,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-VIEWSS_R8902001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-VIEWSS_R8902001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R242</ns1:REQ_ID>
@@ -3683,7 +3683,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R8015</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 3.1.4.3.2.2: In SharePoint Foundation 2010 and SharePoint Foundation 2013, when this method is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML, the value of OpenApplicationExtension is returned as the value of the View element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the value of OpenApplicationExtension as the value of the View element when GetView is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML. &lt;3&gt; Section 3.1.4.3.2.2: In SharePoint Foundation 2010 and SharePoint Foundation 2013, when this method is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML, the value of OpenApplicationExtension is returned as the value of the View element. (SharePoint Server 2010 and above follow this hebavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
