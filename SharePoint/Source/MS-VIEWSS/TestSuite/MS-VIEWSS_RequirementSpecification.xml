@@ -157,7 +157,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R221</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element "aggregations" specifies the fields (2) by which the list view is aggregated.</ns1:Description>
+		<ns1:Description>[In Elements] The element "aggregations" specifies the fields by which the list view is aggregated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -175,7 +175,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R223</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element "listName" specifies the GUID of a list (1).</ns1:Description>
+		<ns1:Description>[In Elements] The element "listName" specifies the GUID of a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -193,7 +193,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R225</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element "rowLimit" specifies whether a list (1) supports displaying items page by page, and the number of items that a list view displays per page.</ns1:Description>
+		<ns1:Description>[In Elements] The element "rowLimit" specifies whether a list supports displaying items page by page, and the number of items that a list view displays per page.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -202,7 +202,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R226</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element "viewFields" specifies the fields (2) included in a list view.</ns1:Description>
+		<ns1:Description>[In Elements] The element "viewFields" specifies the fields included in a list view.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -229,7 +229,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In aggregations] The aggregations element specifies the fields (2) used to aggregate a list view.</ns1:Description>
+		<ns1:Description>[In aggregations] The aggregations element specifies the fields used to aggregate a list view.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -297,7 +297,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R11</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In listName] The listName element specifies a list (1) on the protocol server.</ns1:Description>
+		<ns1:Description>[In listName] The listName element specifies a list on the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -306,7 +306,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R12</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In listName] It [listName] MUST be the display name or the GUID of a list (1).</ns1:Description>
+		<ns1:Description>[In listName] It [listName] MUST be the display name or the GUID of a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -325,7 +325,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.</ns1:Description>
+		<ns1:Description>[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -368,7 +368,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R16</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In rowLimit] The rowLimit element specifies whether a list (1) supports displaying list items page by page, and the number of list items that a list view displays per page.</ns1:Description>
+		<ns1:Description>[In rowLimit] The rowLimit element specifies whether a list supports displaying list items page by page, and the number of list items that a list view displays per page.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -402,7 +402,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In viewFields] The viewFields element specifies the fields (2) included in a list view.</ns1:Description>
+		<ns1:Description>[In viewFields] The viewFields element specifies the fields included in a list view.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -479,7 +479,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R23</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In viewName] When viewName element is not present in the message or the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).</ns1:Description>
+		<ns1:Description>[In viewName] When viewName element is not present in the message or the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -488,7 +488,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R2301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).</ns1:Description>
+		<ns1:Description>[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.</ns1:Description>
 		<ns1:Derived>MS-VIEWSS_R23:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -498,7 +498,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R2302</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).</ns1:Description>
+		<ns1:Description>[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.</ns1:Description>
 		<ns1:Derived>MS-VIEWSS_R23:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -597,7 +597,7 @@
 		<ns1:REQ_ID>MS-VIEWSS_R158</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In BriefViewDefinition] The definition of the BriefViewDefinition element is as follows.
-&lt;s:complexType name="BriefViewDefinition"&gt;
+&lt;s:complexType name="BriefViewDefinition" mixed="true"&gt;
   &lt;s:sequence&gt;
     &lt;s:element name="Query" type="core:CamlQueryRoot" minOccurs="1" maxOccurs="1" /&gt;
     &lt;s:element name="ViewFields" minOccurs="1" maxOccurs="1"&gt;
@@ -880,6 +880,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VIEWSS_R87001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateViewAttributeGroup] The DefaultView attribute SHOULD be ignored by the protocol server if it is set to false.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
 		<ns1:Description>[In Protocol Details] The client side of this protocol is simply a pass-through.</ns1:Description>
@@ -918,7 +927,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element &lt;1&gt; as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -937,12 +946,13 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R8902</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including a detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including a Detail &lt;1&gt; element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
 		<ns1:Derived>MS-VIEWSS_R89:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-VIEWSS_R8902001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R242</ns1:REQ_ID>
@@ -992,7 +1002,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R247</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model] This protocol enables a protocol client to create a list view, retrieve a specific list view or the collection of list views from a list (1), update a list view, and delete a list view.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model] This protocol enables a protocol client to create a list view, retrieve a specific list view or the collection of list views from a list, update a list view, and delete a list view.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1010,7 +1020,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R248</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation AddView adds a list view for the specified list (1).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation AddView adds a list view for the specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1037,7 +1047,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R251</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation GetViewCollection retrieves a collection of list views for a specified list (1).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The operation GetViewCollection retrieves a collection of list views for a specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1091,7 +1101,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R91</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddView] The AddView operation is used to create a list view for the specified list (1).</ns1:Description>
+		<ns1:Description>[In AddView] The AddView operation is used to create a list view for the specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1132,16 +1142,6 @@
 		<ns1:REQ_ID>MS-VIEWSS_R257</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
 		<ns1:Description>[AddViewSoapIn:] The request WSDL message for an AddView WSDL operation (section 3.1.4.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-VIEWSS_R431</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddViewSoapIn] The SOAP action value of the message is specified as follows.
-http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1257,6 +1257,24 @@ http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VIEWSS_R265001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddView] viewName: If the value of viewName element is empty [or the viewName element is not present], the protocol server MUST return a SOAP fault message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VIEWSS_R265002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AddView] viewName: If [the value of viewName element is empty or] the viewName element is not present, the protocol server MUST return a SOAP fault message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R266</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In AddView] viewFields: For a definition, see section 2.2.3.6.</ns1:Description>
@@ -1268,7 +1286,7 @@ http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R93</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddView] When the value of the viewFields element is empty, the protocol server MUST create the list view with no fields (2) included.</ns1:Description>
+		<ns1:Description>[In AddView] When the value of the viewFields element is empty, the protocol server MUST create the list view with no fields included.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1380,7 +1398,7 @@ http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R270</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddView] makeViewDefault: Specifies whether to make the list view the default list view for the specified list (1).</ns1:Description>
+		<ns1:Description>[In AddView] makeViewDefault: Specifies whether to make the list view the default list view for the specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1530,11 +1548,12 @@ http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R8005</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In AddViewResponse] The protocol server MAY&lt;1&gt; append "&amp;gt;" after the View element.</ns1:Description>
+		<ns1:Description>[In AddViewResponse] The protocol server MAY&lt;2&gt; append "&amp;gt;" after the View element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-VIEWSS_R8014, MS-VIEWSS_R8005001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R103</ns1:REQ_ID>
@@ -1548,7 +1567,7 @@ http://schemas.microsoft.com/sharepoint/soap/AddView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R104</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteView] The DeleteView operation is used to delete the specified list view of the specified list (1).</ns1:Description>
+		<ns1:Description>[In DeleteView] The DeleteView operation is used to delete the specified list view of the specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1717,7 +1736,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R406</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetView] The GetView operation is used to obtain information about a specified list view of the specified list (1), without the display properties.</ns1:Description>
+		<ns1:Description>[In GetView] The GetView operation is used to obtain information about a specified list view of the specified list, without the display properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1914,7 +1933,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetViewCollection] The GetViewCollection operation is used to retrieve the collection of list views of a specified list (1).</ns1:Description>
+		<ns1:Description>[In GetViewCollection] The GetViewCollection operation is used to retrieve the collection of list views of a specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2111,7 +2130,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetViewCollection</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In GetViewHtml] The GetViewHtml operation is used to obtain details of a specified list view of the specified list (1), including display properties in CAML and HTML.</ns1:Description>
+		<ns1:Description>[In GetViewHtml] The GetViewHtml operation is used to obtain details of a specified list view of the specified list, including display properties in CAML and HTML.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2598,7 +2617,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R123</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateViewHtml] The UpdateViewHtml operation is used to update a list view for a specified list (1), including display properties in CAML and HTML.</ns1:Description>
+		<ns1:Description>[In UpdateViewHtml] The UpdateViewHtml operation is used to update a list view for a specified list, including display properties in CAML and HTML.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2922,7 +2941,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateViewHtml2] The UpdateViewHtml2 operation&lt;3&gt; is used to update details of a specified list view of the specified list (1), including display properties in CAML and HTML.</ns1:Description>
+		<ns1:Description>[In UpdateViewHtml2] The UpdateViewHtml2 operation &lt;4&gt; is used to update details of a specified list view of the specified list, including display properties in CAML and HTML.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3314,7 +3333,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In toolbar] The toolbar element specifies the rendering of the toolbar of a list (1).</ns1:Description>
+		<ns1:Description>[In toolbar] The toolbar element specifies the rendering of the toolbar of a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3629,22 +3648,46 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-VIEWSS_R8014</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-VIEWSS_R8902001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 3.1.4.1.2.3:  SharePoint Foundation 2013 will not append "&amp;gt;" after the View element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does use a detail element instead of the Detail element in SOAP 1.2. &lt;1&gt; Section 3:  Microsoft products use a detail element instead of the Detail element in SOAP 1.2.</ns1:Description>
+		<ns1:Derived>MS-VIEWSS_R8902:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VIEWSS_R8014</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does append "&amp;gt;" after the View element. &lt;2&gt; Section 3.1.4.1.2.3:  SharePoint Foundation 2010  appends "&amp;gt;" after the View element. (SharePoint Foundation 2010 follows this behavoir.)</ns1:Description>
+		<ns1:Derived>MS-VIEWSS_R8005:I; MS-VIEWSS_R148:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VIEWSS_R8005001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not append "&amp;gt;" after the View element. (SharePoint Foundation 2013 and above follow this behavior. )</ns1:Description>
+		<ns1:Derived>MS-VIEWSS_R8005:I; MS-VIEWSS_R148:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R8015</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 3.1.4.3.2.2: In SharePoint Foundation 2010 and SharePoint Foundation 2013, when this method is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML, the value of OpenApplicationExtension is returned as the value of the View element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 3.1.4.3.2.2: In SharePoint Foundation 2010 and SharePoint Foundation 2013, when this method is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML, the value of OpenApplicationExtension is returned as the value of the View element.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R361</ns1:REQ_ID>

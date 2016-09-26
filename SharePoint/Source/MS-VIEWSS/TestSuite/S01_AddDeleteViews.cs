@@ -58,6 +58,22 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             this.Site.Assert.IsNotNull(addViewResponseAddViewResult, "The added view should be got successfully.");
             this.Site.Assert.IsNotNull(addViewResponseAddViewResult.View, "The server should return a View element that specifies the list view when the AddView method is successful!");
 
+            //Verify MS-VIEWSS:MS-VIEWSS_R8014 and MS-VIEWSS_R8005001
+            if (Common.IsRequirementEnabled(8014,this.Site))
+            {
+            Site.CaptureRequirementIfAreEqual(
+                ">",
+                addViewResponseAddViewResult.View.Text[0],
+                8014,
+                @"[In Appendix B: Product Behavior] Implementation does append ""&gt;"" after the View element. <2> Section 3.1.4.1.2.3:  SharePoint Foundation 2010  appends ""&gt;"" after the View element. (SharePoint Foundation 2010 follows this behavoir.)"); 
+            }
+            if (Common.IsRequirementEnabled(8005001, this.Site))
+            {
+                Site.CaptureRequirementIfIsNull(
+                    addViewResponseAddViewResult.View.Text,
+                    8005001,
+                    @"[In Appendix B: Product Behavior] Implementation does not append ""&gt;"" after the View element. (SharePoint Foundation 2013 and above follow this behavior. )");
+            }
             // Put the newly added view into ViewPool. 
             string viewName = addViewResponseAddViewResult.View.Name;
             TestSuiteBase.ViewPool.Add(viewName);
@@ -707,7 +723,52 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                     @"[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
             }
 
-            this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 
+            this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response.");
+
+            string listName2 = TestSuiteBase.ListGUID;
+            string displayName2 = "";
+            caughtSoapException = false;
+
+            // Call AddView method to add a list view with an invalid listName.
+            try
+            {
+                Adapter.AddView(listName2, displayName2, viewFields, addViewQuery, rowLimit, type, false);
+            }
+            catch (SoapException soapException)
+            {
+                caughtSoapException = true;
+
+                // If server returns an exception when the value of viewName element is empty, then the following requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    soapException,
+                    265001,
+                    @"[In AddView] viewName: If the value of viewName element is empty [or the viewName element is not present], the protocol server MUST return a SOAP fault message.");
+            }
+
+            this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response.");
+
+            caughtSoapException = false;
+
+            // Call AddView method to add a list view with an invalid listName.
+            try
+            {
+                Adapter.AddView(listName2, null, viewFields, addViewQuery, rowLimit, type, false);
+            }
+            catch (SoapException soapException)
+            {
+                caughtSoapException = true;
+
+                // If server returns an exception when the value of viewName element is not present, then the following requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    soapException,
+                    265002,
+                    @"[In AddView] viewName: If [the value of viewName element is empty or] the viewName element is not present, the protocol server MUST return a SOAP fault message.");
+            }
+
+            this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response.");
+
+
+
         }
 
         /// <summary>
