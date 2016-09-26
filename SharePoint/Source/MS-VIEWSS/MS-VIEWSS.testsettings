@@ -42,5 +42,4 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
-  <Properties />
 </TestSettings>
