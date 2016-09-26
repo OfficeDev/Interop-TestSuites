@@ -16,5 +16,7 @@
     <Property name="R8014Enabled" value="false" />
     <!-- Set R8005001Enabled to true to verify that implementation does not append "&gt;" after the View element. Set R8005001Enabled to false to disable this requirement. -->
     <Property name="R8005001Enabled" value="true" />
+    <!-- Set R8015Enabled to true to verify that implementation does return the value of OpenApplicationExtension as the value of the View element when GetView is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML. Set R8015Enabled to false to disable this requirement. -->
+    <Property name="R8015Enabled" value="true" />
   </Properties>
 </TestSite>

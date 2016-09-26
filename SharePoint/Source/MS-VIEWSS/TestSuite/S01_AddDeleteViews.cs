@@ -132,7 +132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 0,
                 addViewResponseAddViewResult.View.ViewFields.Length,
                 93,
-                @"[In AddView] When the value of the viewFields element is empty, the protocol server MUST create the list view with no fields (2) included.");
+                @"[In AddView] When the value of the viewFields element is empty, the protocol server MUST create the list view with no fields included.");
         }
 
         /// <summary>
@@ -720,7 +720,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     13,
-                    @"[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                    @"[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response.");
@@ -928,7 +928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     13,
-                    @"[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                    @"[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 
@@ -969,7 +969,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     2301,
-                    @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).");
+                    @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.");
 
                 // If server returns an exception that means the specified view does not exist anymore, then the following requirement can be captured.
                 Site.CaptureRequirementIfIsNotNull(
@@ -1016,7 +1016,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     2302,
-                    @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).");
+                    @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.");
 
                 // If server returns a SOAP fault, then capture the following requirement.
                 Site.CaptureRequirementIfIsNotNull(

@@ -785,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 this.PassSchemaValidation,
                 158,
                 @"[In BriefViewDefinition] The definition of the BriefViewDefinition element is as follows.
-                                            <s:complexType name=""BriefViewDefinition"">
+                                            <s:complexType name=""BriefViewDefinition"" mixed=""true"">
                                                 <s:sequence>
                                                 <s:element name=""Query"" type=""core:CamlQueryRoot"" minOccurs=""1"" maxOccurs=""1"" />
                                                 <s:element name=""ViewFields"" minOccurs=""1"" maxOccurs=""1"">
