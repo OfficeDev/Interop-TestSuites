@@ -729,7 +729,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             string displayName2 = "";
             caughtSoapException = false;
 
-            // Call AddView method to add a list view with an invalid listName.
+            // Call AddView method to add a list view with an empty viewName.
             try
             {
                 Adapter.AddView(listName2, displayName2, viewFields, addViewQuery, rowLimit, type, false);
@@ -749,7 +749,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
 
             caughtSoapException = false;
 
-            // Call AddView method to add a list view with an invalid listName.
+            // Call AddView method to add a list view with an invalid viewName.
             try
             {
                 Adapter.AddView(listName2, null, viewFields, addViewQuery, rowLimit, type, false);
