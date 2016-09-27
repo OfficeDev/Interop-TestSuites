@@ -1088,6 +1088,29 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             #endregion Capture requirements
 
+            bool isErrorOccured = false;
+            SoapException soapException = null;
+            if (Common.IsRequirementEnabled(391,this.Site))
+            {
+                try
+                {
+                    // Invoke the ImportWeb operation with valid parameters, expect an error is returned. The logPath is set to empty string.
+                    importWebResult = this.sitessAdapter.ImportWeb(Constants.ImportJobName, importUrl, dataFiles, string.Empty, true, true);
+                }
+                catch (SoapException ex)
+                {
+                    soapException = ex;
+                    isErrorOccured = true;
+                }
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R391");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R391
+                Site.CaptureRequirementIfIsTrue(
+                    isErrorOccured,
+                    391,
+                    @"[In ImportWeb] [logPath:] If this element is omitted, the server MUST NOT create any files describing the progress or status of the operation.");
+            }
+
             this.isWebImportedSuccessfully = true;
 
             #region Capture requirements

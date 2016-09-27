@@ -861,25 +861,25 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             Dictionary<string, string> properties = AdapterHelper.DeserializeWebProperties(webPropertyDefault, Constants.ItemSpliter, Constants.KeySpliter);
             bool presence = bool.Parse(properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyPresence, this.Site)]);
 
-            if (Common.IsRequirementEnabled(527001, this.Site))
+            if (Common.IsRequirementEnabled(557001, this.Site))
             {
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R527001");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R557001");
 
                 // Verify MS-SITESS requirement: MS-SITESS_R527001
                 Site.CaptureRequirementIfIsTrue(
                     presence,
-                    527001,
+                    557001,
                     @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.");
             }
 
-            if (Common.IsRequirementEnabled(527002, this.Site))
+            if (Common.IsRequirementEnabled(557002, this.Site))
             {
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R527002");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R557002");
 
                 // Verify MS-SITESS requirement: MS-SITESS_R527002
                 Site.CaptureRequirementIfIsFalse(
                     presence,
-                    527002,
+                    557002,
                     @"[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to omitted. (SharePoint Foundation 2013 and above follow this hebavior.)");
             }
 
