@@ -956,11 +956,10 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// <param name="isScriptSafeUrlResult">The result of IsScriptSafeUrl.</param>
         private void VerifyIsScriptSafeUrl(Boolean[] isScriptSafeUrlResult)
         {
-            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in GetUpdatedFormDigestInformation operation.");
+            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in IsScriptSafeUrl operation.");
             this.VerifyCommonReqs();
 
-            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
-            // So this operation's description is consistent with server.
+            // If code can run to here, it means Microsoft SharePoint Foundation 2013 supports operation IsScriptSafeUrl.
             Site.CaptureRequirement(
                 326001002,
                 @"[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrl]. <19> Section 3.1.4.11:  Only SharePoint Foundation 2013 supports this method.");
@@ -977,7 +976,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             bool isSchemaRight = SchemaValidation.XmlValidationErrors.Count == 0 && SchemaValidation.XmlValidationWarnings.Count == 0;
 
-            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326005.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326005");
 
             // Verify MS-SITESS requirement: MS-SITESS_R326005
@@ -986,7 +985,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 326005,
                 @"[In IsScriptSafeUrl] [The client sends an IsScriptSafeUrlSoapIn request message, and] the server responds with an IsScriptSafeUrlSoapOut response message.");
 
-            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326011.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326011");
 
             // Verify MS-SITESS requirement: MS-SITESS_R326011
@@ -995,7 +994,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 326011,
                 @"[In IsScriptSafeUrlSoapOut] The SOAP body contains an IsScriptSafeUrlResponse element.");
 
-            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326020.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326020");
 
             // Verify MS-SITESS requirement: MS-SITESS_R326020
@@ -1017,7 +1016,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 326001021,
                 @" [In IsScriptSafeUrlResponse] IsScriptSafeUrlResult: An ArrayOfBoolean as defined in section 3.1.4.11.3.1, ");
 
-            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R231.
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326026.
             Site.CaptureRequirementIfIsTrue(
                 isSchemaRight,
                 326026,
