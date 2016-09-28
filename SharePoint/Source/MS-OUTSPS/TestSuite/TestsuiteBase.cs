@@ -1691,7 +1691,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             this.Site.CaptureRequirementIfIsTrue(
                 !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
                 208,
-                "[In Common Schema]Unless stated otherwise[Categories, Modified, ReplicationID], all fields in this section[Attachments, ContentTypeId, Created, ID, owshiddenversion, ReplicationID, vti_versionhistory] MUST be present on all item types<20> and contain valid data.");
+                "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
 
             return listItemsChanges;
         }
