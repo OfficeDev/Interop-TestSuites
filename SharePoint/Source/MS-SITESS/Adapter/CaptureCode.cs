@@ -933,8 +933,6 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// </summary>        
         private void ValidArrayOfStringComplexType()
         {
-            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in DeleteWeb operation.");
-            this.VerifyCommonReqs();
             bool isSchemaRight = SchemaValidation.XmlValidationErrors.Count == 0 && SchemaValidation.XmlValidationWarnings.Count == 0;
 
             // The response have been received successfully, then the following requirement can be captured.
