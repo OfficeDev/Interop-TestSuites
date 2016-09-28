@@ -117,6 +117,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             string permissionActual = properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyUserNameInPermissions, this.Site)];
             string currentUser = properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyCurrentUser, this.Site)];
             bool anonymousActual = bool.Parse(properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyAnonymous, this.Site)]);
+            bool presence = bool.Parse(properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyPresence, this.Site)]);
+
 
             // If uniquePermissions is true, R518 can be captured.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R518, the default user is {0}", currentUser);
@@ -162,6 +164,14 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 anonymousActual,
                 520,
                 @"[In CreateWeb] anonymous: If set to true, the anonymous authentication is to be allowed for the subsite to be created.");
+
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R522, the presence is {0}", presence);
+
+            // Verify MS-SITESS requirement: MS-SITESS_R522
+            Site.CaptureRequirementIfIsTrue(
+                presence,
+                522,
+                @"[In CreateWeb] presence: If set to true, the online presence information is to be enabled for the subsite to be created.");
 
             // Verify that Microsoft SharePoint Foundation 2010 and above support operation CreateWeb.
             this.VerifyOperationCreateWeb();
@@ -729,6 +739,156 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             this.VerifyResultOfGetSiteTemplate(getTemplateResult);
 
             #endregion Capture requirements
+        }
+
+        /// <summary>
+        /// This test case is designed to verify CreateWeb operations when the presence is false.
+        /// </summary>
+        [TestCategory("MSSITESS"), TestMethod()]
+        public void MSSITESS_S02_TC09_CreateWebWithPresenceIsFalse()
+        {
+            #region Variables
+
+            uint localeId = uint.Parse(Common.GetConfigurationPropertyValue(Constants.ValidLCID, this.Site));
+            Template[] templateList;
+            string webUrl = Common.GetConfigurationPropertyValue(Constants.SiteName, this.Site)
+                + "/"
+                + this.newSubsite;
+            CreateWebResponseCreateWebResult createResult;
+            string expectedUrl = Common.GetConfigurationPropertyValue(Constants.SiteUrl, this.Site)
+                + "/"
+                + this.newSubsite;
+            uint getTemplateResult = 0;
+            string webName = this.newSubsite;
+
+            #endregion Variables
+
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(3781, this.Site), @"Test is executed only when R3781Enabled is set to true.");
+
+            // Initialize the web service with an authenticated account.
+            this.sitessAdapter.InitializeWebService(UserAuthenticationOption.Authenticated);
+
+            // Invoke the GetSiteTemplates operation with valid parameters, so result == 0 and templateList.Length > 1 are expected.
+            getTemplateResult = this.sitessAdapter.GetSiteTemplates(localeId, out templateList);
+
+            // If the templateList is not empty, it means the GetSiteTemplates operation is succeed.
+            Site.Assert.IsTrue(
+                 templateList != null && templateList.Length > 1,
+                "GetTemplate operation should return more than one template.");
+
+            // Invoke the CreateWeb operation with valid parameters, so the return value is expected to contain a URL consistent with the expected URL.
+            // The first template is a Global template and can't be used to create web ,so templateList[1] is used here.
+            createResult = this.sitessAdapter.CreateWeb(webUrl, Constants.WebTitle, Constants.WebDescription, templateList[1].Name, localeId, true, localeId, true, localeId, true, true, true, true, true, false, true);
+            expectedUrl = expectedUrl.TrimEnd('/');
+            string actualUrl = createResult.CreateWeb.Url.TrimEnd('/');
+            string webPropertyDefault = this.sutAdapter.GetWebProperties(Common.GetConfigurationPropertyValue(Constants.SiteName, this.Site), webName);
+            //// Get each property value by splitting the string.
+            Dictionary<string, string> properties = AdapterHelper.DeserializeWebProperties(webPropertyDefault, Constants.ItemSpliter, Constants.KeySpliter);
+            bool presence = bool.Parse(properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyPresence, this.Site)]);
+
+            if(Common.IsRequirementEnabled(523001,this.Site))
+            {
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R523001");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R523001
+                Site.CaptureRequirementIfIsTrue(
+                    presence,
+                    523001,
+                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.");
+            }
+
+            if (Common.IsRequirementEnabled(523002,this.Site))
+            {
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R523002");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R523002
+                Site.CaptureRequirementIfIsFalse(
+                    presence,
+                    523002,
+                    @"[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to false. (SharePoint Foundation 2013 and above follow this hebavior.)");
+            }
+
+            // If R3781 is not enabled, that means the CreateWeb operation is not supported, so there is no web to be deleted here.
+            if (Common.IsRequirementEnabled(3781, this.Site) && Common.IsRequirementEnabled(3791, this.Site))
+            {
+                // Invoke the DeleteWeb operation.
+                this.sitessAdapter.DeleteWeb(webUrl);
+            }
+        }
+
+        /// <summary>
+        /// This test case is designed to verify CreateWeb operations when the presence is omitted.
+        /// </summary>
+        [TestCategory("MSSITESS"), TestMethod()]
+        public void MSSITESS_S02_TC10_CreateWebWithPresenceIsOmitted()
+        {
+            #region Variables
+
+            uint localeId = uint.Parse(Common.GetConfigurationPropertyValue(Constants.ValidLCID, this.Site));
+            Template[] templateList;
+            string webUrl = Common.GetConfigurationPropertyValue(Constants.SiteName, this.Site)
+                + "/"
+                + this.newSubsite;
+            CreateWebResponseCreateWebResult createResult;
+            string expectedUrl = Common.GetConfigurationPropertyValue(Constants.SiteUrl, this.Site)
+                + "/"
+                + this.newSubsite;
+            uint getTemplateResult = 0;
+            string webName = this.newSubsite;
+
+            #endregion Variables
+
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(3781, this.Site), @"Test is executed only when R3781Enabled is set to true.");
+
+            // Initialize the web service with an authenticated account.
+            this.sitessAdapter.InitializeWebService(UserAuthenticationOption.Authenticated);
+
+            // Invoke the GetSiteTemplates operation with valid parameters, so result == 0 and templateList.Length > 1 are expected.
+            getTemplateResult = this.sitessAdapter.GetSiteTemplates(localeId, out templateList);
+
+            // If the templateList is not empty, it means the GetSiteTemplates operation is succeed.
+            Site.Assert.IsTrue(
+                 templateList != null && templateList.Length > 1,
+                "GetTemplate operation should return more than one template.");
+
+            // Invoke the CreateWeb operation with valid parameters, so the return value is expected to contain a URL consistent with the expected URL.
+            // The first template is a Global template and can't be used to create web ,so templateList[1] is used here.
+            createResult = this.sitessAdapter.CreateWeb(webUrl, Constants.WebTitle, Constants.WebDescription, templateList[1].Name, localeId, true, localeId, true, localeId, true, true, true, true, true, true, false);
+            expectedUrl = expectedUrl.TrimEnd('/');
+            string actualUrl = createResult.CreateWeb.Url.TrimEnd('/');
+            string webPropertyDefault = this.sutAdapter.GetWebProperties(Common.GetConfigurationPropertyValue(Constants.SiteName, this.Site), webName);
+            //// Get each property value by splitting the string.
+            Dictionary<string, string> properties = AdapterHelper.DeserializeWebProperties(webPropertyDefault, Constants.ItemSpliter, Constants.KeySpliter);
+            bool presence = bool.Parse(properties[Common.GetConfigurationPropertyValue(Constants.SubSitePropertyPresence, this.Site)]);
+
+            if (Common.IsRequirementEnabled(557001, this.Site))
+            {
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R557001");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R527001
+                Site.CaptureRequirementIfIsTrue(
+                    presence,
+                    557001,
+                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.");
+            }
+
+            if (Common.IsRequirementEnabled(557002, this.Site))
+            {
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R557002");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R527002
+                Site.CaptureRequirementIfIsFalse(
+                    presence,
+                    557002,
+                    @"[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to omitted. (SharePoint Foundation 2013 and above follow this hebavior.)");
+            }
+
+            // If R3781 is not enabled, that means the CreateWeb operation is not supported, so there is no web to be deleted here.
+            if (Common.IsRequirementEnabled(3781, this.Site) && Common.IsRequirementEnabled(3791, this.Site))
+            {
+                // Invoke the DeleteWeb operation.
+                this.sitessAdapter.DeleteWeb(webUrl);
+            }
         }
 
         /// <summary>

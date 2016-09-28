@@ -251,6 +251,12 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         public const string SubSitePropertyAnonymous = "SubSitePropertyAnonymous";
 
         /// <summary>
+        /// The name of the property which specifies the presence property on the specified sub site got by SUT control adapter.
+        /// </summary>
+        public const string SubSitePropertyPresence = "SubSitePropertyPresence";
+
+
+        /// <summary>
         /// JobName for ExportWeb operation.
         /// </summary>
         public const string ExportJobName = "ExportSite";

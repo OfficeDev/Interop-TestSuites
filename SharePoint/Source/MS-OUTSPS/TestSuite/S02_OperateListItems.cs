@@ -5028,6 +5028,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                     208,
                     "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
 
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R188
+                this.Site.CaptureRequirementIfIsTrue(
+                    contentTypeId.StartsWith("0x012002", StringComparison.CurrentCultureIgnoreCase),
+                    188,
+                    "[In Common Schema]ContentTypeId begins with 0x012002 corresponds to Discussion item Content / item type name.");
+
                 // Ignore the fieldsValueSettings
                 string bodyValueInSetting = fieldsValueSettings["Body"];
                 fieldsValueSettings.Remove("Body");
@@ -5220,12 +5226,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                     !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
                     208,
                     "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
-
-                // Verify MS-OUTSPS requirement: MS-OUTSPS_R188
-                this.Site.CaptureRequirementIfIsTrue(
-                    contentTypeId.StartsWith("0x012002", StringComparison.CurrentCultureIgnoreCase),
-                    188,
-                    "[In Common Schema]ContentTypeId begins with 0x012002 corresponds to Discussion item Content / item type name.");
 
                 string encodedAbsUrl = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_EncodedAbsUrl");
                 string fileSizeDisplay = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_FileSizeDisplay");
