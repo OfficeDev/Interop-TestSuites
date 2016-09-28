@@ -927,5 +927,112 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
               <s:complexType />
               </s:element>");
         }
+
+        /// <summary>
+        /// A method used to validate the ArrayOfString complex type. 
+        /// </summary>        
+        private void ValidArrayOfStringComplexType()
+        {
+            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in DeleteWeb operation.");
+            this.VerifyCommonReqs();
+            bool isSchemaRight = SchemaValidation.XmlValidationErrors.Count == 0 && SchemaValidation.XmlValidationWarnings.Count == 0;
+
+            // The response have been received successfully, then the following requirement can be captured.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                422002,
+                @" [In ArrayOfString] [The ArrayOfString is defined as:]<s:complexType name=""ArrayOfString"">
+   <s:sequence>
+     <s:element minOccurs=""1"" maxOccurs=""unbounded"" name=""string"" nillable=""true""
+                  type=""s:string"" />
+   </s:sequence>
+ </s:complexType>
+");
+        }
+
+        /// <summary>
+        /// Verify IsScriptSafeUrl related requirements.
+        /// </summary>
+        /// <param name="isScriptSafeUrlResult">The result of IsScriptSafeUrl.</param>
+        private void VerifyIsScriptSafeUrl(Boolean[] isScriptSafeUrlResult)
+        {
+            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in GetUpdatedFormDigestInformation operation.");
+            this.VerifyCommonReqs();
+
+            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
+            // So this operation's description is consistent with server.
+            Site.CaptureRequirement(
+                326001002,
+                @"[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrl]. <19> Section 3.1.4.11:  Only SharePoint Foundation 2013 supports this method.");
+
+            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
+            // So this operation's description is consistent with server.
+            Site.CaptureRequirement(
+                326003,
+                @" [In IsScriptSafeUrl] [The IsScriptSafeUrl operation is defined as:]<wsdl:operation name=""IsScriptSafeUrl"">
+   <wsdl:input message=""tns:IsScriptSafeUrlSoapIn"" />
+   <wsdl:output message=""tns:IsScriptSafeUrlSoapOut"" />
+ </wsdl:operation>
+");
+
+            bool isSchemaRight = SchemaValidation.XmlValidationErrors.Count == 0 && SchemaValidation.XmlValidationWarnings.Count == 0;
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326005");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R326005
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                326005,
+                @"[In IsScriptSafeUrl] [The client sends an IsScriptSafeUrlSoapIn request message, and] the server responds with an IsScriptSafeUrlSoapOut response message.");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326011");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R326011
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                326011,
+                @"[In IsScriptSafeUrlSoapOut] The SOAP body contains an IsScriptSafeUrlResponse element.");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R201.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326020");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R326020
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                326020,
+                @" [In IsScriptSafeUrlResponse] [The IsScriptSafeUrlResponse element is defined as:]<s:element name=""IsScriptSafeUrlResponse"">
+   <s:complexType>
+     <s:sequence>
+       <s:element minOccurs=""1"" maxOccurs=""1"" name=""IsScriptSafeUrlResult"" type=""tns:ArrayOfBoolean"" />
+     </s:sequence>
+   </s:complexType>
+ </s:element>
+");
+
+            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
+            // So this operation's description is consistent with server.
+            Site.CaptureRequirement(
+                326001021,
+                @" [In IsScriptSafeUrlResponse] IsScriptSafeUrlResult: An ArrayOfBoolean as defined in section 3.1.4.11.3.1, ");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R231.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                326026,
+                @"[InArrayOfBoolean]  [The ArrayOfBoolean complexType is defined as:]<s:complexType name=""ArrayOfBoolean"">
+    <s:sequence>
+       <s:element minOccurs=""0"" maxOccurs=""unbounded"" name=""boolean"" type=""s:boolean"" />
+    </s:sequence>
+ </s:complexType>
+");
+
+            if (isScriptSafeUrlResult != null)
+            {
+                this.ValidArrayOfStringComplexType();
+            }
+        }
+
     }
 }

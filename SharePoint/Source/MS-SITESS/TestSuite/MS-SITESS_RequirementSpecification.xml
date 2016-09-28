@@ -286,7 +286,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R345</ns1:REQ_ID>
@@ -4137,7 +4137,25 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32602701</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [True] Indicates a URL is a valid script safe URL for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32602702</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a valid script safe URL for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R1</ns1:REQ_ID>

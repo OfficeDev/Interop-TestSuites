@@ -259,6 +259,23 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             // Verify requirements related with DeleteWeb operation.
             this.VerifyDeleteWeb();
         }
+
+        /// <summary>
+        /// This operation is used to validate whether the specified URLs are valid script safe URLs for the current site.
+        /// </summary>
+        /// <param name="urls">An array of string contains all URLs that need to be validated. </param>
+        /// <returns>An array of boolean contains results for validating the URLs </returns>
+        public bool[] IsScriptSafeUrl(string[] urls)
+        {
+            // Check whether GetUpdatedFormDigest operation succeeds.
+            bool[] isScriptSafeUrResult = null;
+            isScriptSafeUrResult = this.service.IsScriptSafeUrl(urls);
+
+            // Verify the GetUpdatedFormDigestResponse structure.
+            this.VerifyIsScriptSafeUrl(isScriptSafeUrResult);
+            return isScriptSafeUrResult;
+            //return this.service.IsScriptSafeUrl(urls);
+        }
         #endregion
 
         #region Initialize the web service
