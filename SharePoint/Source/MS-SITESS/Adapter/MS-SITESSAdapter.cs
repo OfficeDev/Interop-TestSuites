@@ -267,14 +267,13 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// <returns>An array of boolean contains results for validating the URLs </returns>
         public bool[] IsScriptSafeUrl(string[] urls)
         {
-            // Check whether GetUpdatedFormDigest operation succeeds.
+            // Check whether IsScriptSafe operation succeeds.
             bool[] isScriptSafeUrResult = null;
             isScriptSafeUrResult = this.service.IsScriptSafeUrl(urls);
 
-            // Verify the GetUpdatedFormDigestResponse structure.
+            // Verify the IsScriptSafeResponse structure.
             this.VerifyIsScriptSafeUrl(isScriptSafeUrResult);
             return isScriptSafeUrResult;
-            //return this.service.IsScriptSafeUrl(urls);
         }
         #endregion
 
