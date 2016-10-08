@@ -156,7 +156,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR806 && isVerifiedR125,
                 138,
-                @"[In GetActivatedFeaturesResponse] The list MUST include one GUID identifying every feature activated on the site (2), a tab character followed by one GUID identifying every feature activated in the site collection.");
+                @"[In GetActivatedFeaturesResponse] The list MUST include one GUID identifying every feature activated on the site, a tab character followed by one GUID identifying every feature activated in the site collection.");
         }
 
         /// <summary>

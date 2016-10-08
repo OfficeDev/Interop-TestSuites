@@ -78,6 +78,8 @@
     <Property name="R1038Enabled" value="true" />
     <!-- Set R1039Enabled to true to verify that [In Appendix B: Product Behavior] <23> Implementation does support this[UpdateContentTypeXmlDocument] operation.(Windows® SharePoint® Services 3.0 and above follow this behavior.) as specified in section 7. Set R1039Enabled to false to disable this requirement. -->
     <Property name="R1039Enabled" value="true" />
+    <!-- Set R691Enabled to true to verify that type of complex type WebDefinition. Set R691Enabled to false to disable this requirement. -->
+    <Property name="R691Enabled" value="true" />
   </Properties>
 
 </TestSite>

@@ -55,7 +55,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 CustomizedPageStatus.Uncustomized,
                 uncustomizedPageStatus,
                 929,
-                @"[In CustomizedPageStatus] [Value] Uncustomized [Meaning] The page specified by fileUrl is not customized on this site (2).");
+                @"[In CustomizedPageStatus] [Value] Uncustomized [Meaning] The page specified by fileUrl is not customized on this site.");
 
             string foldName = Common.GetConfigurationPropertyValue("FoldName", this.Site);
             string docName = Common.GetConfigurationPropertyValue("DocName", this.Site);
@@ -89,7 +89,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // Verify requirement MS-WEBSS_R261
                 Site.CaptureRequirement(
                 261,
-                @"[In GetCustomizedPageStatus] The protocol server portion of the HTTP POST address MUST be the address of a site (2).");
+                @"[In GetCustomizedPageStatus] The protocol server portion of the HTTP POST address MUST be the address of a site.");
 
                 // Verify MS-WEBSS requirement: MS-WEBSS_R285
                 // When the GetCustomizedPageStatus operation is invoked by inValid File Url, 
@@ -146,7 +146,7 @@ Microsoft® SharePoint® Foundation 2013]");
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR633,
                 633,
-                @"[In WebUrlFromPageUrlResponse] WebUrlFromPageUrlResult: MUST be the full URL of the site (2).");
+                @"[In WebUrlFromPageUrlResponse] WebUrlFromPageUrlResult: MUST be the full URL of the site.");
         }
 
         /// <summary>

@@ -136,11 +136,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // Proxy handles operation's SoapIn and SoapOut, if the server didn't respond the SoapOut message for the operation, Proxy will fail. 
             // Proxy didn't fail now, that indicates server responds corresponding SoapOut message for the operation.So the requirement be captured.
             // Verify MS-WEBSS requirement: MS-WEBSS_R691
-            Site.CaptureRequirementIfAreEqual<ValidationResult>(
-                ValidationResult.Success,
-                SchemaValidation.ValidationResult,
-                691,
-                @"[In WebDefinition] This type[WebDefinition] is defined as follows:
+            if (Common.IsRequirementEnabled(691, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    691,
+                    @"[In WebDefinition] This type[WebDefinition] is defined as follows:
  <s:complexType name=""WebDefinition"">
   <s:attribute name=""Title"" type=""s:string"" use=""required"" />
   <s:attribute name=""Url"" type=""s:string"" use=""required"" />
@@ -153,6 +155,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
   <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
   <s:attribute name=""AlternateUrls"" type=""s:string"" />
 </s:complexType>");
+            }
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1092
             // COMMENT: When the SUT product is Windows SharePoint Services 3.0, if the 
@@ -229,11 +232,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // Proxy handles operation's SoapIn and SoapOut, if the server didn't respond the SoapOut message for the operation, Proxy will fail. 
             // Proxy didn't fail now, that indicates server responds corresponding SoapOut message for the operation.So the requirement be captured.
             // Verify MS-WEBSS requirement: MS-WEBSS_R691
-            Site.CaptureRequirementIfAreEqual<ValidationResult>(
-                ValidationResult.Success,
-                SchemaValidation.ValidationResult,
-                691,
-                @"[In WebDefinition] This type[WebDefinition] is defined as follows:
+            if (Common.IsRequirementEnabled(691, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    691,
+                    @"[In WebDefinition] This type[WebDefinition] is defined as follows:
  <s:complexType name=""WebDefinition"">
   <s:attribute name=""Title"" type=""s:string"" use=""required"" />
   <s:attribute name=""Url"" type=""s:string"" use=""required"" />
@@ -246,6 +251,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
   <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
   <s:attribute name=""AlternateUrls"" type=""s:string"" />
 </s:complexType>");
+            }
         }
 
         /// <summary>
@@ -289,7 +295,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""CreateContentTypeResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""CreateContentTypeResult"" type=""core:ContentTypeId"" minOccurs=""1""/>
+      <s:element name=""CreateContentTypeResult"" type=""s:string"" minOccurs=""1""/>
     </s:sequence>
   </s:complexType>
 </s:element>");
@@ -300,6 +306,20 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 isVerifiedR59,
                 59,
                 @"[In CreateContentTypeSoapOut] The SOAP body contains a CreateContentTypeResponse element.");
+            //Verify MS-WEBSS requirement: MS-WEBSS_R712001
+            string sPattern = "0x([0-9A-Fa-f][1-9A-Fa-f]|[1-9A-Fa-f][0-9A-Fa-f]|00[0-9A-Faf]{32})*";
+            bool isVerifiedR712001 = false;
+            bool isVerifiedR712001length = false;
+            isVerifiedR712001 = System.Text.RegularExpressions.Regex.IsMatch(SchemaValidation.LastRawResponseXml.InnerText, sPattern);
+            if (SchemaValidation.LastRawResponseXml.InnerText.Length <1027 &&SchemaValidation.LastRawResponseXml.InnerText.Length >1)
+            {
+                isVerifiedR712001length = true;
+            }
+            Site.CaptureRequirementIfIsTrue
+            (isVerifiedR712001&&isVerifiedR712001length, 
+                712001,
+                @"[In CreateContentTypeResponse] CreateContentTypeResult: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4."
+            );
         }
 
         /// <summary>
@@ -342,7 +362,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""DeleteContentTypeResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""DeleteContentTypeResult"" minOccurs=""1"">
+      <s:element name=""DeleteContentTypeResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
             <s:element name=""Success"">
@@ -403,7 +423,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""GetActivatedFeaturesResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""GetActivatedFeaturesResult"" type=""s:string"" minOccurs=""1"" maxOccurs=""1"" />
+      <s:element name=""GetActivatedFeaturesResult"" type=""s:string"" minOccurs=""0"" maxOccurs=""1"" />
     </s:sequence>
   </s:complexType>
 </s:element>");
@@ -466,7 +486,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR148,
                 148,
-                @"[In GetAllSubWebCollectionSoapOut] This message[GetAllSubWebCollectionSoapOut] returns the title and URL of all sites (2) in the site collection.");
+                @"[In GetAllSubWebCollectionSoapOut] This message[GetAllSubWebCollectionSoapOut] returns the title and URL of all sites in the site collection.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R150
             Site.CaptureRequirementIfIsTrue(
@@ -483,7 +503,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""GetAllSubWebCollectionResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""GetAllSubWebCollectionResult"" minOccurs=""1"" maxOccurs=""1"" >
+      <s:element name=""GetAllSubWebCollectionResult"" minOccurs=""0"" maxOccurs=""1"" >
         <s:complexType mixed=""true"">
           <s:sequence>
             <s:element name=""Webs"">
@@ -778,7 +798,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""GetListTemplatesResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""GetListTemplatesResult"" minOccurs=""1"">
+      <s:element name=""GetListTemplatesResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
             <s:element name=""ListTemplates"" type=""core:ListTemplateDefinitions"" minOccurs=""1"" >
@@ -965,12 +985,26 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     1045,
                     @"[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the values of the list template types are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].");
 
+                // Verify MS-WEBSS requirement: MS-WEBSS_R1045001002
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    1045001002,
+                    @"[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the values of the list template types are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].");
+
                 // Verify MS-WEBSS requirement: MS-WEBSS_R1046
                 Site.CaptureRequirementIfAreEqual<ValidationResult>(
                     ValidationResult.Success,
                     SchemaValidation.ValidationResult,
                     1046,
                     @"[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the values of the List Base Types are 0,1,3,4,5].");
+                
+                // Verify MS-WEBSS requirement: MS-WEBSS_R1046
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    1046001002,
+                    @"[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list item, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the values of the List Base Types are 0,1,3,4,5].");
             }
         }
 
@@ -983,23 +1017,25 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // Proxy handles operation's SoapIn and SoapOut, if the server didn't respond the SoapOut message for the operation, Proxy will fail. 
             // Proxy didn't fail now, that indicates server responds corresponding SoapOut message for the operation.So the requirement be captured.
             // Verify MS-WEBSS requirement: MS-WEBSS_R344
-            Site.CaptureRequirementIfAreEqual<ValidationResult>(
-                ValidationResult.Success,
-                SchemaValidation.ValidationResult,
-                344,
-                @"[In GetWeb] This[GetWeb] operation is defined as follows:
+            if (Common.IsRequirementEnabled(691, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    344,
+                    @"[In GetWeb] This[GetWeb] operation is defined as follows:
 <wsdl:operation name=""GetWeb"">
     <wsdl:input message=""tns:GetWebSoapIn"" />
     <wsdl:output message=""tns:GetWebSoapOut"" />
 </wsdl:operation>");
 
-            // Verify MS-WEBSS requirement: MS-WEBSS_R345
-            Site.CaptureRequirementIfAreEqual<ValidationResult>(
-                ValidationResult.Success,
-                SchemaValidation.ValidationResult,
-                345,
-                @"[In GetWeb] The protocol client sends a GetWebSoapIn request message, and the protocol server responds with a GetWebSoapOut response message.");
-
+                // Verify MS-WEBSS requirement: MS-WEBSS_R345
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    345,
+                    @"[In GetWeb] The protocol client sends a GetWebSoapIn request message, and the protocol server responds with a GetWebSoapOut response message.");
+            }
             // Verify MS-WEBSS requirement: MS-WEBSS_R348
             // COMMENT: If the actual Language value is contained in the expected domain of allowed 
             // LCID values, then the requirement can be captured.
@@ -1165,15 +1201,17 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 @"[In GetWebSoapOut] The SOAP body contains a GetWebResponse element.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R360
-            Site.CaptureRequirementIfAreEqual<ValidationResult>(
-                ValidationResult.Success,
-                SchemaValidation.ValidationResult,
-                360,
-                @"[In GetWebResponse] The SOAP body contains a GetWebResponse element, which has the following definition:
+            if (Common.IsRequirementEnabled(691, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                    ValidationResult.Success,
+                    SchemaValidation.ValidationResult,
+                    360,
+                    @"[In GetWebResponse] The SOAP body contains a GetWebResponse element, which has the following definition:
 <s:element name=""GetWebResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""GetWebResult"" minOccurs=""1"">
+      <s:element name=""GetWebResult"" minOccurs=""0"">
         <s:complexType>
           <s:sequence>
             <s:element name=""Web"" type=""tns:WebDefinition""/>
@@ -1183,6 +1221,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
     </s:sequence>
   </s:complexType>
 </s:element>");
+            }
         }
 
         /// <summary>
@@ -1224,7 +1263,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""GetWebCollectionResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""GetWebCollectionResult"" minOccurs=""1"">
+      <s:element name=""GetWebCollectionResult"" minOccurs=""0"">
         <s:complexType>
           <s:sequence>
             <s:element name=""Webs"">
@@ -1507,7 +1546,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 ValidationResult.Success,
                 SchemaValidation.ValidationResult,
                 500,
-                @"[In UpdateColumns] It [Method: An element that represents a field to be used in the new, update, or delete operation. ] MUST contain an ID field.");
+                @"[In UpdateColumns] It [Method: An element that represents a field to be used in the new, update, or delete operation. ] MUST contain an ID attribute.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R501
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
@@ -1518,7 +1557,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""UpdateColumnsResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""UpdateColumnsResult"" minOccurs=""1"">
+      <s:element name=""UpdateColumnsResult"" minOccurs=""0"">
         <s:complexType>
           <s:sequence>
             <s:element name=""Results"">
@@ -1728,7 +1767,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 <s:element name=""UpdateContentTypeXmlDocumentResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""UpdateContentTypeXmlDocumentResult"" minOccurs=""1"" maxOccurs=""1"">
+      <s:element name=""UpdateContentTypeXmlDocumentResult"" minOccurs=""0"" maxOccurs=""1"">
         <s:complexType mixed=""true"">
           <s:sequence>            
             <s:element name=""Success"" minOccurs=""0"" maxOccurs=""1"">
@@ -1778,7 +1817,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
  <s:element name=""WebUrlFromPageUrlResponse"">
   <s:complexType>
     <s:sequence>
-      <s:element name=""WebUrlFromPageUrlResult"" type=""s:string"" minOccurs=""1""/>
+      <s:element name=""WebUrlFromPageUrlResult"" type=""s:string"" minOccurs=""0""/>
     </s:sequence>
   </s:complexType>
 </s:element>");
