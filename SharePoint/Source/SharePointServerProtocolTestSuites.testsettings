@@ -63,6 +63,7 @@
     <DeploymentItem filename="Common\Proxy\MS-ADMINS.wsdl" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\GetDocumentLibraryFileNames.ps1" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_TestSuite.deployment.ptfconfig" />
