@@ -972,20 +972,11 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R418002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string "Value cannot be null. </ns1:Description>
+		<ns1:Description>[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string "Value cannot be null. Parameter name: taskData".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R418003</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AlterToDo] taskData: Parameter name: taskData".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R102</ns1:REQ_ID>
@@ -3368,7 +3359,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R348</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In StartWorkflow] This element[workflowParameters] is considered vendor-extensible and is described in section 4.3.4.</ns1:Description>
+		<ns1:Description>[In StartWorkflow] This element[workflowParameters] is considered vendor-extensible and is described in section 4.3.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
