@@ -352,7 +352,7 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R384</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateData] Web.Title: The title of the site (2) for this set of workflow associations.</ns1:Description>
+		<ns1:Description>[In TemplateData] Web.Title: The title of the site for this set of workflow associations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -460,7 +460,7 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R396</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateData] This element[WorkflowTemplates.WorkflowTemplate.AssociationData] SHOULD contain child elements or inner text.</ns1:Description>
+		<ns1:Description>[In TemplateData] This element[WorkflowTemplates.WorkflowTemplate.AssociationData] SHOULD contain child elements.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -470,7 +470,7 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R398</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories: A string used to enable or disable creation of a new workflow instance.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In TemplateData] WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories: A string used to enable or disable creation of a new workflow instance.&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -497,7 +497,7 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R401</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateData] This[WorkflowTemplates.WorkflowTemplate.Metadata.Instantiation_FormURI] SHOULD be used as an alternate reference when Instantiation_FormURN is not supplied or as determined by the protocol server.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In TemplateData] This[WorkflowTemplates.WorkflowTemplate.Metadata.Instantiation_FormURI] SHOULD be used as an alternate reference when Instantiation_FormURN is not supplied or as determined by the protocol server.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -676,7 +676,7 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 		<ns1:REQ_ID>MS-WWSP_R407</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Message Processing Events and Sequencing Rules] ClaimReleaseTask
- claims (1) or releases a claim (1) on a workflow task.</ns1:Description>
+ claims or releases a claim on a workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -826,16 +826,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R88</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In AlterToDoSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In AlterToDoSoapOut] The SOAP body contains an AlterToDoResponse element.</ns1:Description>
@@ -971,6 +961,33 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R418001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] taskData: taskData SHOULD NOT be null. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R418002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string "Value cannot be null. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R418003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AlterToDo] taskData: Parameter name: taskData".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In AlterToDoResponse] This element is sent with AlterToDoSoapOut and specifies whether the AlterToDo operation was successful.</ns1:Description>
@@ -1048,7 +1065,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R110</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In ClaimReleaseTask] This operation[ClaimReleaseTask] claims (1) or releases a claim (1) on workflow task.</ns1:Description>
+		<ns1:Description>[In ClaimReleaseTask] This operation[ClaimReleaseTask] claims or releases a claim on workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1087,7 +1104,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] ClaimReleaseTaskSoapIn specifies the request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Description>[In Messages] ClaimReleaseTaskSoapIn specifies the request to claim or release a claim on a workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1097,7 +1114,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 		<ns1:REQ_ID>MS-WWSP_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] ClaimReleaseTaskSoapOut
- specifies the response to a request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+ specifies the response to a request to claim or release a claim on a workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1141,16 +1158,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R121</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In ClaimReleaseTaskSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R122</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In ClaimReleaseTaskSoapOut] The SOAP body contains a ClaimReleaseTaskResponse element.</ns1:Description>
@@ -1171,7 +1178,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R124</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] ClaimReleaseTask specifies the request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Description>[In Elements] ClaimReleaseTask specifies the request to claim or release a claim on a workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1180,7 +1187,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R125</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] ClaimReleaseTaskResponse contains the response to a request to claim (1) or release a claim (1) on a workflow task.</ns1:Description>
+		<ns1:Description>[In Elements] ClaimReleaseTaskResponse contains the response to a request to claim or release a claim on a workflow task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1201,10 +1208,10 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
 		<ns1:Description>[In ClaimReleaseTask][The schema of the ClaimReleaseTask is:] &lt;s:element name="ClaimReleaseTask"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"&gt;
-      &lt;s:element name="taskId" type="s:int" minOccurs="1" maxOccurs="1"&gt;
-      &lt;s:element name="listId" type="s1:guid" minOccurs="1" maxOccurs="1"&gt;
-      &lt;s:element name="fClaim" type="s:boolean" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="item" type="s:string" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;s:element name="taskId" type="s:int" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;s:element name="listId" type="s1:guid" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;s:element name="fClaim" type="s:boolean" minOccurs="1" maxOccurs="1"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -1365,7 +1372,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R144</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.TaskGroup: The group (2) to whom this workflow task is now assigned.</ns1:Description>
+		<ns1:Description>[In ClaimReleaseTaskResponse] ClaimReleaseTaskResult.TaskData.TaskGroup: The group to whom this workflow task is now assigned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1484,16 +1491,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R158</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetTemplatesForItemSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R159</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetTemplatesForItemSoapOut] The SOAP body contains a GetTemplatesForItemResponse element.</ns1:Description>
@@ -1600,7 +1597,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:D
       &lt;s:element name="GetTemplatesForItemResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
-            &lt;s:element name="TemplateData" type="s1:TemplateData" minOccurs="1" maxOccurs="1"/&gt;
+            &lt;s:element name="TemplateData" ref="tns:TemplateData" minOccurs="1" maxOccurs="1"/&gt;
           &lt;/s:sequence&gt;
         &lt;/s:complexType&gt;
       &lt;/s:element&gt;
@@ -1717,16 +1714,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Descr
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R184</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetToDosForItemSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R185</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetToDosForItemSoapOut] The SOAP body contains a GetToDosForItemResponse element.</ns1:Description>
@@ -1815,7 +1802,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Descr
       &lt;s:element name="GetToDosForItemResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
-            &lt;s:element name="ToDoData" type="s1:ToDoData" minOccurs="1" maxOccurs="1"/&gt;
+            &lt;s:element name="ToDoData" ref="s1:ToDoData" minOccurs="1" maxOccurs="1"/&gt;
           &lt;/s:sequence&gt;
         &lt;/s:complexType&gt;
       &lt;/s:element&gt;
@@ -1941,16 +1928,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R206</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowDataForItemSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R207</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetWorkflowDataForItemSoapOut] The SOAP body contains a GetWorkflowDataForItemResponse element.</ns1:Description>
@@ -2033,89 +2010,90 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R217</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowDataForItemResponse][The schema of the GetWorkflowDataForItemResponse is:] &lt;s:element name="GetWorkflowDataForItemResponse"&gt;
-  &lt;s:complexType&gt;
-    &lt;s:sequence&gt;
-      &lt;s:element name="GetWorkflowDataForItemResult" minOccurs="1" maxOccurs="1"&gt;
-        &lt;s:complexType&gt;
-          &lt;s:sequence&gt;
-            &lt;s:element name="WorkflowData" minOccurs="1" maxOccurs="1"&gt;
-              &lt;s:complexType&gt;
-                &lt;s:sequence&gt;
-                  &lt;s:element name="ToDoData" type="s1:ToDoData" minOccurs="1" maxOccurs="1" /&gt;
-                  &lt;s:element name="TemplateData" type="s1:TemplateData" minOccurs="1" maxOccurs="1" /&gt;
-                  &lt;s:element name="ActiveWorkflowsData" minOccurs="1" maxOccurs="1" &gt;
-                    &lt;s:complexType&gt;
-                      &lt;s:sequence&gt;
-                        &lt;s:element name="Workflows" minOccurs="1" maxOccurs="1" &gt;
-                          &lt;s:complexType&gt;
-                            &lt;s:sequence&gt;
-                              &lt;s:element name="Workflow" minOccurs="0" maxOccurs="unbounded"&gt;
-                                &lt;s:complexType&gt;
-                                  &lt;s:attribute name="StatusPageUrl" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Id" type="s1:guid" use="required" /&gt;
-                                  &lt;s:attribute name="TemplateId" type="s1:guid" use="required" /&gt;
-                                  &lt;s:attribute name="ListId" type="s1:guid" use="required"/&gt;
-                                  &lt;s:attribute name="SiteId" type="s1:guid" use="required" /&gt;
-                                  &lt;s:attribute name="WebId" type="s1:guid" use="required"/&gt;
-                                  &lt;s:attribute name="ItemId" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="ItemGUID" type="s1:guid" use="required"/&gt;
-                                  &lt;s:attribute name="TaskListId" type="s1:guid" use="required"/&gt;
-                                  &lt;s:attribute name="AdminTaskListId" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Author" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="Modified" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Created" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="StatusVersion" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="Status1" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="Status2" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status3" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status4" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status5" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status6" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status7" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status8" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status9" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Status10" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="TextStatus1" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="TextStatus2" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="TextStatus3" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="TextStatus4" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="TextStatus5" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="Modifications" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="ActivityDetails" type="s:string" use="required" /&gt;
-                                  &lt;s:attribute name="InstanceData" type="s:string" use="required"/&gt;
-                                  &lt;s:attribute name="InstanceDataSize" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="InternalState" type="s:int" use="required"/&gt;
-                                  &lt;s:attribute name="ProcessingId" type="s:string" use="required"/&gt;
-                                &lt;/s:complexType&gt;
-                              &lt;/s:element&gt;
-                            &lt;/s:sequence&gt;
-                          &lt;/s:complexType&gt;
-                        &lt;/s:element&gt;
-                      &lt;/s:sequence&gt;
-                    &lt;/s:complexType&gt;
-                  &lt;/s:element&gt;
-                  &lt;s:element name="DefaultWorkflows" minOccurs="1" maxOccurs="1" &gt;
-                    &lt;s:complexType&gt;
-                      &lt;s:sequence&gt;
-                        &lt;s:element name="DefaultWorkflow" minOccurs="0" maxOccurs="1" &gt;
-                          &lt;s:complexType&gt;
-                            &lt;s:attribute name="Event" type="s:string" use="required"/&gt;
-                            &lt;s:attribute name="TemplateId" type="s1:guid" use="required"/&gt;
-                          &lt;/s:complexType&gt;
-                        &lt;/s:element&gt;
-                      &lt;/s:sequence&gt;
-                    &lt;/s:complexType&gt;
-                  &lt;/s:element&gt;
-                &lt;/s:sequence&gt;
-              &lt;/s:complexType&gt;
-            &lt;/s:element&gt;
-          &lt;/s:sequence&gt;
-        &lt;/s:complexType&gt;
-      &lt;/s:element&gt;
-    &lt;/s:sequence&gt;
-  &lt;/s:complexType&gt;
-&lt;/s:element&gt;</ns1:Description>
+		<ns1:Description>[In GetWorkflowDataForItemResponse][The schema of the GetWorkflowDataForItemResponse is:]  &lt;s:element name="GetWorkflowDataForItemResponse"&gt;
+   &lt;s:complexType&gt;
+     &lt;s:sequence&gt;
+       &lt;s:element name="GetWorkflowDataForItemResult" minOccurs="1" maxOccurs="1"&gt;
+         &lt;s:complexType&gt;
+           &lt;s:sequence&gt;
+             &lt;s:element name="WorkflowData" minOccurs="1" maxOccurs="1"&gt;
+               &lt;s:complexType&gt;
+                 &lt;s:sequence&gt;
+                   &lt;s:element name="ToDoData" ref="s1:ToDoData" minOccurs="1" maxOccurs="1" /&gt;
+                   &lt;s:element name="TemplateData" ref="tns:TemplateData" minOccurs="1" maxOccurs="1" /&gt;
+                   &lt;s:element name="ActiveWorkflowsData" minOccurs="1" maxOccurs="1" &gt;
+                     &lt;s:complexType&gt;
+                       &lt;s:sequence&gt;
+                         &lt;s:element name="Workflows" minOccurs="1" maxOccurs="1" &gt;
+                           &lt;s:complexType&gt;
+                             &lt;s:sequence&gt;
+                               &lt;s:element name="Workflow" minOccurs="0" maxOccurs="unbounded"&gt;
+                                 &lt;s:complexType&gt;
+                                   &lt;s:attribute name="StatusPageUrl" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Id" type="s1:guid" use="required" /&gt;
+                                   &lt;s:attribute name="TemplateId" type="s1:guid" use="required" /&gt;
+                                   &lt;s:attribute name="ListId" type="s1:guid" use="required"/&gt;
+                                   &lt;s:attribute name="SiteId" type="s1:guid" use="required" /&gt;
+                                   &lt;s:attribute name="WebId" type="s1:guid" use="required"/&gt;
+                                   &lt;s:attribute name="ItemId" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="ItemGUID" type="s1:guid" use="required"/&gt;
+                                   &lt;s:attribute name="TaskListId" type="s1:guid" use="required"/&gt;
+                                   &lt;s:attribute name="AdminTaskListId" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Author" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="Modified" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Created" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="StatusVersion" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="Status1" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="Status2" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status3" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status4" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status5" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status6" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status7" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status8" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status9" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Status10" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="TextStatus1" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="TextStatus2" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="TextStatus3" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="TextStatus4" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="TextStatus5" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="Modifications" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="ActivityDetails" type="s:string" use="required" /&gt;
+                                   &lt;s:attribute name="CorrelationId" type=" s:string" use="required" /&gt;
+                                   &lt;s:attribute name="InstanceData" type="s:string" use="required"/&gt;
+                                   &lt;s:attribute name="InstanceDataSize" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="InternalState" type="s:int" use="required"/&gt;
+                                   &lt;s:attribute name="ProcessingId" type="s:string" use="required"/&gt;
+                                 &lt;/s:complexType&gt;
+                               &lt;/s:element&gt;
+                             &lt;/s:sequence&gt;
+                           &lt;/s:complexType&gt;
+                         &lt;/s:element&gt;
+                       &lt;/s:sequence&gt;
+                     &lt;/s:complexType&gt;
+                   &lt;/s:element&gt;
+                   &lt;s:element name="DefaultWorkflows" minOccurs="1" maxOccurs="1" &gt;
+                     &lt;s:complexType&gt;
+                       &lt;s:sequence&gt;
+                         &lt;s:element name="DefaultWorkflow" minOccurs="0" maxOccurs="1" &gt;
+                           &lt;s:complexType&gt;
+                             &lt;s:attribute name="Event" type="s:string" use="required"/&gt;
+                             &lt;s:attribute name="TemplateId" type="s1:guid" use="required"/&gt;
+                           &lt;/s:complexType&gt;
+                         &lt;/s:element&gt;
+                       &lt;/s:sequence&gt;
+                     &lt;/s:complexType&gt;
+                   &lt;/s:element&gt;
+                 &lt;/s:sequence&gt;
+               &lt;/s:complexType&gt;
+             &lt;/s:element&gt;
+           &lt;/s:sequence&gt;
+         &lt;/s:complexType&gt;
+       &lt;/s:element&gt;
+     &lt;/s:sequence&gt;
+   &lt;/s:complexType&gt;
+ &lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2682,7 +2660,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ActivityDetails: &lt;4&gt;.</ns1:Description>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.ActivityDetails: &lt;3&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2701,7 +2679,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R419</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.CorrelationId: &lt;5&gt;</ns1:Description>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.CorrelationId: &lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2712,6 +2690,15 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 		<ns1:REQ_ID>MS-WWSP_R420</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetWorkflowDataForItemResponse] The protocol client MUST ignore this GUID.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R420001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.ActiveWorkflowsData.Workflows.Workflow.InstanceData: The value is an empty string or GUID format if it is present. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2787,7 +2774,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R291</ns1:REQ_ID>
@@ -2987,16 +2974,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R303</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowTaskDataSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowTaskData</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R304</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetWorkflowTaskDataSoapOut] The SOAP body contains a GetWorkflowTaskDataResponse element.</ns1:Description>
@@ -3091,11 +3068,11 @@ Set the different string as the item value, server reply same if the site (2) of
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R314</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowTaskData] If it does[If the site (2) of the SOAP request URL does contain a list with the specified listId], item MUST be the site URL of the specified listId.</ns1:Description>
+		<ns1:Description>[In GetWorkflowTaskData] If the site (2) of the SOAP request URL does not contain a list with the specified listId, item MUST be the site URL of the specified listId.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R316</ns1:REQ_ID>
@@ -3127,17 +3104,18 @@ Set the different string as the item value, server reply same if the site (2) of
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R320</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWorkflowTaskDataResponse][The schema of the GetWorkflowTaskDataResponse is:] &lt;s:element name="GetWorkflowTaskDataResponse"&gt;
-  &lt;s:complexType&gt;
-    &lt;s:sequence&gt;
-      &lt;s:element name="GetWorkflowTaskDataResult" &gt;
-        &lt;s:sequence&gt;
-          &lt;xs:any minOccurs="0" maxOccurs="unbounded" /&gt;
-        &lt;/s:sequence&gt;
-      &lt;/s:element&gt;
-    &lt;/s:sequence&gt;
-  &lt;/s:complexType&gt;
-&lt;/s:element&gt;</ns1:Description>
+		<ns1:Description>[In GetWorkflowTaskDataResponse][The schema of the GetWorkflowTaskDataResponse is:]  &lt;s:element name="GetWorkflowTaskDataResponse"&gt;
+   &lt;s:complexType&gt;
+     &lt;s:sequence&gt;
+       &lt;s:element name="GetWorkflowTaskDataResult" &gt;
+        &lt;s:complexType&gt;
+         &lt;s:sequence&gt;
+           &lt;s:any minOccurs="0" maxOccurs="unbounded" /&gt;
+         &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;      &lt;/s:element&gt;
+     &lt;/s:sequence&gt;
+   &lt;/s:complexType&gt;
+ &lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3197,6 +3175,15 @@ Set the different string as the item value, server reply same if the site (2) of
 		<ns1:Description>[In StartWorkflow] The protocol client sends a StartWorkflowSoapIn request message, and the protocol server responds with a StartWorkflowSoapOut response message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R327001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] The protocol server MUST NOT start multiple workflow instances of the same item and same workflow association using this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
@@ -3263,16 +3250,6 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R335</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In StartWorkflowSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3398,6 +3375,15 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WWSP_R348001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In StartWorkflow] workflowParameters SHOULD NOT be null.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R349</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In StartWorkflowResponse] This element[StartWorkflowResponse] is the response to a StartWorkflow message.</ns1:Description>
@@ -3481,18 +3467,9 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WWSP_R355</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 1.5: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, the protocol server endpoint URL is formed by appending "/_vti_bin/workflow.asmx" to the URL of the site, for example: http://www.contoso.com/PurchaseOrders/_vti_bin/workflow.asmx.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R356</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.3.1: The client looks for specific values in this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] to determine whether to enable creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 2.2.3.1: The client looks for specific values in this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] to determine whether to enable creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3501,38 +3478,38 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R357</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "Word.Application", "Word.Application.12" or "SigClientRequired", then Word 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "Word.Application", "Word.Application.12" or "SigClientRequired", then Microsoft Word 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R358</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] contains "General", "Excel.Application", "Excel.Application.12" or "SigClientRequired", then Excel 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] contains "General", "Excel.Application", "Excel.Application.12" or "SigClientRequired", then Microsoft Excel 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R359</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "InfoPath.Application", "InfoPath.Application.12" or "SigClientRequired", then InfoPath 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "InfoPath.Application", "InfoPath.Application.12" or "SigClientRequired", then Microsoft InfoPath 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "PowerPoint.Application", or "PowerPoint.Application.12", then PowerPoint 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "PowerPoint.Application", or "PowerPoint.Application.12", then Microsoft PowerPoint 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R361</ns1:REQ_ID>
@@ -3541,21 +3518,21 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R362</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Access.Application", or "Access.Application.12", then Access 2010 enables creation of a new workflow instance.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Access.Application", or "Access.Application.12", then Microsoft Access 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R363</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not  support this[Instantiation_FormURI] element. [In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.3.1:  Windows SharePoint Services 3.0 does not support this[Instantiation_FormURI] element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not  support this[Instantiation_FormURI] element. [In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.3.1:  Office SharePoint Server 2007 does not support this[Instantiation_FormURI] element.</ns1:Description>
 		<ns1:Derived>MS-WWSP_R1:i, MS-WWSP_R401:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3576,7 +3553,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R365</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[ActivityDetails]. [In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 does not include this attribute[ActivityDetails].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[ActivityDetails]. [In Appendix B: Product Behavior] &lt;3&gt; Section 3.1.4.5.2.2:  Office SharePoint Server 2007 does not include this attribute[ActivityDetails].</ns1:Description>
 		<ns1:Derived>MS-WWSP_R280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3598,7 +3575,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R423</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[CorrelationId]. [In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 and SharePoint Foundation 2010 do not include this attribute[CorrelationId].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include this attribute[CorrelationId]. [In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.5.2.2:  Office SharePoint Server 2007 and SharePoint Server 2010 do not include this attribute[CorrelationId].</ns1:Description>
 		<ns1:Derived>MS-WWSP_R419:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
