@@ -44,7 +44,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <!-- Properties about SOAP operations. -->
     <!-- The CssFile_Valid property specifies a valid cascading style sheet (CSS) for the context site. -->
-    <Property name="CssFile_Valid" value="core.css"/>
+    <Property name="CssFile_Valid" value="PORTAL.css"/>
     <!-- The GetCustomizedPageStatus_ValidFileUrl property specifies a valid URL of a page or file on the SharePoint server. -->
     <Property name="GetCustomizedPageStatus_ValidFileUrl" value ="[SubSiteUrl]/default.aspx"/>
     <!-- The GetObjectIdFromUrl_ListUrl property specifies a valid URL of a list on the SharePoint server. -->

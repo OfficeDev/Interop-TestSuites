@@ -223,7 +223,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
         {
             this.Site.Assume.IsTrue(Common.IsRequirementEnabled(1032, this.Site), "The test case is executed only when the property 'R1032Enabled' is true.");
 
-            Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_NoListRelatedUrl", this.Site));
+            GetObjectIdFromUrlResponseGetObjectIdFromUrlResult getObjectIdFromUrlResult = Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_NoListRelatedUrl", this.Site));
+
+            Site.CaptureRequirementIfIsFalse(
+                getObjectIdFromUrlResult.ObjectId.ListServerTemplateSpecified,
+                331,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the list template types's value are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].], the attribute MUST NOT be present.");
+
+            Site.CaptureRequirementIfIsFalse(
+                getObjectIdFromUrlResult.ObjectId.ListBaseTypeSpecified,
+                333,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list and list item], the attribute MUST NOT be present.");
+
+            Site.CaptureRequirementIfAreEqual<string>(
+                string.Empty,
+                getObjectIdFromUrlResult.ObjectId.ListId,
+                333,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list and list item], the attribute MUST NOT be present.");
+
         }
 
         /// <summary>

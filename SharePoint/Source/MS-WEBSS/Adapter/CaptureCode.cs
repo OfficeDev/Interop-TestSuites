@@ -1829,6 +1829,52 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 @"[In WebUrlFromPageUrlSoapOut] The SOAP body contains a WebUrlFromPageUrlResponse element.");
         }
 
+        private void ValidateCustomizeCss()
+        {
+            // Verify MS-WEBSS requirement: MS-WEBSS_R80
+            Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                ValidationResult.Success,
+                SchemaValidation.ValidationResult,
+                80,
+                @"[In CustomizeCss] This operation[CustomizeCss] is defined as follows:
+ <wsdl:operation name=""CustomizeCss"">
+      < wsdl:input message = ""tns:CustomizeCssSoapIn"" />
+      < wsdl:output message = ""tns:CustomizeCssSoapOut"" />
+</ wsdl:operation > ");
+
+            // Verify MS-WEBSS requirement: MS-WEBSS_R88
+            Site.CaptureRequirementIfIsTrue(
+                AdapterHelper.ElementExists(SchemaValidation.LastRawResponseXml, "CustomizeCssResponse"),
+                88,
+                @"[In CustomizeCssSoapOut] The SOAP body contains a CustomizeCssResponse element.");
+
+            // Verify MS-WEBSS requirement: MS-WEBSS_R94
+            // The operation is called successfully with the right response returned,
+            // so the requirement can be captured.
+            Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                ValidationResult.Success,
+                SchemaValidation.ValidationResult,
+                94,
+                @"[In CustomizeCssResponse] On successful completion, the response SOAP body contains only the CustomizeCssResponse element.");
+
+            // Verify MS-WEBSS requirement: MS-WEBSS_R95
+            // The operation is called successfully with the right response returned,
+            // so the requirement can be captured.
+            Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                ValidationResult.Success,
+                SchemaValidation.ValidationResult,
+                95,
+                @"[In CustomizeCssResponse] Other than the namespace attribute, the CustomizeCssResponse element contains no other attributes or child elements.");
+
+            // Verify MS-WEBSS requirement: MS-WEBSS_R96
+            Site.CaptureRequirementIfAreEqual<ValidationResult>(
+                ValidationResult.Success,
+                SchemaValidation.ValidationResult,
+                96,
+                @"[In CustomizeCssResponse] <s:element name=""CustomizeCssResponse"">
+  < s:complexType />
+</ s:element > ");
+        }
         #region Help Method
         /// <summary>
         /// Verify if elementName is existed in the specified XmlElement..

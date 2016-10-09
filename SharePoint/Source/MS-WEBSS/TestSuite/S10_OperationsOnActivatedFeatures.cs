@@ -4,7 +4,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
     using System.Net;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+    using System.Web.Services.Protocols;
     /// <summary>
     /// The TestSuite of MS-WEBSS. Protocol client tries to perform operations associated with activated features. 
     /// </summary>
@@ -232,6 +232,45 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 isVerifiedR132,
                 132,
                 @"[In GetActivatedFeaturesSoapOut] It[GetActivatedFeaturesSoapOut] consists of a string consisting of a comma-delimited list of GUIDs, where each GUID identifies a feature activated in the site (2) or the site collection.");
+        }
+
+        /// <summary> 
+        /// This test case verifies that the protocol client sends the GetActivatedFeaturesSoapIn request message to a protocol server URL that does not correspond to a site.
+        /// </summary> 
+        [TestCategory("MSWEBSS"), TestMethod()]
+        public void MSWEBSS_S10_TC05_GetActivatedFeatures_failure()
+        {
+            SoapVersion soapVersion = Common.GetConfigurationPropertyValue<SoapVersion>("SoapVersion", this.Site);
+            string transport = Common.GetConfigurationPropertyValue("TransportType", this.Site);
+            string sutComputerName = Common.GetConfigurationPropertyValue("SutComputerName", this.Site);
+            string url = string.Format("{0}://{1}/Invalid/_vti_bin/Webs.asmx ", transport, sutComputerName);
+            switch (soapVersion)
+            {
+                case SoapVersion.SOAP11:
+                    {
+                        Adapter.InitializeService(AdapterHelper.GetTransportType(), SoapProtocolVersion.Soap11, UserAuthentication.Authenticated, url);
+                        break;
+                    }
+
+                default:
+                    {
+                        Adapter.InitializeService(AdapterHelper.GetTransportType(), SoapProtocolVersion.Soap12, UserAuthentication.Authenticated, url);
+                        break;
+                    }
+            }
+            try
+            {
+                Adapter.GetActivatedFeatures();
+            }
+            catch(SoapException)
+            {
+                // Catch the exception, then the following requirements will be captured.
+                // Verify MS-WEBSS requirement: MS-WEBSS_R139
+                Site.CaptureRequirement(
+                    139,
+                    @"[In GetActivatedFeaturesResponse] If the protocol client sends the GetActivatedFeaturesSoapIn request message to a protocol server URL that does not correspond to a site, the protocol server MUST return a SOAP fault.");
+
+            }
         }
     }
 }

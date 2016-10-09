@@ -356,5 +356,14 @@ Microsoft® SharePoint® Foundation 2013].");
                 92,
                 @"[In CustomizeCss] This file[cssFile] name MUST match the file name on the protocol server, including the file extension "".css"", for example: ""core.css"".");
         }
+
+        /// <summary>
+        /// This test case aims to verify the CustomizeCss operation with a valid cssFile without authorization.
+        /// </summary>
+        [TestCategory("MSWEBSS"), TestMethod()]
+        public void MSWEBSS_S08_TC11_CustomizeCss_Succeed()
+        {
+            Adapter.CustomizeCss(Common.GetConfigurationPropertyValue("CssFile_Valid", this.Site));
+        }
     }
 }
