@@ -102,7 +102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                     currentWebTitle,
                     getTemplatesResult.TemplateData.Web.Title,
                     384,
-                    @"[In TemplateData] Web.Title: The title of the site (2) for this set of workflow associations.");
+                    @"[In TemplateData] Web.Title: The title of the site for this set of workflow associations.");
             }
 
             if (getTemplatesResult.TemplateData.Web.Url != null)
