@@ -71,7 +71,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
             {
                 response = this.Adapter.Put(requestUri, bytesTxtFile, headersCollection);
                 this.ArrayListForDeleteFile.Add(requestUri);
-                this.Site.Assert.Fail("Failed: The virus file should not be put successfully! \r\n The last request is:\r\n {0} The last response is: \r\n {1}", this.Adapter.LastRawRequest, this.Adapter.LastRawResponse);
+                this.Site.Assert.Fail("Failed: The file should not be put successfully! \r\n The last request is:\r\n {0} The last response is: \r\n {1}", this.Adapter.LastRawRequest, this.Adapter.LastRawResponse);
             }
             catch (WebException webException)
             {
@@ -103,7 +103,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
 
             if (isResponseStatusCode415UNSUPPORTEDMEDIATYPE == false)
             {
-                // Log some information to help users to know why the response does not include "409 CONFLICT". 
+                // Log some information to help users to know why the response does not include "415 UNSUPPORTED MEDIA TYPE". 
                 string helpDebugInformation = @"The status code in the HTTP response is not ""415 UNSUPPORTED MEDIA TYPE""\r\n ";
                 this.Site.Log.Add(TestTools.LogEntryKind.TestFailed, helpDebugInformation);
             }
