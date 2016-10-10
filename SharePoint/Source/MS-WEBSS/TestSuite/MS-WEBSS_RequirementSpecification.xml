@@ -7052,7 +7052,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R500002</ns1:REQ_ID>
@@ -7061,7 +7061,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R500003</ns1:REQ_ID>
@@ -7070,25 +7070,16 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R500004</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server [does not add, update, or delete columns and ]does not return an ErrorCode.</ns1:Description>
+		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server [does not add, update, or delete columns and] does not return an ErrorCode.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R500005</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server does not add[, update, or delete columns and does not return an ErrorCode].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R501</ns1:REQ_ID>
