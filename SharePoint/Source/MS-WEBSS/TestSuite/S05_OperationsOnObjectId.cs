@@ -238,8 +238,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfAreEqual<string>(
                 string.Empty,
                 getObjectIdFromUrlResult.ObjectId.ListId,
-                333,
-                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list and list item], the attribute MUST NOT be present.");
+                329,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be the list identifier. ], the value of this[ObjectId.ListId] attribute MUST be an empty string.");
 
         }
 
