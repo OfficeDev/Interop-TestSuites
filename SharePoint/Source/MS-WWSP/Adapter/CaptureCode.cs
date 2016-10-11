@@ -56,7 +56,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
       <s:element name=""GetTemplatesForItemResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
-            <s:element name=""TemplateData"" type=""s1:TemplateData"" minOccurs=""1"" maxOccurs=""1""/>
+            <s:element name=""TemplateData"" ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1""/>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -133,7 +133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
       <s:element name=""GetToDosForItemResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
-            <s:element name=""ToDoData"" type=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1""/>
+            <s:element name=""ToDoData"" ref=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1""/>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -208,8 +208,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             <s:element name=""WorkflowData"" minOccurs=""1"" maxOccurs=""1"">
               <s:complexType>
                 <s:sequence>
-                  <s:element name=""ToDoData"" type=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1"" />
-                  <s:element name=""TemplateData"" type=""s1:TemplateData"" minOccurs=""1"" maxOccurs=""1"" />
+                  <s:element name=""ToDoData"" ref=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1"" />
+                  <s:element name=""TemplateData"" ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1"" />
                   <s:element name=""ActiveWorkflowsData"" minOccurs=""1"" maxOccurs=""1"" >
                     <s:complexType>
                       <s:sequence>
@@ -249,6 +249,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                                   <s:attribute name=""TextStatus5"" type=""s:string"" use=""required""/>
                                   <s:attribute name=""Modifications"" type=""s:string"" use=""required""/>
                                   <s:attribute name=""ActivityDetails"" type=""s:string"" use=""required"" />
+                                  <s:attribute name=""CorrelationId"" type="" s:string"" use=""required"" />
                                   <s:attribute name=""InstanceData"" type=""s:string"" use=""required""/>
                                   <s:attribute name=""InstanceDataSize"" type=""s:int"" use=""required""/>
                                   <s:attribute name=""InternalState"" type=""s:int"" use=""required""/>
@@ -399,9 +400,11 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
   <s:complexType>
     <s:sequence>
       <s:element name=""GetWorkflowTaskDataResult"" >
-        <s:sequence>
-          <xs:any minOccurs=""0"" maxOccurs=""unbounded"" />
-        </s:sequence>
+        <s:complexType>
+         <s:sequence>
+          <s:any minOccurs=""0"" maxOccurs=""unbounded"" />
+         </s:sequence>
+        </s:complexType>
       </s:element>
     </s:sequence>
   </s:complexType>
@@ -1119,7 +1122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                            workflows.ChildNodes.Count,
                            itemsWithOutActivityDetailsAttribute.Count,
                            365,
-                           @"[In Appendix B: Product Behavior] Implementation does not include this attribute[ActivityDetails]. [In Appendix B: Product Behavior] <4> Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 does not include this attribute[ActivityDetails].");
+                           @"[In Appendix B: Product Behavior] Implementation does not include this attribute[ActivityDetails]. [In Appendix B: Product Behavior] <3> Section 3.1.4.5.2.2:  Office SharePoint Server 2007 does not include this attribute[ActivityDetails].");
             }
 
             if (Common.IsRequirementEnabled(423, this.Site))

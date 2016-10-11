@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S04_MSBinDiffHeader.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="S02_IgnoredHeaders.cs" />
     <Compile Include="S03_PropFindExtension.cs" />

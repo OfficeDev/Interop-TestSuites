@@ -167,25 +167,27 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 errorString = AdapterHelper.ExtractErrorStringFromSoapFault(ex);
 
                 string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
-                if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013"
-                    || sutVersion == "SharePointFoundation2010" || sutVersion == "SharePointServer2010")
+                if (Common.IsRequirementEnabled(17802021, this.Site))
                 {
-                    Site.Assert.AreEqual<string>(
+                   // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R178");
+
+                    // Verify MS-VERSS requirement: MS-VERSS_R178
+                    Site.CaptureRequirementIfAreEqual<string>(
                         "0x80131600",
                         errorCode,
-                        "The error code is {0}",
-                        errorCode);
-                }
+                        178,
+                        @"[In DeleteVersionResponse] If the specified version does not exist, error code 0x80131600 is returned. ");
 
-                if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
-                {
-                    Site.Assert.IsNull(errorCode, "{0} does not return an error code element", sutVersion);
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17802021");
 
-                    Site.Assert.AreEqual<string>(
-                        "Object reference not set to an instance of an object.",
-                        errorString,
-                        "The error string is {0}.",
-                        errorString);
+                    // Verify MS-VERSS requirement: MS-VERSS_R17802021
+                    Site.CaptureRequirementIfAreEqual<string>(
+                        "0x80131600",
+                        errorCode,
+                        17802021,
+                        @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the file does not exist. (SharePoint Foundation 2010 and above follow this behavior.)");
                 }
             }
 
@@ -430,14 +432,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 errorString = AdapterHelper.ExtractErrorStringFromSoapFault(ex);
 
                 string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
-                if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013"
-                    || sutVersion == "SharePointFoundation2010" || sutVersion == "SharePointServer2010")
+                if (Common.IsRequirementEnabled(17802021, this.Site))
                 {
-                    Site.Assert.AreEqual<string>(
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17801");
+
+                    // Verify MS-VERSS requirement: MS-VERSS_R17801
+                    Site.CaptureRequirementIfAreEqual<string>(
                         "0x80131600",
                         errorCode,
-                        "The error code is {0}",
-                        errorCode);
+                        17801,
+                        @"[In DeleteVersionResponse] If the specified version was recently deleted, error code 0x80131600 is returned. ");
                 }
 
                 if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
@@ -639,25 +644,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                     @"[In DeleteVersion] This operation [DeleteVersion operation] MUST NOT grant deletion of the published version of the file.");
 
                 string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
-                if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013"
-                    || sutVersion == "SharePointFoundation2010" || sutVersion == "SharePointServer2010")
+                if (Common.IsRequirementEnabled(17802011, this.Site))
                 {
-                    Site.Assert.AreEqual<string>(
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17802011");
+
+                    // Verify MS-VERSS requirement: MS-VERSS_R17802011
+                    Site.CaptureRequirementIfAreEqual<string>(
                         "0x80131600",
                         errorCode,
-                        "The error code is {0}",
-                        errorCode);
-                }
-
-                if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
-                {
-                    Site.Assert.IsNull(errorCode, "{0} does not return an error code element", sutVersion);
-                    
-                    Site.Assert.AreEqual<string>(
-                        "Object reference not set to an instance of an object.",
-                        errorString,
-                        "The error string is {0}.",
-                        errorString);
+                        17802011,
+                        @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the value specified by the fileVersion element is the publised version of the file. (SharePoint Foundation 2010 and above follow this behavior.)");
                 }
             }
         }
@@ -1972,6 +1969,21 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19611,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (>). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+                        }
+                        else if (invalidCharacter == "=")
+                        {
+                            if (isR17601Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17610");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R17610
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    "0x81020073",
+                                    errorCode,
+                                    17610,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid character Equal sign (=). (SharePoint Foundation 2010 and above follow this behavior.)");
                             }
                         }
                         else if (invalidCharacter == "?")

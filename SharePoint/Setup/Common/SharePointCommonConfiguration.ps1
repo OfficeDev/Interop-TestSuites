@@ -3751,8 +3751,8 @@ function GetSharePointServerVersion
     $script:SharePointFoundation2010OnSUT       = "SharePointFoundation2010","Microsoft SharePoint Foundation 2010","SP2"
     $script:SharePointServer2010OnSUT           = "SharePointServer2010","Microsoft SharePoint Server 2010","SP2"
     $script:SharePointFoundation2013OnSUT       = "SharePointFoundation2013","Microsoft SharePoint Foundation 2013","SP1"
-    $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013 ","SP1"
-    $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016 "
+    $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013","SP1"
+    $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016"
     $SharePointVersion                          = "Unknown Version"
     
     $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -3802,7 +3802,7 @@ function GetSharePointServerVersion
             }
             elseif($item.DisplayName -eq $script:SharePointServer2016OnSUT[1])
             {
-                $SharePointVersion = $script:SharePointServer2013OnSUT[0], $script:SharePointServer2016OnSUT[1]
+                $SharePointVersion = $script:SharePointServer2016OnSUT[0], $script:SharePointServer2016OnSUT[1]
                 break
             }
         }
