@@ -189,19 +189,6 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         17802021,
                         @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the file does not exist. (SharePoint Foundation 2010 and above follow this behavior.)");
                 }
-
-                if (Common.IsRequirementEnabled(17802022, this.Site))
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17802022");
-
-                    // Verify MS-VERSS requirement: MS-VERSS_R17802022
-                    Site.CaptureRequirementIfAreEqual<string>(
-                        "Object reference not set to an instance of an object.",
-                        errorCode,
-                        17802022,
-                        @"[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."" when the file does not exist. (<7> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."")");
-                }
             }
 
             // Verify the requirements related with GetVersion operation.
@@ -668,19 +655,6 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         errorCode,
                         17802011,
                         @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600, when the value specified by the fileVersion element is the publised version of the file. (SharePoint Foundation 2010 and above follow this behavior.)");
-                }
-
-                if (Common.IsRequirementEnabled(17802012, this.Site))
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17802012");
-
-                    // Verify MS-VERSS requirement: MS-VERSS_R17802012
-                    Site.CaptureRequirementIfAreEqual<string>(
-                        "Object reference not set to an instance of an object.",
-                        errorCode,
-                        17802012,
-                        @"[In Appendix B: Product Behavior] Implementation does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."" when the fileVersion is the published version of the file. (<7> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 does not return an error code element but does return an error string of ""Object reference not set to an instance of an object."")");
                 }
             }
         }
@@ -1330,19 +1304,6 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930208,
                                     @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (<4> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010 and SharePoint Foundation 2013 return a SOAP exception without an error code.)");
-                            }
-
-                            if (isR1930101Enabled)
-                            {
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1930110");
-
-                                // Verify MS-VERSS requirement: MS-VERSS_R1930110
-                                Site.CaptureRequirementIfAreEqual<string>(
-                                    "0x81070905",
-                                    errorCode,
-                                    1930110,
-                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Equal sign (=). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == ">")
@@ -2023,19 +1984,6 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     17610,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid character Equal sign (=). (SharePoint Foundation 2010 and above follow this behavior.)");
-                            }
-
-                            if (isR19602Enabled)
-                            {
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19610");
-
-                                // Verify MS-VERSS requirement: MS-VERSS_R19610
-                                Site.CaptureRequirementIfAreEqual<string>(
-                                    "0x81070970",
-                                    errorCode,
-                                    19610,
-                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Equal sign (=). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "?")
