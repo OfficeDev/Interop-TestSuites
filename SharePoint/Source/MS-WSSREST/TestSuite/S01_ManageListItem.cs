@@ -135,13 +135,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 choiceOpertions.Length,
                 retrievEntitySetResult.Count,
                 86,
-                @"[In Choice or Multi-Choice Field] For a particular choice [or multi-choice field (2)], this EntitySet will contain Entities representing each option of the field (2) specified in the field definition of the field (2).");
+                @"[In Choice or Multi-Choice Field] For a particular choice [or multi-choice field], this EntitySet will contain Entities representing each option of the field specified in the field definition of the field.");
 
             // If the retrievEntitySetResult is not null, it means the EntitySet is created for every single choice, so the MS-WSSREST_R84 is directly covered.
             Site.CaptureRequirementIfIsNotNull(
                 retrievEntitySetResult,
                 84,
-                @"[In Choice or Multi-Choice Field] An EntitySet is created for every choice [or multi-choice] field (2) belonging to a list (1).");
+                @"[In Choice or Multi-Choice Field] An EntitySet is created for every choice [or multi-choice] field belonging to a list.");
         }
 
         /// <summary>
@@ -180,13 +180,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 multiChoiceOpertions.Length,
                 retrieveEntitySetResult.Count,
                 87,
-                @"[In Choice or Multi-Choice Field] For a particular [choice or] multi-choice field (2), this EntitySet will contain Entities representing each option of the field (2) specified in the field definition of the field (2).");
+                @"[In Choice or Multi-Choice Field] For a particular [choice or] multi-choice field, this EntitySet will contain Entities representing each option of the field specified in the field definition of the field.");
 
             // If the retrieveEntitySetResult is not null, it means the EntitySet is created for multi-choice, so the MS-WSSREST_R85 is directly covered.
             Site.CaptureRequirementIfIsNotNull(
                 retrieveEntitySetResult,
                 85,
-                @"[In Choice or Multi-Choice Field] An EntitySet is created for [every choice or] multi-choice field (2) belonging to a list (1).");
+                @"[In Choice or Multi-Choice Field] An EntitySet is created for [every choice or] multi-choice field belonging to a list.");
         }
 
         /// <summary>

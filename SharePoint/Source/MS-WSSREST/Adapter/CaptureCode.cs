@@ -16,34 +16,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
         private void CaptureTransportRelatedRequirements()
         {
             TransportProtocol transport = Common.GetConfigurationPropertyValue<TransportProtocol>("TransportType", this.Site);
-            switch (transport)
+            if(transport == TransportProtocol.HTTP || transport == TransportProtocol.HTTPS)
             {
-                case TransportProtocol.HTTP:
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R110");
 
                     // As response successfully returned, the transport related requirements can be captured.
                     Site.CaptureRequirement(
                         110,
-                        @"[In Transport] It [MS-WSSREST] transmits these messages using the HTTP protocol as described in [RFC2616].");
-                    break;
-
-                case TransportProtocol.HTTPS:
-
-                    if (Common.IsRequirementEnabled(113, this.Site))
-                    {
-                        // Having received the response successfully have proved the HTTPS 
-                        // transport is supported. If the HTTPS transport is not supported, the 
-                        // response can't be received successfully.
-                        Site.CaptureRequirement(
-                        113,
-                        @"[In Appendix C: Product Behavior] Implement does support transmitting these messages using the HTTPS protocol as described in [RFC2818]. (Microsoft SharePoint Foundation 2010 and above products follow this behavior.)");
-                    }
-
-                    break;
-
-                default:
-                    Site.Debug.Fail("Unknown transport type " + transport);
-                    break;
-            }
+                        @"[In Transport] Protocol server transmits request and response messages using the HTTP protocol as specified in [RFC2616] or the HTTPS protocol as specified in [RFC2818].");
+             }
         }
 
         /// <summary>
@@ -334,28 +316,28 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 8,
-                @"[In Elements] The List element is a container within a site (2) that stores list items.");
+                @"[In Elements] The List element is a container within a site that stores list items.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R9
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 9,
-                @"[In Elements] The List item element is an individual entry within a list (1).");
+                @"[In Elements] The List item element is an individual entry within a list.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R10
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 10,
-                @"[In List] Each list (1) is represented as an EntitySet as specified in [MC-CSDL] section 2.1.17, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.");
+                @"[In List] Each list is represented as an EntitySet as specified in [MC-CSDL] section 2.1.18, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R11
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 11,
-                @"[In List] This EntityType [for list] contains properties for every non-hidden field (2) in the list (1) whose field type is supported as well as a subset of hidden fields (2).");
+                @"[In List] This EntityType [for list] contains properties for every non-hidden field in the list whose field type is supported as well as a subset of hidden fields (2).");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R19
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
@@ -369,7 +351,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 20,
-                @"[In List Item] EntityTypes are created based on the list (1) to which the list item belongs.");
+                @"[In List Item] EntityTypes are created based on the list to which the list item belongs.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R59
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
