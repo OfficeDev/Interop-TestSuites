@@ -5,6 +5,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Web.Services.Protocols;
 
     /// <summary>
     /// The TestSuite of MS-WWSP S01 StartGetWorkflow.
@@ -51,7 +52,18 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             XmlElement starworkflowParameter = this.GetStartWorkflowParameter(this.Site, assigntoUserName);
             Guid targetWorkflowAssociationGuid = new Guid(WorkflowAssociationId);
             ProtocolAdapter.StartWorkflow(uploadFileUrl, targetWorkflowAssociationGuid, starworkflowParameter);
-
+            try
+            {
+                ProtocolAdapter.StartWorkflow(uploadFileUrl, targetWorkflowAssociationGuid, starworkflowParameter);
+            }
+            catch (SoapException)
+            {
+                //Verify requirement: MS-WWSP_R327001
+                Site.CaptureRequirement(
+                    327001,
+                    @"[In StartWorkflow] The protocol server MUST NOT start multiple workflow instances of the same item and same workflow association using this operation.");
+            }
+            
             GetToDosForItemResponseGetToDosForItemResult todosAfterStartTask = ProtocolAdapter.GetToDosForItem(uploadFileUrl);
             if (null == todosAfterStartTask || null == todosAfterStartTask.ToDoData || null == todosAfterStartTask.ToDoData.xml
                 || null == todosAfterStartTask.ToDoData.xml.data || null == todosAfterStartTask.ToDoData.xml.data.Any)
