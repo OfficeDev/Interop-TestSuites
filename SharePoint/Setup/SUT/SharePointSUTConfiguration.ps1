@@ -961,40 +961,52 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
 if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Start to run configurations of MS-WSSREST." "White"
-	Output "Steps for manual configuration:" "Yellow"
+    Output "Steps for manual configuration:" "Yellow"
     Output "Create a site collection named $MSWSSRESTSiteCollectionName ..." "Yellow"
     $MSWSSRESTSiteCollectionObject = CreateSiteCollection $MSWSSRESTSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 
     $ListNames = @{$MSWSSRESTCalendar = 106;$MSWSSRESTDocumentLibrary = 101;$MSWSSRESTDiscussionBoard = 108;$MSWSSRESTGenericList = 100;$MSWSSRESTSurvey = 102;$MSWSSRESTWorkflowHistoryList = 140;$MSWSSRESTWorkflowTaskList = 107}
-	foreach($ListName in $ListNames.keys)
-	{
-	    Output "Steps for manual configuration:" "Yellow"
+    foreach($ListName in $ListNames.keys)
+    {
+	Output "Steps for manual configuration:" "Yellow"
         Output "Create List $ListName under the root web of the site collection $MSWSSRESTSiteCollectionName ..." "Yellow"
         CreateListItem $MSWSSRESTSiteCollectionObject.RootWeb $ListName $ListNames[$ListName]
-	}
+    }
     
-	#Add Field in list $MSWSSRESTSurvey	
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTGridChoiceFieldName 16
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTPageSeparatorFieldName 26
+    #Add Field in list $MSWSSRESTSurvey	
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTGridChoiceFieldName 16
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTPageSeparatorFieldName 26
 	
     #Add field in list $MSWSSRESTGenericList
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTChoiceFieldName 6 $true $MSWSSREST_SingleChoiceOptions
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTMultiChoiceFieldName 15 $true $MSWSSREST_MultiChoiceOptions
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTChoiceFieldName 6 $true $MSWSSREST_SingleChoiceOptions
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTMultiChoiceFieldName 15 $true $MSWSSREST_MultiChoiceOptions
 
     $fieldNames = @{$MSWSSRESTBooleanFieldName = 8;$MSWSSRESTCurrencyFieldName = 10;$MSWSSRESTIntegerFieldName = 1;$MSWSSRESTNumberFieldName = 9;$MSWSSRESTUrlFieldName = 11;$MSWSSRESTWorkFlowEventTypeFieldName = 30}
     foreach($fieldName in $fieldNames.keys)
-	{
-	    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $fieldName $fieldNames[$fieldName]
-	}
+    {
+        AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $fieldName $fieldNames[$fieldName]
+    }
 	
-	#Add Lookup field in list $MSWSSRESTGenericList
+    #Add Lookup field in list $MSWSSRESTGenericList
     $web = $MSWSSRESTSiteCollectionObject.RootWeb
     $listName = $MSWSSRESTGenericList
     $list = $web.Lists[$listName]
     $list.Fields.AddLookup($MSWSSRESTLookupFieldName,$list.ID,$false)
+
+    # Update ThreadIndex to be un-hidden
+    $listName = $MSWSSRESTDiscussionBoard
+    $list = $web.Lists[$listName]
+    $threadIndex = $list.Fields.GetFieldByInternalName("ThreadIndex")
+    $type = $ThreadIndex.GetType()
+    $bindingFlag = [System.Reflection.BindingFlags]::NonPublic -bor [System.Reflection.BindingFlags]::Instance
+    $methodInfo = $type.GetMethod("SetFieldBoolValue", [System.Reflection.BindingFlags]$($bindingFlag))
+    $arrayList = @("CanToggleHidden", $true)
+    $methodInfo.Invoke($threadIndex, $arrayList)    
+    $threadIndex.Hidden = $false
+    $threadIndex.Update()
 		
-	# Create a workflow association under specified list
-	Output "Steps for manual configuration:" "Yellow"
+    # Create a workflow association under specified list
+    Output "Steps for manual configuration:" "Yellow"
     Output "Create a workflow association with the name of $MSWWSPWorkflowName under specified list $MSWSSRESTWorkflowTaskList ..." "Yellow"
     AddListWorkFlow $MSWSSRESTSiteCollectionObject $MSWSSRESTWorkflowTaskList $MSWSSRESTWorkflowName "Three-state" $MSWSSRESTWorkflowTaskList $MSWSSRESTWorkflowHistoryList
 	

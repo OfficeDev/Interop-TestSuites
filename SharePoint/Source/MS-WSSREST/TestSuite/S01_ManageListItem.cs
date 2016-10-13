@@ -51,10 +51,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
         #endregion Test Case Initialization
 
         /// <summary>
-        /// This test case is used to create an attachment in list item.
+        /// This test case is used to create and update an attachment in list item.
         /// </summary>
         [TestCategory("MSWSSREST"), TestMethod]
-        public void MSWSSREST_S01_TC01_CreateAttachmentInListItem()
+        public void MSWSSREST_S01_TC01_CreateAndUpdateAttachmentInListItem()
         {
             Dictionary<string, string> properties = new Dictionary<string, string>();
             properties.Add(Constants.TitleFieldName, Common.GenerateResourceName(this.Site, "title"));
@@ -97,6 +97,31 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 attachmentCountBeforeAdd + 1,
                 82,
                 @"[In Attachment] Using the preceding Augmented BNF causes an attachment to be created on the protocol server.");
+
+            retrieveRequest = new Request();
+            retrieveRequest.Parameter = string.Format("Attachments(EntitySet='{0}',ItemId={1},Name='{2}')", addResult.Properties["EntitySet"], addResult.Properties["ItemId"], addResult.Properties["Name"]);
+
+            List<Entry> retrieveResult = this.Adapter.RetrieveListItem(retrieveRequest) as List<Entry>;
+            Site.Assert.AreEqual<int>(1, retrieveResult.Count, "There should be 1 attachment.");
+
+            Site.CaptureRequirementIfIsNotNull(
+                retrieveResult[0].Properties,
+                66,
+                @"[In Message Processing Events and Sequencing Rules] The element Attachment supports for retrieve operation.");
+
+            // Update the attachment
+            Request updateRequest = new Request();
+            updateRequest.Parameter = string.Format("Attachments(EntitySet='{0}',ItemId={1},Name='{2}')/$value", addResult.Properties["EntitySet"], addResult.Properties["ItemId"], addResult.Properties["Name"]);
+            updateRequest.Content = Common.GenerateResourceName(this.Site, "content");
+            updateRequest.ContentType = "text/plain";
+            updateRequest.UpdateMethod = UpdateMethod.PUT;
+            updateRequest.ETag = addResult.Etag;
+            string updateResult = this.Adapter.UpdateListItem(updateRequest);
+
+            Site.CaptureRequirementIfIsNotNull(
+                updateResult,
+                67,
+                @"[In Message Processing Events and Sequencing Rules] The element Attachment supports for update operation.");
         }
 
         /// <summary>
@@ -142,6 +167,11 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 retrievEntitySetResult,
                 84,
                 @"[In Choice or Multi-Choice Field] An EntitySet is created for every choice [or multi-choice] field belonging to a list.");
+            
+            // This requirement can be captured directly after above steps.
+            Site.CaptureRequirement(
+                69,
+                @"[In Message Processing Events and Sequencing Rules] The element Choice supports for retrieve operations on choice field.");
         }
 
         /// <summary>
@@ -187,6 +217,11 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 retrieveEntitySetResult,
                 85,
                 @"[In Choice or Multi-Choice Field] An EntitySet is created for [every choice or] multi-choice field belonging to a list.");
+
+            // This requirement can be captured directly after above steps.
+            Site.CaptureRequirement(
+                104,
+                @"[In Message Processing Events and Sequencing Rules] The element multi-choice supports for retrieve operations on multi-choice fields.");
         }
 
         /// <summary>

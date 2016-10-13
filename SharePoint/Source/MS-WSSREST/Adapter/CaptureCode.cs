@@ -60,8 +60,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 63,
                 @"[In Abstract Data Model] The Site and list data structure: ID Field maps to the Entity Data Model term: EntityKey.");
 
-            // If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.
-            Site.Log.Add(LogEntryKind.Debug, "If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.");
+            // If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R73, MS-WSSREST_R74, MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.
+            Site.Log.Add(LogEntryKind.Debug, "If the Attachments EntitySet exist in metadata, the requirements:  MS-WSSREST_R73, MS-WSSREST_R74, MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.");
             bool isAttachmentsExist = this.CheckEntitySet("attachments", csdlDocument);
             Site.CaptureRequirementIfIsTrue(
                 isAttachmentsExist,
@@ -72,6 +72,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 isAttachmentsExist,
                 106,
                 @"[In Attachment] To facilitate create operation support for list item attachments, an additional EntitySet is created.");
+
+            Site.CaptureRequirementIfIsTrue(
+                isAttachmentsExist,
+                73,
+                @"[In Attachment] To facilitate retrieve operation support for list item attachments, an additional EntitySet is created.");
+
+            Site.CaptureRequirementIfIsTrue(
+                isAttachmentsExist,
+                74,
+                @"[In Attachment] To facilitate update operation support for list item attachments, an additional EntitySet is created.");
 
             // If the retrieved CSDL document contains the properties "Owshiddenversion"and "Path", the requirement: MS-WSSREST_R14 can be verified.
             Site.Log.Add(LogEntryKind.Debug, "If the retrieved CSDL document contains the properties 'Owshiddenversion' and 'Path', the requirement: MS-WSSREST_R14 can be verified.");
@@ -271,6 +281,14 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 isVerifyR43,
                 43,
                 @"[In List Item] The Field type: Text maps to the Entity Data Model property type: Primitive (String).");
+
+            // If the typeMapping contains the field type "ThreadIndex" and the property type is "Int32", the requirement: MS-WSSREST_R44 can be verified.
+            Site.Log.Add(LogEntryKind.Debug, "If the typeMapping contains the field type 'ThreadIndex', the requirement: MS-WSSREST_R44 can be verified.");
+            bool isVerifyR44 = this.sutAdapter.CheckFieldType(Common.GetConfigurationPropertyValue("ThreadIndexFieldName", this.Site), "ThreadIndex") && this.CheckPropertyType(Common.GetConfigurationPropertyValue("ThreadIndexFieldName", this.Site), "Int32", csdlDocument);
+            Site.CaptureRequirementIfIsTrue(
+                isVerifyR44,
+                44,
+                @"[In List Item] The Field type: ThreadIndex maps to the Entity Data Model property type: Primitive (Int32).");
 
             // If the typeMapping contains the field type "URL" and the property type is "String", the requirement: MS-WSSREST_R45 can be verified.
             Site.Log.Add(LogEntryKind.Debug, "If the typeMapping contains the field type 'URL', the requirement: MS-WSSREST_R45 can be verified.");
