@@ -54,6 +54,7 @@
     <None Include="Proxy\WorkflowAssociationData_2007.xsd" />
     <None Include="Proxy\WorkflowAssociationData_2010.xsd" />
     <None Include="Proxy\WorkflowAssociationData_2013.xsd" />
+    <None Include="Proxy\WorkflowAssociationData_2016.xsd" />
     <None Include="SUTControlAdapter\Implementation\CleanUpStartedTasks.ps1" />
     <None Include="SUTControlAdapter\Implementation\CleanUpUploadedFiles.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetBaseIdOfWorkFlowAssociation.ps1" />

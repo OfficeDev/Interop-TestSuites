@@ -3061,9 +3061,9 @@ Set the different string as the item value, server reply same if the site (2) of
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetWorkflowTaskData] If the site (2) of the SOAP request URL does not contain a list with the specified listId, item MUST be the site URL of the specified listId.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R316</ns1:REQ_ID>
@@ -3471,54 +3471,54 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "Word.Application", "Word.Application.12" or "SigClientRequired", then Microsoft Word 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R358</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[WorkflowTemplates.WorkflowTemplate.Metadata.InitiationCategories] contains "General", "Excel.Application", "Excel.Application.12" or "SigClientRequired", then Microsoft Excel 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R359</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] contains "General", "InfoPath.Application", "InfoPath.Application.12" or "SigClientRequired", then Microsoft InfoPath 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "PowerPoint.Application", or "PowerPoint.Application.12", then Microsoft PowerPoint 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Outlook.Application", or "Outlook.Application.12", then Outlook 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R362</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] If this element[InitiationCategories] does not contain "SigClientRequired" and contains "General", "Access.Application", or "Access.Application.12", then Microsoft Access 2010 enables creation of a new workflow instance.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R363</ns1:REQ_ID>

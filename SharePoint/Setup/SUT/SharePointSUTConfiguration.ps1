@@ -743,7 +743,17 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
 	Output "Steps for manual configuration:" "Yellow"
     Output "Grant full control permission level to $domain\$MSWWSPUser on site $MSWWSPSiteCollectionName..." "Yellow"
     GrantUserPermission $MSWWSP_web "Full Control" $domain.Split(".")[0] $MSWWSPUser
-	
+
+    $site = new-object Microsoft.SharePoint.SPSite("http://$sutComputerName/sites/$MSWWSPSiteCollectionName")
+    $web = $site.openweb()
+    $list = $web.Lists[$MSWWSPDocumentLibrary]
+    $list.EnableMinorVersions = $true
+    $list.EnableModeration =$true
+    $list.DefaultContentApprovalWorkflowId=$list.WorkflowAssociations[0].id
+    $list.update()
+    $web.Dispose()
+    $site.Dispose()
+
     $MSWWSPSiteCollectionObject.Dispose()
 }
 

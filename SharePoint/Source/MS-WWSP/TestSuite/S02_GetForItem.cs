@@ -293,7 +293,17 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             if (workflowDataResult == null || workflowDataResult.WorkflowData == null)
             {
                 this.Site.Assume.Fail("GetWorkflowDataForItem operation is failed, the response is not be returned.");
-            } 
+            }
+
+            this.Site.Assert.IsTrue(workflowDataResult.WorkflowData.DefaultWorkflows != null && 
+                workflowDataResult.WorkflowData.DefaultWorkflows.DefaultWorkflow != null, "DefaultWorkflow should be present.");
+
+            // Verify MS-WWSP requirement: MS-WWSP_R290
+            Site.CaptureRequirementIfAreEqual<string>(
+                "OnCheckInMajor",
+                workflowDataResult.WorkflowData.DefaultWorkflows.DefaultWorkflow.Event,
+                290,
+                @"[In GetWorkflowDataForItemResponse] GetWorkflowDataForItemResult.WorkflowData.DefaultWorkflows.DefaultWorkflow.Event: MUST be set to ""OnCheckInMajor"".");
 
             // Verify MS-WWSP requirement: MS-WWSP_R198
             // If the response from the GetWorkflowDataForItem operation is not null, then R198 should be covered.
