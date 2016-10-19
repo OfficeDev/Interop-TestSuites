@@ -1735,19 +1735,16 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         if (invalidCharacter == "\"")
                         {
                             if (isR17601Enabled)
-                            {
-                                if (Common.GetConfigurationPropertyValue("SutVersion", this.Site) != "SharePointServer2016")
-                                {
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17603");
+                            { 
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17603");
 
-                                    // Verify MS-VERSS requirement: MS-VERSS_R17603
-                                    Site.CaptureRequirementIfAreEqual<string>(
-                                        "0x81020073",
-                                        errorCode,
-                                        17603,
-                                        @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (SharePoint Foundation 2010 and above follow this behavior.)");
-                                }
+                                // Verify MS-VERSS requirement: MS-VERSS_R17603
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    "0x81020073",
+                                    errorCode,
+                                    17603,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (SharePoint Foundation 2010 and above follow this behavior.)");
                             }
 
                             if (isR19602Enabled)
@@ -2486,18 +2483,15 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         {
                             if (isR19201Enabled)
                             {
-                                if (Common.GetConfigurationPropertyValue("SutVersion", this.Site) != "SharePointServer2016")
-                                {
-                                    // Add the debug information
-                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19203");
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19203");
 
-                                    // Verify MS-VERSS requirement: MS-VERSS_R19203
-                                    Site.CaptureRequirementIfAreEqual<string>(
-                                        "0x81020073",
-                                        errorCode,
-                                        19203,
-                                        @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the filename element of the RestoreVersion element contains invalid character Ampersand (&). (SharePoint Foundation 2010 and above follow this behavior.)");
-                                }
+                                // Verify MS-VERSS requirement: MS-VERSS_R19203
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    "0x81020073",
+                                    errorCode,
+                                    19203,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the filename element of the RestoreVersion element contains invalid character Ampersand (&). (SharePoint Foundation 2010 and above follow this behavior.)");
                             }
 
                             if (isR201Enabled)
