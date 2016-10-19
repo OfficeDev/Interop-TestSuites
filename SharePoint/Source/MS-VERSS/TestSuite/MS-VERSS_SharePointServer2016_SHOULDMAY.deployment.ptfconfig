@@ -7,17 +7,17 @@
     <!-- Set R5Enabled to true to verify that server supports SOAP over HTTPS for enhancing the security of communication with protocol clients. Set R5Enabled to false to disable this requirement. -->
     <Property name="R5Enabled" value="true"/>
     <!-- Set R17600Enabled to true to verify that the server returns error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains (\t) not at the end. Set R17600Enabled to false to disable this requirement. -->
-    <Property name="R17600Enabled" value="true"/>
+    <Property name="R17600Enabled" value="false"/>
     <!-- Set R1780200Enabled to true to verify that the server returns error code 0x80131600, when the file does not exist. Set R1780200Enabled to false to disable this requirement. -->
     <Property name="R1780200Enabled" value="true"/>
     <!-- Set R17201Enabled to true to verify that the server returns error code 0x81020030 to indicate that the fileName element of the DeleteAllVersions element contains invalid characters except contains pound sign (#), question marks (?) and tab (\t) or backward slash (\) is at the end of fileName. Set R17201Enabled to false to disable this requirement. -->
     <Property name="R17201Enabled" value="false"/>
     <!-- Set R17601Enabled to true to verify that the server returns error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid characters. Set R17601Enabled to false to disable this requirement. -->
-    <Property name="R17601Enabled" value="true"/>
+    <Property name="R17601Enabled" value="false"/>
     <!-- Set R19201Enabled to true to verify that the server returns error code 0x81020073 to indicate that the fileName element of the RestoreVersion element contains invalid characters. Set R19201Enabled to false to disable this requirement. -->
-    <Property name="R19201Enabled" value="true"/>
+    <Property name="R19201Enabled" value="false"/>
     <!-- Set R24500Enabled to true to verify that the server returns error code 0x81020073 to indicate that the folder name of the RestoreVersion element contains invalid characters. Set R24500Enabled to false to disable this requirement. -->
-    <Property name="R24500Enabled" value="true"/>
+    <Property name="R24500Enabled" value="false"/>
     <!-- Set R1930101Enabled to true to verify that the server returns error code 0x81070905 for invalid characters. Set R1930101Enabled to false to disable this requirement. -->
     <Property name="R1930101Enabled" value="false"/>
     <!-- Set R19701Enabled to true to verify that the server returns a soap exception for the pound sign (#) truncated file name does not exist on the server. Set R19701Enabled to false to disable this requirement. -->
