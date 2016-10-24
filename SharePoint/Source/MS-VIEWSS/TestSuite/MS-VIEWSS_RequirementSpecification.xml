@@ -3662,7 +3662,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 		<ns1:REQ_ID>MS-VIEWSS_R8014</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does append "&amp;gt;" after the View element. &lt;2&gt; Section 3.1.4.1.2.3:  SharePoint Foundation 2010  appends "&amp;gt;" after the View element. (SharePoint Foundation 2010 follows this behavoir.)</ns1:Description>
-		<ns1:Derived>MS-VIEWSS_R8005:I; MS-VIEWSS_R148:i</ns1:Derived>
+		<ns1:Derived>MS-VIEWSS_R8005:i, MS-VIEWSS_R148:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3673,7 +3673,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 		<ns1:REQ_ID>MS-VIEWSS_R8005001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not append "&amp;gt;" after the View element. (SharePoint Foundation 2013 and above follow this behavior. )</ns1:Description>
-		<ns1:Derived>MS-VIEWSS_R8005:I; MS-VIEWSS_R148:i</ns1:Derived>
+		<ns1:Derived>MS-VIEWSS_R8005:i, MS-VIEWSS_R148:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
