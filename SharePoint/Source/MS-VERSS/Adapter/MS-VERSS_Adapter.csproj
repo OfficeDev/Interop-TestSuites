@@ -55,6 +55,7 @@
     <None Include="SUTControlAdapter\Implementation\DeleteItemsInListFromRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetFileVersions.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetFileVersionAttributes.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\IsFileExistInRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetFilePublish.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetRecycleBinEnable.ps1" />

@@ -1065,6 +1065,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 userList.Add(Convert.ToString(data.Rows[i][AdapterHelper.PrefixOws + AdapterHelper.FieldIDName]), Convert.ToString(data.Rows[i][columnName]));
             }
 
+            // Get Presence and RecycleBinEnable value of WebApp.
+            bool presenceEnabled = sutControlAdapter.GetWebAppPresence();
+            bool recycleBinEnable = sutControlAdapter.GetWebAppRecycleBin();
+
             try
             {
                 // Add a Generic list.
@@ -1073,18 +1077,34 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 addListSucceeded = addResult != null && addResult.List != null && !string.IsNullOrEmpty(addResult.List.ID);
                 this.Site.Assert.IsTrue(addListSucceeded, "Test suite should add the list successfully.");
 
-                // Get Presence and RecycleBinEnable value of WebApp.
-                bool presenceEnabled = sutControlAdapter.GetWebAppPresence();
-                bool recycleBinEnable = sutControlAdapter.GetWebAppRecycleBin();
+                int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+                GetListResponseGetListResult getResult = null;
 
-                // Set Presence and RecycleBinEnable value to True.
-                sutControlAdapter.SetWebAppPresence(true);
-                System.Threading.Thread.Sleep(10000);
-                sutControlAdapter.SetWebAppRecycleBin(true);
-                System.Threading.Thread.Sleep(10000);
+                while (retryCount > 0)
+                {
+                    // Set Presence and RecycleBinEnable value to True.
+                    sutControlAdapter.SetWebAppPresence(true);
+                    System.Threading.Thread.Sleep(10000);
+                    sutControlAdapter.SetWebAppRecycleBin(true);
+                    System.Threading.Thread.Sleep(10000);
 
-                // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
-                GetListResponseGetListResult getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                    // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
+                    getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                    
+                    if (bool.Parse(getResult.List.RegionalSettings.Presence) && bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled))
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Site.Assert.IsTrue(bool.Parse(getResult.List.RegionalSettings.Presence),
+                    "Presence in ListDefinitionSchema should be true after enable it.");
+                Site.Assert.IsTrue(bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
+                    "RecycleBinEnabled in ListDefinitionSchema should be true after enable it.");
 
                 // Verify R1381
                 bool isContainInUserList = userList.ContainsKey(getResult.List.Author);
@@ -1127,14 +1147,32 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     1429,
                     @"[ListDefinitionSchema.RecycleBinEnabled: ]Specifies that the Recycle Bin is enabled if set to True;[ otherwise, the Recycle Bin is not enabled.]");
 
-                // Set Presence and RecycleBinEnable value to True.
-                sutControlAdapter.SetWebAppPresence(false);
-                System.Threading.Thread.Sleep(10000);
-                sutControlAdapter.SetWebAppRecycleBin(false);
-                System.Threading.Thread.Sleep(10000);
+                retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-                // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
-                getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                while (retryCount > 0)
+                {
+                    // Set Presence and RecycleBinEnable value to false.
+                    sutControlAdapter.SetWebAppPresence(false);
+                    System.Threading.Thread.Sleep(10000);
+                    sutControlAdapter.SetWebAppRecycleBin(false);
+                    System.Threading.Thread.Sleep(10000);
+
+                    // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
+                    getResult = this.listswsAdapter.GetList(addResult.List.ID);
+
+                    if (!bool.Parse(getResult.List.RegionalSettings.Presence) && !bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled))
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Site.Assert.IsFalse(bool.Parse(getResult.List.RegionalSettings.Presence),
+                    "Presence in ListDefinitionSchema should be false after disable it.");
+                Site.Assert.IsFalse(bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
+                    "RecycleBinEnabled in ListDefinitionSchema should be false after disable it.");
 
                 // If the value of Presence equals to the value set by sutControlAdapter(false), capture R2249.
                 Site.CaptureRequirementIfIsFalse(
@@ -1147,13 +1185,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
                     2248,
                     @"ListDefinitionSchema.RecycleBinEnabled: [Specifies that the Recycle Bin is enabled if set to True;] otherwise, the Recycle Bin is not enabled.");
-
-                // Restore Presence and RecycleBinEnable settings for WebApp.
-                sutControlAdapter.SetWebAppPresence(presenceEnabled);
-                System.Threading.Thread.Sleep(10000);
-                sutControlAdapter.SetWebAppRecycleBin(recycleBinEnable);
-                System.Threading.Thread.Sleep(10000);
-
+                
                 // Call method GetList to get the list from server.
                 // If the GetListResponse is returned, then capture R555 and R557.
                 getResult = this.listswsAdapter.GetList(addResult.List.ID);
@@ -1178,6 +1210,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             }
             finally
             {
+                // Restore Presence and RecycleBinEnable settings for WebApp.
+                sutControlAdapter.SetWebAppPresence(presenceEnabled);
+                System.Threading.Thread.Sleep(10000);
+                sutControlAdapter.SetWebAppRecycleBin(recycleBinEnable);
+                System.Threading.Thread.Sleep(10000);
+
                 if (addListSucceeded)
                 {
                     this.listswsAdapter.DeleteList(listName);
