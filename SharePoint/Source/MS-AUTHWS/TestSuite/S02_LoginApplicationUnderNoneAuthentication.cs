@@ -62,27 +62,16 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             // Invoke the Mode operation.
             AuthenticationMode authMode = this.authwsAdapter.Mode();
 
-            // Set R115Enabled to false to disable these requirements verifying on MOSS 2010 SP2 since these requirements are partially blocked. 
-            if (Common.IsRequirementEnabled(115, this.Site))
-            {
-                bool isVerifyNoneMode = AuthenticationMode.None == authMode;
-
-                // If the retrieved authentication mode equals to None, MS-AUTHWS_134 and MS-AUTHWS_115 can be verified. 
-                Site.CaptureRequirementIfIsTrue(
-                    isVerifyNoneMode,
-                    134,
-                    @"[In Mode] The Mode operation retrieves the authentication mode [None] that a Web application (1) uses.");
-
-                Site.CaptureRequirementIfIsTrue(
-                    isVerifyNoneMode,
-                    115,
-                    @"[In AuthenticationMode] If the AuthenticationMode is ""None"", no authentication is used [or a custom authentication scheme is used].");
-            }
-
             // Set R193Enabled to true to verify that implementation does not use authentication if the AuthenticationMode is "None". Set R193Enabled to false to disable this requirement.
             if (Common.IsRequirementEnabled(193, this.Site))
             {
                 bool isVerifyNoneMode = AuthenticationMode.None == authMode;
+
+                // If the retrieved authentication mode equals to None, MS-AUTHWS_134 can be verified. 
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyNoneMode,
+                    134,
+                    @"[In Mode] The Mode operation retrieves the authentication mode [None] that a Web application uses.");
 
                 // If the retrieved authentication mode equals to None, MS-AUTHWS_193 can be verified. 
                 Site.CaptureRequirementIfIsTrue(

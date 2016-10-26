@@ -688,7 +688,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-AUTHWS_R190,MS-AUTHWS_R191.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-AUTHWS_R191.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R77</ns1:REQ_ID>
@@ -780,7 +780,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R83</ns1:REQ_ID>
@@ -1062,7 +1061,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-AUTHWS_R192,MS-AUTHWS_R193.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-AUTHWS_R193.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R116</ns1:REQ_ID>

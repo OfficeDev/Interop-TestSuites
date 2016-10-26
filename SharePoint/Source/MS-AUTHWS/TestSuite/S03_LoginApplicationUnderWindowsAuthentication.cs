@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                 AuthenticationMode.Windows,
                 authMode,
                 135,
-                @"[In Mode] The Mode operation retrieves the authentication mode [Windows] that a Web application (1) uses.");
+                @"[In Mode] The Mode operation retrieves the authentication mode [Windows] that a Web application uses.");
 
             // Invoke the Login operation.
             LoginResult loginResult = this.authwsAdapter.Login(this.validUserName, this.validPassword);
