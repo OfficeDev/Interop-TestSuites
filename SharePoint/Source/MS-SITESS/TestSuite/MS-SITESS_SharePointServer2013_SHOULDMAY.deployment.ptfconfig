@@ -58,7 +58,5 @@
     <Property name="R391Enabled" value="false"/>
     <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
     <Property name="R326001002Enabled" value="true"/>
-    <!-- Set R266Enabled to true to verify that the result of the operation ImportWe is in the range [1, 2, 4 , 5, 6, 8, 11]  as specified in the table in section 3.1.4.8.2.2. Set R266Enabled to false to disable this requirement. -->
-    <Property name="R266Enabled" value="false"/>
   </Properties>
 </TestSite>
