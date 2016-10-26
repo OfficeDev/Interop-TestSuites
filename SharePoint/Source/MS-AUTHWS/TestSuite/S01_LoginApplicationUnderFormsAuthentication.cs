@@ -85,7 +85,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyFormsMode,
                 133,
-                @"[In Mode] The Mode operation retrieves the authentication mode [Forms] that a Web application (1) uses.");
+                @"[In Mode] The Mode operation retrieves the authentication mode [Forms] that a Web application uses.");
 
             int cookieCountBeforeLogin = GetCookieNumber(this.authwsAdapter.CookieContainer);
 
@@ -102,7 +102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             // Verify MS-AUTHWS requirement: MS-AUTHWS_R43
             Site.CaptureRequirement(
                 43,
-                @"[In Login] The Login operation logs a user onto a Web application (1) by using the user’s logon name and password.");
+                @"[In Login] The Login operation logs a user onto a Web application by using the user’s logon name and password.");
 
             // If the Login application with a valid user name and password succeed, and the returned LoginErrorCode is "NoError" in above steps, MS-AUTHWS_R81 and MS-AUTHWS_R48 can be directly covered.
             Site.CaptureRequirement(
@@ -176,7 +176,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                     "FedAuth",
                     cookieNameGet,
                     126,
-                    @"[In Appendix B: Product Behavior] Implementation does return the default value of the CookieName which is ""FedAuth"".(The Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return the default value of the CookieName which is ""FedAuth"".(The Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)");
             }
 
             // Set R127Enabled to true to verify that the default value of the CookieName is ".ASPXAUTH" in operation "Login" response. Set R127Enabled to false to disable this requirement.
