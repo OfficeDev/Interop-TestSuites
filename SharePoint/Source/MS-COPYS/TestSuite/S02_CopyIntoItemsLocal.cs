@@ -692,12 +692,15 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 sourceFileUrl,
                 desUrls);
 
-            // Verify MS-COPYS requirement: MS-COPYS_R2781
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                0,
-                copyIntoItemsLocalResponse.Results.Length,
-                2781,
-                @"[In Appendix B: Product Behavior] Implementation does return empty results if the source location and the destination location refer to different protocol servers. (<5> Section 3.1.4.3:  The server returns empty results when the source location and the destination location refer to different protocol servers.)");
+            if (Common.IsRequirementEnabled(2781, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R2781
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0,
+                    copyIntoItemsLocalResponse.Results.Length,
+                    2781,
+                    @"[In Appendix B: Product Behavior] Implementation does return empty results if the source location and the destination location refer to different protocol servers. (<5> Section 3.1.4.3:  The server returns empty results when the source location and the destination location refer to different protocol servers.)");
+            }
         }
 
         /// <summary>

@@ -1491,7 +1491,7 @@ This value is used to indicate an error for all other error conditions for a giv
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R12332.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-COPYS_R12332.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R175</ns1:REQ_ID>

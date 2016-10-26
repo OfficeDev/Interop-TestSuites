@@ -164,7 +164,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 copyIntoItemsLocalResult = this.copySoapService.CopyIntoItemsLocal(sourceUrl, destinationUrls, out results);
                 copyIntoItemsLocalResponse = new CopyIntoItemsLocalResponse(copyIntoItemsLocalResult, results);
             }
-            catch (SoapException soapEx)
+            catch (SoapException)
             {
                 throw;
             }
@@ -190,7 +190,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 getItemResult = this.copySoapService.GetItem(url, out fields, out rawStreamValues);
                 getItemResponse = new GetItemResponse(getItemResult, fields, rawStreamValues);
             }
-            catch (SoapException soapEx)
+            catch (SoapException)
             {
                 throw;
             }
@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 copyIntoItemsResult = this.copySoapService.CopyIntoItems(sourceUrl, destinationUrls, fields, rawStreamValue, out results);
                 copyIntoItemsResponse = new CopyIntoItemsResponse(copyIntoItemsResult, results);
             }
-            catch (SoapException soapEx)
+            catch (SoapException)
             {
                 throw;
             }
