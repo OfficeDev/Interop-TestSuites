@@ -4436,8 +4436,8 @@ http://schemas.microsoft.com/sharepoint/soap/dws/GetDwsData</ns1:Description>
    &lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R554</ns1:REQ_ID>
@@ -5365,7 +5365,7 @@ Links</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-DWSS_R256, MS-DWSS_R257 and MS-DWSS_R258.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-DWSS_R256, MS-DWSS_R257, MS-DWSS_R258.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R256</ns1:REQ_ID>
@@ -5415,7 +5415,7 @@ Links</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-DWSS_R261, MS-DWSS_R262 and MS-DWSS_R263.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-DWSS_R261, MS-DWSS_R262, MS-DWSS_R263.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R261</ns1:REQ_ID>
