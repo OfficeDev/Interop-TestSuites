@@ -82,7 +82,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
         [TestCategory("MSOFFCIALFILE"), TestMethod()]
         public void MSOFFICIALFILE_S01_TC02_SubmitFile_NotConfiguredForRouting()
         {
-            if (!Common.Common.IsRequirementEnabled(201, this.Site))
+            if (!Common.Common.IsRequirementEnabled(201001, this.Site))
             {
                 this.Site.Assume.Inconclusive("Implementation cannot be configured to disable the record routing.");
             }
@@ -106,13 +106,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
 
             // We have deactivated routing of the repository to which files are submitted,
             // so the ResultCode should be InvalidRouterConfiguration as specified of TD. 
-            // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R201
+            // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R201001
             Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
                      SubmitFileResultCode.InvalidRouterConfiguration,
                      submitFile.ResultCode,
                      "MS-OFFICIALFILE",
-                     201,
-                     @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the repository is not configured for routing, the protocol server MUST set the ResultCode element to ""InvalidRouterConfiguration"" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                     201001,
+                     @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the implementation determines that the repository is not configured for routing, the implementation MUST set the ResultCode element to ""InvalidRouterConfiguration"" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)");
 
             Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
                      SubmitFileResultCode.InvalidRouterConfiguration,
@@ -906,9 +906,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
         [TestCategory("MSOFFCIALFILE"), TestMethod()]
         public void MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties()
         {
-            if (!Common.Common.IsRequirementEnabled(2081, this.Site) && !Common.Common.IsRequirementEnabled(2082, this.Site))
+            if (!Common.Common.IsRequirementEnabled(2081001, this.Site) && !Common.Common.IsRequirementEnabled(2082001, this.Site))
             {
-                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties, at least one of the requirements MS-OFFCIIALFILE_R2081 and MS-OFFICIALFILE_R2082 needs to be enable.");
+                this.Site.Assume.Inconclusive("In the test case MSOFFICIALFILE_S01_TC18_SubmitFile_MissingProperties, at least one of the requirements MS-OFFCIIALFILE_R2081001 and MS-OFFICIALFILE_R2082001 needs to be enable.");
             }
 
             // Initial parameters to use a repository that is configured for routing content.
@@ -933,23 +933,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                 SubmitFileResult submitFileResult1 = this.Adapter.SubmitFile(fileToSubmit, fileProperties, this.DocumentContentTypeName, randomFileName, this.SubmitUserName);
 
                 // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R208
-                if (Common.Common.IsRequirementEnabled(2081, this.Site))
+                if (Common.Common.IsRequirementEnabled(2081001, this.Site))
                 {
                     Site.CaptureRequirementIfAreEqual<SubmitFileResultCode?>(
                              SubmitFileResultCode.MoreInformation,
                              submitFileResult1.ResultCode,
                              "MS-OFFICIALFILE",
-                             2081,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             2081001,
+                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
 
-                if (Common.Common.IsRequirementEnabled(2082, this.Site))
+                if (Common.Common.IsRequirementEnabled(2082001, this.Site))
                 {
                     Site.CaptureRequirementIfIsNotNull(
                              submitFileResult1.ResultUrl,
                              "MS-OFFICIALFILE",
-                             2082,
-                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             2082001,
+                             @"[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
             }
             finally

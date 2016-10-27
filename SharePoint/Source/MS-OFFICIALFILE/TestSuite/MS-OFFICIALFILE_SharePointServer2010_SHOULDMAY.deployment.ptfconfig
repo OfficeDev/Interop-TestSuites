@@ -43,12 +43,12 @@
     <Property name="R203001Enabled" value="true"/>
     <!-- Set R204001Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when there is no applicable rule. Set R204001Enabled to false to disable this requirement. -->
     <Property name="R204001Enabled" value="true"/>
-    <!-- Set R2081Enabled to true to indicate that the SharePoint 2010 server does response Moreinformation code when the required properties are not present. Set R2081Enabled to false to disable this requirement. -->
-    <Property name="R2081Enabled" value="true"/>
-    <!-- Set R2082Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when the required properties are not present. Set R2082Enabled to false to disable this requirement. -->
-    <Property name="R2082Enabled" value="true"/>
-    <!-- Set R201Enabled to true to indicate that the SharePoint 2010 server can be configured to disable the record routing. Set R201Enabled to false to disable this requirement. -->
-    <Property name="R201Enabled" value="true"/>
+    <!-- Set R2081001Enabled to true to indicate that the SharePoint 2010 server does response Moreinformation code when the required properties are not present. Set R2081001Enabled to false to disable this requirement. -->
+    <Property name="R2081001Enabled" value="true"/>
+    <!-- Set R2082001Enabled to true to indicate that the SharePoint 2010 server does response ResultUrl when the required properties are not present. Set R2082001Enabled to false to disable this requirement. -->
+    <Property name="R2082001Enabled" value="true"/>
+    <!-- Set R201001Enabled to true to indicate that the SharePoint 2010 server can be configured to disable the record routing. Set R201001Enabled to false to disable this requirement. -->
+    <Property name="R201001Enabled" value="true"/>
     <!-- Set R360Enabled to true to indicate that implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult.Set R360Enabled to false to disable this requirement. -->
     <Property name="R360Enabled" value="true"/>
   </Properties>

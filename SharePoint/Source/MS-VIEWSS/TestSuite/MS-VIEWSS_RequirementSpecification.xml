@@ -952,7 +952,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-VIEWSS_R8902001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-VIEWSS_R8902001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R242</ns1:REQ_ID>
@@ -1553,7 +1553,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-VIEWSS_R8014, MS-VIEWSS_R8005001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VIEWSS_R8014, MS-VIEWSS_R8005001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R103</ns1:REQ_ID>
@@ -3688,6 +3688,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateViewHtml2</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R361</ns1:REQ_ID>

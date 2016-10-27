@@ -1212,7 +1212,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R355.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R61001001</ns1:REQ_ID>
@@ -1840,7 +1839,6 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetFinalRoutingDe
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R356.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R135</ns1:REQ_ID>
@@ -2194,7 +2192,6 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetHoldsInfo</ns1
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R1601001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R160</ns1:REQ_ID>
@@ -2367,7 +2364,6 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRouting<
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R1731001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R173</ns1:REQ_ID>
@@ -2740,12 +2736,12 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the repository is not configured for routing, the protocol server MUST set the ResultCode element to "InvalidRouterConfiguration" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the repository is not configured for routing, the protocol server MUST set the ResultCode element to "InvalidRouterConfiguration" and return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R201001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R202</ns1:REQ_ID>
@@ -2800,22 +2796,22 @@ If no applicable rule is found&lt;15&gt;: 3. The protocol server uses the tempor
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R2081</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R2081001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R2082</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R2082001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R209</ns1:REQ_ID>
@@ -2901,7 +2897,7 @@ If no applicable rule is found&lt;15&gt;: 3. The protocol server uses the tempor
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R1050.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OFFICIALFILE_R1050, MS-OFFICIALFILE_R360.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R217</ns1:REQ_ID>
@@ -3206,7 +3202,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R353</ns1:REQ_ID>
@@ -3227,7 +3223,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R354</ns1:REQ_ID>
@@ -3259,7 +3255,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R364</ns1:REQ_ID>
@@ -3280,7 +3276,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R271</ns1:REQ_ID>
@@ -3290,7 +3286,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R355</ns1:REQ_ID>
@@ -3310,7 +3306,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R356</ns1:REQ_ID>
@@ -3330,7 +3326,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1601002</ns1:REQ_ID>
@@ -3340,7 +3336,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1731001</ns1:REQ_ID>
@@ -3350,7 +3346,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1731002</ns1:REQ_ID>
@@ -3360,7 +3356,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R268</ns1:REQ_ID>
@@ -3408,6 +3404,18 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:REQ_ID>MS-OFFICIALFILE_R203001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultCode element to MoreInformation when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R203:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R201001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the implementation determines that the repository is not configured for routing, the implementation MUST set the ResultCode element to "InvalidRouterConfiguration" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3427,6 +3435,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:REQ_ID>MS-OFFICIALFILE_R204001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultUrl element to an implementation-specific URL to enter more information about the submission when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R204:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3441,6 +3450,28 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R2081001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R2081:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R2082001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R2082:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1066</ns1:REQ_ID>
