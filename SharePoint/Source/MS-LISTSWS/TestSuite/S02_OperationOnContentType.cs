@@ -3669,6 +3669,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Delete an existing field on a contentType
             DeleteFieldsDefinition deleteFields = TestSuiteHelper.CreateDeleteContentTypeFields(addedFieldName);
+            string fieldNameB = TestSuiteHelper.GetUniqueFieldName();
+            DeleteFieldsDefinition deleteFieldserror = TestSuiteHelper.CreateDeleteContentTypeFields(fieldNameB);
             updateContentTypeResult = this.listswsAdapter.UpdateContentType(
                                              lisid,
                                              contenttypeId,
@@ -3677,6 +3679,15 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                              null,
                                              deleteFields,
                                              bool.TrueString);
+
+            UpdateContentTypeResponseUpdateContentTypeResult updateResulterror = this.listswsAdapter.UpdateContentType(
+                                                    lisid,
+                                                    contenttypeId,
+                                                    properties,
+                                                    null,
+                                                    null,
+                                                    deleteFieldserror,
+                                                    Convert.ToString(true));
 
             if (null == updateContentTypeResult || null == updateContentTypeResult.Results || null == updateContentTypeResult.Results.Method)
             {
@@ -3720,6 +3731,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                             leftields.Count(),
                                             804,
                                             @"[In UpdateContentType operation] If the specified content type is found, the protocol server deletes the appropriate fields from the content type.");
+            // If the valid deleted field does not exist in response and invalid deleted field response an error code 0x82000007, R1977001 is captured.
+            bool isCaptured = updateResulterror.Results.Method[0].ErrorCode == "0x82000007" && leftields.Count() ==0;
+            Site.CaptureRequirementIfIsTrue(
+               isCaptured,
+               1977001,
+               @"[In UpdateContentType operation] [If the fields to be deleted do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ] [This indicates that the fields specified in the deleteFields element do not exist in the specified list, ]and all fields that were deleted before the error was encountered MUST stay deleted.");
         }
 
         /// <summary>
