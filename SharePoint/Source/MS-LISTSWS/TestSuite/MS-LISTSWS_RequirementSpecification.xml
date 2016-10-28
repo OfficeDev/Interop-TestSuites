@@ -15954,8 +15954,8 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 		<ns1:Description>[In UpdateContentType operation] [If the fields to be deleted do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ] [This indicates that the fields specified in the deleteFields element do not exist in the specified list, ]and all fields that were deleted before the error was encountered MUST stay deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R807</ns1:REQ_ID>
