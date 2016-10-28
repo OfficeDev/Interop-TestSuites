@@ -291,6 +291,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             string actualEndDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EndDate");
             #region Capture code
 
+            string duration = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_Duration");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R863
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "86340",
+                duration,
+                863,
+                @"[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours) when the appointment is not a single appointment. ");
+
             DateTime actualEndDate;
             if (!DateTime.TryParse(actualEndDateValue, null, System.Globalization.DateTimeStyles.AdjustToUniversal, out actualEndDate))
             {
@@ -434,7 +443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             recurEventFieldsSetting.Add("EventType", "0");
 
             // "0" means this is not an all-day event.
-            recurEventFieldsSetting.Add("fAllDayEvent", "0");
+            recurEventFieldsSetting.Add("fAllDayEvent", "1");
 
             // "0" means this is not a recurrence event.
             recurEventFieldsSetting.Add("fRecurrence", "0");
@@ -454,6 +463,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             int listItemIndex = this.GetZrowItemIndexByListItemId(zrowitems, "1");
 
             #region Capture code
+
+            string duration = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_Duration");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R8631
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                ((endDate.Day - eventDate.Day + 1) * 86400 - 60).ToString(),
+                duration,
+                8631,
+                "[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be [(days of EndDate – days of EventDate + 1)*86400-60] seconds when the appointment is a single appointment.");
 
             // Verify MS-OUTSPS requirement: MS-OUTSPS_R278
             this.Site.CaptureRequirementIfAreEqual(
@@ -2202,6 +2220,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             this.Site.CaptureRequirement(
                            1269,
                            @"[In TransitionDate complex type] transitionTime: Client set this value[transitionTime], and later client retrieve the value[transitionTime] from the server, they should be equal.");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R1269
+            this.Site.CaptureRequirement(
+                           1269,
+                           @"[In TransitionDate complex type] transitionTime: Client set this value[transitionTime], and later client retrieve the value[transitionTime] from the server, they should be equal.");
+
+            if (Common.IsRequirementEnabled(90571, this.Site))
+            {
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R90571
+                // Client has set transitionTime as the format, if transitionTime returned from server 
+                // is same as client this requirement can be captured directly.
+                this.Site.CaptureRequirement(
+                               90571,
+                               @"[In Appendix B: Product Behavior] Implementation does format the transitionTime as ""hour: minute:second"" with no extra leading zeroes. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)");
+            }
         }
 
         #endregion

@@ -34,7 +34,9 @@
     <Property name="R8120Enabled" value="true" />
     <!-- Set R12552Enabled to true to verify that the value of "12.0.0.4326" or greater indicates the server supports GetListItemChangesSinceToken. Set R12552Enabled to false to disable this requirement. -->
     <Property name="R12552Enabled" value="true" />
-   <!-- Set R732Enabled to true to verify that the RootFolder attributev does appear at the beginning of the FileDirRef value. Set R732Enabled to false to disable this requirement. -->
+    <!-- Set R732Enabled to true to verify that the RootFolder attributev does appear at the beginning of the FileDirRef value. Set R732Enabled to false to disable this requirement. -->
     <Property name="R732Enabled" value="true" />
+    <!-- Set R90571Enabled to true to verify that implementation does format the transitionTime as "hour:minute:second" with no extra leading zeroes. Set R90571Enabled to false to disable this requirement. -->
+    <Property name="R90571Enabled" value="true" />
   </Properties>
 </TestSite>
