@@ -1527,7 +1527,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17802011.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-VERSS_R17802011.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1780202</ns1:REQ_ID>
@@ -1537,7 +1537,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17802021.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-VERSS_R17802021.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R118</ns1:REQ_ID>
