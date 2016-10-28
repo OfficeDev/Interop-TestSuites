@@ -3694,7 +3694,7 @@ Value Description
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R267001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-LISTSWS_R267001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R265</ns1:REQ_ID>
@@ -14794,7 +14794,7 @@ The request to retrieve details about list items in a list that satisfy specifie
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R742001001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-LISTSWS_R742001001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R743</ns1:REQ_ID>
@@ -18210,7 +18210,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R2770.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-LISTSWS_R2770, MS-LISTSWS_R27701.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2068</ns1:REQ_ID>
@@ -22286,6 +22286,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R4007</ns1:REQ_ID>
@@ -22441,9 +22442,9 @@ The request to make inserts, updates, and deletions to specified list items in a
 		<ns1:REQ_ID>MS-LISTSWS_R742001001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the filed when the filed  referenced in a FieldRef element of viewFields has no value filled. (Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-LISTSWS_R976:I,LISTSWS_R742001:i</ns1:Derived>
+		<ns1:Derived>MS-LISTSWS_R742001:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
