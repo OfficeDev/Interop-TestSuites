@@ -1935,7 +1935,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 this.Site.Assert.Fail("The [{0}] message data file should contain the [{0}] property.", propertyName);
             }
 
-            int rowBreakerPositionOfProperty = discussionMessageString.IndexOf("\r\n", keyWordPositionOfProperty, StringComparison.OrdinalIgnoreCase);
+            int rowBreakerPositionOfProperty = discussionMessageString.IndexOf("\n", keyWordPositionOfProperty, StringComparison.OrdinalIgnoreCase);
             if (-1 == rowBreakerPositionOfProperty)
             {
                 this.Site.Assert.Fail(

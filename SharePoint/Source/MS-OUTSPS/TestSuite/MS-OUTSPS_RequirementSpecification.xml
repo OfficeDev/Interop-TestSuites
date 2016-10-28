@@ -5832,7 +5832,7 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R863</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours) when the appointment iss not a single appointment. </ns1:Description>
+		<ns1:Description>[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours) when the appointment is not a single appointment. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10278,7 +10278,6 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R445021</ns1:REQ_ID>
@@ -10826,6 +10825,7 @@ Birthday,CellPhone,Comments,Company,CompanyPhonetic,Email,FileAs,FirstName,First
 		<ns1:REQ_ID>MS-OUTSPS_R6981</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to User. (&lt;37&gt; Section 3.2.4.2.8:  For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, the default type is User.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R698:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10836,6 +10836,7 @@ Birthday,CellPhone,Comments,Company,CompanyPhonetic,Email,FileAs,FirstName,First
 		<ns1:REQ_ID>MS-OUTSPS_R6982</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to UserMulti. (&lt;37&gt; Section 3.2.4.2.8:  For SharePoint Foundation 2013, the default type is UserMulti.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R698:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
