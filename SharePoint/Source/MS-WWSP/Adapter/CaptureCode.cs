@@ -1141,7 +1141,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                            0,
                            itemsWithCorrelationIdAttribute.Count,
                            423,
-                           @"[In Appendix B: Product Behavior] Implementation does not include this attribute[CorrelationId]. [In Appendix B: Product Behavior] <5> Section 3.1.4.5.2.2:  Windows SharePoint Services 3.0 and SharePoint Foundation 2010 do not include this attribute[CorrelationId].");
+                           @"[In Appendix B: Product Behavior] Implementation does not include this attribute[CorrelationId]. [In Appendix B: Product Behavior] <4> Section 3.1.4.5.2.2:  Office SharePoint Server 2007 and SharePoint Server 2010 do not include this attribute[CorrelationId].");
             }
 
             if (Common.IsRequirementEnabled(424, this.Site))
