@@ -7,6 +7,8 @@
     <Property name="R60Enabled" value="true" />
     <!-- Set the value of the property MS-SHDACCWS_Supported to true to indicate that the SUT supports the MS-SHDACCWS protocol. Otherwise set the value to false. -->
     <Property name="MS-SHDACCWS_Supported" value="true" />
+    <!-- Set R52Enabled to true to verify that the value of this element MUST be false if there was a co-authoring transition request for the document.. Set R52Enabled to false to disable this requirement. -->
+    <Property name="R52Enabled" value="false" />
   </Properties>
   
 </TestSite>
