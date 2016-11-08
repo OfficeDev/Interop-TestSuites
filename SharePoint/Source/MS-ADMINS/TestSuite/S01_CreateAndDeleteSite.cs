@@ -838,7 +838,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with ownerEmail length less than 255, and the input ownerEmail equals to the returned ownerEmail property value, then MS-ADMINS_R3025 can be verified.
+            // If create site successfully with ownerEmail length less than 255, then MS-ADMINS_R3025 can be verified.
             Site.CaptureRequirement(
                 3025,
                 @"[In CreateSite]If the length of the OwnerEmail is 254 characters, the CreateSite operation will succeed.");
