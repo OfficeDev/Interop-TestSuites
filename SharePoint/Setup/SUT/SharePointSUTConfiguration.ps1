@@ -597,7 +597,7 @@ Output "2. Set an alternate access mapping for HTTPS." "Yellow"
 $WebApplicationName = GetWebAPPName $defaultWebAppName
 AddHTTPSBinding "$sutComputerName" $SharePointVersion $WebApplicationName $httpsPortNumberOnAdminSite $true
 
-# Activate the feature DocumentManagement and DocumentSet for SharePoint Server 2013.
+# Activate the feature DocumentManagement and DocumentSet for SharePoint Server 2013 and SharePoint Server 2016.
 if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     $siteUrl = [Microsoft.SharePoint.Administration.SPAdministrationWebApplication]::Local.sites[0].Url
@@ -710,7 +710,7 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     Output "Create the document library $MSWWSPDocumentLibrary under the root web of the site collection $MSSITESSSiteCollectionName ..." "Yellow"
     CreateListItem $MSWWSPSiteCollectionObject.RootWeb $MSWWSPDocumentLibrary 101
 
-    # Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013.
+    # Activate the workflows feature for SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2016.
     if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
     {
         Output "Steps for manual configuration:" "Yellow"
@@ -727,7 +727,7 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     CreateListItem $MSWWSPSiteCollectionObject.RootWeb $MSWWSPWorkflowTaskList 107
 
     # The workflow template name is 'Approval' for WindowsSharePointServices3 and SharePointServer2007. 
-    # The workflow template name is 'Approval - SharePoint 2010' for SharePointFoundation2010, SharePointServer2010, SharePointFoundation2013 and SharePointServer2013.
+    # The workflow template name is 'Approval - SharePoint 2010' for SharePointFoundation2010, SharePointServer2010, SharePointFoundation2013, SharePointServer2013 and SharePointServer2016.
     $WorkFlowTemplatename = 'Approval - SharePoint 2010'
     if($SharePointVersion -eq $SharePointServer2007[0] -or $SharePointVersion -eq $WindowsSharePointServices3[0])
     {
