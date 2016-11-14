@@ -132,7 +132,9 @@ Architecture
 
 The following figure illustrates the SharePoint Protocol Test Suites
 architecture.
+
 ![alt tag] (./Doc-Images/SharePoint_Spec_Architecture.png)
+
 **Figure 1: Architecture**
 
 The following outlines the details of the test suites architecture:
