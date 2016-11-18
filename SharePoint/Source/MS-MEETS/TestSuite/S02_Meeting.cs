@@ -152,7 +152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000006",
                 addMeetingResult.GetErrorCode(),
                 66,
-                @"[In AddMeetingResponse]If this operation [AddMeeting]is sent to a Web site (2) that is not a meeting workspace, the response [AddMeetingResponse]MUST be a SOAP fault with SOAP Fault code ""0x00000006"".");
+                @"[In AddMeetingResponse]If this operation [AddMeeting]is sent to a Web site that is not a meeting workspace, the response [AddMeetingResponse]MUST be a SOAP fault with SOAP Fault code ""0x00000006"".");
 
             string updatedMeetingTitle = TestSuiteBase.GetUniqueMeetingTitle();
             string updatedLocation = TestSuiteBase.GetUniqueMeetingLocation();
@@ -163,7 +163,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000006",
                 updateMeetingResult.GetErrorCode(),
                 350,
-                @"[In UpdateMeetingResponse]If this operation [UpdateMeeting] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
+                @"[In UpdateMeetingResponse]If this operation [UpdateMeeting] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
         }
 
         /// <summary>
@@ -184,6 +184,13 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             string meetingLocationFst = TestSuiteBase.GetUniqueMeetingLocation();
             SoapResult<AddMeetingResponseAddMeetingResult> addMeetingResultFst = this.meetsAdapter.AddMeeting(organizerEmail, Guid.NewGuid().ToString(), null, DateTime.Now, meetingTitleFst, meetingLocationFst, DateTime.Now, DateTime.Now.AddHours(1), null);
             Site.Assert.IsNull(addMeetingResultFst.Exception, "Add meeting should succeed");
+
+            // According to MS-ADMINS_R3017,  the site will have a default title of "Team Site".
+            Site.CaptureRequirementIfAreEqual<string>(
+                "Team Site",
+                addMeetingResultFst.Result.AddMeeting.HostTitle,
+                25,
+                @"[In AddMeeting]HostTitle: The title of the site in which the meeting workspace is located.");
 
             // Get workspace status, make sure there is only one meeting in workspace.
             SoapResult<GetMeetingsInformationResponseGetMeetingsInformationResult> getWorkspaceInfoResultFst = this.meetsAdapter.GetMeetingsInformation(MeetingInfoTypes.QueryOthers, null);
@@ -370,7 +377,119 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
             SoapResult<Null> removeMeetingResult = this.meetsAdapter.RemoveMeeting(null, uid, null, null, null);
             Site.Assert.IsNull(removeMeetingResult.Exception, "RemoveMeeting should succeed");
 
+            // Restore a meeting in the workspace.
+            SoapResult<Null> restoreMeetingResult = this.meetsAdapter.RestoreMeeting(uid);
+            Site.Assert.IsNull(removeMeetingResult.Exception, "Restore should succeed");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R259");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R259
+            Site.CaptureRequirement(
+                259,
+                @"[In RestoreMeeting]The RestoreMeeting operation restores a previously deleted meeting to a workspace.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R263");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R263
+            Site.CaptureRequirement(
+                263,
+                @"[In RestoreMeeting]This operation [RestoreMeeting]undoes a previous action [previously deleted meeting].");
+
             // Clean up the SUT.
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+            SoapResult<Null> deleteResult = this.meetsAdapter.DeleteWorkspace();
+            Site.Assert.IsNull(deleteResult.Exception, "DeleteWorkspace should succeed");
+        }
+
+        /// <summary>
+        /// This test case is used to test SOAP fault "0x0000000a" is returned if calls AddMeeting with an invalid organizerEmail.
+        /// </summary>
+        [TestCategory("MSMEETS"), TestMethod()]
+        public void MSMEETS_S02_TC11_AddMeetingWithInvalidOrganizerEmail()
+        {
+            string uid = Guid.NewGuid().ToString();
+
+            // Create a new workspace.
+            string workspaceTitle = TestSuiteBase.GetUniqueWorkspaceTitle();
+            SoapResult<CreateWorkspaceResponseCreateWorkspaceResult> createWorkspaceResult = this.meetsAdapter.CreateWorkspace(workspaceTitle, null, null, null);
+            Site.Assert.IsNull(createWorkspaceResult.Exception, "Create workspace should succeed");
+
+            // Add a meeting in the workspace.
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+            string organizerEmail = Common.GenerateResourceName(this.Site, "InvalidOrganizerEmail");
+            string meetingTitle = TestSuiteBase.GetUniqueMeetingTitle();
+            string meetingLocation = TestSuiteBase.GetUniqueMeetingLocation();
+
+            SoapResult<AddMeetingResponseAddMeetingResult> addMeetingResult = this.meetsAdapter.AddMeeting(organizerEmail, uid, null, DateTime.Now, meetingTitle, meetingLocation, DateTime.Now, DateTime.Now.AddHours(1), false);
+            string errorCode = Common.ExtractErrorCodeFromSoapFault(addMeetingResult.Exception);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R521");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R521
+            Site.CaptureRequirementIfAreEqual<string>(
+                "0x0000000a",
+                errorCode,
+                521,
+                @"[In AddMeeting]If this parameter [organizerEmail] is an invalid e-mail address, the response MUST be a SOAP fault with SOAP fault code ""0x0000000a"".");
+
+            // Clean up the SUT
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+            SoapResult<Null> deleteResult = this.meetsAdapter.DeleteWorkspace();
+            Site.Assert.IsNull(deleteResult.Exception, "DeleteWorkspace should succeed");
+        }
+
+        /// <summary>
+        /// This test case is used to test the content of meeting will be updated if calls AddMeeting with an existing UID.
+        /// </summary>
+        [TestCategory("MSMEETS"), TestMethod()]
+        public void MSMEETS_S02_TC12_AddMeetingWithExistingUID()
+        {
+            string uid = Guid.NewGuid().ToString();
+
+            // Create a new workspace.
+            string workspaceTitle = TestSuiteBase.GetUniqueWorkspaceTitle();
+            SoapResult<CreateWorkspaceResponseCreateWorkspaceResult> createWorkspaceResult = this.meetsAdapter.CreateWorkspace(workspaceTitle, null, null, null);
+            Site.Assert.IsNull(createWorkspaceResult.Exception, "Create workspace should succeed");
+
+            // Add a meeting in the workspace.
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+            string organizerEmail = Common.GetConfigurationPropertyValue("OrganizerEmail", this.Site);
+            string meetingTitle = TestSuiteBase.GetUniqueMeetingTitle();
+            string meetingLocation = TestSuiteBase.GetUniqueMeetingLocation();
+            SoapResult<AddMeetingResponseAddMeetingResult> addMeetingResult = this.meetsAdapter.AddMeeting(organizerEmail, uid, null, DateTime.Now, meetingTitle, meetingLocation, DateTime.Now, DateTime.Now.AddHours(1), false);
+            Site.Assert.IsNull(addMeetingResult.Exception, "AddMeeting should succeed");
+
+            SoapResult<GetMeetingsInformationResponseGetMeetingsInformationResult> getMeetingsInformationResult = this.meetsAdapter.GetMeetingsInformation(MeetingInfoTypes.QueryOthers, null);
+            Site.Assert.IsNull(getMeetingsInformationResult.Exception, "GetMeetingsInformation should succeed");
+            string orginalMeetingCount = getMeetingsInformationResult.Result.MeetingsInformation.WorkspaceStatus.MeetingCount;
+
+            string updatedMeetingTitle = TestSuiteBase.GetUniqueMeetingTitle();
+            string updatedLocation = TestSuiteBase.GetUniqueMeetingLocation();
+
+            addMeetingResult = this.meetsAdapter.AddMeeting(organizerEmail, uid, null, DateTime.Now, updatedMeetingTitle, updatedLocation, DateTime.Now, DateTime.Now.AddHours(1), false);
+            Site.Assert.IsNull(addMeetingResult.Exception, "AddMeeting should succeed");
+
+            // Get workspace status to query the meeting information.
+            getMeetingsInformationResult = this.meetsAdapter.GetMeetingsInformation(MeetingInfoTypes.QueryOthers, null);
+            Site.Assert.IsNull(getMeetingsInformationResult.Exception, "GetMeetingsInformation should succeed");
+
+            string meetingCount = getMeetingsInformationResult.Result.MeetingsInformation.WorkspaceStatus.MeetingCount;
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R531");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R531
+            // Call AddMeeting for twice and using the same UID, if the meeting count is not changed this requirement can be captured directly.
+            Site.CaptureRequirementIfAreEqual<string>(
+                orginalMeetingCount,
+                meetingCount,
+                531,
+                @"[In AddMeeting]If one meeting with this UID exists, the operation will update the content of this meeting just as UpdateMeeting operation (section 3.1.4.11) does.");
+
+            // Clean up the SUT
             this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
             SoapResult<Null> deleteResult = this.meetsAdapter.DeleteWorkspace();
             Site.Assert.IsNull(deleteResult.Exception, "DeleteWorkspace should succeed");

@@ -559,7 +559,7 @@
   &lt;xs:sequence&gt;
     &lt;xs:element name="ServerType" type="xs:string"/&gt;
     &lt;xs:element name="ServerVersion" type="xs:string"/&gt;
-    &lt;xs:element name="RoutingWeb" type="xs:string"/&gt;
+    &lt;xs:element minOccurs="0" name="RoutingWeb" type="xs:string"/&gt;
   &lt;/xs:sequence&gt;
 &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -1169,7 +1169,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R57</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [GetRecordRouting] This method is deprecated and MUST NOT be called.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [GetRecordRouting] This method &lt;7&gt; is deprecated and MUST NOT be called.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1179,7 +1179,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [GetRecordRoutingCollection] This method is deprecated and MUST NOT be called.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [GetRecordRoutingCollection] This method &lt;8&gt; is deprecated and MUST NOT be called.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1207,11 +1207,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R61001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] This method&lt;7&gt; is called to determine the storage location for the submission based on the rules in the repository and a suggested save location chosen by a user.</ns1:Description>
+		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] This method&lt;9&gt; is called to determine the storage location for the submission based on the rules in the repository and a suggested save location chosen by a user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R61001001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] The following is the WSDL port type specification of the GetFinalRoutingDestinationFolderUrl WSDL operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R61</ns1:REQ_ID>
@@ -1366,7 +1375,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R75</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:] 12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to "NoCollision" and return.</ns1:Description>
+		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:] 12. If the ResultType is set to "Success", "SuccessToDropOffLibrary" or "PermissionDeniedAtDestination": When a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to "NoCollision" and return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1375,7 +1384,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R366</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to "NoCollision" and return.] If the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to "UseSharePointVersioning" and return.</ns1:Description>
+		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If the ResultType is set to "Success", "SuccessToDropOffLibrary" or "PermissionDeniedAtDestination": When  a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to "NoCollision" and return;]  when a file with the same name does exist, if the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to "UseSharePointVersioning" and return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1384,7 +1393,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If a file with the same name does not already exist at the location determined by the rule then the protocol server MUST set CollisionSetting to "NoCollision" and return. If the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to "UseSharePointVersioning" and return. ] Otherwise the protocol server MUST set CollisionSetting to "AppendUniqueSuffixes".</ns1:Description>
+		<ns1:Description>[In GetFinalRoutingDestinationFolderUrl] [The protocol client sends a GetFinalRoutingDestinationFolderUrlSoapIn request WSDL message, and the protocol server MUST respond with a GetFinalRoutingDestinationFolderUrlSoapOut response WSDL message, as follows:][12. If the ResultType is set to "Success", "SuccessToDropOffLibrary" or "PermissionDeniedAtDestination": When a file with the same name does not already exist at the location determined by the rule, then the protocol server MUST set CollisionSetting to "NoCollision" and return; when a file with the same name does exist, if the repository is configured to overwrite existing files and versioning is enabled at the location determined by the rule, then the protocol server MUST set CollisionSetting to "UseSharePointVersioning" and return, ] otherwise the protocol server MUST set CollisionSetting to "AppendUniqueSuffixes".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1825,7 +1834,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetFinalRoutingDe
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R135001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetHoldsInfo] This method&lt;8&gt; is called to retrieve information about the legal holds in a repository.</ns1:Description>
+		<ns1:Description>[In GetHoldsInfo] This method&lt;10&gt; is called to retrieve information about the legal holds in a repository.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1834,7 +1843,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetFinalRoutingDe
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R135</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetHoldsInfo] [This method&lt;8&gt; is called to retrieve information about the legal holds in a repository.]
+		<ns1:Description>[In GetHoldsInfo] [The following is the WSDL port type specification of the GetHoldsInfo WSDL operation.]
 &lt;wsdl:operation name="GetHoldsInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"&gt;
   &lt;wsdl:input message="tns:GetHoldsInfoSoapIn"/&gt;
   &lt;wsdl:output message="tns:GetHoldsInfoSoapOut"/&gt;
@@ -2178,16 +2187,16 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetHoldsInfo</ns1
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRouting] This method is deprecated and MUST NOT be called.</ns1:Description>
+		<ns1:Description>[In GetRecordRouting] This method &lt;11&gt; is deprecated and MUST NOT be called.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R160</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRouting] [This method is deprecated and MUST NOT be called. ]
+		<ns1:Description>[In GetRecordRouting] [The following is the WSDL port type specification of the GetRecordRouting WSDL operation.]
 &lt;wsdl:operation name="GetRecordRouting" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"&gt;
   &lt;wsdl:input message="tns:GetRecordRoutingSoapIn"/&gt;
   &lt;wsdl:output message="tns:GetRecordRoutingSoapOut"/&gt;
@@ -2350,16 +2359,16 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRouting<
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1731</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRoutingCollection] This method is deprecated and MUST NOT be called.</ns1:Description>
+		<ns1:Description>[In GetRecordRoutingCollection] This method &lt;12&gt; is deprecated and MUST NOT be called.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R173</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRoutingCollection] [This method is deprecated and MUST NOT be called.]
+		<ns1:Description>[In GetRecordRoutingCollection] [The following is the WSDL port type specification of the GetRecordRoutingCollection WSDL operation.]
 &lt;wsdl:operation name="GetRecordRoutingCollection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"&gt;
   &lt;wsdl:input message="tns:GetRecordRoutingCollectionSoapIn"/&gt;
   &lt;wsdl:output message="tns:GetRecordRoutingCollectionSoapOut"/&gt;
@@ -2518,7 +2527,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRoutingC
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R185</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In GetServerInfo] [This method is called to retrieve information about the repository, such as its type, version, and whether the repository is configured for routing.]
+		<ns1:Description>[In GetServerInfo] [The following is the WSDL port type specification of the GetServerInfo WSDL operation.]
 &lt;wsdl:operation name="GetServerInfo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"&gt;
   &lt;wsdl:input message="tns:GetServerInfoSoapIn"/&gt;
   &lt;wsdl:output message="tns:GetServerInfoSoapOut"/&gt;
@@ -2540,7 +2549,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetRecordRoutingC
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R187</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In GetServerInfo] [The protocol client sends a GetServerInfoSoapIn request WSDL message, and the protocol server MUST respond with a GetServerInfoSoapOut response WSDL message, as follows:] The protocol server MUST return implementation-specific &lt;9&gt; information for the protocol server in the ServerInfo element.</ns1:Description>
+		<ns1:Description>[In GetServerInfo] [The protocol client sends a GetServerInfoSoapIn request WSDL message, and the protocol server MUST respond with a GetServerInfoSoapOut response WSDL message, as follows:] The protocol server MUST return implementation-specific &lt;13&gt; information for the protocol server in the ServerInfo element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2678,7 +2687,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R197</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [This method is called to submit a file and its associated properties to the repository.]
+		<ns1:Description>[In SubmitFile] [The following is the WSDL port type specification of the SubmitFile WSDL operation.]
 &lt;wsdl:operation name="SubmitFile" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"&gt;
   &lt;wsdl:input message="tns:SubmitFileSoapIn"/&gt;
   &lt;wsdl:output message="tns:SubmitFileSoapOut"/&gt;
@@ -2718,7 +2727,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R200</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the file cannot be submitted to the repository using an implementation-specific&lt;10&gt; algorithm, the protocol server MUST set the ResultCode element to FileRejected and return.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the file cannot be submitted to the repository using an implementation-specific&lt;14&gt; algorithm, the protocol server MUST set the ResultCode element to FileRejected and return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2727,12 +2736,12 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the repository is not configured for routing, the protocol server MUST set the ResultCode element to "InvalidRouterConfiguration" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the protocol server determines that the repository is not configured for routing, the protocol server MUST set the ResultCode element to "InvalidRouterConfiguration" and return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R201001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R202</ns1:REQ_ID>
@@ -2747,40 +2756,29 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/GetServerInfo</ns
 		<ns1:REQ_ID>MS-OFFICIALFILE_R203</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-If no applicable rule is found: 1. The protocol server sets the ResultCode element to MoreInformation. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+If no applicable rule is found: &lt;15&gt; 1. The protocol server sets the ResultCode element to MoreInformation. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R203001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R204</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] 
-If no applicable rule is found: 2. The protocol server MUST set the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R345</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] 
-If no applicable rule is found: 3. The protocol server SHOULD&lt;11&gt; set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.</ns1:Description>
+If no applicable rule is found: &lt;15&gt; 2. The protocol server MUST set the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OFFICIALFILE_R1045, MS-OFFICIALFILE_R1046.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R204001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R206</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] 
-If no applicable rule is found: 4. The protocol server uses the temporary storage location.</ns1:Description>
+If no applicable rule is found&lt;15&gt;: 3. The protocol server uses the temporary storage location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2798,37 +2796,27 @@ If no applicable rule is found: 4. The protocol server uses the temporary storag
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R2081</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission and SHOULD&lt;12&gt; set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.](Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R2082</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission [and SHOULD&lt;12&gt; set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.](Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R208</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server [MUST set the ResultCode element to MoreInformation and the ResultUrl element to an implementation-specific URL to enter more information about the submission and] SHOULD&lt;12&gt; set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R1047.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R2081001.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R2082</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the protocol server MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R2082001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R209</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return. 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation and the ResultUrl element to an implementation-specific URL to enter more information about the submission and SHOULD&lt;12&gt; set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone.] The protocol server uses the temporary storage location.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return. 2. Otherwise, the protocol server MUST set the ResultCode element to MoreInformation and the ResultUrl element to an implementation-specific URL to enter more information about the submission.] The protocol server uses the temporary storage location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2856,7 +2844,7 @@ If no applicable rule is found: 4. The protocol server uses the temporary storag
 		<ns1:REQ_ID>MS-OFFICIALFILE_R213</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-[If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server MUST set the ResultCode element to Success [and SHOULD&lt;13&gt; set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.]</ns1:Description>
+[If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server MUST set the ResultCode element to Success [and SHOULD&lt;16&gt; set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2866,7 +2854,7 @@ If no applicable rule is found: 4. The protocol server uses the temporary storag
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1065</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:]
-[If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server [MUST set the ResultCode element to Success and] SHOULD&lt;13&gt; set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.</ns1:Description>
+[If implementation-specific errors occur while determining the storage location for the submission or while storing the file, the protocol server MUST set the ResultCode element to UnknownError and return.] Otherwise, , the protocol server [MUST set the ResultCode element to Success and] SHOULD&lt;16&gt; set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2894,7 +2882,7 @@ If no applicable rule is found: 4. The protocol server uses the temporary storag
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R215</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If the properties element contains all of the following properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl], , then the protocol server sets the implementation-specific metadata that indicates the file is placed on the appropriate legal hold.] The protocol server SHOULD&lt;14&gt; set the CustomProcessingResult.HoldsProcessingResult element to Success.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If the properties element contains all of the following properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl], , then the protocol server sets the implementation-specific metadata that indicates the file is placed on the legal hold.] The protocol server SHOULD&lt;17&gt; set the CustomProcessingResult.HoldsProcessingResult element to Success.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2904,12 +2892,12 @@ If no applicable rule is found: 4. The protocol server uses the temporary storag
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R347</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If, however, at least one but not all of the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] mentioned previously are contained in the properties element, then the protocol server SHOULD&lt;15&gt; set the CustomProcessingResult.HoldsProcessingResult element to Failure.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If, however, at least one but not all of the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] mentioned previously are contained in the properties element, then the protocol server SHOULD NOT set the CustomProcessingResult.HoldsProcessingResult.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OFFICIALFILE_R1050.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OFFICIALFILE_R1050, MS-OFFICIALFILE_R360.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R217</ns1:REQ_ID>
@@ -3088,7 +3076,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R235</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In SubmitFile] [userName: The name of the user submitting the file, which MUST be non-empty and MUST be a login name. ] The value SHAREPOINT\system (case-insensitive) is reserved and SHOULD NOT&lt;16&gt; be used.</ns1:Description>
+		<ns1:Description>[In SubmitFile] [userName: The name of the user submitting the file, which MUST be non-empty and MUST be a login name. ] The value SHAREPOINT\system (case-insensitive) is reserved and SHOULD NOT&lt;18&gt; be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3122,7 +3110,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R3</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3131,7 +3119,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3140,7 +3128,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R301</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. (Microsoft Office SharePoint Server 2007 and above products follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. (Microsoft Office SharePoint Server 2007 and above products follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R300:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3151,7 +3139,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R264</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] &lt;1&gt; Section 2.2.4.3:  SharePoint Server 2010 and SharePoint Server 2013 use the URL of the site where the search query was performed.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 2.2.4.3:  SharePoint Server 2010 and SharePoint Server 2013 use the URL of the site where the search query was performed.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3160,7 +3148,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R265</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] &lt;2&gt; Section 2.2.4.3:  Office SharePoint Server 2007 does not use this element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.4.3:  Office SharePoint Server 2007 does not use this element.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3169,7 +3157,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R266</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] [&lt;2&gt; Section 2.2.4.2:] SharePoint Server 2010 and SharePoint Server 2013 do not specify this element if the property is not a field of the file being submitted.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;2&gt; Section 2.2.4.2:] SharePoint Server 2010 and SharePoint Server 2013 do not specify this element if the property is not a field of the file being submitted.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3178,7 +3166,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R267</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] &lt;3&gt; Section 2.2.4.3:  Office SharePoint Server 2007 does not use this format.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.4.3:  Office SharePoint Server 2007 does not use this format.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3187,7 +3175,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R3702</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include RoutingWeb element. &lt;4&gt; Section 2.2.4.4:  Office SharePoint Server 2007 does not use this element [RoutingWeb].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not include RoutingWeb element. &lt;4&gt; Section 2.2.4.4:  Office SharePoint Server 2007 does not use this element [RoutingWeb].</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R1030:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3198,7 +3186,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1031</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include RoutingWeb element. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include RoutingWeb element. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R1030:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3209,16 +3197,17 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1053</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not provide this method. &lt;5&gt; Section 3.1.4:  Office SharePoint Server 2007 does not provide this method [GetFinalRoutingDestinationFolderUrl].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not provide this method. &lt;5&gt; Section 3.1.4:  Office SharePoint Server 2007 does not provide this method [GetFinalRoutingDestinationFolderUrl].</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R55:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R55:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3229,16 +3218,17 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not provide this method. &lt;6&gt; Section 3.1.4:  Office SharePoint Server 2007 does not provide this method [GetHoldsInfo].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not provide this method. &lt;6&gt; Section 3.1.4:  Office SharePoint Server 2007 does not provide this method [GetHoldsInfo].</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R56:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R354</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does provide this method [GetHoldsInfo]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does provide this method [GetHoldsInfo]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R56:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3247,18 +3237,61 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R362</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] This method [GetRecordRouting] is not deprecated and can be called. (&lt;7&gt; Section 3.1.4:  Office SharePoint Server 2007 supports this method.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R57:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R57001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support thie method. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R57:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R364</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] This method [GetRecordRoutingCollection] is not deprecated and can be called. (&lt;8&gt; Section 3.1.4:  Office SharePoint Server 2007 supports this method.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R58:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R58001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support thie method. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R58:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R271</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not provide this method. &lt;7&gt; Section 3.1.4.1:  Office SharePoint Server 2007 does not provide this method [GetFinalRoutingDestinationFolderUrl].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not provide this method. &lt;9&gt; Section 3.1.4.1:  Office SharePoint Server 2007 does not provide this method [GetFinalRoutingDestinationFolderUrl].</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R61001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R355</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does provide this method [GetFinalRoutingDestinationFolderUrl]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R61001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3268,16 +3301,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1052</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not provide this method. &lt;8&gt; Section 3.1.4.2:  Office SharePoint Server 2007 does not provide this method [GetHoldsInfo].</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R356</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does provide this method [GetHoldsInfo]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not provide this method. &lt;10&gt; Section 3.1.4.2:  Office SharePoint Server 2007 does not provide this method [GetHoldsInfo].</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R135001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3285,9 +3309,59 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R356</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does provide this method [GetHoldsInfo]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R135001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R1601001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] This method [GetRecordRouting] is not deprecated and can be called. &lt;11&gt; Section 3.1.4.3:  Office SharePoint Server 2007 supports this method.</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R1601:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R1601002</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method [GetRecordRouting]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R1601:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R1731001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] This method [GetRecordRoutingCollection] is not deprecated and can be called.  &lt;12&gt; Section 3.1.4.4:  Office SharePoint Server 2007 supports this method.</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R1731:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R1731002</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method [GetRecordRoutingCollection]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R1731:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R268</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. &lt;9&gt; Section 3.1.4.5:  Office SharePoint Server 2007 returns "Microsoft.Office.Server" as the ServerType and "Microsoft.Office.OfficialFileSoap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. &lt;13&gt; Section 3.1.4.5:  Office SharePoint Server 2007 returns "Microsoft.Office.Server" as the ServerType and "Microsoft.Office.OfficialFileSoap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R187:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3298,7 +3372,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R269</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. [&lt;9&gt; Section 3.1.4.5:] SharePoint Server 2010 returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. [&lt;13&gt; Section 3.1.4.5:] SharePoint Server 2010 returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R187:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3309,7 +3383,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R357</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. [&lt;9&gt; Section 3.1.4.5:] SharePoint Server 2013 returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return implementation-specific information in the ServerInfo element. [&lt;13&gt; Section 3.1.4.5:] SharePoint Server 2013 returns "Microsoft.Office.Server v4" as the ServerType and " Microsoft.Office.OfficialFileSoap, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" as the ServerVersion.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R187:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3320,17 +3394,17 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1044</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] &lt;10&gt; Section 3.1.4.6: Third-party modules can be added to Office SharePoint Server 2007, SharePoint Server 2010, and SharePoint Server 2013 which can cause the submission to be rejected.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;14&gt; Section 3.1.4.6: Third-party modules can be added to Office SharePoint Server 2007, SharePoint Server 2010, and SharePoint Server 2013 which can cause the submission to be rejected.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R1045</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R203001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If no applicable rule is found:] Implementation does not include the CustomProcessingResult element. &lt;11&gt; Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R345:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultCode element to MoreInformation when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3338,20 +3412,10 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R358</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R201001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone [if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are present]. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R345:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R1046</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not set the CustomProcessingResult element if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. [&lt;11&gt; Section 3.1.4.6:] The CustomProcessingResult element is not set if the properties [_dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] listed in step 12 are not present. ](Office SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R345:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] If the implementation determines that the repository is not configured for routing, the implementation MUST set the ResultCode element to "InvalidRouterConfiguration" and return.  (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3359,10 +3423,19 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R1047</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R203002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior][If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element] Implementation does not include the CustomProcessingResult element. &lt;12&gt; Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R208:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does use the ddefault rule when no applicable rule is found. &lt;15&gt; Section 3.1.4.6:  In Office SharePoint Server 2007, server uses the default rule if no applicable rule is found.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R204001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does set the ResultUrl element to an implementation-specific URL to enter more information about the submission when no applicable rule is found. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R204:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3370,19 +3443,40 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R359</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R204002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to InDropOffZone. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R208:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] Implementation does use the ddefault rule when no applicable rule is found. &lt;15&gt; Section 3.1.4.6:  In Office SharePoint Server 2007, server uses the default rule if no applicable rule is found.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R2081001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set the ResultCode element to MoreInformation [and the ResultUrl element to an implementation-specific URL to enter more information about the submission.](Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R2081:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OFFICIALFILE_R2082001</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In SubmitFile] [The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:] [If the protocol server determines that the storage location determined by the rules has required properties that are not present in the properties element: 1. If the protocol server determines that the name of the user specified in the userName element is invalid using an implementation-specific validation algorithm, then the protocol server MUST set the ResultCode element to InvalidUser and return.] 2. Otherwise, the implementation MUST set[the ResultCode element to MoreInformation and] the ResultUrl element to an implementation-specific URL to enter more information about the submission. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OFFICIALFILE_R2082:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1066</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. &lt;13&gt; Section 3.1.4.6:  Office SharePoint Server 2007 returns the URL in the AdditionalInformation element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the ResultUrl element to a non-empty HTML encoded URL in the AdditionalInformation element to retrieve the stored file. &lt;16&gt; Section 3.1.4.6:  Office SharePoint Server 2007 returns the URL in the AdditionalInformation element.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R1065:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3393,7 +3487,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1067</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does set the ResultCode element to Success and set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file if implementation-specific errors doesn't occur while determining the storage location for the submission or while storing the file. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the ResultCode element to Success and set the ResultUrl element to a non-empty HTML encoded URL to retrieve the stored file if implementation-specific errors doesn't occur while determining the storage location for the submission or while storing the file. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R1065:i,MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3404,7 +3498,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1049</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does not include the CustomProcessingResult element. &lt;14&gt; Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does not include the CustomProcessingResult element. &lt;17&gt; Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R215:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3415,7 +3509,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R215001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Success. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows:  If the properties element contains all of the following properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Success. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R215:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3426,7 +3520,7 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1050</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If, however, at least one but not all of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl are contained in the properties element] Implementation does not include the CustomProcessingResult element. &lt;15&gt; Section 3.1.4.6:  Office SharePoint Server 2007 does not include the CustomProcessingResult element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][The protocol client sends a SubmitFileSoapIn request WSDL message, and the protocol server MUST respond with a SubmitFileSoapOut response WSDL message, as follows: If, however, at least one but not all of the properties _dlc_hold_url, _dlc_hold_comments, _dlc_hold_id, _dlc_hold_searchqquery, _dlc_hold_searchcontexturl are contained in the properties element] Implementation does not include the CustomProcessingResult element.</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R347:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3437,42 +3531,21 @@ http://schemas.microsoft.com/sharepoint/soap/recordsrepository/SubmitFile</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult element to Failure. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does include CustomProcessingResult element and set the CustomProcessingResult.HoldsProcessingResult. (Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OFFICIALFILE_R347:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1051</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] &lt;16&gt; Section 3.1.4.6.2.1: The behavior is undefined if the userName element is SHAREPOINT\system for Office SharePoint Server 2007, SharePoint Server 2010, and SharePoint Server 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;18&gt; Section 3.1.4.6.2.1: The behavior is undefined if the userName element is SHAREPOINT\system for Office SharePoint Server 2007, SharePoint Server 2010, and SharePoint Server 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R362</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRouting] This method [GetRecordRouting] is not deprecated and can be called. (Office SharePoint Server 2007 follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R57:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OFFICIALFILE_R364</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In GetRecordRoutingCollection] This method GetRecordRoutingCollection] is not deprecated and can be called. (Office SharePoint Server 2007 follows this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OFFICIALFILE_R58:i, MS-OFFICIALFILE_R3:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 </ns1:ReqTable>

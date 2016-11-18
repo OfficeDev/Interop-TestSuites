@@ -106,7 +106,45 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             this.Site.Assert.AreEqual(viewProperties.View.DisplayName, updateViewHtml2Re.View.DisplayName, "The display name should be the same as updated.");
 
             // Verify Requirement MS-VIEWSS_R8016, if the server returns a View element in the update result that indicates the UpdateViewHTML2 operation succeed on the server.
-            Site.CaptureRequirementIfIsNotNull(updateViewHtml2Re.View, 8016, @"[In Appendix B: Product Behavior] Implementation does support this method[UpdateViewHtml2]. (Windows SharePoint Services 3.0 and above products follow this behavior.)");            
+            Site.CaptureRequirementIfIsNotNull(updateViewHtml2Re.View, 8016, @"[In Appendix B: Product Behavior] Implementation does support this method[UpdateViewHtml2]. (Windows SharePoint Services 3.0 and above products follow this behavior.)");
+            // Verify requirement: MS-VIEWSS_R8015
+            if (Common.IsRequirementEnabled(8015, this.Site))
+            {
+                string listName = TestSuiteBase.ListGUID;
+                string displayName = this.GenerateRandomString(5);
+                string type = ViewType.Html.ToString();
+                AddViewViewFields viewFields1 = new AddViewViewFields();
+                viewFields.ViewFields = this.GetViewFields(true);
+                AddViewQuery addViewQuery = new AddViewQuery();
+                addViewQuery.Query = this.GetCamlQueryRootForWhere(false);
+                AddViewRowLimit rowLimit = new AddViewRowLimit();
+                rowLimit.RowLimit = this.GetAvailableRowLimitDefinition();
+
+                AddViewResponseAddViewResult addViewResponseAddViewResult = Adapter.AddView(listName, displayName, viewFields1, addViewQuery, rowLimit, type, false);
+
+                UpdateViewHtml2ResponseUpdateViewHtml2Result updateViewHtml2Re2 = Adapter.UpdateViewHtml2(
+                                                                                          listName,
+                                                                                          viewName,
+                                                                                          viewProperties,
+                                                                                          toolbar,
+                                                                                          viewHeader,
+                                                                                          viewBody,
+                                                                                          viewFooter,
+                                                                                          viewEmpty,
+                                                                                          rowLimitExceeded,
+                                                                                          queryValue,
+                                                                                          viewFields,
+                                                                                          aggregations,
+                                                                                          formats,
+                                                                                          rowLimitValue,
+                                                                                          openApplicationExtension);
+                GetViewResponseGetViewResult getView = Adapter.GetView(listName, viewName);
+                Site.CaptureRequirementIfAreEqual(
+                   openApplicationExtension,
+                    getView.View.Text[0],
+                    8015,
+                    @"[In Appendix B: Product Behavior] Implementation does return the value of OpenApplicationExtension as the value of the View element when GetView is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML. <3> Section 3.1.4.3.2.2: In SharePoint Foundation 2010 and SharePoint Foundation 2013, when this method is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML, the value of OpenApplicationExtension is returned as the value of the View element. (SharePoint Server 2010 and above follow this hebavior.)");
+            }
         }
 
         /// <summary>
@@ -394,7 +432,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             bool isDefaultView = Convert.ToBoolean(updateViewHtml2Re.View.DefaultView);
 
             // Verify Requirement MS-VIEWSS_R2301, if the server returns the default view back.
-            Site.CaptureRequirementIfIsTrue(isDefaultView, 2301, @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).");
+            Site.CaptureRequirementIfIsTrue(isDefaultView, 2301, @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -468,7 +506,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             bool isDefaultView = Convert.ToBoolean(updateViewHtml2Re.View.DefaultView);
 
             // Verify Requirement MS-VIEWSS_R2302, if the server returns the default view back.
-            Site.CaptureRequirementIfIsTrue(isDefaultView, 2302, @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).");
+            Site.CaptureRequirementIfIsTrue(isDefaultView, 2302, @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -511,7 +549,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             bool isDefaultView = Convert.ToBoolean(updateViewHtml2Re.View.DefaultView);
 
             // Verify Requirement MS-VIEWSS_R2301, if the server returns the default view back.
-            Site.CaptureRequirementIfIsTrue(isDefaultView, 2301, @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).");
+            Site.CaptureRequirementIfIsTrue(isDefaultView, 2301, @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -589,7 +627,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 caughtSoapException = true; 
 
                 // Verify Requirement MS-VIEWSS_R13, if the server returns a SOAP fault message.
-                Site.CaptureRequirementIfIsNotNull(soapException, 13, @"[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                Site.CaptureRequirementIfIsNotNull(soapException, 13, @"[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 

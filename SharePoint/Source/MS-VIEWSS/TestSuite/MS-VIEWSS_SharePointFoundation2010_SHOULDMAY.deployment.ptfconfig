@@ -9,6 +9,14 @@
     <!-- Set R1507Enabled to true to verify that implementation does not restrict the number of rows present in the result set to the number of unique GroupBy tuples, when there aren't any computed fields in the ViewFields section and Collapse is true. Set R1507Enabled to false to disable this requirement. -->
     <Property name="R1507Enabled" value="true" />
     <!-- Set R8016Enabled to true to verify that implementation does support this method[UpdateViewHtml2]. Set R8016Enabled to false to disable this requirement. -->
-    <Property name="R8016Enabled" value="true" /> 
+    <Property name="R8016Enabled" value="true" />
+    <!-- Set R8902001Enabled to true to verify that implementation does use a detail element instead of the Detail element in SOAP 1.2. Set R8902001Enabled to false to disable this requirement. -->
+    <Property name="R8902001Enabled" value="true" />
+    <!-- Set R8014Enabled to true to verify that implementation does append "&gt;" after the View element. Set R8014Enabled to false to disable this requirement. -->
+    <Property name="R8014Enabled" value="true" />
+    <!-- Set R8005001Enabled to true to verify that implementation does not append "&gt;" after the View element. Set R8005001Enabled to false to disable this requirement. -->
+    <Property name="R8005001Enabled" value="false" />
+    <!-- Set R8015Enabled to true to verify that implementation does return the value of OpenApplicationExtension as the value of the View element when GetView is called after UpdateViewHtml2 (section 3.1.4.8) and the type of the view is HTML. Set R8015Enabled to false to disable this requirement. -->
+    <Property name="R8015Enabled" value="true" />
   </Properties>
 </TestSite>

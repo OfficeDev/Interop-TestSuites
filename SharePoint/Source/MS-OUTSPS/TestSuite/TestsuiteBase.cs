@@ -1680,6 +1680,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
         protected XmlNode[] GetListItemsChangesFromSUT(string listId)
         {
             XmlNode[] listItemsChanges = this.GetListItemsChangesFromSUT(listId, null);
+            int listItemIndex = this.GetZrowItemIndexByListItemId(listItemsChanges, "1");
+
+            string contentTypeId = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_ContentTypeId");
+            string id = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_ID");
+            string hiddenversion = Common.GetZrowAttributeValue(listItemsChanges, listItemIndex, "ows_owshiddenversion");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+            // 
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                208,
+                "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
 
             return listItemsChanges;
         }
@@ -1923,7 +1935,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 this.Site.Assert.Fail("The [{0}] message data file should contain the [{0}] property.", propertyName);
             }
 
-            int rowBreakerPositionOfProperty = discussionMessageString.IndexOf("\r\n", keyWordPositionOfProperty, StringComparison.OrdinalIgnoreCase);
+            int rowBreakerPositionOfProperty = discussionMessageString.IndexOf("\n", keyWordPositionOfProperty, StringComparison.OrdinalIgnoreCase);
             if (-1 == rowBreakerPositionOfProperty)
             {
                 this.Site.Assert.Fail(

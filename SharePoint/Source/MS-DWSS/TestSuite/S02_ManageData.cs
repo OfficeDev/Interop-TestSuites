@@ -134,7 +134,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR556,
                 556,
-                @"[In GetDwsDataResponse] User: The member (1) information for the user who requested the GetDwsData operation.");
+                @"[In GetDwsDataResponse] User: The member information for the user who requested the GetDwsData operation.");
             
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R211");
@@ -223,7 +223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     this.Site.CaptureRequirementIfIsTrue(
                         isIdUnique,
                         700,
-                        @"[In Member] ID: A positive integer that MUST uniquely identify a group (2).");
+                        @"[In Member] ID: A positive integer that MUST uniquely identify a group.");
                 }
                 else if (member.IsDomainGroup == MemberIsDomainGroup.False)
                 {
@@ -680,7 +680,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR604,
                 604,
-                @"[In GetDwsMetaDataResponse] UserInfoUrl: URI of a page that enables the list (1) of users to be modified.");
+                @"[In GetDwsMetaDataResponse] UserInfoUrl: URI of a page that enables the list of users to be modified.");
             
             this.Site.Assert.IsNotNull(getDwsMetaDataResult1.ListInfo, "The server should return ListInfo element.");
             this.Site.Assert.IsTrue(getDwsMetaDataResult1.ListInfo.Length == 3, "The server should return 3 ListInfo elements");
@@ -746,7 +746,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             // If R628 is verified, it indicates that the ListPermissions element does displays the current user permissions.
             this.Site.CaptureRequirement(
                 627,
-                @"[In ListInfo] ListPermissions: This element displays the current user permissions that are associated with the list (1).");
+                @"[In ListInfo] ListPermissions: This element displays the current user permissions that are associated with the list.");
             
             // If R628 is verified, it indicates that the user does have permission to add new items.
             this.Site.CaptureRequirement(
@@ -835,7 +835,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 "False",
                 isADMode[0].Value,
                 617,
-                @"[In GetDwsMetaDataResponse] IsADMode: Set to FALSE if, and only if, the workspace is not set to Active Directory mode, that is, a mode in which new site (2) members are not created in Active Directory Domain Services (AD DS).");
+                @"[In GetDwsMetaDataResponse] IsADMode: Set to FALSE if, and only if, the workspace is not set to Active Directory mode, that is, a mode in which new site members are not created in Active Directory Domain Services (AD DS).");
             
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R281");
@@ -864,7 +864,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsNotNull(
                 getDwsMetaDataResult1.Results,
                 282,
-                @"[In GetDwsMetaDataResponse] GetDwsDataResult: This element is identical to the GetDwsDataResult element specified in section 3.1.4.7.2.2, with the exception that it MUST contain Results element.");
+                @"[In GetDwsMetaDataResponse] Results: This element is identical to Results element of the GetDwsDataResult element specified in section 3.1.4.7.2.2.");
             
             // Create another workspace.
             UsersItem users = new UsersItem();
@@ -891,10 +891,9 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             
             bool isAddLinksList = this.sutControlAdapterInstance.AddList("Links", 103, baseUrl);
             this.Site.Assert.IsTrue(isAddLinksList, "Failed to add the Links list.");
-            
+
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") ||
-                string.Equals(sutVersion, "SharePointServer2013"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
             {
                 bool isAddDocList = this.sutControlAdapterInstance.AddList("Documents", 101, baseUrl);
                 this.Site.Assert.IsTrue(isAddDocList, "Failed to add the Documents list.");
@@ -904,7 +903,8 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 bool isAddDocList = this.sutControlAdapterInstance.AddList("Shared Documents", 101, baseUrl);
                 this.Site.Assert.IsTrue(isAddDocList, "Failed to add the Shared Documents list.");
             }
-            
+
+            this.dwsAdapter.IsListAdded = true;
             GetDwsMetaDataResultTypeResults getDwsMetaDataResult2 = this.dwsAdapter.GetDwsMetaData(docUrl, docId, false, out error);
             this.Site.Assert.IsNull(error, "The server should not return an error.");
 
@@ -973,8 +973,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.Assert.IsTrue(isDeleteLinksList, "Failed to delete the Links List.");
             
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") ||
-                string.Equals(sutVersion, "SharePointServer2013"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
             {
                 bool isDeleteDocList = this.sutControlAdapterInstance.DeleteList("Documents", baseUrl);
                 this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
@@ -985,6 +984,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
             }
 
+            this.dwsAdapter.IsListAdded = false;
             GetDwsMetaDataResultTypeResults getDwsMetaDataResult3 = this.dwsAdapter.GetDwsMetaData(docUrl, docId, false, out error);
             this.Site.Assert.IsNull(error, "The server should not return an error.");
             
@@ -1091,7 +1091,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsFalse(
                 getDwsMetaDataResult.WorkspaceType is XmlNode[],
                 614,
-                @"[In GetDwsMetaDataResponse] If the site(2) is not one of those types [""DWS"", ""MWS"", or an empty string.], an empty string MUST be returned.");
+                @"[In GetDwsMetaDataResponse] If the site is not one of those types [""DWS"", ""MWS"", or an empty string.], an empty string MUST be returned.");
         }
         
         /// <summary>
@@ -1193,12 +1193,12 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     HttpStatusCode.Unauthorized,
                     ((HttpWebResponse)webException.Response).StatusCode,
                     1680,
-                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error. (<8>Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return ""NoAccess"" error code and will return HTTP status code 401 with response body which contains text ""401 Unauthorized"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the ""NoAccess"" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text ""401 Unauthorized"".)");
 
                 // If R1680 is verified, then the server did return HTTP status code 401 when the user is unauthorized.
                 this.Site.CaptureRequirement(
-                    1682, 
-                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error. (<10>Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return ""NoAccess"" error code and will return HTTP status code 401 with response body which contains text ""401 Unauthorized"".)");
+                    1682,
+                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error if the current user does not have sufficient permissions to access list permission information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return ""NoAccess"" error code and will return HTTP status code 401 with response body which contains text ""401 Unauthorized"".)");
             }
         }
 

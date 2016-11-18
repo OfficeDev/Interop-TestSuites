@@ -406,7 +406,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirementIfIsTrue(
                 expectederrorString.Equals(errorString, StringComparison.OrdinalIgnoreCase),
                 2426,
-                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<22> Section 3.1.4.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<24> Section 3.1.4.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
             #endregion
         }
@@ -807,6 +807,19 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     errorCode,
                     470,
                     @"[In DeleteAttachment operation] If the listItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault. There is no error code for this fault.");
+                
+                //Verify MS-LISTSWS requirement: MS-LISTSWS_R465001
+                Site.CaptureRequirementIfIsNull(
+                    errorCode,
+                    465001,
+                    @"[In DeleteAttachment operation] If the listItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault.");
+
+                //Verify MS-LISTSWS requirement: MS-LISTSWS_R465002
+                Site.CaptureRequirementIfIsNull(
+                    errorCode,
+                    465002,
+                    @"There is no error code for this fault.");
+            
             }
 
             #endregion
@@ -868,7 +881,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirementIfIsTrue(
                         expectederrorString.IndexOf(errorString, StringComparison.OrdinalIgnoreCase) >= 0,
                         2440,
-                        @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<36> Section 3.1.4.10: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                        @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<38> Section 3.1.4.10: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             #endregion
         }
 
@@ -1182,7 +1195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirementIfIsTrue(
                         expectederrorString.IndexOf(errorString, StringComparison.OrdinalIgnoreCase) >= 0,
                         2450,
-                        @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<42> Section 3.1.4.14: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                        @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<44> Section 3.1.4.14: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
             #endregion
         }
@@ -1461,7 +1474,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                             isR30371Verified,
                             30371,
                             @"[In GetAttachmentCollection operation]  Implementation does return the following SOAP fault with no error code: ""Value does not fall within the expected range."", "
-                            + @" if the listItemID is a negative value. (<43> Section 3.1.4.14: wss3 return the following SOAP fault with no error code: ""Value does not fall within the expected range."")");
+                            + @" if the listItemID is a negative value. (<45> Section 3.1.4.14: wss3 return the following SOAP fault with no error code: ""Value does not fall within the expected range."")");
                 }
 
                 if (Common.IsRequirementEnabled(30372, this.Site))

@@ -126,7 +126,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000006",
                 addMeetingFromICalResult.GetErrorCode(),
                 88,
-                @"[In AddMeetingFromICalResponse]If this operation [AddMeetingFromICal] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
+                @"[In AddMeetingFromICalResponse]If this operation [AddMeetingFromICal] is sent to a Web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
 
             SoapResult<UpdateMeetingFromICalResponseUpdateMeetingFromICalResult> updateMeetingFromICalResult = this.meetsAdapter.UpdateMeetingFromICal(icalendar, null);
             Site.Assert.IsNotNull(updateMeetingFromICalResult.Exception, "UpdateMeetingFromICal should fail.");
@@ -136,7 +136,7 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 "0x00000006",
                 updateMeetingFromICalResult.GetErrorCode(),
                 380,
-                @"[In UpdateMeetingFromICalResponse]If this operation [UpdateMeetingFromICal] is sent to a Web site (2) that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
+                @"[In UpdateMeetingFromICalResponse]If this operation [UpdateMeetingFromICal] is sent to a web site that is not a meeting workspace, the response MUST be a SOAP fault with SOAP fault code ""0x00000006"".");
 
             // Send SetAttendeeResponseSoapIn to a website that is not a workspace.
             SoapResult<Null> setAttendeeResponseResult = this.meetsAdapter.SetAttendeeResponse(organizerEmail, null, Guid.NewGuid().ToString(), null, null, null, null);
@@ -562,6 +562,45 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 @"[In UpdateMeetingFromICal]If icalText is not present, the UpdateMeetingFromICal operation will failed with an exception.");
 
             // Clean up the SUT.
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+            SoapResult<Null> deleteResult = this.meetsAdapter.DeleteWorkspace();
+            Site.Assert.IsNull(deleteResult.Exception, "DeleteWorkspace should succeed");
+        }
+
+        /// <summary>
+        /// This test case is used to test SOAP fault "0x0000000a" is returned if calls AddMeetingFromICal with an invalid organizerEmail.
+        /// </summary>
+        [TestCategory("MSMEETS"), TestMethod()]
+        public void MSMEETS_S03_TC15_MeetingFromICalWithInvalidOrganizerEmail()
+        {
+            string uid = Guid.NewGuid().ToString();
+
+            // Create a workspace on the server
+            string workspaceTitle = TestSuiteBase.GetUniqueWorkspaceTitle();
+            SoapResult<CreateWorkspaceResponseCreateWorkspaceResult> createWorkspaceResult = this.meetsAdapter.CreateWorkspace(workspaceTitle, null, null, null);
+            Site.Assert.IsNull(createWorkspaceResult.Exception, "Create workspace should succeed");
+
+            // Add meeting from ICalendar.
+            this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
+
+            string meetingTitle = TestSuiteBase.GetUniqueMeetingTitle();
+            string meetingLocation = TestSuiteBase.GetUniqueMeetingLocation();
+            string icalendar = TestSuiteBase.GetICalendar(uid, false, meetingTitle, meetingLocation);
+            string organizerEmail = Common.GenerateResourceName(this.Site, "InvalidOrganizerEmail");
+            SoapResult<AddMeetingFromICalResponseAddMeetingFromICalResult> addMeetingFromICalResult = this.meetsAdapter.AddMeetingFromICal(organizerEmail, icalendar);
+            string errorCode = Common.ExtractErrorCodeFromSoapFault(addMeetingFromICalResult.Exception);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-MEETS_R29971");
+
+            // Verify MS-VERSS requirement: MS-MEETS_R29971
+            Site.CaptureRequirementIfAreEqual<string>(
+                "0x0000000a",
+                errorCode,
+                29971,
+                @"[In AddMeetingFromICal]If this parameter [organizerEmail] is an invalid e-mail address, the response MUST be a SOAP fault with SOAP fault code ""0x0000000a"".");
+
+            // Clean up the SUT. 
             this.meetsAdapter.Url = createWorkspaceResult.Result.CreateWorkspace.Url + Common.GetConfigurationPropertyValue("EntryUrl", this.Site);
             SoapResult<Null> deleteResult = this.meetsAdapter.DeleteWorkspace();
             Site.Assert.IsNull(deleteResult.Exception, "DeleteWorkspace should succeed");

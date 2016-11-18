@@ -80,25 +80,25 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             Site.CaptureRequirementIfIsNotNull(
                 claimResult,
                 407,
-                @"[In Message Processing Events and Sequencing Rules] ClaimReleaseTask claims (1) or releases a claim (1) on a workflow task.");
+                @"[In Message Processing Events and Sequencing Rules] ClaimReleaseTask claims or releases a claim on a workflow task.");
 
             // Verify MS-WWSP requirement: MS-WWSP_R110
             Site.CaptureRequirementIfIsNotNull(
                 claimResult,
                 110,
-                @"[In ClaimReleaseTask] This operation[ClaimReleaseTask] claims (1) or releases a claim (1) on workflow task.");
+                @"[In ClaimReleaseTask] This operation[ClaimReleaseTask] claims or releases a claim on workflow task.");
 
             // Verify MS-WWSP requirement: MS-WWSP_R116
             Site.CaptureRequirementIfIsNotNull(
                 claimResult,
                 116,
-                @"[In Messages] ClaimReleaseTaskSoapOut specifies the response to a request to claim (1) or release a claim (1) on a workflow task.");
+                @"[In Messages] ClaimReleaseTaskSoapOut specifies the response to a request to claim or release a claim on a workflow task.");
 
             // Verify MS-WWSP requirement: MS-WWSP_R125
             Site.CaptureRequirementIfIsNotNull(
                 claimResult,
                 125,
-                @"[In Elements] ClaimReleaseTaskResponse contains the response to a request to claim (1) or release a claim (1) on a workflow task.");
+                @"[In Elements] ClaimReleaseTaskResponse contains the response to a request to claim or release a claim on a workflow task.");
 
             // Verify MS-WWSP requirement: R113
             this.Site.CaptureRequirementIfIsNotNull(

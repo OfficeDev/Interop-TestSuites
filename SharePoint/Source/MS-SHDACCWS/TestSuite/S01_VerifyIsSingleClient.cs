@@ -53,10 +53,13 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
             bool allCoAuthoringStatus = SHDACCWSAdapter.IsOnlyClient(Guid.Parse(fileIdOfCoAuthoring));
             
             // If server returns "false", then capture MS-SHDACCWS requirement: MS-SHDACCWS_R52.
+            if (Common.IsRequirementEnabled(52, this.Site))
+            {
             this.Site.CaptureRequirementIfIsFalse(
                 allCoAuthoringStatus,
                 52,
                 @"[In IsOnlyClientResponse] IsOnlyClientResult : The value of this element MUST be false if there was a co-authoring transition request for the document.");
+            }
         }
         #endregion
 

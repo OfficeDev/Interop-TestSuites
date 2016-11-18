@@ -213,7 +213,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R683</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] [Complex type] WebDefinition [Description] Specifies a single site (2).</ns1:Description>
+		<ns1:Description>[In Complex Types] [Complex type] WebDefinition [Description] Specifies a single site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -267,7 +267,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R689</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] The WebDefinition complex type specifies a single site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] The WebDefinition complex type specifies a single site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -276,7 +276,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R690</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] It[WebDefinition] contains a set of XML attributes that identify and describe the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] It[WebDefinition] contains a set of XML attributes that identify and describe the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -306,7 +306,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R857</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] Title: Specifies the title of the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] Title: Specifies the title of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -315,7 +315,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R693</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] Url: Specifies the absolute URL of the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] Url: Specifies the absolute URL of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -324,7 +324,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R694</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] Description: Specifies the description of the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] Description: Specifies the description of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -333,7 +333,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R695</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] Language: Specifies the language code identifier (LCID) for the language of the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] Language: Specifies the language code identifier (LCID) for the language of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -342,7 +342,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R696</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] Theme: Specifies the name of the theme that is applied to the site (2).</ns1:Description>
+		<ns1:Description>[In WebDefinition] Theme: Specifies the name of the theme that is applied to the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -361,7 +361,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] [GetWeb] Id: A GUID that is the identifier of the site (2).&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition] [GetWeb] Id: A GUID that is the identifier of the site.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -371,7 +371,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R699</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition][GetWeb] ExcludeFromOfflineClient: Specifies if the content in the site (2) can be downloaded to a client or not.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition][GetWeb] ExcludeFromOfflineClient: Specifies if the content in the site can be downloaded to a client or not.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -381,7 +381,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R700</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition][GetWeb] CellStorageWebServiceEnabled: Specifies if a cell storage service is enabled on the site (2) or not.&lt;5&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition][GetWeb] CellStorageWebServiceEnabled: Specifies if a cell storage service is enabled on the site or not.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -649,7 +649,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetActivatedFeatures: Obtains the list of features activated on the site (2) and in the parent site collection.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetActivatedFeatures: Obtains the list of features activated on the site and in the parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -658,7 +658,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetAllSubWebCollection: Obtains a list of the titles and URLs of all sites (2) in the site collection.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetAllSubWebCollection: Obtains a list of the titles and URLs of all sites in the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -685,7 +685,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetContentTypes: Requests all content types on the site (2).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetContentTypes: Requests all content types on the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -721,7 +721,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetWeb: Obtains the details about the specified site (2).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  GetWeb: Obtains the details about the specified site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -739,7 +739,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R27</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  RemoveContentTypeXmlDocument: Adds or updates an XML document in the XML document collection of a site content type.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] [WSDL operation description]  RemoveContentTypeXmlDocument: Removes an XML document in the XML document collection of a site content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1239,16 +1239,6 @@ http://schemas.microsoft.com/sharepoint/soap/CreateContentType</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R58</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateContentTypeSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/CreateContentType</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R59</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CreateContentTypeSoapOut] The SOAP body contains a CreateContentTypeResponse element.</ns1:Description>
@@ -1303,7 +1293,7 @@ The request to create a content type on the context site.</ns1:Description>
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
       &lt;s:element name="displayName" type="s:string" minOccurs="1"/&gt;
-      &lt;s:element name="parentType" type="core:ContentTypeId" minOccurs="1"/&gt;
+      &lt;s:element name="parentType" type="s:string" minOccurs="1"/&gt;
       &lt;s:element name="newFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/&gt;
       &lt;s:element name="contentTypeProperties" minOccurs="1"&gt;
         &lt;s:complexType&gt;
@@ -1555,6 +1545,15 @@ The request to create a content type on the context site.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R71001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateContentType] parentType: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R72</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateContentType] newFields: Container for a list of existing fields to be included in the content type.</ns1:Description>
@@ -1615,7 +1614,7 @@ The request to create a content type on the context site.</ns1:Description>
 &lt;s:element name="CreateContentTypeResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="CreateContentTypeResult" type="core:ContentTypeId" minOccurs="1"/&gt;
+      &lt;s:element name="CreateContentTypeResult" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -1632,6 +1631,15 @@ The request to create a content type on the context site.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R712001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In CreateContentTypeResponse] CreateContentTypeResult: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R79</ns1:REQ_ID>
@@ -1653,7 +1661,7 @@ The request to create a content type on the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R81</ns1:REQ_ID>
@@ -1739,23 +1747,13 @@ http://schemas.microsoft.com/sharepoint/soap/CustomizeCss</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R87</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CustomizeCssSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/CustomizeCss</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R88</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CustomizeCssSoapOut] The SOAP body contains a CustomizeCssResponse element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R875</ns1:REQ_ID>
@@ -1794,7 +1792,7 @@ CustomizeCssResponse
 &lt;s:element name="CustomizeCss"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="cssFile" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="cssFile" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -1846,7 +1844,7 @@ CustomizeCssResponse
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R95</ns1:REQ_ID>
@@ -1855,7 +1853,7 @@ CustomizeCssResponse
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R96</ns1:REQ_ID>
@@ -1866,7 +1864,7 @@ CustomizeCssResponse
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R97</ns1:REQ_ID>
@@ -1881,7 +1879,7 @@ CustomizeCssResponse
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType] This operation[DeleteContentType]&lt;9&gt; removes a specified content type from the site (2).</ns1:Description>
+		<ns1:Description>[In DeleteContentType] This operation[DeleteContentType]&lt;10&gt; removes a specified content type from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1959,7 +1957,7 @@ CustomizeCssResponse
 		<ns1:REQ_ID>MS-WEBSS_R879</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] [Message] DeleteContentTypeSoapIn
-  [Description] The request to remove a specified content type from the site (2).</ns1:Description>
+  [Description] The request to remove a specified content type from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1995,16 +1993,6 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R112</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentTypeSoapOut] The SOAP action value of this message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R113</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In DeleteContentTypeSoapOut] The SOAP body contains a DeleteContentTypeResponse element.</ns1:Description>
@@ -2026,7 +2014,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 		<ns1:REQ_ID>MS-WEBSS_R882</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements] [Element]  DeleteContentType
- [Description] The request to remove a specified content type from the site (2).</ns1:Description>
+ [Description] The request to remove a specified content type from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2046,7 +2034,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType] This[DeleteContentType] is the request element to delete the content type from the site (2).</ns1:Description>
+		<ns1:Description>[In DeleteContentType] This[DeleteContentType] is the request element to delete the content type from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2059,7 +2047,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 &lt;s:element name="DeleteContentType"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/&gt;
+      &lt;s:element name="contentTypeId" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -2071,7 +2059,16 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType] contentTypeId: The content type identifier of the content type to be removed from the site (2).</ns1:Description>
+		<ns1:Description>[In DeleteContentType] contentTypeId: The content type identifier of the content type to be removed from the site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R116001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In DeleteContentType] contentTypeId: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2080,7 +2077,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R117</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentTypeResponse] This[DeleteContentType] is the response from the protocol server stating that the content type has been removed from the site (2).</ns1:Description>
+		<ns1:Description>[In DeleteContentTypeResponse] This[DeleteContentType] is the response from the protocol server stating that the content type has been removed from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2093,7 +2090,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 &lt;s:element name="DeleteContentTypeResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="DeleteContentTypeResult" minOccurs="1"&gt;
+      &lt;s:element name="DeleteContentTypeResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="Success"&gt;
@@ -2131,7 +2128,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R121</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetActivatedFeatures] This operation[GetActivatedFeatures]&lt;11&gt; obtains a list of activated features on the site (2) and on the parent site collection.</ns1:Description>
+		<ns1:Description>[In GetActivatedFeatures] This operation[GetActivatedFeatures]&lt;11&gt; obtains a list of activated features on the site and on the parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2228,7 +2225,7 @@ xmlns="http://schemas.microsoft.com/sharepoint/soap/"&gt;
 		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] [Message] GetActivatedFeaturesSoapIn
 
- [Description] The request for a list of all features that are activated on the site (2) and its parent site collection.</ns1:Description>
+ [Description] The request for a list of all features that are activated on the site and its parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2240,7 +2237,7 @@ xmlns="http://schemas.microsoft.com/sharepoint/soap/"&gt;
 		<ns1:Description>[In Messages]  [Message] 
 
  GetActivatedFeaturesSoapOut
- [Description] The response to a request for a list of features on the site (2) or in its parent site collection.</ns1:Description>
+ [Description] The response to a request for a list of features on the site or in its parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2277,7 +2274,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R131</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetActivatedFeaturesSoapOut] This message[GetActivatedFeaturesSoapOut] is the response to a request for a list of features on the site (2) or in its parent site collection.</ns1:Description>
+		<ns1:Description>[In GetActivatedFeaturesSoapOut] This message[GetActivatedFeaturesSoapOut] is the response to a request for a list of features on the site or in its parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2291,16 +2288,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R133</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetActivatedFeaturesSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R134</ns1:REQ_ID>
@@ -2325,7 +2312,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements] [Element] GetActivatedFeatures
   
- [Description] The request for a list of all features that are activated on the site (2) and its parent site collection.</ns1:Description>
+ [Description] The request for a list of all features that are activated on the site and its parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2360,7 +2347,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 &lt;s:element name="GetActivatedFeaturesResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetActivatedFeaturesResult" type="s:string" minOccurs="1" maxOccurs="1" /&gt;
+      &lt;s:element name="GetActivatedFeaturesResult" type="s:string" minOccurs="0" maxOccurs="1" /&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -2381,7 +2368,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R138</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetActivatedFeaturesResponse] The list MUST include one GUID identifying every feature activated on the site (2), a tab character followed by one GUID identifying every feature activated in the site collection.</ns1:Description>
+		<ns1:Description>[In GetActivatedFeaturesResponse] The list MUST include one GUID identifying every feature activated on the site, a tab character followed by one GUID identifying every feature activated in the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2399,7 +2386,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R140</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In GetAllSubWebCollection] This operation[GetAllSubWebCollection] obtains a list of titles and URLs of all sites (2) in the site collection.</ns1:Description>
+		<ns1:Description>[In GetAllSubWebCollection] This operation[GetAllSubWebCollection] obtains a list of titles and URLs of all sites in the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2467,7 +2454,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 		<ns1:REQ_ID>MS-WEBSS_R891</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] [Message] GetAllSubWebCollectionSoapIn
- [Description] A request for the titles and URLs of all sites (2) in the current site collection.</ns1:Description>
+ [Description] A request for the titles and URLs of all sites in the current site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2514,21 +2501,11 @@ http://schemas.microsoft.com/sharepoint/soap/GetAllSubWebCollection</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetAllSubWebCollectionSoapOut] This message[GetAllSubWebCollectionSoapOut] returns the title and URL of all sites (2) in the site collection.</ns1:Description>
+		<ns1:Description>[In GetAllSubWebCollectionSoapOut] This message[GetAllSubWebCollectionSoapOut] returns the title and URL of all sites in the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R149</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetAllSubWebCollectionSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetAllSubWebCollection</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R150</ns1:REQ_ID>
@@ -2552,7 +2529,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetAllSubWebCollection</ns1:Descrip
 		<ns1:REQ_ID>MS-WEBSS_R893</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements]  [Element] 
-GetAllSubWebCollection  [Description] A request for the titles and URLs of all sites (2) in the current site collection.</ns1:Description>
+GetAllSubWebCollection  [Description] A request for the titles and URLs of all sites in the current site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2588,7 +2565,7 @@ GetAllSubWebCollectionResponse
 &lt;s:element name="GetAllSubWebCollectionResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetAllSubWebCollectionResult" minOccurs="1" maxOccurs="1" &gt;
+      &lt;s:element name="GetAllSubWebCollectionResult" minOccurs="0" maxOccurs="1" &gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="Webs"&gt;
@@ -2639,7 +2616,7 @@ GetAllSubWebCollectionResponse
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetAllSubWebCollectionResponse] Each Web element provides the title and URL of one site (2).</ns1:Description>
+		<ns1:Description>[In GetAllSubWebCollectionResponse] Each Web element provides the title and URL of one site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2834,16 +2811,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetColumns</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R172</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetColumnsSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetColumns</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R173</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetColumnsSoapOut] The SOAP body contains a GetColumnsResponse element.</ns1:Description>
@@ -2902,7 +2869,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetColumns</ns1:Description>
 &lt;s:element name="GetColumnsResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetColumnsResult" minOccurs="1"&gt;
+      &lt;s:element name="GetColumnsResult" minOccurs="0"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
               &lt;s:element name="Fields"&gt;
@@ -3021,7 +2988,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R185</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentType] If contentTypeId does not match the content type identifier of a content type on the site (2), the protocol server MUST return a SOAP exception.</ns1:Description>
+		<ns1:Description>[In GetContentType] If contentTypeId does not match the content type identifier of a content type on the site, the protocol server MUST return a SOAP exception.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3094,16 +3061,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R190</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypeSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R191</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetContentTypeSoapOut] The SOAP body contains a GetContentTypeResponse element.</ns1:Description>
@@ -3148,7 +3105,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 &lt;s:element name="GetContentType"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/&gt;
+      &lt;s:element name="contentTypeId" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -3170,6 +3127,15 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 		<ns1:REQ_ID>MS-WEBSS_R193</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetContentType] contentTypeId: The identifier of the content type to be returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R193001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetContentType] contentTypeId: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3277,7 +3243,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R200</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypeResponse] It[GetContentTypeResult.ContentType.Folder.TargetName] MUST be a URL relative to the URL of the site (2) on which the content type is located.</ns1:Description>
+		<ns1:Description>[In GetContentTypeResponse] It[GetContentTypeResult.ContentType.Folder.TargetName] MUST be a URL relative to the URL of the site on which the content type is located.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3295,7 +3261,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypeResponse] It[GetContentTypeResult.ContentType.Folder.TargetName] MUST be less than three levels deep with respect to the URL of the site (2) on which the content type is located.</ns1:Description>
+		<ns1:Description>[In GetContentTypeResponse] It[GetContentTypeResult.ContentType.Folder.TargetName] MUST be less than three levels deep with respect to the URL of the site on which the content type is located.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3322,7 +3288,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R204</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypeResponse] GetContentTypeResult.ContentType.DocumentTemplate: Specifies the content type document template (2).</ns1:Description>
+		<ns1:Description>[In GetContentTypeResponse] GetContentTypeResult.ContentType.DocumentTemplate: Specifies the content type document template.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3331,7 +3297,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R205</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypeResponse] GetContentTypeResult.ContentType.DocumentTemplate.TargetName: Name of the document template (2) file associated with the content type.</ns1:Description>
+		<ns1:Description>[In GetContentTypeResponse] GetContentTypeResult.ContentType.DocumentTemplate.TargetName: Name of the document template file associated with the content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3580,7 +3546,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 		<ns1:REQ_ID>MS-WEBSS_R910</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] [Message]  GetContentTypesSoapIn
- [Description] The request for all content types on a site (2).</ns1:Description>
+ [Description] The request for all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3599,7 +3565,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypesSoapIn] This[GetContentTypesSoapIn] SOAP message requests all content types on a site (2).</ns1:Description>
+		<ns1:Description>[In GetContentTypesSoapIn] This[GetContentTypesSoapIn] SOAP message requests all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3627,20 +3593,10 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypesSoapOut] This[GetContentTypesSoapOut] SOAP message returns all content types on a site (2).</ns1:Description>
+		<ns1:Description>[In GetContentTypesSoapOut] This[GetContentTypesSoapOut] SOAP message returns all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R235</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypesSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3664,7 +3620,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R913</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements]  [Element]  GetContentTypes  [Description] A request for all content types on a site (2).</ns1:Description>
+		<ns1:Description>[In Elements]  [Element]  GetContentTypes  [Description] A request for all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3682,7 +3638,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R237</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypes] This[GetContentTypes] element is a request for all content types on a site (2).</ns1:Description>
+		<ns1:Description>[In GetContentTypes] This[GetContentTypes] element is a request for all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3703,7 +3659,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypesResponse] This[GetContentTypesResponse] element is a response containing all content types on a site (2).</ns1:Description>
+		<ns1:Description>[In GetContentTypesResponse] This[GetContentTypesResponse] element is a response containing all content types on a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3927,7 +3883,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R261</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In GetCustomizedPageStatus] The protocol server portion of the HTTP POST address MUST be the address of a site (2).</ns1:Description>
+		<ns1:Description>[In GetCustomizedPageStatus] The protocol server portion of the HTTP POST address MUST be the address of a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4081,16 +4037,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetCustomizedPageStatus</ns1:Descri
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R275</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.9.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetCustomizedPageStatusSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetCustomizedPageStatus</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R276</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetCustomizedPageStatusSoapOut] The SOAP body contains a GetCustomizedPageStatusResponse element.</ns1:Description>
@@ -4136,7 +4082,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetCustomizedPageStatus</ns1:Descri
 &lt;s:element name="GetCustomizedPageStatus"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="fileUrl" type="s:string" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;s:element name="fileUrl" type="s:string" minOccurs="0" maxOccurs="1"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -4273,7 +4219,7 @@ An enumeration of possible statuses related to the customization of a page.</ns1
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R926</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CustomizedPageStatus] [Value] Customized [Meaning] The page specified by fileUrl was customized on this site (2).</ns1:Description>
+		<ns1:Description>[In CustomizedPageStatus] [Value] Customized [Meaning] The page specified by fileUrl was customized on this site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4300,7 +4246,7 @@ An enumeration of possible statuses related to the customization of a page.</ns1
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R929</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CustomizedPageStatus] [Value] Uncustomized [Meaning] The page specified by fileUrl is not customized on this site (2).</ns1:Description>
+		<ns1:Description>[In CustomizedPageStatus] [Value] Uncustomized [Meaning] The page specified by fileUrl is not customized on this site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4466,16 +4412,6 @@ http://schemas.microsoft.com/sharepoint/GetListTemplates</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R304</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.10.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetListTemplatesSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetListTemplates</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R305</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetListTemplatesSoapOut] The SOAP body contains a GetListTemplatesResponse element as specified in section 3.1.4.10.2.2.</ns1:Description>
@@ -4533,7 +4469,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetListTemplates</ns1:Description>
 &lt;s:element name="GetListTemplatesResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetListTemplatesResult" minOccurs="1"&gt;
+      &lt;s:element name="GetListTemplatesResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="ListTemplates" type="core:ListTemplateDefinitions" minOccurs="1" &gt;
@@ -4615,7 +4551,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetListTemplates</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R313</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrl] If the specified URL corresponds to an object on the site (2), use that object.</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrl] If the specified URL corresponds to an object on the site, use that object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4695,16 +4631,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetObjectIdFromUrl</ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R319</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.11.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrlSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -4910,7 +4836,16 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R328</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list (1), the value of the attribute MUST be the list identifier.</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list, the value of the attribute MUST be the list identifier.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R328001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list item, the value of the attribute MUST be the list identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4919,11 +4854,11 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list (1), the value of the attribute MUST be the list identifier. ], the value of this[ObjectId.ListId] attribute MUST be an empty string.</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be the list identifier. ], the value of this[ObjectId.ListId] attribute MUST be an empty string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R330</ns1:REQ_ID>
@@ -4956,13 +4891,43 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R331</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-WEBSS_R1045001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the list template types's value are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].], the attribute MUST NOT be present.</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the values of the list template types are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirements: MS-WEBSS_R1045001001, MS-WEBSS_R1045001002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R1045001001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the value of the list template type is 100].</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R1045001:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R1045001002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the values of the list template types are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R1045001:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the list template types's value are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].], the attribute MUST NOT be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R332</ns1:REQ_ID>
@@ -4995,13 +4960,43 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R333</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-WEBSS_R1046001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list], the attribute MUST NOT be present.</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list item, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the values of the List Base Types are 0,1,3,4,5].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirements: MS-WEBSS_R1046001001, MS-WEBSS_R1046001002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R1046001001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list item, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the value of the List Base Type is 1].</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R1046001:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R1046001002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list item, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the values of the List Base Types are 0,1,3,4,5].</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R1046001:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list and list item], the attribute MUST NOT be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R334</ns1:REQ_ID>
@@ -5155,7 +5150,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 		<ns1:REQ_ID>MS-WEBSS_R949</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] [Message] GetWebSoapIn [Description] 
-The request for the title, URL, description, language, and theme of the specified site (2).</ns1:Description>
+The request for the title, URL, description, language, and theme of the specified site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5195,21 +5190,11 @@ The SOAP body contains a GetWeb element.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWebSoapOut] This[GetWebSoapOut] message is the response containing the title, URL, description, language, and theme of the specified site (2).</ns1:Description>
+		<ns1:Description>[In GetWebSoapOut] This[GetWebSoapOut] message is the response containing the title, URL, description, language, and theme of the specified site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R354</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWebSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetWeb</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R355</ns1:REQ_ID>
@@ -5234,7 +5219,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWeb</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.12.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements] [Element] GetWeb
  
- [Description] The request for the title, URL, description, language, and theme of the specified site (2).</ns1:Description>
+ [Description] The request for the title, URL, description, language, and theme of the specified site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5257,7 +5242,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWeb</ns1:Description>
 &lt;s:element name="GetWeb"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="webUrl" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="webUrl" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -5269,7 +5254,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWeb</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R357</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetWeb] webUrl: A string that contains the absolute URL of the site (2).</ns1:Description>
+		<ns1:Description>[In GetWeb] webUrl: A string that contains the absolute URL of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5300,7 +5285,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWeb</ns1:Description>
 &lt;s:element name="GetWebResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetWebResult" minOccurs="1"&gt;
+      &lt;s:element name="GetWebResult" minOccurs="0"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="Web" type="tns:WebDefinition"/&gt;
@@ -5478,16 +5463,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetWebCollection</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R374</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.13.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetWebCollectionSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/GetWebCollection</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R375</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In GetWebCollectionSoapOut] The SOAP body contains a GetWebCollectionResponse XML element.</ns1:Description>
@@ -5544,7 +5519,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWebCollection</ns1:Description>
 &lt;s:element name="GetWebCollectionResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="GetWebCollectionResult" minOccurs="1"&gt;
+      &lt;s:element name="GetWebCollectionResult" minOccurs="0"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="Webs"&gt;
@@ -5729,16 +5704,6 @@ http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R393</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.14.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveContentTypeXmlDocumentSoapOut] The SOAP action value of this message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R394</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RemoveContentTypeXmlDocumentSoapOut] The SOAP body contains a RemoveContentTypeXmlDocumentResponse element.</ns1:Description>
@@ -5792,8 +5757,8 @@ http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument</ns1:D
 &lt;s:element name="RemoveContentTypeXmlDocument"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/&gt;
-      &lt;s:element name="documentUri" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="contentTypeId" type="s:string" minOccurs="0"/&gt;
+      &lt;s:element name="documentUri" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -5806,6 +5771,15 @@ http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument</ns1:D
 		<ns1:REQ_ID>MS-WEBSS_R397</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In RemoveContentTypeXmlDocument] contentTypeId: The content type identifier of the site content type to be modified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R397001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.14.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveContentTypeXmlDocument] contentTypeId: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5997,16 +5971,6 @@ http://schemas.microsoft.com/sharepoint/soap/RevertAllFileContentStreams</ns1:De
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R412</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.15.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RevertAllFileContentStreamsSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/RevertAllFileContentStreams</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R413</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RevertAllFileContentStreamsSoapOut] The SOAP body contains a RevertAllFileContentStreamsResponse element.</ns1:Description>
@@ -6175,16 +6139,6 @@ http://schemas.microsoft.com/sharepoint/soap/RevertCss</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R424</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.16.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RevertCssSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/RevertCss</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R425</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RevertCssSoapOut] The SOAP body contains a RevertCssResponse element.</ns1:Description>
@@ -6231,7 +6185,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertCss</ns1:Description>
 &lt;s:element name="RevertCss"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="cssFile" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="cssFile" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -6458,16 +6412,6 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R445</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.17.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In RevertFileContentStreamSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R446</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.17.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In RevertFileContentStreamSoapOut] The SOAP body contains a RevertFileContentStreamResponse element.</ns1:Description>
@@ -6516,7 +6460,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 &lt;s:element name="RevertFileContentStream"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="fileUrl" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="fileUrl" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -6569,7 +6513,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 		<ns1:REQ_ID>MS-WEBSS_R453</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.17.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In RevertFileContentStreamResponse] A SOAP fault MUST be returned if the protocol server encounters the following error condition while running this operation:
-] Occurs when the site (2) referred by the fileUrl is not a valid site (2).</ns1:Description>
+] Occurs when the site referred by the fileUrl is not a valid site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6579,7 +6523,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 		<ns1:REQ_ID>MS-WEBSS_R454</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.17.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In RevertFileContentStreamResponse]A SOAP fault MUST be returned if the protocol server encounters the following error condition while running this operation:
- Occurs when a valid URL is passed in that refers to a page on the parent site (2) of the context site.</ns1:Description>
+ Occurs when a valid URL is passed in that refers to a page on the parent site of the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6811,16 +6755,6 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R476</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.18.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumnsSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R477</ns1:REQ_ID>
@@ -7105,11 +7039,47 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R500</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns] It [Method: An element that represents a field to be used in the new, update, or delete operation. ] MUST contain an ID field.</ns1:Description>
+		<ns1:Description>[In UpdateColumns] It [Method: An element that represents a field to be used in the new, update, or delete operation. ] MUST contain an ID attribute.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R500001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server does not add[, update, or delete ]columns[ and does not return an ErrorCode].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R500002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server does not [add, ]update[, or delete] columns [and does not return an ErrorCode].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R500003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server does not [add, update, or ]delete columns [and does not return an ErrorCode].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R500004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.18.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateColumns] Method: If the Method element does not contain an ID attribute, the server [does not add, update, or delete columns and]does not return an ErrorCode.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R501</ns1:REQ_ID>
@@ -7118,7 +7088,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 &lt;s:element name="UpdateColumnsResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="UpdateColumnsResult" minOccurs="1"&gt;
+      &lt;s:element name="UpdateColumnsResult" minOccurs="0"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="Results"&gt;
@@ -7306,7 +7276,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R514</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumnsResponse] When an invalid XML element is passed in as newFields element , a SOAP fault MUST be returned.</ns1:Description>
+		<ns1:Description>[In UpdateColumnsResponse] When an invalid XML element is the child element of the newFields[, updateFields, or deleteFields elements] , a SOAP fault MUST be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7315,7 +7285,16 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R822</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumnsResponse] When an invalid XML element is passed in as deleteFields element, a SOAP fault MUST be returned.</ns1:Description>
+		<ns1:Description>[In UpdateColumnsResponse] When an invalid element is the child element of the [newFields, ]updateFields[, or deleteFields elements],  a SOAP fault MUST be returned.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R822001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.18.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateColumnsResponse] When an invalid element is the child element of the [newFields, updateFields, or ]deleteFields elements,  a SOAP fault MUST be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7610,16 +7589,6 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R539</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.19.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R540</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentTypeSoapOut] The SOAP body contains an UpdateContentTypeResponse element.</ns1:Description>
@@ -7672,7 +7641,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
 &lt;s:element name="UpdateContentType"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/&gt;
+      &lt;s:element name="contentTypeId" type="s:string" minOccurs="0"/&gt;
       &lt;s:element name="contentTypeProperties" minOccurs="1"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
@@ -7695,6 +7664,15 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
 		<ns1:REQ_ID>MS-WEBSS_R543</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentType] contentTypeId: The identifier of the content type to be updated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R543001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.19.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateContentType] contentTypeId: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8240,16 +8218,6 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R596</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.20.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeXmlDocumentSoapOut] The SOAP action value of this message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R597</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.20.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentTypeXmlDocumentSoapOut] The SOAP body contains an UpdateContentTypeXmlDocumentResponse element.</ns1:Description>
@@ -8302,11 +8270,11 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 &lt;s:element name="UpdateContentTypeXmlDocument"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1" maxOccurs="1"/&gt;
-      &lt;s:element name="newDocument" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="contentTypeId" type="s:string" minOccurs="1" maxOccurs="0"/&gt;
+      &lt;s:element name="newDocument" minOccurs="0" maxOccurs="1"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
-            &lt;s:any processContents="lax" /&gt;
+            &lt;s:any /&gt;
           &lt;/s:sequence&gt;
         &lt;/s:complexType&gt;
       &lt;/s:element&gt;
@@ -8322,6 +8290,15 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 		<ns1:REQ_ID>MS-WEBSS_R600</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.20.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentTypeXmlDocument] contentTypeId: The content type identifier of the site content type to be modified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R600001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.20.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In UpdateContentTypeXmlDocument] contentTypeId: It MUST conform to the ContentTypeId type, as specified in [MS-WSSCAML] section 2.3.1.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8430,7 +8407,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 &lt;s:element name="UpdateContentTypeXmlDocumentResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="UpdateContentTypeXmlDocumentResult" minOccurs="1" maxOccurs="1"&gt;
+      &lt;s:element name="UpdateContentTypeXmlDocumentResult" minOccurs="0" maxOccurs="1"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;            
             &lt;s:element name="Success" minOccurs="0" maxOccurs="1"&gt;
@@ -8468,7 +8445,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R617</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrl] This operation[WebUrlFromPageUrl] obtains the URL of the parent site (2) of the specified URL.</ns1:Description>
+		<ns1:Description>[In WebUrlFromPageUrl] This operation[WebUrlFromPageUrl] obtains the URL of the parent site  of the specified URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8526,7 +8503,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1011</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] [Message] WebUrlFromPageUrlSoapIn [Description] The request to obtain the URL of the parent site (2) for the specified page URL.</ns1:Description>
+		<ns1:Description>[In Messages] [Message] WebUrlFromPageUrlSoapIn [Description] The request to obtain the URL of the parent site for the specified page URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8535,7 +8512,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1012</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages]  [Message] WebUrlFromPageUrlSoapOut [Description] The response to a request to obtain the URL of the parent site (2) for the specified page URL.</ns1:Description>
+		<ns1:Description>[In Messages]  [Message] WebUrlFromPageUrlSoapOut [Description] The response to a request to obtain the URL of the parent site for the specified page URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8544,7 +8521,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R622</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrlSoapIn] This[WebUrlFromPageUrlSoapIn] is the request message to obtain the URL of the parent site (2) for the specified page URL.</ns1:Description>
+		<ns1:Description>[In WebUrlFromPageUrlSoapIn] This[WebUrlFromPageUrlSoapIn] is the request message to obtain the URL of the parent site for the specified page URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8572,20 +8549,10 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R625</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrlSoapOut] This[WebUrlFromPageUrlSoapOut] is the response message containing the URL of the parent site (2) for the specified page URL.</ns1:Description>
+		<ns1:Description>[In WebUrlFromPageUrlSoapOut] This[WebUrlFromPageUrlSoapOut] is the response message containing the URL of the parent site for the specified page URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WEBSS_R626</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.21.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrlSoapOut] The SOAP action value of the message is defined as follows:
-http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8642,7 +8609,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 &lt;s:element name="WebUrlFromPageUrl"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="pageUrl" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="pageUrl" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -8654,7 +8621,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R630</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrl] pageUrl: A URL that MUST specify a page on the site (2).</ns1:Description>
+		<ns1:Description>[In WebUrlFromPageUrl] pageUrl: A URL that MUST specify a page on the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8676,7 +8643,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
  &lt;s:element name="WebUrlFromPageUrlResponse"&gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="WebUrlFromPageUrlResult" type="s:string" minOccurs="1"/&gt;
+      &lt;s:element name="WebUrlFromPageUrlResult" type="s:string" minOccurs="0"/&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -8688,7 +8655,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R633</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebUrlFromPageUrlResponse] WebUrlFromPageUrlResult: MUST be the full URL of the site (2).</ns1:Description>
+		<ns1:Description>[In WebUrlFromPageUrlResponse] WebUrlFromPageUrlResult: MUST be the full URL of the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8883,7 +8850,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R642</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 3.1.4.2.2.1: In Windows SharePoint Services 3.0, the scope of the CustomizeCss operation is one SPWeb, referred to as a site (2) in this documentation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 3.1.4.2.2.1: In Windows SharePoint Services 3.0, the scope of the CustomizeCss operation is one SPWeb, referred to as a site in this documentation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8911,7 +8878,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R755</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] By default, the style for all sites (2) is controlled by the uncustomized copies of the CSS files that reside in this location.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] By default, the style for all sites is controlled by the uncustomized copies of the CSS files that reside in this location.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8966,7 +8933,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R761</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] In Office SharePoint Server 2007, the following CSS files are installed in the default location:
+		<ns1:Description>[In Appendix B: Product Behavior] In Microsoft Office SharePoint Server 2007, the following CSS files are installed in the default location:
 	CALENDAR.CSS
 	CONTROLS.CSS
 	CORE.CSS
@@ -8988,7 +8955,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R762</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] More than one CSS file contributes to the style and formatting of pages on a site (2), and clients can customize multiple CSS files on the same site (2) by using CustomizeCss more than one time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] More than one CSS file contributes to the style and formatting of pages on a site, and clients can customize multiple CSS files on the same site by using CustomizeCss more than one time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9011,6 +8978,28 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R764001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] In SharePoint Foundation 2010, the default central location in which the server maintains the default copy of each CSS file is in the following folder under the Microsoft Shared folder:
+\Web Server Extensions\14\TEMPLATE\LAYOUTS\1033\STYLES
+</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R764002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] In SharePoint Foundation 2013, the default central location in which the server maintains the default copy of each CSS file is in the following folder under the Microsoft Shared folder:
+\Web Server Extensions\15\TEMPLATE\LAYOUTS\1033\STYLES
+</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R643</ns1:REQ_ID>

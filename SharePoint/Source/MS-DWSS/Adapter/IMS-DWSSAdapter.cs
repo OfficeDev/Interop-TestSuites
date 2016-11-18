@@ -20,6 +20,11 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
         /// </summary>
         ICredentials Credentials { get; set; }
 
+        /// <summary>
+        /// Gets or sets the private variable isListAdded.
+        /// </summary>
+        bool IsListAdded { get; set; }
+
         #endregion
 
         #region DWSS WSDL Operations

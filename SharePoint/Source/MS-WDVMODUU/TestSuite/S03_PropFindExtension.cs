@@ -619,7 +619,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
             this.Site.CaptureRequirementIfIsTrue(
                 doesCaptureRequirement_105,
                 105,
-                @"[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource is a descendant of a resource that has changed.");
+                @"[In Repl:collblob and Repl:repl] [When the server receives a PROPFIND request with the Repl:collblob element set to a timestamp, it includes a response element for each resource in the multistatus element that is a descendant of the Request-URI (limited by the Depth header specified in [RFC2518]) and that has changed according to the rule:] The resource is a descendant of a resource that has changed later than or equal to 5 minutes before the timestamp.");
         }
 
         /// <summary>

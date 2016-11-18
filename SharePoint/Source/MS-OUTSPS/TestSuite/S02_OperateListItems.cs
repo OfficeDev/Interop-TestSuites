@@ -115,8 +115,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             int listItemIndex = this.GetZrowItemIndexByListItemId(zrowitems, "1");
             string actualEventDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EventDate");
             string actualEndDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EndDate");
-
+            string actualTimeZone = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_XMLTZone");
             #region Capture code
+            
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R879
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                this.GetTimeZoneXMLString(customPacificTimeZone),
+                actualTimeZone,
+                879,
+                "[In Complex Types][The complex type]TimeZoneRule Contains daylight saving time (DST) biases and TransitionDate elements (section 2.2.4.8).");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R880
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                880,
+                "[In Complex Types][The complex type]TimeZoneXML Contains a TimeZoneRule (section 2.2.4.6).");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R950
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                950,
+                @"[In TimeZoneXML complex type]The TimeZoneXML complex type contains a TimeZoneRule (section 2.2.4.6) to define a time zone.
+                <s:complexType name=""TimeZoneXML"">
+                  <s:sequence>
+                    <s:element name=""timeZoneRule"" type=""tns:TimeZoneRule"" />
+                  </s:sequence>
+                </s:complexType>");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R952
+            // TimeZoneXML is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                952,
+                @"[In TransitionDate complex type] The TransitionDate complex type contains transition dates for DST.
+                <s:complexType name=""TransitionDate"">
+                  <s:sequence>
+                    <s:element name=""transitionRule"">
+                      <s:complexType>
+                        <s:simpleContent>
+                          <s:extension base=""s:string"">
+                            <s:attribute name=""day"" type=""tns:DayOfWeek"" default=""su"" use=""optional"" />
+                            <s:attribute name=""month"" type=""s:integer"" use=""required"" />
+                            <s:attribute name=""dayOfMonth"" type=""s:integer"" use=""optional"" />
+                            <s:attribute name=""weekdayOfMonth"" type=""tns:WeekdayOfMonth"" default=""first"" use=""optional"" />
+                          </s:extension>
+                        </s:simpleContent>
+                      </s:complexType>
+                    </s:element>
+                    <s:element name=""transitionTime"" type=""s:string"" />
+                  </s:sequence>
+                </s:complexType>");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R881
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                this.GetTimeZoneXMLString(customPacificTimeZone),
+                actualTimeZone,
+                881,
+                "[In Complex Types][The complex type]TransitionDate Contains DST transition dates.");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R945
+            // TimeZoneRule is included in request, this requirement can be captured directly if the operation executes successfully.
+            this.Site.CaptureRequirement(
+                945,
+                @"[In TimeZoneRule complex type] The TimeZoneRule complex type contains DST biases and TransitionDate (section 2.2.4.8) elements.
+                <s:complexType name=""TimeZoneRule"">
+                  <s:sequence>
+                    <s:element name=""standardBias"" type=""s:integer"" />
+                    <s:element name=""additionalDaylightBias"" type=""s:integer"" minOccurs=""0"" />
+                    <s:element name=""standardDate"" type=""s1:TransitionDate"" minOccurs=""0"" />
+                    <s:element name=""daylightDate"" type=""s1:TransitionDate"" minOccurs=""0"" />
+                  </s:sequence>
+                </s:complexType>");
 
             // If the EndDate and EventDate fields' values equal to the values the client set in upon steps, then capture R1264
             DateTime actualEndDate;
@@ -222,6 +290,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             string actualEventDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EventDate");
             string actualEndDateValue = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_EndDate");
             #region Capture code
+
+            string duration = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_Duration");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R863
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "86340",
+                duration,
+                863,
+                @"[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours) when the appointment is not a single appointment. ");
 
             DateTime actualEndDate;
             if (!DateTime.TryParse(actualEndDateValue, null, System.Globalization.DateTimeStyles.AdjustToUniversal, out actualEndDate))
@@ -366,7 +443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             recurEventFieldsSetting.Add("EventType", "0");
 
             // "0" means this is not an all-day event.
-            recurEventFieldsSetting.Add("fAllDayEvent", "0");
+            recurEventFieldsSetting.Add("fAllDayEvent", "1");
 
             // "0" means this is not a recurrence event.
             recurEventFieldsSetting.Add("fRecurrence", "0");
@@ -386,6 +463,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             int listItemIndex = this.GetZrowItemIndexByListItemId(zrowitems, "1");
 
             #region Capture code
+
+            string duration = Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_Duration");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R8631
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                ((endDate.Day - eventDate.Day + 1) * 86400 - 60).ToString(),
+                duration,
+                8631,
+                "[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be [(days of EndDate – days of EventDate + 1)*86400-60] seconds when the appointment is a single appointment.");
 
             // Verify MS-OUTSPS requirement: MS-OUTSPS_R278
             this.Site.CaptureRequirementIfAreEqual(
@@ -541,7 +627,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 "1",
                 Common.GetZrowAttributeValue(zrowitems, listItemIndex, "ows_fRecurrence"),
                 286,
-                "[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is recurring,");
+                "[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is a recurring event or an exception,");
 
             // Verify MS-OUTSPS requirement: MS-OUTSPS_R984
             this.Site.CaptureRequirementIfAreEqual(
@@ -1495,7 +1581,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In Complex Types]The RecurrenceXML complex type contains a RecurrenceDefinition (section 2.2.4.3).
                     <s:complexType name=""RecurrenceXML"">
                       <s:sequence>
-                        <s:element name=""recurrence"" type=""s1:RecurrenceDefinition"" />
+                        <s:element name=""recurrence"" type=""tns:RecurrenceDefinition"" />
                         <s:element name=""deleteExceptions"" type=""s:string"" fixed=""true"" minOccurs=""0"" maxOccurs=""1"" />
                       </s:sequence>
                     </s:complexType>");
@@ -1513,7 +1599,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In RecurrenceDefinition complex type] The RecurrenceDefinition complex type contains a RecurrenceRule (section 2.2.4.2).   
                     <s:complexType name=""RecurrenceDefinition"">
                       <s:sequence>
-                        <s:element name=""rule"" type=""s1:RecurrenceRule"" />
+                        <s:element name=""rule"" type=""tns:RecurrenceRule"" />
                       </s:sequence>
                     </s:complexType>");
 
@@ -1530,8 +1616,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 @"[In RecurrenceRule complex type] The RecurrenceRule complex type defines when a recurrence takes place.
                     <s:complexType name=""RecurrenceRule"">
                       <s:sequence>
-                        <s:element name=""firstDayOfWeek"" type=""s1:DayOfWeekOrMonth"" />
-                        <s:element name=""repeat"" type=""s1:RepeatPattern"" />
+                        <s:element name=""firstDayOfWeek"" type=""tns:DayOfWeekOrMonth"" />
+                        <s:element name=""repeat"" type=""tns:RepeatPattern"" />
                         <s:choice>
                           <s:element name=""windowEnd"" type=""s:dateTime"" />
                           <s:element name=""repeatForever"">
@@ -1564,87 +1650,97 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 902,
                 @"[In Complex Types]The RepeatPattern complex type contains a choice of elements which describe what days a recurrence occurs on.
                     <s:complexType name=""RepeatPattern"">
-                      <s:choice>
-                        <s:element name=""daily"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""monthlyByDay"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekday"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekend_day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""monthFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""weekdayOfMonth"" type=""s1:WeekdayOfMonth"" default=""first"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""monthly"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""monthFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                               <s:attribute name=""day"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""yearly"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""yearFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""month"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s:integer"" default=""1"" use=""optional"" />
-                              </s:extension>
-                           </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                        <s:element name=""yearlyByDay"">
-                          <s:complexType>
-                            <s:simpleContent>
-                              <s:extension base=""s:string"">
-                                <s:attribute name=""su"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""mo"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                               <s:attribute name=""tu"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                              <s:a name=""we"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""th"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""fr"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""sa"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekday"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""weekend_day"" type=""s1:TrueFalseDOW"" default=""FALSE"" use=""optional"" />
-                                <s:attribute name=""yearFrequency"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""month"" type=""s:integer"" default=""1"" use=""optional"" />
-                                <s:attribute name=""weekdayOfMonth"" type=""s1:WeekdayOfMonth"" default=""first"" use=""optional"" />
-                             </s:extension>
-                            </s:simpleContent>
-                          </s:complexType>
-                        </s:element>
-                      </s:choice>
-                    </s:complexType>
+                        < s:choice >
+                            < s:element name = ""daily"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""dayFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""weekly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""monthlyByDay"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekend_day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""monthFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""weekdayOfMonth"" type = ""tns:WeekdayOfMonth"" default= ""first"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""monthly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""monthFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""yearly"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""yearFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""month"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                            < s:element name = ""yearlyByDay"" >
+                            < s:complexType >
+                                < s:simpleContent >
+                                < s:extension base = ""s:string"" >
+                                    < s:attribute name = ""su"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""mo"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""tu"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""we"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""th"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""fr"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""sa"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekday"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""weekend_day"" type = ""tns:TrueFalseDOW"" default= ""FALSE"" use = ""optional"" />
+                                    < s:attribute name = ""yearFrequency"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""month"" type = ""s:integer"" default= ""1"" use = ""optional"" />
+                                    < s:attribute name = ""weekdayOfMonth"" type = ""tns:WeekdayOfMonth"" default= ""first"" use = ""optional"" />
+                                </ s:extension >
+                                </ s:simpleContent >
+                            </ s:complexType >
+                            </ s:element >
+                        </ s:choice >
+                        </ s:complexType >
                     ");
 
             #endregion
@@ -2124,6 +2220,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
             this.Site.CaptureRequirement(
                            1269,
                            @"[In TransitionDate complex type] transitionTime: Client set this value[transitionTime], and later client retrieve the value[transitionTime] from the server, they should be equal.");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R1269
+            this.Site.CaptureRequirement(
+                           1269,
+                           @"[In TransitionDate complex type] transitionTime: Client set this value[transitionTime], and later client retrieve the value[transitionTime] from the server, they should be equal.");
+
+            if (Common.IsRequirementEnabled(90571, this.Site))
+            {
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R90571
+                // Client has set transitionTime as the format, if transitionTime returned from server 
+                // is same as client this requirement can be captured directly.
+                this.Site.CaptureRequirement(
+                               90571,
+                               @"[In Appendix B: Product Behavior] Implementation does format the transitionTime as ""hour: minute:second"" with no extra leading zeroes. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)");
+            }
         }
 
         #endregion
@@ -4052,7 +4163,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 // Verify MS-OUTSPS requirement: MS-OUTSPS_R8120
                 this.Site.CaptureRequirement(
                                         8120,
-                                        @"[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (<12> Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, and SharePoint Foundation 2010 allow this).");
+                                        @"[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (<12> Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 allow this).");
             }
         }
 
@@ -4280,7 +4391,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
 
             // Verify these two item are contain in the response of GetListItemChangesSinceToken. If there are no any match zrow items found in zrow items array, the GetZrowItemIndexByFileRef method will throw Assert exception.
             this.GetZrowItemIndexByFileRef(zrowItems, folderName);
-            this.GetZrowItemIndexByFileRef(zrowItems, uploadFileName);
+            int index =  this.GetZrowItemIndexByFileRef(zrowItems, uploadFileName);
+
+            string fileName = Common.GetZrowAttributeValue(zrowItems, index, "ows_LinkFilename");
+            string fileSize = Common.GetZrowAttributeValue(zrowItems, index, "ows_FileSizeDisplay");
+            string fileAbsUrl = Common.GetZrowAttributeValue(zrowItems, index, "ows_EncodedAbsUrl");
+
+            // Verify MS-OUTSPS requirement: MS-OUTSPS_R63
+            this.Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(fileName) && !string.IsNullOrEmpty(fileSize) && !string.IsNullOrEmpty(fileAbsUrl),
+                63,
+                @"[In Documents]The document item MUST include information for the file name, size, and how or where to get the file itself.");
 
             // Delete the folder item.
             bool deleteFolderResult = SutControlAdapter.DeleteFolder(listTitle, folderName);
@@ -4930,6 +5051,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 XmlNode[] zrowItems = this.GetZrowItems(listItemChangesRes.listitems.data.Any);
                 int zrowIndex = this.GetZrowItemIndexByListItemId(zrowItems, updatedDiscussionBoardItemIds[0]);
 
+                string contentTypeId = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ContentTypeId");
+                string id = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ID");
+                string hiddenversion = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_owshiddenversion");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+                this.Site.CaptureRequirementIfIsTrue(
+                    !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                    208,
+                    "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R188
+                this.Site.CaptureRequirementIfIsTrue(
+                    contentTypeId.StartsWith("0x012002", StringComparison.CurrentCultureIgnoreCase),
+                    188,
+                    "[In Common Schema]ContentTypeId begins with 0x012002 corresponds to Discussion item Content / item type name.");
+
                 // Ignore the fieldsValueSettings
                 string bodyValueInSetting = fieldsValueSettings["Body"];
                 fieldsValueSettings.Remove("Body");
@@ -5112,6 +5249,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
 
                 // Current list only have two items, the first is the folder item, the second is the file item. so the list item is 2.
                 int zrowIndex = this.GetZrowItemIndexByListItemId(zrowItems, "2");
+
+                string contentTypeId = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ContentTypeId");
+                string id = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_ID");
+                string hiddenversion = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_owshiddenversion");
+
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R208
+                this.Site.CaptureRequirementIfIsTrue(
+                    !string.IsNullOrEmpty(contentTypeId) && !string.IsNullOrEmpty(id) && !string.IsNullOrEmpty(hiddenversion),
+                    208,
+                    "[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types<20> and contain valid data.");
 
                 string encodedAbsUrl = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_EncodedAbsUrl");
                 string fileSizeDisplay = Common.GetZrowAttributeValue(zrowItems, zrowIndex, "ows_FileSizeDisplay");

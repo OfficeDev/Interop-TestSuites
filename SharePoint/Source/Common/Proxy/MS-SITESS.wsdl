@@ -139,6 +139,20 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
          <s:element minOccurs="0" maxOccurs="1" name="SupportedSchemaVersions" type="s:string" />
        </s:sequence>
      </s:complexType>
+      	      <s:element name="IsScriptSafeUrl">
+	        <s:complexType>
+	          <s:sequence>
+	            <s:element minOccurs="0" maxOccurs="1" name="urls" type="tns:ArrayOfString" />
+	          </s:sequence>
+	        </s:complexType>
+	      </s:element>
+	      <s:element name="IsScriptSafeUrlResponse">
+	        <s:complexType>
+	          <s:sequence>
+	            <s:element minOccurs="1" maxOccurs="1" name="IsScriptSafeUrlResult" type="tns:ArrayOfBoolean" />
+	          </s:sequence>
+	        </s:complexType>
+	      </s:element>
       <s:element name="ExportWeb">
         <s:complexType>
           <s:sequence>
@@ -188,6 +202,11 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
                  nillable="true" type="s:string" />
         </s:sequence>
       </s:complexType>
+	      <s:complexType name="ArrayOfBoolean">
+	        <s:sequence>
+	          <s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" />
+	        </s:sequence>
+	      </s:complexType>
       <s:element name="ImportWebResponse">
         <s:complexType>
           <s:sequence>

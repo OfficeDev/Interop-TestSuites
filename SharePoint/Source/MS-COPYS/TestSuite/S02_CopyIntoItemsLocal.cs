@@ -323,23 +323,18 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 111,
                 @"[In CopyErrorCode] [For CopyIntoItemsLocal operation] Unknown: This value is used to indicate an error for all other error conditions for a given destination location.");
-
-            // Verify MS-COPYS requirement: MS-COPYS_R270
-            bool isVerifiedR270 = !string.IsNullOrEmpty(copyIntoItemsLocalResponse.Results[0].ErrorMessage);
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR270,
-                270,
-                @"[In CopyIntoItemsLocal] If the source [or destination] location does not point to an existing folder [or the 
-                protocol client does not have permission to access the source file], the protocol server MUST report a failure
-                by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for all 
-                of the destination locations.");
+            
+            // Verify MS-COPYS requirement: MS-COPYS_R271
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.Unknown,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                271,
+                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
 
             // Verify MS-COPYS requirement: MS-COPYS_R289
-            bool isVerifiedR289 = isVerifiedR270;
-
-            this.Site.CaptureRequirementIfIsTrue(
-                isVerifiedR289,
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.Unknown,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 289,
                 @"[In CopyIntoItemsLocal] If the file cannot be created at the given destination location,  the protocol server 
                 MUST report a failure for this destination location by setting the ErrorCode attribute of the corresponding 
@@ -409,7 +404,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
 
             string[] desUrls = new string[] { desFileUrl };
- 
+
             // Retrieve the contents and metadata for a file from the specified location.
             GetItemResponse getitemsResponse = MSCopysAdapter.GetItem(sourceFileUrl);
 
@@ -443,13 +438,15 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 "EncodedAbsUrl",
                                                                                 FieldAttributeType.InternalName);
 
-            // Verify MS-COPYS requirement: MS-COPYS_R232           
-            this.Site.CaptureRequirementIfAreNotEqual(
+            if (Common.IsRequirementEnabled(232, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R232           
+                this.Site.CaptureRequirementIfAreNotEqual(
                 fieldInfoScource.Value.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 232,
-                @"[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.
-                (Windows SharePoint Services 3.0 follow this behavior.)");
+                @"[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>
@@ -468,7 +465,7 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
             string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
 
             string[] desUrls = new string[] { desFileUrl };
- 
+
             // Copy a file to the destination server.
             CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
                                                                                     sourceFileUrl,
@@ -490,13 +487,16 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                                                                                 getitemsResponseDes.Fields,
                                                                                 "_CopySource",
                                                                                 FieldAttributeType.InternalName);
-            
-            // Verify MS-COPYS requirement: MS-COPYS_R149
-            this.Site.CaptureRequirementIfAreEqual(
+
+            if (Common.IsRequirementEnabled(149, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R149
+                this.Site.CaptureRequirementIfAreEqual(
                 sourceFileUrl.ToLower(),
                 fieldInfoDes.Value.ToLower(),
                 149,
-                @"[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(SharePoint Foundation 2010 follow this behavior.)");
+                @"[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+            }
         }
 
         /// <summary>
@@ -675,6 +675,92 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 items in the destination locations collection.");
         }
 
+        /// <summary>
+        /// This test case is used to verify empty result is returned if the source location and the destination locaiotn refer 
+        /// to different server.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S02_TC12_CopyIntoItemsLocal_SourceDestinationOnDifferentServer()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
+            string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
+
+            string[] desUrls = new string[] { desFileUrl };
+
+            // Copy files in same SUT.
+            CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
+                sourceFileUrl,
+                desUrls);
+
+            if (Common.IsRequirementEnabled(2781, this.Site))
+            {
+                // Verify MS-COPYS requirement: MS-COPYS_R2781
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    0,
+                    copyIntoItemsLocalResponse.Results.Length,
+                    2781,
+                    @"[In Appendix B: Product Behavior] Implementation does return empty results if the source location and the destination location refer to different protocol servers. (<5> Section 3.1.4.3:  The server returns empty results when the source location and the destination location refer to different protocol servers.)");
+            }
+        }
+
+        /// <summary>
+        /// This test case is used to verify if the protocol client does not have permission to access the source file and the destionation
+        /// location does not point to a existing folder or file, "Unknown" error code should be returned.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S02_TC13_CopyIntoItemsLocal_NoPermisonAndDestinationLocationNotExist()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
+            string[] desUrls = new string[] { desFileUrl };
+
+            MSCopysAdapter.SwitchUser(
+                Common.GetConfigurationPropertyValue("MSCOPYSNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("PasswordOfNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("Domain", this.Site));
+            CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
+                sourceFileUrl,
+                desUrls);
+
+            // Verify MS-COPYS requirement: MS-COPYS_R270
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.Unknown,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                270,
+                @"[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
+        }
+
+        /// <summary>
+        /// This test case is used to verify if the source location does not point to an existing file and destination location points to 
+        /// an existing file, "SourceInvalid" error code should be returned.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S02_TC14_CopyIntoItemsLocal_SourceLoationNotExistAndDestinationLocationExist()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string invalidSourceFileUrl = sourceFileUrl.Insert(sourceFileUrl.LastIndexOf("."), DateTime.Now.Ticks.ToString());
+
+            string desFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string[] desUrls = new string[] { desFileUrl };
+
+            CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
+                invalidSourceFileUrl,
+                desUrls);
+
+            // Verify MS-COPYS requirement: MS-COPYS_R273
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.SourceInvalid,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                273,
+                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to ""SourceInvalid"" for this destination location. ");
+
+            // Verify MS-COPYS requirement: MS-COPYS_R98
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.SourceInvalid,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                98,
+                @"[In CopyErrorCode] SourceInvalid: This value is used to indicate an error when the source location for the copy operation does not reference an existing file in the source location.");
+        }
         #endregion Test cases
     }
 }

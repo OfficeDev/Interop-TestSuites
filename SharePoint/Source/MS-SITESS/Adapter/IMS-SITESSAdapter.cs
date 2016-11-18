@@ -115,5 +115,12 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// </summary>
         /// <param name="url">The site-relative URL of the subsite to be deleted.</param>
         void DeleteWeb(string url);
+
+        /// <summary>
+        /// This operation is used to validate whether the specified URLs are valid script safe URLs for the current site.
+        /// </summary>
+        /// <param name="urls">An array of string contains all URLs that need to be validated. </param>
+        /// <returns>An array of boolean contains results for validating the URLs </returns>
+        bool[] IsScriptSafeUrl(string[] urls);
     }
 }

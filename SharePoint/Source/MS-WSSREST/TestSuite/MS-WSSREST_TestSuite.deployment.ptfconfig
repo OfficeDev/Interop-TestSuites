@@ -66,6 +66,8 @@
     <Property name="WorkflowStatusFieldName" value="MSWSSREST_Workflow" />
     <!-- The AllDayEventFieldName property specifies the field name of AllDayEvent whose field type is AllDayEvent and entity data model property type is Boolean. -->
     <Property name="AllDayEventFieldName" value="AllDayEvent" />
+    <!-- The ThreadIndexFieldName property specifies the field name of ThreadIndex whose field type is ThreadIndex and entity data model property type is Int32. -->
+    <Property name="ThreadIndexFieldName" value="ThreadIndex" />
     <!-- The RecurrenceFieldName property specifies the field name of Recurrence whose field type is Recurrence and entity data model property type is Boolean. -->
     <Property name="RecurrenceFieldName" value="Recurrence" />
     <!-- The CrossProjectLinkFieldName property specifies the field name of CrossProjectLink whose field type is Choice and entity data model property type is Boolean. -->

@@ -16,34 +16,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
         private void CaptureTransportRelatedRequirements()
         {
             TransportProtocol transport = Common.GetConfigurationPropertyValue<TransportProtocol>("TransportType", this.Site);
-            switch (transport)
+            if(transport == TransportProtocol.HTTP || transport == TransportProtocol.HTTPS)
             {
-                case TransportProtocol.HTTP:
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R110");
 
                     // As response successfully returned, the transport related requirements can be captured.
                     Site.CaptureRequirement(
                         110,
-                        @"[In Transport] It [MS-WSSREST] transmits these messages using the HTTP protocol as described in [RFC2616].");
-                    break;
-
-                case TransportProtocol.HTTPS:
-
-                    if (Common.IsRequirementEnabled(113, this.Site))
-                    {
-                        // Having received the response successfully have proved the HTTPS 
-                        // transport is supported. If the HTTPS transport is not supported, the 
-                        // response can't be received successfully.
-                        Site.CaptureRequirement(
-                        113,
-                        @"[In Appendix C: Product Behavior] Implement does support transmitting these messages using the HTTPS protocol as described in [RFC2818]. (Microsoft SharePoint Foundation 2010 and above products follow this behavior.)");
-                    }
-
-                    break;
-
-                default:
-                    Site.Debug.Fail("Unknown transport type " + transport);
-                    break;
-            }
+                        @"[In Transport] Protocol server transmits request and response messages using the HTTP protocol as specified in [RFC2616] or the HTTPS protocol as specified in [RFC2818].");
+             }
         }
 
         /// <summary>
@@ -78,8 +60,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 63,
                 @"[In Abstract Data Model] The Site and list data structure: ID Field maps to the Entity Data Model term: EntityKey.");
 
-            // If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.
-            Site.Log.Add(LogEntryKind.Debug, "If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.");
+            // If the Attachments EntitySet exist in metadata, the requirements: MS-WSSREST_R73, MS-WSSREST_R74, MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.
+            Site.Log.Add(LogEntryKind.Debug, "If the Attachments EntitySet exist in metadata, the requirements:  MS-WSSREST_R73, MS-WSSREST_R74, MS-WSSREST_R75 and MS-WSSREST_R106 can be verified.");
             bool isAttachmentsExist = this.CheckEntitySet("attachments", csdlDocument);
             Site.CaptureRequirementIfIsTrue(
                 isAttachmentsExist,
@@ -90,6 +72,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 isAttachmentsExist,
                 106,
                 @"[In Attachment] To facilitate create operation support for list item attachments, an additional EntitySet is created.");
+
+            Site.CaptureRequirementIfIsTrue(
+                isAttachmentsExist,
+                73,
+                @"[In Attachment] To facilitate retrieve operation support for list item attachments, an additional EntitySet is created.");
+
+            Site.CaptureRequirementIfIsTrue(
+                isAttachmentsExist,
+                74,
+                @"[In Attachment] To facilitate update operation support for list item attachments, an additional EntitySet is created.");
 
             // If the retrieved CSDL document contains the properties "Owshiddenversion"and "Path", the requirement: MS-WSSREST_R14 can be verified.
             Site.Log.Add(LogEntryKind.Debug, "If the retrieved CSDL document contains the properties 'Owshiddenversion' and 'Path', the requirement: MS-WSSREST_R14 can be verified.");
@@ -290,6 +282,14 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 43,
                 @"[In List Item] The Field type: Text maps to the Entity Data Model property type: Primitive (String).");
 
+            // If the typeMapping contains the field type "ThreadIndex" and the property type is "Int32", the requirement: MS-WSSREST_R44 can be verified.
+            Site.Log.Add(LogEntryKind.Debug, "If the typeMapping contains the field type 'ThreadIndex', the requirement: MS-WSSREST_R44 can be verified.");
+            bool isVerifyR44 = this.sutAdapter.CheckFieldType(Common.GetConfigurationPropertyValue("ThreadIndexFieldName", this.Site), "ThreadIndex") && this.CheckPropertyType(Common.GetConfigurationPropertyValue("ThreadIndexFieldName", this.Site), "Int32", csdlDocument);
+            Site.CaptureRequirementIfIsTrue(
+                isVerifyR44,
+                44,
+                @"[In List Item] The Field type: ThreadIndex maps to the Entity Data Model property type: Primitive (Int32).");
+
             // If the typeMapping contains the field type "URL" and the property type is "String", the requirement: MS-WSSREST_R45 can be verified.
             Site.Log.Add(LogEntryKind.Debug, "If the typeMapping contains the field type 'URL', the requirement: MS-WSSREST_R45 can be verified.");
             bool isVerifyR45 = this.sutAdapter.CheckFieldType(Common.GetConfigurationPropertyValue("URLFieldName", this.Site), "URL") && this.CheckPropertyType(Common.GetConfigurationPropertyValue("URLFieldName", this.Site), "String", csdlDocument);
@@ -334,28 +334,28 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 8,
-                @"[In Elements] The List element is a container within a site (2) that stores list items.");
+                @"[In Elements] The List element is a container within a site that stores list items.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R9
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 9,
-                @"[In Elements] The List item element is an individual entry within a list (1).");
+                @"[In Elements] The List item element is an individual entry within a list.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R10
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 10,
-                @"[In List] Each list (1) is represented as an EntitySet as specified in [MC-CSDL] section 2.1.17, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.");
+                @"[In List] Each list is represented as an EntitySet as specified in [MC-CSDL] section 2.1.18, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R11
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 11,
-                @"[In List] This EntityType [for list] contains properties for every non-hidden field (2) in the list (1) whose field type is supported as well as a subset of hidden fields (2).");
+                @"[In List] This EntityType [for list] contains properties for every non-hidden field in the list whose field type is supported as well as a subset of hidden fields (2).");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R19
             Site.CaptureRequirementIfAreEqual<ValidationResult>(
@@ -369,7 +369,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
                 SchemaValidation.ValidationResult,
                 ValidationResult.Success,
                 20,
-                @"[In List Item] EntityTypes are created based on the list (1) to which the list item belongs.");
+                @"[In List Item] EntityTypes are created based on the list to which the list item belongs.");
 
             // Verify MS-WSSREST requirement: MS-WSSREST_R59
             Site.CaptureRequirementIfAreEqual<ValidationResult>(

@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2433,
                     2433,
-                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<28> Section 3.1.4.6: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<30> Section 3.1.4.6: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -383,7 +383,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirementIfIsNull(
                 getListContentTypesResponseResult.ContentTypes.ContentTypeOrder,
                 2462,
-                @"[In Appendix B: Product Behavior][GetListContentTypesResponse]Implementation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder].(<50> Section 3.1.4.19.2.2: The attribute is not returned in Windows SharePoint Services 3.0.)");
+                @"[In Appendix B: Product Behavior][GetListContentTypesResponse]Implementation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder].(<52> Section 3.1.4.19.2.2: The attribute is not returned in Windows SharePoint Services 3.0.)");
         }
 
         /// <summary>
@@ -885,7 +885,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2438,
                     2438,
-                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<35> Section 3.1.4.9: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<37> Section 3.1.4.9: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
                 isReturnSopeFault = true;
             }
 
@@ -1252,7 +1252,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2446,
                     2446,
-                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<40> Section 3.1.4.12: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<42> Section 3.1.4.12: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
                 isReturnSopeFault = true;
             }
 
@@ -1640,7 +1640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2443,
                     2443,
-                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<38> Section 3.1.4.11: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<40> Section 3.1.4.11: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
                 isReturnSopeFault = true;
             }
 
@@ -1954,7 +1954,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1804,
-                    @"[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should<47> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should<49> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -1999,7 +1999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2457,
                     2457,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<47> Section 3.1.4.18: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<49> Section 3.1.4.18: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             Site.Assert.IsTrue(isReturnSopeFault, "The soap fault should be returned by the server.");
@@ -2821,7 +2821,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1825,
-                    @"[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should<49> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should<51> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -2860,7 +2860,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2460,
                     2460,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<49> Section 3.1.4.19.2.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<51> Section 3.1.4.19.2.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -3269,7 +3269,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                        "0x82000006",
                        exp.Detail.LastChild.InnerText,
                        2026,
-                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<76> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<77> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
                 }
             }
             finally
@@ -3454,7 +3454,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2502,
                     2502,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<76> Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<77> Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -3574,7 +3574,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateContentTypeContentTypeProperties updateProperties = new UpdateContentTypeContentTypeProperties();
 
             // Call UpdateContentType operation to update the content type. updateFields and deleteFields should success, addFields should fail.
-            this.listswsAdapter.UpdateContentType(
+            UpdateContentTypeResponseUpdateContentTypeResult updateResult = this.listswsAdapter.UpdateContentType(
                                                    listName,
                                                    contentTypeId,
                                                    updateProperties,
@@ -3582,6 +3582,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                    updateFields,
                                                    deleteFields,
                                                    Convert.ToString(true));
+
+            bool isCaptured = updateResult.Results.Method[1].ErrorCode == "0x82000007";
+
+            // Capture R807 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                807,
+                @"[In UpdateContentType operation] [The protocol server adds the appropriate fields to the content type.] If the fields to be added do not exist in the specified list, the protocol server MUST return a SOAP faultResponse with error code 0x82000007. ");
         }
 
         /// <summary>
@@ -3661,6 +3669,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Delete an existing field on a contentType
             DeleteFieldsDefinition deleteFields = TestSuiteHelper.CreateDeleteContentTypeFields(addedFieldName);
+            string fieldNameB = TestSuiteHelper.GetUniqueFieldName();
+            DeleteFieldsDefinition deleteFieldserror = TestSuiteHelper.CreateDeleteContentTypeFields(fieldNameB);
             updateContentTypeResult = this.listswsAdapter.UpdateContentType(
                                              lisid,
                                              contenttypeId,
@@ -3669,6 +3679,15 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                              null,
                                              deleteFields,
                                              bool.TrueString);
+
+            UpdateContentTypeResponseUpdateContentTypeResult updateResulterror = this.listswsAdapter.UpdateContentType(
+                                                    lisid,
+                                                    contenttypeId,
+                                                    properties,
+                                                    null,
+                                                    null,
+                                                    deleteFieldserror,
+                                                    Convert.ToString(true));
 
             if (null == updateContentTypeResult || null == updateContentTypeResult.Results || null == updateContentTypeResult.Results.Method)
             {
@@ -3712,6 +3731,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                             leftields.Count(),
                                             804,
                                             @"[In UpdateContentType operation] If the specified content type is found, the protocol server deletes the appropriate fields from the content type.");
+            // If the valid deleted field does not exist in response and invalid deleted field response an error code 0x82000007, R1977001 is captured.
+            bool isCaptured = updateResulterror.Results.Method[0].ErrorCode == "0x82000007" && leftields.Count() ==0;
+            Site.CaptureRequirementIfIsTrue(
+               isCaptured,
+               1977001,
+               @"[In UpdateContentType operation] [If the fields to be deleted do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ] [This indicates that the fields specified in the deleteFields element do not exist in the specified list, ]and all fields that were deleted before the error was encountered MUST stay deleted.");
         }
 
         /// <summary>
@@ -3768,6 +3793,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                     Convert.ToString(true));
 
             Site.Assert.IsNotNull(updateResult, "The result of UpdateContentType operation should not be NULL");
+
+            bool isCaptured = updateResult.Results.Method[0].ErrorCode == "0x82000007";
+
+            // Capture R805 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                805,
+                @"[In UpdateContentType operation][If the specified content type is found, the protocol server deletes the appropriate fields from the content type. ]If the fields to be deleted do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ");
 
             // Call GetListContentType operation to get the content type.
             GetListContentTypeResponseGetListContentTypeResult getResult = this.listswsAdapter.GetListContentType(
@@ -3828,9 +3861,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Capture R830 if the error code is "0x00000000".
             Site.CaptureRequirementIfIsTrue(
-            isCaptured,
-            830,
-            @"[In UpdateContentType operation] [In UpdateContentTypeResponse element] [In ErrorCode element] For an update operation, if a reference to the field to be updated is found on the content type, the value MUST be ""0x00000000"".");
+                isCaptured,
+                830,
+                @"[In UpdateContentType operation] [In UpdateContentTypeResponse element] [In ErrorCode element] For an update operation, if a reference to the field to be updated is found on the content type, the value MUST be ""0x00000000"".");
 
             // Construct an FieldDefinition, to verify the value of the Field.
             FieldDefinition dieldDef = result.Results.Method[0].Field;
@@ -4036,7 +4069,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1975,
-                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<72> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<73> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -4084,7 +4117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2496,
                     2496,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<72> Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<73> Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -4145,6 +4178,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                     Convert.ToString(true));
 
             Site.Assert.IsNotNull(updateResult, "The result of UpdateContentType operation should not be NULL");
+
+            bool isCaptured = updateResult.Results.Method[2].ErrorCode == "0x82000007";
+
+            // Capture R811 if the error code is "0x82000007".
+            Site.CaptureRequirementIfIsTrue(
+                isCaptured,
+                811,
+                @"[In UpdateContentType operation] [The protocol server updates the appropriate fields on the content type.] If the fields to be updated do not exist in the specified contentType or they do not exist in the specified list, the protocol server MUST return a Response with error code 0x82000007. ");
 
             // Call GetListContentType operation to get the content type.
             GetListContentTypeResponseGetListContentTypeResult getResult = this.listswsAdapter.GetListContentType(
@@ -4612,7 +4653,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                       string.IsNullOrEmpty(errorCode) && expectedErrorString.Equals(errorString, StringComparison.OrdinalIgnoreCase),
                       2499,
-                      @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<74> Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                      @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<75> Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
             #endregion
         }

@@ -36,5 +36,7 @@
     <Property name="R12552Enabled" value="true" />
     <!-- Set R732Enabled to true to verify that the RootFolder attributev does appear at the beginning of the FileDirRef value. Set R732Enabled to false to disable this requirement. -->
     <Property name="R732Enabled" value="true" />
+    <!-- Set R90571Enabled to true to verify that implementation does format the transitionTime as "hour:minute:second" with no extra leading zeroes. Set R90571Enabled to false to disable this requirement. -->
+    <Property name="R90571Enabled" value="true" />
   </Properties>
 </TestSite>
