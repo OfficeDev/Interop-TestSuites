@@ -1,6 +1,6 @@
 ## [MS-SHDACCWS]: Shared Access Web Service Protocol
-- [MS-SHDACCWS] v20130726 is used to develop the test suite.
-- Release date, 7/30/2013.
+- [MS-SHDACCWS] v20160715 is used to develop the test suite.
+- Release date, 07/15/2016.
 
 To find the new landing page for [MS-SHDACCWS], please visit https://msdn.microsoft.com/en-us/library/dd956935(v=office.12).aspx
 

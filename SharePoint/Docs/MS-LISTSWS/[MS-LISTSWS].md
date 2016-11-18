@@ -1,6 +1,6 @@
 ## [MS-LISTSWS]: Lists Web Service Protocol
-- [MS-LISTSWS] v20121003 is used to develop the test suite.
-- Release date, 10/8/2012.
+- [MS-LISTSWS] v20160715 is used to develop the test suite.
+- Release date, 07/15/2016.
 
 To find the new landing page for [MS-LISTSWS], please visit https://msdn.microsoft.com/en-us/library/cc313068(v=office.12).aspx
 
