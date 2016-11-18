@@ -57,6 +57,11 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 if (!provider.ProviderName.StartsWith(Common.GetConfigurationPropertyValue("HierarchyProviderPrefix", this.Site)) && provider.Children.Length != 0)
                 {
                     providerName = provider.ProviderName;
+                    //Verify MS-CPSWS requirement: MS-CPSWS_R540001 
+                    Site.CaptureRequirementIfIsTrue(
+                        provider.HierarchyNodeID.Length == 0,
+                        540001,
+                        @"[In SPProviderHierarchyElement] This value[HierarchyNodeID] is empty for the hierarchy provider and the root element of the hierarchy tree.");
 
                     if (providerName != null)
                     {
@@ -66,7 +71,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
             }
 
             Site.Assume.IsNotNull(providerName, "The providerName should not be null!");
-
+            
             // Call GetHierarchy method to get a claims provider hierarchy tree with a null hierarchyNodeID in the request.
             SPProviderHierarchyTree responseOfGetHierarchyResult = CPSWSAdapter.GetHierarchy(providerName, principalType, null, numberOfLevels);
             Site.Assert.AreEqual<string>("true", responseOfGetHierarchyResult.IsRoot.ToString().ToLower(CultureInfo.CurrentCulture), "Should return the existing root of current claims provider hierarchy tree.");
@@ -132,6 +137,12 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
 The claims provider name is specified in the input message.
 The claims provider is associated with the Web application (1) specified in the input message.
 The claims provider supports hierarchy.");
+
+            // If the providerName is not null, then the protocol server retrieve a hierarchy provider hierarchy tree in the input message, then the following requirement can be captured.
+            Site.CaptureRequirementIfIsNotNull(
+                providerName,
+                194001,
+                @"[In GetHierarchy] The protocol server MUST retrieve a hierarchy provider hierarchy tree if the name of an available hierarchy provider is specified in the input message.");
         }
 
         /// <summary>
@@ -258,7 +269,7 @@ The claims provider supports hierarchy.");
             // Call GetHierarchyAll method to get a list of claims provider hierarchy trees with all of valid providerNames in the request.
             SPProviderHierarchyTree[] responseOfGetHierarchyAllResult = CPSWSAdapter.GetHierarchyAll(providerNames, principalType, numberOfLevels);
             Site.Assert.IsNotNull(responseOfGetHierarchyAllResult, "If the providerNames is all of valid providerNames, the protocol server MUST use all the available claims providers.");
-            
+
             // If the claims providers listed in the provider names in the input message is retrieved successfully, then the following requirement can be captured.
             Site.CaptureRequirementIfIsTrue(
                 responseOfGetHierarchyAllResult.Length == providerNames.Count,
@@ -272,6 +283,22 @@ The claims providers support hierarchy.");
                 responseOfGetHierarchyAllResult.Length == providerNames.Count,
                 239,
                 @"[In GetHierarchyAllResponse]The protocol server MUST return one claims provider hierarchy tree for each claims provider that match the criteria specified in the input message.");
+
+            bool isHierarchyProviderHierarchyTree = false;
+
+            foreach (SPProviderHierarchyTree providerHierarchyTree in responseOfGetHierarchyAllResult)
+            {
+                if (providerHierarchyTree.ProviderName.Contains("_HierarchyProvider_"))
+                {
+                    isHierarchyProviderHierarchyTree = true;
+                    break;
+                }
+            }
+
+            Site.CaptureRequirementIfIsTrue(
+               isHierarchyProviderHierarchyTree,
+               584,
+               @"[In GetHierarchyAll] The protocol server MUST also retrieve hierarchy provider hierarchy tree if one is available.");
         }
 
         /// <summary>

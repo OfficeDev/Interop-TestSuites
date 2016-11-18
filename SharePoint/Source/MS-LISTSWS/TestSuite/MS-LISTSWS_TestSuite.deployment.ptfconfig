@@ -36,6 +36,10 @@
     <Property name="AttachmentName" value="Attachment.txt" />
     <!-- The UserInfoListName property specifies the name of the user information list. -->
     <Property name="UserInfoListName" value="User Information List" />
+    <!-- The WaitTime property specifies the time interval (in milliseconds) to retry an operation. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="WaitTime" value="1000" />
+    <!-- The RetryCount property specifies the maximum count to retry an operation in the event if the operation does not succeed. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="RetryCount" value="200" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>

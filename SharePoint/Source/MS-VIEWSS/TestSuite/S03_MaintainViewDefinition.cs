@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     13,
-                    @"[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                    @"[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 
@@ -170,7 +170,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 "true",
                 getView.View.DefaultView.ToLower(),
                 2301,
-                @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).");
+                @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 "true",
                 getView.View.DefaultView.ToLower(),
                 2302,
-                @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).");
+                @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -575,7 +575,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     13,
-                    "[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                    "[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 
@@ -659,7 +659,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 "true",
                 updateViewResult.View.DefaultView.ToLower(),
                 2301,
-                @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list (1).");
+                @"[In viewName] When viewName element is not present in the message, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>
@@ -711,7 +711,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 "true",
                 updateViewResult.View.DefaultView.ToLower(),
                 2302,
-                @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list (1).");
+                @"[In viewName] When the value of viewName element is empty, the protocol server MUST refer to the default list view of the list.");
         }
 
         /// <summary>

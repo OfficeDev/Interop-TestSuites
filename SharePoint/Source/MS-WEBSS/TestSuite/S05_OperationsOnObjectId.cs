@@ -45,6 +45,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             this.Site.Assume.IsTrue(Common.IsRequirementEnabled(1032, this.Site), "The test case is executed only when the property 'R1032Enabled' is true.");
             
             GetObjectIdFromUrlResponseGetObjectIdFromUrlResult getObjectIdFromUrlResult = Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_ListUrl", this.Site));
+            GetObjectIdFromUrlResponseGetObjectIdFromUrlResult getObjectItemIdFromUrlResult = Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_ListItemUrl", this.Site));
 
             // If the product is Microsoft SharePoint Foundation 2010 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1032 when invokes the operation "GetObjectIdFromUrl" successfully.
             Site.CaptureRequirement(
@@ -53,7 +54,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
 
             #region Capture List Related Requirement
 
-            // Verify MS-WEBSS requirement: MS-WEBSS_R328
+            // Verify MS-WEBSS requirement: MS-WEBSS_R328 MS-WEBSS_R328001
             string webSiteName = SutAdapter.GetObjectId(Common.GetConfigurationPropertyValue("webSiteName", this.Site), "list");
             Site.Assert.IsNotNull(webSiteName, "This value of the list id should be non-empty");
             string exceptedId = "{" + webSiteName + "}";
@@ -62,27 +63,46 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 exceptedId,
                 getObjectIdFromUrlResult.ObjectId.ListId.ToString(),
                 328,
-                @"[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list (1), the value of the attribute MUST be the list identifier.");
+                @"[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list, the value of the attribute MUST be the list identifier.");
+            
+            Site.CaptureRequirementIfAreEqual<string>(
+                exceptedId,
+                getObjectItemIdFromUrlResult.ObjectId.ListId.ToString(),
+                328001,
+                @"[In GetObjectIdFromUrlResponse] ObjectId.ListId: If the object is a list item, the value of the attribute MUST be the list identifier.");
 
-            // Verify MS-WEBSS requirement: MS-WEBSS_R1043
+            // Verify MS-WEBSS requirement: MS-WEBSS_R1043, MS-WEBSS_R1045001001
             // The type of List Server Template, the values are gotten according to [MS-WSSFO] section 2.2.3.12.
             string listServerTemplateValues = "-1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,1100,1200";
             bool isListServerTemplateSpecifiedInMswssfo = listServerTemplateValues.Contains(getObjectIdFromUrlResult.ObjectId.ListServerTemplate.ToString());
+            bool isListItemServerTemplateSpecifiedInMswssfo = listServerTemplateValues.Contains(getObjectItemIdFromUrlResult.ObjectId.ListServerTemplate.ToString());
 
             Site.CaptureRequirementIfIsTrue(
                 isListServerTemplateSpecifiedInMswssfo,
                 1043,
                 @"[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the value of the list template type is 100].");
 
+            Site.CaptureRequirementIfIsTrue(
+                isListServerTemplateSpecifiedInMswssfo,
+                1045001001,
+                @"[In GetObjectIdFromUrlResponse] ObjectId.ListServerTemplate: If the object is a list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the value of the list template type is 100].");
+
             // The values of List Base Type, the values are gotten according to [MS-WSSFO] section 2.2.3.11.
             string listBaseTypeValues = "0,1,3,4,5";
             bool isListBaseTypeSpecifiedInMswssfo = listBaseTypeValues.Contains(getObjectIdFromUrlResult.ObjectId.ListBaseType.ToString());
+            bool isListItemBaseTypeSpecifiedInMswssfo = listBaseTypeValues.Contains(getObjectItemIdFromUrlResult.ObjectId.ListBaseType.ToString());
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1044
             Site.CaptureRequirementIfIsTrue(
                 isListBaseTypeSpecifiedInMswssfo,
                 1044,
                 @"[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the value of the List Base Type is 1].");
+
+            // Verify MS-WEBSS requirement: MS-WEBSS_R1046001001
+            Site.CaptureRequirementIfIsTrue(
+                isListItemBaseTypeSpecifiedInMswssfo,
+                1046001001,
+                @"[In GetObjectIdFromUrlResponse] ObjectId.ListBaseType: If the object is a list item, the value of the attribute MUST be one of the List Base Types as specified in [MS-WSSFO2] section 2.2.3.11 [the value of the List Base Type is 1].");
 
             bool isVerifiedR334 = false;
             if (getObjectIdFromUrlResult.ObjectId.ListItem.ToLower().Equals("false", StringComparison.OrdinalIgnoreCase))
@@ -181,7 +201,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsNotNull(
                 getObjectIdFromUrlResult,
                 313,
-                @"[In GetObjectIdFromUrl] If the specified URL corresponds to an object on the site (2), use that object.");
+                @"[In GetObjectIdFromUrl] If the specified URL corresponds to an object on the site, use that object.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R335
             string listItemId = SutAdapter.GetObjectId(Common.GetConfigurationPropertyValue("webSiteName", this.Site), "listItem");
@@ -203,7 +223,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
         {
             this.Site.Assume.IsTrue(Common.IsRequirementEnabled(1032, this.Site), "The test case is executed only when the property 'R1032Enabled' is true.");
 
-            Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_NoListRelatedUrl", this.Site));
+            GetObjectIdFromUrlResponseGetObjectIdFromUrlResult getObjectIdFromUrlResult = Adapter.GetObjectIdFromUrl(Common.GetConfigurationPropertyValue("GetObjectIdFromUrl_NoListRelatedUrl", this.Site));
+
+            Site.CaptureRequirementIfIsFalse(
+                getObjectIdFromUrlResult.ObjectId.ListServerTemplateSpecified,
+                331,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be one of the list template types as specified in [MS-WSSFO2] section 2.2.3.12 [the list template types's value are -1,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,130,140,150,200,201,202,204,207,210,211,212,301,302,303,402,403,404,405,420,421,499,1100,1200,1220,1221].], the attribute MUST NOT be present.");
+
+            Site.CaptureRequirementIfIsFalse(
+                getObjectIdFromUrlResult.ObjectId.ListBaseTypeSpecified,
+                333,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is a list and list item], the attribute MUST NOT be present.");
+
+            Site.CaptureRequirementIfAreEqual<string>(
+                string.Empty,
+                getObjectIdFromUrlResult.ObjectId.ListId,
+                329,
+                @"[In GetObjectIdFromUrlResponse] Otherwise[If the object is not a list and list item, the value of the attribute MUST be the list identifier. ], the value of this[ObjectId.ListId] attribute MUST be an empty string.");
+
         }
 
         /// <summary>

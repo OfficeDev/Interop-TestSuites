@@ -158,6 +158,32 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.Assert.Fail("The returned value of the UserCodeEnabled element is not of type bool, the value is : {0}", result.UserCodeEnabled);
             }
 
+            if (Common.IsRequirementEnabled(326001002, this.Site))
+            {
+                string[] urls = new string[] { result.Url };
+                bool[] urlss = this.sitessAdapter.IsScriptSafeUrl(urls);
+
+                // If IsScriptSafeUrl is false, it indicates the url is not a valid script safe url.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R32602702");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R32602702
+                Site.CaptureRequirementIfIsFalse(
+                    urlss[0],
+                    32602702,
+                    @"[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a valid script safe URL for the current site.");
+
+                // If urls is a file full path or URL, R422003 can be captured.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R422003");
+
+                Uri fileLocation;
+                bool isUrl = Uri.TryCreate(urls[0], UriKind.Absolute, out fileLocation);
+
+                // Verify MS-SITESS requirement: MS-SITESS_R422003
+                Site.CaptureRequirementIfIsTrue(
+                    isUrl,
+                    422003,
+                    @"[In ArrayOfString] string: A file full path or URL.");
+            }
             #endregion Capture requirements
 
             // If code can run to here, it means that Microsoft SharePoint Foundation 2010 and above support operation GetSite.

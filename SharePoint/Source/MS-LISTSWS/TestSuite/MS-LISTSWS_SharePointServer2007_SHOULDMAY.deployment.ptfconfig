@@ -259,5 +259,7 @@
     <Property name="R2380Enabled" value="false" />
     <!-- Set R267001Enabled to true to verify that the server does support UpdateList operation and assume the default view if the Method.AddToView attribute present and its value is not a GUID. Set R267001Enabled to false to disable this requirement. -->
     <Property name="R267001Enabled" value="false" />
+    <!-- Set R27701Enabled to true to verify that implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. Set R27701Enabled to false to disable this requirement. -->
+    <Property name="R27701Enabled" value="false" />
   </Properties>
 </TestSite>

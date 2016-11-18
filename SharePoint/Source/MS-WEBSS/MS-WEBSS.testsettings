@@ -4,6 +4,7 @@
   <Deployment>
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetObjectId.ps1" />
     <DeploymentItem filename="TestSuite\MS-WEBSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-WEBSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WEBSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetContentTypeReadOnlyOrSealed.ps1" />

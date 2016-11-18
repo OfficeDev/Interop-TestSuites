@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R5Enabled to true to verify that Protocol servers additionally support SOAP over HTTPS for securing communication with clients. Set R5Enabled to false to disable this requirement. -->
+    <Property name="R5Enabled" value="true" />
+    <!-- Set R397Enabled to true to verify AssociationData contain child elements or inner text. Set R397Enabled to false to disable this requirement. -->
+    <Property name="R397Enabled" value="true" />
+    <!-- Set R421Enabled to true to verify server supports Instantiation_FormURI element. Set R421Enabled to false to disable this requirement. -->
+    <Property name="R421Enabled" value="true" />
+    <!-- Set R365Enabled to true to verify GetWorkflowDataForItem operation does not include ActivityDetails attribute. Set R365Enabled to false to disable this requirement. -->
+    <Property name="R365Enabled" value="false" />
+    <!-- Set R422Enabled to true to verify GetWorkflowDataForItem operation include ActivityDetails attribute. Set R422Enabled to false to disable this requirement. -->
+    <Property name="R422Enabled" value="true" />
+    <!-- Set R423Enabled to true to verify GetWorkflowDataForItem operation does not include CorrelationId attribute. Set R423Enabled to false to disable this requirement. -->
+    <Property name="R423Enabled" value="false" />
+    <!-- Set R424Enabled to true to verify GetWorkflowDataForItem operation include CorrelationId attribute. Set R424Enabled to false to disable this requirement. -->
+    <Property name="R424Enabled" value="true" />
+    <!-- Set the value of the property MS-WWSP_Supported to true to indicate that the SUT supports the MS-WWSP protocol. Otherwise set the value to false. -->
+    <Property name="MS-WWSP_Supported" value="true" />
+  </Properties>
+  
+</TestSite>

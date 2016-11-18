@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WSSREST
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR89,
                 89,
-                @"[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.17 contains a single property ""Value"", which also serves as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.");
+                @"[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.18 contains a single property ""Value"", which also serves as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.");
 
             // Get entity type properties of multi-choice field
             string mutilChoicefieldEntityType = string.Format("{0}{1}Value", this.GeneralListName, mutilChoiceFieldName);

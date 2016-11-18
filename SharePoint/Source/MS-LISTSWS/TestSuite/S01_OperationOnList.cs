@@ -349,7 +349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x81072101",
                     errorCode,
                     2771,
-                    @"[In Appendix B: Product Behavior][In AddListFromFeature operation] Implementation does returns a SOAP fault with error code 0x81072101, if the templateID provided is not one of the known list template identifiers . (<26> Section 3.1.4.4:  Windows SharePoint Services 3.0 returns a SOAP fault with error code 0x81072101.)");
+                    @"[In Appendix B: Product Behavior][In AddListFromFeature operation] Implementation does returns a SOAP fault with error code 0x81072101, if the templateID provided is not one of the known list template identifiers . (<28> Section 3.1.4.4:  Windows SharePoint Services 3.0 returns a SOAP fault with error code 0x81072101.)");
                 }
             }
             finally
@@ -779,7 +779,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", then capture R2448.
             Site.CaptureRequirement(
                             2448,
-                            @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<41> Section 3.1.4.13: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                            @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<43> Section 3.1.4.13: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
         }
 
         #endregion
@@ -999,7 +999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 // "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", then capture R2454.
                 Site.CaptureRequirement(
                                     2454,
-                                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<45> Section 3.1.4.16: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<47> Section 3.1.4.16: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isFault, "The operation doesn't catch any Soap Fault messages.");
@@ -1065,6 +1065,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 userList.Add(Convert.ToString(data.Rows[i][AdapterHelper.PrefixOws + AdapterHelper.FieldIDName]), Convert.ToString(data.Rows[i][columnName]));
             }
 
+            // Get Presence and RecycleBinEnable value of WebApp.
+            bool presenceEnabled = sutControlAdapter.GetWebAppPresence();
+            bool recycleBinEnable = sutControlAdapter.GetWebAppRecycleBin();
+
             try
             {
                 // Add a Generic list.
@@ -1073,16 +1077,34 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 addListSucceeded = addResult != null && addResult.List != null && !string.IsNullOrEmpty(addResult.List.ID);
                 this.Site.Assert.IsTrue(addListSucceeded, "Test suite should add the list successfully.");
 
-                // Get Presence and RecycleBinEnable value of WebApp.
-                bool presenceEnabled = sutControlAdapter.GetWebAppPresence();
-                bool recycleBinEnable = sutControlAdapter.GetWebAppRecycleBin();
+                int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+                GetListResponseGetListResult getResult = null;
 
-                // Set Presence and RecycleBinEnable value to True.
-                sutControlAdapter.SetWebAppPresence(true);
-                sutControlAdapter.SetWebAppRecycleBin(true);
+                while (retryCount > 0)
+                {
+                    // Set Presence and RecycleBinEnable value to True.
+                    sutControlAdapter.SetWebAppPresence(true);
+                    System.Threading.Thread.Sleep(10000);
+                    sutControlAdapter.SetWebAppRecycleBin(true);
+                    System.Threading.Thread.Sleep(10000);
 
-                // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
-                GetListResponseGetListResult getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                    // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
+                    getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                    
+                    if (bool.Parse(getResult.List.RegionalSettings.Presence) && bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled))
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Site.Assert.IsTrue(bool.Parse(getResult.List.RegionalSettings.Presence),
+                    "Presence in ListDefinitionSchema should be true after enable it.");
+                Site.Assert.IsTrue(bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
+                    "RecycleBinEnabled in ListDefinitionSchema should be true after enable it.");
 
                 // Verify R1381
                 bool isContainInUserList = userList.ContainsKey(getResult.List.Author);
@@ -1125,12 +1147,32 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     1429,
                     @"[ListDefinitionSchema.RecycleBinEnabled: ]Specifies that the Recycle Bin is enabled if set to True;[ otherwise, the Recycle Bin is not enabled.]");
 
-                // Set Presence and RecycleBinEnable value to True.
-                sutControlAdapter.SetWebAppPresence(false);
-                sutControlAdapter.SetWebAppRecycleBin(false);
+                retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-                // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
-                getResult = this.listswsAdapter.GetList(addResult.List.ID);
+                while (retryCount > 0)
+                {
+                    // Set Presence and RecycleBinEnable value to false.
+                    sutControlAdapter.SetWebAppPresence(false);
+                    System.Threading.Thread.Sleep(10000);
+                    sutControlAdapter.SetWebAppRecycleBin(false);
+                    System.Threading.Thread.Sleep(10000);
+
+                    // Call method GetList to get the list from server and check Presence and RecycleBinEnable value.
+                    getResult = this.listswsAdapter.GetList(addResult.List.ID);
+
+                    if (!bool.Parse(getResult.List.RegionalSettings.Presence) && !bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled))
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Site.Assert.IsFalse(bool.Parse(getResult.List.RegionalSettings.Presence),
+                    "Presence in ListDefinitionSchema should be false after disable it.");
+                Site.Assert.IsFalse(bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
+                    "RecycleBinEnabled in ListDefinitionSchema should be false after disable it.");
 
                 // If the value of Presence equals to the value set by sutControlAdapter(false), capture R2249.
                 Site.CaptureRequirementIfIsFalse(
@@ -1143,11 +1185,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
                     2248,
                     @"ListDefinitionSchema.RecycleBinEnabled: [Specifies that the Recycle Bin is enabled if set to True;] otherwise, the Recycle Bin is not enabled.");
-
-                // Restore Presence and RecycleBinEnable settings for WebApp.
-                sutControlAdapter.SetWebAppPresence(presenceEnabled);
-                sutControlAdapter.SetWebAppRecycleBin(recycleBinEnable);
-
+                
                 // Call method GetList to get the list from server.
                 // If the GetListResponse is returned, then capture R555 and R557.
                 getResult = this.listswsAdapter.GetList(addResult.List.ID);
@@ -1172,6 +1210,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             }
             finally
             {
+                // Restore Presence and RecycleBinEnable settings for WebApp.
+                sutControlAdapter.SetWebAppPresence(presenceEnabled);
+                System.Threading.Thread.Sleep(10000);
+                sutControlAdapter.SetWebAppRecycleBin(recycleBinEnable);
+                System.Threading.Thread.Sleep(10000);
+
                 if (addListSucceeded)
                 {
                     this.listswsAdapter.DeleteList(listName);
@@ -1241,7 +1285,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 // "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", then capture R2452.
                 Site.CaptureRequirement(
                                     2452,
-                                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<44> Section 3.1.4.15: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                                    @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<46> Section 3.1.4.15: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "A SOAP exception should be thrown by the server when invoke the operation 'GetList' with a list name that is nonexistent.");
@@ -1260,7 +1304,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
         public void MSLISTSWS_S01_TC22_UpdateList_FailureErrorCodeInUpdateListFieldResults()
         {
             string listName = TestSuiteHelper.GetUniqueListName();
-            TestSuiteHelper.CreateList(listName);
+            //TestSuiteHelper.CreateList(listName);
+            string listId = TestSuiteHelper.CreateList(listName);
 
             // This field does not exist in current list, and construct a method in request to delete this field.
             string nonExistentField = Guid.NewGuid().ToString("N");
@@ -1268,7 +1313,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             this.Site.Assert.IsNotNull(deleteFields, "CreateDeleteListFieldsRequest operation should succeed.");
             UpdateListResponseUpdateListResult updateListResult = null;
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, deleteFields, null);
+            updateListResult = this.listswsAdapter.UpdateList(listId, null, null, null, deleteFields, null);
 
             if (null == updateListResult || null == updateListResult.Results || null == updateListResult.Results.DeleteFields
                 || updateListResult.Results.DeleteFields.Length != 1)
@@ -1525,7 +1570,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
         public void MSLISTSWS_S01_TC27_UpdateList_InvalidViewNameInUpdateListFieldResults()
         {
             string listName = TestSuiteHelper.GetUniqueListName();
-            TestSuiteHelper.CreateList(listName);
+            //TestSuiteHelper.CreateList(listName);
+            string listId = TestSuiteHelper.CreateList (listName);
 
             bool isNotGUIDFieldInView = false;
             bool isEmptyStringFieldInView = false;
@@ -1568,8 +1614,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             viewNames.Add(null);
 
             UpdateListFieldsRequest newFields = TestSuiteHelper.CreateAddListFieldsRequest(fieldNames, fieldTypes, viewNames);
-            this.listswsAdapter.UpdateList(listName, null, newFields, null, null, null);
-
+            this.listswsAdapter.UpdateList(listId, null, newFields, null, null, null);
             GetListAndViewResponseGetListAndViewResult getResultValid = this.listswsAdapter.GetListAndView(listName, string.Empty);
             isDefaultView = bool.Parse(getResultValid.ListAndView.View.DefaultView);
             this.Site.Assert.IsTrue(isDefaultView, "The response of GetListAndView operation should contain the default view when the viewName parameter is not set or empty value.");
@@ -1988,7 +2033,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #region Call method UpdateList with non-GUID listname if success capture R885
 
             // Update list with non-GUID list name
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, null, null);
+            updateListResult = this.listswsAdapter.UpdateList(listGuid, null, null, null, null, null);
             isListUpdateSuccessfully = updateListResult != null && updateListResult.Results.ListProperties != null && !string.IsNullOrEmpty(updateListResult.Results.ListProperties.ID);
 
             // If UpdateList operation success, capture R885
@@ -2008,7 +2053,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #region Call method UpdateList with listVersion which is set to 'null'. Requirements covered in this step:R887, R888
 
             // Update list with listVersion set to null.
-            updateListResult = this.listswsAdapter.UpdateList(listName, null, null, null, null, null);
+            updateListResult = this.listswsAdapter.UpdateList(listGuid, null, null, null, null, null);
             isListUpdateSuccessfully = updateListResult != null && updateListResult.Results.ListProperties != null && !string.IsNullOrEmpty(updateListResult.Results.ListProperties.ID);
 
             // If UpdateList operation succeeds, then capture R887 and R888.
@@ -2062,7 +2107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 // "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", then capture R2504
                 Site.CaptureRequirement(
                                 2504,
-                                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<77> Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<78> Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isFault, "The operation doesn't catch any Soap Fault messages.");

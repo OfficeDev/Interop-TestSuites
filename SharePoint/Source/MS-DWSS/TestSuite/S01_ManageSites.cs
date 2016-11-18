@@ -70,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 dwsUrl,
                 createDwsUrl,
                 421,
-                @"[In Message Processing Events and Sequencing Rules] CanCreateDwsUrl: It also returns a URL that is unique for the current site (2).");
+                @"[In Message Processing Events and Sequencing Rules] CanCreateDwsUrl: It also returns a URL that is unique for the current site.");
             
             // Create a Dws with this url, this operation should be success.
             CreateDwsResultResults createDwsRespResults = this.dwsAdapter.CreateDws(createDwsUrl, null, string.Empty, null, out error);
@@ -237,7 +237,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR475,
                 475,
-                @"[In CreateDwsResponse] DoclibUrl: Site-relative URL for the shared documents list (1) associated with the workspace.");
+                @"[In CreateDwsResponse] DoclibUrl: Site-relative URL for the shared documents list associated with the workspace.");
             
             // Get the title of the parent site.
             Results getDwsDataRespResults = this.dwsAdapter.GetDwsData(string.Empty, string.Empty, out error);
@@ -264,7 +264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 users.Email,
                 createDwsRespResults.FailedUsers[0].User.Email,
                 478,
-                @"[In CreateDwsResponse] FailedUsers: A list of users from the CreateDws Users field that could not be added to the list of authorized users in the new workspace.");
+                @"[In CreateDwsResponse] FailedUsers: A list of users from the users field of CreateDws that could not be added to the list of authorized users in the new workspace.");
             
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R479");
@@ -459,7 +459,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 ErrorTypes.ServerFailure,
                 error.Value,
                 458,
-                @"[In CreateDws] If this is non-empty and another site (2) with the same name already exists on the site (2) on which the workspace is being created, the protocol server MUST return a ServerFailure error code (see section 2.2.3.2).");
+                @"[In CreateDws] If this is non-empty and another site with the same name already exists on the site on which the workspace is being created, the protocol server MUST return a ServerFailure error code (see section 2.2.3.2).");
             
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R485");
@@ -481,7 +481,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     ErrorTypes.ServerFailure,
                     error.Value,
                     1683,
-                    @"[In Appendix B: Product Behavior] Implementation does return error ServerFailure when a site (2) with the specified name already exists on this site (2). (<4> When a site (2) with the specified name already exists on this site (2), Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return error ServerFailure when a site with the specified name already exists on this site. (<5> When a site with the specified name already exists on this site, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will return error ServerFailure instead of AlreadyExists.)");
             }
             
             this.dwsAdapter.ServiceUrl = createDwsRespResults.Url + Common.GetConfigurationPropertyValue("TestDWSSSuffix", this.Site);
@@ -698,7 +698,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                         HttpStatusCode.NotFound,
                         statusCode,
                         1164,
-                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with response body which contains text ""404 FILE NOT FOUND"". (Microsoft SharePoint Foundation 2013 Preview follows this behavior.)");
+                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with response body which contains text ""404 FILE NOT FOUND"". (Microsoft SharePoint Foundation 2013 and above follow this behavior.)");
                 }
 
                 if (Common.IsRequirementEnabled(2164, this.Site))
@@ -711,7 +711,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                         HttpStatusCode.NotFound,
                         statusCode,
                         2164,
-                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with an empty response body. (<6>For WSS3, the text is empty)");
+                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with an empty response body. (<7>For WSS3, the text is empty)");
                 }
 
                 if (Common.IsRequirementEnabled(3164, this.Site))
@@ -724,7 +724,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                         HttpStatusCode.NotFound,
                         statusCode,
                         3164,
-                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist,] Implementation does return HTTP status code 404 with response body which contains text ""404 NOT FOUND"". (<6>For wss4, the text is ""404 NOT FOUND"". )");
+                        @"[In Appendix B: Product Behavior] [If the specified Document Workspace does not exist, ] Implementation does return HTTP status code 404 with response body which contains text ""404 NOT FOUND"". (<7>For wss4, the text is ""404 NOT FOUND"". )");
                 }
             }
         }

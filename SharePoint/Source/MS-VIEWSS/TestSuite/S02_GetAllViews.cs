@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 Site.CaptureRequirementIfIsNotNull(
                     soapException,
                     13,
-                    "[In listName] If the value of listName element is not the name or GUID of a list (1), the operation MUST return a SOAP fault message.");
+                    "[In listName] If the value of listName element is not the name or GUID of a list, the operation MUST return a SOAP fault message.");
             }
 
             this.Site.Assert.IsTrue(caughtSoapException, "There should be a SOAP exception in the response."); 

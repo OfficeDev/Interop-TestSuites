@@ -16,6 +16,7 @@ $currentUser = .\Get-ConfigurationPropertyValue.ps1 SubSitePropertyCurrentUser
 $permissions = .\Get-ConfigurationPropertyValue.ps1 SubSitePropertyUserNameInPermissions
 $defaultLanguage = .\Get-ConfigurationPropertyValue.ps1 SubSitePropertyDefaultLanguage
 $anonymous = .\Get-ConfigurationPropertyValue.ps1 SubSitePropertyAnonymous
+$presence = .\Get-ConfigurationPropertyValue.ps1 SubSitePropertyPresence
 
 $ret = invoke-command -computer $computerName -Credential $credential -scriptblock{
 
@@ -29,7 +30,8 @@ param(
     [string]$currentUser,
     [string]$permissions,
     [string]$defaultLanguage,
-    [string]$anonymous
+    [string]$anonymous,
+	[string]$presence
 )
     $script:ErrorActionPreference = "Stop"
     [void][System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint")
@@ -100,6 +102,7 @@ param(
 		{
 			$ret += $anonymous + ":true;" 
 		}
+		$ret += $presence + ":" + $spWeb.PresenceEnabled.tostring() + ";"
 		$ret = $ret.trim(';')
     }
     finally
@@ -117,6 +120,6 @@ param(
     }
 
     return $ret
-}-argumentlist $siteName, $webName, $mainUrl, $siteCollectionUrl, $language, $locale, $currentUser, $permissions, $defaultLanguage, $anonymous
+}-argumentlist $siteName, $webName, $mainUrl, $siteCollectionUrl, $language, $locale, $currentUser, $permissions, $defaultLanguage, $anonymous,$presence
 
 return $ret

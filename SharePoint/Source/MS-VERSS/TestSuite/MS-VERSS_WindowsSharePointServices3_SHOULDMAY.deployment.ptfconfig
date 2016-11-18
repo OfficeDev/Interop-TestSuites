@@ -86,6 +86,11 @@
     <Property name="R1930202Enabled" value="true"/>
     <!-- Set R1930205Enabled to true to verify that the server does not return an error to indicate that the backward slash (\) character is at the end of the fileName for DeleteAllVersions. Set R1930205Enabled to false to disable this requirement. -->
     <Property name="R1930205Enabled" value="true"/>
-
+    <!-- Set R1930208Enabled to true to verify that the server returns a SOAP exception without an error code if fileName contains equals sign (=) for DeleteAllVersions. Set R1930208Enabled to false to disable this requirement. -->
+    <Property name="R1930208Enabled" value="false"/>
+    <!-- Set R17802011Enabled to true to verify that the server returns error code 0x80131600, when the value specified by the fileVersion element is published version of the file. Set R17802011Enabled to false to disable this requirement. -->
+    <Property name="R17802011Enabled" value="false"/>
+    <!-- Set R17802021Enabled to true to verify that the server returns error code 0x80131600, when the file does not exist. Set R17802021Enabled to false to disable this requirement. -->
+    <Property name="R17802021Enabled" value="false"/>
   </Properties>
 </TestSite>

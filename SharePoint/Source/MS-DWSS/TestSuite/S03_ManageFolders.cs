@@ -349,7 +349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.CaptureRequirementIfIsNull(
                 error,
                 177,
-                @"[In DeleteFolder] If none of the prior conditions apply, the protocol server MUST delete the folder specified in the CreateFolder element and return a Result element as specified in DeleteDwsResponse (section 3.1.4.5.2.2).");
+                @"[In DeleteFolder] If none of the prior conditions apply, the protocol server MUST delete the folder specified in the CreateFolder element and return a Result element as specified in DeleteFolderResponse (section 3.1.4.5.2.2).");
             
             // Delete the created folder without url.
             this.dwsAdapter.DeleteFolder(null, out error);

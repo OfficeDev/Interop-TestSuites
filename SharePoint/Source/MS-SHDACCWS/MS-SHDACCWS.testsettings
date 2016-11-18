@@ -10,6 +10,7 @@
     <DeploymentItem filename="TestSuite\MS-SHDACCWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SHDACCWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SUTSetExclusiveLock.ps1" />
+    <DeploymentItem filename="TestSuite\MS-SHDACCWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SHDACCWS_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
     <DeploymentItem filename="..\Common\Proxy\MS-SHDACCWS.wsdl" />

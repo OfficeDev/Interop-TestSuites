@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WSSREST_R110</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Transport] Protocol server transmits request and response messages using the HTTP protocol as specified in [RFC2616] or the HTTPS protocol as specified in [RFC2818].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Transport] No new transports are required except for those specified in [MS-ODATA] section 2.1.</ns1:Description>
@@ -8,25 +17,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WSSREST_R110</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] It [MS-WSSREST] transmits these messages using the HTTP protocol as described in [RFC2616].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WSSREST_R111</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] It [MS-WSSREST] transmits these messages [SHOULD]using the HTTPS protocol as described in [RFC2818].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-WSSREST_R113.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R2</ns1:REQ_ID>
@@ -85,7 +75,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R8</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The List element is a container within a site (2) that stores list items.</ns1:Description>
+		<ns1:Description>[In Elements] The List element is a container within a site that stores list items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -94,7 +84,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R9</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The List item element is an individual entry within a list (1).</ns1:Description>
+		<ns1:Description>[In Elements] The List item element is an individual entry within a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -103,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R10</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In List] Each list (1) is represented as an EntitySet as specified in [MC-CSDL] section 2.1.17, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.</ns1:Description>
+		<ns1:Description>[In List] Each list is represented as an EntitySet as specified in [MC-CSDL] section 2.1.18, which[EntitySet] contains Entities of a single EntityType as specified in [MC-CSDL] section 2.1.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -112,7 +102,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R11</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In List] This EntityType [for list] contains properties for every non-hidden field (2) in the list (1) whose field type is supported as well as a subset of hidden fields (2).</ns1:Description>
+		<ns1:Description>[In List] This EntityType [for list] contains properties for every non-hidden field in the list whose field type is supported as well as a subset of hidden fields (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -157,7 +147,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R17</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In List] The owshiddenversion field (2) serves as the ETag property of the EntityType.</ns1:Description>
+		<ns1:Description>[In List] The owshiddenversion field serves as the ETag property, as specified in [MS-ODATA] section 2.2.5.4, of the EntityType.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -166,7 +156,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In List] The FileDirRef field (2) represents the list item’s server-relative path.</ns1:Description>
+		<ns1:Description>[In List] The FileDirRef field represents the list item’s server-relative path.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -184,7 +174,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R20</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In List Item] EntityTypes are created based on the list (1) to which the list item belongs.</ns1:Description>
+		<ns1:Description>[In List Item] EntityTypes are created based on the list to which the list item belongs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -193,7 +183,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R21</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In List Item] Properties on the EntityType correspond to fields (2) of the list (1), with the field (2)’s type determining the type of the property, where these primitive and navigation property types are specified in [MC-CSDL] section 1.</ns1:Description>
+		<ns1:Description>[In List Item] Properties on the EntityType correspond to fields (2) of the list, with the field’s type determining the type of the property, where these primitive and navigation property types are specified in [MC-CSDL] section 1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -405,7 +395,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R45</ns1:REQ_ID>
@@ -614,7 +604,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R67</ns1:REQ_ID>
@@ -624,7 +614,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R68</ns1:REQ_ID>
@@ -639,20 +629,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R69</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The element Choice supports for operations on choice field.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The element Choice supports for retrieve operations on choice field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R104</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The element multi-choice supports for operations on multi-choice fields.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The element multi-choice supports for retrieve operations on multi-choice fields.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R70</ns1:REQ_ID>
@@ -699,7 +689,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R74</ns1:REQ_ID>
@@ -709,7 +699,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R75</ns1:REQ_ID>
@@ -724,7 +714,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Attachment] This EntitySet [support for list item attachment] does not correspond to any list (1).</ns1:Description>
+		<ns1:Description>[In Attachment] This EntitySet [support for list item attachment] does not correspond to any list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -806,7 +796,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R84</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] An EntitySet is created for every choice [or multi-choice] field (2) belonging to a list (1).</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] An EntitySet is created for every choice [or multi-choice] field belonging to a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -815,7 +805,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R85</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] An EntitySet is created for [every choice or] multi-choice field (2) belonging to a list (1).</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] An EntitySet is created for [every choice or] multi-choice field belonging to a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -824,7 +814,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R86</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] For a particular choice [or multi-choice field (2)], this EntitySet will contain Entities representing each option of the field (2) specified in the field definition of the field (2).</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] For a particular choice [or multi-choice field], this EntitySet will contain Entities representing each option of the field specified in the field definition of the field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -833,7 +823,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R87</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] For a particular [choice or] multi-choice field (2), this EntitySet will contain Entities representing each option of the field (2) specified in the field definition of the field (2).</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] For a particular [choice or] multi-choice field, this EntitySet will contain Entities representing each option of the field specified in the field definition of the field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -842,7 +832,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.17 contains a single property "Value", which also serves as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.18 contains a single property "Value", which also serves as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -995,17 +985,6 @@ contenttype     = *pchar                ; section 3.3 of [RFC3986]
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implement does support the Field type: CrossProjectLink mapping to the Entity Data Model property type: Primitive (Boolean).(Microsoft SharePoint Foundation 2010 and Microsoft SharePointServer2010 follow this behavior )</ns1:Description>
 		<ns1:Derived>MS-WSSREST_R29:i, MS-WSSREST_R102:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WSSREST_R113</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implement does support transmitting these messages using the HTTPS protocol as described in [RFC2818]. (Microsoft SharePoint Foundation 2010 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-WSSREST_R111:i, MS-WSSREST_R102:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

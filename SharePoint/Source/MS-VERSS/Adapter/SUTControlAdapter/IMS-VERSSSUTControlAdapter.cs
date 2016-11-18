@@ -167,6 +167,13 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
             " that indicates whether the operation was run successfully, " +
             "TRUE means the operation was run successfully, FALSE means the operation failed.")]
         bool SetRecycleBinEnable(bool isEnabled);
+
+        /// <summary>
+        /// A method used to get the value of Recycle Bin setting of site.
+        /// </summary>
+        /// <returns>A return value represents the value of Recycle Bin setting of site.</returns>
+        [MethodHelp(@"Get the Recycle Bin setting (On or Off) of the site and enter the appropriate value in action results. Accepted values are True or false, enter ""True"" if the setting is on & ""False"" if the setting is off.")]
+        bool GetRecycleBin();
         #endregion
     }
 }

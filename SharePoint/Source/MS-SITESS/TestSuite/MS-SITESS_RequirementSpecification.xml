@@ -170,7 +170,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] The following table summarizes the set of common XML Schema complex type definitions [SOAPFaultDetails] defined by this specification [MS-SITESS].</ns1:Description>
+		<ns1:Description>[In Complex Types] The following table summarizes the set of common XML Schema complex type definitions [SOAPFaultDetails, ArrayOfString] defined by this specification [MS-SITESS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -189,6 +189,15 @@
 		<ns1:REQ_ID>MS-SITESS_R418</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types] Complex type SOAPFaultDetails specifies the details of a SOAP fault.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R418001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] ArrayOfString specifies an array of string elements.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -241,6 +250,39 @@
 		<ns1:REQ_ID>MS-SITESS_R422</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In SOAPFaultDetails] This element [errorcode] is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R422001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ArrayOfString] The ArrayOfString complex type contains an array of string elements. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R422002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description> [In ArrayOfString] [The ArrayOfString is defined as:]&lt;s:complexType name="ArrayOfString"&gt;
+   &lt;s:sequence&gt;
+     &lt;s:element minOccurs="1" maxOccurs="unbounded" name="string" nillable="true"
+                  type="s:string" /&gt;
+   &lt;/s:sequence&gt;
+ &lt;/s:complexType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R422003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In ArrayOfString] string: A file full path or URL.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -411,7 +453,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R23</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The ImportWeb operation specifies importing a site.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The ImportWeb operation specifies importing a site (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -420,7 +462,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportSolution] This operation [ExportSolution] is used to export the content related to a site (2) to the solution gallery.&lt;1&gt;</ns1:Description>
+		<ns1:Description>[In ExportSolution] This operation [ExportSolution] is used to export the content related to a site to the solution gallery.&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -515,7 +557,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R426</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [ExportSolution, ExportSolutionResponse] are specific to this operation [ExportSolution].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [ExportSolution, ExportSolutionResponse] are specific to this operation [ExportSolution].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -681,7 +723,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R430</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportSolution] [includeWebContent:] If set to true, all contents of lists and document libraries MUST be packaged in the solution.</ns1:Description>
+		<ns1:Description>[In ExportSolution] [includeWebContent:] If set to true, all contents of lists (1) and document libraries MUST be packaged in the solution.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -733,7 +775,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWeb] This operation [ExportWeb] saves the files to the server, which can be used to migrate or restore a site.</ns1:Description>
+		<ns1:Description>[In ExportWeb] This operation [ExportWeb] saves the files to the server, which can be used to migrate or restore a site (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -795,7 +837,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-SITESS_R328, MS-SITESS_R329.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-SITESS_R328, MS-SITESS_R329, MS-SITESS_R433001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R60</ns1:REQ_ID>
@@ -863,7 +905,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R436</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [ExportWeb, ExportWebResponse] are specific to this operation [ExportWeb].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [ExportWeb, ExportWebResponse] are specific to this operation [ExportWeb].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -989,7 +1031,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWeb] [dataPath:] The user that invokes this method MUST have write permission on the server.</ns1:Description>
+		<ns1:Description>[In ExportWeb] [dataPath:] The user invoking this method MUST have write permission on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1075,6 +1117,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-SITESS_R532.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R440</ns1:REQ_ID>
@@ -1083,7 +1126,7 @@
 3.Start a new cabinet file.
 4.Add a site content file to the cabinet.
 5.If no more files, exit.
-6.If the ( (current size of the cabinet) + (.5 * the size of the file just added) ) is greater than or equal to cabSize, then go to step 3.
+6.If ( (current size of the cabinet) + (.5 * the size of the file just added) ) is greater than or equal to cabSize, then go to step 3.
 7.Go to step 4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -1162,7 +1205,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R389</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWebResponse] [If the value of ExportWebResult is 6, it specifies] The user MUST have the ManageLists and AddListItems permissions ([MS-WSSFO3] section 2.2.2.15) for the location on the server where the content migration package file(s) are saved.</ns1:Description>
+		<ns1:Description>[In ExportWebResponse] [If the value of ExportWebResult is 6, it specifies] The user MUST have the ManageLists permission ([MS-WSSFO3] section 2.2.2.15) for the location on the server where the content migration package files are saved.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1171,7 +1214,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R93</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWebResponse] If the value of ExportWebResult is 7, it specifies ExportError: An error other than the errors listed in this table occurred while exporting the site.</ns1:Description>
+		<ns1:Description>[In ExportWebResponse] If the value of ExportWebResult is 7, it specifies ExportError: An error other than the errors listed in this table occurred while exporting the site (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1198,7 +1241,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R443</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWebResponse] This [the value of ExportWebResult is 8] can occur if the specified path was invalid, read-only, the caller is not authorized to access it, or the file is already open.</ns1:Description>
+		<ns1:Description>[In ExportWebResponse] This value is only returned if a server internal exception occurs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1301,7 +1344,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R446</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [ExportWorkflowTemplate, ExportWorkflowTemplateResponse] are specific to this operation [ExportWorkflowTemplate].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [ExportWorkflowTemplate, ExportWorkflowTemplateResponse] are specific to this operation [ExportWorkflowTemplate].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1430,20 +1473,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R396</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWorkflowTemplate] [workflowTemplateName:] If a workflow template with the specified name does not exist, the server MUST return a SOAP fault.</ns1:Description>
+		<ns1:Description>[In ExportWorkflowTemplate] [workflowTemplateName:] If a workflow template with the specified name does not exist, the server will return a SOAP fault with an implementation-specific error code.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R3961</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWorkflowTemplate] [workflowTemplateName] [If a workflow template with the specified name does not exist, the server MUST return a SOAP fault] The SOAP fault doesn't contain error code.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R114</ns1:REQ_ID>
@@ -1602,7 +1636,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R453</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [GetSite, GetSiteResponse] are specific to this operation [GetSite].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [GetSite, GetSiteResponse] are specific to this operation [GetSite].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1834,7 +1868,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R458</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [GetSiteTemplates, GetSiteTemplatesResponse] are specific to this operation [GetSiteTemplates].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [GetSiteTemplates, GetSiteTemplatesResponse] are specific to this operation [GetSiteTemplates].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2224,7 +2258,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R183</ns1:REQ_ID>
@@ -2266,7 +2300,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R481</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In GetUpdatedFormDigest] [Normally, the client requests a page from the server,] the server sends a page to the client containing a form (1) and a security validation.</ns1:Description>
+		<ns1:Description>[In GetUpdatedFormDigest] [Normally, the client requests a page from the server,] the server sends a page to the client containing a form and a security validation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2467,7 +2501,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R491</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [GetUpdatedFormDigest, GetUpdatedFormDigestResponse] are specific to this operation [GetUpdatedFormDigest].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [GetUpdatedFormDigest, GetUpdatedFormDigestResponse] are specific to this operation [GetUpdatedFormDigest].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2643,7 +2677,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R496</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [GetUpdatedFormDigestInformation, GetUpdatedFormDigestInformationResponse] are specific to this operation [GetUpdatedFormDigestInformation].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [GetUpdatedFormDigestInformation, GetUpdatedFormDigestInformationResponse] are specific to this operation [GetUpdatedFormDigestInformation].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2714,7 +2748,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R405</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetUpdatedFormDigestInformation] [url:] Otherwise[If this element is neither omitted altogether nor included as an empty string], the protocol server MUST return the FormDigestInformation of the site (2) that contains the page specified by this element.</ns1:Description>
+		<ns1:Description>[In GetUpdatedFormDigestInformation] [url:] Otherwise[If this element is neither omitted altogether nor included as an empty string], the protocol server MUST return the FormDigestInformation of the site that contains the page specified by this element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2820,7 +2854,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R503</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In FormDigestInformation] LibraryVersion: The library version, as specified in [MS-CSOM] section 3.1.4.1.4.11, of the protocol server.</ns1:Description>
+		<ns1:Description>[In FormDigestInformation] LibraryVersion: The library version, as specified in [MS-CSOM] section 3.1.4.1.4.12, of the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2829,7 +2863,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R504</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In FormDigestInformation] SupportedSchemaVersions: The comma-separated list of the SharePoint Client Query Protocol versions, as specified in [MS-CSOM] section 3.1.4.1.3.34.2, that are supported by the protocol server.</ns1:Description>
+		<ns1:Description>[In FormDigestInformation] SupportedSchemaVersions: The comma-separated list of the SharePoint Client Query Protocol versions, as specified in [MS-CSOM] section 3.1.4.1.3.36.2, that are supported by the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2906,7 +2940,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWeb] Upon successful completion of the operation, the site at the specified URL MUST contain all the content from the specified content migration package files.</ns1:Description>
+		<ns1:Description>[In ImportWeb] Upon successful completion of the operation, the site (2) at the specified URL MUST contain all the content from the specified content migration package files.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2969,7 +3003,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R509</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [ImportWeb, ImportWebResponse] are specific to this operation [ImportWeb].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [ImportWeb, ImportWebResponse] are specific to this operation [ImportWeb].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3027,7 +3061,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R252</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWeb] webUrl: The URL of the resulting Web site (2).</ns1:Description>
+		<ns1:Description>[In ImportWeb] webUrl: The URL of the resulting Web site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3063,7 +3097,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWeb] [dataFiles:] This dataFiles element is an ArrayOfString as defined in section 3.1.4.8.3.1.</ns1:Description>
+		<ns1:Description>[In ImportWeb] [dataFiles:] This dataFiles element is an ArrayOfString as defined in section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3086,6 +3120,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-SITESS_R391</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R259</ns1:REQ_ID>
@@ -3247,50 +3282,9 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R511</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.3</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] The following XML Schema complex type definitions [ArrayOfString] are specific to this operation [ImportWeb].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R274</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ArrayOfString] This complex type [ArrayOfString] contains an array of string elements. It is used to submit the location of all necessary content migration package files for the ImportWeb operation.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R275</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ArrayOfString] [The ArrayOfString complex type is defined as:] &lt;s:complexType name="ArrayOfString"&gt;
-              &lt;s:sequence&gt;
-              &lt;s:element minOccurs="1" maxOccurs="unbounded" name="string" nillable="true"
-              type="s:string" /&gt;
-              &lt;/s:sequence&gt;
-              &lt;/s:complexType&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-SITESS_R276</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.8.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ArrayOfString] string: The full path of a content migration package file.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R277</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWeb] This operation [CreateWeb] is used to create a new subsite of the current site (2).&lt;16&gt;</ns1:Description>
+		<ns1:Description>[In CreateWeb] This operation [CreateWeb] is used to create a new subsite of the current site.&lt;16&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3366,7 +3360,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R284</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWebSoapIn] This message [CreateWebSoapIn] is the request message for creating a new subsite of the current site (2).</ns1:Description>
+		<ns1:Description>[In CreateWebSoapIn] This message [CreateWebSoapIn] is the request message for creating a new subsite of the current site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3393,7 +3387,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R513</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWebSoapOut] This message [CreateWebSoapOut] is the response message for creating a new subsite of the current site (2).</ns1:Description>
+		<ns1:Description>[In CreateWebSoapOut] This message [CreateWebSoapOut] is the response message for creating a new subsite of the current site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3411,7 +3405,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R514</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [CreateWeb, CreateWebResponse] are specific to this operation [CreateWeb].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [CreateWeb, CreateWebResponse] are specific to this operation [CreateWeb].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3642,29 +3636,31 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R522</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWeb] presence: If set to true, the online presence (2) information is to be enabled for the subsite to be created.</ns1:Description>
+		<ns1:Description>[In CreateWeb] presence: If set to true, the online presence information is to be enabled for the subsite to be created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R523</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWeb] [presence:] If set to false, the online presence (2) information MUST NOT be enabled for the subsite to be created.</ns1:Description>
+		<ns1:Description>[In CreateWeb] [presence:] If set to false, the online presence information MUST NOT be enabled for the subsite to be created. &lt;17&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-SITESS_R523001, MS-SITESS_R523002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R557</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateWeb] [presence:] If omitted, the online presence (2) information MUST NOT be enabled for the subsite to be created.</ns1:Description>
+		<ns1:Description>[In CreateWeb] [presence:] If omitted, the online presence information MUST NOT be enabled for the subsite to be created. &lt;17&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements:MS-SITESS_R557001, MS-SITESS_R557002. </ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R524</ns1:REQ_ID>
@@ -3712,7 +3708,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R312</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWeb] This operation [DeleteWeb] is used to delete an existing subsite of the current site (2).&lt;17&gt;</ns1:Description>
+		<ns1:Description>[In DeleteWeb] This operation [DeleteWeb] is used to delete an existing subsite of the current site.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3770,7 +3766,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R316</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWebSoapIn] This message [DeleteWebSoapIn] is the request message for deleting an existing subsite of the current site (2).</ns1:Description>
+		<ns1:Description>[In DeleteWebSoapIn] This message [DeleteWebSoapIn] is the request message for deleting an existing subsite of the current site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3797,7 +3793,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R526</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteWebSoapOut] This message [DeleteWebSoapOut] is the response message for deleting an existing subsite of the current site (2).</ns1:Description>
+		<ns1:Description>[In DeleteWebSoapOut] This message [DeleteWebSoapOut] is the response message for deleting an existing subsite of the current site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3815,7 +3811,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R527</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following XML Schema element definitions [DeleteWeb, DeleteWebResponse] are specific to this operation [DeleteWeb].</ns1:Description>
+		<ns1:Description>[In Elements] The following XML schema element definitions [DeleteWeb, DeleteWebResponse] are specific to this operation [DeleteWeb].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3873,6 +3869,293 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] This operation [IsScriptSafeUrl]&lt;19&gt; is used to validate whether the specified URLs are valid script safe URLs for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-SITESS_R326001002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] Script safe URLs are URLs the server trusts as valid sources for IFRAMEs in Hypertext Markup Language (HTML) content.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
+		<ns1:Description> [In IsScriptSafeUrl] [The IsScriptSafeUrl operation is defined as:]&lt;wsdl:operation name="IsScriptSafeUrl"&gt;
+   &lt;wsdl:input message="tns:IsScriptSafeUrlSoapIn" /&gt;
+   &lt;wsdl:output message="tns:IsScriptSafeUrlSoapOut" /&gt;
+ &lt;/wsdl:operation&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] The client sends an IsScriptSafeUrlSoapIn request message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] [The client sends an IsScriptSafeUrlSoapIn request message, and] the server responds with an IsScriptSafeUrlSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326006</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following WSDL message definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326007</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlSoapIn] This message [IsScriptSafeUrlSoapIn] is the request message for validating whether the specified URLs are valid script safe URLs for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326008</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlSoapIn] The SOAP action value of the message is defined as:
+ http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrl
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326009</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlSoapIn] The SOAP body contains an IsScriptSafeUrl element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326010</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlSoapOut] This message [IsScriptSafeUrlSoapOut] is the response message for validating whether the specified URLs are valid script safe URLs for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326011</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlSoapOut] The SOAP body contains an IsScriptSafeUrlResponse element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following XML schema element definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl]This element [IsScriptSafeUrl] defines the input parameter for the IsScriptSafeUrl operation</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326014</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] [The IsScriptSafeUr element is defined as:] &lt;s:element name="IsScriptSafeUrl"&gt;
+   &lt;s:complexType&gt;
+     &lt;s:sequence&gt;
+       &lt;s:element name="urls" type="tns:ArrayOfString" maxOccurs="1" minOccurs="0"/&gt;
+     &lt;/s:sequence&gt;
+   &lt;/s:complexType&gt;
+ &lt;/s:element&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326015</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] urls: An ArrayOfString as defined in section 2.2.4.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326016</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] This element [urls] contains all URLs that need to be validated. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326017</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] Each URL in urls MUST NOT be null or empty, and MUST be relative or absolute Uniform Resource Locator (URL) values. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326018</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrl] Relative URLs MUST be site-relative URLs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326019</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlResponse] Defines the output of the IsScriptSafeUrl operation, which contains an IsScriptSafeUrlResponse element with the following definition.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326020</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description> [In IsScriptSafeUrlResponse] [The IsScriptSafeUrlResponse element is defined as:]&lt;s:element name="IsScriptSafeUrlResponse"&gt;
+   &lt;s:complexType&gt;
+     &lt;s:sequence&gt;
+       &lt;s:element minOccurs="1" maxOccurs="1" name="IsScriptSafeUrlResult" type="tns:ArrayOfBoolean" /&gt;
+     &lt;/s:sequence&gt;
+   &lt;/s:complexType&gt;
+ &lt;/s:element&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326021</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description> [In IsScriptSafeUrlResponse] IsScriptSafeUrlResult: An ArrayOfBoolean as defined in section 3.1.4.11.3.1, </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326022</ns1:REQ_ID>
+		<ns1:Doc_Sect> 3.1.4.11.2.2</ns1:Doc_Sect>
+		<ns1:Description> [In IsScriptSafeUrlResponse] it [IsScriptSafeUrlResult element] contains results for validating the URLs specified by the parameter urls in section 3.1.4.11.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326023</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]The following XML schema complex type definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326024</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1</ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean] This complex type contains an array of boolean elements. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326025</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean] It is used for the response element IsScriptSafeUrlResult for the IsScriptSafeUrl operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326026</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  [The ArrayOfBoolean complexType is defined as:]&lt;s:complexType name="ArrayOfBoolean"&gt;
+    &lt;s:sequence&gt;
+       &lt;s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" /&gt;
+    &lt;/s:sequence&gt;
+ &lt;/s:complexType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326027</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32602701</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [True] Indicates a URL is a valid script safe URL for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32602702</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.11.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a valid script safe URL for the current site.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R1</ns1:REQ_ID>
@@ -3957,6 +4240,17 @@
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R433001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;3&gt; Section 3.1.4.2:] If the export operation succeeds, this file also includes the list of the content migration package files created. (Microsoft Office SharePoint Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-SITESS_R433:i,MS-SITESS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R330</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior][&lt;3&gt; Section 3.1.4.2:] The client retrieves the file [which contains the result of the export operation] when it is created and parses the file to discover the result of the operation.</ns1:Description>
@@ -3968,12 +4262,13 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R532</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.2.2.1: If the value of cabSize is less than zero, Implementation does return a value of 1 but the server does not successfully complete the operation. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.4.2.2.1: If the value of cabSize is less than zero, Implementation does return a value of 1 or 7  but the server does not successfully complete the operation. The return code is not deterministic.(Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R439:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R533</ns1:REQ_ID>
@@ -4020,7 +4315,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R400</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R156:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4240,7 +4535,8 @@
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R378</ns1:REQ_ID>
@@ -4264,9 +4560,53 @@
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R523001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.</ns1:Description>
+		<ns1:Derived>MS-SITESS_R523:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R523002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to false. (SharePoint Foundation 2013 and above follow this hebavior.)</ns1:Description>
+		<ns1:Derived>MS-SITESS_R523:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R557001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.</ns1:Description>
+		<ns1:Derived>MS-SITESS_R557:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R557002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to omitted. (SharePoint Foundation 2013 and above follow this hebavior.)</ns1:Description>
+		<ns1:Derived>MS-SITESS_R557:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R379</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;17&gt; Section 3.1.4.10: Implementation does not support this method [DeleteWeb].(Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, and Office SharePoint Server 2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;18&gt; Section 3.1.4.10: Implementation does not support this method [DeleteWeb].(Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, and Office SharePoint Server 2007 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R312:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4278,6 +4618,27 @@
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this method [DeleteWeb]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R312:i,MS-SITESS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326001001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method [IsScriptSafeUrl]. (SharePoint Foundation 2010 and SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-SITESS_R326001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R326001002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrl]. &lt;19&gt; Section 3.1.4.11:  Only SharePoint Foundation 2013 supports this method.</ns1:Description>
+		<ns1:Derived>MS-SITESS_R326001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

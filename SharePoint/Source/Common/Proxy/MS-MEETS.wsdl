@@ -25,7 +25,7 @@
           <s:pattern value="([Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee])?"/>
         </s:restriction>
       </s:simpleType>
-      <s:simpleType name="UnsignedIntOrEmpty">
+      <s:simpleType name="IntOrEmpty">
         <s:union memberTypes="s:int tns:Empty"/>
       </s:simpleType>
       <s:simpleType name="Empty">
@@ -330,7 +330,7 @@
       </s:complexType>
       <s:complexType name="WorkspaceStatus">
         <s:attribute name="UniquePermissions" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
-        <s:attribute name="MeetingCount" type="tns:UnsignedIntOrEmpty" />
+        <s:attribute name="MeetingCount" type="tns:IntOrEmpty" />
         <s:attribute name="AnonymousAccess" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
         <s:attribute name="AllowAuthenticatedUsers" type="tns:CaseInsensitiveTrueFalseOrEmpty" />
       </s:complexType>

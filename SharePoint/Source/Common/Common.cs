@@ -591,7 +591,8 @@ namespace Microsoft.Protocols.TestSuites.Common
                 && (string.Compare(propSutVersion, "SharePointFoundation2013", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointServer2007", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointServer2010", true) != 0)
-                && (string.Compare(propSutVersion, "SharePointServer2013", true) != 0))
+                && (string.Compare(propSutVersion, "SharePointServer2013", true) != 0)
+                && (string.Compare(propSutVersion, "SharePointServer2016", true) != 0))
             {
                 exceptionInfo += "\r\n" + @"Error: The current value of common property ""SutVersion"" is """ + propSutVersion + @""", the value is not valid. " + "\r\n";
                 exceptionInfo += @"Please use one of following valid value for common property ""SutVersion"": " + "\r\n";
@@ -601,6 +602,7 @@ namespace Microsoft.Protocols.TestSuites.Common
                 exceptionInfo += @" ""SharePointServer2007"", the SUT is Microsoft® Office SharePoint® Server 2007 Service Pack 3 (SP3);" + "\r\n";
                 exceptionInfo += @" ""SharePointServer2010"", the SUT is Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2);" + "\r\n";
                 exceptionInfo += @" ""SharePointServer2013"", the SUT is Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1). " + "\r\n";
+                exceptionInfo += @" ""SharePointServer2016"", the SUT is Microsoft® SharePoint® Server 2016. " + "\r\n";
             }
 
             // Check the value of common property "TransportType".

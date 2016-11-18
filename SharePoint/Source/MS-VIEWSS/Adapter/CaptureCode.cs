@@ -75,11 +75,11 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
             }
             else if (this.viewssProxy.SoapVersion == SoapProtocolVersion.Soap12)
             {
-                // If the soap version is 1.2, the soap detail element exists and the schema validation succeeds, then R8902 can be captured.
+                // If the soap version is 1.2, the soap detail element exists and the schema validation succeeds, then R8902001 can be captured.
                 Site.CaptureRequirementIfIsTrue(
                     isDetailValidated,
-                    8902,
-                    "[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including a detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.");
+                    8902001,
+                    "[In Appendix B: Product Behavior] Implementation does use a detail element instead of the Detail element in SOAP 1.2. <1> Section 3:  Microsoft products use a detail element instead of the Detail element in SOAP 1.2.");
             }
 
             XmlNodeList childNodes = detail.ChildNodes;
@@ -785,7 +785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
                 this.PassSchemaValidation,
                 158,
                 @"[In BriefViewDefinition] The definition of the BriefViewDefinition element is as follows.
-                                            <s:complexType name=""BriefViewDefinition"">
+                                            <s:complexType name=""BriefViewDefinition"" mixed=""true"">
                                                 <s:sequence>
                                                 <s:element name=""Query"" type=""core:CamlQueryRoot"" minOccurs=""1"" maxOccurs=""1"" />
                                                 <s:element name=""ViewFields"" minOccurs=""1"" maxOccurs=""1"">

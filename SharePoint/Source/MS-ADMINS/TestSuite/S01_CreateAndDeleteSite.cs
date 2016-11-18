@@ -131,6 +131,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                  3043,
                  @"[In CreateSite]If the Url contains the port number, the Url format is http://ServerName:PortNumber/sites/SiteCollectionName.");
 
+            // The CreateSite operation succeed and the CreateSiteResult is not empty, MS-ADMINS_R1077001 can be captured.
+            Site.CaptureRequirementIfIsFalse(
+                string.IsNullOrEmpty(result),
+                1077001,
+                @"[In CreateSiteResponse]It[CreateSiteResult] MUST be returned if the CreateSite operation succeeds.");
+
+            // The input parameter URL is formatted as http://ServerName:PortNumber/sites/SiteCollectionName and the CreateSite operation succeed, MS-ADMINS_R2042001 can be captured.
+            Site.CaptureRequirement(
+                 2042001,
+                 @"[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be the port number used by the web application  on the protocol server.");
+
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
             Site.Assert.Pass("The delete site method should succeed.");
@@ -187,6 +198,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                  Uri.IsWellFormedUriString(result, UriKind.Absolute),
                  3043,
                  @"[In CreateSite]If the Url contains the port number, the Url format is http://ServerName:PortNumber/sites/SiteCollectionName.");
+
+            // The input parameter URL is formatted as http://ServerName:PortNumber/sites/SiteCollectionName and the CreateSite operation succeed, MS-ADMINS_R2042002 can be captured.
+            Site.CaptureRequirement(
+                 2042002,
+                 @"[In CreateSite]PortNumber in the [Url's] first format [http://ServerName:PortNumber/sites/SiteCollectionName] MUST be the port number used by or the Administration Web Service on the protocol server.");
 
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
@@ -628,13 +644,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with the length of title less than maximum characters 255, and the input title equals to the returned title property value, then MS-ADMINS_R3015 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                title,
-                sutAdapter.GetSiteProperty(result, "Title"),
-                3015,
+            // If create site successfully with the length of title less than maximum characters 255, then MS-ADMINS_R3015 can be verified.
+            Site.CaptureRequirement(
+            3015,
                 @"[In CreateSite]If the length of the Title is 254 characters, the CreateSite operation will succeed.");
-
+            
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
         }
@@ -664,13 +678,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with the length of title equals to maximum characters 255, and the input title equals to the returned title property value, then MS-ADMINS_R3016 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                title,
-                sutAdapter.GetSiteProperty(result, "Title"),
+            // If create site successfully with the length of title equals to maximum characters 255, then MS-ADMINS_R3016 can be verified.
+            Site.CaptureRequirement(
                 3016,
                 @"[In CreateSite]If the length of the Title is 255 characters, the CreateSite operation will succeed.");
-
+            
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
         }
@@ -699,13 +711,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             // Call CreateSite method to create a site collection with description length less than 255.
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
-
-            // If create site successfully with description length less than 255 characters, and the input description equals to the returned description property value, then MS-ADMINS_R3018 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                description,
-                sutAdapter.GetSiteProperty(result, "Description"),
-                3018,
-                @"[In CreateSite]If the length of the Description is 254 characters, the CreateSite operation will succeed.");
 
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
@@ -736,13 +741,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with description length equals to 255, and the input description equals to the returned description property value, then MS-ADMINS_R3035 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                description,
-                sutAdapter.GetSiteProperty(result, "Description"),
-                3035,
-                @"[In CreateSite]If the length of the Description is 255 characters, the CreateSite operation will succeed.");
-
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
         }
@@ -772,10 +770,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with ownerName length less than 255, and the input OwnerName equals to the returned OwnerName property value, then MS-ADMINS_R3023 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                ownerName,
-                sutAdapter.GetSiteProperty(result, "OwnerName"),
+            // If create site successfully with ownerName length less than 255, then MS-ADMINS_R3023 can be verified.
+            Site.CaptureRequirement(
                 3023,
                 @"[In CreateSite]If the length of the OwnerName is 254 characters, the CreateSite operation will succeed.");
 
@@ -808,10 +804,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with ownerName length equals to 255, and the input ownerName equals to the returned ownerName property value, then MS-ADMINS_R3037 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                ownerName,
-                sutAdapter.GetSiteProperty(result, "OwnerName"),
+            // If create site successfully with ownerName length equals to 255, then MS-ADMINS_R3037 can be verified.
+            Site.CaptureRequirement(
                 3037,
                 @"[In CreateSite]If the length of the OwnerName is 255 characters, the CreateSite operation will succeed.");
 
@@ -844,10 +838,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with ownerEmail length less than 255, and the input ownerEmail equals to the returned ownerEmail property value, then MS-ADMINS_R3025 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                ownerEmail,
-                sutAdapter.GetSiteProperty(result, "OwnerEmail"),
+            // If create site successfully with ownerEmail length less than 255, then MS-ADMINS_R3025 can be verified.
+            Site.CaptureRequirement(
                 3025,
                 @"[In CreateSite]If the length of the OwnerEmail is 254 characters, the CreateSite operation will succeed.");
 
@@ -880,10 +872,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with ownerEmail length equals to 255, and the input ownerEmail equals to the returned ownerEmail property value, then MS-ADMINS_R3013 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                ownerEmail,
-                sutAdapter.GetSiteProperty(result, "OwnerEmail"),
+            // If create site successfully with ownerEmail length equals to 255, then MS-ADMINS_R3013 can be verified.
+            Site.CaptureRequirement(
                 3013,
                 @"[In CreateSite]If the length of the OwnerEmail is 255 characters, the CreateSite operation will succeed.");
 
@@ -923,7 +913,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                 url.ToLower(CultureInfo.CurrentCulture),
                 urlGet.ToLower(CultureInfo.CurrentCulture),
                 28,
-                @"[In CreateSite]Its[Url's] maximum length, not including http://ServerName, is 128 characters.");
+                @"[In CreateSite]Its[Url's] maximum length, not including http://ServerName or http://ServerName:PortNumber, is 128 characters.");
 
             // Call DeleteSite to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
@@ -954,10 +944,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully, and the input portalUrl equals to the portalUrl property value returned, than MS-ADMINS_R3027 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                portalUrl,
-                sutAdapter.GetSiteProperty(result, "PortalUrl"),
+            // If create site successfully with PortalUrl length equals to 259, than MS-ADMINS_R3027 can be verified.
+            Site.CaptureRequirement(
                 3027,
                 @"[In CreateSite]If the length of the PortalUrl is 259 characters, the CreateSite operation will succeed.");
 
@@ -992,10 +980,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
 
             string portalUrlGet = sutAdapter.GetSiteProperty(result, "PortalUrl");
 
-            // If create site successfully, and the input portalUrl characters equals to the portalUrl property value returned, then MS-ADMINS_R3038 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                portalUrl,
-                portalUrlGet,
+            // If create site successfully with PortalUrl length equals to 260, then MS-ADMINS_R3038 can be verified.
+            Site.CaptureRequirement(
                 3038,
                 @"[In CreateSite]If the length of the PortalUrl is 260 characters, the CreateSite operation will succeed.");
 
@@ -1030,10 +1016,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
 
             string portalNameGet = sutAdapter.GetSiteProperty(result, "PortalName");
 
-            // If create site successfully, and the input portalName equals to the portalName property value returned, than MS-ADMINS_R3029 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                portalName,
-                portalNameGet,
+            // If create site successfully with portalName length equals to 254, than MS-ADMINS_R3029 can be verified.
+            Site.CaptureRequirement(
                 3029,
                 @"[In CreateSite]If the length of the PortalName is 254 characters, the CreateSite operation will succeed.");
 
@@ -1068,10 +1052,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
 
             string portalNameGet = sutAdapter.GetSiteProperty(result, "PortalName");
 
-            // If create site successfully, and the input portalName characters equals to the portalName property value returned, then MS-ADMINS_R3039 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                portalName,
-                portalNameGet,
+            // If create site successfully with portalName length equals to 255 then MS-ADMINS_R3039 can be verified.
+            Site.CaptureRequirement(
                 3039,
                 @"[In CreateSite]If the length of the PortalName is 255 characters, the CreateSite operation will succeed.");
 
@@ -1126,6 +1108,43 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             this.adminsAdapter.DeleteSite(result);
         }
 
+        /// <summary>
+        /// This test case is used to create the specified site collection without template.
+        /// </summary>
+        [TestCategory("MSADMINS"), TestMethod()]
+        public void MSADMINS_S01_TC29_CreateSiteSuccessfully_WithoutTemplate()
+        {
+            // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
+            GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
+            Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
+
+            // Call CreateSite method to create a site collection with port number 80.
+            int lcid = lcids.Languages[0];
+            string title = TestSuiteBase.GenerateUniqueSiteTitle();
+            string url = TestSuiteBase.GenerateUrlPrefixWithPortNumber() + title;
+            string description = TestSuiteBase.GenerateRandomString(20);
+            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
+            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
+            string ownerEmail = TestSuiteBase.GenerateEmail(20);
+            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
+            string portalName = TestSuiteBase.GenerateUniquePortalName();
+
+            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, null, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
+            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
+
+            string siteProperty = sutAdapter.GetSiteProperty(result, "Configuration");
+
+            //  if no template is specified, the "Configuration" is a invalid value "-1". MS-ADMINS_R2048 can be verified.
+            Site.CaptureRequirementIfAreEqual<string>(
+                "-1",
+                siteProperty,
+                2048,
+                @"[In CreateSite]If no template[WebTemplate] is specified, then no template will be applied to the site at creation time.");
+
+
+            // Call DeleteSite method to delete the site collection created in above steps.
+            this.adminsAdapter.DeleteSite(result);
+        }
         #endregion
 
         #region Test Case Initialization and Cleanup
