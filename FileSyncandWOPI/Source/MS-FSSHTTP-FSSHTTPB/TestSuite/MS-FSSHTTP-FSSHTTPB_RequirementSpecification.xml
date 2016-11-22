@@ -29126,7 +29126,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Object Definitions] A Root Node Object, Intermediate Node Object, and Data Node Object use Objects, as specified in [MS-FSSHTTPB] section 3.1.1.</ns1:Description>
+		<ns1:Description>[In Object Definitions] An Intermediate Node Object, Leaf Node Object, and Data Node Object use Objects, as specified in [MS-FSSHTTPB] section 3.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29198,7 +29198,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Node Object Properties][Root of Object Extended GUID Array field] Specifies an ordered list of the Object Extended GUIDs for each child of the Root Node. </ns1:Description>
+		<ns1:Description>[In Common Node Object Properties][Root of Object Extended GUID Array field] Specifies an ordered list of the Object Extended GUIDs for each child of the root Intermediate Node. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29537,7 +29537,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R30</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object] The Root Node Object is the root of the directed graph of Objects contained in a cell as specified in [MS-FSSHTTPB] section 3.1.1.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object] The root of the directed graph of Objects contained in a cell as specified in [MS-FSSHTTPB] section 3.1.1 is an Intermediate Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29546,7 +29546,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R31</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object] File data is represented as a hierarchical tree of nodes contained in this graph schema.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object] File data is represented as a hierarchical tree of nodes contained in this graph schema.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29555,7 +29555,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R32</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object] The root node is the root of this tree[File data] and where any traversal begins.&lt;1&gt;</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object] The root node is the root of this tree[File data] and where any traversal begins.&lt;1&gt;&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29565,7 +29565,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R33</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object] A Root Node Object has the format that is specified in the following subsections for the Root Node Object data, Root Node Object references, and Root Node Object cell references.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object] An Intermediate Node Object has the format that is specified in the following subsections for the Root Node Object data, Intermediate Node Object references, and Intermediate Node Object cell references.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29574,7 +29574,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R34</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] The Data field for the Root Node Object is specified in the following diagram.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] The Data field for the Intermediate Node Object is specified in the following diagram.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29583,7 +29583,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R37</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Root Node Start (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x1, Type of 0x20, and Length of 0x00.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node Start (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x1, Type of 0x20, and Length of 0x00.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29592,7 +29592,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Root Node Start (2 bytes): The value of this field[Root Node Start] MUST be 0x0104.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Root Node Start (2 bytes): The value of this field[Root Node Start] MUST be 0x0104.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29601,7 +29601,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Signature Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of 0x00, Compound of 0x0, Type of 0x21, and Length equal to the size of Signature Data.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Signature Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of 0x00, Compound of 0x0, Type of 0x21, and Length equal to the size of Signature Data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29610,7 +29610,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R41</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Signature Data (variable): A binary item, as specified in [MS-FSSHTTPB] section 2.2.1.3, specifying a value that is unique to the file data represented by this Root Node Object.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Signature Data (variable): A binary item, as specified in [MS-FSSHTTPB] section 2.2.1.3, specifying a value that is unique to the file data represented by this Intermediate Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29619,7 +29619,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Signature Data (variable): The value of this item[Signature Data] depends on the file chunking algorithm used, as specified in section 2.4.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Signature Data (variable): The value of this item[Signature Data] depends on the file chunking algorithm used, as specified in section 2.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29628,7 +29628,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Data Size Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x22, and Length of 0x08 (the size, in bytes, of Data Size).</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Data Size Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x22, and Length of 0x08 (the size, in bytes, of Data Size).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29637,7 +29637,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Data Size Header (2 bytes): The value of this field[Data Size Header] MUST be 0x1110.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Data Size Header (2 bytes): The value of this field[Data Size Header] MUST be 0x1110.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29646,7 +29646,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R44</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Root Node Object.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Intermediate Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29655,7 +29655,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R45</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Root Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x20.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x20.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29664,7 +29664,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R46</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Data] Root Node End (1 byte): The value of this field[Root Node End] MUST be 0x81.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node End (1 byte): The value of this field[Intermediate Node End] MUST be 0x81.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29673,7 +29673,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Root Node Object MUST specify an ordered set of Object Extended GUIDs. </ns1:Description>
+		<ns1:Description>[In Intermediate Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an ordered set of Object Extended GUIDs. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29682,7 +29682,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R48</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object References] Each Object Extended GUID MUST specify an Intermediate Node Object.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object References] Each Object Extended GUID MUST specify a Leaf Node Object or another Intermediate Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29691,7 +29691,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each descendent Leaf Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29700,7 +29700,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object References] The sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Root Node Object.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object References] The sum of the Data Size values from all of the Leaf Node Objects MUST equal the Data Size specified in the Object Data of this Intermediate Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29709,7 +29709,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Root Node Object Cell References] The Cell ID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Root Node Object MUST specify an empty array.</ns1:Description>
+		<ns1:Description>[In Intermediate Node Object Cell References] The Cell ID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an empty array.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29718,7 +29718,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R51</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object] An Intermediate Node Object has the format that is specified in the following subsections for the object data, object references, and object cell references.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object] A Leaf Node Object has the format that is specified in the following subsections for the object data, object references, and object cell references.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29727,7 +29727,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R52</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] The Data field for the Intermediate Node Object is specified in the following diagram.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] The Data field for the Leaf Node Object is specified in the following diagram.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29736,7 +29736,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R55</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node Start (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of 0x00, Compound of 0x1, Type of 0x1F, and Length of 0x00.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Leaf Node Start (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of 0x00, Compound of 0x1, Type of 0x1F, and Length of 0x00.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29745,7 +29745,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node Start (2 bytes): The value of this field[Intermediate Node Start] MUST be 0x00FC.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Leaf Node Start (2 bytes): The value of this field[Leaf Node Start] MUST be 0x00FC.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29754,7 +29754,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R57</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Signature Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x21, and Length equal to the size of Signature Data.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Signature Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x21, and Length equal to the size of Signature Data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29763,7 +29763,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R59</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Signature Data (variable): A binary item, as specified in [MS-FSSHTTPB] section 2.2.1.3, specifying a value that is unique to the file data represented by this Intermediate Node Object.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Signature Data (variable): A binary item, as specified in [MS-FSSHTTPB] section 2.2.1.3, specifying a value that is unique to the file data represented by this Leaf Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29772,7 +29772,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R60</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Signature Data (variable): The value of this item[Signature Data] depends on the file chunking algorithm used, as specified in section 2.4.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Signature Data (variable): The value of this item[Signature Data] depends on the file chunking algorithm used, as specified in section 2.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -29781,7 +29781,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R61</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Data Size Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x22, and Length of 0x08 (the size, in bytes, of Data Size).</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Data Size Header (2 bytes): A 16-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.1, with a Header Type of  0x00, Compound of 0x0, Type of 0x22, and Length of 0x08 (the size, in bytes, of Data Size).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29790,7 +29790,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8013</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Data Size Header (2 bytes): The value of this field[Data Size Header] MUST be 0x1110.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Data Size Header (2 bytes): The value of this field[Data Size Header] MUST be 0x1110.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29799,7 +29799,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R62</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Intermediate Node Object.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Leaf Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29808,7 +29808,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R63</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x1F.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Leaf Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x1F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29817,7 +29817,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8014</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Data] Intermediate Node End (1 byte):The value of this field[Intermediate Node End] MUST be 0x7D.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Data] Leaf Node End (1 byte):The value of this field[Leaf Node End] MUST be 0x7D.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29826,7 +29826,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R65</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an ordered set of Object Extended GUIDs.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Leaf Node Object MUST specify an ordered set of Object Extended GUIDs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29835,7 +29835,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8015</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object References] The ordered set of Object Extended GUIDs MUST contain the Object Extended GUID of a single Data Node Object or an ordered list of Extended GUIDs for the Intermediate Node Object.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object References] The ordered set of Object Extended GUIDs MUST contain the Object Extended GUID of a single Data Node Object or an ordered list of Extended GUIDs for the Leaf Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29844,7 +29844,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object. </ns1:Description>
+		<ns1:Description>[In Leaf Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29853,7 +29853,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R66</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object References] The size of the Data Node Object or the sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Intermediate Node Object.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object References] The size of the Data Node Object or the sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Leaf Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29862,7 +29862,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R67</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Intermediate Node Object Cell References] The Cell Reference Array of the Object MUST specify an empty array.</ns1:Description>
+		<ns1:Description>[In Leaf Node Object Cell References] The Cell Reference Array of the Object MUST specify an empty array.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29988,7 +29988,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R75</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Cell Properties] For each stream, a single Root Node MUST be specified by using a unique root identifier.</ns1:Description>
+		<ns1:Description>[In Cell Properties] For each stream, a single Intermediate Node MUST be specified by using a unique root identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30262,12 +30262,12 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8042</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Large Final Chunk Signature: A 12-byte sequence of bytes that specifies the chunk signature.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In Zip Files] Large Final Chunk Signature: A 12-byte sequence of bytes that specifies the chunk signature.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30285,16 +30285,16 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8044</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Large Final Chunk Signature: For each chunk in the chunk list, an Intermediate Node Object, as specified in section 2.2.3, is created. </ns1:Description>
+		<ns1:Description>[In Zip Files] Large Final Chunk Signature: For each chunk in the chunk list, a Leaf Node Object, as specified in section 2.2.3, is created. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8045</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.</ns1:Description>
+		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Data Size of the Leaf Node Object MUST be the total number of bytes represented by the chunk.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30303,7 +30303,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8046</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Signature Data of the Intermediate Node Object MUST be the chunk’s signature.</ns1:Description>
+		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Signature Data of the Leaf Node Object MUST be the chunk’s signature.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30312,7 +30312,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8047</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Intermediate Node is referenced by its parent node.</ns1:Description>
+		<ns1:Description>[In Zip Files] Large Final Chunk Signature: The Leaf Node is referenced by its parent node.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30321,11 +30321,12 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8048</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] If the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.</ns1:Description>
+		<ns1:Description>[In Zip Files] If the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPD_R8213, MS-FSSHTTPD_R8207.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8049</ns1:REQ_ID>
@@ -30339,20 +30340,22 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8050</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] The size of each subchunk is at most 1 megabyte. </ns1:Description>
+		<ns1:Description>[In Zip Files] The size of each subchunk is at most 3 megabytes. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPD_R8208, MS-FSSHTTPD_R8209.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] All but the lastsub chunk MUST be 1 megabyte in size.</ns1:Description>
+		<ns1:Description>[In Zip Files] All but the last subchunk MUST be 3 megabytes in size.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPD_R8210, MS-FSSHTTPD_R8211.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8052</ns1:REQ_ID>
@@ -30361,7 +30364,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8089</ns1:REQ_ID>
@@ -30370,7 +30373,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8053</ns1:REQ_ID>
@@ -30384,7 +30387,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8070</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Sub Chunk Signature: This sequence of bytes MUST be unique.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In Zip Files] Sub Chunk Signature: This sequence of bytes MUST be unique.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30393,11 +30396,11 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8054</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Sub Chunk Signature: For each subchunk, an Intermediate Node Object, as specified in section 2.2.3, is created.</ns1:Description>
+		<ns1:Description>[In Zip Files] Sub Chunk Signature: For each subchunk, a Leaf Node Object, as specified in section 2.2.3, is created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8055</ns1:REQ_ID>
@@ -30406,7 +30409,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8056</ns1:REQ_ID>
@@ -30415,16 +30418,16 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8057</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Sub Chunk Signature: For every Intermediate Node Object that has a Data Size less than 1 megabyte, a Data Node Object MUST be created. </ns1:Description>
+		<ns1:Description>[In Zip Files] Sub Chunk Signature: For every Leaf Node Object that has a Data Size less than 1 megabyte, a Data Node Object MUST be created. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8090</ns1:REQ_ID>
@@ -30433,7 +30436,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8058</ns1:REQ_ID>
@@ -30456,7 +30459,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8060</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Zip Files] Sub Chunk Signature: The Object References Array of the Intermediate Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.</ns1:Description>
+		<ns1:Description>[In Zip Files] Sub Chunk Signature: The Object References Array of the Leaf Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30474,11 +30477,12 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8062</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RDC Analysis] RDC analysis is performed only if the file size is greater than or equal to 32,768 bytes and less than 262,144,000 bytes. </ns1:Description>
+		<ns1:Description>[In RDC Analysis] RDC analysis is performed only if the file size is less than 104,857,600 bytes.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPD_R8212, MS-FSSHTTPD_R8214.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8063</ns1:REQ_ID>
@@ -30582,7 +30586,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R132</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] For each chunk in the chunk list, an Intermediate Node Object, as specified in section 2.2.3, is created.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] For each chunk in the chunk list, an Leaf Node Object, as specified in section 2.2.3, is created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30591,7 +30595,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] The Data Size of the Leaf Node Object MUST be the total number of bytes represented by the chunk.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30600,7 +30604,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R134</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] The Signature Data of the Intermediate Node Object MUST be the chunk’s signature.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] The Signature Data of the Leaf Node Object MUST be the chunk’s signature.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30609,7 +30613,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R135</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] The Intermediate Node is referenced by its parent node.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] The Leaf Node is referenced by its parent node.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30618,7 +30622,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R136</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] For all Intermediate Node Objects, a Data Node Object MUST be created.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] For all Leaf Node Objects, a Data Node Object MUST be created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30645,7 +30649,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R139</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Chunking Method] The Object References Array of the Intermediate Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.</ns1:Description>
+		<ns1:Description>[In Simple Chunking Method] The Object References Array of the Leaf Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30682,17 +30686,18 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8203</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return an Intermediate Node Object not the Root Node Object at the beginning. &lt;1&gt; Section 2.2.2: If there is only one object in the file, SharePoint Server 2010 does not return the Root Node Object, but an Intermediate Node Object at the beginning.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return an Leaf Node Object not the Intermediate Node Object at the beginning. &lt;1&gt; Section 2.2.2: If there is only one object in the file, Microsoft SharePoint Server 2010 does not return the Intermediate Node Object, but a Leaf Node Object at the beginning.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTPD_R32:i,MS-FSSHTTPD_R1400:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8204</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Root Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTPD_R32:i,MS-FSSHTTPD_R1400:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -30703,20 +30708,108 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8205</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.4.1: This sequence of bytes is randomly generated in Microsoft products.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;3&gt; Section 2.4.1: This sequence of bytes is randomly generated in Microsoft products.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8213</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated. &lt;4&gt; Section 2.4.1:  For SharePoint Server 2010, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8048:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8207</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8048:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8208</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] The size of each subchunk is at most 1 megabyte. (Microsoft SharePoint Server 2010 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8050:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8209</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] The size of each subchunk is at most 3 megabytes. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8050:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8210</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] All but the last subchunk MUST be 1 megabyte in size. (Microsfot SharePoint Server 2010 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8051:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8211</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] All but the last subchunk MUST be 1 megabyte in size. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8051:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R8206</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;3&gt; Section 2.4.1: This sequence of bytes is randomly generated in Microsoft products.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.4.1: This sequence of bytes is randomly generated in Microsoft products.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8212</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation performs the RDC analysis if the file size is more than or equal to 32768 bytes and less than 262,144,000 bytes. (&lt;6&gt; Section 2.4.2:  SharePoint Server 2010 performs the RDC analysis if the file size is more than or equal to 32768 bytes and less than 262,144,000 bytes.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8062:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPD_R8214</ns1:REQ_ID>
+		<ns1:Doc_Sect>5</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] RDC analysis is performed only if the file size is less than 104,857,600 bytes.(Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPD_R8062:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R38</ns1:REQ_ID>
