@@ -15,6 +15,7 @@
     <DeploymentItem filename="Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\Adapter\SUTControlAdapter\Implementation\RemoveWOPIDiscoveryRecord.ps1" />
     <DeploymentItem filename="SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCoauthoringFeature.ps1" />
