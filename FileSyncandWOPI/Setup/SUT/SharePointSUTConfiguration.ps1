@@ -157,7 +157,7 @@ $SharePointVersionInfo = GetSharePointVersion
 $SharePointVersion = $SharePointVersionInfo[0]
 if($SharePointVersion -eq $WindowsSharePointServices3[0] -or $SharePointVersion -eq $SharePointServer2007[0] -or $SharePointVersion -eq "Unknown Version")
 {
-    Write-Warning "Could not find the supported version of SharePoint server on the system! Install one of the recommended versions ($($script:SharePointFoundation2010[0]) $($script:SharePointFoundation2010[2]), $($script:SharePointServer2010[0]) $($script:SharePointServer2010[2]), $($script:SharePointFoundation2013[0]) $($script:SharePointFoundation2013[2]), $($script:SharePointServer2013[0]) $($script:SharePointServer2013[2])) and run the SUT configuration script again.`r`n"
+    Write-Warning "Could not find the supported version of SharePoint server on the system! Install one of the recommended versions ($($script:SharePointFoundation2010[0]) $($script:SharePointFoundation2010[2]), $($script:SharePointServer2010[0]) $($script:SharePointServer2010[2]), $($script:SharePointFoundation2013[0]) $($script:SharePointFoundation2013[2]), $($script:SharePointServer2013[0]) $($script:SharePointServer2013[2]), $($script:SharePointServer2016[0])) and run the SUT configuration script again.`r`n"
     Stop-Transcript
     exit 2
 }
@@ -190,7 +190,7 @@ AddHTTPSBinding "$sutComputerName" $SharePointVersion $webAppName
 # Change the authentication mode to claim based.
 #----------------------------------------------------------------------------
 $webApplicationUrl = "http://$sutComputerName"
-if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -ge $SharePointServer2013[0] )
 {
     ChangeAuthenticationModeToClaimBased $webApplicationUrl
 }
@@ -273,7 +273,7 @@ CreateFile $FileSyncWOPIBigTestData1 1.1mb $containerPath
 #-----------------------------------------------------
 # Start to configure SUT for MS-FSSHTTP-FSSHTTPB
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -ge $SharePointServer2013[0] )
 {
     Output "Start to run configuration for MS-FSSHTTP-FSSHTTPB ..." "White"
     
@@ -330,10 +330,10 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
 #-----------------------------------------------------
 # Start to configure SUT for MS-WOPI
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0])
+if($SharePointVersion -ge $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0])
 {        
     Output "Start to run the configuration for MS-WOPI ..." "White"
-    if($SharePointVersion -eq $SharePointServer2013[0])
+    if($SharePointVersion -ge $SharePointServer2013[0])
     {
         #Creates Secure Store application item MSWOPI_TargetAppWithNotGroupAndWindows
         CreateSecureStoreServiceApplication $MSWOPITargetAppWithNotGroupAndWindows "WindowsUserName" "WindowsPassword" "Individual" $FileSyncWOPIUser $FileSyncWOPIUserPassword $domain "http://$sutComputerName" $MSWOPIUserCredentialItem $MSWOPIPasswordCredentialItem
@@ -402,7 +402,7 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     
     $MSWOPISiteCollectionObject.Dispose()
             
-    if($SharePointVersion -eq $SharePointServer2013[0])
+    if($SharePointVersion -ge $SharePointServer2013[0])
     {
         #Creates Secure Store application item MSWOPI_TargetAppWithGroupAndNoWindows
         CreateSecureStoreServiceApplication $MSWOPITargetAppWithGroupAndNoWindows "UserName" "Password" "Group" $FileSyncWOPIUser $FileSyncWOPIUserPassword $domain "http://$sutComputerName" $MSWOPIUserCredentialItem $MSWOPIPasswordCredentialItem 
