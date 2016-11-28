@@ -418,11 +418,20 @@ X-WOPI-ServerError</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R45</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-MachineName is a string specifying the name of the WOPI server and MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.</ns1:Description>
+		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-MachineName is a string specifying the name of the WOPI server [and MUST be included with all WOPI responses], which MUST NOT be used for anything other than logging.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WOPI_R45001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R46</ns1:REQ_ID>
@@ -436,7 +445,7 @@ X-WOPI-ServerError</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R46001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Custom HTTP Headers] It is included in a WOPI response if the header X-WOPI-PerfTraceRequest in the request is present and equal to "true".</ns1:Description>
+		<ns1:Description>[In Custom HTTP Headers] It [X-WOPI-PerfTrace] is included in a WOPI response if the header X-WOPI-PerfTraceRequest in the request is present and equal to "true".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -445,11 +454,20 @@ X-WOPI-ServerError</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-ServerError is a string indicating that an error occurred while processing the WOPI request, which is included in a WOPI response if the status code is 500.</ns1:Description>
+		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-ServerError is a string indicating that an error occurred while processing the WOPI request, [which is included in a WOPI response if the status code is 500.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WOPI_R47001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Custom HTTP Headers] Header X-WOPI-ServerError is included in a WOPI response if the status code is 500.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R793</ns1:REQ_ID>
@@ -1045,7 +1063,7 @@ HTTP://server/hosting/discovery</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.1.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In ct_proof-key] The ct_proof-key complex type specifies two public keys that a WOPI server  uses to decrypt the values passed in the X-WOPI-Proof and X-WOPI-ProofOld HTTP headers (section 2.2.1).</ns1:Description>
+		<ns1:Description>[In ct_proof-key] The ct_proof-key complex type specifies two public keys that a WOPI server uses to decrypt the values passed in the X-WOPI-Proof and X-WOPI-ProofOld HTTP headers (section 2.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2738,20 +2756,18 @@ JSON:
 		<ns1:Doc_Sect>3.3.5.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] EditModePostMessage: A Boolean value that indicates that the WOPI client SHOULD notify the WOPI server in the event that the user attempts to edit the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-WOPI_R292002001,MS-WOPI_R292002002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R292003</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] EditNotificationPostMessage: A Boolean value that indicates that the WOPI client SHOULD notify the WOPI server in the event that the user attempts to edit the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-WOPI_R292003001, MS-WOPI_R292003002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R292004</ns1:REQ_ID>
@@ -2793,10 +2809,9 @@ JSON:
 		<ns1:Doc_Sect>3.3.5.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] FileSharingPostMessage: A Boolean value that indicates that the WOPI client SHOULD notify the WOPI server in the event that the user attempts to share the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-WOPI_R292006001,  MS-WOPI_R292006002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R294</ns1:REQ_ID>
@@ -3978,15 +3993,15 @@ is a string specifying the requested operation from the WOPI server.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R370001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PutRelativeFile] The response message for this operation can contain the following HTTP headers.
+		<ns1:Description>[In PutRelativeFile] The response message for this operation [PutRelativeFile] can contain the following HTTP headers.
 X-WOPI-ValidRelativeTarget
 X-WOPI-Lock
 X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R370002</ns1:REQ_ID>
@@ -4415,14 +4430,14 @@ X-WOPI-Lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R400</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Lock] The response message for this operation can contain the following HTTP headers:
+		<ns1:Description>[In Lock] The response message for this operation [Lock] can contain the following HTTP headers:
 X-WOPI-Lock
 X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401</ns1:REQ_ID>
@@ -4721,14 +4736,14 @@ X-WOPI-Lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R422001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Unlock] The response message for this operation can contain the following HTTP headers.
+		<ns1:Description>[In Unlock] The response message for this operation [Unlock] can contain the following HTTP headers.
 X-WOPI-Lock
 X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R422002</ns1:REQ_ID>
@@ -5009,14 +5024,14 @@ X-WOPI-Lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In RefreshLock] The response message for this operation can contain the following HTTP headers.
+		<ns1:Description>[In RefreshLock] The response message for this operation [RefreshLock] can contain the following HTTP headers.
 X-WOPI-Lock
 X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439002</ns1:REQ_ID>
@@ -5334,7 +5349,7 @@ X-WOPI-OldLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R460001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In UnlockAndRelock] The response message for this operation can contain the following HTTP headers.
+		<ns1:Description>[In UnlockAndRelock] The response message for this operation [UnlockAndRelock] can contain the following HTTP headers.
 X-WOPI-Lock
 X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
@@ -8693,72 +8708,6 @@ JSON:
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292002001</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body]  Implementation does return a boolean value true as EditModePostMessage value when the WOPI client notifies the WOPI server in the event that the user attempts to edit the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292002:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292002002</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body]  Implementation does return a boolean value false as EditModePostMessage value when the WOPI client notify the WOPI server in the event that no user attempts to edit the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292002:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292003001</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body] Implementation does return a boolean value true as EditNotificationPostMessage value when the WOPI client notifies the WOPI server in the event that the user attempts to edit the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292003:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292003002</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body] Implementation does return a boolean value false as EditNotificationPostMessage value when the WOPI client notifies the WOPI server in the event that no user attempts to edit the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292003:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292006001</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body] Implementation does return a boolean value true as FileSharingPostMessage value when  the WOPI client notify the WOPI server in the event that the user attempts to share the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292006:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-WOPI_R292006002</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Response Body] Implementation does return a boolean value false as FileSharingPostMessage value when  the WOPI client notify the WOPI server in the event that no user attempts to share the file. (SharePoint Foundation 2010 and above follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R292006:i,MS-WOPI_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
