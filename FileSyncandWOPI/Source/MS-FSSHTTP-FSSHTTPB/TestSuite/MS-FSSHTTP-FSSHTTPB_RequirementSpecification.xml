@@ -5845,7 +5845,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R381</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock lock exists on a file and a release of the lock or a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
+		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5854,18 +5854,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R381:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R3813</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
 		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R381:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8035,7 +8024,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R518</ns1:REQ_ID>
