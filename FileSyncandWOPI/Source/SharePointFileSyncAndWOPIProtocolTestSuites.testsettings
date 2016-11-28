@@ -11,6 +11,7 @@
     <DeploymentItem filename="MS-WOPI\Adapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
     <DeploymentItem filename="MS-WOPI\Adapter\SUTControlAdapter\Implementation\TriggerWOPIDiscovery.ps1" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />

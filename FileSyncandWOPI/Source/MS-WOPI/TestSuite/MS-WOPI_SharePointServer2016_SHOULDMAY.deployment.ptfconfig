@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R59Enabled_MS-WOPI to true to verify that implementation supports the token is scoped to a specific user and set of resources. Set R59Enabled_MS-WOPI to false to disable this requirement. -->
+    <Property name="R59Enabled_MS-WOPI" value="true" />
+    <!-- Set R961Enabled_MS-WOPI to true to verify that implementation supports ExecuteCellStorageRequest and ExcecuteCellStorageRelativeRequest. Set R961Enabled_MS-WOPI to false to disable this requirement. -->
+    <Property name="R961Enabled_MS-WOPI" value="true" />
+    <!-- Set R963Enabled_MS-WOPI to true to verify that implementation supports ReadSecureStore. Set R963Enabled_MS-WOPI to false to disable this requirement. -->
+    <Property name="R963Enabled_MS-WOPI" value="true" />
+    <!-- Set R788Enabled_MS-WOPI to true to verify that implementation combines the name of the initial file without extension with the extension specified in X-WOPI-SuggestedTarget to create the proposed name, if only the extension is provided in X-WOPI-SuggestedTarget. Set R788Enabled_MS-WOPI to false to disable this requirement. -->
+    <Property name="R788Enabled_MS-WOPI" value="true" />
+    <!-- Set the value of the property MS-WOPI_Supported to true to indicate that the SUT supports the MS-WOPI protocol. Otherwise set the value to false. -->
+    <Property name="MS-WOPI_Supported" value="true" />
+  </Properties>
+</TestSite>

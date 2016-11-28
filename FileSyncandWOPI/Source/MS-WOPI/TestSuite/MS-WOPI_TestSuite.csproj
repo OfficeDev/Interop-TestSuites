@@ -122,6 +122,7 @@
     <None Include="MS-WOPI_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WOPI_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WOPI_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WOPI_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WOPI_TestSuite.deployment.ptfconfig" />
     <None Include="MS-WOPI_TestSuite.ptfconfig" />
   </ItemGroup>
