@@ -525,7 +525,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Include] The Type attribute is specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Include] The Type attribute is specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -657,7 +657,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request][SubRequest] The SubRequestElementGenericType is defined in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Request][SubRequest] The SubRequestElementGenericType is defined in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1343,18 +1343,39 @@ The RequestVersion element specifies the version-specific information about the 
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Request] ParentFolderResourceID: If UseResourceID is true, this parameter tells the host to create a file in the given folder ResourceID, regardless of the request URL value.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11277.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11014</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag specifies whether the host should return a suggested/available file name that the client can try instead.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1101401</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11014:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1101402</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11014:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11015</ns1:REQ_ID>
@@ -1596,7 +1617,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R87</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In RequestVersion] VersionType is specified in section 2.2.4.7.</ns1:Description>
+		<ns1:Description>[In RequestVersion] VersionType is specified in section 2.2.4.9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1692,7 +1713,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] The SubResponseElementGenericType is defined in section 2.2.4.5.</ns1:Description>
+		<ns1:Description>[In Response] The SubResponseElementGenericType is defined in section 2.2.4.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1924,7 +1945,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11027</ns1:REQ_ID>
@@ -2057,7 +2078,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R124</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseVersion] [ResponseVersion Element] VersionType: A complex type that is specified in section 2.2.4.7.</ns1:Description>
+		<ns1:Description>[In ResponseVersion] [ResponseVersion Element] VersionType: A complex type that is specified in section 2.2.4.9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2222,7 +2243,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R131</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.8</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequest] SubRequestElementGenericType is defined in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In SubRequest] SubRequestElementGenericType is defined in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2287,7 +2308,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestData] SubRequestDataGenericType is defined in section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In SubRequestData] SubRequestDataGenericType is defined in section 2.2.4.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2307,7 +2328,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R142</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestData] The conditions under which a SubRequestData element MUST be sent as part of the SubRequest element are specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In SubRequestData] The conditions under which a SubRequestData element MUST be sent as part of the SubRequest element are specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2316,7 +2337,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestData] The conditions under which a SubRequestData element MUST NOT be sent as part of a SubRequest element are specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In SubRequestData] The conditions under which a SubRequestData element MUST NOT be sent as part of a SubRequest element are specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2361,7 +2382,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R147</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponse] The error code attribute is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SubResponse] The error code attribute is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2370,7 +2391,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponse] SubResponseElementGenericType is defined in section 2.2.4.5.</ns1:Description>
+		<ns1:Description>[In SubResponse] SubResponseElementGenericType is defined in section 2.2.4.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2425,7 +2446,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R154</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.11</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseData] SubResponseDataGenericType is defined in section 2.2.4.4.</ns1:Description>
+		<ns1:Description>[In SubResponseData] SubResponseDataGenericType is defined in section 2.2.4.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2444,7 +2465,7 @@ This protocol is not enabled on the protocol server.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R156</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.11</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseData] The conditions under which a SubResponseData element MUST be sent as part of the SubResponse element are specified in section 2.2.4.5.</ns1:Description>
+		<ns1:Description>[In SubResponseData] The conditions under which a SubResponseData element MUST be sent as part of the SubResponse element are specified in section 2.2.4.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2844,7 +2865,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestDataGenericType] The Type attribute is specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In SubRequestDataGenericType] The Type attribute is specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2871,7 +2892,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType] The SubRequestType definition from which SubRequestElementGenericType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In SubRequestElementGenericType] The SubRequestType definition from which SubRequestElementGenericType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2909,7 +2930,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R185</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType][SubRequestData] The SubRequestDataGenericType is defined in section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In SubRequestElementGenericType][SubRequestData] The SubRequestDataGenericType is defined in section 2.2.4.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3531,8 +3552,8 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Description>[In SubResponseDataGenericType] DocProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the server file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11051</ns1:REQ_ID>
@@ -3540,8 +3561,8 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Description>[In SubResponseDataGenericType] FolderProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the parent directory of the server file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11052</ns1:REQ_ID>
@@ -3825,7 +3846,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R246</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseDataGenericType] The Type attribute is specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In SubResponseDataGenericType] The Type attribute is specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3861,7 +3882,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R250</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseElementGenericType] The ErrorCode attribute is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SubResponseElementGenericType] The ErrorCode attribute is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3879,7 +3900,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R252</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseElementGenericType] The SubResponseType definition from which SubResponseElementGenericType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SubResponseElementGenericType] The SubResponseType definition from which SubResponseElementGenericType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3917,7 +3938,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R255</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseElementGenericType] SubResponseDataGenericType is defined in section 2.2.4.4.</ns1:Description>
+		<ns1:Description>[In SubResponseElementGenericType] SubResponseDataGenericType is defined in section 2.2.4.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4315,7 +4336,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R271</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseElementGenericType] The ErrorCode attribute is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SubResponseElementGenericType] The ErrorCode attribute is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4587,10 +4608,9 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
 		<ns1:Description>[In SubResponseType] ServerCorrelationId: A guid that specifies a unique identifier that equals to the CorrelationId as specified in section 2.2.3.3.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11264.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R287</ns1:REQ_ID>
@@ -5196,7 +5216,7 @@ Indicates an error when a subrequest dependency type that is not valid is specif
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R328</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In DependencyTypes] DependsOn is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In DependencyTypes] DependsOn is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5350,9 +5370,9 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 		<ns1:REQ_ID>MS-FSSHTTP_R341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.4</ns1:Doc_Sect>
 		<ns1:Description>[In ErrorCodeTypes][ErrorCodeTypes schema is:]
-&lt;xs:simpleType name="ErrorCodeTypes"&gt;
- &lt;xs:union memberTypes="tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes"/&gt;
-&lt;/xs:simpleType&gt;</ns1:Description>
+ &lt;xs:simpleType name="ErrorCodeTypes"&gt;
+  &lt;xs:union memberTypes="tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes" tns:VersioningRelatedErrorCodeTypes&gt;
+ &lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5472,7 +5492,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11270.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3023, MS-FSSHTTP_R11270.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R352</ns1:REQ_ID>
@@ -5816,7 +5836,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R380</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyLockedOnServer] The ErrorMessage and ErrorCode attributes are defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyLockedOnServer] The ErrorMessage and ErrorCode attributes are defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5825,7 +5845,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R381</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock or shared lock exists on a file and a release of the lock or a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
+		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock lock exists on a file and a release of the lock or a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5842,29 +5862,9 @@ ExclusiveLock</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R3812</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no shared lock exists on a file and a release of the lock is requested as part of a cell storage service request.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R381:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3813</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
 		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R381:c</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R3814</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no shared lock exists on a file and a conversion of the lock is requested as part of a cell storage service request.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R381:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -5910,7 +5910,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R386</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] The ErrorMessage and ErrorCode attributes are defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] The ErrorMessage and ErrorCode attributes are defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8029,6 +8029,15 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R11278</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] if the ByPassLockID is not set or not same with this schema lock identified, the SchemaLockID will be ignored by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R518</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] After a protocol client is able to get a shared lock for a file with a specific schema lock identifier, the server MUST allow only other protocol clients that specify the same schema lock identifier to share the file lock.</ns1:Description>
@@ -8240,7 +8249,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R534</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestType] The SubRequestType definition from which CellSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In CellSubRequestType] The SubRequestType definition from which CellSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8456,7 +8465,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R552</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubResponseType] SubResponseType definition from which CellSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In CellSubResponseType] SubResponseType definition from which CellSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8933,7 +8942,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R594</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubRequestType] The SubRequestType definition from which CoauthSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In CoauthSubRequestType] The SubRequestType definition from which CoauthSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9241,7 +9250,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R622</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In CoauthSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9250,7 +9259,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R623</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubResponseType] The SubResponseType definition from which CoauthSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In CoauthSubResponseType] The SubResponseType definition from which CoauthSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9348,7 +9357,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R629</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In CoauthSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9638,7 +9647,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R637</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubRequestType] The SubRequestType definition from which ExclusiveLockSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubRequestType] The SubRequestType definition from which ExclusiveLockSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9855,7 +9864,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R657</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9864,7 +9873,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R658</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubResponseType] The SubResponseType definition from which ExclusiveLockSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubResponseType] The SubResponseType definition from which ExclusiveLockSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10327,7 +10336,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R701</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubRequestType] The SubRequestType definition from which SchemaLockSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In SchemaLockSubRequestType] The SubRequestType definition from which SchemaLockSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10531,7 +10540,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R723</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.16</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SchemaLockSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10540,7 +10549,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R724</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.16</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubResponseType] The SubResponseType definition from which SchemaLockSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In SchemaLockSubResponseType] The SubResponseType definition from which SchemaLockSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10594,7 +10603,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R729</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.17</ns1:Doc_Sect>
-		<ns1:Description>[In ServerTimeSubRequestType] The SubRequestType definition from which ServerTimeSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In ServerTimeSubRequestType] The SubRequestType definition from which ServerTimeSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10740,7 +10749,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R744</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.19</ns1:Doc_Sect>
-		<ns1:Description>[In ServerTimeSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In ServerTimeSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10749,7 +10758,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R745</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.19</ns1:Doc_Sect>
-		<ns1:Description>[In ServerTimeSubResponseType] The SubResponseType definition from which ServerTimeSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In ServerTimeSubResponseType] The SubResponseType definition from which ServerTimeSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10803,7 +10812,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.20</ns1:Doc_Sect>
-		<ns1:Description>[In WhoAmISubRequestType] The SubRequestType definition from which WhoAmISubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In WhoAmISubRequestType] The SubRequestType definition from which WhoAmISubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10931,7 +10940,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R763</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In WhoAmISubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In WhoAmISubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10940,7 +10949,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R764</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In WhoAmISubResponseType] The SubResponseType definition from which WhoAmISubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In WhoAmISubResponseType] The SubResponseType definition from which WhoAmISubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11028,7 +11037,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1725</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.22</ns1:Doc_Sect>
-		<ns1:Description>[In WhoAmISubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In WhoAmISubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11390,7 +11399,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1758</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.24</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestType] The SubRequestType definition from which WhoAmISubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestType] The SubRequestType definition from which WhoAmISubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11581,7 +11590,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1772</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubResponseType] ErrorCode is specified in 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubResponseType] ErrorCode is specified in 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11599,7 +11608,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1774</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.26</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubRequestType] The SubRequestType definition from which GetDocMetaInfoSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubRequestType] The SubRequestType definition from which GetDocMetaInfoSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11668,7 +11677,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1781</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.27</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubResponseDataType] SubResponseDataGenericType is defined in section 2.2.4.4.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubResponseDataType] SubResponseDataGenericType is defined in section 2.2.4.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11816,7 +11825,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1795</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.30</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubResponseType] The ErrorCode attribute is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubResponseType] The ErrorCode attribute is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11825,7 +11834,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1796</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.30</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubResponseType] SubResponseType is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubResponseType] SubResponseType is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11903,7 +11912,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.30</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubResponseType][SubResponseData] The ErrorCode attribute is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubResponseType][SubResponseData] The ErrorCode attribute is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11921,7 +11930,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.31</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionsSubRequestType] The SubRequestType definition from which GetVersionsSubRequestType is extended is defined in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In GetVersionsSubRequestType] The SubRequestType definition from which GetVersionsSubRequestType is extended is defined in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11972,7 +11981,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1814</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.32</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionsSubResponseType] ErrorCode is specified in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In GetVersionsSubResponseType] ErrorCode is specified in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -11981,7 +11990,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1815</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.32</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionsSubResponseType] The SubResponseType definition from which GetVersionsSubResponseType is extended is defined in section 2.2.4.6.</ns1:Description>
+		<ns1:Description>[In GetVersionsSubResponseType] The SubResponseType definition from which GetVersionsSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12175,9 +12184,9 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.33</ns1:Doc_Sect>
 		<ns1:Description>[In FileOperationSubRequestDataType] This parameter [ExclusiveLockID] is used to validate that the file operation can be performed even though the file is under exclusive lock.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11110</ns1:REQ_ID>
@@ -12285,8 +12294,8 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[In FileOperationSubResponseType] In the case of success, it contains information requested as part of a file operation subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11121</ns1:REQ_ID>
@@ -12294,8 +12303,8 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11122</ns1:REQ_ID>
@@ -12583,8 +12592,8 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[In VersioningSubResponseType] In the case of success, it contains information requested as part of a versioning subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11151</ns1:REQ_ID>
@@ -12592,8 +12601,8 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[In VersioningSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11152</ns1:REQ_ID>
@@ -12672,16 +12681,16 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11159</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.40</ns1:Doc_Sect>
 		<ns1:Description>[In VersioningUserTableType] User: An element of type UserDataType (section 2.3.1.42) which describes a single user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11160</ns1:REQ_ID>
@@ -12722,7 +12731,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] The UserDataType complex type describes the details of a user represented in the VersioningVersionListType.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -12737,43 +12746,43 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
     &lt;s:attribute name="UserEmailAddress" type="s:string" use="optional" /&gt;
  &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11165</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserId: An integer that uniquely specifies the user in this user table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11166</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] The UserId is only used to identify users in attributes of the FileVersionDataType and FileVersionEventDataType and only needs to be consistent within the VersioningSubRequestDataType structure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11167</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserLogin: A UserLoginType that specifies the user login alias of  the protocol client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11168</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserLoginType is defined in section 2.3.2.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -12782,16 +12791,16 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserName: A UserNameType that specifies the user name for the protocol client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11170</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserNameType is defined in section 2.3.2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -12800,18 +12809,18 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] UserEmailAddress: A string that specifies the email address associated with the protocol client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.42</ns1:Doc_Sect>
 		<ns1:Description>[In UserDataType] The format of the email address MUST be as specified in [RFC2822] section 3.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11173</ns1:REQ_ID>
@@ -12849,7 +12858,27 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1117501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.43</ns1:Doc_Sect>
+		<ns1:Description>[In FileVersionDataType] IsCurrent: True specifies this version is the most recent version of the file.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11175:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1117502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.43</ns1:Doc_Sect>
+		<ns1:Description>[In FileVersionDataType] IsCurrent: False specifies this version is not the most recent version of the file.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11175:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11176</ns1:REQ_ID>
@@ -12894,7 +12923,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11181</ns1:REQ_ID>
@@ -12903,7 +12932,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11182</ns1:REQ_ID>
@@ -12959,7 +12988,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11187</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.44</ns1:Doc_Sect>
-		<ns1:Description>[In FileVersionEventDataType] The value MUST be one of the values in the following table.</ns1:Description>
+		<ns1:Description>[In FileVersionEventDataType] The value MUST be one of the values [1, 2, 3] in the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13026,7 +13055,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11195</ns1:REQ_ID>
@@ -13035,7 +13064,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R770</ns1:REQ_ID>
@@ -13676,8 +13705,8 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 		<ns1:Description>[In UserLoginType] For example, "contoso\user01".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R793</ns1:REQ_ID>
@@ -14156,7 +14185,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1827</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataOptionalAttributes][PartitionID] A protocol client using a value of 2.2 or greater for the VersionNumberType, as specified in section 2.2.4.7, MUST specify the Target Partition Id attribute in a cell subrequest, as specified in [MS-FSSHTTPB] section 2.2.2.1.1, and MUST NOT include this attribute[PartitionId] if communicating with a protocol server that has a version number of 2.2 or greater.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataOptionalAttributes][PartitionID] A protocol client using a value of 2.2 or greater for the VersionNumberType, as specified in section 2.2.4.9, MUST specify the Target Partition Id attribute in a cell subrequest, as specified in [MS-FSSHTTPB] section 2.2.2.1.1, and MUST NOT include this attribute[PartitionId] if communicating with a protocol server that has a version number of 2.2 or greater.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14264,7 +14293,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1831</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataOptionalAttributes][BypassLockID] The value of LockID, as specified in [MS-FSSHTTPB] section 2.2.2.1.4.2, is the same as this value[BypassLockID] if the value of VersionNumberType, as specified in section 2.2.4.7, is 2.2 or greater.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataOptionalAttributes][BypassLockID] The value of LockID, as specified in [MS-FSSHTTPB] section 2.2.2.1.4.2, is the same as this value[BypassLockID] if the value of VersionNumberType, as specified in section 2.2.4.9, is 2.2 or greater.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15857,7 +15886,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R919</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Processing Rules and Events] The SubRequestToken attribute is specified in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In Common Message Processing Rules and Events] The SubRequestToken attribute is specified in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15884,7 +15913,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R922</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Processing Rules and Events] The Type attribute is specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Common Message Processing Rules and Events] The Type attribute is specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15902,7 +15931,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R924</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Processing Rules and Events] DependencyType attribute for a SubRequest element is specified in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In Common Message Processing Rules and Events] DependencyType attribute for a SubRequest element is specified in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15929,7 +15958,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R927</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Processing Rules and Events] The DependsOn attribute for a SubRequest element is specified in section 2.2.4.3.</ns1:Description>
+		<ns1:Description>[In Common Message Processing Rules and Events] The DependsOn attribute for a SubRequest element is specified in section 2.2.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21874,7 +21903,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11254</ns1:REQ_ID>
@@ -21910,7 +21939,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R93101</ns1:REQ_ID>
@@ -21966,7 +21995,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11272</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the protocol server SHOULD use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11022:i, MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21977,7 +22006,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11273</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [UseResourceID] In the case where the protocol server is using the ResourceID attribute and both the ResourceID attribute and Url attribute each identify valid but different files the protocol server SHOULD set an error code in the ErrorCode attribute of the corresponding Response attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [UseResourceID] In the case where the protocol server is using the ResourceID attribute and both the ResourceID attribute and Url attribute each identify valid but different files the implementation does set an error code in the ErrorCode attribute of the corresponding Response attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11023:i, MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22081,9 +22110,20 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support ParentFolderResourceID Attribute. &lt;7&gt; Section 2.2.3.2:  Office 2010 and Office 2013 do not support ParentFolderResourceID attribute.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R11277</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support ParentFolderResourceID Attribute. (Office 2016 and Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11013:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3006</ns1:REQ_ID>
@@ -22164,21 +22204,21 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R11264</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation supports the ServerCorrelationId attribute. (Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R11064:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3023</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return value "CurrentUserHasExclusiveLock". &lt;11&gt; Section 2.2.5.5:  SharePoint Server 2010 and SharePoint Server 2013 will never return this value["CurrentUserHasExclusiveLock"] to the client.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R351:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11270</ns1:REQ_ID>
