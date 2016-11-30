@@ -535,7 +535,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
 
             // Get the file contents
-            byte[] bytes = new RootNodeObject.RootNodeObjectBuilder()
+            byte[] bytes = new IntermediateNodeObject.RootNodeObjectBuilder()
                                             .Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
                                             .GetContent()
                                             .ToArray();

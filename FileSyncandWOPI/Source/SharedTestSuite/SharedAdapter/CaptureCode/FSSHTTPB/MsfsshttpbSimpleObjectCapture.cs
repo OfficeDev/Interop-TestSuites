@@ -1085,7 +1085,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.Assert.AreEqual<Type>(
                                     typeof(PutChangesResponse),
                                     type,
-                                    "PutChangesResponse stream object header only represents RootNodeObject instance.");
+                                    "PutChangesResponse stream object header only represents IntermediateNodeObject instance.");
                     site.Assert.AreEqual<int>(
                                     0x087,
                                     (int)header.Type,
@@ -1104,32 +1104,32 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                 case StreamObjectTypeHeaderStart.RootNodeObject:
                     site.Assert.AreEqual<Type>(
-                                    typeof(RootNodeObject),
-                                    type,
-                                    "RootNodeObject stream object header only represents RootNodeObject instance.");
-                    site.Assert.AreEqual<int>(
-                                    0x20,
-                                    (int)header.Type,
-                                    "RootNodeObject stream object header has header value 0x0104.");
-                    site.Assert.AreEqual<int>(
-                                    1,
-                                    header.Compound,
-                                    "RootNodeObject stream object header has compound value 1.");
-                    break;
-
-                case StreamObjectTypeHeaderStart.IntermediateNodeObject:
-                    site.Assert.AreEqual<Type>(
                                     typeof(IntermediateNodeObject),
                                     type,
                                     "IntermediateNodeObject stream object header only represents IntermediateNodeObject instance.");
                     site.Assert.AreEqual<int>(
-                                    0x1F,
+                                    0x20,
                                     (int)header.Type,
-                                    "IntermediateNodeObject stream object header has header value 0x1F.");
+                                    "IntermediateNodeObject stream object header has header value 0x0104.");
                     site.Assert.AreEqual<int>(
                                     1,
                                     header.Compound,
                                     "IntermediateNodeObject stream object header has compound value 1.");
+                    break;
+
+                case StreamObjectTypeHeaderStart.IntermediateNodeObject:
+                    site.Assert.AreEqual<Type>(
+                                    typeof(LeafNodeObjectData),
+                                    type,
+                                    "LeafNodeObjectData stream object header only represents LeafNodeObjectData instance.");
+                    site.Assert.AreEqual<int>(
+                                    0x1F,
+                                    (int)header.Type,
+                                    "LeafNodeObjectData stream object header has header value 0x1F.");
+                    site.Assert.AreEqual<int>(
+                                    1,
+                                    header.Compound,
+                                    "LeafNodeObjectData stream object header has compound value 1.");
                     break;
 
                 case StreamObjectTypeHeaderStart.SignatureObject:
@@ -2061,20 +2061,20 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             {
                 case StreamObjectTypeHeaderEnd.RootNodeEnd:
                     site.Assert.AreEqual<Type>(
-                                    typeof(RootNodeObject),
+                                    typeof(IntermediateNodeObject),
                                     type,
-                                    "RootNodeEnd stream object header only represents RootNodeObject instance.");
+                                    "RootNodeEnd stream object header only represents IntermediateNodeObject instance.");
                     site.Assert.AreEqual<int>(
                                     0x20,
                                     (int)header.Type,
-                                    "RootNodeObject header has header value 0x20.");
+                                    "IntermediateNodeObject header has header value 0x20.");
                     break;
 
                 case StreamObjectTypeHeaderEnd.IntermediateNodeEnd:
                     site.Assert.AreEqual<Type>(
-                                    typeof(IntermediateNodeObject),
+                                    typeof(LeafNodeObjectData),
                                     type,
-                                    "IntermediateNodeEnd header only represents IntermediateNodeObject instance.");
+                                    "IntermediateNodeEnd header only represents LeafNodeObjectData instance.");
                     site.Assert.AreEqual<int>(
                                     0x1F,
                                     (int)header.Type,

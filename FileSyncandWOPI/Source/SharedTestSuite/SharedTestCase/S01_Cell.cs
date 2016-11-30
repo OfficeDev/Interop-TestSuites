@@ -97,7 +97,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
-            byte[] downloadBytes = new RootNodeObject.RootNodeObjectBuilder().Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
+            byte[] downloadBytes = new IntermediateNodeObject.RootNodeObjectBuilder().Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
                                                                              .GetContent()
                                                                              .ToArray();
 

@@ -303,7 +303,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
             FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
-            int contentLength = new RootNodeObject.RootNodeObjectBuilder().Build(
+            int contentLength = new IntermediateNodeObject.RootNodeObjectBuilder().Build(
                 fsshttpbResponse.DataElementPackage.DataElements,
                 fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID).GetContent().Count;
 

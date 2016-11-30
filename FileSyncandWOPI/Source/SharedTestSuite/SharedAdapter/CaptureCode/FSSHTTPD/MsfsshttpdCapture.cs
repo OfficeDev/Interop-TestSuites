@@ -294,11 +294,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// This method is used to verify the requirements related with the IntermediateNodeObject type.
+        /// This method is used to verify the requirements related with the LeafNodeObjectData type.
         /// </summary>
-        /// <param name="interNode">Specify the IntermediateNodeObject instance.</param>
+        /// <param name="interNode">Specify the LeafNodeObjectData instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public static void VerifyIntermediateNodeObject(IntermediateNodeObject interNode, ITestSite site)
+        public static void VerifyIntermediateNodeObject(LeafNodeObjectData interNode, ITestSite site)
         {
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R69
             site.CaptureRequirement(
@@ -342,12 +342,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Specify the ITestSite instance.</param>
         public static void VerifyObjectCount(ObjectGroupObjectData data, ITestSite site)
         {
-             RootNodeObject rootNode = null;
+             IntermediateNodeObject rootNode = null;
              int index = 0;
 
              if (data.ObjectExGUIDArray.Count.DecodedValue > 1)
              {
-                 bool isRootNode = StreamObject.TryGetCurrent<RootNodeObject>(data.Data.Content.ToArray(), ref index, out rootNode);
+                 bool isRootNode = StreamObject.TryGetCurrent<IntermediateNodeObject>(data.Data.Content.ToArray(), ref index, out rootNode);
                  site.Log.Add(
                             TestTools.LogEntryKind.Debug,
                             "If there are more than one objects in the file, the server will respond the Root Node object for SharePoint Server 2013");
@@ -362,7 +362,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
              {
                  if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8204, SharedContext.Current.Site))
                  {
-                     bool isRootNode = StreamObject.TryGetCurrent<RootNodeObject>(data.Data.Content.ToArray(), ref index, out rootNode);
+                     bool isRootNode = StreamObject.TryGetCurrent<IntermediateNodeObject>(data.Data.Content.ToArray(), ref index, out rootNode);
                      site.Log.Add(
                             TestTools.LogEntryKind.Debug,
                             "If there is an only object in the file, the server will respond the Root Node object for SharePoint Server 2013");
@@ -377,11 +377,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// This method is used to verify the requirements related with the RootNodeObject type.
+        /// This method is used to verify the requirements related with the IntermediateNodeObject type.
         /// </summary>
-        /// <param name="rootNode">Specify the RootNodeObject instance.</param>
+        /// <param name="rootNode">Specify the IntermediateNodeObject instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public static void VerifyRootNodeObject(RootNodeObject rootNode, ITestSite site)
+        public static void VerifyRootNodeObject(IntermediateNodeObject rootNode, ITestSite site)
         {
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R44
             site.CaptureRequirementIfAreEqual<ulong>(

@@ -38,7 +38,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="nodeObject">Specify the root node object.</param>
         /// <returns>The instance of AbstractChunking.</returns>
-        public static AbstractChunking CreateChunkingInstance(RootNodeObject nodeObject)
+        public static AbstractChunking CreateChunkingInstance(IntermediateNodeObject nodeObject)
         {
             byte[] fileContent = nodeObject.GetContent().ToArray();
 
@@ -62,7 +62,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 // For SharePoint Server 2010 SP2 compatible SUTs, chunking method depends on file content and size. So first try using the simple chunking.  
                 AbstractChunking returnChunking = new SimpleChunking(fileContent);
 
-                List<IntermediateNodeObject> nodes = returnChunking.Chunking();
+                List<LeafNodeObjectData> nodes = returnChunking.Chunking();
                 if (nodeObject.IntermediateNodeObjectList.Count == nodes.Count)
                 {
                     bool isDataSizeMatching = true;

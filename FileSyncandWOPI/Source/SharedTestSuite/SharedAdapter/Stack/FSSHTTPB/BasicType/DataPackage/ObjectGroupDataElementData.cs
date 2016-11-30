@@ -118,22 +118,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="dataElements">Specify the list of data elements.</param>
             private void TravelNodeObject(NodeObject node, ref List<DataElement> dataElements)
             {
-                if (node is RootNodeObject)
+                if (node is IntermediateNodeObject)
                 {
                     ObjectGroupDataElementData data = new ObjectGroupDataElementData();
                     data.ObjectGroupDeclarations.ObjectDeclarationList.Add(this.CreateObjectDeclare(node));
-                    data.ObjectGroupData.ObjectGroupObjectDataList.Add(this.CreateObjectData(node as RootNodeObject));
+                    data.ObjectGroupData.ObjectGroupObjectDataList.Add(this.CreateObjectData(node as IntermediateNodeObject));
 
                     dataElements.Add(new DataElement(DataElementType.ObjectGroupDataElementData, data));
 
-                    foreach (IntermediateNodeObject child in (node as RootNodeObject).IntermediateNodeObjectList)
+                    foreach (LeafNodeObjectData child in (node as IntermediateNodeObject).IntermediateNodeObjectList)
                     {
                         this.TravelNodeObject(child, ref dataElements);
                     }
                 }
-                else if (node is IntermediateNodeObject)
+                else if (node is LeafNodeObjectData)
                 {
-                    IntermediateNodeObject intermediateNode = node as IntermediateNodeObject;
+                    LeafNodeObjectData intermediateNode = node as LeafNodeObjectData;
 
                     ObjectGroupDataElementData data = new ObjectGroupDataElementData();
                     data.ObjectGroupDeclarations.ObjectDeclarationList.Add(this.CreateObjectDeclare(node));
@@ -151,7 +151,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         dataElements.Add(new DataElement(DataElementType.ObjectGroupDataElementData, data));
 
-                        foreach (IntermediateNodeObject child in intermediateNode.IntermediateNodeObjectList)
+                        foreach (LeafNodeObjectData child in intermediateNode.IntermediateNodeObjectList)
                         {
                             this.TravelNodeObject(child, ref dataElements);
                         }
@@ -159,7 +159,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         return;
                     }
                    
-                    throw new System.InvalidOperationException("The DataNodeObjectData and IntermediateNodeObjectList properties in IntermediateNodeObject type cannot be null in the same time.");
+                    throw new System.InvalidOperationException("The DataNodeObjectData and IntermediateNodeObjectList properties in LeafNodeObjectData type cannot be null in the same time.");
                 }
             }
 
@@ -204,14 +204,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// </summary>
             /// <param name="node">Specify the node object.</param>
             /// <returns>Return the ObjectGroupObjectData instance.</returns>
-            private ObjectGroupObjectData CreateObjectData(RootNodeObject node)
+            private ObjectGroupObjectData CreateObjectData(IntermediateNodeObject node)
             {
                 ObjectGroupObjectData objectData = new ObjectGroupObjectData();
 
                 objectData.CellIDArray = new CellIDArray(0u, null);
 
                 List<ExGuid> extendedGuidList = new List<ExGuid>();
-                foreach (IntermediateNodeObject child in node.IntermediateNodeObjectList)
+                foreach (LeafNodeObjectData child in node.IntermediateNodeObjectList)
                 {
                     extendedGuidList.Add(child.ExGuid);
                 }
@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// </summary>
             /// <param name="node">Specify the node object.</param>
             /// <returns>Return the ObjectGroupObjectData instance.</returns>
-            private ObjectGroupObjectData CreateObjectData(IntermediateNodeObject node)
+            private ObjectGroupObjectData CreateObjectData(LeafNodeObjectData node)
             {
                 ObjectGroupObjectData objectData = new ObjectGroupObjectData();
 
@@ -240,7 +240,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 }
                 else if (node.IntermediateNodeObjectList != null)
                 {
-                    foreach (IntermediateNodeObject child in node.IntermediateNodeObjectList)
+                    foreach (LeafNodeObjectData child in node.IntermediateNodeObjectList)
                     {
                         extendedGuidList.Add(child.ExGuid);
                     }

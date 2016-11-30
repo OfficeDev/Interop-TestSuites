@@ -41,14 +41,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// This method is used to chunk the file data.
         /// </summary>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        public abstract List<IntermediateNodeObject> Chunking();
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        public abstract List<LeafNodeObjectData> Chunking();
 
         /// <summary>
         /// This method is used to analyze the chunk.
         /// </summary>
         /// <param name="rootNode">Specify the root node object which is needed to be analyzed.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public abstract void AnalyzeChunking(RootNodeObject rootNode, ITestSite site);
+        public abstract void AnalyzeChunking(IntermediateNodeObject rootNode, ITestSite site);
     }
 }

@@ -24,11 +24,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// This method is used to chunk the file data.
         /// </summary>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        public override List<IntermediateNodeObject> Chunking()
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        public override List<LeafNodeObjectData> Chunking()
         {
-            List<IntermediateNodeObject> list = new List<IntermediateNodeObject>();
-            IntermediateNodeObject.IntermediateNodeObjectBuilder builder = new IntermediateNodeObject.IntermediateNodeObjectBuilder();
+            List<LeafNodeObjectData> list = new List<LeafNodeObjectData>();
+            LeafNodeObjectData.IntermediateNodeObjectBuilder builder = new LeafNodeObjectData.IntermediateNodeObjectBuilder();
 
             int index = 0;
             while (ZipHeader.IsFileHeader(this.FileContent, index))
@@ -88,13 +88,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="rootNode">Specify the root node object which will be analyzed.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public override void AnalyzeChunking(RootNodeObject rootNode, ITestSite site)
+        public override void AnalyzeChunking(IntermediateNodeObject rootNode, ITestSite site)
         {
-            List<IntermediateNodeObject> cloneList = new List<IntermediateNodeObject>(rootNode.IntermediateNodeObjectList);
+            List<LeafNodeObjectData> cloneList = new List<LeafNodeObjectData>(rootNode.IntermediateNodeObjectList);
 
             while (cloneList.Count != 0)
             {
-                IntermediateNodeObject nodeObject = cloneList.First();
+                LeafNodeObjectData nodeObject = cloneList.First();
                 byte[] content = nodeObject.DataNodeObjectData.ObjectData;
 
                 if (cloneList.Count == 1)
@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                         if (headerLength + compressedSize <= 4096)
                         {
-                            IntermediateNodeObject expectNode = new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
+                            LeafNodeObjectData expectNode = new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
                             if (!expectNode.Signature.Equals(nodeObject.Signature))
                             {
                                 site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
@@ -191,19 +191,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// Convert chunk data to IntermediateNodeObject from byte array.
+        /// Convert chunk data to LeafNodeObjectData from byte array.
         /// </summary>
         /// <param name="chunkData">A byte array that contains the data.</param>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        private List<IntermediateNodeObject> GetSubChunkList(byte[] chunkData)
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        private List<LeafNodeObjectData> GetSubChunkList(byte[] chunkData)
         {
-            List<IntermediateNodeObject> subChunkList = new List<IntermediateNodeObject>();
+            List<LeafNodeObjectData> subChunkList = new List<LeafNodeObjectData>();
             int index = 0;
             while (index < chunkData.Length)
             {
                 int length = chunkData.Length - index < 1048576 ? chunkData.Length - index : 1048576;
                 byte[] temp = AdapterHelper.GetBytes(chunkData, index, length);
-                subChunkList.Add(new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
+                subChunkList.Add(new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
                 index += length;
             }
 

@@ -51,12 +51,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="instance">Specify the intermediate node instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public void VerifyIntermediateNodeObject(IntermediateNodeObject instance, ITestSite site)
+        public void VerifyIntermediateNodeObject(LeafNodeObjectData instance, ITestSite site)
         {
-            // If the instance is not null and there are no parsing errors, then the IntermediateNodeObject related adapter requirements can be directly captured.
+            // If the instance is not null and there are no parsing errors, then the LeafNodeObjectData related adapter requirements can be directly captured.
             if (null == instance)
             {
-                site.Assert.Fail("The instance of type IntermediateNodeObject is null due to parsing error or type casting error.");
+                site.Assert.Fail("The instance of type LeafNodeObjectData is null due to parsing error or type casting error.");
             }
 
             // Verify the stream object header related requirements.
@@ -128,12 +128,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="instance">Specify the intermediate node instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public void VerifyRootNodeObject(RootNodeObject instance, ITestSite site)
+        public void VerifyRootNodeObject(IntermediateNodeObject instance, ITestSite site)
         {
-            // If the instance is not null and there are no parsing errors, then the RootNodeObject related adapter requirements can be directly captured.
+            // If the instance is not null and there are no parsing errors, then the IntermediateNodeObject related adapter requirements can be directly captured.
             if (null == instance)
             {
-                site.Assert.Fail("The instance of type RootNodeObject is null due to parsing error or type casting error.");
+                site.Assert.Fail("The instance of type IntermediateNodeObject is null due to parsing error or type casting error.");
             }
 
             // Verify the stream object header related requirements.

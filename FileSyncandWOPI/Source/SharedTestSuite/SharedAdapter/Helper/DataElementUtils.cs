@@ -61,7 +61,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <returns>Return the list of data element which will represent the file content.</returns>
         public static List<DataElement> CreateObjectGroupDataElement(byte[] fileContent, out ExGuid rootNodeExGuid, ref List<ExGuid> objectDataExGuidList)
         {
-            NodeObject rootNode = new RootNodeObject.RootNodeObjectBuilder().Build(fileContent);
+            NodeObject rootNode = new IntermediateNodeObject.RootNodeObjectBuilder().Build(fileContent);
             
             // Storage the root object node ExGuid
             rootNodeExGuid = new ExGuid(rootNode.ExGuid);
