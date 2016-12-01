@@ -28103,6 +28103,17 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partically verified by derived requirement: MS-FSSHTTPB_R43001.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R43001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Query Changes] Whenever the A – Reserved field is set to 0 or 1, the protocol server must return the same response.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R430:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R432</ns1:REQ_ID>
@@ -28129,7 +28140,18 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partically verified by derived requirement: MS-FSSHTTPB_R214601.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R214601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Query Changes] Whenever the C –Exclude Object Data field is set to 0 or 1, the protocol server must return the same response.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R2146:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2148</ns1:REQ_ID>
@@ -28189,7 +28211,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R434</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes] E - Reserved1 (4 bits): MUST be ignored.</ns1:Description>
+		<ns1:Description>[In Query Changes] G - Reserved1 (4 bits): MUST be ignored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28225,6 +28247,15 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4115.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R4131</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
+		<ns1:Description>[In Query Changes] This field[F - Include Storage Manifest] is only sent if Query Changes Request Arguments is specified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R438</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Query Changes] G - Include Cell Changes (1 bit): If set, a bit that specifies to include cell changes. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
@@ -28248,9 +28279,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Query Changes] This field [G-Include Cell Changes] is only sent if Query Changes Request Arguments is specified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R439</ns1:REQ_ID>
@@ -28275,9 +28306,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Query Changes] This field [H-Reserved2] is only sent if Query Changes Request Arguments is specified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R442</ns1:REQ_ID>
@@ -29094,9 +29125,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes] When the flag [B-Partial] is set to true, the Storage Index Extended GUID (variable) MUST not be specified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R515</ns1:REQ_ID>
@@ -29112,9 +29143,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes] When the flag [C-Partial Last] is set to true, the Storage Index Extended GUID (variable) MUST be specified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R516</ns1:REQ_ID>
@@ -29436,9 +29467,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4.3</ns1:Doc_Sect>
 		<ns1:Description>[Diagnostic Request Option Input] A – Force Revision Chain Optimization (1 bit): A bit that, if set, specifies that the server should optimize the chain of revisions by refactoring them as part of the Put Changes request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4058</ns1:REQ_ID>
@@ -29457,16 +29488,6 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirement: MS-FSSHTTPB_.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTPB_R4060</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[Diagnostic Request Option Input] Reserved (7 bits): Whenever Reserved is set to one or zero, the protocol server must return the same response.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2184</ns1:REQ_ID>
