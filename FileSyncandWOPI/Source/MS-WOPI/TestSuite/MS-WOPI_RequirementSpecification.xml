@@ -359,7 +359,8 @@ X-WOPI-ServerError</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R40002, MS-WOPI_R42001, MS-WOPI_R44, MS-WOPI_R45, MS-WOPI_R45001, MS-WOPI_R46001, MS-WOPI_R467001, MS-WOPI_R793, MS-WOPI_R795.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R40001</ns1:REQ_ID>
@@ -4001,7 +4002,8 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements:MS-WOPI_R370002, MS-WOPI_R370003, MS-WOPI_R370004, MS-WOPI_R370005, MS-WOPI_R370006, MS-WOPI_R370007, MS-WOPI_R370008, MS-WOPI_R370011, MS-WOPI_R370012, MS-WOPI_R370013, MS-WOPI_R370014, MS-WOPI_R370015.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R370002</ns1:REQ_ID>
@@ -4437,7 +4439,8 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements:MS-WOPI_R401, MS-WOPI_R401001, MS-WOPI_R401002, MS-WOPI_R401003, MS-WOPI_R401006, MS-WOPI_R401007, MS-WOPI_R401008, MS-WOPI_R401009, MS-WOPI_R401010.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401</ns1:REQ_ID>
@@ -4743,7 +4746,8 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R422002, MS-WOPI_R422003, MS-WOPI_R422004, MS-WOPI_R422005, MS-WOPI_R422008, MS-WOPI_R422009, MS-WOPI_R422010, MS-WOPI_R422011, MS-WOPI_R422012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R422002</ns1:REQ_ID>
@@ -5031,7 +5035,8 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R439002, MS-WOPI_R439003, MS-WOPI_R439004, MS-WOPI_R439005, MS-WOPI_R439008, MS-WOPI_R439009, MS-WOPI_R439010, MS-WOPI_R439011, MS-WOPI_R439012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439002</ns1:REQ_ID>
@@ -5355,8 +5360,9 @@ X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R460002, MS-WOPI_R460003, MS-WOPI_R460004, MS-WOPI_R460005, MS-WOPI_R460008, MS-WOPI_R460009, MS-WOPI_R460010, MS-WOPI_R460011, MS-WOPI_R460012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R460002</ns1:REQ_ID>
@@ -5625,8 +5631,9 @@ X-WOPI-LockFailureReason
 X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R469008, MS-WOPI_R469009, MS-WOPI_R469010, MS-WOPI_R469011, MS-WOPI_R469014, MS-WOPI_R469015, MS-WOPI_R469016, MS-WOPI_R469017, MS-WOPI_R469018.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R469008</ns1:REQ_ID>
@@ -6633,8 +6640,9 @@ X-WOPI-RestrictedLink</ns1:Description>
 X-WOPI-RestrictedUseLink</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-WOPI_R563, MS-WOPI_R566, MS-WOPI_R565.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R563</ns1:REQ_ID>
@@ -8198,11 +8206,15 @@ X-WOPI-Lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R685001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In PutFile] The response message for this operation can contain the following HTTP headers.</ns1:Description>
+		<ns1:Description>[In PutFile] The response message for this operation can contain the following HTTP headers.
+X-WOPI-Lock
+X-WOPI-LockFailureReason
+X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-WOPI_R685002, MS-WOPI_R685003, MS-WOPI_R685004, MS-WOPI_R685002, MS-WOPI_R685008, MS-WOPI_R685009, MS-WOPI_R685010, MS-WOPI_R685011, MS-WOPI_R685012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R685002</ns1:REQ_ID>

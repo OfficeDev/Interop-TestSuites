@@ -49,7 +49,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             // All requests sent by this test suite contain the "X-WOPI-ProofOld" header, if send/receive messages successfully, capture this requirement directly.
             this.Site.CaptureRequirement(
                           36,
-                          @"[In Custom HTTP Headers] The intent of passing X-WOPI-ProofOld header is to allow the WOPI server to validate that the WOPI request originated from the WOPI client that provided the public key in Discovery via ct_wopi-proof-key.");
+                          @"[In Custom HTTP Headers] The intent of passing X-WOPI-ProofOld header is to allow the WOPI server to validate that the WOPI request originated from the WOPI client that provided the public key in Discovery via ct_proof-proof-key.");
 
             // This test suite will trigger the discovery process before send/receive all messages, and all WOPI messages are depended on discovery process. If send/receive messages successfully, capture this requirement directly.
             this.Site.CaptureRequirement(
@@ -60,7 +60,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             // This test suite will trigger the discovery process before send/receive all messages, and all WOPI messages are depended on discovery process. If send/receive messages successfully, capture this requirement directly.
             this.Site.CaptureRequirement(
                           74,
-                          @"[In HTTP://server/hosting/discovery] The data that describes the supported abilities of the WOPI client and how to invoke these abilities through URIs is provided through the following URI:
+                          @"[In HTTP://server/hosting/discovery] The data that describes the supported abilities of the WOPI client and how to call these abilities through URIs is provided through the following URI:
                           HTTP://server/hosting/discovery");
         }
 
@@ -148,11 +148,18 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           ""BreadcrumbFolderUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""ClientUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""CloseButtonClosesWindow"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""ClosePostMessage"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""CloseUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""DisableBrowserCachingOfUserContent"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""DisablePrint"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""DisableTranslation"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""DownloadUrl"":{""type"":""string"",""default"":"""",""optional"":true},
+                          ""EditAndReplyUrl"":{""type"":""string"",""default"":"""",""optional"":true},
+                          ""EditModePostMessage"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""EditNotificationPostMessage"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""FileExtension"":{""type"":""string"",""default"":"""",""optional"":true}, 
+                          ""FileNameMaxLength"":{""type"":""integer"",""default"":250,""optional"":true}, 
+                          ""FileSharingPostMessage"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""FileSharingUrl"":{""type"":""string"",""default"":"""",""optional"":true}, 
                           ""FileUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""HostAuthenticationId""{""type"":""string"",""default"":"""",""optional"":true},
@@ -165,34 +172,45 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           ""HostViewUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""IrmPolicyDescription"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""IrmPolicyTitle"":{""type"":""string"",""default"":"""",""optional"":true},
+                          ""LicenseCheckForEditIsEnabled"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""OwnerId"":{""type"":""string"",""optional"":false},
+                          ""PostMessageOrigin""{""type"":""string"",""default"":"""",""optional"":true},
                           ""PresenceProvider""{""type"":""string"",""default"":"""",""optional"":true},
                           ""PresenceUserId""{""type"":""string"",""default"":"""",""optional"":true},
                           ""PrivacyUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""ProtectInClient"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""ReadOnly"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""RestrictedWebViewOnly"":{""type"":""bool"",""default"":false,""optional"":true},
-                          ""SHA256"":{""type"":""string"",""optional"":false},
+                          ""SHA256"":{""type"":""string"",""optional"":true},
+                          ""SignInUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""SignoutUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""Size"":{""type"":""int"",""optional"":false},
                           ""SupportsCoauth"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsCobalt"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""SupportsExtendedLockLength"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""SupportsFileCreation"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsFolders"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""SupportsGetLock"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsLocks"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""SupportsRename"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsScenarioLinks"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsSecureStore"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""SupportsUpdate"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""SupportsUserInfo"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""TenantId""{""type"":""string"",""default"":"""",""optional"":true},
                           ""TermsOfUseUrl"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""TimeZone""{""type"":""string"",""default"":"""",""optional"":true},
+                          ""UniqueContentId"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""UserCanAttend"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""UserCanNotWriteRelative"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""UserCanPresent"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""UserCanRename"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""UserCanWrite"":{""type"":""bool"",""default"":false,""optional"":true},
                           ""UserFriendlyName"":{""type"":""string"",""default"":"""",""optional"":true},
                           ""UserId"":{""type"":""string"",""default"":"""",""optional"":true},
-                          ""Version"":{""type"":""string"",""optional"":false}
-                          ""WebEditingDisabled"":{""type"":""bool"",""default"":false,""optional"":true},
+                          ""UserInfo"":{""type"":""string"",""default"":"""",""optional"":true},
+                          ""Version"":{""type"":""string"",""optional"":false},
+                          ""WebEditingDisabled"":{""type"":""bool"",""default"":false,""optional"":true}
                           }");
 
             if (WOPISerializerHelper.CheckContainItem(jsonString, "ReadOnly"))
@@ -206,17 +224,57 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsCoauth"))
             {
                 // Check whether "SupportsCoauth" is in JSON. If JSON string contain this item,it must follow JSON response format.
-                this.Site.CaptureRequirement(
-                              950,
-                              @"[In Response Body] SupportsCoauth is a Boolean value.");
-            }
+                if (Common.IsRequirementEnabled("MS-WOPI", 950001, this.Site))
 
+                {
+                    //string jsonItem = "SupportsCoauth";
+                    Boolean isVerified = false;
+                    if (jsonString.Contains("\"SupportsCoauth\":false"))
+                    {
+                        isVerified = true;
+                    }
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isVerified, 
+                        950001, 
+                        @"[In Response Body] Implementation does return the value false for field SupportsCoauth. <1> Section 3.3.5.1.1.2:  SharePoint Foundation 2013, SharePoint Server 2013 and above return the value false for the SupportsCoauth field.");
+                }
+               if (Common.IsRequirementEnabled("MS-WOPI", 950002, this.Site))
+               {
+                   //string jsonItem = "SupportsCoauth";
+                    Boolean isVerified = false;
+                    if (jsonString.Contains("\"SupportsCoauth\":true"))
+                    {
+                        isVerified = true;
+                    }
+                    this.Site.CaptureRequirementIfIsTrue(
+                        isVerified,
+                        950002,
+                        @"[In Response Body] Implementation does return the value true for field SupportsCoauth. (SharePoint Server 2010 follows this behavior).");
+                }
+            }
+            
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsCobalt"))
             {
                 // Check whether "SupportsCobalt" is in JSON. If JSON string contain this item,it must follow JSON response format.
                 this.Site.CaptureRequirement(
                               775,
                               @"[In Response Body] SupportsCobalt is a Boolean value.");
+            }
+
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsExtendedLockLength"))
+            {
+                // Check whether "SupportsExtendedLockLength" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              776001001,
+                              @"[In Response Body] SupportsExtendedLockLength is a Boolean value.");
+            }
+
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsFileCreation"))
+            {
+                // Check whether "SupportsFileCreation" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              776002001,
+                              @"[In Response Body] SupportsFileCreation is a Boolean value.");
             }
 
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsFolders"))
@@ -227,12 +285,28 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               @"[In Response Body] SupportsFolders is a Boolean value.");
             }
 
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsGetLock"))
+            {
+                // Check whether "SupportsGetLock" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              778001001,
+                              @"[In Response Body] SupportsGetLock is a Boolean value.");
+            }
+
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsLocks"))
             {
                 // Check whether "SupportsLocks" is in JSON. If JSON string contain this item,it must follow JSON response format.
                 this.Site.CaptureRequirement(
                               779,
                               @"[In Response Body] SupportsLocks is a Boolean value.");
+            }
+
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsRename"))
+            {
+                // Check whether "SupportsRename" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              780001001,
+                              @"[In Response Body] SupportsRename is a Boolean value.");
             }
 
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsSecureStore"))
@@ -251,6 +325,30 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               @"[In Response Body] SupportsUpdate is a Boolean value.");
             }
 
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsUserInfo"))
+            {
+                // Check whether "SupportsUserInfo" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              784001001,
+                              @"[In Response Body] SupportsUserInfo is a Boolean value.");
+            }
+
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "UniqueContentId"))
+            {
+                // Check whether "UniqueContentId" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              335001001,
+                              @"[In Response Body] UniqueContentId is a Boolean value.");
+            }
+
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "UserCanRename"))
+            {
+                // Check whether "UserCanRename" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              342001001,
+                              @"[In Response Body] UserCanRename is a Boolean value.");
+            }
+
             if (WOPISerializerHelper.CheckContainItem(jsonString, "UserCanNotWriteRelative"))
             {
                 // Check whether "UserCanNotWriteRelative" is in JSON. If JSON string contain this item,it must follow JSON response format.
@@ -265,6 +363,32 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 this.Site.CaptureRequirement(
                               928,
                               @"[In Response Body] UserCanWrite is a Boolean value.");
+            }
+
+            for (int i=0; i< response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "FileExtension")
+                {
+                    //Verify MS-WOPI requirement: MS-WOPI_R292004
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        292004,
+                        @"[In Response Body] FileExtension: A string specifying the file extension of the file.");
+                    
+                    //Verify MS-WOPI requirement: MS-WOPI_R292005
+                    this.Site.CaptureRequirementIfIsTrue(
+                        response.Headers[i].StartsWith("."),
+                        292005,
+                        @"[In Response Body] This value [FileExtension] MUST begin with a ""."".");
+                }
+                if (response.Headers.AllKeys[i] == "FileNameMaxLength")
+                //Verify MS-WOPI requirement: MS-WOPI_R292007
+                this.Site.CaptureRequirementIfAreEqual<Type>(
+                    typeof(Int32),
+                    response.Headers[i].GetType(),
+                    292007,
+                    @"[In Response Body] FileNameMaxLength: An integer indicating the maximum length for file names, including the file extension, supported by the WOPI server.");
             }
 
             this.ValidateURL(checkFileInfo.CloseUrl, "CloseUrl");
@@ -300,6 +424,37 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           }");
             this.ValidateURL(putRelativeFile.HostViewUrl, "HostViewUrl");
             this.ValidateURL(putRelativeFile.HostEditUrl, "HostEditUrl");
+
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-ValidRelativeTarget")
+                {
+                    //Verify MS-WOPI requirement: MS-WOPI_R370005
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        370005,
+                        @"[In PutRelativeFile] X-WOPI-ValidRelativeTarget is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    //Verify MS-WOPI requirement: MS-WOPI_R370008
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        370008,
+                        @"[In PutRelativeFile] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    //Verify MS-WOPI requirement: MS-WOPI_R370013
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        370013,
+                        @"[In PutRelativeFile] X-WOPI-LockFailureReason is a string.");
+                }
+            }
         }
 
         /// <summary>
@@ -308,15 +463,210 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateLockResponse(WOPIHttpResponse response)
         {
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-WOPI_R402");
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R401003
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        401003,
+                        @"[In Lock] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R401008
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        401008,
+                        @"[In Lock] X-WOPI-LockFailureReason is a string.");
+                }
+            }
+        }
 
-            // Verify MS-WOPI requirement: MS-WOPI_R402
-            // "X-WOPI-OldLock" is not null in response means this item is required.
-            this.Site.CaptureRequirementIfIsNotNull(
-                          response.Headers["X-WOPI-OldLock"],
-                          402,
-                          @"[In Lock] X-WOPI-OldLock is Required.");
+        /// <summary>
+        /// This method is used to validate UnLock response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidateUnLockResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R422005
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        422005,
+                        @"[In Unlock] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R422010
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        422010,
+                        @"[In Unlock] X-WOPI-LockFailureReason is a string.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to validate RefreshLock response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidateRefreshLockResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count;i++ )
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R439005
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        439005,
+                        @"[In RefreshLock] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R439010
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        439010,
+                        @"[In RefreshLock] X-WOPI-LockFailureReason is a string.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to validate PutFile response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidatePutFileResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R685005
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        685005,
+                        @"[In PutFile] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R685010
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        685010,
+                        @"[In PutFile] X-WOPI-LockFailureReason is a string.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to validate UnlockAndRelock response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidateUnlockAndRelockResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R460005
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        460005,
+                        @"[In UnlockAndRelock] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R460010
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        460010,
+                        @"[In UnlockAndRelock] X-WOPI-LockFailureReason is a string.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to validate GetLock response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidateGetLockResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R469011
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        469011,
+                        @"[In GetLock] X-WOPI-Lock is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R469016
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        469016,
+                        @"[In GetLock]  X-WOPI-LockFailureReason is a string");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to validate RenameFile response captures.
+        /// </summary>
+        /// <param name="response">A parameter represents the response from server.</param>
+        private void ValidateRenameFileResponse(WOPIHttpResponse response)
+        {
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-InvalidFileNameError")
+                {
+                    //Verify MS-WOPI requirement: MS-WOPI_R592018
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof (String),
+                        response.Headers.AllKeys[i].GetType(),
+                        592018,
+                        @"[In RenameFile] X-WOPI-InvalidFileNameError is string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R592022
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        592022,
+                        @"[In RenameFile] X-WOPI-LockFailureReason is a string.");
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R592027
+                    this.Site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(String),
+                        response.Headers[i].GetType(),
+                        592027,
+                        @"[In RenameFile] X-WOPI-LockFailureReason is a string");
+                }
+            }
         }
 
         /// <summary>
@@ -412,14 +762,14 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             // All folder children messages are follow this format. If test suite receive a succeed response, capture this requirement.
             this.Site.CaptureRequirement(
                           699,
-                          @"[In HTTP://server/<...>/wopi*/folder/<id>/children] The contents of a folder being accessed by WOPI are identified by the following URI:
-                          HTTP://server/<...>/wopi*/folder/<id>/children");
+                          @"[In HTTP://server/<...>/wopi*/folders/<id>/children] The contents of a folder being accessed by WOPI are identified by the following URI:
+HTTP://server/<...>/wopi*/folders/<id>/children");
 
             // All folder children messages are follow this format. If test suite receive a succeed response, capture this requirement.
             this.Site.CaptureRequirement(
                           700,
-                          @"[In HTTP://server/<...>/wopi*/folder/<id>/children] The syntax URI parameters are defined by the following ABNF:
-                          id = STRING");
+                          @"[In HTTP://server/<...>/wopi*/folders/<id>/children] The syntax URI parameters are defined by the following ABNF:
+id = STRING");
 
             string jsonString = WOPIResponseHelper.ReadHTTPResponseBodyToString(response);
             EnumerateChildren enumerateChildren = WOPISerializerHelper.JsonToObject<EnumerateChildren>(jsonString);
@@ -440,7 +790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               ""Name"":""<name>"",
                               ""Url"":""<url>"",
                               ""Version"":""<version>""
-                             },
+                             }],
                           }");
         }
 

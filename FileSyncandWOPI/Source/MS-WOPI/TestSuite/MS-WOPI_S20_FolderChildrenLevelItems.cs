@@ -75,7 +75,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             // The status code is 200 mean success.When response is success the URIs are return.
             this.Site.CaptureRequirement(
                           703,
-                          @"[In HTTP://server/<...>/wopi*/folder/<id>/children] Operation ""EnumerateChildren"" is used for ""Returns a set of URIs that provides access to resources in the folder"".");
+                          @"[In HTTP://server/<...>/wopi*/folders/<id>/children] Operation ""EnumerateChildren"" is used for ""Returns a set of URIs that provides access to resources in the folder"".");
 
             // The status code is 200 mean success.When response is success the contexts are return.
             this.Site.CaptureRequirement(
@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             this.Site.CaptureRequirement(
                           705,
                           @"[In EnumerateChildren] HTTP Verb: GET
-                          URI: HTTP://server/<...>/wopi*/folder/<id>/children?access_token=<token>");
+URI: HTTP://server/<...>/wopi*/folders/<id>/children?access_token=<token>");
 
             string subFileUrl = Common.GetConfigurationPropertyValue("UrlOfFileOnSubFolder", this.Site);
             string expectedFileName = TestSuiteHelper.GetFileNameFromFullUrl(subFileUrl);
