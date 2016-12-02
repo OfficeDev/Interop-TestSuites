@@ -96,14 +96,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      736,
                      @"[In ServerTimeSubResponseDataType][ServerTimeSubResponseDataType schema is:]
                      <xs:complexType name=""ServerTimeSubResponseDataType"">
-                         <xs:attribute name=""ServerTime"" type=""xs:positiveInteger"" use=""required""/>
-                     </xs:complexType>");
+                         < xs:attribute name = ""ServerTime"" type = ""xs:positiveInteger"" use = ""optional"" />
+                     </ xs:complexType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R740
             site.CaptureRequirement(
                      "MS-FSSHTTP",
                      740,
-                     @"[In ServerTimeSubResponseDataType] The ServerTime attribute MUST be specified in a server time subresponse that is generated in response to a server time subrequest.");
+                     @"[In ServerTimeSubResponseDataType] If the request for server time information from the server is successful, the ServerTime attribute MUST be specified in a server time subresponse that is generated in response to a server time subrequest.");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R466
             site.CaptureRequirement(

@@ -39,12 +39,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidateTransport(ITestSite site)
         {
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1
-            // Since all the messages are transported following Http configured in BasicHttpBinding_ICellStorages, so MS-FSSHTTP_R1 can be captured.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     1,
-                     @"[In Transport] Protocol servers MUST support SOAP over HTTP, as specified in [RFC2616].");
+            if (Common.GetConfigurationPropertyValue("TransportType", site).Equals("HTTP", StringComparison.CurrentCultureIgnoreCase))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1
+                // Since all the messages are transported following Http configured in BasicHttpBinding_ICellStorages, so MS-FSSHTTP_R1 can be captured.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         1,
+                         @"[In Transport] Protocol servers MUST support SOAP over HTTP, as specified in [RFC2616] [,or HTTPS, as specified in [RFC2818]].");
+            }
+
+            if (Common.GetConfigurationPropertyValue("TransportType", site).Equals("HTTPS", StringComparison.CurrentCultureIgnoreCase))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11000
+                // Since all the messages are transported following Https configured in BasicHttpBinding_ICellStorages, so MS-FSSHTTP_R11000 can be captured.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         11000,
+                         @"[In Transport] Protocol servers MUST support [SOAP over HTTP, as specified in [RFC2616], or] HTTPS, as specified in [RFC2818].");
+            }
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2
             // Since all the messages are SOAP1.1 message configured in BasicHttpBinding_ICellStorages, so MS-FSSHTTP_R2 can be captured.
@@ -159,15 +172,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      123,
                      @"[In ResponseVersion][ResponseVersion element schema is:]
-                     <xs:element name=""ResponseVersion"">
-                      <xs:complexType>
-                       <xs:complexContent>
-                        <xs:extension base=""tns:VersionType"">
-                         <xs:attribute name=""ErrorCode"" type=""tns:GenericErrorCodeTypes"" use=""optional"" />
-                        </xs:extension>
-                       </xs:complexContent>
-                      </xs:complexType>
-                     </xs:element>");
+                      <xs:element name=""ResponseVersion"">
+                       < xs:complexType >
+                        < xs:complexContent >
+                         < xs:extension base = ""tns:VersionType"" >
+                          < xs:attribute name = ""ErrorCode"" type = ""tns:GenericErrorCodeTypes"" use = ""optional"" />
+                          < xs:attribute name = ""ErrorMessage"" type = ""xs:string"" use = ""optional"" />
+                           </ xs:extension >
+                        </ xs:complexContent >
+                       </ xs:complexType >
+                      </ xs:element > ");
 
             if (version.ErrorCodeSpecified)
             {
@@ -291,12 +305,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      281,
                      @"[In SubResponseType][SubResponseType schema is:]
-                     <xs:complexType name=""SubResponseType"">
-                        <xs:attribute name=""SubRequestToken"" type=""xs:nonNegativeInteger"" use=""required""/>
-                        <xs:attribute name=""ErrorCode"" type=""tns:ErrorCodeTypes"" use=""required"" />
-                        <xs:attribute name=""HResult"" type=""xs:integer"" use=""required"" fixed=""0""/>
-                        <xs:attribute name=""ErrorMessage"" type=""xs:string"" use=""optional""/> 
-                     </xs:complexType>");
+                      <xs:complexType name=""SubResponseType"">
+                         < xs:attribute name = ""SubRequestToken"" type = ""xs:nonNegativeInteger"" use = ""required"" />
+                         < xs:attribute name = ""ServerCorrelationId"" type = ""tns:guid"" use = ""optional"" />
+                         < xs:attribute name = ""ErrorCode"" type = ""tns:ErrorCodeTypes"" use = ""required"" />
+                         < xs:attribute name = ""HResult"" type = ""xs:integer"" use = ""required"" />
+                         < xs:attribute name = ""ErrorMessage"" type = ""xs:string"" use = ""optional"" />
+                      </ xs:complexType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R284
             // If the SubRequestToken attribute isn't null, then capture MS-FSSHTTP_R284.  
@@ -353,9 +368,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      341,
                      @"[In ErrorCodeTypes][ErrorCodeTypes schema is:]
-                     <xs:simpleType name=""ErrorCodeTypes"">
-                      <xs:union memberTypes=""tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes""/>
-                     </xs:simpleType>");
+                      <xs:simpleType name=""ErrorCodeTypes"">
+                       < xs:union memberTypes = ""tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes"" tns: VersioningRelatedErrorCodeTypes >
+                      </ xs:simpleType > ");
 
             switch (errorCode)
             {
@@ -564,14 +579,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      409,
                      @"[In MinorVersionNumberType][MinorVersionNumberType schema is:]
                      <xs:simpleType name=""MinorVersionNumberType"">
-                         <xs:restriction base=""xs:unsignedShort"">
-                            <xs:minInclusive value=""0""/>
-                     <xs:maxInclusive value=""2""/>
-                         </xs:restriction>
-                     </xs:simpleType>");
+                         < xs:restriction base = ""xs:unsignedShort"" >
+                            < xs:minInclusive value = ""0"" />
+                     < xs:maxInclusive value = ""3"" />
+                         </ xs:restriction >
+                     </ xs:simpleType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R410
-            bool isVerifiedR410 = minorVersionNumber == 0 || minorVersionNumber == 2;
+            bool isVerifiedR410 = minorVersionNumber == 0 || minorVersionNumber == 2 || minorVersionNumber == 3;
             site.Log.Add(
                 LogEntryKind.Debug,
                 "For requirement MS-FSSHTTP_R410, the MinorVersionNumberType value should be 0 or 2, the actual MinorVersionNumberType value is: {0}",
@@ -581,7 +596,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      isVerifiedR410,
                      "MS-FSSHTTP",
                      410,
-                     @"[In MinorVersionNumberType] The value of MinorVersionNumberType MUST be 0 or 2.");
+                     @"[In MinorVersionNumberType] The value of MinorVersionNumberType MUST be the value [0, 2, 3] that is listed in the following table.");
         }
 
         /// <summary>
@@ -595,32 +610,34 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      353,
                      @"[In GenericErrorCodeTypes][The GenericErrorodeTypes schema is:]
-                     <xs:simpleType name=""GenericErrorCodeTypes"">
-                         <xs:restriction base=""xs:string"">
-                           <xs:enumeration value=""Success""/>
-                           <xs:enumeration value=""IncompatibleVersion""/>
-                           <xs:enumeration value=""FileNotExistsOrCannotBeCreated""/>
-                           <xs:enumeration value=""FileUnauthorizedAccess""/>
-                           <xs:enumeration value=""InvalidSubRequest""/>
-                           <xs:enumeration value=""SubRequestFail""/>
-                           <xs:enumeration value=""BlockedFileType""/>
-                           <xs:enumeration value=""DocumentCheckoutRequired""/>
-                           <xs:enumeration value=""InvalidArgument""/>
-                           <xs:enumeration value=""RequestNotSupported""/>
-                           <xs:enumeration value=""InvalidWebUrl""/>
-                           <xs:enumeration value=""WebServiceTurnedOff""/>
-                           <xs:enumeration value=""ColdStoreConcurrencyViolation""/>
-                           <xs:enumeration value=""HighLevelExceptionThrown""/>
-                           <xs:enumeration value=""Unknown""/>
-                         </xs:restriction>
-                     </xs:simpleType>");
+                      <xs:simpleType name=""GenericErrorCodeTypes"">
+                          < xs:restriction base = ""xs:string"" >
+                            < xs:enumeration value = ""Success"" />
+                            < xs:enumeration value = ""IncompatibleVersion"" />
+                            < xs:enumeration value = ""InvalidUrl"" />
+                            < xs:enumeration value = ""FileNotExistsOrCannotBeCreated"" />
+                            < xs:enumeration value = ""FileUnauthorizedAccess"" />
+                            < xs:enumeration value = ""PathNotFound"" />
+                            < xs:enumeration value = ""InvalidSubRequest"" />
+                            < xs:enumeration value = ""SubRequestFail"" />
+                            < xs:enumeration value = ""BlockedFileType"" />
+                            < xs:enumeration value = ""DocumentCheckoutRequired"" />
+                            < xs:enumeration value = ""InvalidArgument"" />
+                            < xs:enumeration value = ""RequestNotSupported"" />
+                            < xs:enumeration value = ""InvalidWebUrl"" />
+                            < xs:enumeration value = ""WebServiceTurnedOff"" />
+                            < xs:enumeration value = ""ColdStoreConcurrencyViolation"" />
+                            < xs:enumeration value = ""HighLevelExceptionThrown"" />
+                            < xs:enumeration value = ""Unknown"" />
+                          </ xs:restriction >
+                      </ xs:simpleType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R354
             site.CaptureRequirement(
                      "MS-FSSHTTP",
                      354,
                      @"[In GenericErrorCodeTypes] The value of GenericErrorCodeTypes MUST be one of the following:
-                     [Success, IncompatibleVersion, FileNotExistsOrCannotBeCreated, FileUnauthorizedAccess, InvalidSubRequest, SubRequestFail, BlockedFileType, DocumentCheckoutRequired, InvalidArgument, RequestNotSupported, InvalidWebUrl, WebServiceTurnedOff, ColdStoreConcurrencyViolation, Unknown]");
+                     [Success, IncompatibleVersion, InvalidUrl, FileNotExistsOrCannotBeCreated, FileUnauthorizedAccess, PathNotFound, InvalidSubRequest, SubRequestFail, BlockedFileType, DocumentCheckoutRequired, InvalidArgument, RequestNotSupported, InvalidWebUrl, WebServiceTurnedOff, ColdStoreConcurrencyViolation, Unknown]");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3329
             site.CaptureRequirement(
@@ -665,19 +682,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      97,
                      @"[In Response][Response element schema is:]
-                     <xs:element name=""Response"">
-                       <!--Allows for the numbers to be displayed between the SubResponse elements-->
-                       <xs:complexType mixed=""true"">
-                         <xs:sequence minOccurs=""1"" maxOccurs=""unbounded"">
-                           <xs:element name=""SubResponse"" type=""tns:SubResponseElementGenericType"" /> 
-                         </xs:sequence>
-                         <xs:attribute name=""Url"" type=""xs:string"" use=""required""/>
-                         <xs:attribute name=""RequestToken"" type=""xs:nonNegativeInteger"" use=""required"" />
-                         <xs:attribute name=""HealthScore"" type=""xs:integer"" use=""required""/>
-                         <xs:attribute name=""ErrorCode"" type=""tns:GenericErrorCodeTypes"" use=""optional"" />
-                         <xs:attribute name=""ErrorMessage"" type=""xs:string"" use=""optional""/>
-                       </xs:complexType>
-                     </xs:element>");
+                       <xs:element name=""Response"">
+                           < !--Allows for the numbers to be displayed between the SubResponse elements-- >
+                           < xs:complexType mixed = ""true"" >
+                               < xs:sequence minOccurs = ""1"" maxOccurs = ""unbounded"" >
+                                   < xs:element name = ""SubResponse"" type = ""tns:SubResponseElementGenericType"" />
+                               </ xs:sequence >
+                               < xs:attribute name = ""Url"" type = ""xs:string"" use = ""required"" />
+                               < xs:attribute name = ""RequestToken"" type = ""xs:nonNegativeInteger"" use = ""required"" />
+                               < xs:attribute name = ""HealthScore"" type = ""xs:integer"" use = ""required"" />
+                               < xs:attribute name = ""ErrorCode"" type = ""tns:GenericErrorCodeTypes"" use = ""optional"" />
+                               < xs:attribute name = ""ErrorMessage"" type = ""xs:string"" use = ""optional"" />
+                               < xs:attribute name = ""SuggestedFileName"" type = ""xs:string"" use = ""optional"" />
+                               < xs:attribute name = ""ResourceID"" type = ""xs:string"" use = ""optional"" />
+                           </ xs:complexType >
+                       </ xs:element > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R104
             site.Log.Add(
@@ -785,19 +804,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      253,
                      @"[In SubResponseElementGenericType][SubResponseElementGenericType schema is:]
-                     <xs:complexType name=""SubResponseElementGenericType"">
-                      <xs:complexContent>
-                       <xs:extension base=""tns:SubResponseType"">
-                        <xs:sequence>
-                         <xs:element name=""SubResponseData"" minOccurs=""0"" maxOccurs=""1"" type=""tns:SubResponseDataGenericType"" />
-                         <xs:element name=""SubResponseStreamInvalid"" minOccurs=""0"" maxOccurs=""1"" />
-                         <xs:element name=""GetVersionsResponse"" minOccurs=""0"" maxOccurs=""1"" type=""tns:GetVersionsSubResponseType"" />
-                         <xs:element name=""DocProps"" minOccurs=""0"" maxOccurs=""1"" type=""GetDocMetaInfoPropertySetType""/>
-                         <xs:element name=""FolderProps"" minOccurs=""0"" maxOccurs=""1"" type=""GetDocMetaInfoPropertySetType""/>
-                        </xs:sequence>
-                       </xs:extension>
-                      </xs:complexContent>
-                     </xs:complexType>");
+                      <xs:complexType name=""SubResponseElementGenericType"">
+                       < xs:complexContent >
+                        < xs:extension base = ""tns:SubResponseType"" >
+                         < xs:sequence >
+                          < xs:element name = ""SubResponseData"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:SubResponseDataGenericType"" />
+                          < xs:element name = ""SubResponseStreamInvalid"" minOccurs = ""0"" maxOccurs = ""1"" />
+                          < xs:element ref= ""GetVersionsResponse"" minOccurs = ""0"" maxOccurs = ""1"" />
+                         </ xs:sequence >
+                        </ xs:extension >
+                       </ xs:complexContent >
+                      </ xs:complexType > ");
 
             // Verify requirements related with SubResponseData
             if (subResponse.SubResponseData != null)
@@ -836,12 +853,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      230,
                      @"[In SubResponseDataGenericType][SubResponseDataGenericType schema is:]
-                     <xs:complexType name=""SubResponseDataGenericType"" mixed=""true"">
-                       <xs:all>
-                          <xs:element ref=""i:Include"" minOccurs=""0"" maxOccurs=""1"" />
-                       </xs:all>
-                       <xs:attributeGroup ref=""tns:SubResponseDataOptionalAttributes"" />
-                     </xs:complexType>");
+                      <xs:complexType name=""SubResponseDataGenericType"" mixed=""true"">
+                        < xs:all >
+                          < xs:element ref= ""i:Include"" minOccurs = ""0"" maxOccurs = ""1"" />
+                          < xs:element name = ""DocProps"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:GetDocMetaInfoPropertySetType"" />
+                          < xs:element name = ""FolderProps"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:GetDocMetaInfoPropertySetType"" />
+                          < xs:element name = ""UserTable"" type = ""tns:VersioningUserTableType"" />
+                          < xs:element name = ""Versions"" type = ""tns:VersioningVersionListType"" />
+                        </ xs:all >
+                        < xs:attributeGroup ref= ""tns:SubResponseDataOptionalAttributes"" />
+                      </ xs:complexType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R543
             site.CaptureRequirement(

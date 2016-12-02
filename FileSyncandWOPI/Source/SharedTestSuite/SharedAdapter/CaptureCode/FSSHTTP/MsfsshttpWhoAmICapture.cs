@@ -161,12 +161,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      903,
                      @"[In WhoAmISubResponseDataOptionalAttributes] The schema definition of the WhoAmISubResponseDataOptionalAttributes attribute group is as follows:
                      <xs:attributeGroup name=""WhoAmISubResponseDataOptionalAttributes"">
-                         <xs:attribute name=""UserName"" type=""tns:UserNameType"" use=""optional""/>
-                         <xs:attribute name=""UserEmailAddress"" type=""xs:string"" use=""optional""/>
-                         <xs:attribute name=""UserSIPAddress"" type=""xs:string"" use=""optional"" />
-                         <xs:attribute name=""UserIsAnonymous"" type=""xs:boolean"" use=""optional"" />
-                         <xs:attribute name=""UserLogin"" type=""xs:UserLoginType"" use=""optional"" />
-                     </xs:attributeGroup>");
+                         < xs:attribute name = ""UserName"" type = ""tns:UserNameType"" use = ""optional"" />
+                         < xs:attribute name = ""UserEmailAddress"" type = ""xs:string"" use = ""optional"" />
+                         < xs:attribute name = ""UserSIPAddress"" type = ""xs:string"" use = ""optional"" />
+                         < xs:attribute name = ""UserIsAnonymous"" type = ""xs:boolean"" use = ""optional"" />
+                         < xs:attribute name = ""UserLogin"" type = ""xs:UserLoginType"" use = ""required"" />
+                     </ xs:attributeGroup > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1466
             site.CaptureRequirement(
