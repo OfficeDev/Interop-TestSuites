@@ -5,5 +5,9 @@
   <Properties>
     <!-- Set the value of the property MS-WOPI_Supported to true to indicate that the SUT supports the MS-WOPI protocol. Otherwise set the value to false. -->
     <Property name="MS-WOPI_Supported" value="false" />
+    <!-- Set R950001Enabled_MS-WOPI to true to verify that implementation does return the value false for field SupportsCoauth. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R950001Enabled_MS-WOPI" value="false" />
+    <!-- Set R950002Enabled_MS-WOPI to true to verify that implementation does return the value true for field SupportsCoauth. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R950002Enabled_MS-WOPI" value="true" />
   </Properties>
 </TestSite>

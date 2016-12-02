@@ -116,6 +116,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
 
             responseTemp = this.SendWOPIRequest(targetResourceUrl, commonHeaders, bodyContents, WOPIOperationName.PutFile);
             this.ValidateFileContentCapture();
+            this.ValidatePutFileResponse(responseTemp);
 
             return responseTemp;
         }
@@ -225,6 +226,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             commonHeaders.Add("X-WOPI-Override", this.GetTheXWOPIOverrideHeaderValue(WOPIOperationName.UnLock));
 
             responseTemp = this.SendWOPIRequest(targetResourceUrl, commonHeaders, null, WOPIOperationName.UnLock);
+            this.ValidateUnLockResponse(responseTemp);
 
             return responseTemp;
         }
@@ -322,6 +324,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             responseTemp = this.SendWOPIRequest(targetResourceUrl, commonHeaders, null, WOPIOperationName.RefreshLock);
 
             this.ValidateFilesCapture();
+            this.ValidateRefreshLockResponse(responseTemp);
 
             return responseTemp;
         }
@@ -350,6 +353,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             responseTemp = this.SendWOPIRequest(targetResourceUrl, commonHeaders, null, WOPIOperationName.UnlockAndRelock);
 
             this.ValidateFilesCapture();
+            this.ValidateUnlockAndRelockResponse(responseTemp);
 
             return responseTemp;
         }
