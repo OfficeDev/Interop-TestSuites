@@ -33,13 +33,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      134,
-                     @"[In Simple Chunking Method] The Signature Data of the Intermediate Node Object MUST be the chunk’s signature.");
+                     @"[In Simple Chunking Method] The Signature Data of the Leaf Node Object MUST be the chunk’s signature.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R133
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      133,
-                     @"[In Simple Chunking Method] The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.");
+                     @"[In Simple Chunking Method] The Data Size of the Leaf Node Object MUST be the total number of bytes represented by the chunk.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R128
             site.CaptureRequirement(
@@ -57,25 +57,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      136,
-                     @"[In Simple Chunking Method] For all Intermediate Node Objects, a Data Node Object MUST be created.");
+                     @"[In Simple Chunking Method] For all Leaf Node Objects, a Data Node Object MUST be created.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R139
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      139,
-                     @"[In Simple Chunking Method] The Object References Array of the Intermediate Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.");
+                     @"[In Simple Chunking Method] The Object References Array of the Leaf Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R132
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      132,
-                     @"[In Simple Chunking Method] For each chunk in the chunk list, an Intermediate Node Object, as specified in section 2.2.3, is created.");
+                     @"[In Simple Chunking Method] For each chunk in the chunk list, an Leaf Node Object, as specified in section 2.2.3, is created.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R135
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      135,
-                     @"[In Simple Chunking Method] The Intermediate Node is referenced by its parent node.");
+                     @"[In Simple Chunking Method] The Leaf Node is referenced by its parent node.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8201
             site.CaptureRequirement(
@@ -179,7 +179,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8046,
-                     @"[In Zip Files] Large Final Chunk Signature: The Signature Data of the Intermediate Node Object MUST be the chunk’s signature.");
+                     @"[In Zip Files] Large Final Chunk Signature: The Signature Data of the Leaf Node Object MUST be the chunk’s signature.");
         }
 
         /// <summary>
@@ -217,13 +217,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8045,
-                     @"[In Zip Files] Large Final Chunk Signature: The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.");
+                     @"[In Zip Files] Large Final Chunk Signature: The Data Size of the Leaf Node Object MUST be the total number of bytes represented by the chunk.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8047
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8047,
-                     @"[In Zip Files] Large Final Chunk Signature: The Intermediate Node is referenced by its parent node.");
+                     @"[In Zip Files] Large Final Chunk Signature: The Leaf Node is referenced by its parent node.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8058
             site.CaptureRequirement(
@@ -241,7 +241,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8060,
-                     @"[In Zip Files] Sub Chunk Signature: The Object References Array of the Intermediate Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.");
+                     @"[In Zip Files] Sub Chunk Signature: The Object References Array of the Leaf Node Object associated with this Data Node Object MUST have a single entry, which MUST be the Object ID of the Data Node Object.");
         }
 
         /// <summary>
@@ -312,7 +312,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      interNode.DataSize.DataSize,
                      "MS-FSSHTTPD",
                      62,
-                     @"[In Intermediate Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Intermediate Node Object.");
+                     @"[In Leaf Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Leaf Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R66
             site.CaptureRequirementIfAreEqual<ulong>(
@@ -320,19 +320,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      interNode.DataSize.DataSize,
                      "MS-FSSHTTPD",
                      66,
-                     @"[In Intermediate Node Object References] The size of the Data Node Object or the sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Intermediate Node Object.");
+                     @"[In Leaf Node Object References] The size of the Data Node Object or the sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Leaf Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8015
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8015,
-                     @"[In Intermediate Node Object References] The ordered set of Object Extended GUIDs MUST contain the Object Extended GUID of a single Data Node Object or an ordered list of Extended GUIDs for the Intermediate Node Object.");
+                     @"[In Leaf Node Object References] The ordered set of Object Extended GUIDs MUST contain the Object Extended GUID of a single Data Node Object or an ordered list of Extended GUIDs for the Leaf Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8017
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8017,
-                     @"[In Intermediate Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object. ");
+                     @"[In Leaf Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object. ");
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         isRootNode,
                         "MS-FSSHTTPD",
                         8204,
-                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Root Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010 follow this behavior.)");          
+                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");          
                  }
              }
         }
@@ -389,7 +389,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      rootNode.DataSize.DataSize,
                      "MS-FSSHTTPD",
                      44,
-                     @"[In Root Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Root Node Object.");
+                     @"[In Intermediate Node Object Data] Data Size (8 bytes): An unsigned 64-bit integer that specifies the size of the file data represented by this Intermediate Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R49
             site.CaptureRequirementIfAreEqual<ulong>(
@@ -397,25 +397,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      rootNode.DataSize.DataSize,
                      "MS-FSSHTTPD",
                      49,
-                     @"[In Root Node Object References] The sum of the Data Size values from all of the Intermediate Node Objects MUST equal the Data Size specified in the Object Data of this Root Node Object.");
+                     @"[In Intermediate Node Object References] The sum of the Data Size values from all of the Leaf Node Objects MUST equal the Data Size specified in the Object Data of this Intermediate Node Object.");
 
             // When after build the Root node object successfully, the following requirements can be directly captured.
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      48,
-                     @"[In Root Node Object References] Each Object Extended GUID MUST specify an Intermediate Node Object.");
+                     @"[In Intermediate Node Object References] Each Object Extended GUID MUST specify a Leaf Node Object or another Intermediate Node Object.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8011
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8011,
-                     @"[In Root Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Root Node Object MUST specify an ordered set of Object Extended GUIDs. ");
+                     @"[In Intermediate Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an ordered set of Object Extended GUIDs.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8012
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
                      8012,
-                     @"[In Root Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each Node Object.");
+                     @"[In Intermediate Node Object References] Object Extended GUID Array entries MUST be ordered based on the sequential file bytes represented by each descendent Leaf Node Object.");
         }
 
         /// <summary>
@@ -488,7 +488,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      cellIDArray.Count,
                      "MS-FSSHTTPD",
                      50,
-                     @"[In Root Node Object Cell References] The Cell ID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Root Node Object MUST specify an empty array.");
+                     @"[In Intermediate Node Object Cell References] The Cell ID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an empty array.");
 
             #endregion 
 
@@ -515,7 +515,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      isGuidUnique,
                      "MS-FSSHTTPD",
                      75,
-                     @"[In Cell Properties] For each stream, a single Root Node MUST be specified by using a unique root identifier.");
+                     @"[In Cell Properties] For each stream, a single Intermediate Node MUST be specified by using a unique root identifier.");
 
             // Object Partition ID : A compact unsigned 64-bit integer which MUST be 1.
             Compact64bitInt objectPartitionID = rootDeclare.ObjectPartitionID;
@@ -606,7 +606,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPD",
                          65,
-                         @"[In Intermediate Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Intermediate Node Object MUST specify an ordered set of Object Extended GUIDs.");
+                         @"[In Leaf Node Object References] The Object Extended GUID Array, as specified in [MS-FSSHTTPB] section 2.2.1.12.6.4, of the Leaf Node Object MUST specify an ordered set of Object Extended GUIDs.");
 
                 // If the intermediate node can be build then verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8007 and MS-FSSHTTPD_R8008
                 site.CaptureRequirement(
@@ -643,7 +643,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      cellIDArray.Count,
                      "MS-FSSHTTPD",
                      67,
-                     @"[In Intermediate Node Object Cell References] The Cell Reference Array of the Object MUST specify an empty array.");
+                     @"[In Leaf Node Object Cell References] The Cell Reference Array of the Object MUST specify an empty array.");
 
             #endregion 
 
