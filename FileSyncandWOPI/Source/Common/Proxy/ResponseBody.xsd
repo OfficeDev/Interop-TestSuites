@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" attributeFormDefault="unqualified" elementFormDefault="qualified"
+           targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:i="http://www.w3.org/2004/08/xop/include">
+  <xs:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="Include.xsd"/>
+
+  <!--common datatypes between Cell storage service request and response schemas-->
+	  <!-- definition of simple types-->
+	  <xs:simpleType name="guid">
+	    <xs:restriction base="xs:string">
+	      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="TRUEFALSE">
+	    <xs:restriction base="xs:string">
+	      <xs:pattern value="[Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]"/>
+	      </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="LockTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="None" />
+	      <xs:enumeration value="SchemaLock" />
+	      <xs:enumeration value="ExclusiveLock" />
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	
+	  <xs:simpleType name="VersionNumberType">
+	    <xs:restriction base="xs:unsignedShort">
+	      <xs:minInclusive value="2"/>
+	      <xs:maxInclusive value="2"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="MinorVersionNumberType">
+	    <xs:restriction base="xs:unsignedShort">
+	      <xs:minInclusive value="0"/>
+	      <xs:maxInclusive value="3"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="ExclusiveLockReturnReasonTypes">
+	   <xs:restriction base="xs:string">
+	      <xs:enumeration value="CoauthoringDisabled" />
+	      <xs:enumeration value="CheckedOutByCurrentUser" />
+	      <xs:enumeration value="CurrentUserHasExclusiveLock" />
+	   </xs:restriction>
+	  </xs:simpleType>
+	  
+	  <!-- definition of attributes-->
+	  
+	  <!-- definition of attribute groups-->
+	  
+	  <!--definition of complex types-->
+	  <xs:complexType name="VersionType">
+	    <xs:attribute name="Version" type="tns:VersionNumberType" use="required" />
+	    <xs:attribute name="MinorVersion" type="tns:MinorVersionNumberType" use="required" />
+	  </xs:complexType>
+	  <!--******************************************************************************************-->
+	
+	  <!--definition of simple types-->
+	  <xs:simpleType name="ErrorCodeTypes">
+	    <xs:union memberTypes="tns:GenericErrorCodeTypes 
+	      tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes tns:VersioningRelatedErrorCodeTypes" />
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="GenericErrorCodeTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Success"/>
+	      <xs:enumeration value="IncompatibleVersion"/>
+	      <xs:enumeration value="InvalidUrl"/>
+	      <xs:enumeration value="FileNotExistsOrCannotBeCreated"/>
+	      <xs:enumeration value="FileUnauthorizedAccess"/>
+	      <xs:enumeration value="InvalidSubRequest"/>
+	      <xs:enumeration value="SubRequestFail"/>
+	      <xs:enumeration value="BlockedFileType"/>
+	      <xs:enumeration value="DocumentCheckoutRequired"/>
+	      <xs:enumeration value="InvalidArgument"/>
+	      <xs:enumeration value="RequestNotSupported"/>
+	      <xs:enumeration value="InvalidWebUrl"/>
+	      <xs:enumeration value="WebServiceTurnedOff"/>
+	      <xs:enumeration value="ColdStoreConcurrencyViolation"/>
+	      <xs:enumeration value="HighLevelExceptionThrown"/>
+	      <xs:enumeration value="Unknown"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="CellRequestErrorCodeTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="CellRequestFail"/>
+	      <xs:enumeration value="IRMDocLibarysOnlySupportWebDAV"/>      
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="DependencyCheckRelatedErrorCodeTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="DependentRequestNotExecuted"/>
+	      <xs:enumeration value="DependentOnlyOnSuccessRequestFailed"/>
+	      <xs:enumeration value="DependentOnlyOnFailRequestSucceeded"/>
+	      <xs:enumeration value="DependentOnlyOnNotSupportedRequestGetSupported"/>
+	      <xs:enumeration value="InvalidRequestDependencyType"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="LockAndCoauthRelatedErrorCodeTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="LockRequestFail"/>
+	      <xs:enumeration value="FileAlreadyLockedOnServer"/>
+	      <xs:enumeration value="FileNotLockedOnServer"/>
+	      <xs:enumeration value="FileNotLockedOnServerAsCoauthDisabled"/>
+	      <xs:enumeration value="LockNotConvertedAsCoauthDisabled"/>
+	      <xs:enumeration value="FileAlreadyCheckedOutOnServer"/>
+	      <xs:enumeration value="ConvertToSchemaFailedFileCheckedOutByCurrentUser"/>
+	      <xs:enumeration value="CoauthRefblobConcurrencyViolation"/>
+	      <xs:enumeration value="MultipleClientsInCoauthSession"/>
+	      <xs:enumeration value="InvalidCoauthSession"/>
+	      <xs:enumeration value="NumberOfCoauthorsReachedMax"/>
+	      <xs:enumeration value="ExitCoauthSessionAsConvertToExclusiveFailed"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="NewEditorsTableCategoryErrorCodeTypes">
+	     <xs:restriction base="xs:string">
+	        <xs:enumeration value="EditorMetadataQuotaReached"/>
+	        <xs:enumeration value="EditorMetadataStringExceedsLengthLimit"/>
+	        <xs:enumeration value="EditorClientIdNotFound"/>
+	     </xs:restriction>
+	  </xs:simpleType>
+	
+	
+	  <xs:simpleType name="CoauthStatusType">
+	    <xs:restriction base="xs:string">
+	      <!--None-->
+	      <xs:enumeration value="None"/>
+	      <!--Alone -->
+	      <xs:enumeration value="Alone"/>
+	      <!--Coauthoring-->
+	      <xs:enumeration value="Coauthoring"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	
+	
+	  <xs:simpleType name="UserNameType">
+	    <xs:restriction base="xs:string">
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="UserLoginType">
+	    <xs:restriction base="xs:string">
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <xs:simpleType name="FileVersionNumberType">
+	    <xs:restriction base="xs:string">
+	      <xs:pattern value="[0-9]+[.][0-9]+" />
+	    </xs:restriction>
+	  </xs:simpleType> 
+	
+	  <xs:simpleType name="VersioningRelatedErrorCodeTypes">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="VersionNotFound"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	
+	  <!--definition of attribute groups-->
+	  <xs:attributeGroup name="SubResponseDataOptionalAttributes">
+      <xs:attribute name="Etag" type="xs:string" use="optional" />
+      <xs:attribute name="CreateTime" type="xs:integer" use="optional"/>
+      <xs:attribute name="LastModifiedTime" type="xs:integer" use="optional"/>
+      <xs:attribute name="ModifiedBy" type="tns:UserNameType" use="optional" />
+      <xs:attribute name="CoalesceErrorMessage" type="xs:string" use="optional"/>
+      <xs:attribute name="CoalesceHResult" type="xs:integer" use="optional"/>
+      <xs:attribute name="ContainsHotboxData" type="tns:TRUEFALSE" use="optional"/>
+      <xs:attribute name="HaveOnlyDemotionChanges" type="tns:TRUEFALSE" use="optional"/>
+      <xs:attribute name="UserName" type="tns:UserNameType" use="optional"/>
+      <xs:attribute name="UserEmailAddress" type="xs:string" use="optional"/>
+      <xs:attribute name="UserSIPAddress" type="xs:string" use="optional" />
+      <xs:attribute name="UserIsAnonymous" type="xs:boolean" use="optional" />
+      <xs:attribute name="UserLogin" type="tns:UserLoginType" use="required"/>
+	    <xs:attribute name="ServerTime" type="xs:positiveInteger" use="optional"/>
+	    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+	    <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
+	    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
+	    <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
+	   </xs:attributeGroup>
+	  
+	  <xs:attributeGroup name="CellSubResponseDataOptionalAttributes">
+	    <xs:attribute name="Etag" type="xs:string" use="optional" />
+	    <xs:attribute name="CreateTime" type="xs:integer" use="optional"/>
+	    <xs:attribute name="LastModifiedTime" type="xs:integer" use="optional"/>
+	    <xs:attribute name="ModifiedBy" type="tns:UserNameType" use="optional" />
+	    <xs:attribute name="CoalesceErrorMessage" type="xs:string" use="optional"/>
+	    <xs:attribute name="CoalesceHResult" type="xs:integer" use="optional"/>
+	    <xs:attribute name="ContainsHotboxData" type="tns:TRUEFALSE" use="optional"/>
+	    <xs:attribute name="HaveOnlyDemotionChanges" type="tns:TRUEFALSE" use="optional"/>
+	  </xs:attributeGroup>
+	
+	  <xs:attributeGroup name="WhoAmISubResponseDataOptionalAttributes">
+	    <xs:attribute name="UserName" type="tns:UserNameType" use="optional"/>
+	    <xs:attribute name="UserEmailAddress" type="xs:string" use="optional"/>
+	    <xs:attribute name="UserSIPAddress" type="xs:string" use="optional" />
+	    <xs:attribute name="UserIsAnonymous" type="xs:boolean" use="optional" />
+	    <xs:attribute name="UserLogin" type="tns:UserLoginType" use="required"/>
+	  </xs:attributeGroup>
+	
+	  <!--definition of complex types-->
+	  <xs:complexType name="CellSubResponseDataType" mixed="true">
+	    <xs:all>
+	      <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
+	    </xs:all>
+	    <xs:attributeGroup ref="tns:CellSubResponseDataOptionalAttributes" />
+	    
+	    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+       </xs:complexType> 
+
+  <!--There is no text in this element-->
+	  <xs:complexType name="CoauthSubResponseDataType">
+	    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+	    <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
+	    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
+	    <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
+	  </xs:complexType>
+	
+	  <xs:complexType name="SchemaLockSubResponseDataType">
+	    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+	    <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
+	  </xs:complexType>
+	
+	  <xs:complexType name="ExclusiveLockSubResponseDataType">
+	    <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
+	    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
+	      </xs:complexType>
+	
+	  <xs:complexType name="WhoAmISubResponseDataType">
+	    <xs:attributeGroup ref="tns:WhoAmISubResponseDataOptionalAttributes"/>
+	    
+	  </xs:complexType>
+	
+	  <xs:complexType name="ServerTimeSubResponseDataType">
+	    <xs:attribute name="ServerTime" type="xs:positiveInteger" use="optional"/>
+	  </xs:complexType>
+	
+	  <xs:complexType name="GetDocMetaInfoSubResponseDataType">
+	    <xs:sequence>
+	      <xs:element name="DocProps" type="tns:GetDocMetaInfoPropertySetType"/>
+	      <xs:element name="FolderProps" type="tns:GetDocMetaInfoPropertySetType"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	
+	  <xs:complexType name="GetDocMetaInfoPropertyType">
+	      <xs:attribute name="Key" type="xs:string" use="required"/>
+	      <xs:attribute name="Value" type="xs:string" use="required"/>
+	  </xs:complexType>
+	
+	  <xs:complexType name="GetDocMetaInfoPropertySetType">
+	      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+	        <xs:element name="Property" type="tns:GetDocMetaInfoPropertyType"/>
+	      </xs:sequence>
+	  </xs:complexType>
+	
+	  <xs:complexType name="VersioningSubResponseDataType">
+	    <xs:sequence minOccurs="0" maxOccurs="1">
+	      <xs:sequence minOccurs="0" maxOccurs="1">
+	        <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
+	      </xs:sequence>
+      <xs:element name="Versions" type="tns:VersioningVersionListType"/>
+    </xs:sequence>
+	  </xs:complexType>
+	
+	  <!--<xs:complexType name="VersioningUserTableType">
+	    <s:element name="UserTable" minOccurs="1" maxOccurs="1">
+	      <s:complexType>
+	        <s:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+	      </s:complexType>
+	    </s:element>
+	  </xs:complexType>-->
+
+    <xs:complexType name="VersioningUserTableType">
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+      </xs:sequence>
+    </xs:complexType>
+  
+	  <!--<xs:complexType name="VersioningVersionListType">
+	    <s:element name="Versions" minOccurs="1" maxOccurs="1">
+	      <s:complexType>
+	         <s:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
+	      </s:complexType>
+	    </s:element>
+  </xs:complexType>-->
+
+    <xs:complexType name="VersioningVersionListType">
+      <xs:sequence minOccurs="1" maxOccurs="1">
+        <xs:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
+      </xs:sequence>
+    </xs:complexType>
+	
+	  <xs:complexType name="UserDataType">
+	    <xs:attribute name="UserId" type="xs:integer" use="required" />
+	    <xs:attribute name="UserLogin" type="tns:UserLoginType" use="required" />
+	    <xs:attribute name="UserName" type="tns:UserNameType" use="optional" />
+	    <xs:attribute name="UserEmailAddress" type="xs:string" use="optional" />
+	  </xs:complexType> 
+	
+	  <xs:complexType name="FileVersionDataType">
+	    <xs:attribute name="IsCurrent" type="xs:boolean" use="optional" />
+	    <xs:attribute name="Number" type="tns:FileVersionNumberType" use="required" />
+	    <xs:attribute name="LastModifiedTime" type="xs:positiveInteger" use="optional" />
+	    <xs:attribute name="UserId" type="xs:integer" use="optional" />
+	    <!--<xs:element name="Events" minOccurs="0" maxOccurs="1" >
+	      <xs:complexType>
+	        <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+	      </xs:complexType>
+	    </xs:element>-->
+	  </xs:complexType> 
+	
+	  <xs:complexType name="FileVersionEventDataType">
+	    <xs:attribute name="Id" type="xs:integer" use="required" />
+	    <xs:attribute name="Type" type="xs:integer" use="required" />
+	    <xs:attribute name="CreateTime" type="xs:positiveInteger" use="optional" />
+	    <xs:attribute name="UserId" type="xs:integer" use="optional" />
+    </xs:complexType>
+	
+	  <xs:complexType name="SubResponseDataGenericType" mixed="true">
+	    <xs:all>
+	      <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
+	      <xs:element name="DocProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
+	      <xs:element name="FolderProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
+	      <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
+	      <xs:element name="Versions" type="tns:VersioningVersionListType"/>
+	    </xs:all>
+	    <xs:attributeGroup ref="tns:SubResponseDataOptionalAttributes" />
+	  </xs:complexType>
+	
+	  <xs:complexType name="SubResponseType">
+	    <xs:attribute name="SubRequestToken" type="xs:nonNegativeInteger" use="required" />
+	    <xs:attribute name="ServerCorrelationId" type="tns:guid" use="optional"/>
+	    <xs:attribute name="ErrorCode" type="tns:ErrorCodeTypes" use="required" />
+	    <xs:attribute name="HResult" type="xs:integer" use="required" />
+	    <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  
+	  <xs:complexType name="WhoAmISubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="0" maxOccurs="1">
+	          <xs:element name="SubResponseData" type="tns:WhoAmISubResponseDataType"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="ServerTimeSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="1" maxOccurs="1">
+	          <xs:element name="SubResponseData" type="tns:ServerTimeSubResponseDataType"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="CellSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence>
+	          <xs:element name="SubResponseData" type="tns:CellSubResponseDataType" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="SubResponseStreamInvalid" minOccurs="0" maxOccurs="1" />
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="CoauthSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="0" maxOccurs="1">
+	          <xs:element name="SubResponseData" type="tns:CoauthSubResponseDataType" />
+	        </xs:sequence>
+	       </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="SchemaLockSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="1" maxOccurs="1">
+	          <xs:element name="SubResponseData" type="tns:SchemaLockSubResponseDataType" />
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="ExclusiveLockSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="1" maxOccurs="1">
+	          <xs:element name="SubResponseData" type="tns:ExclusiveLockSubResponseDataType" />
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	  <xs:complexType name="GetDocMetaInfoSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="0" maxOccurs="1">
+	            <xs:element name="SubResponseData" type="tns:GetDocMetaInfoSubResponseDataType"/>
+	            
+	          
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="GetVersionsSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence minOccurs="0" maxOccurs="1">
+	           <xs:element ref="tns:GetVersionsResponse"/>        
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	<xs:element name="GetVersionsResponse">
+	  <xs:complexType>
+	    <xs:sequence>
+	      <xs:element minOccurs="1" maxOccurs="1" name="GetVersionsResult">
+	        <xs:complexType>
+	          <xs:sequence>
+	            <xs:element name="results" minOccurs="1" maxOccurs="1" type="tns:Results" />
+	          </xs:sequence>
+	        </xs:complexType>
+	      </xs:element>
+	    </xs:sequence>
+	  </xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="Results">
+	  <xs:sequence>
+	    <xs:element name="list" maxOccurs="1" minOccurs="1">
+	      <xs:complexType>
+	        <xs:attribute name="id" type="xs:string" use="required" />
+	      </xs:complexType>
+	    </xs:element>
+	    <xs:element name="versioning" maxOccurs="1" minOccurs="1">
+	      <xs:complexType>
+	        <xs:attribute name="enabled" type="xs:unsignedByte" use="required" />
+	      </xs:complexType>
+	    </xs:element>
+	    <xs:element name="settings" maxOccurs="1" minOccurs="1">
+	      <xs:complexType>
+	        <xs:attribute name="url" type="xs:string" use="required" />
+	      </xs:complexType>
+	    </xs:element>
+	    <xs:element name="result" maxOccurs="unbounded" minOccurs="1" type="tns:VersionData"/>
+	  </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="VersionData">
+	  <xs:attribute name="version" type="xs:string" use="required" />
+	  <xs:attribute name="url" type="xs:string" use="required" />
+	  <xs:attribute name="created" type="xs:string" use="required" />
+	  <xs:attribute name="createdRaw" type="xs:string" use="required" />
+	  <xs:attribute name="createdBy" type="xs:string" use="required" />
+	  <xs:attribute name="createdByName" type="xs:string" use="optional" />
+	  <xs:attribute name="size" type="xs:unsignedLong" use="required" />
+	  <xs:attribute name="comments" type="xs:string" use="required" />
+	</xs:complexType>
+  
+	  <xs:complexType name="EditorsTableSubResponseType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	      <xs:sequence minOccurs="0" maxOccurs="1"> 
+	      <xs:element name="SubResponseData">
+	      <xs:complexType>
+	      <xs:complexContent>
+	      <xs:restriction base="xs:anyType"/>
+	      </xs:complexContent>
+	      </xs:complexType>
+	      </xs:element>
+	      </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	 <xs:complexType name="FileOperationSubResponseType">
+	   <xs:complexContent>
+	     <xs:extension base="tns:SubResponseType">
+	     </xs:extension>
+	   </xs:complexContent>
+	 </xs:complexType>
+	
+	 <xs:complexType name="VersioningSubResponseType">
+	   <xs:complexContent>
+	     <xs:extension base="tns:SubResponseType">
+	       <xs:sequence minOccurs="0" maxOccurs="1">
+	        <xs:element name="SubResponseData" type="tns:VersioningSubResponseDataType" />
+	       </xs:sequence>
+	     </xs:extension>
+	   </xs:complexContent>
+ </xs:complexType>
+	
+	  <!--One SubrequestElement type that encapsulates the defintion of all Subrequest types. -->
+	  <xs:complexType name="SubResponseElementGenericType">
+	    <xs:complexContent>
+	      <xs:extension base="tns:SubResponseType">
+	        <xs:sequence>
+	          <xs:element name="SubResponseData" minOccurs="0" maxOccurs="1" type="tns:SubResponseDataGenericType" />
+	          <xs:element name="SubResponseStreamInvalid" minOccurs="0" maxOccurs="1" />
+	          <xs:element ref="tns:GetVersionsResponse" minOccurs="0" maxOccurs="1" />
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	
+	
+	  <!--definition of simple elements-->
+	  
+	  <!-- definition of complex elements-->
+	  
+	  <!--definition of complex elements for Responses-->
+	  <xs:element name="ResponseVersion">
+	    <xs:complexType>
+	    <xs:complexContent>
+	      <xs:extension base="tns:VersionType">
+	        <xs:attribute name="ErrorCode" type="tns:GenericErrorCodeTypes" use="optional" />
+	        <xs:attribute name="ErrorMessage" type="xs:string" use="optional" />
+	      </xs:extension>
+	    </xs:complexContent>
+	    </xs:complexType>
+	  </xs:element>
+	  
+	  <xs:element name="Response">
+	  <!--Allows for the numbers to be displayed between the SubResponse elements-->
+	  <xs:complexType mixed="true">
+	    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+	      <xs:element name="SubResponse" type="tns:SubResponseElementGenericType" /> 
+	    </xs:sequence>
+	    <xs:attribute name="Url" type="xs:string" use="required"/>
+	    <xs:attribute name="RequestToken" type="xs:nonNegativeInteger" use="required" />
+	    <xs:attribute name="HealthScore" type="xs:integer" use="required"/>
+	    <xs:attribute name="ErrorCode" type="tns:GenericErrorCodeTypes" use="optional" />
+	    <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  </xs:element>
+	  
+	  <xs:element name="ResponseCollection">
+	    <xs:complexType>
+	      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+	        <xs:element ref="tns:Response" />
+	      </xs:sequence>
+	      <xs:attribute name="WebUrl" type="xs:string" use="required"/>
+	    </xs:complexType>
+	  </xs:element>
+	
+	</xs:schema>
+
+
