@@ -198,7 +198,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                         {
                             MsfsshttpdCapture.VerifyObjectGroupObjectDataForIntermediateNode(intermediateData, intermediateDeclare, objectGroupList, SharedContext.Current.Site);
-                            MsfsshttpdCapture.VerifyIntermediateNodeObject(rootNode.IntermediateNodeObjectList.Last(), SharedContext.Current.Site);
+                            MsfsshttpdCapture.VerifyLeafNodeObject(rootNode.IntermediateNodeObjectList.Last(), SharedContext.Current.Site);
                         }
                     }
 
@@ -206,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         // Capture the root node related requirements. 
                         MsfsshttpdCapture.VerifyObjectGroupObjectDataForRootNode(root, rootDeclare, objectGroupList, SharedContext.Current.Site);
-                        MsfsshttpdCapture.VerifyRootNodeObject(rootNode, SharedContext.Current.Site);
+                        MsfsshttpdCapture.VerifyIntermediateNodeObject(rootNode, SharedContext.Current.Site);
                     }
                 }
                 else

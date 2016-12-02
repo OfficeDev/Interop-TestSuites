@@ -298,7 +298,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="interNode">Specify the LeafNodeObjectData instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public static void VerifyIntermediateNodeObject(LeafNodeObjectData interNode, ITestSite site)
+        public static void VerifyLeafNodeObject(LeafNodeObjectData interNode, ITestSite site)
         {
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R69
             site.CaptureRequirement(
@@ -381,7 +381,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="rootNode">Specify the IntermediateNodeObject instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public static void VerifyRootNodeObject(IntermediateNodeObject rootNode, ITestSite site)
+        public static void VerifyIntermediateNodeObject(IntermediateNodeObject rootNode, ITestSite site)
         {
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R44
             site.CaptureRequirementIfAreEqual<ulong>(

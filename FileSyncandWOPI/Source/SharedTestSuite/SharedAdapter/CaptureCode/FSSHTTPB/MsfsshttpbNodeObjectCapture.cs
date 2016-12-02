@@ -47,11 +47,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// This method is used to verify the intermediate node related requirements.
+        /// This method is used to verify the leaf node related requirements.
         /// </summary>
-        /// <param name="instance">Specify the intermediate node instance.</param>
+        /// <param name="instance">Specify the leaf node instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public void VerifyIntermediateNodeObject(LeafNodeObjectData instance, ITestSite site)
+        public void VerifyLeafNodeObject(LeafNodeObjectData instance, ITestSite site)
         {
             // If the instance is not null and there are no parsing errors, then the LeafNodeObjectData related adapter requirements can be directly captured.
             if (null == instance)
@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="instance">Specify the intermediate node instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public void VerifyRootNodeObject(IntermediateNodeObject instance, ITestSite site)
+        public void VerifyIntermediateNodeObject(IntermediateNodeObject instance, ITestSite site)
         {
             // If the instance is not null and there are no parsing errors, then the IntermediateNodeObject related adapter requirements can be directly captured.
             if (null == instance)
