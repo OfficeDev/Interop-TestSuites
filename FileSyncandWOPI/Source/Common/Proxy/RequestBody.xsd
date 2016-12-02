@@ -405,6 +405,35 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:complexType name="FileOperationSubRequestType">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="SubRequestData" type="tns:FileOperationSubRequestDataType" />
+        </xs:sequence>
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FileOperationSubRequestDataType">
+    <xs:attributeGroup ref="tns:FileOperationSubRequestDataOptionalAttributes"/>
+    <xs:attribute name="NewFileName" type="xs:string" use="optional" />
+    <xs:attribute name="ExclusiveLockID" type="xs:string" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="VersioningSubRequestType">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="SubRequestData" type="tns:VersioningSubRequestDataType" />
+        </xs:sequence>
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="VersioningSubRequestDataType">
+    <xs:attributeGroup ref="tns:VersioningSubRequestDataOptionalAttributes"/>
+    <xs:attribute name="VersionNumber" type="tns:FileVersionNumberType" use="optional"/>
+  </xs:complexType>
 
   <!--definition of simple elements-->
 
