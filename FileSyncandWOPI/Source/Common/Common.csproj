@@ -59,9 +59,7 @@
     <Compile Include="WOPIServerErrorException.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Proxy\Include.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Proxy\Include.xsd" />
     <None Include="Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
     <None Include="Proxy\Request.xsd" />
     <None Include="Proxy\RequestBody.xsd" />
