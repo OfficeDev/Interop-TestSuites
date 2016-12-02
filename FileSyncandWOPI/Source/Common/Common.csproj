@@ -63,18 +63,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
-    <None Include="Proxy\Request.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Proxy\RequestBody.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Proxy\Response.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Proxy\ResponseBody.xsd">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Proxy\Request.xsd" />
+    <None Include="Proxy\RequestBody.xsd" />
+    <None Include="Proxy\Response.xsd" />
+    <None Include="Proxy\ResponseBody.xsd" />
     <None Include="Script\Get-ConfigurationPropertyValue.ps1" />
     <None Include="FssWopiCommonConfiguration.deployment.ptfconfig" />
   </ItemGroup>
