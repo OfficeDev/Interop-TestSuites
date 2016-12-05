@@ -14,7 +14,8 @@
          "SharePointFoundation2010" (Microsoft® SharePoint® Foundation 2010 Service Pack 2 (SP2));
          "SharePointFoundation2013" (Microsoft® SharePoint® Foundation 2013 Service Pack 1 (SP1));
          "SharePointServer2010" (Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2));
-         "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1)) . -->
+         "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1));
+         "SharePointServer2016" (Microsoft® SharePoint® Server 2016). -->
     <Property name="SutVersion" value="SharePointServer2013"/>
     <!-- The TargetSiteCollectionUrl property specifies the fully qualified URL of the service which the test suite would be run on. -->
     <Property name="TargetSiteCollectionUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]" />
