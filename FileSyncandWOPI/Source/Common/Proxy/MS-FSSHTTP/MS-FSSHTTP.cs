@@ -326,6 +326,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string bypassLockIDField;
 
+        private string lastModifiedTimeField;
+
         private CoauthRequestTypes coauthRequestTypeField;
 
         private bool coauthRequestTypeFieldSpecified;
@@ -589,6 +591,20 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.bypassLockIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType = "integer")]
+        public string LastModifiedTime
+        {
+            get
+            {
+                return this.lastModifiedTimeField;
+            }
+            set
+            {
+                this.lastModifiedTimeField = value;
             }
         }
 
@@ -2244,6 +2260,12 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         EditorsTable,
+
+        /// <remarks/>
+        FileOperation,
+
+        /// <remarks/>
+        Versioning,
     }
 
     /// <remarks/>
@@ -3141,6 +3163,9 @@ namespace Microsoft.Protocols.TestSuites.Common
         FileUnauthorizedAccess,
 
         /// <remarks/>
+        PathNotFound,
+
+        /// <remarks/>
         InvalidSubRequest,
 
         /// <remarks/>
@@ -3916,7 +3941,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
@@ -5506,6 +5531,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string errorMessageField;
 
+        private string suggestedFileNameField;
+
+        private string resourceIDField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SubResponse")]
         public SubResponseElementGenericType[] SubResponse
@@ -5615,6 +5644,34 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.errorMessageField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string SuggestedFileName
+        {
+            get
+            {
+                return this.suggestedFileNameField;
+            }
+            set
+            {
+                this.suggestedFileNameField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ResourceID
+        {
+            get
+            {
+                return this.resourceIDField;
+            }
+            set
+            {
+                this.resourceIDField = value;
             }
         }
     }
