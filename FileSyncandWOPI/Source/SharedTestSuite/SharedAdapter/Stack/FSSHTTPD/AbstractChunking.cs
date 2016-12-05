@@ -42,7 +42,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// This method is used to chunk the file data.
         /// </summary>
         /// <returns>A list of LeafNodeObjectData.</returns>
-        public abstract List<LeafNodeObjectData> Chunking();
+        public abstract List<LeafNodeObject> Chunking();
 
         /// <summary>
         /// This method is used to analyze the chunk.

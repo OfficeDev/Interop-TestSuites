@@ -109,8 +109,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             StreamObjectTypeHeaderStart.UserAgent,
             StreamObjectTypeHeaderStart.FragmentKnowledge,
             StreamObjectTypeHeaderStart.ObjectGroupMetadataDeclarations,
+            StreamObjectTypeHeaderStart.LeafNodeObject,
             StreamObjectTypeHeaderStart.IntermediateNodeObject,
-            StreamObjectTypeHeaderStart.RootNodeObject,
             StreamObjectTypeHeaderStart.TargetPartitionId
         };
 

@@ -25,10 +25,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// This method is used to chunk the file data.
         /// </summary>
         /// <returns>A list of LeafNodeObjectData.</returns>
-        public override List<LeafNodeObjectData> Chunking()
+        public override List<LeafNodeObject> Chunking()
         {
-            List<LeafNodeObjectData> list = new List<LeafNodeObjectData>();
-            LeafNodeObjectData.IntermediateNodeObjectBuilder builder = new LeafNodeObjectData.IntermediateNodeObjectBuilder();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
+            LeafNodeObject.IntermediateNodeObjectBuilder builder = new LeafNodeObject.IntermediateNodeObjectBuilder();
 
             int index = 0;
             while (ZipHeader.IsFileHeader(this.FileContent, index))
@@ -90,11 +90,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Specify the ITestSite instance.</param>
         public override void AnalyzeChunking(IntermediateNodeObject rootNode, ITestSite site)
         {
-            List<LeafNodeObjectData> cloneList = new List<LeafNodeObjectData>(rootNode.IntermediateNodeObjectList);
+            List<LeafNodeObject> cloneList = new List<LeafNodeObject>(rootNode.IntermediateNodeObjectList);
 
             while (cloneList.Count != 0)
             {
-                LeafNodeObjectData nodeObject = cloneList.First();
+                LeafNodeObject nodeObject = cloneList.First();
                 byte[] content = nodeObject.DataNodeObjectData.ObjectData;
 
                 if (cloneList.Count == 1)
@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                         if (headerLength + compressedSize <= 4096)
                         {
-                            LeafNodeObjectData expectNode = new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
+                            LeafNodeObject expectNode = new LeafNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
                             if (!expectNode.Signature.Equals(nodeObject.Signature))
                             {
                                 site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
@@ -195,15 +195,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="chunkData">A byte array that contains the data.</param>
         /// <returns>A list of LeafNodeObjectData.</returns>
-        private List<LeafNodeObjectData> GetSubChunkList(byte[] chunkData)
+        private List<LeafNodeObject> GetSubChunkList(byte[] chunkData)
         {
-            List<LeafNodeObjectData> subChunkList = new List<LeafNodeObjectData>();
+            List<LeafNodeObject> subChunkList = new List<LeafNodeObject>();
             int index = 0;
             while (index < chunkData.Length)
             {
                 int length = chunkData.Length - index < 1048576 ? chunkData.Length - index : 1048576;
                 byte[] temp = AdapterHelper.GetBytes(chunkData, index, length);
-                subChunkList.Add(new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
+                subChunkList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
                 index += length;
             }
 

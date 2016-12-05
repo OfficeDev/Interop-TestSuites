@@ -126,14 +126,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                     dataElements.Add(new DataElement(DataElementType.ObjectGroupDataElementData, data));
 
-                    foreach (LeafNodeObjectData child in (node as IntermediateNodeObject).IntermediateNodeObjectList)
+                    foreach (LeafNodeObject child in (node as IntermediateNodeObject).IntermediateNodeObjectList)
                     {
                         this.TravelNodeObject(child, ref dataElements);
                     }
                 }
-                else if (node is LeafNodeObjectData)
+                else if (node is LeafNodeObject)
                 {
-                    LeafNodeObjectData intermediateNode = node as LeafNodeObjectData;
+                    LeafNodeObject intermediateNode = node as LeafNodeObject;
 
                     ObjectGroupDataElementData data = new ObjectGroupDataElementData();
                     data.ObjectGroupDeclarations.ObjectDeclarationList.Add(this.CreateObjectDeclare(node));
@@ -151,7 +151,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         dataElements.Add(new DataElement(DataElementType.ObjectGroupDataElementData, data));
 
-                        foreach (LeafNodeObjectData child in intermediateNode.IntermediateNodeObjectList)
+                        foreach (LeafNodeObject child in intermediateNode.IntermediateNodeObjectList)
                         {
                             this.TravelNodeObject(child, ref dataElements);
                         }
@@ -211,7 +211,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 objectData.CellIDArray = new CellIDArray(0u, null);
 
                 List<ExGuid> extendedGuidList = new List<ExGuid>();
-                foreach (LeafNodeObjectData child in node.IntermediateNodeObjectList)
+                foreach (LeafNodeObject child in node.IntermediateNodeObjectList)
                 {
                     extendedGuidList.Add(child.ExGuid);
                 }
@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// </summary>
             /// <param name="node">Specify the node object.</param>
             /// <returns>Return the ObjectGroupObjectData instance.</returns>
-            private ObjectGroupObjectData CreateObjectData(LeafNodeObjectData node)
+            private ObjectGroupObjectData CreateObjectData(LeafNodeObject node)
             {
                 ObjectGroupObjectData objectData = new ObjectGroupObjectData();
 
@@ -240,7 +240,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 }
                 else if (node.IntermediateNodeObjectList != null)
                 {
-                    foreach (LeafNodeObjectData child in node.IntermediateNodeObjectList)
+                    foreach (LeafNodeObject child in node.IntermediateNodeObjectList)
                     {
                         extendedGuidList.Add(child.ExGuid);
                     }

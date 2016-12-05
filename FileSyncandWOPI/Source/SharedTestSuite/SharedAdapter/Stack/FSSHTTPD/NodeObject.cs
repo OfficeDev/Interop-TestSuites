@@ -28,7 +28,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Gets or sets the intermediate node object list.
         /// </summary>
-        public List<LeafNodeObjectData> IntermediateNodeObjectList { get; set; }
+        public List<LeafNodeObject> IntermediateNodeObjectList { get; set; }
 
         /// <summary>
         /// Gets or sets the signature.
@@ -57,9 +57,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Initializes a new instance of the IntermediateNodeObject class.
         /// </summary>
         public IntermediateNodeObject()
-            : base(StreamObjectTypeHeaderStart.RootNodeObject)
+            : base(StreamObjectTypeHeaderStart.IntermediateNodeObject)
         {
-            this.IntermediateNodeObjectList = new List<LeafNodeObjectData>();
+            this.IntermediateNodeObjectList = new List<LeafNodeObject>();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         {
             List<byte> content = new List<byte>();
 
-            foreach (LeafNodeObjectData intermediateNode in this.IntermediateNodeObjectList)
+            foreach (LeafNodeObject intermediateNode in this.IntermediateNodeObjectList)
             {
                 content.AddRange(intermediateNode.GetContent());
             }
@@ -192,7 +192,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         ObjectGroupObjectDeclare intermediateDeclare;
                         ObjectGroupObjectData intermediateData = this.FindByExGuid(objectGroupList, extGuid, out intermediateDeclare);
-                        rootNode.IntermediateNodeObjectList.Add(new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(objectGroupList, intermediateData, extGuid));
+                        rootNode.IntermediateNodeObjectList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, intermediateData, extGuid));
 
                         // Capture the intermediate related requirements
                         if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
@@ -216,7 +216,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     rootNode = new IntermediateNodeObject();
                     rootNode.ExGuid = rootExGuid;
                     
-                    rootNode.IntermediateNodeObjectList.Add(new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(objectGroupList, root, rootExGuid));
+                    rootNode.IntermediateNodeObjectList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, root, rootExGuid));
                     rootNode.DataSize = new DataSizeObject();
                     rootNode.DataSize.DataSize = (ulong)rootNode.IntermediateNodeObjectList.Sum(o => (float)o.DataSize.DataSize);
                 }
@@ -266,13 +266,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     /// <summary>
     /// The data of Intermediate Node Object.
     /// </summary>
-    public class LeafNodeObjectData : NodeObject
+    public class LeafNodeObject : NodeObject
     {
         /// <summary>
         /// Initializes a new instance of the LeafNodeObjectData class.
         /// </summary>
-        public LeafNodeObjectData()
-            : base(StreamObjectTypeHeaderStart.IntermediateNodeObject)
+        public LeafNodeObject()
+            : base(StreamObjectTypeHeaderStart.LeafNodeObject)
         {
         }
 
@@ -295,7 +295,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             }
             else if (this.IntermediateNodeObjectList != null)
             {
-                foreach (LeafNodeObjectData intermediateNode in this.IntermediateNodeObjectList)
+                foreach (LeafNodeObject intermediateNode in this.IntermediateNodeObjectList)
                 {
                     content.AddRange(intermediateNode.GetContent());
                 }
@@ -352,13 +352,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="dataObj">Specify the object group object.</param>
             /// <param name="intermediateGuid">Specify the intermediate extended GUID.</param>
             /// <returns>Return the intermediate node object.</returns>
-            public LeafNodeObjectData Build(List<ObjectGroupDataElementData> objectGroupList, ObjectGroupObjectData dataObj, ExGuid intermediateGuid)
+            public LeafNodeObject Build(List<ObjectGroupDataElementData> objectGroupList, ObjectGroupObjectData dataObj, ExGuid intermediateGuid)
             {
-                LeafNodeObjectData node = null;
+                LeafNodeObject node = null;
                 IntermediateNodeObject rootNode = null;
 
                 int index = 0;
-                if (StreamObject.TryGetCurrent<LeafNodeObjectData>(dataObj.Data.Content.ToArray(), ref index, out node))
+                if (StreamObject.TryGetCurrent<LeafNodeObject>(dataObj.Data.Content.ToArray(), ref index, out node))
                 {
                     if (dataObj.ObjectExGUIDArray == null)
                     {
@@ -386,7 +386,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     else
                     {
                         // Contain a list of LeafNodeObjectData
-                        node.IntermediateNodeObjectList = new List<LeafNodeObjectData>();
+                        node.IntermediateNodeObjectList = new List<LeafNodeObject>();
                         node.DataNodeObjectData = null;
                         foreach (ExGuid extGuid in dataObj.ObjectExGUIDArray.Content)
                         {
@@ -405,8 +405,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 {
                     // In Sub chunking for larger than 1MB zip file, MOSS2010 could return IntermediateNodeObject.
                     // For easy further process, the rootNode will be replaced by intermediate node instead.
-                    node = new LeafNodeObjectData();
-                    node.IntermediateNodeObjectList = new List<LeafNodeObjectData>();
+                    node = new LeafNodeObject();
+                    node.IntermediateNodeObjectList = new List<LeafNodeObject>();
                     node.DataSize = rootNode.DataSize;
                     node.ExGuid = rootNode.ExGuid;
                     node.Signature = rootNode.Signature;
@@ -437,9 +437,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="array">Specify the byte array.</param>
             /// <param name="signature">Specify the signature.</param>
             /// <returns>Return the intermediate node object.</returns>
-            public LeafNodeObjectData Build(byte[] array, SignatureObject signature)
+            public LeafNodeObject Build(byte[] array, SignatureObject signature)
             {
-                LeafNodeObjectData nodeObject = new LeafNodeObjectData();
+                LeafNodeObject nodeObject = new LeafNodeObject();
                 nodeObject.DataSize = new DataSizeObject();
                 nodeObject.DataSize.DataSize = (ulong)array.Length;
 

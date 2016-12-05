@@ -62,7 +62,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 // For SharePoint Server 2010 SP2 compatible SUTs, chunking method depends on file content and size. So first try using the simple chunking.  
                 AbstractChunking returnChunking = new SimpleChunking(fileContent);
 
-                List<LeafNodeObjectData> nodes = returnChunking.Chunking();
+                List<LeafNodeObject> nodes = returnChunking.Chunking();
                 if (nodeObject.IntermediateNodeObjectList.Count == nodes.Count)
                 {
                     bool isDataSizeMatching = true;

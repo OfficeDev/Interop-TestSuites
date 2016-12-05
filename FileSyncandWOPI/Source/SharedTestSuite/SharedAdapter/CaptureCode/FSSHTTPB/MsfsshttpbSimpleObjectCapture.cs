@@ -1102,7 +1102,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Put Changes Response, [the Type field is set to]0x87 [and the B-Compound field is set to] 0.");
                     break;
 
-                case StreamObjectTypeHeaderStart.RootNodeObject:
+                case StreamObjectTypeHeaderStart.IntermediateNodeObject:
                     site.Assert.AreEqual<Type>(
                                     typeof(IntermediateNodeObject),
                                     type,
@@ -1117,9 +1117,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                     "IntermediateNodeObject stream object header has compound value 1.");
                     break;
 
-                case StreamObjectTypeHeaderStart.IntermediateNodeObject:
+                case StreamObjectTypeHeaderStart.LeafNodeObject:
                     site.Assert.AreEqual<Type>(
-                                    typeof(LeafNodeObjectData),
+                                    typeof(LeafNodeObject),
                                     type,
                                     "LeafNodeObjectData stream object header only represents LeafNodeObjectData instance.");
                     site.Assert.AreEqual<int>(
@@ -2072,7 +2072,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                 case StreamObjectTypeHeaderEnd.IntermediateNodeEnd:
                     site.Assert.AreEqual<Type>(
-                                    typeof(LeafNodeObjectData),
+                                    typeof(LeafNodeObject),
                                     type,
                                     "IntermediateNodeEnd header only represents LeafNodeObjectData instance.");
                     site.Assert.AreEqual<int>(

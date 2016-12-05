@@ -32,11 +32,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Specify the ITestSite instance.</param>
         public override void AnalyzeChunking(IntermediateNodeObject rootNode, TestTools.ITestSite site)
         {
-            List<LeafNodeObjectData> expectList = this.Chunking();
+            List<LeafNodeObject> expectList = this.Chunking();
 
-            foreach (LeafNodeObjectData nodeObject in rootNode.IntermediateNodeObjectList)
+            foreach (LeafNodeObject nodeObject in rootNode.IntermediateNodeObjectList)
             {
-                LeafNodeObjectData expect = expectList.First();
+                LeafNodeObject expect = expectList.First();
 
                 if (!expect.Signature.Equals(nodeObject.Signature))
                 {
@@ -59,10 +59,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// This method is used to chunk the file data.
         /// </summary>
         /// <returns>A list of LeafNodeObjectData.</returns>
-        public override List<LeafNodeObjectData> Chunking()
+        public override List<LeafNodeObject> Chunking()
         {
             uint horizon = 16384;
-            List<LeafNodeObjectData> list = new List<LeafNodeObjectData>();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
             int inputLength = FileContent.Length;
 
             if (inputLength <= 0)
@@ -145,7 +145,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="chunkStart">The start index of the chunk.</param>
         /// <param name="chunkEnd">The end index of the chunk.</param>
         /// <returns>An LeafNodeObjectData which contains a chunk.</returns>
-        private LeafNodeObjectData GetChunk(uint chunkStart, uint chunkEnd)
+        private LeafNodeObject GetChunk(uint chunkStart, uint chunkEnd)
         {
             if (chunkEnd <= chunkStart || (chunkEnd - chunkStart > this.maxChunkSize) || chunkStart > uint.MaxValue)
             {
@@ -163,7 +163,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             SignatureObject signature = new SignatureObject();
             signature.SignatureData = new BinaryItem(signatureBytes);
 
-            return new LeafNodeObjectData.IntermediateNodeObjectBuilder().Build(temp, signature);
+            return new LeafNodeObject.IntermediateNodeObjectBuilder().Build(temp, signature);
         }
 
         /// <summary>

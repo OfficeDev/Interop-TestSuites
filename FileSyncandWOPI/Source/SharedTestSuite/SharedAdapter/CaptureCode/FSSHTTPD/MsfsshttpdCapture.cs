@@ -298,7 +298,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="interNode">Specify the LeafNodeObjectData instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public static void VerifyLeafNodeObject(LeafNodeObjectData interNode, ITestSite site)
+        public static void VerifyLeafNodeObject(LeafNodeObject interNode, ITestSite site)
         {
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R69
             site.CaptureRequirement(

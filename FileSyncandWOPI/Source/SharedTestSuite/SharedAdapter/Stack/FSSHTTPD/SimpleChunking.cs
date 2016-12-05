@@ -24,11 +24,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// This method is used to chunk the file data.
         /// </summary>
         /// <returns>A list of LeafNodeObjectData.</returns>
-        public override List<LeafNodeObjectData> Chunking()
+        public override List<LeafNodeObject> Chunking()
         {
             int maxChunkSize = 1 * 1024 * 1024;
-            List<LeafNodeObjectData> list = new List<LeafNodeObjectData>();
-            LeafNodeObjectData.IntermediateNodeObjectBuilder builder = new LeafNodeObjectData.IntermediateNodeObjectBuilder();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
+            LeafNodeObject.IntermediateNodeObjectBuilder builder = new LeafNodeObject.IntermediateNodeObjectBuilder();
             int chunkStart = 0;
 
             if (this.FileContent.Length <= maxChunkSize)
@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             }
             else if (rootNode.DataSize.DataSize <= 250 * 1024 * 1024)
             {
-                foreach (LeafNodeObjectData interNode in rootNode.IntermediateNodeObjectList)
+                foreach (LeafNodeObject interNode in rootNode.IntermediateNodeObjectList)
                 {
                     SignatureObject expect = this.GetSignature(interNode.DataNodeObjectData.ObjectData);
                     SignatureObject realValue = interNode.Signature;

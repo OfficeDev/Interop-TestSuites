@@ -313,12 +313,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Intermediate Node Object
         /// </summary>
-        IntermediateNodeObject = 0x1F, // Defined in MS-FSSHTTPD
+        LeafNodeObject = 0x1F, // Defined in MS-FSSHTTPD
 
         /// <summary>
         /// Root Node Object
         /// </summary>
-        RootNodeObject = 0x20, // Defined in MS-FSSHTTPD
+        IntermediateNodeObject = 0x20, // Defined in MS-FSSHTTPD
 
         /// <summary>
         /// Signature Object

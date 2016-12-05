@@ -51,7 +51,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="instance">Specify the leaf node instance.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public void VerifyLeafNodeObject(LeafNodeObjectData instance, ITestSite site)
+        public void VerifyLeafNodeObject(LeafNodeObject instance, ITestSite site)
         {
             // If the instance is not null and there are no parsing errors, then the LeafNodeObjectData related adapter requirements can be directly captured.
             if (null == instance)
