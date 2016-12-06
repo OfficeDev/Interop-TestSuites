@@ -114,6 +114,9 @@
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\S15_CreateFile.cs">
       <Link>SharedTestCase\S15_CreateFile.cs</Link>
     </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S16_Versioning.cs">
+      <Link>SharedTestCase\S16_Versioning.cs</Link>
+    </Compile>
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteBase.cs">
       <Link>SharedTestCase\SharedTestSuiteBase.cs</Link>
     </Compile>
@@ -137,6 +140,7 @@
     <Compile Include="MS-FSSHTTP-FSSHTTPB_S12_QueryChanges.cs" />
     <Compile Include="MS-FSSHTTP-FSSHTTPB_S13_PutChanges.cs" />
     <Compile Include="MS-FSSHTTP-FSSHTTPB_S14_AllocateExtendedGuidRange.cs" />
+    <Compile Include="MS-FSSHTTP-FSSHTTPB_S16_Versioning.cs" />
     <Compile Include="MS-FSSHTTP-FSSHTTPB_S15_CreateFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedContextUtils.cs" />

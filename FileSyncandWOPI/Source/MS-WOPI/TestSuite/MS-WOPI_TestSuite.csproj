@@ -83,6 +83,9 @@
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\S15_CreateFile.cs">
       <Link>ReferenceSharedTestCase\S15_CreateFile.cs</Link>
     </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S16_Versioning.cs">
+      <Link>ReferenceSharedTestCase\S16_Versioning.cs</Link>
+    </Compile>
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteBase.cs">
       <Link>ReferenceSharedTestCase\SharedTestSuiteBase.cs</Link>
     </Compile>
@@ -111,6 +114,7 @@
     <Compile Include="MS-WOPI_S17_FileLevelItems.cs" />
     <Compile Include="MS-WOPI_S18_FolderLevelItems.cs" />
     <Compile Include="MS-WOPI_S19_FileContentLevelItems.cs" />
+    <Compile Include="MS-WOPI_S21_Versioning.cs" />
     <Compile Include="MS-WOPI_S20_FolderChildrenLevelItems.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

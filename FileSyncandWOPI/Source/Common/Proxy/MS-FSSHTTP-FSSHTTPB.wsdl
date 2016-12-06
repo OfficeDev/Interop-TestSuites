@@ -61,7 +61,7 @@
       <xs:simpleType name="MinorVersionNumberType">
         <xs:restriction base="xs:unsignedShort">
           <xs:minInclusive value="0"/>
-          <xs:maxInclusive value="2"/>
+          <xs:maxInclusive value="3"/>
         </xs:restriction>
       </xs:simpleType>
 
@@ -268,16 +268,65 @@
       <xs:complexType name="SubResponseDataGenericType" mixed="true">
         <xs:all>
           <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
-          <xs:element name="DocProps" type="tns:GetDocMetaInfoPropertySetType" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="FolderProps" type="tns:GetDocMetaInfoPropertySetType" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="DocProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
+          <xs:element name="FolderProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
+          <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
+          <xs:element name="Versions" type="tns:VersioningVersionListType"/>
         </xs:all>
-        <xs:attributeGroup ref="tns:CellSubResponseDataOptionalAttributes"/>
-        <xs:attributeGroup ref="tns:WhoAmISubResponseDataOptionalAttributes"/>
-        <xs:attribute name="ServerTime" type="xs:positiveInteger" use="optional"/>
-        <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
-        <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
-        <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
-        <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
+        <xs:attributeGroup ref="tns:SubResponseDataOptionalAttributes" />
+      </xs:complexType>
+
+      <xs:complexType name="VersioningUserTableType">
+        <xs:sequence>
+          <xs:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="UserDataType">
+        <xs:attribute name="UserId" type="xs:integer" use="required" />
+        <xs:attribute name="UserLogin" type="tns:UserLoginType" use="required" />
+        <xs:attribute name="UserName" type="tns:UserNameType" use="optional" />
+        <xs:attribute name="UserEmailAddress" type="xs:string" use="optional" />
+      </xs:complexType>
+
+      <xs:complexType name="VersioningVersionListType">
+        <xs:sequence>
+          <xs:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="FileVersionDataType">
+        <xs:sequence>
+          <xs:element name="Events" minOccurs="0" maxOccurs="1" type="tns:EventsDataType" />
+        </xs:sequence>
+        <xs:attribute name="IsCurrent" type="xs:boolean" use="optional" />
+        <xs:attribute name="Number" type="tns:FileVersionNumberType" use="required" />
+        <xs:attribute name="LastModifiedTime" type="xs:positiveInteger" use="optional" />
+        <xs:attribute name="UserId" type="xs:integer" use="optional" />
+        <!--<xs:element name="Events" minOccurs="0" maxOccurs="1" >
+	      <xs:complexType>
+	        <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+	      </xs:complexType>
+	    </xs:element>-->
+      </xs:complexType>
+
+      <xs:complexType name="EventsDataType">
+        <xs:sequence>
+          <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="FileVersionNumberType">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[0-9]+[.][0-9]+" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:complexType name="FileVersionEventDataType">
+        <xs:attribute name="Id" type="xs:integer" use="required" />
+        <xs:attribute name="Type" type="xs:integer" use="required" />
+        <xs:attribute name="CreateTime" type="xs:positiveInteger" use="optional" />
+        <xs:attribute name="UserId" type="xs:integer" use="optional" />
       </xs:complexType>
 
       <xs:complexType name="SubResponseType">
@@ -382,6 +431,25 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+
+      <xs:complexType name="VersioningSubResponseType">
+        <xs:complexContent>
+          <xs:extension base="tns:SubResponseType">
+            <xs:sequence minOccurs="0" maxOccurs="1">
+              <xs:element name="SubResponseData" type="tns:VersioningSubResponseDataType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+
+      <xs:complexType name="VersioningSubResponseDataType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
+          </xs:sequence>
+          <xs:element name="Versions" type="tns:VersioningVersionListType"/>
+        </xs:sequence>
+      </xs:complexType>
 
       <xs:complexType name="Results">
         <xs:sequence>
@@ -515,6 +583,7 @@
       <xs:element name="EditorsTableSubResponse" type="tns:EditorsTableSubResponseType" />
       <xs:element name="GetDocMetaInfoSubResponse" type="tns:GetDocMetaInfoSubResponseType" />
       <xs:element name="GetVersionsSubResponse" type="tns:GetVersionsSubResponseType" />
+      <xs:element name="VersioningSubResponse" type="tns:VersioningSubResponseType" />
 
     </xs:schema>
 

@@ -2194,6 +2194,10 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class VersioningSubRequestType : SubRequestType
     {
+        public VersioningSubRequestType()
+        {
+            this.typeField = SubRequestAttributeType.Versioning;
+        }
 
         private VersioningSubRequestDataType subRequestDataField;
 
@@ -2276,6 +2280,11 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class FileOperationSubRequestType : SubRequestType
     {
+
+        public FileOperationSubRequestType()
+        {
+            this.typeField = SubRequestAttributeType.FileOperation;
+        }
 
         private FileOperationSubRequestDataType subRequestDataField;
 
@@ -3592,7 +3601,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("User", IsNullable = false)]
+        [System.Xml.Serialization.XmlElementAttribute("User", IsNullable = false)]
         public UserDataType[] UserTable
         {
             get
@@ -3606,7 +3615,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Version", IsNullable = false)]
+        [System.Xml.Serialization.XmlElementAttribute("Version", IsNullable = false)]
         public FileVersionDataType[] Versions
         {
             get
@@ -4092,6 +4101,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class FileVersionDataType
     {
+        private FileVersionEventDataType[] eventsField;
 
         private bool isCurrentField;
 
@@ -4102,6 +4112,20 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string lastModifiedTimeField;
 
         private string userIdField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Event", IsNullable = false)]
+        public FileVersionEventDataType[] Events
+        {
+            get
+            {
+                return this.eventsField;
+            }
+            set
+            {
+                this.eventsField = value;
+            }
+        }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -4313,7 +4337,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         private FileVersionDataType[] versionsField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("User", IsNullable = false)]
+        [System.Xml.Serialization.XmlElementAttribute("User", IsNullable = false)]
         public UserDataType[] UserTable
         {
             get
@@ -4327,7 +4351,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Version", IsNullable = false)]
+        [System.Xml.Serialization.XmlElementAttribute("Version", IsNullable = false)]
         public FileVersionDataType[] Versions
         {
             get

@@ -361,6 +361,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             return getVersionsSubRequest;
         }
 
+        /// <summary>
+        /// A method used to create a VersioningSubRequestType object and initialize it.
+        /// </summary>
+        /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
+        /// <param name="versioningRequestType">Versioning request types</param>
+        /// <param name="versionNumber">A FileVersionNumberType that serves to uniquely identify a version of a file on the server</param>
+        /// <param name="site">A parameter represents the instance of ITestSite.</param>
+        /// <returns>A return value represents the VersioningSubRequest object.</returns>
+        public static VersioningSubRequestType CreateVersioningSubRequest(uint subRequestToken, VersioningRequestTypes versioningRequestType, string versionNumber, ITestSite site)
+        {
+            VersioningSubRequestType versioningSubRequest = new VersioningSubRequestType();
+            versioningSubRequest.SubRequestToken = subRequestToken.ToString();
+            versioningSubRequest.SubRequestData = new VersioningSubRequestDataType();
+            versioningSubRequest.SubRequestData.VersioningRequestType = versioningRequestType;
+            versioningSubRequest.SubRequestData.VersioningRequestTypeSpecified = true;
+
+            if (versioningRequestType == VersioningRequestTypes.RestoreVersion)
+            {
+                site.Assert.IsTrue(!string.IsNullOrEmpty(versionNumber), "VersionNumber MUST be specified when the versioning subrequest has a VersioningSubRequestType attribute set to RestoreVersion.");
+                versioningSubRequest.SubRequestData.VersionNumber = versionNumber;
+            }
+
+            return versioningSubRequest;
+        }
+
         #region Editors table helper function
         /// <summary>
         /// A method used to create a EditorsTable Sub-request object for JoinEditingSession and initialize it.
