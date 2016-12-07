@@ -279,8 +279,8 @@
 	  </xs:complexType>-->
 
   <xs:complexType name="VersioningUserTableType">
-	      <xs:sequence>
-	        <xs:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+	      <xs:sequence maxOccurs="unbounded" minOccurs="1" >
+	        <xs:element name="User" type="tns:UserDataType" />
 	      </xs:sequence>
 	  </xs:complexType>
 
@@ -293,9 +293,9 @@
   </xs:complexType>-->
 
   <xs:complexType name="VersioningVersionListType">
-	      <xs:sequence>
-	         <xs:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
-	      </xs:sequence>
+    <xs:sequence maxOccurs="unbounded" minOccurs="1" >
+      <xs:element name="Version" type="tns:FileVersionDataType" />
+    </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="UserDataType">
@@ -309,7 +309,7 @@
     <xs:sequence>
       <xs:element name="Events" minOccurs="0" maxOccurs="1" type="tns:EventsDataType" />
     </xs:sequence>
-    <xs:attribute name="IsCurrent" type="xs:boolean" use="optional" />
+    <xs:attribute name="IsCurrent" type="xs:string" use="optional" />
     <xs:attribute name="Number" type="tns:FileVersionNumberType" use="required" />
     <xs:attribute name="LastModifiedTime" type="xs:positiveInteger" use="optional" />
     <xs:attribute name="UserId" type="xs:integer" use="optional" />
@@ -321,8 +321,8 @@
   </xs:complexType>
   
   <xs:complexType name="EventsDataType">
-    <xs:sequence>
-      <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+    <xs:sequence minOccurs="1" maxOccurs="unbounded" >
+      <xs:element name="Event" type="tns:FileVersionEventDataType" />
     </xs:sequence>
   </xs:complexType>
 

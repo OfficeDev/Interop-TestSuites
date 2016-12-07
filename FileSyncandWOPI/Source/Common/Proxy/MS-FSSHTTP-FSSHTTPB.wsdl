@@ -277,8 +277,8 @@
       </xs:complexType>
 
       <xs:complexType name="VersioningUserTableType">
-        <xs:sequence>
-          <xs:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+        <xs:sequence maxOccurs="unbounded" minOccurs="1" >
+          <xs:element name="User" type="tns:UserDataType" />
         </xs:sequence>
       </xs:complexType>
 
@@ -290,8 +290,8 @@
       </xs:complexType>
 
       <xs:complexType name="VersioningVersionListType">
-        <xs:sequence>
-          <xs:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
+        <xs:sequence maxOccurs="unbounded" minOccurs="1" >
+          <xs:element name="Version" type="tns:FileVersionDataType" />
         </xs:sequence>
       </xs:complexType>
 
@@ -311,8 +311,8 @@
       </xs:complexType>
 
       <xs:complexType name="EventsDataType">
-        <xs:sequence>
-          <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+        <xs:sequence minOccurs="1" maxOccurs="unbounded" >
+          <xs:element name="Event" type="tns:FileVersionEventDataType" />
         </xs:sequence>
       </xs:complexType>
 

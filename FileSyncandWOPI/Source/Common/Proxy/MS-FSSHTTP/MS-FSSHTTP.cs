@@ -3496,6 +3496,32 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.33440")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class VersioningVersionListType
+    {
+
+        private FileVersionDataType[] versionField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Version")]
+        public FileVersionDataType[] Version
+        {
+            get
+            {
+                return this.versionField;
+            }
+            set
+            {
+                this.versionField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3510,9 +3536,9 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private GetDocMetaInfoPropertySetType folderPropsField;
 
-        private UserDataType[] userTableField;
+        private VersioningUserTableType userTableField;
 
-        private FileVersionDataType[] versionsField;
+        private VersioningVersionListType versionsField;
 
         private string[] textField;
 
@@ -3601,8 +3627,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("User", IsNullable = false)]
-        public UserDataType[] UserTable
+        public VersioningUserTableType UserTable
         {
             get
             {
@@ -3615,8 +3640,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Version", IsNullable = false)]
-        public FileVersionDataType[] Versions
+        public VersioningVersionListType Versions
         {
             get
             {
@@ -3952,6 +3976,32 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.33440")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class VersioningUserTableType
+    {
+
+        private UserDataType[] userField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("User")]
+        public UserDataType[] User
+        {
+            get
+            {
+                return this.userField;
+            }
+            set
+            {
+                this.userField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4094,6 +4144,32 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.33440")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class EventsDataType
+    {
+
+        private FileVersionEventDataType[] eventField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("Event")]
+        public FileVersionEventDataType[] Event
+        {
+            get
+            {
+                return this.eventField;
+            }
+            set
+            {
+                this.eventField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4101,11 +4177,10 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class FileVersionDataType
     {
-        private FileVersionEventDataType[] eventsField;
 
-        private bool isCurrentField;
+        private EventsDataType eventsField;
 
-        private bool isCurrentFieldSpecified;
+        private string isCurrentField;
 
         private string numberField;
 
@@ -4114,8 +4189,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string userIdField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Event", IsNullable = false)]
-        public FileVersionEventDataType[] Events
+        public EventsDataType Events
         {
             get
             {
@@ -4129,7 +4203,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public bool IsCurrent
+        public string IsCurrent
         {
             get
             {
@@ -4138,20 +4212,6 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.isCurrentField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsCurrentSpecified
-        {
-            get
-            {
-                return this.isCurrentFieldSpecified;
-            }
-            set
-            {
-                this.isCurrentFieldSpecified = value;
             }
         }
 
@@ -4332,13 +4392,12 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class VersioningSubResponseDataType
     {
 
-        private UserDataType[] userTableField;
+        private VersioningUserTableType userTableField;
 
-        private FileVersionDataType[] versionsField;
+        private VersioningVersionListType versionsField;
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("User", IsNullable = false)]
-        public UserDataType[] UserTable
+        public VersioningUserTableType UserTable
         {
             get
             {
@@ -4351,8 +4410,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Version", IsNullable = false)]
-        public FileVersionDataType[] Versions
+        public VersioningVersionListType Versions
         {
             get
             {
