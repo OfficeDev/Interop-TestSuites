@@ -186,7 +186,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          9001,
-                         @"[In Appendix B: Product Behavior] Implementation does support EditorsTable operation. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does support EditorsTable operation. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
             }
         }
 
@@ -512,7 +512,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          3031,
-                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
             }
             else
             {
@@ -693,14 +693,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          1976,
-                         @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<41> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                         @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
 
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.EditorMetadataQuotaReached,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          3035,
-                         @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the client has already exceeded its quota for number of key/value pairs.");
+                         @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the protocol client has already exceeded its quota for number of key/value pairs.");
 
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.EditorMetadataQuotaReached,
@@ -714,7 +714,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.EditorMetadataQuotaReached,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<41> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                    @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
             }
         }
 
@@ -964,7 +964,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2050,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<40> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }
@@ -1018,7 +1018,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2051,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<40> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }

@@ -104,7 +104,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifyR904,
                          "MS-FSSHTTP",
                          904,
-                         @"[In WhoAmISubResponseDataOptionalAttributes] UserName: [A UserNameType] that specifies the user name for the client.");
+                         @"[In WhoAmISubResponseDataOptionalAttributes] UserName: [A UserNameType] that specifies the user name for the protocol client.");
             }
             else
             {

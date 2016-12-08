@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          cellSubResponse.SubResponseData.ModifiedBy.IndexOf(this.UserName01, StringComparison.OrdinalIgnoreCase) >= 0,
                          "MS-FSSHTTP",
                          855,
-                         @"[In CellSubResponseDataOptionalAttributes] ModifiedBy: A UserNameType that specifies the user name for the client that last modified the file.");
+                         @"[In CellSubResponseDataOptionalAttributes] ModifiedBy: A UserNameType that specifies the user name for the protocol client that last modified the file.");
             }
             else
             {
@@ -425,7 +425,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
             }
 
             // Query the file content with invalid ETag
@@ -856,7 +856,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          842,
-                         @"[In CellSubResponseDataOptionalAttributes] Etag defines the file version and allows for the client to know the version of the file.");
+                         @"[In CellSubResponseDataOptionalAttributes] Etag defines the file version and allows for the protocol client to know the version of the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R843
                 Site.CaptureRequirement(
@@ -964,7 +964,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              3089,
-                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
             }
             else
@@ -1271,7 +1271,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult),
                              "MS-FSSHTTP",
                              3097,
-                             @"[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred.");
+                             @"[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred. <32>");
 
                     bool isR1528Verified = Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult) >= -2147483648 && Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult) <= 2147483647;
                     Site.Log.Add(
@@ -1289,7 +1289,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              cellSubResponse.SubResponseData.CoalesceErrorMessage,
                              "MS-FSSHTTP",
                              3095,
-                             @"[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0.");
+                             @"[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0. <31>");
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R4002
                     Site.CaptureRequirement(

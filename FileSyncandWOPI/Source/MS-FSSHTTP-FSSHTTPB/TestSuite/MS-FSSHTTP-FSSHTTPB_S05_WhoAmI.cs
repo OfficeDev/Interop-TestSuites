@@ -105,7 +105,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                                   m.Success && m.Index > 0,
                                   "MS-FSSHTTP",
                                   3086,
-                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <20> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <28> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
                 else
                 {
@@ -115,7 +115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
                     this.Site.Assert.IsTrue(
                         m.Success && m.Index > 0,
-                        @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <20> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <28> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
         }

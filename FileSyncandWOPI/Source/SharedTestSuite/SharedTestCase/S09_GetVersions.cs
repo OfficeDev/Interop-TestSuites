@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          10004,
-                         @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
             }
             else
             {

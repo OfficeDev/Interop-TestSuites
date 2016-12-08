@@ -613,7 +613,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     this.Site.CaptureRequirement(
                             "MS-FSSHTTP",
                             2053,
-                            @"[In Appendix B: Product Behavior]  Implementation does represent the editors table as a compressed XML fragment. (<42> Section 3.1.4.8: On servers running Office 2013, the editors table is represented as a compressed XML fragment.)");
+                            @"[In Appendix B: Product Behavior]  Implementation does represent the editors table as a compressed XML fragment. (<50> Section 3.1.4.8: On servers running Office 2013, the editors table is represented as a compressed XML fragment.)");
                 }
 
                 return editorsTable;
