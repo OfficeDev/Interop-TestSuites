@@ -99,6 +99,7 @@
           <xs:enumeration value="InvalidUrl"/>
           <xs:enumeration value="FileNotExistsOrCannotBeCreated"/>
           <xs:enumeration value="FileUnauthorizedAccess"/>
+          <xs:enumeration value="PathNotFound"/>
           <xs:enumeration value="InvalidSubRequest"/>
           <xs:enumeration value="SubRequestFail"/>
           <xs:enumeration value="BlockedFileType"/>
@@ -270,8 +271,8 @@
           <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
           <xs:element name="DocProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
           <xs:element name="FolderProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
-          <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
-          <xs:element name="Versions" type="tns:VersioningVersionListType"/>
+          <xs:element name="UserTable" minOccurs="0" maxOccurs="1" type="tns:VersioningUserTableType"/>
+          <xs:element name="Versions" minOccurs="0" maxOccurs="1" type="tns:VersioningVersionListType"/>
         </xs:all>
         <xs:attributeGroup ref="tns:SubResponseDataOptionalAttributes" />
       </xs:complexType>
@@ -299,7 +300,7 @@
         <xs:sequence>
           <xs:element name="Events" minOccurs="0" maxOccurs="1" type="tns:EventsDataType" />
         </xs:sequence>
-        <xs:attribute name="IsCurrent" type="xs:boolean" use="optional" />
+        <xs:attribute name="IsCurrent" type="tns:TRUEFALSE" use="optional" />
         <xs:attribute name="Number" type="tns:FileVersionNumberType" use="required" />
         <xs:attribute name="LastModifiedTime" type="xs:positiveInteger" use="optional" />
         <xs:attribute name="UserId" type="xs:integer" use="optional" />
@@ -331,6 +332,7 @@
 
       <xs:complexType name="SubResponseType">
         <xs:attribute name="SubRequestToken" type="xs:nonNegativeInteger" use="required" />
+        <xs:attribute name="ServerCorrelationId" type="tns:guid" use="optional"/>
         <xs:attribute name="ErrorCode" type="tns:ErrorCodeTypes" use="required" />
         <xs:attribute name="HResult" type="xs:integer" use="required" />
         <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>

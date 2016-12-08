@@ -420,6 +420,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 case ErrorCodeType.Unknown:
                 case ErrorCodeType.EditorClientIdNotFound:
                 case ErrorCodeType.EditorMetadataQuotaReached:
+                case ErrorCodeType.PathNotFound:
                 case ErrorCodeType.EditorMetadataStringExceedsLengthLimit:
                     {
                         ValidateGenericErrorCodeTypes(site);
