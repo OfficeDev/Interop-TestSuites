@@ -12,7 +12,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Capture requirements related with Versioning Sub-request.
         /// </summary>
-        /// <param name="whoamiSubResponse">Containing the VersioningSubResponse information</param>
+        /// <param name="versioningSubResponse">Containing the VersioningSubResponse information</param>
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidateVersioningSubResponse(VersioningSubResponseType versioningSubResponse, ITestSite site)
         {
