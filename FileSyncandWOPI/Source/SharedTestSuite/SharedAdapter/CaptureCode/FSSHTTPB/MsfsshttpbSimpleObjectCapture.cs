@@ -182,7 +182,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      65,
-                     @"[In 16-bit Stream Object Header Start] Length (7-bits): A 7-bit unsigned integer that specifies length in bytes for additional data (if any) before the next Stream Object Header Start or Stream Object Header End.");
+                     @"[In 16-bit Stream Object Header Start] Length (7-bits): A 7-bit unsigned integer that specifies length in bytes for additional data (if any) before the next Stream Object Header start or Stream Object Header end.");
         }
 
         /// <summary>
@@ -208,7 +208,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          66,
-                         @"[In 16-bit Stream Object Header Start] If the length is more than 127 bytes, a 32-bit stream object header start (section 2.2.1.5.2) MUST be used.");
+                         @"[In 16-bit Stream Object Header Start] If the length is more than 127 bytes, a 32-bit Stream Object Header start (section 2.2.1.5.2) MUST be used.");
             }
 
             // Directly capture requirement MS-FSSHTTPB_R97, if there are no parsing errors. 
@@ -235,7 +235,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      103,
-                     @"[In 32-bit Stream Object Header Start] Length (15-bits): A 15-bit unsigned integer that specifies the length in bytes for additional data (if any) before next Stream Object Header Start or Stream Object Header End.");
+                     @"[In 32-bit Stream Object Header Start] Length (15-bits): A 15-bit unsigned integer that specifies the length in bytes for additional data (if any) before the next Stream Object Header start or Stream Object Header end.");
 
             if (instance.Length <= 32766)
             {
@@ -406,7 +406,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      163,
-                     @"[In 16-bit Stream Object Header End] The following table lists the possible stream object types:[Its value must be one of 0x40, 0x41, 0x42, 0x43, 0x44, 0x46, 0x47, 0x4D, 0x51, 0x5D, 0x62, 0x6B, 0x079, 0x083].");
+                     @"[In 16-bit Stream Object Header End] The following table lists the possible stream object types:[Its value must be one of 0x40, 0x41, 0x42, 0x43, 0x44, 0x46, 0x47, 0x4D, 0x51, 0x5D, 0x62, 0x6B, 0x079].");
         }
 
         /// <summary>
@@ -467,13 +467,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      216,
-                     @"[In Extended GUID Array] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of extended GUIDs in the array.");
+                     @"[In Extended GUID Array] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of Extended GUIDs in the array.");
 
             // Directly capture requirement MS-FSSHTTPB_R221, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      221,
-                     @"[In Extended GUID Array] Content (variable): An extended GUID array that specifies an array of items.");
+                     @"[In Extended GUID Array] Content (variable): An Extended GUID Array that specifies an array of items.");
         }
 
         /// <summary>
@@ -522,13 +522,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      234,
-                     @"[In Cell ID] EXGUID1 (variable): An extended GUID that specifies the first cell identifier.");
+                     @"[In Cell ID] EXGUID1 (variable): An Extended GUID that specifies the first cell identifier.");
 
             // Directly capture requirement MS-FSSHTTPB_R235, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      235,
-                     @"[In Cell ID] EXGUID2 (variable): An extended GUID that specifies the second cell identifier.");
+                     @"[In Cell ID] EXGUID2 (variable): An Extended GUID that specifies the second cell identifier.");
         }
 
         /// <summary>
@@ -554,13 +554,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      237,
-                     @"[In Cell ID Array] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of cell IDs in the array.");
+                     @"[In Cell ID Array] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of Cell IDs in the array.");
 
             // Directly capture requirement MS-FSSHTTPB_R238, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      238,
-                     @"[In Cell ID Array] Content (variable): A cell ID array that specifies an array of cells.");
+                     @"[In Cell ID Array] Content (variable): A Cell ID Array that specifies an array of cells.");
         }
 
         #region Private method
@@ -592,7 +592,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      227,
-                     @"[In Serial Number 64 Bit Uint Value] A 25-byte encoding of the serial number.");
+                     @"[In Serial Number 64 Bit Uint Value] A 25-byte encoding of the Serial Number.");
 
             // Directly capture requirement MS-FSSHTTPB_R228, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -626,7 +626,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      232,
-                     @"[In Serial Number 64 Bit Uint Value] Value (8 bytes): An unsigned integer that specifies the value of the serial number.");
+                     @"[In Serial Number 64 Bit Uint Value] Value (8 bytes): An unsigned integer that specifies the value of the Serial Number.");
         }
 
         /// <summary>
@@ -656,7 +656,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      188,
-                     @"[In Extended GUID Null Value] A 1-byte encoding of the extended GUID when the GUID part is {00000000-0000-0000-0000-000000000000} and the unsigned integer part is zero.");
+                     @"[In Extended GUID Null Value] A 1-byte encoding of the Extended GUID when the GUID part is {00000000-0000-0000-0000-000000000000} and the unsigned integer part is zero.");
 
             // Directly capture requirement MS-FSSHTTPB_R190, if the type is zero. 
             site.CaptureRequirementIfAreEqual<uint>(
@@ -696,7 +696,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      isVerifyR191,
                      "MS-FSSHTTPB",
                      191,
-                     @"[In Extended GUID 5 Bit Uint Value] A 17-byte encoding of the extended GUID when the integer part ranges from 0x0 through 0x1F.");
+                     @"[In Extended GUID 5 Bit Uint Value] A 17-byte encoding of the Extended GUID when the integer part ranges from 0x0 through 0x1F.");
 
             // Directly capture requirement MS-FSSHTTPB_R192, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -793,7 +793,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      209,
-                     @"[In Extended GUID 32 Bit Uint Value][Extended GUID 32 Bit Uint Value is] A 21-byte encoding of the extended GUID when the integer part ranges from 0x20000 through 0xFFFFFFFF.");
+                     @"[In Extended GUID 32 Bit Uint Value][Extended GUID 32 Bit Uint Value is] A 21-byte encoding of the Extended GUID when the integer part ranges from 0x20000 through 0xFFFFFFFF.");
 
             // Directly capture requirement MS-FSSHTTPB_R210, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -1180,7 +1180,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              68,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of  structure] Data element, [the Type field is set to]0x01 [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of  structure] Data Element, [the Type field is set to]0x01 [and the B-Compound field is set to]1.");
                     break;
 
                 case StreamObjectTypeHeaderStart.WaterlineKnowledgeEntry:
@@ -1201,7 +1201,28 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              70,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Waterline knowledge entry (section 2.2.1.13.4.1), [the Type field is set to]0x04 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Waterline Knowledge Entry (section 2.2.1.13.4.1), [the Type field is set to]0x04 [and the B-Compound field is set to]0.");
+                    break;
+
+                case StreamObjectTypeHeaderStart.DataElementHash:
+                    site.Assert.AreEqual<Type>(
+                                    typeof(DataElementHash),
+                                    type,
+                                    "DataElementHash stream object header only represents DataElementHash instance.");
+                    site.Assert.AreEqual<int>(
+                                    0x06,
+                                    (int)header.Type,
+                                    "DataElementHash stream object header has header value 0x06.");
+                    site.Assert.AreEqual<int>(
+                                    0,
+                                    header.Compound,
+                                    "DataElementHash stream object header has compound value 0.");
+
+                    // Directly capture requirement MS-FSSHTTPB_R4000, if there are no parsing errors. 
+                    site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4000,
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Data Element Hash, [the Type field is set to]0x06 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.StorageManifestRootDeclare:
@@ -1222,7 +1243,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              73,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage manifest root declare, [the Type field is set to]0x07 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage Manifest root declare, [the Type field is set to]0x07 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.RevisionManifestRootDeclare:
@@ -1243,7 +1264,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              74,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision manifest root declare, [the Type field is set to]0x0A [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision Manifest root declare, [the Type field is set to]0x0A [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.CellManifestCurrentRevision:
@@ -1264,7 +1285,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              75,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell manifest current revision, [the Type field is set to]0x0B [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell Manifest current revision, [the Type field is set to]0x0B [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.StorageManifestSchemaGUID:
@@ -1285,7 +1306,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              76,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage manifest schema GUID, [the Type field is set to]0x0C [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage Manifest schema GUID, [the Type field is set to]0x0C [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.StorageIndexRevisionMapping:
@@ -1306,7 +1327,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              77,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage index revision mapping, [the Type field is set to]0x0D [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage Index Revision Mapping, [the Type field is set to]0x0D [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.StorageIndexCellMapping:
@@ -1327,7 +1348,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              78,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage index cell mapping, [the Type field is set to]0x0E [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage Index Cell Mapping, [the Type field is set to]0x0E [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.CellKnowledgeRange:
@@ -1348,7 +1369,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              79,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell knowledge range (section 2.2.1.13.2.1), [the Type field is set to]0x0F [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell Knowledge Range (section 2.2.1.13.2.1), [the Type field is set to]0x0F [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.Knowledge:
@@ -1390,7 +1411,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              81,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage index manifest mapping, [the Type field is set to]0x11 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Storage Index Manifest Mapping, [the Type field is set to]0x11 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.CellKnowledge:
@@ -1432,7 +1453,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              85,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object group object data, [the Type field is set to]0x16 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group Object Data, [the Type field is set to]0x16 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.CellKnowledgeEntry:
@@ -1453,7 +1474,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              86,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell knowledge entry (section 2.2.1.13.2.2), [the Type field is set to]0x17 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Cell Knowledge Entry (section 2.2.1.13.2.2), [the Type field is set to]0x17 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.ObjectGroupObjectDeclare:
@@ -1474,7 +1495,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              87,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object group object declare, [the Type field is set to]0x18 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group Object Declare, [the Type field is set to]0x18 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.RevisionManifestObjectGroupReferences:
@@ -1495,7 +1516,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              88,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision manifest object group references, [the Type field is set to]0x19 [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision Manifest Object Group references, [the Type field is set to]0x19 [and the B-Compound field is set to]0.");
                     break;
 
                 case StreamObjectTypeHeaderStart.RevisionManifest:
@@ -1516,7 +1537,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              89,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision manifest, [the Type field is set to]0x1A [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Revision Manifest, [the Type field is set to]0x1A [and the B-Compound field is set to]0.");
 
                     break;
 
@@ -1538,7 +1559,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              91,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object group declarations, [the Type field is set to]0x1D [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group Declarations, [the Type field is set to]0x1D [and the B-Compound field is set to]1.");
 
                     break;
 
@@ -1560,7 +1581,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              92,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object group data, [the Type field is set to]0x1E [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group Data, [the Type field is set to]0x1E [and the B-Compound field is set to]1.");
 
                     break;
 
@@ -1582,7 +1603,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              93,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Waterline knowledge (section 2.2.1.13.4), [the Type field is set to]0x29 [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Waterline Knowledge (section 2.2.1.13.4), [the Type field is set to]0x29 [and the B-Compound field is set to]1.");
 
                     break;
 
@@ -1604,7 +1625,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              94,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Content tag knowledge (section 2.2.1.13.5), [the Type field is set to]0x2D [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Content Tag Knowledge (section 2.2.1.13.5), [the Type field is set to]0x2D [and the B-Compound field is set to]1.");
 
                     break;
 
@@ -1626,7 +1647,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              95,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Content tag knowledge entry, [the Type field is set to]0x2E [and the B-Compound field is set to]0.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Content Tag Knowledge Entry, [the Type field is set to]0x2E [and the B-Compound field is set to]0.");
 
                     break;
 
@@ -1648,7 +1669,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              2090,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Object group metadata declarations, [the Type field is set to]0x79 [and the B-Compound field is set to]1.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group metadata declarations, [the Type field is set to]0x79 [and the B-Compound field is set to]1.");
 
                     break;
 
@@ -1670,7 +1691,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              2091,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Object group metadata, [the Type field is set to]0x78 [and the B-Compound field is set to]0.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Object Group metadata, [the Type field is set to]0x78 [and the B-Compound field is set to]0.");
 
                     break;
 
@@ -1692,8 +1713,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              2094,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Allocate ExtendedGUID range response (section 2.2.3.1.4), [the Type field is set to]0x081 [and the B-Compound field is set to]0.");
-                    break;
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Allocate Extended GUID range response (section 2.2.3.1.4), [the Type field is set to]0x081 [and the B-Compound field is set to]0.");
+                    break;  
 
                 case StreamObjectTypeHeaderStart.FsshttpbSubResponse:
                     site.Assert.AreEqual<Type>(
@@ -1756,7 +1777,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              109,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Specialized knowledge, [the Type field is set to]0x044 [and the C-Compound field is set to]1.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Specialized Knowledge, [the Type field is set to]0x044 [and the C-Compound field is set to]1.");
 
                     break;
 
@@ -1821,7 +1842,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              131,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Query changes response, [the Type field is set to]0x05F [and the C-Compound field is set to]0.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Query Changes response, [the Type field is set to]0x05F [and the C-Compound field is set to]0.");
 
                     break;
 
@@ -1886,7 +1907,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              138,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Data element fragment, [the Type field is set to]0x06A [and the C-Compound field is set to]0.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Data Element Fragment, [the Type field is set to]0x06A [and the C-Compound field is set to]0.");
 
                     break;
 
@@ -1908,7 +1929,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              139,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Fragment knowledge, [the Type field is set to]0x06B [and the C-Compound field is set to]1.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Fragment Knowledge, [the Type field is set to]0x06B [and the C-Compound field is set to]1.");
 
                     break;
 
@@ -1930,7 +1951,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              140,
-                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Fragment knowledge entry, [the Type field is set to]0x06C [and the C-Compound field is set to]0.");
+                             @"[In 32-bit Stream Object Header Start][If the related Stream Object is type of ]Fragment Knowledge entry, [the Type field is set to]0x06C [and the C-Compound field is set to]0.");
 
                     break;
 
@@ -1952,7 +1973,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              84,
-                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Data element package, [the Type field is set to]0x15 [and the B-Compound field is set to]1.");
+                             @"[In 16-bit Stream Object Header Start][If the related Stream Object is type of ] Data Element Package, [the Type field is set to]0x15 [and the B-Compound field is set to]1.");
                     break;
                 case StreamObjectTypeHeaderStart.HRESULTError:
                     site.Assert.AreEqual<Type>(
@@ -2149,7 +2170,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              153,
-                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Data element package, [the Type field is set to]0x15.");
+                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Data Element Package, [the Type field is set to]0x15.");
 
                     break;
 
@@ -2167,7 +2188,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              154,
-                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Object group declarations, [the Type field is set to]0x1D.");
+                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Object Group declarations, [the Type field is set to]0x1D.");
                     break;
 
                 case StreamObjectTypeHeaderEnd.ObjectGroupData:
@@ -2184,7 +2205,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              155,
-                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Object group data, [the Type field is set to]0x1E.");
+                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Object Group data, [the Type field is set to]0x1E.");
                     break;
 
                 case StreamObjectTypeHeaderEnd.WaterlineKnowledge:
@@ -2201,7 +2222,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              156,
-                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Waterline knowledge, [the Type field is set to]0x29.");
+                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Waterline Knowledge, [the Type field is set to]0x29.");
 
                     break;
 
@@ -2219,7 +2240,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              157,
-                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Content tag knowledge, [the Type field is set to]0x2D.");
+                             @"[In 8-bit Stream Object Header End][If the related Stream Object is type of ]Content Tag Knowledge, [the Type field is set to]0x2D.");
 
                     break;
 
@@ -2273,7 +2294,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              168,
-                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Specialized knowledge, [the Type field is set to]0x044.");
+                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Specialized, [the Type field is set to]0x044.");
 
                     break;
 
@@ -2345,7 +2366,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              175,
-                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Fragment knowledge, [the Type field is set to]0x06B.");
+                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Fragment Knowledge, [the Type field is set to]0x06B.");
 
                     break;
 
@@ -2364,7 +2385,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              99006,
-                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Object group metadata declarations, [the Type field is set to]0x079.");
+                             @"[In 16-bit Stream Object Header End][If the related Stream Object is type of ]Object Group metadata declarations, [the Type field is set to]0x079.");
                     break;
 
                 default:
@@ -2397,7 +2418,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          header.Compound,
                          "MS-FSSHTTPB",
                          62,
-                         @"[In 16-bit Stream Object Header Start] B - Compound (1-bit): MUST end with either an 8-bit stream object header end (section 2.2.1.5.3) or a 16-bit stream object header end (section 2.2.1.5.4).");
+                         @"[In 16-bit Stream Object Header Start] B - Compound (1-bit): MUST end with either an 8-bit Stream Object Header end (section 2.2.1.5.3) or a 16-bit Stream Object Header end (section 2.2.1.5.4).");
             }
             else if (header is StreamObjectHeaderStart32bit)
             {
@@ -2416,7 +2437,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          header.Compound,
                          "MS-FSSHTTPB",
                          100,
-                         @"[In 32-bit Stream Object Header Start] B - Compound (1-bit): MUST end with either an 8-bit stream object header end (section 2.2.1.5.3) or a 16-bit stream object header end (section 2.2.1.5.4).");
+                         @"[In 32-bit Stream Object Header Start] B - Compound (1-bit): MUST end with either an 8-bit Stream Object Header end (section 2.2.1.5.3) or a 16-bit Stream Object Header end (section 2.2.1.5.4).");
             }
             else
             {

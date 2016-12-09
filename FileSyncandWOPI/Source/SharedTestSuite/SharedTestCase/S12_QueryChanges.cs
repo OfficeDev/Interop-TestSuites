@@ -671,7 +671,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          444,
-                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies limit of DoS mitigation at which the server starts breaking up the results into partial results.");
+                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
 
                 // For the requirement MS-FSSHTTPB_R990351, it is not fully validated, because it cost too much to validate its size.
                 Site.CaptureRequirementIfIsTrue(
@@ -729,21 +729,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
             DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                Site.CaptureRequirementIfIsNull(
-                         fragDataElement,
-                         "MS-FSSHTTPB",
-                         2145,
-                         @"[In Query Changes] B - Allow Fragments (1 bit): otherwise[If B - Allow Fragments is not set], it[B - Allow Fragments] does not allow fragments.");
-            }
-            else
-            {
-                this.Site.Assert.IsNull(
-                    fragDataElement,
-                    @"[In Query Changes] B - Allow Fragments (1 bit): otherwise[If B - Allow Fragments is not set], it[B - Allow Fragments] does not allow fragments.");
-            }
         }
 
         /// <summary>
@@ -830,20 +815,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "Expect the specialized knowledge number is larger when the Include Filtered Out Data Elements In Knowledge is set, and actually it {0}",
                 isVerified ? "is" : "is not");
 
-            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2148, MS-FSSHTTPB_R2149
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2148, MS-FSSHTTPB_R4113
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsTrue(
                          isVerified,
                          "MS-FSSHTTPB",
                          2148,
-                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): If set, a bit that specifies to include the serial numbers (section 2.2.1.9) of filtered out data elements in the response knowledge.");
+                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): If set, a bit that specifies to include the Serial Numbers (section 2.2.1.9) of filtered out data elements in the response Knowledge (section 2.2.1.13).");
 
-                Site.CaptureRequirementIfIsTrue(
-                         isVerified,
-                         "MS-FSSHTTPB",
-                         2149,
-                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): otherwise[If D - Include Filtered Out Data Elements In Knowledge is not set], the serial numbers of filtered out data elements are not included in the response knowledge.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTPB", 4113, SharedContext.Current.Site))
+                {
+                    Site.CaptureRequirementIfIsTrue(
+                             isVerified,
+                             "MS-FSSHTTPB",
+                             4113,
+                             @"[In Appendix B: Product Behavior] If D - Include Filtered Out Data Elements In Knowledge is not set, the Serial Numbers of filtered out data elements are not included in the response Knowledge. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -895,7 +883,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isIncludeStorageManifest,
                          "MS-FSSHTTPB",
                          437,
-                         @"[In Query Changes] F - Include Storage Manifest (1 bit): If set, a bit that specifies to include the storage manifest. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                         @"[In Query Changes] F - Include Storage Manifest (1 bit): If set, a bit that specifies to include the Storage Manifest. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
             }
             else
             {
@@ -909,7 +897,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC19_QueryChanges_IncludeStorageManifest_Zero()
         {
-            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2150, this.Site))
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4115, this.Site))
             {
                 Site.Assume.Inconclusive("Implementation does not support Storage Manifest flag.");
             }
@@ -939,14 +927,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When include Storage Manifest is not set, the storage manifest is not included. But actually it {0}",
                 notIncludeStorageManifest ? "is not include" : "is included");
 
-            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2150
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4115
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsTrue(
                          notIncludeStorageManifest,
                          "MS-FSSHTTPB",
-                         2150,
-                         @"[In Query Changes] F - Include Storage Manifest (1 bit): otherwise[If D - Include Storage Manifest is not set], the storage manifest is not included. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                         4115,
+                         @"[In Appendix B: Product Behavior] If D - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
@@ -962,7 +950,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC20_QueryChanges_IncludeCellChanges()
         {
-            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2151, this.Site) && !Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 438, this.Site))
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4117, this.Site) && !Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 438, this.Site))
             {
                 Site.Assume.Inconclusive("Implementation does not support Cell Changes flag.");
             }
@@ -1006,7 +994,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 }
             }
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2151, this.Site))
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4117, this.Site))
             {
                 // Initialize the service
                 this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1030,14 +1018,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When Include Cell Changes is not set, the cell manifest is not included. Actually it {0}",
                 isExcludeCellChanges ? "is not included" : "is included");
 
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2151
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4117
                 if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                 {
                     Site.CaptureRequirementIfIsTrue(
                              isExcludeCellChanges,
                              "MS-FSSHTTPB",
-                             2151,
-                             @"[In Query Changes] G - Include Cell Changes (1 bit): otherwise[If E - Include Cell Changes is not set], cell changes are not included. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                             4117,
+                             @"[In Appendix B: Product Behavior] If E - Include Cell Changes is not set, cell changes are not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
                 }
                 else
                 {
@@ -1157,7 +1145,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isCombined,
                          "MS-FSSHTTPB",
                          2126,
-                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting serial number (section 2.2.1.9) of the range.");
+                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting Serial Number (section 2.2.1.9) of the range.");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2128
                 Site.CaptureRequirementIfIsTrue(
@@ -1207,14 +1195,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isCombined,
                          "MS-FSSHTTPB",
                          2127,
-                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the To sequence number, it[GUID (16 bytes)] forms the ending serial number of the range.");
+                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the To sequence number, it[GUID (16 bytes)] forms the ending Serial Number of the range.");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2129
                 Site.CaptureRequirementIfIsTrue(
                          isCombined,
                          "MS-FSSHTTPB",
                          2129,
-                         @"[In Cell Knowledge Range] To (variable): When combined with the GUID, it[To (variable)] forms the serial number of the ending data element in the range.");
+                         @"[In Cell Knowledge Range] To (variable): When combined with the GUID, it[To (variable)] forms the Serial Number of the ending data element in the range.");
             }
             else
             {
@@ -1283,7 +1271,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifiedR570,
                          "MS-FSSHTTPB",
                          570,
-                         @"[In Waterline Knowledge] The Waterline Knowledge specifies the current server waterline, which is the serial number (section 2.2.1.9) greater than or equal to the serial number of all the cells on the server that the client has downloaded.");
+                         @"[In Waterline Knowledge] The Waterline Knowledge specifies the current server waterline, which is the Serial Number (section 2.2.1.9) greater than or equal to the Serial Number of all the cells on the server that the client has downloaded.");
             }
             else
             {
