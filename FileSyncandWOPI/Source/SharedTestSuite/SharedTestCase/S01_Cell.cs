@@ -1111,14 +1111,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTPB",
                              213802,
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<4> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
                 else
                 {
                     Site.Assert.AreEqual<ErrorCodeType>(
                              ErrorCodeType.Success,
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<4> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
             }
         }

@@ -3,6 +3,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     using System;
     using System.Globalization;
     using Microsoft.Protocols.TestTools;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// This is the partial part of the class MsfsshttpbAdapterCapture for MS-FSSHTTPB response part.
@@ -28,13 +29,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      534,
                      @"[In Response Message Syntax]  Protocol Version (2bytes): An unsigned integer that specifies the protocol schema version number used in this request.");
 
-            // Capture requirement MS-FSSHTTPB_R535, if the protocol version number equals to 12. 
-            site.CaptureRequirementIfAreEqual<int>(
-                     12,
-                     instance.ProtocolVersion,
-                     "MS-FSSHTTPB",
-                     535,
-                     @"[In Response Message Syntax] Protocol Version (2bytes): This value[Protocol Version] MUST be 12.");
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4124, SharedContext.Current.Site))
+            {
+                bool isVerified4124 = instance.ProtocolVersion == 12 || instance.ProtocolVersion == 13 || instance.ProtocolVersion == 14;
+                // Capture requirement MS-FSSHTTPB_R4124, if the protocol version number equals to 12, 13 or 14. 
+                site.CaptureRequirementIfIsTrue(
+                    isVerified4124,
+                    "MS-FSSHTTPB",
+                    4124,
+                    @"[In Appendix B: Product Behavior] The valid values for this field [Protocol Version] are 12, 13 and 14. ( SharePoint Server 2010 and SharePoint Workspace 2010 follow this behavior.)");
+            }
 
             // Directly capture requirement MS-FSSHTTPB_R536, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -73,7 +77,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.ResponseStart.GetType(),
                      "MS-FSSHTTPB",
                      540,
-                     @"[In Response Message Syntax] Response Start (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a response start.");
+                     @"[In Response Message Syntax] Response Start (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a response start.");
 
             if (instance.Status == true)
             {
@@ -90,7 +94,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              2191,
-                             @"[In Response Message Syntax] Data Element Package (variable): An optional data element package structure (section 2.2.1.12) that specifies data elements corresponding to the sub-responses (section 2.2.3.1).");
+                             @"[In Response Message Syntax] Data Element Package (variable): An optional Data Element Package structure (section 2.2.1.12) that specifies data elements corresponding to the sub-responses (section 2.2.3.1).");
                 }
 
                 if (instance.CellSubResponses != null && instance.CellSubResponses.Count != 0)
@@ -133,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.ResponseEnd.GetType(),
                      "MS-FSSHTTPB",
                      546,
-                     @"[In Response Message Syntax] Response End (2 bytes): A 16-bit stream object header (section 2.2.1.5.4) that specifies a response end.");
+                     @"[In Query Access] Response Error (variable): If the Put Changes operation will succeed, the Response Error will have an error type of HRESULT error.");
         }
 
         /// <summary>
@@ -158,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      548,
-                     @"[In Sub-Responses] Sub-response Start (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a sub-response start.");
+                     @"[In Sub-Responses] Sub-response Start (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a sub-response start.");
 
             RequestTypes expectTypeValue = MsfsshttpbSubRequestMapping.GetSubRequestType((int)instance.RequestID.DecodedValue, site);
 
@@ -192,7 +196,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          instance.ResponseError,
                          "MS-FSSHTTPB",
                          552,
-                         @"[In Sub-Responses] A - Status (1 bit): If set, A response error (section 2.2.3.2) MUST follow.");
+                         @"[In Sub-Responses] A - Status (1 bit): If set, A Response Error (section 2.2.3.2) MUST follow.");
 
                 // Capture requirement MS-FSSHTTPB_R551, if the response error is exist when the status is set.
                 site.CaptureRequirementIfIsNotNull(
@@ -205,7 +209,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          555,
-                         @"[In Sub-Responses] Sub-response data (variable): A response error that specifies the error information about failure of the sub-request.");
+                         @"[In Sub-Responses] Sub-response data (variable): A Response Error that specifies the error information about failure of the sub-request.");
             }
             else
             {
@@ -225,7 +229,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         site.CaptureRequirement(
                                  "MS-FSSHTTPB",
                                  578,
-                                 @"[In Sub-Responses][Request Type is set to ]1 [specifies the Sub-response data is  for the ]Query access (section 2.2.3.1.1)[operation].");
+                                 @"[In Sub-Responses][Request Type is set to ]1 [specifies the Sub-response data is  for the ]Query Access (section 2.2.3.1.1)[operation].");
                         break;
 
                     case 2:
@@ -238,7 +242,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         site.CaptureRequirement(
                                  "MS-FSSHTTPB",
                                  579,
-                                 @"[In Sub-Responses][Request Type is set to ]2 [specifies the Sub-response data is  for the ]Query changes (section 2.2.3.1.2)[operation].");
+                                 @"[In Sub-Responses][Request Type is set to ]2 [specifies the Sub-response data is  for the ]Query Changes (section 2.2.3.1.2)[operation].");
                         break;
 
                     case 5:
@@ -251,7 +255,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         site.CaptureRequirement(
                                  "MS-FSSHTTPB",
                                  582,
-                                 @"[In Sub-Responses][Request Type is set to ]5 [specifies the Sub-response data is  for the ]Put changes (section 2.2.3.1.3)[operation].");
+                                 @"[In Sub-Responses][Request Type is set to ]5 [specifies the Sub-response data is  for the ]Put Changes (section 2.2.3.1.3)[operation].");
                         break;
 
                     case 11:
@@ -291,7 +295,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      586,
-                     @"[In Sub-Responses] Sub-response End (2 bytes): A 16-bit stream object header (section 2.2.1.5.4) that specifies a sub-response end.");
+                     @"[In Sub-Responses] Sub-response End (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.4) that specifies a sub-response end.");
         }
 
         /// <summary>
@@ -333,13 +337,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      588,
-                     @"[In Query Access] Read Access Response Start (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a read access response start.");
+                     @"[In Query Access] Read Access Response Start (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a read access response start.");
 
             // Directly capture requirement MS-FSSHTTPB_R589, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      589,
-                     @"[In Query Access] Response Error (variable): A response error (section 2.2.3.2) that specifies read access permission.");
+                     @"[In Query Access] Response Error (variable): A Response Error (section 2.2.3.2) that specifies read access permission.");
 
             // Directly capture requirement MS-FSSHTTPB_R943, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -357,7 +361,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      590,
-                     @"[In Query Access] Read Access Response End (2 bytes): A 16-bit stream object header (section 2.2.1.5.4) that specifies a read access response end.");
+                     @"[In Query Access] Read Access Response End (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.4) that specifies a read access response end.");
         }
 
         /// <summary>
@@ -382,13 +386,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      591,
-                     @"[In Query Access] Write Access Response Start (4 bytes): A 32-bit stream object header that specifies a write access response start.");
+                     @"[In Query Access] Write Access Response Start (4 bytes): A 32-bit Stream Object Header that specifies a write access response start.");
 
             // Directly capture requirement MS-FSSHTTPB_R592, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      592,
-                     @"[In Query Access] Response Error (variable): A response error that specifies write access permission.");
+                     @"[In Query Access] Response Error (variable): A Response Error that specifies write access permission.");
 
             // Directly capture requirement MS-FSSHTTPB_R945, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -406,7 +410,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      593,
-                     @"[In Query Access] Write Access Response End (2 bytes): A 16-bit stream object header that specifies a write access response end.");
+                     @"[In Query Access] Write Access Response End (2 bytes): A 16-bit Stream Object Header that specifies a write access response end.");
         }
 
         /// <summary>
@@ -431,13 +435,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.QueryChangesResponseStart.GetType(),
                      "MS-FSSHTTPB",
                      595,
-                     @"[In Query Changes] Query Changes Response (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a Query Changes response.");
+                     @"[In Query Changes] Query Changes Response (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Query Changes response.");
 
             // Directly capture requirement MS-FSSHTTPB_R596, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      596,
-                     @"[In Query Changes] Storage Index Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies storage index.");
+                     @"[In Query Changes] Storage Index Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies Storage Index.");
 
             // Directly capture requirement MS-FSSHTTPB_R598, if the reserved value equals to 1. 
             site.CaptureRequirementIfAreEqual<int>(
@@ -451,7 +455,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      601,
-                     @"[In Query Changes] Knowledge (variable): A knowledge (section 2.2.1.13) that specifies the current state of the file on the server.");
+                     @"[In Query Changes] Knowledge (variable): A Knowledge (section 2.2.1.13) that specifies the current state of the file on the server.");
 
             // Verify the compound related requirements.
             this.ExpectSingleObject(instance.QueryChangesResponseStart, site);
@@ -474,7 +478,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      610,
-                     @"[In Put Changes] Resultant Knowledge (variable): A knowledge (section 2.2.1.13) that specifies the current state of the file on the server after the changes is merged.");
+                     @"[In Put Changes] Resultant Knowledge (variable): A Knowledge (section 2.2.1.13) that specifies the current state of the file on the server after the changes is merged.");
         }
 
         /// <summary>
@@ -529,7 +533,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      isVerifiedR99062,
                      "MS-FSSHTTPB",
                      99062,
-                     @"[In Allocate ExtendedGuid Range] Integer Range Max (variable): A compact unsigned 64-bit integer with a minimum allowed value of 1000 and maximum allowed value of 100000.");
+                     @"[In Allocate ExtendedGuid Range] Integer Range Max (variable): A compact unsigned 64-bit integer with a minimum allowed value of 1,000 and maximum allowed value of 100,000.");
 
             // Verify the compound related requirements.
             this.ExpectSingleObject(instance.AllocateExtendedGUIDRangeResponse, site);
@@ -557,7 +561,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      617,
-                     @"[In Response Error] Error Start (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies an error start.");
+                     @"[In Response Error] Error Start (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an error start.");
 
             // Directly capture requirement MS-FSSHTTPB_R618, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -592,7 +596,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              instance.ErrorData.GetType(),
                              "MS-FSSHTTPB",
                              620,
-                             @"[In Response Error] Error Type GUID field is set to {5A66A756-87CE-4290-A38B-C61C5BA05A67}[ specifies the error type is ]Cell error (section 2.2.3.2.1).");
+                             @"[In Response Error] Error Type GUID field is set to {5A66A756-87CE-4290-A38B-C61C5BA05A67}[ specifies the error type is ]Cell Error (section 2.2.3.2.1).");
 
                     break;
 
@@ -610,7 +614,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              instance.ErrorData.GetType(),
                              "MS-FSSHTTPB",
                              622,
-                             @"[In Response Error] Error Type GUID field is set to {32C39011-6E39-46C4-AB78-DB41929D679E}[ specifies the error type is ]Win32 error (section 2.2.3.2.3).");
+                             @"[In Response Error] Error Type GUID field is set to {32C39011-6E39-46C4-AB78-DB41929D679E}[ specifies the error type is ]Win32 Error (section 2.2.3.2.3).");
 
                     break;
 
@@ -622,7 +626,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              instance.ErrorData.GetType(),
                              "MS-FSSHTTPB",
                              623,
-                             @"[In Response Error] Error Type GUID field is set to {8454C8F2-E401-405A-A198-A10B6991B56E}[ specifies the error type is ]HRESULT error (section 2.2.3.2.4).");
+                             @"[In Response Error] Error Type GUID field is set to {8454C8F2-E401-405A-A198-A10B6991B56E}[ specifies the error type is ]HRESULT Error (section 2.2.3.2.4).");
 
                     break;
 
@@ -643,7 +647,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          631,
-                         @"[In Response Error] Chained Error (variable): An optional response error that specifies the chained error information.");
+                         @"[In Response Error] Chained Error (variable): An optional Response Error that specifies the chained error information.");
             }
 
             // Verify the stream object header end related requirements.
@@ -656,7 +660,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      632,
-                     @"[In Response Error] Error End (2 bytes): A 16-bit stream object header (section 2.2.1.5.4) that specifies an error end.");
+                     @"[In Response Error] Error End (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.4) that specifies an error end.");
         }
 
         /// <summary>
@@ -681,7 +685,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      99063,
-                     @"[In Response Error] Error String Supplemental Info Start (4 bytes, optional): Zero or one 32-bit stream object header (section 2.2.1.5.2) that specifies an error string supplemental info start. ");
+                     @"[In Response Error] Error String Supplemental Info Start (4 bytes, optional): Zero or one 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an error string supplemental info start. ");
 
             // Directly capture requirement MS-FSSHTTPB_R99064, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -714,7 +718,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      634,
-                     @"[In Cell Error] Error Cell (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies an error cell.");
+                     @"[In Cell Error] Error Cell (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an error cell.");
 
             // Directly capture requirement MS-FSSHTTPB_R635, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -836,19 +840,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      99059,
-                     @"[In Put Changes] Put Changes Response (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a Put Changes response.");
+                     @"[In Put Changes] Put Changes Response (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Put Changes response.");
 
-            // Directly capture requirement MS-FSSHTTPB_R99060, if there are no parsing errors. 
-            site.CaptureRequirement(
-                     "MS-FSSHTTPB",
-                     99060,
-                     @"[In Put Changes] Applied Storage Index Id (variable): An extended GUID (section 2.2.1.7) that specifies the applied storage index ID.");
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4126, SharedContext.Current.Site))
+            {
+                // Directly capture requirement MS-FSSHTTPB_R4126, if there are no parsing errors. 
+                site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         4126,
+                         @"[In Appendix B: Product Behavior] Implementation does support the Applied Storage Index Id field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+            }
 
-            // Directly capture requirement MS-FSSHTTPB_R99061, if there are no parsing errors. 
-            site.CaptureRequirement(
-                     "MS-FSSHTTPB",
-                     99061,
-                     @"[In Put Changes] Data Elements Added (variable): An extended GUID array (section 2.2.1.8) that specifies the data element identifiers of the added data elements.");
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4128, SharedContext.Current.Site))
+            {
+                // Directly capture requirement MS-FSSHTTPB_R4128, if there are no parsing errors. 
+                site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         4128,
+                         @"[In Appendix B: Product Behavior] Implementation does support the Data Elements Added field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+            }
         }
 
         /// <summary>
@@ -873,13 +883,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      769,
-                     @"[In Win32 Error] Error Win32 (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies an error win32.");
+                     @"[In Win32 Error] Error Win32 (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an error win32.");
 
             // Directly capture requirement MS-FSSHTTPB_R770, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      770,
-                     @"[In Win32 Error] Error Code (4 bytes): An unsigned integer that specifies the Win32 error code.");
+                     @"[In Win32 Error] Error Code (4 bytes): An unsigned integer that specifies the Win32 Error code.");
 
             // Verify the compound related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -907,13 +917,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      772,
-                     @"[In HRESULT Error] Error HRESULT (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies an Error HRESULT.");
+                     @"[In HRESULT Error] Error HRESULT (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Error HRESULT.");
 
             // Directly capture requirement MS-FSSHTTPB_R773, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      773,
-                     @"[In HRESULT Error] Error Code (4 bytes): An unsigned integer that specifies the HRESULT error code.");
+                     @"[In HRESULT Error] Error Code (4 bytes): An unsigned integer that specifies the HRESULT Error code.");
 
             // Verify the compound related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -946,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              178,
-                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]1 [specifies a request or response for the ]Query access[operation].");
+                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]1 [specifies a request or response for the ]Query Access[operation].");
 
                     // Directly capture requirement MS-FSSHTTPB_R863, if there are no parsing errors. 
                     site.CaptureRequirement(
@@ -962,13 +972,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              179,
-                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]2 [specifies a request or response for the ]Query changes[operation].");
+                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]2 [specifies a request or response for the ]Query Changes[operation].");
 
                     // Directly capture requirement MS-FSSHTTPB_R865, if there are no parsing errors. 
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              865,
-                             @"[In Query Changes Sub-Request Processing] The server MUST reply back to the client with a Query Changes sub-response, as specified in section 2.2.3.1.2. [<5>]");
+                             @"[In Query Changes Sub-Request Processing] The server MUST reply back to the client with a Query Changes sub-response, as specified in section 2.2.3.1.2. [<18>]");
 
                     break;
 
@@ -978,7 +988,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              182,
-                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]5 [specifies a request or response for the]Put changes[operation].");
+                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]5 [specifies a request or response for the]Put Changes[operation].");
 
                     // Directly capture requirement MS-FSSHTTPB_R872, if there are no parsing errors. 
                     site.CaptureRequirement(
@@ -994,7 +1004,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              2097,
-                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]11 [specifies a request or response for the] Allocate ExtendedGuid range[operation].");
+                             @"[In Request Type Enumeration][Request Type Enumeration is set to ]11 [specifies a request or response for the] Allocate Extended Guid Range[operation].");
 
                     break;
 

@@ -19,7 +19,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      7,
-                     @"[In Transport] This protocol[MS-FSSHTTPB] uses File Synchronization via SOAP over HTTP protocol as specified in [MS-FSSHTTP].");
+                     @"[In Transport] This protocol[MS-FSSHTTPB] uses File Synchronization via Simple Object Access Protocol (SOAP) over HTTP protocol as specified in [MS-FSSHTTP].");
 
             // Directly capture requirement MS-FSSHTTPB_R8, if embedded text in the cell sub response in the MS-FSSHTTP can be parsed successfully. 
             site.CaptureRequirement(

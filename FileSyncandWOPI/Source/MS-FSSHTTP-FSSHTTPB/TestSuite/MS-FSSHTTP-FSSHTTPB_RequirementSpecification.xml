@@ -24520,15 +24520,6 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTPB_R4001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Put Changes Response, [the Type field is set to]0x87 [and the B-Compound field is set to] 0.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Request hashing options, [the Type field is set to]0x88 [and the B-Compound field is set to] 0.</ns1:Description>
@@ -28131,7 +28122,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2146</ns1:REQ_ID>
@@ -29571,7 +29562,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPB_R4122, MS-FSSHTTPB_R4123, MS-FSSHTTPB_R4124.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4124.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R536</ns1:REQ_ID>
@@ -32841,23 +32832,19 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:REQ_ID>MS-FSSHTTPB_R4122</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] The valid values for this field [Protocol Version] is 13. (&lt;14&gt; Section 2.2.3:  Office 2013 uses only protocol schema version 13.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPB_R535:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4123</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] The valid values for this field [Protocol Version] is 14. (&lt;14&gt; Section 2.2.3:  Office 2016 uses only protocol schema version 14.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPB_R535:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4124</ns1:REQ_ID>
