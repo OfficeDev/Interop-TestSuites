@@ -3517,7 +3517,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R231</ns1:REQ_ID>
@@ -5591,21 +5591,21 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11072</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes] PathNotFound indicates an error when the targeted URL for the file specified as part of the Request element does not have correct authorization.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R360</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes] InvalidSubRequest indicates an error when the file path is not found. &lt;12&gt;</ns1:Description>
+		<ns1:Description>[In GenericErrorCodeTypes] PathNotFound indicates an error when the file path is not found.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11265.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R360</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
+		<ns1:Description>[In GenericErrorCodeTypes] InvalidSubRequest indicates an error when one or more SubRequest elements for a targeted URL for the file were unable to be parsed.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R361</ns1:REQ_ID>
@@ -12838,7 +12838,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11175</ns1:REQ_ID>
@@ -22224,7 +22224,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R11265</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the value "PathNotFound" of GenericErrorCodeTypes when the file path is not found. (Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R360:i</ns1:Derived>
+		<ns1:Derived>MS-FSSHTTP_R11072:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

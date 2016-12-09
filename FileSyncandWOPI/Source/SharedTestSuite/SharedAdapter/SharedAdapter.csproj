@@ -48,6 +48,7 @@
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpGetVersionsCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpSchemaLockCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpServerTimeCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpVersioningCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpWhoAmICapture.cs" />
     <Compile Include="CellStorages.cs" />
     <Compile Include="DataStucture\Editor.cs" />

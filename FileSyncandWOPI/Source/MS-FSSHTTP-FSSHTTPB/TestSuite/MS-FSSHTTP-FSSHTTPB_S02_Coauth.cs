@@ -197,6 +197,13 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              3009,
                              @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
+
+                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                    GenericErrorCodeTypes.InvalidUrl,
+                    response.ResponseVersion.ErrorCode,
+                    "MS-FSSHTTP",
+                    11071,
+                    @"[In GenericErrorCodeTypes] InvalidUrl indicates an error when the associated protocol server site URL is empty.");
             }
             else
             {
@@ -427,6 +434,42 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                     ExclusiveLockReturnReasonTypes.CheckedOutByCurrentUser,
                     response.SubResponseData.ExclusiveLockReturnReason,
                     "The server should response when an exclusive lock is granted on the file because the file is checked out by the current user who sent the cell storage service request message.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the related requirements when the file path is not found.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_S02_TC06_JoinCoauthoringSession_PathNotFound()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(11265, this.Site), "This test case only runs PathNotFound is returned when the file path is not found.");
+
+            string fileUrlNotExit = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
+            string path = fileUrlNotExit.Substring(0, fileUrlNotExit.LastIndexOf('/'));
+
+            // Initialize the service
+            this.InitializeContext(path, this.UserName01, this.Password01, this.Domain);
+
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, null, null, 3600);
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(path, new SubRequestType[] { subRequest });
+            CoauthSubResponseType joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.PathNotFound,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         11265,
+                         @"[In Appendix B: Product Behavior] Implementation does return the value ""PathNotFound"" of GenericErrorCodeTypes when the file path is not found. (Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                     ErrorCodeType.PathNotFound,
+                     SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
+                     @"Error ""PathNotFound"" should be returned when the file path is not found.");
             }
         }
 

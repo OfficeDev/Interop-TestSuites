@@ -130,5 +130,7 @@
   <Property name="R213802Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R8204Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Root Node will be returned if there is only one object by server. Set R213802Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R8204Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that PathNotFound will be returned when the file path is not found. Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
  </Properties>
 </TestSite>
