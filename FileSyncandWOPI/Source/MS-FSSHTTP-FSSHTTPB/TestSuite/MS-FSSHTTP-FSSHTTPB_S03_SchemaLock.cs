@@ -243,6 +243,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
 
+            CheckLockAvailability();
+
             // Get a schema lock with AllowFallbackToExclusive set to true, expect the server returns the error code "Success".
             SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, true, null);
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });

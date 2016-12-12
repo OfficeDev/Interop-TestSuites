@@ -137,6 +137,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             // Initialize the service.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
+            CheckLockAvailability();
+
             // Get the exclusive lock using the same user name comparing with the previous step for the already checked out file, expect the server responds the error code "Success".
             // Now the service channel is initialized using the userName01 account by default.
             ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.GetLock);
@@ -256,6 +258,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
 
+            CheckLockAvailability();
+
             // Check the exclusive lock availability with all valid parameters on a file which is checked out by the same user, expect the server responds the error code "Success".
             exclusiveLocksubRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.CheckLockAvailability);
             response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest });
@@ -305,9 +309,11 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
-                      
+
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            CheckLockAvailability();
 
             // Get the exclusive lock using the same user name on the already checked out file, expect the server response the error code "Success".
             this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
@@ -380,6 +386,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            CheckLockAvailability();
 
             // Get the exclusive lock with same user name on the checked out file.
             this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);

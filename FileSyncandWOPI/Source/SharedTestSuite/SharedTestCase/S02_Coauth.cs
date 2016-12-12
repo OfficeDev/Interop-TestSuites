@@ -770,6 +770,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              @"[In Appendix B: Product Behavior] If the specified attributes[CoauthRequestType] are not provided, the implementation does return ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
 
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3066, this.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.HighLevelExceptionThrown,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             3066,
+                             @"[In Appendix B: Product Behavior] The implementation does return ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <19> Section 2.3.1.5: In SharePoint Server 2013, if the CoauthRequestType attribute is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the ResponseVersion element.");
+                }
+
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3025, this.Site))
                 {
                     Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(

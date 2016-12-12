@@ -643,6 +643,46 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             return fileUri;
         }
+
+        /// <summary>
+        /// Check if a file is available to take a shared lock or exclusive lock.
+        /// </summary>
+        protected void CheckLockAvailability()
+        {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 93101, this.Site))
+            {
+                return;
+            }
+
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            while (retryCount > 0)
+            {
+                retryCount--;
+
+                CoauthSubRequestType request = SharedTestSuiteHelper.CreateCoauthSubRequestForCheckLockAvailability(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+                CellStorageResponse storageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { request });
+                CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(storageResponse, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site) == ErrorCodeType.Success)
+                {
+                    break;
+                }
+                else
+                {
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                if (retryCount == 0)
+                {
+                    this.Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.Success,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                        "Check lock availability failed after checkout file.");
+                }
+            }
+        }
         #endregion
 
         #region Abstract Methods
