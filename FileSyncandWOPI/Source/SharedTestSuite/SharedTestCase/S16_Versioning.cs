@@ -95,22 +95,20 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     11150,
                     @"[In VersioningSubResponseType] In the case of success, it contains information requested as part of a versioning subrequest.");
 
-                string expectLastModifiedTime =
-                    ((long)(time - new DateTime(1601, 1, 1, 0, 0, 0)).TotalSeconds * 10000000).ToString();
+                long lastModifiedTime = long.Parse(versioningSubResponse.SubResponseData.Versions.Version[0].LastModifiedTime);
+                bool temp = Math.Abs((lastModifiedTime / 10000000) - (time - new DateTime(1601, 1, 1, 0, 0, 0)).TotalSeconds) < 1;
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11179
-                Site.CaptureRequirementIfAreEqual<string>(
-                    expectLastModifiedTime,
-                    versioningSubResponse.SubResponseData.Versions.Version[0].LastModifiedTime,
+                Site.CaptureRequirementIfIsTrue(
+                    temp,
                     "MS-FSSHTTP",
                     11179,
                     @"[In FileVersionDataType] LastModifiedTime specifies the number of 100-nanosecond intervals that have elapsed since 00:00:00 on January 1, 1601, which MUST be Coordinated Universal Time (UTC).");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11178
                 // Calculate expected last modified time by multiple the time span with ten million, this requirement can be captured.
-                Site.CaptureRequirementIfAreEqual<string>(
-                    expectLastModifiedTime,
-                    versioningSubResponse.SubResponseData.Versions.Version[0].LastModifiedTime,
+                Site.CaptureRequirementIfIsTrue(
+                    temp,
                     "MS-FSSHTTP",
                     11178,
                     @"[In FileVersionDataType] A single tick represents 100 nanoseconds, or one ten-millionth of a second.");
