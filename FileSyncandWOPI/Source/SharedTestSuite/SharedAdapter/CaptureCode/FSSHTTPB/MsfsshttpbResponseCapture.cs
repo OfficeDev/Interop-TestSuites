@@ -29,7 +29,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      534,
                      @"[In Response Message Syntax]  Protocol Version (2bytes): An unsigned integer that specifies the protocol schema version number used in this request.");
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4124, SharedContext.Current.Site))
+            SutVersion currentSutVersion = Common.GetConfigurationPropertyValue<SutVersion>("SutVersion", SharedContext.Current.Site);
+
+            if (currentSutVersion == SutVersion.SharePointServer2010)
             {
                 bool isVerified4124 = instance.ProtocolVersion == 12 || instance.ProtocolVersion == 13 || instance.ProtocolVersion == 14;
                 // Capture requirement MS-FSSHTTPB_R4124, if the protocol version number equals to 12, 13 or 14. 
