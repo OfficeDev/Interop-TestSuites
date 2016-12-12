@@ -112,13 +112,13 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3009,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
                 else
                 {
                     Site.Assert.IsNull(
                         response.ResponseCollection,
-                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
         }

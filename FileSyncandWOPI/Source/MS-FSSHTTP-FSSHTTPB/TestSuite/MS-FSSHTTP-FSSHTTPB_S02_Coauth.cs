@@ -174,7 +174,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3008
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3008, this.Site))
                 {
                     Site.Log.Add(
@@ -188,14 +188,14 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3009, this.Site))
                 {
                     Site.CaptureRequirementIfIsNull(
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3009,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
 
                 Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
@@ -222,7 +222,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 {
                     Site.Assert.IsNull(
                         response.ResponseCollection,
-                        @"[In Appendix B: Product Behavior] If the URL attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
         }
