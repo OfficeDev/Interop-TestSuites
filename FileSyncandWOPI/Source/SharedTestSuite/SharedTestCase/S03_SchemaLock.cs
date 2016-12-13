@@ -851,15 +851,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
             this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest2.SubRequestData.ClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
             // Get a schema lock with different ClientId comparing with the previous two steps, expect the server returns the error code "NumberOfCoauthorsReachedMax".
             SchemaLockSubRequestType subRequest3 = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
             subRequest3.SubRequestData.ClientID = Guid.NewGuid().ToString();
-            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest3 });
-            schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
 
-            if (schemaLockSubResponse.ErrorCode.ToUpper(CultureInfo.CurrentCulture) == "SUCCESS")
+            while (retryCount > 0)
             {
-                this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest3.SubRequestData.ClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest3 });
+                schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site) == ErrorCodeType.NumberOfCoauthorsReachedMax)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("NumberOfCoauthorsReachedMax error should be returned if the maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
             }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
@@ -1074,6 +1089,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
+
+            // Waiting change takes effect
+            System.Threading.Thread.Sleep(30 * 1000);
 
             // Get a schema lock with AllowFallbackToExclusive set to true, expect the server responses the error code "Success".
             SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, true, null);
@@ -1325,10 +1343,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
 
-            // Get lock with AllowFallbackToExclusive set to false.
-            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequestForGetLock(false);
-            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            SchemaLockSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            SchemaLockSubResponseType subResponse = null;
+
+            while (retryCount > 0)
+            {
+                // Get lock with AllowFallbackToExclusive set to false.
+                SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequestForGetLock(false);
+                CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                subResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site) != ErrorCodeType.Success)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error should be returned when shared locking on file is not supported and AllowFallbackToExclusive attribute value set to false.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -1752,6 +1791,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
+
+            // Waiting change takes effect
+            System.Threading.Thread.Sleep(30 * 1000);
 
             // Refresh the schemaLock using the default clientID and schemaLockID and with the AllowFallbackToExclusive set to false.
             subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.RefreshLock, false, null);
