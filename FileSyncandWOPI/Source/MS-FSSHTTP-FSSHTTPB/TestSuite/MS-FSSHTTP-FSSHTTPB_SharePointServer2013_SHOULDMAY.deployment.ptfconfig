@@ -70,6 +70,8 @@
   <Property name="R3064Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3065Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return error code "InvalidArgument" as specified in section 7. Set R3065Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R3065Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R3066Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server returns error code "HighLevelExceptionThrown" as specified in section 7. Set R3066Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R3066Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession when release the schema lock and the user is not present. Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
   <Property name="R3128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server returns success when release the schema lock and the user is not present. Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->

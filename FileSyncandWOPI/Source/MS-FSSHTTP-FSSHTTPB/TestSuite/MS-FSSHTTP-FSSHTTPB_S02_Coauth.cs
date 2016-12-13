@@ -399,6 +399,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
 
+            CheckLockAvailability();
+
             // Join a Coauthoring session
             CoauthSubRequestType request = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true, SharedTestSuiteHelper.DefaultExclusiveLockID);
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { request });
