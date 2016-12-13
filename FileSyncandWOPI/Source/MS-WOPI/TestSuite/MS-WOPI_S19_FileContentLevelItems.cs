@@ -3,6 +3,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
     using System;
     using System.Net;
     using System.Text;
+    using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
@@ -174,6 +175,15 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           687,
                           @"[In PutFile] Status code ""200"" means ""Success"".");
 
+            if (Common.IsRequirementEnabled("MS-WOPI", 685004001, this.Site))
+            {
+                // Verify MS-WOPI requirement: MS-WOPI_R685004001
+                this.Site.CaptureRequirementIfIsTrue(
+                              string.IsNullOrEmpty(httpWebResponseOfPutFile.Headers.Get("X-WOPI-Lock")),
+                              685004001,
+                              @"[In PutFile] Implementation does not include the header X-WOPI-Lock when responding with the 200 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+            }
+
             // Get the common header.
             commonHeaders = HeadersHelper.GetCommonHeaders(wopiFileContentsLevelUrl);
 
@@ -304,6 +314,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 string identifier = Guid.NewGuid().ToString("N");
 
                 int statusCode = 0;
+                HttpWebResponse errorResponse = null;
                 try
                 {
                     // Update a file on the WOPI server.
@@ -312,7 +323,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 }
                 catch (WebException webEx)
                 {
-                    HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                    errorResponse = this.GetErrorResponseFromWebException(webEx);
                     statusCode = this.GetStatusCodeFromHTTPResponse(errorResponse);
                 }
 
@@ -322,6 +333,39 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCode,
                               690,
                               @"[In PutFile] Status code ""409"" means ""Lock mismatch"".");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 685003, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R685003
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  errorResponse.Headers.Get("X-WOPI-Lock") != null,
+                                  685003,
+                                  @"[In PutFile] This header [X-WOPI-Lock] MUST be included when responding with the 409 status code. ");
+
+                    // Verify MS-WOPI requirement: MS-WOPI_R980001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  errorResponse.Headers.Get("X-WOPI-Lock") != null,
+                                  980001,
+                                  @"[In PutFile] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code [409].");
+                }
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 685009001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R685009001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                                  685009001,
+                                  @"[In PutFile] Implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 685012001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R685012001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockedByOtherInterface")),
+                                  685012001,
+                                  @"[In PutFile] Implementation does not include the header X-WOPI-LockedByOtherInterface  when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
             }
             finally
             {

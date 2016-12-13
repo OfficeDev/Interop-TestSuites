@@ -4440,7 +4440,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements:MS-WOPI_R401, MS-WOPI_R401001, MS-WOPI_R401002, MS-WOPI_R401003, MS-WOPI_R401006, MS-WOPI_R401007, MS-WOPI_R401008, MS-WOPI_R401009, MS-WOPI_R401010.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements:MS-WOPI_R401,MS-WOPI_R401002, MS-WOPI_R401003, MS-WOPI_R401006, MS-WOPI_R401007, MS-WOPI_R401008,MS-WOPI_R401010.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401</ns1:REQ_ID>
@@ -4458,7 +4458,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401002</ns1:REQ_ID>
@@ -4532,7 +4532,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401010</ns1:REQ_ID>
@@ -4747,7 +4747,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R422002, MS-WOPI_R422003, MS-WOPI_R422004, MS-WOPI_R422005, MS-WOPI_R422008, MS-WOPI_R422009, MS-WOPI_R422010, MS-WOPI_R422011, MS-WOPI_R422012.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R422002, MS-WOPI_R422004, MS-WOPI_R422005, MS-WOPI_R422008, MS-WOPI_R422009, MS-WOPI_R422010, MS-WOPI_R422011, MS-WOPI_R422012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R422002</ns1:REQ_ID>
@@ -4765,7 +4765,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R422004</ns1:REQ_ID>
@@ -5036,7 +5036,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R439002, MS-WOPI_R439003, MS-WOPI_R439004, MS-WOPI_R439005, MS-WOPI_R439008, MS-WOPI_R439009, MS-WOPI_R439010, MS-WOPI_R439011, MS-WOPI_R439012.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R439002, MS-WOPI_R439004, MS-WOPI_R439005, MS-WOPI_R439008, MS-WOPI_R439009, MS-WOPI_R439010, MS-WOPI_R439011, MS-WOPI_R439012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439002</ns1:REQ_ID>
@@ -5054,7 +5054,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439004</ns1:REQ_ID>
@@ -5201,7 +5201,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R445</ns1:REQ_ID>
@@ -5362,7 +5362,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Scope>server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R460002, MS-WOPI_R460003, MS-WOPI_R460004, MS-WOPI_R460005, MS-WOPI_R460008, MS-WOPI_R460009, MS-WOPI_R460010, MS-WOPI_R460011, MS-WOPI_R460012.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-WOPI_R460002, MS-WOPI_R460003, MS-WOPI_R460004, MS-WOPI_R460005, MS-WOPI_R460008, MS-WOPI_R460009, MS-WOPI_R460010, MS-WOPI_R460012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R460002</ns1:REQ_ID>
@@ -5454,7 +5454,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R460012</ns1:REQ_ID>
@@ -8214,7 +8214,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-WOPI_R685002, MS-WOPI_R685003, MS-WOPI_R685004, MS-WOPI_R685002, MS-WOPI_R685008, MS-WOPI_R685009, MS-WOPI_R685010, MS-WOPI_R685011, MS-WOPI_R685012.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-WOPI_R685002, MS-WOPI_R685003, MS-WOPI_R685004, MS-WOPI_R685002, MS-WOPI_R685008, MS-WOPI_R685009, MS-WOPI_R685010, MS-WOPI_R685012.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R685002</ns1:REQ_ID>
@@ -8306,7 +8306,7 @@ X-WOPI-LockedByOtherInterface</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R685012</ns1:REQ_ID>
@@ -8745,8 +8745,7 @@ JSON:
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R370012001</ns1:REQ_ID>
@@ -8822,8 +8821,7 @@ JSON:
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R439004001</ns1:REQ_ID>
@@ -8855,8 +8853,7 @@ JSON:
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R460004001</ns1:REQ_ID>
