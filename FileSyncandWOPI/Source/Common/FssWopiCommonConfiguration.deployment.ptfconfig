@@ -58,7 +58,7 @@
     <!-- The WaitTime property specifies the time interval (in milliseconds) to retry an operation. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
     <Property name="WaitTime" value="1000" />
     <!-- The RetryCount property specifies the maximum count to retry an operation in the event if the operation does not succeed. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
-    <Property name="RetryCount" value="60" />
+    <Property name="RetryCount" value="120" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>

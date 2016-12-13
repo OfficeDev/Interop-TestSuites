@@ -12,7 +12,7 @@
   <!--Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return success when exit a coauthoring session when the user is not present. Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R1556Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return InvalidCoauthSession when the user is not present. Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-  <Property name="R1107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <Property name="R1107Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   
   <!--Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support editors table operation. Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R9001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
@@ -37,7 +37,7 @@
   <Property name="R2053Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
 
   <!--Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-  <Property name="R3104Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <Property name="R3104Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3105Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "InvalidCoauthSession" as specified in section 7. Set R3107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
