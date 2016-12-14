@@ -364,6 +364,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               @"[In Response Body] UserCanWrite is a Boolean value.");
             }
 
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i=0; i< response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "FileExtension")
@@ -391,7 +393,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         292007,
                         @"[In Response Body] FileNameMaxLength: An integer indicating the maximum length for file names, including the file extension, supported by the WOPI server.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
 
             this.ValidateURL(checkFileInfo.CloseUrl, "CloseUrl");
             this.ValidateURL(checkFileInfo.DownloadUrl, "DownloadUrl");
@@ -427,6 +446,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             this.ValidateURL(putRelativeFile.HostViewUrl, "HostViewUrl");
             this.ValidateURL(putRelativeFile.HostEditUrl, "HostEditUrl");
 
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-ValidRelativeTarget")
@@ -456,7 +477,25 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         370013,
                         @"[In PutRelativeFile] X-WOPI-LockFailureReason is a string.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
+
         }
 
         /// <summary>
@@ -465,6 +504,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateLockResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -485,7 +526,26 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         401008,
                         @"[In Lock] X-WOPI-LockFailureReason is a string.");
                 }
+
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
+
         }
 
         /// <summary>
@@ -494,6 +554,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateUnLockResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -514,7 +576,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         422010,
                         @"[In Unlock] X-WOPI-LockFailureReason is a string.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -523,6 +602,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateRefreshLockResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count;i++ )
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -543,7 +624,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         439010,
                         @"[In RefreshLock] X-WOPI-LockFailureReason is a string.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -552,6 +650,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidatePutFileResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -572,7 +672,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         685010,
                         @"[In PutFile] X-WOPI-LockFailureReason is a string.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -581,6 +698,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateUnlockAndRelockResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -601,7 +720,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         460010,
                         @"[In UnlockAndRelock] X-WOPI-LockFailureReason is a string.");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                isR42001Verified,
+                42001,
+                @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isR45001Verified,
+                45001,
+                @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -610,6 +746,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateGetLockResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
@@ -630,7 +768,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         469016,
                         @"[In GetLock]  X-WOPI-LockFailureReason is a string");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -639,6 +794,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <param name="response">A parameter represents the response from server.</param>
         private void ValidateRenameFileResponse(WOPIHttpResponse response)
         {
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
                 if (response.Headers.AllKeys[i] == "X-WOPI-InvalidFileNameError")
@@ -668,7 +825,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                         592027,
                         @"[In RenameFile] X-WOPI-LockFailureReason is a string");
                 }
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
             }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -693,6 +867,29 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           ""IsWindowsCredentials"":{""type"":""bool"",""default"":""false"",""optional"":true},
                           ""IsGroup"":{""type"":""bool"",""default"":""false"",""optional"":true},
                           }");
+
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
+            }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
         }
 
         /// <summary>
@@ -753,6 +950,30 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             this.ValidateURL(checkFolderInfo.HostEmbeddedViewUrl, "HostEmbeddedViewUrl");
             this.ValidateURL(checkFolderInfo.PrivacyUrl, "PrivacyUrl");
             this.ValidateURL(checkFolderInfo.SignoutUrl, "SignoutUrl");
+
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
+            }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
+        
         }
 
         /// <summary>
@@ -794,6 +1015,30 @@ id = STRING");
                               ""Version"":""<version>""
                              }],
                           }");
+
+            Boolean isR42001Verified = false;
+            Boolean isR45001Verified = false;
+            for (int i = 0; i < response.Headers.Count; i++)
+            {
+                if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
+                {
+                    isR42001Verified = true;
+                }
+                if (response.Headers.AllKeys[i] == "X-WOPI-MachineName")
+                {
+                    isR45001Verified = true;
+                }
+            }
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR42001Verified,
+                    42001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-ServerVersion [is a string specifying the version of the WOPI server and] MUST be included with all WOPI responses.");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                    isR45001Verified,
+                    45001,
+                    @"[In Custom HTTP Headers] Header X-WOPI-MachineName [is a string specifying the name of the WOPI server and] MUST be included with all WOPI responses, which MUST NOT be used for anything other than logging.");
+        
         }
 
         /// <summary>
