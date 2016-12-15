@@ -468,7 +468,7 @@ X-WOPI-ServerError</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R793</ns1:REQ_ID>
@@ -8681,7 +8681,7 @@ JSON:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R961</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In WOPI Protocol Server Details]Implementation does support ExecuteCellStorageRequest (see section 3.3.5.1.7) and ExcecuteCellStorageRelativeRequest (see section 3.3.5.1.8) operations.(Microsoft SharePoint Foundation 2013 and above follow this behavior)</ns1:Description>
+		<ns1:Description>[In WOPI Protocol Server Details]Implementation does support ExecuteCellStorageRequest (see section 3.3.5.1.8) and ExcecuteCellStorageRelativeRequest (see section 3.3.5.1.9) operations.(Microsoft SharePoint Foundation 2013 and above follow this behavior)</ns1:Description>
 		<ns1:Derived>MS-WOPI_R960:i,MS-WOPI_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8708,8 +8708,7 @@ JSON:
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R401002001</ns1:REQ_ID>

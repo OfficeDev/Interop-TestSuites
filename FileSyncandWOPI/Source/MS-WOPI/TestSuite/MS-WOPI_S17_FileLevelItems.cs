@@ -121,6 +121,33 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               344,
                               @"[In Response Body] UserFriendlyName: A string that is the name of the user.");
             }
+
+            if (Common.IsRequirementEnabled("MS-WOPI", 776002002, this.Site))
+            {
+                if (checkFileInfo.SupportsFileCreation)
+                {
+                    commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
+
+                    byte[] fileContents2 = Encoding.UTF8.GetBytes("Test Put Relative file.");
+                    string fileName = this.GetUniqueFileNameForPutRelatived();
+
+                    // Create a new file on the WOPI server based on the current file.
+                    WOPIHttpResponse responseOfPutRelativeFile = WopiAdapter.PutRelativeFile(
+                                                                        wopiTargetFileUrl,
+                                                                        commonHeaders,
+                                                                        null,
+                                                                        fileName,
+                                                                        fileContents2,
+                                                                        false,
+                                                                        fileContents2.Length);
+                    //Verify requirement:MS-WOPI_R776002002
+                    this.Site.CaptureRequirementIfAreEqual(
+                        200,
+                        responseOfPutRelativeFile.StatusCode,
+                        776002002,
+                        @"[In Response Body] If the value of SupportsFileCreation is true, indicates that the WOPI server supports creating new files using the WOPI client.");
+                }
+            }
         }
 
         /// <summary>
@@ -2220,7 +2247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
 
             // Get the common header.
             WebHeaderCollection commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
-
+            commonHeaders.Add("X-WOPI-PerfTraceRequested", "true");
             int statusCode = 0;
 
             // Access the WOPI server's implementation of a secure store.
@@ -2247,6 +2274,18 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           statusCode,
                           963,
                           @"[In WOPI Protocol Server Details]Implementation does support ReadSecureStore (see section 3.3.5.1.10) operation.(Microsoft SharePoint Server 2013 follow this behavior)");
+
+            Boolean isR46001Verified = false;
+            for (int i = 0; i < responseOfReadSecureStore.Headers.Count; i++)
+            {
+                if (responseOfReadSecureStore.Headers.AllKeys[i] == "X-WOPI-PerfTrace")
+                    isR46001Verified = true;
+            }
+            this.Site.CaptureRequirementIfIsTrue(
+                isR46001Verified,
+                46001,
+                @"[In Custom HTTP Headers] It [X-WOPI-PerfTrace] is included in a WOPI response if the header X-WOPI-PerfTraceRequest in the request is present and equal to ""true"".");
+        
         }
 
         /// <summary>
@@ -2392,7 +2431,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           545,
                           @"[In Response Body] IsGroup: A Boolean value that specifies that the secure store application is a Group (see [MS-SSWPS] section 2.2.5.5).");
         }
-
         #endregion 
     }
 }
