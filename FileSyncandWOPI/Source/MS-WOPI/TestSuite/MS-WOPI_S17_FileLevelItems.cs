@@ -1033,6 +1033,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             byte[] fileContents = Encoding.UTF8.GetBytes("Test Put Relative file.");
 
             int statusCodeFileNameExists = 0;
+            HttpWebResponse errorResponse = null;
             try
             {
                 // Create a new file on the WOPI server based on the current file.
@@ -1052,7 +1053,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             }
             catch (WebException webEx)
             {
-                HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                errorResponse = this.GetErrorResponseFromWebException(webEx);
                 statusCodeFileNameExists = this.GetStatusCodeFromHTTPResponse(errorResponse);
             }
 
@@ -1072,6 +1073,24 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           statusCodeFileNameExists,
                           376,
                           @"[In PutRelativeFile] Status code ""409"" means ""Target file already exists"".");
+
+            if (Common.IsRequirementEnabled("MS-WOPI", 370012001, this.Site))
+            {
+                // Verify MS-WOPI requirement: MS-WOPI_R370012001
+                this.Site.CaptureRequirementIfIsTrue(
+                              string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                              370012001,
+                              @"[In PutRelativeFile] Implementation does not include the header X-WOPI-LockFailureReason  when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+            }
+
+            if (Common.IsRequirementEnabled("MS-WOPI", 370015001, this.Site))
+            {
+                // Verify MS-WOPI requirement: MS-WOPI_R370015001
+                this.Site.CaptureRequirementIfIsTrue(
+                              string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockedByOtherInterface")),
+                              370015001,
+                              @"[In PutRelativeFile] Implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+            }
         }
 
         /// <summary>
@@ -1175,6 +1194,15 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCodeOfLock,
                               405,
                               @"[In Lock] Status code ""200"" means ""Success"".");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 401002001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R401002001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(httpWebResponseForLock.Headers.Get("X-WOPI-Lock")),
+                                  401002001,
+                                  @"[In Lock] Implementation does not include header X-WOPI-Lock when responding with the 200 status code. (SharePoint Server 2010 and above follows this behavior).");
+                }
 
                 // Get the common header.
                 commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
@@ -1324,6 +1352,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 // Get the common header.
                 commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
                 int statusCode = 0;
+                HttpWebResponse errorResponse = null;
                 try
                 {
                     // Take a lock for editing a file.
@@ -1333,7 +1362,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 }
                 catch (WebException webEx)
                 {
-                    HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                    errorResponse = this.GetErrorResponseFromWebException(webEx);
                     statusCode = this.GetStatusCodeFromHTTPResponse(errorResponse);
                 }
 
@@ -1343,6 +1372,36 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCode,
                               408,
                               @"[In Lock] Status code ""409"" means ""Lock mismatch"".");
+
+                // Verify MS-WOPI requirement: MS-WOPI_R401001
+                this.Site.CaptureRequirementIfIsTrue(
+                              errorResponse.Headers.Get("X-WOPI-Lock") != null,
+                              401001,
+                              @"[In Lock] This header [X-WOPI-Lock] MUST be included when responding with the 409 status code. ");
+
+                // Verify MS-WOPI requirement: MS-WOPI_R976001
+                this.Site.CaptureRequirementIfIsTrue(
+                              errorResponse.Headers.Get("X-WOPI-Lock") != null,
+                              976001,
+                              @"[In Lock] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code [409]. ");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 401007001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R401007001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                                  401007001,
+                                  @"[In Lock] Implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 401010001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R401010001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockedByOtherInterface")),
+                                  401010001,
+                                  @"[In Lock] Implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
             }
             finally
             {
@@ -1406,6 +1465,15 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCodeOfUnLocked,
                               424,
                               @"[In Unlock] Status code ""200"" means ""Success"".");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 422004001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R422004001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(httpWebResponseForUnLock.Headers.Get("X-WOPI-Lock")),
+                                  422004001,
+                                  @"[In Unlock] Implementation does not include the header X-WOPI-Lock when responding with the 200 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
 
                 // Get the common header.
                 commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
@@ -1528,6 +1596,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             bool isUnlockSuccessful = false;
             try
             {
+                HttpWebResponse errorResponse = null;
                 try
                 {
                     // Take a unlock for editing a file with new GUID as a lock identifier
@@ -1538,7 +1607,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 }
                 catch (WebException webEx)
                 {
-                    HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                    errorResponse = this.GetErrorResponseFromWebException(webEx);
                     statusCode = this.GetStatusCodeFromHTTPResponse(errorResponse);
                 }
 
@@ -1548,7 +1617,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCode,
                               427,
                               @"[In Unlock] Status code ""409"" means ""Lock mismatch"".");
-            }
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 422009001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R422009001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                                  422009001,
+                                  @"[In Unlock] Implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
+             }
             finally
             {
                 if (!isUnlockSuccessful)
@@ -1596,6 +1674,15 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCodeOfRefreshLock,
                               441,
                               @"[In RefreshLock] Status code ""200"" means ""Success"".");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 439004001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R439004001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(httpWebResponseForRefreshLock.Headers.Get("X-WOPI-Lock")),
+                                  439004001,
+                                  @"[In RefreshLock] Implementation does not include the header X-WOPI-Lock when responding with the 200 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
 
                 bool isWebExceptionRaise = false;
                 try
@@ -1722,6 +1809,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 // Get the common header.
                 commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
                 int statusCode = 0;
+                HttpWebResponse errorResponse = null;
                 try
                 {
                     // Refresh a lock for the file with new GUID as lock identifier
@@ -1730,7 +1818,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 }
                 catch (WebException webEx)
                 {
-                    HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                    errorResponse = this.GetErrorResponseFromWebException(webEx);
                     statusCode = this.GetStatusCodeFromHTTPResponse(errorResponse);
                 }
 
@@ -1740,7 +1828,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCode,
                               444,
                               @"[In RefreshLock] Status code ""409"" means ""Lock mismatch"".");
-            }
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 439009001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R439009001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                                  439009001,
+                                  @"[In RefreshLock] Implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
+             }
             finally
             {
                 // Release a lock for editing a file.
@@ -1790,6 +1887,15 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCodeOfUnlockAndRelock,
                               462,
                               @"[In UnlockAndRelock] Status code ""200"" means ""Success"".");
+
+                if (Common.IsRequirementEnabled("MS-WOPI", 460004001, this.Site))
+                {
+                    // Verify MS-WOPI requirement: MS-WOPI_R460004001
+                    this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(httpWebResponseForUnLockAndRelock.Headers.Get("X-WOPI-Lock")),
+                                  460004001,
+                                  @"[In UnlockAndRelock] Implementation does not include the header X-WOPI-Lock when responding with the 200 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+                }
 
                 // Get the common header.
                 commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
@@ -1923,6 +2029,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
 
             int statusCode = 0;
+            HttpWebResponse errorResponse=null;
             try
             {
                 // Release and retake a lock for editing a file with invalid token.
@@ -1931,7 +2038,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             }
             catch (WebException webEx)
             {
-                HttpWebResponse errorResponse = this.GetErrorResponseFromWebException(webEx);
+                errorResponse = this.GetErrorResponseFromWebException(webEx);
                 statusCode = this.GetStatusCodeFromHTTPResponse(errorResponse);
             }
 
@@ -1941,6 +2048,36 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           statusCode,
                           465,
                           @"[In UnlockAndRelock] Status code ""409"" means ""Lock mismatch"".");
+
+            // Verify MS-WOPI requirement: MS-WOPI_R460003
+            this.Site.CaptureRequirementIfIsTrue(
+                          errorResponse.Headers.Get("X-WOPI-Lock")!=null,
+                          460003,
+                          @"[In UnlockAndRelock] This header [X-WOPI-Lock] MUST be included when responding with the 409 status code. ");
+
+            // Verify MS-WOPI requirement: MS-WOPI_R979001
+            this.Site.CaptureRequirementIfIsTrue(
+                           errorResponse.Headers.Get("X-WOPI-Lock") != null,
+                          979001,
+                          @"[In UnlockAndRelock] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code.");
+
+            if (Common.IsRequirementEnabled("MS-WOPI", 460009001, this.Site))
+            {
+                // Verify MS-WOPI requirement: MS-WOPI_R460009001
+                this.Site.CaptureRequirementIfIsTrue(
+                              string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockFailureReason")),
+                              460009001,
+                              @"[In UnlockAndRelock] Implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+            }
+
+            if (Common.IsRequirementEnabled("MS-WOPI", 460012001, this.Site))
+            {
+                // Verify MS-WOPI requirement: MS-WOPI_R460012001
+                this.Site.CaptureRequirementIfIsTrue(
+                              string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-LockedByOtherInterface")),
+                              460012001,
+                              @"[In UnlockAndRelock] Implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code. (SharePoint Foundation 2010 and above follows this behavior).");
+            }
         }
 
         /// <summary>

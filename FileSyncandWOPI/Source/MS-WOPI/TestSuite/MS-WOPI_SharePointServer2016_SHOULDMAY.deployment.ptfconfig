@@ -17,5 +17,38 @@
     <Property name="R950001Enabled_MS-WOPI" value="true" />
     <!-- Set R950002Enabled_MS-WOPI to true to verify that implementation does return the value true for field SupportsCoauth. Otherwise set the value to false to disable this requirement. -->
     <Property name="R950002Enabled_MS-WOPI" value="false" />
+    <!-- Set R401002001Enabled_MS-WOPI to true to verify that implementation does not include header X-WOPI-Lock when responding with the 200 status code in Lock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R401002001Enabled_MS-WOPI" value="true" />
+    <!-- Set R401007001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code in Lock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R401007001Enabled_MS-WOPI" value="true" />
+    <!-- Set R401010001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code in Lock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R401010001Enabled_MS-WOPI" value="true" />
+    <!-- Set R370012001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the following status code in PutRelativeFile. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R370012001Enabled_MS-WOPI" value="true" />
+    <!-- Set R370015001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the following status code in PutRelativeFile. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R370015001Enabled_MS-WOPI" value="true" />
+    <!-- Set R422004001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-Lock when responding with the 200 status code in Unlock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R422004001Enabled_MS-WOPI" value="true" />
+    <!-- Set R422009001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code in Unlock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R422009001Enabled_MS-WOPI" value="true" />
+    <!-- Set R439004001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-Lock when responding with the 200 status code in RefreshLock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R439004001Enabled_MS-WOPI" value="true" />
+    <!-- Set R439009001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code in RefreshLock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R439009001Enabled_MS-WOPI" value="true" />
+    <!-- Set R460004001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-Lock when responding with the 200 status code in UnlockAndRelock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R460004001Enabled_MS-WOPI" value="true" />
+    <!-- Set R460009001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code in UnlockAndRelock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R460009001Enabled_MS-WOPI" value="true" />
+    <!-- Set R460012001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code in UnlockAndRelock. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R460012001Enabled_MS-WOPI" value="true" />
+    <!-- Set R685004001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-Lock when responding with the 200 status code in PutFile. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R685004001Enabled_MS-WOPI" value="true" />
+    <!-- Set R685009001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockFailureReason when responding with the 409 status code in PutFile. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R685009001Enabled_MS-WOPI" value="true" />
+    <!-- Set R685012001Enabled_MS-WOPI to true to verify that implementation does not include the header X-WOPI-LockedByOtherInterface when responding with the 409 status code in PutFile. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R685012001Enabled_MS-WOPI" value="true" />
+    <!-- Set R685003Enabled_MS-WOPI to true to verify that implementation include the X-WOPI-Lock header on 409 status responses to PutFile requests. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R685003Enabled_MS-WOPI" value="true" />
+
   </Properties>
 </TestSite>
