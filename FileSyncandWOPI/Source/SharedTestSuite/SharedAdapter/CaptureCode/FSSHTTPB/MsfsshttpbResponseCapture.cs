@@ -29,7 +29,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      534,
                      @"[In Response Message Syntax]  Protocol Version (2bytes): An unsigned integer that specifies the protocol schema version number used in this request.");
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4124, SharedContext.Current.Site))
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4124, site))
             {
                 bool isVerified4124 = instance.ProtocolVersion == 12 || instance.ProtocolVersion == 13 || instance.ProtocolVersion == 14;
                 // Capture requirement MS-FSSHTTPB_R4124, if the protocol version number equals to 12, 13 or 14. 
@@ -842,7 +842,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      99059,
                      @"[In Put Changes] Put Changes Response (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Put Changes response.");
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4126, SharedContext.Current.Site))
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4126, site))
             {
                 // Directly capture requirement MS-FSSHTTPB_R4126, if there are no parsing errors. 
                 site.CaptureRequirement(
@@ -851,7 +851,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          @"[In Appendix B: Product Behavior] Implementation does support the Applied Storage Index Id field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4128, SharedContext.Current.Site))
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4128, site))
             {
                 // Directly capture requirement MS-FSSHTTPB_R4128, if there are no parsing errors. 
                 site.CaptureRequirement(

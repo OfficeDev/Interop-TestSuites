@@ -155,6 +155,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The Coauthoring Feature should be disabled.");
             this.StatusManager.RecordDisableCoauth();
 
+            // Waiting change takes effect
+            System.Threading.Thread.Sleep(30 * 1000);
+
             // Join a Coauthoring session with AllowFallbackToExclusive attribute set to true
             CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true, SharedTestSuiteHelper.DefaultExclusiveLockID);
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
@@ -843,9 +846,29 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Join the Coauthoring session using the third user
             this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
-            subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(System.Guid.NewGuid().ToString(), SharedTestSuiteHelper.ReservedSchemaLockID);
-            cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            response = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            while (retryCount > 0)
+            {
+                subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(System.Guid.NewGuid().ToString(), SharedTestSuiteHelper.ReservedSchemaLockID);
+                cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                response = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site) == ErrorCodeType.NumberOfCoauthorsReachedMax)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("NumberOfCoauthorsReachedMax error should be returned if the maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -951,10 +974,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The Coauthoring Feature should be disabled.");
             this.StatusManager.RecordDisableCoauth();
 
-            // Join a Coauthoring session with AllowFallbackToExclusive attribute set to false
-            CoauthSubRequestType coauthRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, false, null);
-            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { coauthRequest });
-            CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            CoauthSubResponseType subResponse = null;
+
+            while (retryCount > 0)
+            {
+                // Join a Coauthoring session with AllowFallbackToExclusive attribute set to false
+                CoauthSubRequestType coauthRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, false, null);
+                CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { coauthRequest });
+                subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site) != ErrorCodeType.Success)
+                {
+                    break;
+                }
+                 
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error should be returned when shared locking on file is not supported and AllowFallbackToExclusive attribute value set to false.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {

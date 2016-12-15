@@ -1431,11 +1431,32 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
 
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchemaJoinCoauth);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-            // Convert the current exclusive lock to a coauthoring shared lock when the coauthoring feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+            ExclusiveLockSubResponseType exclusiveResponse = null;
+
+            while (retryCount > 0)
+            {
+                ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchemaJoinCoauth);
+
+                // Convert the current exclusive lock to a coauthoring shared lock when the coauthoring feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
+                CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site) == ErrorCodeType.LockNotConvertedAsCoauthDisabled)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error LockNotConvertedAsCoauthDisabled should be returned if coauthoring feature is disabled.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -1968,11 +1989,32 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
 
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-            // Convert the current exclusive lock to a schema shared lock when the coauthoring  feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+            ExclusiveLockSubResponseType exclusiveResponse = null;
+
+            while (retryCount > 0)
+            {
+                ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
+
+                // Convert the current exclusive lock to a schema shared lock when the coauthoring  feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
+                CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site) == ErrorCodeType.LockNotConvertedAsCoauthDisabled)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error LockNotConvertedAsCoauthDisabled should be returned if feature of coauthoring is not completely supported.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {

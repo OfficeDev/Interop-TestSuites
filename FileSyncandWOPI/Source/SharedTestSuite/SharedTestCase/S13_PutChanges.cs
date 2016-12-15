@@ -420,7 +420,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // For Microsoft product, in this case the server still responses Referenceddataelementnotfound.
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                if (Common.IsRequirementEnabled("MS-FSSHTTPB", 51701, SharedContext.Current.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 51701, SharedContext.Current.Site))
                 {
                     Site.CaptureRequirementIfAreEqual<string>(
                         "referenceddataelementnotfound".ToLower(CultureInfo.CurrentCulture),

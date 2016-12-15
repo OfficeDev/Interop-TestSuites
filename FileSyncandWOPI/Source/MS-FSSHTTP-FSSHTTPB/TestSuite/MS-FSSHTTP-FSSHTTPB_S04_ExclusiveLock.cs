@@ -444,7 +444,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.GetLock);
 
             // Get the exclusive lock with nonexistent file URL and expect the server returns error code "LockRequestFail" or "Unknown".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site), new SubRequestType[] { subRequest });
+            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf('/')), new SubRequestType[] { subRequest });
             ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
 
             ErrorCodeType errorType = SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site);

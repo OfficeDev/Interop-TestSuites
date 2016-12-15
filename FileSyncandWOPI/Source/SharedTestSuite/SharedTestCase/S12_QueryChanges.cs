@@ -824,7 +824,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          2148,
                          @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): If set, a bit that specifies to include the Serial Numbers (section 2.2.1.9) of filtered out data elements in the response Knowledge (section 2.2.1.13).");
 
-                if (Common.IsRequirementEnabled("MS-FSSHTTPB", 4113, SharedContext.Current.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4113, SharedContext.Current.Site))
                 {
                     Site.CaptureRequirementIfIsTrue(
                              isVerified,
