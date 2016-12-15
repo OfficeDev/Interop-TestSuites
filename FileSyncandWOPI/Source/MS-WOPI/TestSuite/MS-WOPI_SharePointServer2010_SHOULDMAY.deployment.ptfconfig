@@ -41,5 +41,7 @@
     <Property name="R685012001Enabled_MS-WOPI" value="true" />
     <!-- Set R685003Enabled_MS-WOPI to true to verify that implementation include the X-WOPI-Lock header on 409 status responses to PutFile requests. Otherwise set the value to false to disable this requirement. -->
     <Property name="R685003Enabled_MS-WOPI" value="true" />
+    <!-- Set R776002002Enabled_MS-WOPI to true to verify that when the value of SupportsFileCreation is true, implementation does support creating new files using the WOPI client. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R776002002Enabled_MS-WOPI" value="false" />
   </Properties>
 </TestSite>
