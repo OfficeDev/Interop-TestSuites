@@ -1615,7 +1615,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             WebHeaderCollection commonHeaders = HeadersHelper.GetCommonHeaders(wopiTargetFileUrl);
 
             string identifierForLock = Guid.NewGuid().ToString("N");
-
             // Take a lock for editing a file.
             WopiAdapter.Lock(wopiTargetFileUrl, commonHeaders, identifierForLock);
 
@@ -1644,6 +1643,12 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               statusCode,
                               427,
                               @"[In Unlock] Status code ""409"" means ""Lock mismatch"".");
+
+                // Verify MS-WOPI requirement: MS-WOPI_R422003
+                this.Site.CaptureRequirementIfIsTrue(
+                                  string.IsNullOrEmpty(errorResponse.Headers.Get("X-WOPI-Lock")),
+                                  422003,
+                                  @"[In Unlock] This header [X-WOPI-Lock] MUST be included when responding with the 409 status code. ");
 
                 if (Common.IsRequirementEnabled("MS-WOPI", 422009001, this.Site))
                 {
