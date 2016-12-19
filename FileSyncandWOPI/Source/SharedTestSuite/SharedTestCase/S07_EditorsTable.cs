@@ -687,27 +687,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If the ErrorCode attribute returned equals "EditorMetadataQuotaReached", then MS-FSSHTTP_R1976,MS-FSSHTTP_R3035 and MS-FSSHTTP_R3031 can be captured.
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1976,
-                         @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1976, this.Site))
+                {
+                    // If the ErrorCode attribute returned equals "EditorMetadataQuotaReached", then MS-FSSHTTP_R1976,MS-FSSHTTP_R3035 and MS-FSSHTTP_R3031 can be captured.
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1976,
+                             @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
 
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         3035,
-                         @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the protocol client has already exceeded its quota for number of key/value pairs.");
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             3035,
+                             @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the protocol client has already exceeded its quota for number of key/value pairs.");
 
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         3031,
-                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             3031,
+                             @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                }
             }
             else
             {

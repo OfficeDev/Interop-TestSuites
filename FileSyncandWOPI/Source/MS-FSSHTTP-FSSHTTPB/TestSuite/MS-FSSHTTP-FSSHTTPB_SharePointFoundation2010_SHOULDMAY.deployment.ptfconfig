@@ -135,11 +135,13 @@
     <Property name="R9905101Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if D - Include Filtered Out Data Elements In Knowledge is not set, the Serial Numbers of filtered out data elements are not included in the response Knowledge. Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
     <Property name="R4113Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-       <!--Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Applied Storage Index Id field. Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R4126Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Applied Storage Index Id field. Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+    <Property name="R4126Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Elements Added field. Set R41268Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
     <Property name="R4128Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that PathNotFound will be returned when the file path is not found. Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-    <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>    
+    <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   </Properties>
 </TestSite>

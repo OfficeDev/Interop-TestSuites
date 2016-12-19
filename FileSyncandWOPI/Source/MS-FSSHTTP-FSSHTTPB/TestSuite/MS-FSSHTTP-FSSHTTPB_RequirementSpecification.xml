@@ -13676,7 +13676,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirements: MS-FSSHTTP_R3086, MS-FSSHTTP_R3087.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirements: MS-FSSHTTP_R3086.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R791</ns1:REQ_ID>
@@ -13686,7 +13686,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3086, MS-FSSHTTP_R3087.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3086.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11200</ns1:REQ_ID>
@@ -22524,21 +22524,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R3087</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If claims-based authentication mode isn't enabled, the implementation does return the UserLogin attribute which apply the following schema:
-&lt;xs:simpleType name="UserLoginType"&gt;
-   &lt;xs:restriction base="xs:string"&gt;
-      &lt;xs:pattern value="^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*"/&gt;
-   &lt;/xs:restriction&gt;
-&lt;/xs:simpleType&gt;</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R791:i,MS-FSSHTTP_R1345:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11269</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] &lt;28&gt; Section 2.3.2.6: For example: " i:0#.w|contoso\user01".</ns1:Description>
@@ -23086,6 +23071,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2052</ns1:REQ_ID>
@@ -27451,7 +27437,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R385</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.13.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Content Tag Knowledge Entry] Content Tag Entry Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry.</ns1:Description>
+		<ns1:Description>[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32959,7 +32945,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R99108</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013.</ns1:Description>
+		<ns1:Description>[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013 and SharePoint Server 2016.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

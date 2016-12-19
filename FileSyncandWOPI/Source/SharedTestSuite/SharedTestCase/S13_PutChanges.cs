@@ -998,7 +998,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          99108,
-                         @"[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013.");
+                         @"[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013 and SharePoint Server 2016.");
             }
             else
             {

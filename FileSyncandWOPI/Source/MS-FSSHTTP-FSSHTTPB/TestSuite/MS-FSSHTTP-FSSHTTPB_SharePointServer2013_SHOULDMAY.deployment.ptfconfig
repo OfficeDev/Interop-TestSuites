@@ -144,7 +144,9 @@
   <Property name="R4126Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Elements Added field. Set R41268Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
   <Property name="R4128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that PathNotFound will be returned when the file path is not found. Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-   <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that PathNotFound will be returned when the file path is not found. Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>
