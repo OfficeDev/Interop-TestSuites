@@ -48,15 +48,63 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
             {
                 // Enable the windows-based authentication
-                bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchClaimsAuthentication(false); 
+                bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchClaimsAuthentication(false);
                 this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The windows-based authentication should be enabled successfully.");
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
 
-            // Create a WhoAmI subRequest with all valid parameters
-            WhoAmISubRequestType subRequest = SharedTestSuiteHelper.CreateWhoAmISubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            WhoAmISubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            WhoAmISubRequestType subRequest = null;
+            CellStorageResponse response = null;
+            WhoAmISubResponseType subResponse = null;
+
+            while (retryCount > 0)
+            {
+                // Create a WhoAmI subRequest with all valid parameters
+                subRequest = SharedTestSuiteHelper.CreateWhoAmISubRequest(SequenceNumberGenerator.GetCurrentToken());
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "WhoAmI subRequest should be succeed.");
+
+                Regex regex = new Regex(@"^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*");
+                if (regex.IsMatch(subResponse.SubResponseData.UserLogin))
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Additional authentication prefix should not exist in UserLogin if claim-based authentication mode is enabled");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3087
+                Regex regex = new Regex(@"^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*");
+                bool isVerifiedR3087 = regex.IsMatch(subResponse.SubResponseData.UserLogin);
+
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    @"The UserLoginType will match pattern ^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*, actually its value is {0}",
+                    subResponse.SubResponseData.UserLogin);
+
+                this.Site.CaptureRequirementIfIsTrue(
+                              isVerifiedR3087,
+                              "MS-FSSHTTP",
+                              3087,
+                              @"[In Appendix B: Product Behavior] If claims-based authentication mode isn't enabled, the implementation does return the UserLogin attribute which apply the following schema:
+                              <xs:simpleType name=""UserLoginType"">
+                                 <xs:restriction base=""xs:string"">
+                                    <xs:pattern value=""^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*""/>
+                                 </xs:restriction>
+                              </xs:simpleType>");
+            }
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3086
             if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
@@ -65,12 +113,34 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchClaimsAuthentication(true);
                 this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The claims-based authentication should be enabled successfully.");
 
-                // Send the WhoAmI subRequest to the protocol server
-                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-                subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-                Regex r2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
-                Match m = r2.Match(subResponse.SubResponseData.UserLogin);
+                while (retryCount > 0)
+                {
+                    // Send the WhoAmI subRequest to the protocol server
+                    response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                    subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                    Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "WhoAmI subRequest should be succeed.");
+
+                    Regex r2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
+                    Match match = r2.Match(subResponse.SubResponseData.UserLogin);
+                    if (r2.IsMatch(subResponse.SubResponseData.UserLogin) && match.Success && match.Index > 0)
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    if (retryCount == 0)
+                    {
+                        Site.Assert.Fail("Additional authentication prefix should not exist in UserLogin if claim-based authentication mode is enabled");
+                    }
+
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Regex regex2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
+                Match m = regex2.Match(subResponse.SubResponseData.UserLogin);
 
                 if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                 {
