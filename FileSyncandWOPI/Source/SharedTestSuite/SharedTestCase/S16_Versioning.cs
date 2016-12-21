@@ -81,12 +81,26 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     11146,
                     @"[In VersioningSubResponseDataType] The UserTable element MUST be included in the response if the SubResponseType of the parent VersioningSubResponseType is of type ""GetVersionList.""");
 
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11053
+                Site.CaptureRequirementIfIsNotNull(
+                    versioningSubResponse.SubResponseData.UserTable,
+                    "MS-FSSHTTP",
+                    11053,
+                    @"[In SubResponseDataGenericType] The UserTable element MUST be included in the response if the SubResponseType of the parent VersioningSubResponseType is of type ""GetVersionList.""");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11148
                 Site.CaptureRequirementIfIsNotNull(
                     versioningSubResponse.SubResponseData.Versions,
                     "MS-FSSHTTP",
                     11148,
                     @"[In VersioningSubResponseDataType] The Versions element MUST be included in the response if the SubResponseType of the parent VersioningSubResponseType is of type ""GetVersionList.""");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11055
+                Site.CaptureRequirementIfIsNotNull(
+                    versioningSubResponse.SubResponseData.Versions,
+                    "MS-FSSHTTP",
+                    11055,
+                    @"[In SubResponseDataGenericType] The Versions element MUST be included in the response if the SubResponseType of the parent VersioningSubResponseType is of type ""GetVersionList.""");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11150
                 // This requirement can be captured directly after capturing MS-FSSHTTP_R11146 and MS-FSSHTTP_R11148

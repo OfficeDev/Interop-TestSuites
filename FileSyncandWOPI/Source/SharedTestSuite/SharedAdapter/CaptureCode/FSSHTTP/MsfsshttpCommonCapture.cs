@@ -953,6 +953,24 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          @"[In SubResponseDataOptionalAttributes] ServerTime: A positive integer that specifies the server time, which is expressed as a tick count.");
             }
 
+            if (subResponseData.DocProps != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11050
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         11050,
+                         @"[In SubResponseDataGenericType] DocProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the server file.");
+            }
+
+            if (subResponseData.FolderProps != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11051
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         11051,
+                         @"[In SubResponseDataGenericType] FolderProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the parent directory of the server file.");
+            }
+
             if (subResponseData.LockTypeSpecified)
             {
                 // Verify LockTypes
