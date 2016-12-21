@@ -614,6 +614,111 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             "MS-FSSHTTP",
                             2053,
                             @"[In Appendix B: Product Behavior]  Implementation does represent the editors table as a compressed XML fragment. (<50> Section 3.1.4.8: On servers running Office 2013, the editors table is represented as a compressed XML fragment.)");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4061
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4061,
+                             @"[In Query Changes to Editors Table Partition] If the Partition Id GUID of the Target Partition Id of the sub-request (section 2.2.2.1.1) of the associated QueryChangesRequest is the value of the Guid ""7808F4DD - 2385 - 49d6 - B7CE - 37ACA5E43602"", the protocol server will interpret the QueryChangesRequest as a download of the editors table specified in [MS-FSSHTTP] section 3.1.4.8.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4063
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4063,
+                             @"[In Query Changes to Editors Table Partition] The protocol server MUST return the editors table in the associated data element collection using the following process:
+                           Construct a byte array representation of the editors table using UTF-8 encoding.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4064
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4064,
+                             @"[In Query Changes to Editors Table Partition] [The protocol server MUST return the editors table in the associated data element collection using the following process:] Compress the byte array using the DEFLATE compression algorithm.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4065
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4065,
+                             @"[In Query Changes to Editors Table Partition] [The protocol server MUST return the editors table in the associated data element collection using the following process:] Prepend the compressed byte array with the Editors Table Zip Stream Header (section 2.2.3.1.2.1.1).");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4066
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4066,
+                             @"[In Query Changes to Editors Table Partition] [The protocol server MUST return the editors table in the associated data element collection using the following process:] Treat the byte array as a file stream and chunk it using the schema described in [MS-FSSHTTPD]. ");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4067
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4067,
+                             @"[In Query Changes to Editors Table Partition] [The protocol server MUST return the editors table in the associated data element collection using the following process:] Sync the resulting cell using this protocol as you would any other cell.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4068
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4068,
+                             @"[In Editors Table Zip Stream Header] A header that is prepended to the compressed EditorsTable byte array.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4069
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4069,
+                             @"[In Editors Table Zip Stream Header] This header is an array of eight bytes.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4070
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4070,
+                             @"[In Editors Table Zip Stream Header] The value and order of these bytes MUST be as follows: 0x1A, 0x5A, 0x3A, 0x30, 0x00, 0x00, 0x00, 0x00.");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4072
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4072,
+                             @" [In EditorsTable] [EditorsTable schema is:]
+                             <xs:element name=""EditorsTable"">
+                                < xs:complexType >
+                                  < xs:sequence >
+                                    < xs:element ref= ""tns:EditorElement"" name = ""Editor"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+                                  </ xs:sequence >
+                                </ xs:complexType >
+                              </ xs:element > ");
+
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4074
+                    // If can fetch the editors table, then the following requirement can be directly captured.
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTPB",
+                             4074,
+                             @"[In EditorElement] [EditorElement schema is:] 
+                             <xs:element name=""EditorElement"">
+                                < xs:complexType >
+                                  < xs:sequence >
+                                    < xs:element name = ""CacheID"" minOccurs = ""1"" maxOccurs = ""1"" type = ""xs:string"" />
+                                    < xs:element name = ""FriendlyName"" minOccurs = ""0"" maxOccurs = ""1"" type = "" type=""tns: UserNameType"" />
+                                    < xs:element name = ""LoginName"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:UserLoginType"" />
+                                    < xs:element name = ""SIPAddress"" minOccurs = ""0"" maxOccurs = ""1"" type = ""xs:string"" />
+                                    < xs:element name = ""EmailAddress"" minOccurs = ""0"" maxOccurs = ""1"" type = ""xs:string"" />
+                                    < xs:element name = ""HasEditorPermission"" minOccurs = ""0"" maxOccurs = ""1"" type = ""xs:boolean"" />
+                                    < xs:element name = ""Timeout"" minOccurs = ""1"" maxOccurs = ""1"" type = ""xs:positiveInteger"" />
+                                    < xs:element name = ""Metadata"" minOccurs = ""0"" maxOccurs = ""1"" >
+                                      < xs:complexType >
+                                        < xs:sequence >
+                                          < xs:any minOccurs = ""0"" maxOccurs = ""unbounded"" type = ""xs:binary"" />
+                                        </ xs:sequence >
+                                      </ xs:complexType >
+                                    </ xs:element >
+                                  </ xs:sequence >
+                                </ xs:complexType >
+                              </ xs:element > ");
                 }
 
                 return editorsTable;
