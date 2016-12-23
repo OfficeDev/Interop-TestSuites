@@ -87,6 +87,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         Unknown,
 
+        /// <summary>
+        /// Indicating the version number does not match a version of the file.
+        /// </summary>
+        VersionNotFound,
         #endregion
 
         #region CellRequestErrorCodeTypes

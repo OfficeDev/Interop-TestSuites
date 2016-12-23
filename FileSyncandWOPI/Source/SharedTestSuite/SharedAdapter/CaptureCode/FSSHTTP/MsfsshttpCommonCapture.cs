@@ -435,6 +435,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         break;
                     }
 
+                case ErrorCodeType.VersionNotFound:
+                    break;
+
                 default:
                     site.Assert.Fail(string.Format("Unknown ErrorCodeType: {0}", errorCode.ToString()));
                     break;

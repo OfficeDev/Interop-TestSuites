@@ -380,7 +380,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             if (versioningRequestType == VersioningRequestTypes.RestoreVersion)
             {
                 site.Assert.IsTrue(!string.IsNullOrEmpty(versionNumber), "VersionNumber MUST be specified when the versioning subrequest has a VersioningSubRequestType attribute set to RestoreVersion.");
-                versioningSubRequest.SubRequestData.VersionNumber = versionNumber;
+                versioningSubRequest.SubRequestData.Version = versionNumber;
             }
 
             return versioningSubRequest;

@@ -16,6 +16,18 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidateVersioningSubResponse(VersioningSubResponseType versioningSubResponse, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11236
+            site.CaptureRequirement(
+                "MS-FSSHTTP",
+                11236,
+                @"[In Versioning Subrequest] The protocol server responds with a versioning SubResponse message, which is of type VersioningSubResponseType as specified in section 2.3.1.39.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11242
+            site.CaptureRequirement(
+                "MS-FSSHTTP",
+                11242,
+                @"[In Versioning Subrequest] The VersioningSubResponseDataType defines the type of the SubResponseData element inside the versioning SubResponse element.");
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11154
             site.CaptureRequirement(
                 "MS-FSSHTTP",

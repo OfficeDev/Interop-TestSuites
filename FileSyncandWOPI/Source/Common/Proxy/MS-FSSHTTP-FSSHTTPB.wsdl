@@ -86,10 +86,16 @@
 
       <!--******************************************************************************************-->
 
+      <xs:simpleType name="VersioningRelatedErrorCodeTypes">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="VersionNotFound"/>
+        </xs:restriction>
+      </xs:simpleType>
+      
       <!--definition of simple types-->
       <xs:simpleType name="ErrorCodeTypes">
         <xs:union memberTypes="tns:GenericErrorCodeTypes 
-      tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes"/>
+	      tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes tns:VersioningRelatedErrorCodeTypes" />
       </xs:simpleType>
 
       <xs:simpleType name="GenericErrorCodeTypes">
@@ -541,6 +547,8 @@
           <xs:attribute name="HealthScore" type="xs:integer" use="required"/>
           <xs:attribute name="ErrorCode" type="tns:GenericErrorCodeTypes" use="optional" />
           <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
+          <xs:attribute name="SuggestedFileName" type="xs:string" use="optional" />
+          <xs:attribute name="ResourceID" type="xs:string" use="optional"/>
         </xs:complexType>
       </xs:element>
 

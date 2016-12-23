@@ -143,7 +143,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool versioningRequestTypeFieldSpecified;
 
-        private string versionNumberField;
+        private string versionField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -175,15 +175,15 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string VersionNumber
+        public string Version
         {
             get
             {
-                return this.versionNumberField;
+                return this.versionField;
             }
             set
             {
-                this.versionNumberField = value;
+                this.versionField = value;
             }
         }
     }
@@ -382,7 +382,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string newFileNameField;
 
-        private string versionNumberField;
+        private string versionField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Include", Namespace = "http://www.w3.org/2004/08/xop/include")]
@@ -988,15 +988,15 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string VersionNumber
+        public string Version
         {
             get
             {
-                return this.versionNumberField;
+                return this.versionField;
             }
             set
             {
-                this.versionNumberField = value;
+                this.versionField = value;
             }
         }
     }
