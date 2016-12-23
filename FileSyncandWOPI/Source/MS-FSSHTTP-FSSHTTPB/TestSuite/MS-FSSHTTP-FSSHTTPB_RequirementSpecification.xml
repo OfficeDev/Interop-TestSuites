@@ -21897,7 +21897,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11254</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2</ns1:Doc_Sect>
-		<ns1:Description>[In Restore Version] If the VersioningRequestType attribute is set to "RestoreVersion", the protocol server considers the versioning subrequest to be of type ‘Restore Version". </ns1:Description>
+		<ns1:Description>[In Restore Version] If the VersioningRequestType attribute is set to "RestoreVersion", the protocol server considers the versioning subrequest to be of type "Restore Version". </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21915,7 +21915,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11.2</ns1:Doc_Sect>
-		<ns1:Description>[In Restore Version] If the VersionNumber attribute specifies a version that doesn’t exist, the protocol server returns an error status set to "VersionNotFound".</ns1:Description>
+		<ns1:Description>[In Restore Version] If the VersionNumber attribute specifies a version that doesn't exist, the protocol server returns an error status set to "VersionNotFound".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
