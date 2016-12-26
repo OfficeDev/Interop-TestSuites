@@ -378,6 +378,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     "MS-FSSHTTP",
                     11256,
                     @"[In Restore Version] If the VersionNumber attribute specifies a version that doesn't exist, the protocol server returns an error status set to ""VersionNotFound"".");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11083
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                    ErrorCodeType.VersionNotFound,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
+                    "MS-FSSHTTP",
+                    11083,
+                    @"[In VersioningRelatedErrorCodeTypes] The value ""VersionNotFound"" indicates that the version number specified by the protocol client doesn’t match a version of the file on the protocol server.");
             }
             else
             {
@@ -386,6 +394,123 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
                     @"Error VersionNotFound should be returned if restore version with not found version.");
             }
+        }
+
+        /// <summary>
+        /// A method used to verify that FileVersionEventDataType with type 3 indicates a user restored the file content to its state at a previous version.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S16_TC06_FileVersionEventDataType_Restore()
+        {
+            string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
+            if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
+            {
+                this.Site.Assert.Fail("Cannot enable the version on the document library {0}", documentLibraryName);
+            }
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Check out one file by a specified user name.
+            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            {
+                this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
+            }
+
+            this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
+            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            {
+                this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
+            }
+
+            this.StatusManager.CancelRecordCheckOut(this.DefaultFileUrl);
+
+            VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.RestoreVersion, "1.0", this.Site);
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { versioningSubRequest });
+            VersioningSubResponseType versioningSubResponse = SharedTestSuiteHelper.ExtractSubResponse<VersioningSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
+                "Restore file version should succeed.");
+
+            GetDocMetaInfoSubRequestType getDocMetaInfoSubRequest = SharedTestSuiteHelper.CreateGetDocMetaInfoSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { getDocMetaInfoSubRequest });
+            GetDocMetaInfoSubResponseType getDocMetaInfoSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetDocMetaInfoSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getDocMetaInfoSubResponse.ErrorCode, this.Site),
+                "Get doc meta info should succeed.");
+
+            versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
+            cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { versioningSubRequest });
+            versioningSubResponse = SharedTestSuiteHelper.ExtractSubResponse<VersioningSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
+                "Get version list should succeed.");
+            this.Site.Assert.AreEqual<int>(
+                3,
+                versioningSubResponse.SubResponseData.Versions.Version.Length,
+                "There should be 3 version numbers.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11190
+            Site.CaptureRequirementIfAreEqual<string>(
+                "3",
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].Type,
+                "MS-FSSHTTP",
+                11190,
+                @"[In FileVersionEventDataType] 3 means A user restored the file content to its state at a previous version.");
+
+            GetDocMetaInfoPropertyType lastModifiedProperty = null;
+            foreach (GetDocMetaInfoPropertyType property in getDocMetaInfoSubResponse.SubResponseData.DocProps.Property)
+            {
+                if (property.Key.ToLower().Contains("timelastmodified"))
+                {
+                    lastModifiedProperty = property;
+                }
+            }
+
+            Site.Assert.IsNotNull(lastModifiedProperty, "Property for last modified time should be found.");
+
+            System.DateTime time = Convert.ToDateTime(lastModifiedProperty.Value);
+
+            long createTime = long.Parse(versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].CreateTime);
+            bool isR11193Verified = ((System.Math.Round((double)createTime / 10000000)) == (time - new System.DateTime(1601, 1, 1, 0, 0, 0)).TotalSeconds);
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11193
+            Site.CaptureRequirementIfIsTrue(
+                isR11193Verified,
+                "MS-FSSHTTP",
+                11193,
+                @"[In FileVersionEventDataType] CreateTime specifies the number of 100-nanosecond intervals that have elapsed since 00:00:00 on January 1, 1601, which MUST be Coordinated Universal Time (UTC).");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11192
+            Site.CaptureRequirementIfIsTrue(
+                isR11193Verified,
+                "MS-FSSHTTP",
+                11192,
+                @"[In FileVersionEventDataType] A single tick represents 100 nanoseconds, or one ten-millionth of a second.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11194
+            Site.CaptureRequirementIfAreEqual<string>(
+                versioningSubResponse.SubResponseData.UserTable.User[0].UserId,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].UserId,
+                "MS-FSSHTTP",
+                11194,
+                @"[In FileVersionEventDataType] UserId: An integer which specifies which user performed this event.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11195
+            Site.CaptureRequirementIfAreEqual<string>(
+                versioningSubResponse.SubResponseData.UserTable.User[0].UserId,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].UserId,
+                "MS-FSSHTTP",
+                11195,
+                @"[In FileVersionEventDataType] The UserId MUST match the UserId attribute of a UserDataType (section 2.3.1.42) described in the VersioningUserTableType in the current VersioningSubResponseDataType.");
         }
         #endregion
     }

@@ -16,6 +16,27 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidateVersioningSubResponse(VersioningSubResponseType versioningSubResponse, ITestSite site)
         {
+            ErrorCodeType errorCode = (ErrorCodeType)Enum.Parse(typeof(ErrorCodeType), versioningSubResponse.ErrorCode);
+            if (errorCode == ErrorCodeType.VersionNotFound)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11081
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11081,
+                    @"[In VersioningRelatedErrorCodeTypes] [The schema of VersioningRelatedErrorCodeTypes is:]
+                     <xs:simpleType name=""VersioningRelatedErrorCodeTypes"">
+                        < xs:restriction base = ""xs:string"" >
+                           < xs:enumeration value = ""VersionNotFound"" />
+                        </ xs:restriction >
+                     </ xs:simpleType > ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11082
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11082,
+                    @"[In VersioningRelatedErrorCodeTypes] The value of VersioningRelatedErrorCodeTypes MUST be one of value [VersionNotFound] in the following table.");
+            }
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11236
             site.CaptureRequirement(
                 "MS-FSSHTTP",
@@ -160,29 +181,108 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateVersioningVersionListType(VersioningVersionListType versionList, ITestSite site)
         {
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11162
-            site.CaptureRequirement(
-                "MS-FSSHTTP",
-                11162,
-                @"[In VersioningVersionListType] Version: An element of type FileVersionDataType (section 2.3.1.43) which describes a single version of the file on the server.");
+            if (versionList.Version != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11162
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11162,
+                    @"[In VersioningVersionListType] Version: An element of type FileVersionDataType (section 2.3.1.43) which describes a single version of the file on the server.");
+            }
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11176
-            site.CaptureRequirement(
-                "MS-FSSHTTP",
-                11176,
-                @"[In FileVersionDataType] Number: A FileVersionNumberType (section 2.2.5.15) that specifies the unique version number of the version of the file.");
+            if (!string.IsNullOrEmpty(versionList.Version[0].Number))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11176
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11176,
+                    @"[In FileVersionDataType] Number: A FileVersionNumberType (section 2.2.5.15) that specifies the unique version number of the version of the file.");
+            }
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11177
-            site.CaptureRequirement(
+            if (!string.IsNullOrEmpty(versionList.Version[0].LastModifiedTime))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11177
+                site.CaptureRequirement(
                 "MS-FSSHTTP",
                 11177,
                 @"[In FileVersionDataType] LastModifiedTime: A positive integer that specifies the last modified time of the version of the file, which is expressed as a tick count.");
+            }
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11182
-            site.CaptureRequirement(
+            if (versionList.Version[0].Events != null && versionList.Version[0].Events.Event != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11182
+                site.CaptureRequirement(
                 "MS-FSSHTTP",
                 11182,
                 @"[In FileVersionDataType] Event: A FileVersionEventDataType that represents an event that happened to the version of the file.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11184
+                site.CaptureRequirement(
+                "MS-FSSHTTP",
+                11184,
+                @"[In FileVersionEventDataType] 
+                 <xs:complexType name=""FileVersionEventDataType"">
+                    < s:attribute name = ""Id"" type = ""xs:integer"" use = ""required"" />
+                    < s:attribute name = ""Type"" type = ""xs:integer"" use = ""required"" />
+                    < s:attribute name = ""CreateTime"" type = ""xs:positiveInteger"" use = ""optional"" />
+                    < s:attribute name = ""UserId"" type = ""xs:integer"" use = ""optional"" />
+                 </ xs:complexType > ");
+
+                System.Collections.Generic.List<string> ids = new System.Collections.Generic.List<string>();
+
+                bool isR11185Verified = true;
+                foreach (FileVersionDataType version in versionList.Version)
+                {
+                    if (version.Events != null)
+                    {
+                        foreach (FileVersionEventDataType eventData in version.Events.Event)
+                        {
+                            if (!ids.Contains(eventData.Id))
+                            {
+                                ids.Add(eventData.Id);
+                            }
+                            else
+                            {
+                                isR11185Verified = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11185
+                site.CaptureRequirementIfIsTrue(
+                    isR11185Verified,
+                    "MS-FSSHTTP",
+                    11185,
+                    @"[In FileVersionEventDataType] Id: An integer that uniquely identifies an event among all events to all versions of the file.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11186
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11186,
+                    @"[In FileVersionEventDataType] Type: An integer that identifies the type of event that occurred to the file.");
+
+                foreach (FileVersionDataType version in versionList.Version)
+                {
+                    if (version.Events != null)
+                    {
+                        foreach (FileVersionEventDataType eventData in version.Events.Event)
+                        {
+                            bool isR11187Verified = versionList.Version[0].Events.Event[0].Type.Equals("1", StringComparison.CurrentCultureIgnoreCase)
+                                || versionList.Version[0].Events.Event[0].Type.Equals("2", StringComparison.CurrentCultureIgnoreCase)
+                                || versionList.Version[0].Events.Event[0].Type.Equals("3", StringComparison.CurrentCultureIgnoreCase);
+
+                            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11187
+                            site.CaptureRequirementIfIsTrue(
+                                isR11187Verified,
+                                "MS-FSSHTTP",
+                                11187,
+                                @"[In FileVersionEventDataType] The value MUST be one of the values [1, 2, 3] in the following table.");
+                        }
+                    }
+                }
+            }
         }
     }
 }

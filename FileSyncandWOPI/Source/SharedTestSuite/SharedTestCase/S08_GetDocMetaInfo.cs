@@ -93,6 +93,20 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          9003,
                          @"[In Appendix B: Product Behavior] Implementation does support GetDocMetaInfo operation. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11050
+                Site.CaptureRequirementIfIsNotNull(
+                         getDocMetaInfoSubResponse.SubResponseData.DocProps,
+                         "MS-FSSHTTP",
+                         11050,
+                         @"[In SubResponseDataGenericType] DocProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the server file.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11051
+                Site.CaptureRequirementIfIsNotNull(
+                         getDocMetaInfoSubResponse.SubResponseData.FolderProps,
+                         "MS-FSSHTTP",
+                         11051,
+                         @"[In SubResponseDataGenericType] FolderProps: An element of type GetDocMetaInfoPropertySetType (section 2.3.1.28) that specifies metadata properties pertaining to the parent directory of the server file.");
             }
             else
             {

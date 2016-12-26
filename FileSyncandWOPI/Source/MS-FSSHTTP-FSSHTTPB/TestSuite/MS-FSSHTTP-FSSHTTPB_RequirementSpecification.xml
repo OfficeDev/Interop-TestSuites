@@ -5605,7 +5605,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R361</ns1:REQ_ID>
@@ -12949,7 +12949,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
     &lt;s:attribute name="Id" type="xs:integer" use="required" /&gt;
     &lt;s:attribute name="Type" type="xs:integer" use="required" /&gt;
     &lt;s:attribute name="CreateTime" type="xs:positiveInteger" use="optional" /&gt;
-    &lt;s:attribute name="UserId" type="xs:integer" use="optional /&gt;
+    &lt;s:attribute name="UserId" type="xs:integer" use="optional" /&gt;
  &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -13026,7 +13026,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11193</ns1:REQ_ID>
