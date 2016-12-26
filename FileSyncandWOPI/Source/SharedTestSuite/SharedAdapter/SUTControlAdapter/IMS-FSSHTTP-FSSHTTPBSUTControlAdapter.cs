@@ -98,7 +98,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Add a file into the specified Document Library list on the SUT.
         /// </summary>
-        /// <param name="documentLibraryName">The name of the Document Library list where the file will be added.</param>
+        /// <param name="documentLibraryUrl">The url of the Document Library list where the file will be added.</param>
         /// <param name="fileName">The name of the file.</param>
         /// <returns>A return value represents the absolute URL of the file on the specified Document library list if succeed, otherwise return null.</returns>
         [MethodHelp("Add a file (fileName) with any content into the document library (documentLibraryUrl). If the operation succeeds, enter true; otherwise, enter false.")]
