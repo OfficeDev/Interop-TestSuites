@@ -450,15 +450,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-ValidRelativeTarget")
-                {
-                    //Verify MS-WOPI requirement: MS-WOPI_R370005
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        370005,
-                        @"[In PutRelativeFile] X-WOPI-ValidRelativeTarget is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
                 {
                     //Verify MS-WOPI requirement: MS-WOPI_R370008
@@ -508,15 +499,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R401003
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        401003,
-                        @"[In Lock] X-WOPI-Lock is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
                 {
                     // Verify MS-WOPI requirement: MS-WOPI_R401008
@@ -654,15 +636,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R685005
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        685005,
-                        @"[In PutFile] X-WOPI-Lock is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
                 {
                     // Verify MS-WOPI requirement: MS-WOPI_R685010
@@ -702,15 +675,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R460005
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        460005,
-                        @"[In UnlockAndRelock] X-WOPI-Lock is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
                 {
                     // Verify MS-WOPI requirement: MS-WOPI_R460010
