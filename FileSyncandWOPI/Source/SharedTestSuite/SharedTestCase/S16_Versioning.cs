@@ -387,67 +387,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     @"Error VersionNotFound should be returned if restore version with not found version.");
             }
         }
-
-        /// <summary>
-        /// A method used to verify that if versioning is not enabled for the document on the protocol server, only the current version is returned.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC06_Versioning_GetVersionList_VersioningDisabled()
-        {
-            // Initialize the service
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
-            {
-                this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
-            }
-
-            this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
-            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
-            {
-                this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
-            }
-
-            this.StatusManager.CancelRecordCheckOut(this.DefaultFileUrl);
-
-            string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
-            if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, false))
-            {
-                this.Site.Assert.Fail("Cannot disable the version on the document library {0}", documentLibraryName);
-            }
-
-            VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { versioningSubRequest });
-            VersioningSubResponseType versioningSubResponse = SharedTestSuiteHelper.ExtractSubResponse<VersioningSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site), "Get version list should succeed.");
-
-            bool isR11252Verified = versioningSubResponse.SubResponseData.Versions.Version.Length == 1
-                && versioningSubResponse.SubResponseData.Versions.Version[0].Number == "@2.0";
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11252
-                Site.CaptureRequirementIfIsTrue(
-                    isR11252Verified,
-                    "MS-FSSHTTP",
-                    11252,
-                    @"[In Get Version List] If versioning is not enabled for the document on the protocol server, only the current version is returned.");
-            }
-            else
-            {
-                Site.Assert.IsTrue(
-                    isR11252Verified,
-                    @"If versioning is not enabled for the document on protocol server, only the current version should be returned.");
-            }
-
-            if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
-            {
-                this.Site.Assert.Fail("Cannot enable the version on the document library {0}", documentLibraryName);
-            }
-        }
         #endregion
     }
 }
