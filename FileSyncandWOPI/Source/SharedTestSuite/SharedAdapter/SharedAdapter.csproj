@@ -134,6 +134,7 @@
   <ItemGroup>
     <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbDataElementCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbNodeObjectCapture.cs" />
+    <None Include="SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
     <None Include="SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
     <None Include="SUTControlAdapter\Implementation\CheckInFile.ps1" />
     <None Include="SUTControlAdapter\Implementation\CheckOutFile.ps1" />

@@ -2,27 +2,28 @@
 <TestSettings name="MS-FSSHTTP-FSSHTTPB" id="58407007-15ad-4ee0-bf2e-b91403753431" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-FSSHTTP-FSSHTTPB test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_RequirementSpecification.xml" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SetMaxNumOfCoauthUsers.ps1" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\CheckOutFile.ps1" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCoauthoringFeature.ps1" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchMajorVersioning.ps1" />
-    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
-    <DeploymentItem filename="..\Common\Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
-    <DeploymentItem filename="..\Common\FssWopiCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
-    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\CheckInFile.ps1" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\CheckOutFile.ps1" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCoauthoringFeature.ps1" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB.runsettings" />
+    <DeploymentItem filename="..\Common\FssWopiCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SetMaxNumOfCoauthUsers.ps1" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
+    <DeploymentItem filename="..\Common\Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchMajorVersioning.ps1" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
+    <DeploymentItem filename="D:\Work\Github\Interop-TestSuites2\FileSyncandWOPI\Source\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -45,4 +46,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
