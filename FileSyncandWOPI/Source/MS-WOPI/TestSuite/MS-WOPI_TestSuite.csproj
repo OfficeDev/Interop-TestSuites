@@ -86,6 +86,9 @@
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\S16_Versioning.cs">
       <Link>ReferenceSharedTestCase\S16_Versioning.cs</Link>
     </Compile>
+    <Compile Include="..\..\SharedTestSuite\SharedTestCase\S17_FileOperation.cs">
+      <Link>ReferenceSharedTestCase\S17_FileOperation.cs</Link>
+    </Compile>
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\SharedTestSuiteBase.cs">
       <Link>ReferenceSharedTestCase\SharedTestSuiteBase.cs</Link>
     </Compile>

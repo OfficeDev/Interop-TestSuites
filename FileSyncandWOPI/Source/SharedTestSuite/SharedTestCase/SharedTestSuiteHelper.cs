@@ -386,6 +386,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             return versioningSubRequest;
         }
 
+        /// <summary>
+        /// A method used to create a FileOperationSubRequestType object and initialize it.
+        /// </summary>
+        /// <param name="fileOperationRequestType">FileOperation request types</param>
+        /// <param name="newName">A string that specifies a new name for the file on the server.</param>
+        /// <param name="exclusiveLock">A string that serves as a unique identifier for the exclusive lock on the file at the time the file operation request is executed</param>
+        /// <param name="site">A parameter represents the instance of ITestSite.</param>
+        /// <returns>A return value represents the VersioningSubRequest object.</returns>
         public static FileOperationSubRequestType CreateFileOperationSubRequest(FileOperationRequestTypes fileOperationRequestType, string newName, string exclusiveLock, ITestSite site)
         {
             FileOperationSubRequestType fileOperationSubRequest = new FileOperationSubRequestType();
@@ -397,7 +405,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (fileOperationRequestType == FileOperationRequestTypes.Rename)
             {
-                site.Assert.IsTrue(!string.IsNullOrEmpty(newName), "VersionNumber MUST be specified when the versioning subrequest has a VersioningSubRequestType attribute set to RestoreVersion.");
+                site.Assert.IsTrue(!string.IsNullOrEmpty(newName), "FileOperation MUST be specified when the fileOperation subrequest has a FileOperationSubRequestType attribute set to Rename.");
                 fileOperationSubRequest.SubRequestData.NewFileName = newName;
             }
 

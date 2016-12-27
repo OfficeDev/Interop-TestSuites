@@ -478,10 +478,6 @@
 
       <xs:complexType name="FileOperationSubResponseDataType">
         <xs:sequence minOccurs="0" maxOccurs="1">
-          <!--<xs:sequence minOccurs="0" maxOccurs="1">
-            <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
-          </xs:sequence>
-          <xs:element name="Versions" type="tns:VersioningVersionListType"/>-->
         </xs:sequence>
       </xs:complexType>
      
