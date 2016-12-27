@@ -119,6 +119,7 @@
     <Compile Include="MS-WOPI_S19_FileContentLevelItems.cs" />
     <Compile Include="MS-WOPI_S21_Versioning.cs" />
     <Compile Include="MS-WOPI_S20_FolderChildrenLevelItems.cs" />
+    <Compile Include="MS-WOPI_S22_FileOperation.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSuiteHelper.cs" />

@@ -12098,7 +12098,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267, MS-FSSHTTP_R11268.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11102</ns1:REQ_ID>
@@ -22505,12 +22505,10 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R11268</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse.&lt;27&gt; Section 2.3.1.33:  In SharePoint Server 2013, if the FileOperationRequestType attributes is not provided, a "HighLevelExceptionThrown" error code MUST be returned as part of the SubResponseData element associated with the file operation subresponse.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3086</ns1:REQ_ID>

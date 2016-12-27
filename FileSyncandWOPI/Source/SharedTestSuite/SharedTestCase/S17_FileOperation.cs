@@ -7,7 +7,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with FileOperation operation.
+    /// A class which contains test cases used to capture the requirements related with GetVersions operation.
     /// </summary>
     [TestClass]
     public abstract class S17_FileOperation : SharedTestSuiteBase
@@ -163,13 +163,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });
 
+            FileOperationSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site);
+
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11267, this.Site))
                 {
-                    FileOperationSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-                    ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site);
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
                     Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
@@ -193,26 +194,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             else
             {
-                FileOperationSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-                ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site);
-
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.InvalidArgument,
                     errorCode,
                     "MS-FSSHTTP",
                     11267,
                     @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
-            }
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11268, this.Site))
-            {
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                            GenericErrorCodeTypes.HighLevelExceptionThrown,
-                            cellStoreageResponse.ResponseVersion.ErrorCode,
-                            "MS-FSSHTTP",
-                            11268,
-                            @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse.<27> Section 2.3.1.33:  In SharePoint Server 2013, if the FileOperationRequestType attributes is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the SubResponseData element associated with the file operation subresponse.");
             }
         }
         #endregion
