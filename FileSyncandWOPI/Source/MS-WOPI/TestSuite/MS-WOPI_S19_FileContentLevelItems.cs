@@ -347,6 +347,21 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                                   errorResponse.Headers.Get("X-WOPI-Lock") != null,
                                   980001,
                                   @"[In PutFile] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code [409].");
+
+                    Boolean VerifyR685005 = false;
+                    for (int i = 0; i < errorResponse.Headers.Count; i++)
+                    {
+                        if (errorResponse.Headers.AllKeys[i] == "X-WOPI-Lock")
+                        {
+                            VerifyR685005 = true;
+                            break;
+                        }
+                    }
+                    // Verify MS-WOPI requirement: MS-WOPI_R685005
+                    this.Site.CaptureRequirementIfIsTrue(
+                        VerifyR685005,
+                        685005,
+                        @"[In PutFile] X-WOPI-Lock is a string.");
                 }
 
                 if (Common.IsRequirementEnabled("MS-WOPI", 685009001, this.Site))

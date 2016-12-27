@@ -1094,6 +1094,21 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           975,
                           @"[In PutRelativeFile] If the X-WOPI-OverwriteRelativeTarget is a false value and the file exists, the host MUST return the status code of 409.");
 
+            Boolean verifyR370005 = false;
+            for (int i = 0; i < errorResponse.Headers.Count; i++)
+            {
+                if (errorResponse.Headers.AllKeys[i] == "X-WOPI-ValidRelativeTarget")
+                {
+                    verifyR370005 = true;
+                    break;
+                }
+            }
+            //Verify MS-WOPI requirement: MS-WOPI_R370005
+            this.Site.CaptureRequirementIfIsTrue(
+                verifyR370005,
+                370005,
+                @"[In PutRelativeFile] X-WOPI-ValidRelativeTarget is a string.");
+
             // Verify MS-WOPI requirement: MS-WOPI_R376
             this.Site.CaptureRequirementIfAreEqual(
                           409,
@@ -1411,6 +1426,21 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                               errorResponse.Headers.Get("X-WOPI-Lock") != null,
                               976001,
                               @"[In Lock] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code [409]. ");
+
+                Boolean verifyR401003 = false;
+                for (int i = 0; i < errorResponse.Headers.Count; i++)
+                {
+                    if (errorResponse.Headers.AllKeys[i] == "X-WOPI-Lock")
+                    {
+                        verifyR401003 = true;
+                        break;
+                    }
+                }
+                // Verify MS-WOPI requirement: MS-WOPI_R401003
+                this.Site.CaptureRequirementIfIsTrue(
+                    verifyR401003,
+                    401003,
+                    @"[In Lock] X-WOPI-Lock is a string.");
 
                 if (Common.IsRequirementEnabled("MS-WOPI", 401007001, this.Site))
                 {
@@ -2092,6 +2122,21 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                            errorResponse.Headers.Get("X-WOPI-Lock") != null,
                           979001,
                           @"[In UnlockAndRelock] an X-WOPI-Lock response header containing the value of the current lock on the file MUST be included when using this response code.");
+            
+            Boolean verifyR460005 = false;
+            for (int i = 0; i < errorResponse.Headers.Count; i++)
+            {
+                if (errorResponse.Headers.AllKeys[i] == "X-WOPI-Lock")
+                {
+                    verifyR460005 = true;
+                    break;
+                }
+            }
+            // Verify MS-WOPI requirement: MS-WOPI_R460005
+            this.Site.CaptureRequirementIfIsTrue(
+                verifyR460005,
+                460005,
+                @"[In UnlockAndRelock] X-WOPI-Lock is a string.");
 
             if (Common.IsRequirementEnabled("MS-WOPI", 460009001, this.Site))
             {
