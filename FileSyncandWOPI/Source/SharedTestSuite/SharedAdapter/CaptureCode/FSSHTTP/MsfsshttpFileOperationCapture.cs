@@ -5,14 +5,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     using Microsoft.Protocols.TestTools;
 
     /// <summary>
-    /// A class contains methods which capture requirements related with WhoAmI Sub-request.
+    /// A class contains methods which capture requirements related with FileOperation Sub-request.
     /// </summary>
     public sealed partial class MsfsshttpAdapterCapture
     {
         /// <summary>
-        /// Capture requirements related with Versioning Sub-request.
+        /// Capture requirements related with FileOperation Sub-request.
         /// </summary>
-        /// <param name="versioningSubResponse">Containing the VersioningSubResponse information</param>
+        /// <param name="fileOperationSubResponse">Containing the FileOperationSubResponse information</param>
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidateFileOperationSubResponse(FileOperationSubResponseType fileOperationSubResponse, ITestSite site)
         {

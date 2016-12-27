@@ -4,7 +4,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with CellSubRequest operation for versioning request. 
+    /// A class which contains test cases used to capture the requirements related with CellSubRequest operation for fileOperation request. 
     /// </summary>
     [TestClass]
     public sealed class MS_FSSHTTP_FSSHTTPB_S17_FileOperation : S17_FileOperation 

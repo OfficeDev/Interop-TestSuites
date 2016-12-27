@@ -7,7 +7,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with GetVersions operation.
+    /// A class which contains test cases used to capture the requirements related with FileOperation operation.
     /// </summary>
     [TestClass]
     public abstract class S17_FileOperation : SharedTestSuiteBase
