@@ -386,6 +386,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             return versioningSubRequest;
         }
 
+        public static FileOperationSubRequestType CreateFileOperationSubRequest(FileOperationRequestTypes fileOperationRequestType, string newName, string exclusiveLock, ITestSite site)
+        {
+            FileOperationSubRequestType fileOperationSubRequest = new FileOperationSubRequestType();
+            fileOperationSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
+            fileOperationSubRequest.SubRequestData = new FileOperationSubRequestDataType();
+            fileOperationSubRequest.SubRequestData.FileOperation = fileOperationRequestType;
+            fileOperationSubRequest.SubRequestData.FileOperationRequestTypeSpecified = true;
+            fileOperationSubRequest.SubRequestData.ExclusiveLockID = exclusiveLock;
+
+            if (fileOperationRequestType == FileOperationRequestTypes.Rename)
+            {
+                site.Assert.IsTrue(!string.IsNullOrEmpty(newName), "VersionNumber MUST be specified when the versioning subrequest has a VersioningSubRequestType attribute set to RestoreVersion.");
+                fileOperationSubRequest.SubRequestData.NewFileName = newName;
+            }
+
+            return fileOperationSubRequest;
+        }
+
         #region Editors table helper function
         /// <summary>
         /// A method used to create a EditorsTable Sub-request object for JoinEditingSession and initialize it.

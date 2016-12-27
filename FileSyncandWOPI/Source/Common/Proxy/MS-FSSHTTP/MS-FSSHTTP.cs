@@ -221,7 +221,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public FileOperationRequestTypes FileOperationRequestType
+        public FileOperationRequestTypes FileOperation
         {
             get
             {
@@ -722,7 +722,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public FileOperationRequestTypes FileOperationRequestType
+        public FileOperationRequestTypes FileOperation
         {
             get
             {

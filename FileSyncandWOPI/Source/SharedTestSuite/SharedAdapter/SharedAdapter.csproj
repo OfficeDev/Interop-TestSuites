@@ -44,6 +44,7 @@
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpCommonCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpEditorsTableCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpExclusiveLockCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpFileOperationCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpGetDocMetaInfoCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpGetVersionsCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpSchemaLockCapture.cs" />

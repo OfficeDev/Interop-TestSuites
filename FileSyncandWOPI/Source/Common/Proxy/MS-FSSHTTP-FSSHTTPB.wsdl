@@ -73,6 +73,13 @@
         </xs:restriction>
       </xs:simpleType>
 
+      <xs:simpleType name="FileOperationRequestTypes">
+	    <xs:restriction base="xs:string">
+	      <!--Rename-->
+	      <xs:enumeration value="Rename"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+
       <!-- definition of attributes-->
 
       <!-- definition of attribute groups-->
@@ -459,6 +466,25 @@
         </xs:sequence>
       </xs:complexType>
 
+      <xs:complexType name="FileOperationSubResponseType">
+	   <xs:complexContent>
+	     <xs:extension base="tns:SubResponseType">
+         <xs:sequence minOccurs="0" maxOccurs="1">
+           <xs:element name="SubResponseData" type="tns:FileOperationSubResponseDataType" />
+         </xs:sequence>
+	     </xs:extension>
+	   </xs:complexContent>
+	 </xs:complexType>
+
+      <xs:complexType name="FileOperationSubResponseDataType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <!--<xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:element name="UserTable" type="tns:VersioningUserTableType"/>
+          </xs:sequence>
+          <xs:element name="Versions" type="tns:VersioningVersionListType"/>-->
+        </xs:sequence>
+      </xs:complexType>
+     
       <xs:complexType name="Results">
         <xs:sequence>
           <xs:element name="list" maxOccurs="1" minOccurs="1">
@@ -594,6 +620,7 @@
       <xs:element name="GetDocMetaInfoSubResponse" type="tns:GetDocMetaInfoSubResponseType" />
       <xs:element name="GetVersionsSubResponse" type="tns:GetVersionsSubResponseType" />
       <xs:element name="VersioningSubResponse" type="tns:VersioningSubResponseType" />
+      <xs:element name="FileOperationSubResponse" type="tns:FileOperationSubResponseType" />
 
     </xs:schema>
 
