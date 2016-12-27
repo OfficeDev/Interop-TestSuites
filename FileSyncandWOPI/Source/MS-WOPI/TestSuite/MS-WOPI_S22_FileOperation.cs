@@ -5,7 +5,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with Versioning operation.
+    /// A class which contains test cases used to capture the requirements related with FileOperation operation.
     /// </summary>
     [TestClass]
     public class MS_WOPI_S22_FileOperation : S17_FileOperation
@@ -40,12 +40,12 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             SharedTestSuiteBase.Initialize(testContext);
 
             // Execute the MS-WOPI initialization
-            if (!TestSuiteHelper.VerifyRunInSupportProducts(MS_WOPI_S21_Versioning.BaseTestSite))
+            if (!TestSuiteHelper.VerifyRunInSupportProducts(MS_WOPI_S22_FileOperation.BaseTestSite))
             {
                 return;
             }
 
-            TestSuiteHelper.InitializeTestSuite(MS_WOPI_S09_GetVersions.BaseTestSite);
+            TestSuiteHelper.InitializeTestSuite(MS_WOPI_S22_FileOperation.BaseTestSite);
             SutController = TestSuiteHelper.WOPISutControladapter;
             WopiSutManageCodeControlAdapter = TestSuiteHelper.WOPIManagedCodeSUTControlAdapter;
             CurrentTestClientName = TestSuiteHelper.CurrentTestClientName;
