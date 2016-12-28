@@ -1927,7 +1927,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11025</ns1:REQ_ID>
@@ -1936,7 +1936,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11026</ns1:REQ_ID>
@@ -1950,7 +1950,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11027</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] [ResourceID] The ResourceID attribute MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise].</ns1:Description>
+		<ns1:Description>[In Response] [ResourceID] The ResourceID attribute SHOULD be present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1960,7 +1960,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11028</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] [ResourceID] The ResourceID attribute [MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, and] SHOULD NOT be present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element].</ns1:Description>
+		<ns1:Description>[In Response] [ResourceID] The ResourceID attribute [SHOULD be present when the UseResourceID attribute is set to true in the corresponding Request element, and] SHOULD NOT be present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14349,7 +14349,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R837</ns1:REQ_ID>
@@ -22021,7 +22021,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11275</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The ResourceID attribute is not present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The ResourceID attribute is present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11027:i, MS-FSSHTTP_R1346:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22032,7 +22032,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11276</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The ResourceID attribute [MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, and] is not present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The ResourceID attribute [SHOULD be present when the UseResourceID attribute is set to true in the corresponding Request element, and] is not present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11028:i, MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

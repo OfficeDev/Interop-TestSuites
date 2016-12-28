@@ -67,7 +67,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Invoke "GetVersions"sub-request with correct input parameters.
             GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { getVersionsSubRequest });
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
             GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
             this.Site.Assert.IsNotNull(getVersionsSubResponse, "The object 'getVersionsSubResponse' should not be null.");
             this.Site.Assert.IsNotNull(getVersionsSubResponse.ErrorCode, "The object 'getVersionsSubResponse.ErrorCode' should not be null.");
@@ -88,6 +91,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          10004,
                          @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+
+                if (Common.IsRequirementEnabled(11275, this.Site))
+                {
+                    // Capture the requirement MS-FSSHTTP_R11275
+                    Site.CaptureRequirementIfIsNotNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11275,
+                             @"[In Appendix B: Product Behavior] The ResourceID attribute is present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11025
+                    Site.CaptureRequirementIfIsNotNull(
+                            cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                            "MS-FSSHTTP",
+                            11025,
+                            @"[In Response] ResourceID: A string that specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11029
+                    Site.CaptureRequirementIfIsTrue(
+                            !string.IsNullOrEmpty(cellStoreageResponse.ResponseCollection.Response[0].ResourceID),
+                            "MS-FSSHTTP",
+                            11029,
+                            @"[In Response] [ResourceID] If present, the string value MUST NOT be an empty string.");
+                }
             }
             else
             {
@@ -115,7 +142,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Invoke "GetVersions"sub-request with correct input parameters.
             GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { getVersionsSubRequest });
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, false);
             GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
             this.Site.Assert.IsNotNull(getVersionsSubResponse, "The object 'getVersionsSubResponse' should not be null.");
             this.Site.Assert.IsNotNull(getVersionsSubResponse.ErrorCode, "The object 'getVersionsSubResponse.ErrorCode' should not be null.");
@@ -136,6 +166,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2302,
                          @"[In GetVersionsSubResponseType][Results complex type] list.id: Specifies the GUID of the document library in which the file resides.");
+
+                if (Common.IsRequirementEnabled(11276, this.Site))
+                {
+                    // Capture the requirement MS-FSSHTTP_R11275
+                    Site.CaptureRequirementIfIsNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11276,
+                             @"[In Appendix B: Product Behavior] The ResourceID attribute [MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, and] is not present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                }
             }
             else
             {

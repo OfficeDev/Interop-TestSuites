@@ -263,6 +263,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     11186,
                     @"[In FileVersionEventDataType] Type: An integer that identifies the type of event that occurred to the file.");
 
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11191
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11191,
+                    @"[In FileVersionEventDataType] CreateTime: A positive integer that specifies the time when this event occurred, which is expressed as a tick count.");
+
                 foreach (FileVersionDataType version in versionList.Version)
                 {
                     if (version.Events != null)

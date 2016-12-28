@@ -1446,7 +1446,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.SubRequestData.Etag = string.Empty;
             putChange.SubRequestData.CoalesceSpecified = true;
             putChange.SubRequestData.Coalesce = true;
-            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1",
+                2, 2, null, null, null, null, true);
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
@@ -1458,6 +1459,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101401
+                Site.CaptureRequirementIfIsNotNull(
+                         response.ResponseCollection.Response[0].SuggestedFileName,
+                         "MS-FSSHTTP",
+                         1101401,
+                         @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
             }
             else
             {
@@ -1465,6 +1473,51 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     ErrorCodeType.CellRequestFail,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                Site.Assert.IsNotNull(
+                    response.ResponseCollection.Response[0].SuggestedFileName,
+                    "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+            }
+
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1",
+                2, 2, null, null, null, null, false);
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1869
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         1869,
+                         @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101402
+                Site.CaptureRequirementIfIsNull(
+                         response.ResponseCollection.Response[0].SuggestedFileName,
+                         "MS-FSSHTTP",
+                         1101402,
+                         @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11024
+                Site.CaptureRequirementIfIsNotNull(
+                    response.ResponseCollection.Response[0].SuggestedFileName,
+                    "MS-FSSHTTP",
+                    11024,
+                    @"[In Response] SuggestedFileName: The suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request.");
+
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                Site.Assert.IsNull(
+                    response.ResponseCollection.Response[0].SuggestedFileName,
+                    "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
             }
         }
         #endregion
