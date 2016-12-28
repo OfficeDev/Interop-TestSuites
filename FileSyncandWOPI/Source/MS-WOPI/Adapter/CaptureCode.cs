@@ -212,6 +212,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                           ""Version"":{""type"":""string"",""optional"":false},
                           ""WebEditingDisabled"":{""type"":""bool"",""default"":false,""optional"":true}
                           }");
+            if (WOPISerializerHelper.CheckContainItem(jsonString, "FileNameMaxLength"))
+            {
+                // Check whether "FileNameMaxLength" is in JSON. If JSON string contain this item,it must follow JSON response format.
+                this.Site.CaptureRequirement(
+                              292007,
+                              @"[In Response Body] FileNameMaxLength: An integer indicating the maximum length for file names, including the file extension, supported by the WOPI server.");
+            }
 
             if (WOPISerializerHelper.CheckContainItem(jsonString, "ReadOnly"))
             {
@@ -282,14 +289,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                 this.Site.CaptureRequirement(
                               777,
                               @"[In Response Body] SupportsFolders is a Boolean value.");
-            }
-
-            if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsGetLock"))
-            {
-                // Check whether "SupportsGetLock" is in JSON. If JSON string contain this item,it must follow JSON response format.
-                this.Site.CaptureRequirement(
-                              778001001,
-                              @"[In Response Body] SupportsGetLock is a Boolean value.");
             }
 
             if (WOPISerializerHelper.CheckContainItem(jsonString, "SupportsLocks"))
@@ -368,31 +367,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i=0; i< response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "FileExtension")
-                {
-                    //Verify MS-WOPI requirement: MS-WOPI_R292004
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        292004,
-                        @"[In Response Body] FileExtension: A string specifying the file extension of the file.");
-                    
-                    //Verify MS-WOPI requirement: MS-WOPI_R292005
-                    this.Site.CaptureRequirementIfIsTrue(
-                        response.Headers.AllKeys[i].StartsWith("."),
-                        292005,
-                        @"[In Response Body] This value [FileExtension] MUST begin with a ""."".");
-                }
-                if (response.Headers.AllKeys[i] == "FileNameMaxLength")
-                {
-                    int FileNameMaxLength = 0;
-                    Boolean isInt = int.TryParse(response.Headers.AllKeys[i], out FileNameMaxLength);
-                    //Verify MS-WOPI requirement: MS-WOPI_R292007
-                    this.Site.CaptureRequirementIfIsTrue(
-                        isInt,
-                        292007,
-                        @"[In Response Body] FileNameMaxLength: An integer indicating the maximum length for file names, including the file extension, supported by the WOPI server.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -450,24 +424,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    //Verify MS-WOPI requirement: MS-WOPI_R370008
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        370008,
-                        @"[In PutRelativeFile] X-WOPI-Lock is a string.");
-                }
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    //Verify MS-WOPI requirement: MS-WOPI_R370013
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        370013,
-                        @"[In PutRelativeFile] X-WOPI-LockFailureReason is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -499,16 +455,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R401008
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        401008,
-                        @"[In Lock] X-WOPI-LockFailureReason is a string.");
-                }
-
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -540,24 +486,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R422005
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        422005,
-                        @"[In Unlock] X-WOPI-Lock is a string.");
-                }
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R422010
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        422010,
-                        @"[In Unlock] X-WOPI-LockFailureReason is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -588,24 +516,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count;i++ )
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-Lock")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R439005
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        439005,
-                        @"[In RefreshLock] X-WOPI-Lock is a string.");
-                }
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R439010
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        439010,
-                        @"[In RefreshLock] X-WOPI-LockFailureReason is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -636,15 +546,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R685010
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        685010,
-                        @"[In PutFile] X-WOPI-LockFailureReason is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
@@ -675,15 +576,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             Boolean isR45001Verified = false;
             for (int i = 0; i < response.Headers.Count; i++)
             {
-                if (response.Headers.AllKeys[i] == "X-WOPI-LockFailureReason")
-                {
-                    // Verify MS-WOPI requirement: MS-WOPI_R460010
-                    this.Site.CaptureRequirementIfAreEqual<Type>(
-                        typeof(String),
-                        response.Headers.AllKeys[i].GetType(),
-                        460010,
-                        @"[In UnlockAndRelock] X-WOPI-LockFailureReason is a string.");
-                }
                 if (response.Headers.AllKeys[i] == "X-WOPI-ServerVersion")
                 {
                     isR42001Verified = true;
