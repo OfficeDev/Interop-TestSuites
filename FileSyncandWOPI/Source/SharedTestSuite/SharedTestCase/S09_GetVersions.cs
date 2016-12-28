@@ -169,7 +169,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
                 if (Common.IsRequirementEnabled(11276, this.Site))
                 {
-                    // Capture the requirement MS-FSSHTTP_R11275
+                    // Capture the requirement MS-FSSHTTP_R11276
                     Site.CaptureRequirementIfIsNull(
                              cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
                              "MS-FSSHTTP",
