@@ -201,6 +201,69 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
             }
         }
+
+        /// <summary>
+        /// A method used to verify that ResourceID is not changed even if the URL of the file changes.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S17_TC04_ResourceIDNotChanged()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Invoke "GetVersions"sub-request with correct input parameters.
+            GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
+            GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                "GetVersions should be succeed.");
+
+            string resourceID = cellStoreageResponse.ResponseCollection.Response[0].ResourceID;
+
+            // Rename the file
+            string newName = Common.GenerateResourceName(this.Site, "fileName") + ".txt";
+            FileOperationSubRequestType fileOperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
+            cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });
+            FileOperationSubResponseType fileOperationSubResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                "Rename file should be succeed.");
+
+            this.DefaultFileUrl = this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf('/') + 1) + newName;
+            cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
+            getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                "GetVersions should be succeed.");
+
+            string resourceID2 = cellStoreageResponse.ResponseCollection.Response[0].ResourceID;
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11026
+                Site.CaptureRequirementIfAreEqual<string>(
+                    resourceID,
+                    resourceID2,
+                    "MS-FSSHTTP",
+                    11026,
+                    @"[In Response] [ResourceID] A ResourceID MUST NOT change over the lifetime of a file, even if the URL of the file changes.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<string>(
+                    resourceID, resourceID2, "ResourceID MUST NOT change over the lifetime of a file, even if the URL of the file changes.");
+            }
+        }
         #endregion
     }
 }
