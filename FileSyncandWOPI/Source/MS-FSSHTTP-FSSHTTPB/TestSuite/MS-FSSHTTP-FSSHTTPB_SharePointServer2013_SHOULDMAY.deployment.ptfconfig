@@ -154,5 +154,7 @@
   <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return ResourceID attribute when the UseResourceID attribute is set to false. Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11276Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>

@@ -114,6 +114,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             "MS-FSSHTTP",
                             11029,
                             @"[In Response] [ResourceID] If present, the string value MUST NOT be an empty string.");
+
+                    // Capture the requirement MS-FSSHTTP_R11271
+                    Site.CaptureRequirementIfIsNotNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11271,
+                             @"[In Appendix B: Product Behavior] [UseResourceID] When true, the implementation sets the ResourceID attribute on the corresponding Response element to the ResourceID of the file. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
             }
             else
@@ -510,6 +517,44 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     isNotStartWithAt,
                     @"[In GetVersionsSubResponseType][VersionData complex type] version: All the other versions MUST exist without any prefix. ");
             }
+        }
+
+        /// <summary>
+        /// A method used to verify that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S09_TC06_ResourceIDDifferentWithUrl()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(11272, this.Site), "This test case runs only when implementation uses the value of the ResourceID attribute to identify the file instead of the Url attribute  when UseResourceID set to true and the ResourceID attribute is set on the Request element.");
+
+            string anotherFile = this.PrepareFile();
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Invoke "GetVersions"sub-request with correct input parameters.
+            GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
+            GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site), "Get versions should be succeed.");
+
+            // Set both Url and ResourceID attribute
+            cellStoreageResponse = Adapter.CellStorageRequest(
+                anotherFile,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, cellStoreageResponse.ResponseCollection.Response[0].ResourceID, true);
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11272
+            Site.CaptureRequirementIfIsTrue(
+                     cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
+                     "MS-FSSHTTP",
+                     11272,
+                     @"[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
         }
 
         #endregion
