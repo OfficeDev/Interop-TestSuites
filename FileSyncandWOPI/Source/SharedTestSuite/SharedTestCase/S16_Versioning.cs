@@ -528,7 +528,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            // Check out one file by a specified user name.
             if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
@@ -556,14 +555,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.IsNotNull(fileOperationSubResponse.ErrorCode, "The object 'versioningSubResponse.ErrorCode' should not be null.");
 
             string fileUrl = this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1) + newName;
-
-            GetDocMetaInfoSubRequestType getDocMetaInfoSubRequest = SharedTestSuiteHelper.CreateGetDocMetaInfoSubRequest(SequenceNumberGenerator.GetCurrentToken());
-            cellStoreageResponse = Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { getDocMetaInfoSubRequest });
-            GetDocMetaInfoSubResponseType getDocMetaInfoSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetDocMetaInfoSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                ErrorCodeType.Success,
-                SharedTestSuiteHelper.ConvertToErrorCodeType(getDocMetaInfoSubResponse.ErrorCode, this.Site),
-                "Get doc meta info should succeed.");
 
             VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
             cellStoreageResponse = Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { versioningSubRequest });
