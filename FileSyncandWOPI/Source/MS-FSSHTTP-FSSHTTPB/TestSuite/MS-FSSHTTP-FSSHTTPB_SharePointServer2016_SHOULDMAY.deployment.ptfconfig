@@ -132,23 +132,27 @@
   <Property name="R213802Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R8204Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Root Node will be returned if there is only one object by server. Set R213802Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R8204Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R4124Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the valid values for this field [Protocol Version] is 12, 13 or 14. Set R4124Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R4124Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R51701Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does return a Referenced Data Element Not Found failure, when D - Favor Coherency Failure Over Not Found is set to 1 and a Referenced Data Element Not Found (section 2.2.3.2.1) failure occurred. Set R51701Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R51701Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R9905101Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. Set R9905101Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R9905101Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if D - Include Filtered Out Data Elements In Knowledge is not set, the Serial Numbers of filtered out data elements are not included in the response Knowledge. Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R4113Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Applied Storage Index Id field. Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R4126Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Elements Added field. Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
-   <Property name="R4128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R4124Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the valid values for this field [Protocol Version] is 12, 13 or 14. Set R4124Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R4124Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R51701Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does return a Referenced Data Element Not Found failure, when D - Favor Coherency Failure Over Not Found is set to 1 and a Referenced Data Element Not Found (section 2.2.3.2.1) failure occurred. Set R51701Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R51701Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R9905101Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. Set R9905101Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R9905101Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if D - Include Filtered Out Data Elements In Knowledge is not set, the Serial Numbers of filtered out data elements are not included in the response Knowledge. Set R4113Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R4113Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Applied Storage Index Id field. Set R4126Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R4126Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Elements Added field. Set R4128Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R4128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that PathNotFound will be returned when the file path is not found. Set R11265Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11265Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-   <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-   <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. Set R1976Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return ResourceID attribute when the UseResourceID attribute is set to true. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return ResourceID attribute when the UseResourceID attribute is set to false. Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11276Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>

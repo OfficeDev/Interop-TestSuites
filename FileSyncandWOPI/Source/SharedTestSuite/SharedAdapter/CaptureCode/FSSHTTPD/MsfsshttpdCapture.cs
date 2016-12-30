@@ -356,7 +356,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         isRootNode,
                         "MS-FSSHTTPD",
                         8202,
-                        @"[In Appendix A: Product Behavior] If there are more than one objects in the file,the implementation does return the Root Node Object. (Microsoft SharePoint Workspace 2010, Microsoft Office 2010 suites/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] If there are more than one objects in the file,the implementation does return the Intermediate Node Object. (Microsoft SharePoint Workspace 2010, Microsoft Office 2010 suites/Microsoft SharePoint Server 2010 and above follow this behavior.)");
              }
              else
              {
