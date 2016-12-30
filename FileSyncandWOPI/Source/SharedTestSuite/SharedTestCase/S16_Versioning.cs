@@ -512,6 +512,80 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 11195,
                 @"[In FileVersionEventDataType] The UserId MUST match the UserId attribute of a UserDataType (section 2.3.1.42) described in the VersioningUserTableType in the current VersioningSubResponseDataType.");
         }
+
+        /// <summary>
+        /// A method used to verify that FileOperation sub-request can be executed successfully when all input parameters are correct.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S16_TC07_FileVersionEventDataType_Rename()
+        {
+            string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
+            if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
+            {
+                this.Site.Assert.Fail("Cannot enable the version on the document library {0}", documentLibraryName);
+            }
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Check out one file by a specified user name.
+            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            {
+                this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
+            }
+
+            this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
+            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            {
+                this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
+            }
+
+            this.StatusManager.CancelRecordCheckOut(this.DefaultFileUrl);
+
+            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1);
+            string newName = Common.GenerateResourceName(this.Site, "fileName") + ".txt";
+
+            FileOperationSubRequestType fileOperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
+
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });
+
+            FileOperationSubResponseType fileOperationSubResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.IsNotNull(fileOperationSubResponse, "The object 'versioningSubResponse' should not be null.");
+            this.Site.Assert.IsNotNull(fileOperationSubResponse.ErrorCode, "The object 'versioningSubResponse.ErrorCode' should not be null.");
+
+            string fileUrl = this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1) + newName;
+
+            GetDocMetaInfoSubRequestType getDocMetaInfoSubRequest = SharedTestSuiteHelper.CreateGetDocMetaInfoSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            cellStoreageResponse = Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { getDocMetaInfoSubRequest });
+            GetDocMetaInfoSubResponseType getDocMetaInfoSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetDocMetaInfoSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getDocMetaInfoSubResponse.ErrorCode, this.Site),
+                "Get doc meta info should succeed.");
+
+            VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
+            cellStoreageResponse = Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { versioningSubRequest });
+            VersioningSubResponseType versioningSubResponse = SharedTestSuiteHelper.ExtractSubResponse<VersioningSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
+                "Get version list should succeed.");
+            this.Site.Assert.AreEqual<int>(
+                2,
+                versioningSubResponse.SubResponseData.Versions.Version.Length,
+                "There should be 2 version numbers.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11189
+            Site.CaptureRequirementIfAreEqual<string>(
+                "2",
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].Type,
+                "MS-FSSHTTP",
+                11189,
+                @"[In FileVersionEventDataType] 2 means A user renamed the file.");
+        }
         #endregion
     }
 }
