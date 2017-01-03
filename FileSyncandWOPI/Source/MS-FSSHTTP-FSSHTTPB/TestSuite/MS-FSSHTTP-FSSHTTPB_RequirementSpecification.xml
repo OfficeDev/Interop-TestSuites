@@ -29244,10 +29244,9 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes] Diagnostic Request Option Input (5 bytes): An optional Diagnostic Request Option Input structure (section 2.2.2.1.4.3) that specifies desired diagnostic behavior for the Put Changes request.&lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4121.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R99042</ns1:REQ_ID>
@@ -29441,7 +29440,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4058</ns1:REQ_ID>
@@ -30348,7 +30347,7 @@ Construct a byte array representation of the editors table using UTF-8 encoding.
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4130:i</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4130.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4093</ns1:REQ_ID>
@@ -30375,7 +30374,27 @@ Construct a byte array representation of the editors table using UTF-8 encoding.
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R409501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Put Changes] F – Forced (1 bit): [True] specifies whether a forced Revision Chain optimization occurred.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R4095:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R409502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R4095:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4096</ns1:REQ_ID>
@@ -32802,12 +32821,10 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:REQ_ID>MS-FSSHTTPB_R4121</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Diagnostic Request Option Input field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPB_R4053:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4122</ns1:REQ_ID>

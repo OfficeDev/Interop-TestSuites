@@ -479,6 +479,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTPB",
                      610,
                      @"[In Put Changes] Resultant Knowledge (variable): A Knowledge (section 2.2.1.13) that specifies the current state of the file on the server after the changes is merged.");
+
+            // Directly capture requirement MS-FSSHTTPB_R4096, if the reserved value equals to 0. 
+            site.CaptureRequirementIfAreEqual<int>(
+                     0,
+                     instance.Reserved,
+                     "MS-FSSHTTPB",
+                     4096,
+                     @"[In Put Changes] Reserved (7 bits): A 7-bit reserved field that MUST be set to zero [and MUST be ignored].");
         }
 
         /// <summary>
@@ -816,7 +824,23 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Specify the ITestSite instance.</param>
         public void VerifyDiagnosticRequestOptionOutput(DiagnosticRequestOptionOutput instance, ITestSite site)
         {
-            // No source code is needed for this method, but the method is needed for reflection
+            // If the instance is not null and there are no parsing errors, then the Win32 Error related adapter requirements can be directly captured.
+            if (null == instance)
+            {
+                site.Assert.Fail("The instance of type Win32Error is null due to parsing error or type casting error.");
+            }
+
+            this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
+
+            // Capture requirement MS-FSSHTTPB_R99059, if the header is StreamObjectHeaderStart32bit.
+            site.CaptureRequirementIfAreEqual<Type>(
+                     typeof(StreamObjectHeaderStart32bit),
+                     instance.StreamObjectHeaderStart.GetType(),
+                     "MS-FSSHTTPB",
+                     4094,
+                     @"[In Put Changes] Diagnostic Request Option Output Header (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Diagnostic Request Option Output.");
+
+
         }
 
         /// <summary>
@@ -858,6 +882,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          "MS-FSSHTTPB",
                          4128,
                          @"[In Appendix B: Product Behavior] Implementation does support the Data Elements Added field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4130, site))
+            {
+                // Directly capture requirement MS-FSSHTTPB_R4130, if there are no parsing errors. 
+                site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         4130,
+                         @"[In Appendix B: Product Behavior] Implementation does support the Diagnostic Request Option Output field. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
         }
 

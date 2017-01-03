@@ -1274,6 +1274,56 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          @"[In Appendix B: Product Behavior] Implementation does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. (Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 and above follow this behavior.)");
             }
         }
+
+        /// <summary>
+        /// A method used to verify server will not bypass the necessary checks when the FullFileReplacePut flag is true.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC22_PutChanges_ForceRevisionChainOptimization_Zero()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create a putChanges cellSubRequest with specified DiagnosticRequestOptionInput attribute and ForceRevisionChainOptimization set to zero
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.IsDiagnosticRequestOptionInputUsed = true;
+            putChange.ForceRevisionChainOptimization = 0;
+            cellRequest.AddSubRequest(putChange, dataElements);
+
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the put changes operation on the file {0} succeed.",
+                this.DefaultFileUrl);
+
+            FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
+
+            bool isForced = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().DiagnosticRequestOptionOutput.IsDiagnosticRequestOptionOutput;
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R409502
+                Site.CaptureRequirementIfIsFalse(
+                         isForced,
+                         "MS-FSSHTTPB",
+                         409502,
+                         @"[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.");
+            }
+            else
+            {
+                Site.Assert.IsFalse(
+                    isForced,
+                    @"[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.");
+            }
+        }
         #endregion 
     }
 }

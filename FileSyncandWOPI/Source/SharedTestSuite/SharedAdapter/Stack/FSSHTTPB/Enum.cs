@@ -551,6 +551,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         DiagnosticRequestOptionOutput = 0x089,
 
         /// <summary>
+        /// Diagnostic Request Option Input
+        /// </summary>
+        DiagnosticRequestOptionInput = 0x08A,
+
+        /// <summary>
         /// Additional Flags
         /// </summary>
         AdditionalFlags = 0x86,

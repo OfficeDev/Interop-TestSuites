@@ -2064,6 +2064,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                     "ErrorStringSupplementalInfo stream object header has compound value 0.");
                     break;
 
+                case StreamObjectTypeHeaderStart.DiagnosticRequestOptionOutput:
+                    site.Assert.AreEqual<Type>(
+                                  typeof(DiagnosticRequestOptionOutput),
+                                  type,
+                                  "DiagnosticRequestOptionOutput stream object header only represents DiagnosticRequestOptionOutput instance.");
+                    site.Assert.AreEqual<int>(
+                                    0x89,
+                                    (int)header.Type,
+                                    "DiagnosticRequestOptionOutput stream object header has header value 0x89.");
+                    site.Assert.AreEqual<int>(
+                                    0,
+                                    header.Compound,
+                                    "DiagnosticRequestOptionOutput stream object header has compound value 0.");
+                    break;
+
                 default:
                     site.Assert.Fail("Does not support the stream object type " + header.Type.ToString());
                     break;

@@ -157,5 +157,7 @@
   <Property name="R11276Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Diagnostic Request Option Output field. Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R4130Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
  </Properties>
 </TestSite>
