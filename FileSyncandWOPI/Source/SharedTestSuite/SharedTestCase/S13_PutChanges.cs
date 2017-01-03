@@ -1276,7 +1276,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify server will not bypass the necessary checks when the FullFileReplacePut flag is true.
+        /// A method used to verify server will not bypass the necessary checks when the ForceRevisionChainOptimization flag is false.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC22_PutChanges_ForceRevisionChainOptimization_Zero()
