@@ -1139,8 +1139,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbResponse fsshttpbResponse2 = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse2, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse2, this.Site);
 
-            ObjectGroupDataElementData aa = fsshttpbResponse2.DataElementPackage.DataElements[0].GetData<ObjectGroupDataElementData>();
-
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R214601
