@@ -36,11 +36,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public DiagnosticRequestOptionOutput DiagnosticRequestOptionOutput { get; set; }
 
         /// <summary>
-        /// Gets or sets the Reserved.
-        /// </summary>
-        public int Reserved { get; set; }
-
-        /// <summary>
         /// Deserialize sub response data from byte array.
         /// </summary>
         /// <param name="byteArray">The byte array which contains sub response data.</param>
