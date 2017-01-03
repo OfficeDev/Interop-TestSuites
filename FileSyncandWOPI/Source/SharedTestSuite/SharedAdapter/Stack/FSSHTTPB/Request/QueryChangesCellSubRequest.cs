@@ -23,6 +23,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.IncludeStorageManifest = 0;
             this.IncludeCellChanges = 0;
             this.Reserved2 = 0;
+            this.AllowFragments2 = 0;
+            this.RoundKnowledgeToWholeCellChanges = 0;
 
             // CellId
             ExGuid extendGuid1 = new ExGuid(0x0, Guid.Empty);
@@ -47,6 +49,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int AllowFragments { get; set; }
 
         /// <summary>
+        /// Gets or sets Allow Fragments (1 bit): A bit that specifies if set to allow fragments, otherwise it does not allow fragments.
+        /// </summary>
+        public int AllowFragments2 { get; set; }
+
+        /// <summary>
+        /// Gets or sets Round Knowledge to Whole Cell Changes (1 bit): F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.
+        /// </summary>
+        public int RoundKnowledgeToWholeCellChanges { get; set; }
+
+        /// <summary>
         /// Gets or sets exclude object data (1 bit): A bit that specifies to exclude object data; otherwise, object data is included.
         /// </summary>
         public int ExcludeObjectData { get; set; }
@@ -57,7 +69,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int IncludeFilteredOutDataElementsInKnowledge { get; set; }
 
         /// <summary>
-        /// Gets or sets Reserved1 (4 bits): A 6-bit reserved field that MUST be set to zero and MUST be ignored.
+        /// Gets or sets Reserved1 (2 bits): A 6-bit reserved field that MUST be set to zero and MUST be ignored.
         /// </summary>
         public int Reserved1 { get; set; }
 
@@ -107,6 +119,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public Knowledge Knowledge { get; set; }
 
         /// <summary>
+        /// Gets or sets Major Version Number (variable): specifies the major version number of the version of the file to query.
+        /// </summary>
+        public Compact64bitInt MajorVersionNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets Minor Version Number (variable): specifies the minor version number of the version of the file to query.
+        /// </summary>
+        public Compact64bitInt MinorVersionNumber { get; set; }
+
+        /// <summary>
         /// This method is used to convert the element into a byte List 
         /// </summary>
         /// <returns>Return the Byte List</returns>
@@ -124,7 +146,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.AllowFragments, 1);
             bitWriter.AppendInit32(this.ExcludeObjectData, 1);
             bitWriter.AppendInit32(this.IncludeFilteredOutDataElementsInKnowledge, 1);
-            bitWriter.AppendInit32(this.Reserved1, 4);
+            bitWriter.AppendInit32(this.AllowFragments2, 1);
+            bitWriter.AppendInit32(this.RoundKnowledgeToWholeCellChanges, 1);
+            bitWriter.AppendInit32(this.Reserved1, 2);
             byteList.AddRange(bitWriter.Bytes);
 
             // Cell ID bytes
@@ -158,6 +182,24 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     
                     // Max Data Elements
                     byteList.AddRange(maxDataElementsBytes);
+                }
+            }
+
+            if (this.MajorVersionNumber != null)
+            {
+                if (this.MajorVersionNumber.DecodedValue > 0)
+                {
+                    List<byte> majorVersionNumberBytes = (new Compact64bitInt(this.MajorVersionNumber.DecodedValue)).SerializeToByteList();
+                    byteList.AddRange(majorVersionNumberBytes);
+                }
+            }
+
+            if (this.MinorVersionNumber != null)
+            {
+                if (this.MinorVersionNumber.DecodedValue > 0)
+                {
+                    List<byte> minorVersionNumberBytes = (new Compact64bitInt(this.MinorVersionNumber.DecodedValue)).SerializeToByteList();
+                    byteList.AddRange(minorVersionNumberBytes);
                 }
             }
 
