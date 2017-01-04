@@ -119,16 +119,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public Knowledge Knowledge { get; set; }
 
         /// <summary>
-        /// Gets or sets Major Version Number (variable): specifies the major version number of the version of the file to query.
-        /// </summary>
-        public Compact64bitInt MajorVersionNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets Minor Version Number (variable): specifies the minor version number of the version of the file to query.
-        /// </summary>
-        public Compact64bitInt MinorVersionNumber { get; set; }
-
-        /// <summary>
         /// This method is used to convert the element into a byte List 
         /// </summary>
         /// <returns>Return the Byte List</returns>
@@ -182,24 +172,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     
                     // Max Data Elements
                     byteList.AddRange(maxDataElementsBytes);
-                }
-            }
-
-            if (this.MajorVersionNumber != null)
-            {
-                if (this.MajorVersionNumber.DecodedValue > 0)
-                {
-                    List<byte> majorVersionNumberBytes = (new Compact64bitInt(this.MajorVersionNumber.DecodedValue)).SerializeToByteList();
-                    byteList.AddRange(majorVersionNumberBytes);
-                }
-            }
-
-            if (this.MinorVersionNumber != null)
-            {
-                if (this.MinorVersionNumber.DecodedValue > 0)
-                {
-                    List<byte> minorVersionNumberBytes = (new Compact64bitInt(this.MinorVersionNumber.DecodedValue)).SerializeToByteList();
-                    byteList.AddRange(minorVersionNumberBytes);
                 }
             }
 
