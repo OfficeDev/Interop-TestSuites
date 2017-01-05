@@ -1427,6 +1427,18 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              "MS-FSSHTTP",
                              1834,
                              @"[In CellSubRequestDataOptionalAttributes][BypassLockID] A protocol server that has a version number of 2.2 MUST accept both LockID and BypassLockID.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R518
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTP",
+                             518,
+                             @"[In CellSubRequestDataType][SchemaLockID] After a protocol client is able to get a shared lock for a file with a specific schema lock identifier, the server MUST allow only other protocol clients that specify the same schema lock identifier to share the file lock.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R519
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTP",
+                             519,
+                             @"[In CellSubRequestDataType] The protocol server ensures that at any instant in time, only clients having the same schema lock identifier can lock the file.");
                 }
             }
         }
@@ -1532,6 +1544,194 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 }
             }
         }
+
+        /// <summary>
+        /// This method is used to test uploading file contents when the file has a shared lock and the SchemaLockID is other schema lock id.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC24_UploadContents_DifferentSchemaLockID()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                // Initialize the context using user02 and defaultFileUrl.
+                this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents using the same SchemaLockId and ByPassLockID as the previous step's SchemaLockId when the coalesce is true.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = otherSchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // If the server does not return the error code "Success", then it indicates that the protocol server to block the other client with different schema lock identifier. In this case, the requirement MS-FSSHTTP_R517 can be captured.
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R517
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             517,
+                             @"[In CellSubRequestDataType][SchemaLockID] This schema lock identifier is used by the protocol server to block other clients with a different schema lock identifier.");
+                }
+                else
+                {
+                    Site.Assert.AreNotEqual<ErrorCodeType>(
+                        ErrorCodeType.Success,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                        @"[In CellSubRequestDataType][SchemaLockID] This schema lock identifier is used by the protocol server to block other clients with a different schema lock identifier.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test uploading file contents when the file has a shared lock and the ByPassLockID is not set or not same with this schema lock identified.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC25_UploadContents_SchemaLockIDIgnored()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents and the ByPassLockID not same with SchemaLockId.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSameWithSchemaLockId1 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSameWithSchemaLockId2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+                this.Site.Assert.AreEqual<ErrorCodeType>(
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSameWithSchemaLockId1.ErrorCode, this.Site),
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSameWithSchemaLockId2.ErrorCode, this.Site),
+                         "If the ByPassLockID is not same with this schema lock identified, the SchemaLockID will be ignored by the server.");
+
+                // Update contents and the ByPassLockID not set.
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSetByPassLockID1 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                // Update contents and the ByPassLockID not set.
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSetByPassLockID2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+                this.Site.Assert.AreEqual<ErrorCodeType>(
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSetByPassLockID1.ErrorCode, this.Site),
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSetByPassLockID2.ErrorCode, this.Site),
+                         "If the ByPassLockID is not set, the SchemaLockID will be ignored by the server.");
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11278
+                    this.Site.CaptureRequirement(
+                             11278,
+                            "[In CellSubRequestDataType][SchemaLockID] if the ByPassLockID is not set or not same with this schema lock identified, the SchemaLockID will be ignored by the server.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test uploading file contents after all the protocol clients have released their lock for that file.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC26_UploadContents_AfterReleaseSchemaLock()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // Release lock with same ClientId and SchemaLockId with first step, expect server responses the error code "Success".
+            subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.ReleaseLock, null, null);
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.CancelSharedLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents using the different schema lock ID.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = otherSchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R520
+                    this.Site.CaptureRequirementIfAreEqual<ErrorCodeType>(                          
+                            ErrorCodeType.Success,
+                            SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                             520,
+                            "[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.");
+                }
+                else
+                {
+                    this.Site.Assert.AreEqual<ErrorCodeType>(
+                            ErrorCodeType.Success,
+                            SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                            "[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.");
+                }
+            }
+        }
+
         #endregion
     }
 }
