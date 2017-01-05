@@ -289,7 +289,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Put changes to the protocol server to expect the server responds the Coherency failure error.
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R940
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.Success,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTPB",
+                         940,
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If Imply Null Expected if No Mapping is not zero], if the flag[Imply Null Expected if No Mapping] specifies one, the protocol server MUST only apply the change if no mapping exists (the key that is to be updated in the protocol server’s Storage Index doesn't exist or it maps to nil).");
+            }
+            else
+            {
+                this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+            }
         }
 
         /// <summary>
@@ -324,10 +338,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             CellError cellError = (CellError)putChangeResponse.CellSubResponses[0].ResponseError.ErrorData;
-            Site.Assert.AreEqual<CellErrorCode>(
-                    CellErrorCode.Coherencyfailure,
-                    cellError.ErrorCode,
-                    @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If the Expected Storage Index Extended GUID is not specified, the protocol server returns a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R941
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                         CellErrorCode.Coherencyfailure,
+                         cellError.ErrorCode,
+                         "MS-FSSHTTPB",
+                         941,
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If a mapping exists, the protocol server MUST return a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<CellErrorCode>(
+                        CellErrorCode.Coherencyfailure,
+                        cellError.ErrorCode,
+                        @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If the Expected Storage Index Extended GUID is not specified, the protocol server returns a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            }
         }
 
         /// <summary>
