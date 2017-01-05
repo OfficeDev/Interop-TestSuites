@@ -223,6 +223,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
                 "GetVersions should be succeed.");
 
+            VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+            Site.Assume.AreEqual<ushort>(3, version.MinorVersion, "This test case runs only when MinorVersion is 3 which indicates the protocol server is capable of performing ResourceID specific behavior.");
+
             string resourceID = cellStoreageResponse.ResponseCollection.Response[0].ResourceID;
 
             // Rename the file

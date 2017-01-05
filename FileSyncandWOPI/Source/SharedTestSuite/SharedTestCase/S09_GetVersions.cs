@@ -92,7 +92,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          10004,
                          @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
 
-                if (Common.IsRequirementEnabled(11275, this.Site))
+                VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+
+                // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
+                if (Common.IsRequirementEnabled(11275, this.Site) && version.MinorVersion == 3)
                 {
                     // Capture the requirement MS-FSSHTTP_R11275
                     Site.CaptureRequirementIfIsNotNull(
@@ -174,7 +177,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          2302,
                          @"[In GetVersionsSubResponseType][Results complex type] list.id: Specifies the GUID of the document library in which the file resides.");
 
-                if (Common.IsRequirementEnabled(11276, this.Site))
+                VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+
+                // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
+                if (Common.IsRequirementEnabled(11276, this.Site) && version.MinorVersion == 3)
                 {
                     // Capture the requirement MS-FSSHTTP_R11276
                     Site.CaptureRequirementIfIsNull(
@@ -543,18 +549,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 ErrorCodeType.Success,
                 SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site), "Get versions should be succeed.");
 
+            VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+            Site.Assume.AreEqual<ushort>(3, version.MinorVersion, "This test case runs only when MinorVersion is 3 which indicates the protocol server is capable of performing ResourceID specific behavior.");
+            
             // Set both Url and ResourceID attribute
             cellStoreageResponse = Adapter.CellStorageRequest(
                 anotherFile,
                 new SubRequestType[] { getVersionsSubRequest },
                 "1", 2, 2, null, null, null, null, null, cellStoreageResponse.ResponseCollection.Response[0].ResourceID, true);
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11272
-            Site.CaptureRequirementIfIsTrue(
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11272
+                Site.CaptureRequirementIfIsTrue(
                      cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
                      "MS-FSSHTTP",
                      11272,
                      @"[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+            }
+            else
+            {
+                Site.Assert.IsTrue(
+                    cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
+                    "[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+            }
         }
 
         #endregion

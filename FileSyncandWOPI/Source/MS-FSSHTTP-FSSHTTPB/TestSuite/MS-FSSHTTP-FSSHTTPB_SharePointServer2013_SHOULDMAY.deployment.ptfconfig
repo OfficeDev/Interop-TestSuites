@@ -158,5 +158,7 @@
   <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Diagnostic Request Option Output field. Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
   <Property name="R4130Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
+  <Property name="R1102401Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
  </Properties>
 </TestSite>

@@ -1460,12 +1460,22 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101401
-                Site.CaptureRequirementIfIsNotNull(
-                         response.ResponseCollection.Response[0].SuggestedFileName,
-                         "MS-FSSHTTP",
-                         1101401,
-                         @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+                if (Common.IsRequirementEnabled(1102401, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101401
+                    Site.CaptureRequirementIfIsNotNull(
+                             response.ResponseCollection.Response[0].SuggestedFileName,
+                             "MS-FSSHTTP",
+                             1101401,
+                             @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1102401
+                    Site.CaptureRequirementIfIsNotNull(
+                        response.ResponseCollection.Response[0].SuggestedFileName,
+                        "MS-FSSHTTP",
+                        1102401,
+                        @"[In Appendix B: Product Behavior] Implementation does support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (Microsoft SharePoint Server 2016 and above support this behavior.)");
+                }
             }
             else
             {
@@ -1474,9 +1484,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                Site.Assert.IsNotNull(
+                if (Common.IsRequirementEnabled(1102401, this.Site))
+                {
+                    Site.Assert.IsNotNull(
                     response.ResponseCollection.Response[0].SuggestedFileName,
                     "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+                }
             }
 
             response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1",
@@ -1493,19 +1506,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101402
-                Site.CaptureRequirementIfIsNull(
+                if (Common.IsRequirementEnabled(1102401, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101402
+                    Site.CaptureRequirementIfIsNull(
                          response.ResponseCollection.Response[0].SuggestedFileName,
                          "MS-FSSHTTP",
                          1101402,
                          @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11024
-                Site.CaptureRequirementIfIsNotNull(
-                    response.ResponseCollection.Response[0].SuggestedFileName,
-                    "MS-FSSHTTP",
-                    11024,
-                    @"[In Response] SuggestedFileName: The suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request.");
+                }
 
             }
             else
@@ -1515,9 +1524,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                Site.Assert.IsNull(
+                if (Common.IsRequirementEnabled(1102401, this.Site))
+                {
+                    Site.Assert.IsNull(
                     response.ResponseCollection.Response[0].SuggestedFileName,
                     "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
+                }
             }
         }
         #endregion
