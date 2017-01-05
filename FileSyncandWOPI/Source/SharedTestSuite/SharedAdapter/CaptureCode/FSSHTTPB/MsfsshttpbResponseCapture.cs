@@ -835,7 +835,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
 
-            // Capture requirement MS-FSSHTTPB_R99059, if the header is StreamObjectHeaderStart32bit.
+            // Capture requirement MS-FSSHTTPB_R4094, if the header is StreamObjectHeaderStart32bit.
             site.CaptureRequirementIfAreEqual<Type>(
                      typeof(StreamObjectHeaderStart32bit),
                      instance.StreamObjectHeaderStart.GetType(),
