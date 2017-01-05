@@ -116,6 +116,18 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateVersioningUserTableType(VersioningUserTableType userTable, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11158
+            site.CaptureRequirement(
+                "MS-FSSHTTP",
+                11158,
+                @"[In VersioningUserTableType] 
+ <xs:complexType name=""VersioningUserTableType"">
+    <s:element name=""UserTable"" minOccurs=""1"" maxOccurs=""1"">
+       <s:complexType>
+          <s:element name=""User"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:UserDataType"" />
+       </s:complexType>
+    </s:element>
+ </xs:complexType>");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11159
             site.CaptureRequirement(
@@ -181,6 +193,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateVersioningVersionListType(VersioningVersionListType versionList, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11161
+            site.CaptureRequirement(
+                "MS-FSSHTTP",
+                11161,
+                @"[In VersioningVersionListType] 
+ <xs:complexType name=""VersioningVersionListType"">
+    <s:element name=""Versions"" minOccurs=""1"" maxOccurs=""1"">
+       <s:complexType>
+          <s:element name=""Version"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:FileVersionDataType"" />
+       </s:complexType>
+    </s:element>
+ </xs:complexType>");
+
             if (versionList.Version != null)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11162
@@ -197,6 +222,23 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     "MS-FSSHTTP",
                     11176,
                     @"[In FileVersionDataType] Number: A FileVersionNumberType (section 2.2.5.15) that specifies the unique version number of the version of the file.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11078
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11078,
+                    @"[In FileVersionNumberType] [The schema of FileVersionNumberType is:] 
+<xs:simpleType name=""FileVersionNumberType"">
+    <xs:restriction base=""xs:string"">
+      <xs:pattern value=""[0-9]+[.][0-9]+"" />
+    </xs:restriction>
+ </xs:simpleType>");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11079
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11079,
+                    @"[In FileVersionNumberType] The value of a FileVersionNumberType is typically in the form major.minor (for example, 1.0).");
             }
 
             if (!string.IsNullOrEmpty(versionList.Version[0].LastModifiedTime))

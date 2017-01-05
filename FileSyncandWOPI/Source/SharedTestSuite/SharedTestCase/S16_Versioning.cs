@@ -101,6 +101,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     11055,
                     @"[In SubResponseDataGenericType] The Versions element MUST be included in the response if the SubResponseType of the parent VersioningSubResponseType is of type ""GetVersionList.""");
 
+                bool isR1117501Verified = bool.Parse(versioningSubResponse.SubResponseData.Versions.Version[0].IsCurrent);
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1117501
+                Site.CaptureRequirementIfIsTrue(
+                    isR1117501Verified,
+                    "MS-FSSHTTP",
+                    1117501,
+                    @"[In FileVersionDataType] IsCurrent: True specifies this version is the most recent version of the file.");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11150
                 // This requirement can be captured directly after capturing MS-FSSHTTP_R11146 and MS-FSSHTTP_R11148
                 Site.CaptureRequirement(

@@ -480,13 +480,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      610,
                      @"[In Put Changes] Resultant Knowledge (variable): A Knowledge (section 2.2.1.13) that specifies the current state of the file on the server after the changes is merged.");
 
-            // Directly capture requirement MS-FSSHTTPB_R4096, if the reserved value equals to 0. 
-            site.CaptureRequirementIfAreEqual<int>(
-                     0,
-                     instance.DiagnosticRequestOptionOutput.Reserved,
-                     "MS-FSSHTTPB",
-                     4096,
-                     @"[In Put Changes] Reserved (7 bits): A 7-bit reserved field that MUST be set to zero [and MUST be ignored].");
+            if (instance.DiagnosticRequestOptionOutput != null)
+            {
+                // Directly capture requirement MS-FSSHTTPB_R4096, if the reserved value equals to 0. 
+                site.CaptureRequirementIfAreEqual<int>(
+                         0,
+                         instance.DiagnosticRequestOptionOutput.Reserved,
+                         "MS-FSSHTTPB",
+                         4096,
+                         @"[In Put Changes] Reserved (7 bits): A 7-bit reserved field that MUST be set to zero [and MUST be ignored].");
+            }
         }
 
         /// <summary>
@@ -832,13 +835,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
 
-            // Capture requirement MS-FSSHTTPB_R4094, if the header is StreamObjectHeaderStart32bit.
+            // Capture requirement MS-FSSHTTPB_R99059, if the header is StreamObjectHeaderStart32bit.
             site.CaptureRequirementIfAreEqual<Type>(
                      typeof(StreamObjectHeaderStart32bit),
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      4094,
                      @"[In Put Changes] Diagnostic Request Option Output Header (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Diagnostic Request Option Output.");
+
+
         }
 
         /// <summary>

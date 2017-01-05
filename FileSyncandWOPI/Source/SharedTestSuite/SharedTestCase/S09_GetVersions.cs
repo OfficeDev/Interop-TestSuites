@@ -566,12 +566,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                      "MS-FSSHTTP",
                      11272,
                      @"[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11074
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.Success,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         11074,
+                         @"[In MinorVersionNumberType][The value of MinorVersionNumberType] 3: In responses, indicates that the protocol server is capable of performing ResourceID specific behavior.");
             }
             else
             {
                 Site.Assert.IsTrue(
                     cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
                     "[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+            Site.Assert.AreEqual<ErrorCodeType>(
+                         ErrorCodeType.Success,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                         @"[In MinorVersionNumberType][The value of MinorVersionNumberType] 3: In responses, indicates that the protocol server is capable of performing ResourceID specific behavior.");
             }
         }
 
