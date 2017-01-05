@@ -842,8 +842,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTPB",
                      4094,
                      @"[In Put Changes] Diagnostic Request Option Output Header (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Diagnostic Request Option Output.");
-
-
         }
 
         /// <summary>
