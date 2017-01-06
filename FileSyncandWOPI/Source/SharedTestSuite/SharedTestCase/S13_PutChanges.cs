@@ -107,6 +107,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            
+            // Create a putChanges cellSubRequest
+            ExGuid storageIndexExGuid2;
+            List<DataElement> dataElements1 = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid2);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid2);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            cellRequest.AddSubRequest(putChange,  null);
+            CellSubRequestType cellSubRequest1 = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest1 });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4050
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                         CellErrorCode.Referenceddataelementnotfound,
+                         fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                         "MS-FSSHTTPB",
+                         4050,
+                         @"[In Put Changes] If the Extended GUID does not have the corresponding data element in the Data Element Package of the request, the protocol server MUST return a Cell Error failure value of 16 indicating the referenced data element not found failure, as specified in section 2.2");
+            }
         }
 
         /// <summary>
