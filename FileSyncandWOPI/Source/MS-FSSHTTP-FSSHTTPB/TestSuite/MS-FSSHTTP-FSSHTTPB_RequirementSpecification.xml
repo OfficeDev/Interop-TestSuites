@@ -1346,7 +1346,6 @@ The RequestVersion element specifies the version-specific information about the 
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11277.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11014</ns1:REQ_ID>
@@ -5492,7 +5491,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3023, MS-FSSHTTP_R11270.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R3023.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R352</ns1:REQ_ID>
