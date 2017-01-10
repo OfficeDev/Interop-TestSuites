@@ -170,6 +170,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
+                if (Common.IsRequirementEnabled(11274, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11274
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.RequestNotSupported,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(firstJoinResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             11274,
+                             @"[In Appendix B: Product Behavior] [The protocol server MUST follow the following common processing rules for all types of subrequests] The implementation does not return an error code value set to ""RequestNotSupported"" for a cell storage service subrequest if the following conditions are all true: 
+
+                             The protocol client sent a coauthoring subrequest;
+                             The protocol server supports shared locking with tracking of the coauthoring transition;
+                             The coauthoring administrator setting for the server is turned off. (Microsoft SharePoint Foundation 2010 / Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                }
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1019
                 Site.CaptureRequirementIfAreEqual<LockTypes>(
                          LockTypes.ExclusiveLock,
@@ -1035,6 +1050,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              "MS-FSSHTTP",
                              382,
                              @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServerAsCoauthDisabled indicates an error when no shared lock exists on a file because coauthoring of the file is disabled on the server.");
+                }
+
+                if (Common.IsRequirementEnabled(11274, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11274
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.RequestNotSupported,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             11274,
+                             @"[In Appendix B: Product Behavior] [The protocol server MUST follow the following common processing rules for all types of subrequests] The implementation does not return an error code value set to ""RequestNotSupported"" for a cell storage service subrequest if the following conditions are all true: 
+
+                             The protocol client sent a coauthoring subrequest;
+                             The protocol server supports shared locking with tracking of the coauthoring transition;
+                             The coauthoring administrator setting for the server is turned off. (Microsoft SharePoint Foundation 2010 / Microsoft SharePoint Server 2010 and above follow this behavior.)");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3105

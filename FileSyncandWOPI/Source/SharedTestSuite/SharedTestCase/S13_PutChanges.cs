@@ -315,20 +315,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R940
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.Success,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTPB",
-                         940,
-                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If Imply Null Expected if No Mapping is not zero], if the flag[Imply Null Expected if No Mapping] specifies one, the protocol server MUST only apply the change if no mapping exists (the key that is to be updated in the protocol server’s Storage Index doesn't exist or it maps to nil).");
-            }
-            else
-            {
-                this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
-            }
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
         }
 
         /// <summary>
@@ -1374,6 +1362,82 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.Assert.IsFalse(
                     isForced,
                     @"[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify if the key that is to be updated in the protocol server's Storage Index does not exist in the 
+        /// expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC23_PutChanges_ImplyFlagWithKeyNotExist()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query changes from the protocol server
+            CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            CellStorageResponse queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            CellSubResponseType querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            ExGuid storageIndex = fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Create a putChanges cellSubRequest with specify expected Storage Index and ImplyNullExpectedIfNoMapping set to 0.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            putChange.ImplyNullExpectedIfNoMapping = 0;
+            dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            // If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+            // If this flag is zero, the protocol server MUST apply the change without checking the current value.
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            ExGuid index2 = storageIndex;
+            storageIndex = fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Create a putChanges cellSubRequest with specify expected Storage Index and ImplyNullExpectedIfNoMapping set to 1.
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            putChange.ImplyNullExpectedIfNoMapping = 1;
+            dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            // If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+            // If this flag is one, the protocol server MUST only apply the change if no mapping exists.
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2168
+                // This requirement can be captured directly after above steps.
+                Site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         2168,
+                         @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.");
             }
         }
         #endregion 

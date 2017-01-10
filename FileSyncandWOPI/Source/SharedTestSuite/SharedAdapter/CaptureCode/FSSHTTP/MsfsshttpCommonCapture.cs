@@ -217,6 +217,29 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      121,
                      @"[In ResponseCollection] The WebUrl attribute MUST be specified for each ResponseCollection element.");
 
+            // Verify MS-FSSHTTP_R116
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     116,
+                     @"[In ResponseCollection][ResponseCollection schema is:]
+                     <xs:element name=""ResponseCollection"">
+                         < xs:complexType >
+                           < xs:sequence minOccurs = ""1"" maxOccurs = ""unbounded"" >
+                             < xs:element ref= ""tns:Response"" />
+                           </ xs:sequence >
+                           < xs:attribute name = ""WebUrl"" type = ""xs:string"" use = ""required"" />
+                         </ xs:complexType >
+                     </ xs:element > ");
+
+            if (!string.IsNullOrEmpty(requestToken))
+            {
+                site.CaptureRequirementIfIsTrue(
+                    responseCollection.Response != null && responseCollection.Response.Length > 0,
+                    "MS-FSSHTTP",
+                    114,
+                    @"[In ResponseCollection] The ResponseCollection element MUST contain one or more Response elements.");
+            }
+
             // Now here only supported one request.
             if (responseCollection.Response != null && responseCollection.Response.Length >= 1)
             {
