@@ -343,20 +343,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             if (CompoundTypes.Contains(this.StreamObjectType))
             {
-                StreamObjectHeaderEnd end;
-                if ((int)this.StreamObjectType <= 0x3F)
+                StreamObjectHeaderEnd end = null;
+                BitReader bitReader = new BitReader(byteArray, index);
+                int aField = bitReader.ReadInt32(2);
+                if (aField == 0x1)
                 {
                     end = BasicObject.Parse<StreamObjectHeaderEnd8bit>(byteArray, ref index);
                 }
-                else
+                if (aField == 0x3)
                 {
                     end = BasicObject.Parse<StreamObjectHeaderEnd16bit>(byteArray, ref index);
                 }
 
-                if ((int)end.Type != (int)this.StreamObjectType)
-                {
-                    throw new StreamObjectParseErrorException(index, null, "Unexpected the stream header end value " + (int)this.StreamObjectType, null);
-                }
+                //if ((int)end.Type != (int)this.StreamObjectType)
+                //{
+                //    throw new StreamObjectParseErrorException(index, null, "Unexpected the stream header end value " + (int)this.StreamObjectType, null);
+                //}
 
                 this.StreamObjectHeaderEnd = end;
             }

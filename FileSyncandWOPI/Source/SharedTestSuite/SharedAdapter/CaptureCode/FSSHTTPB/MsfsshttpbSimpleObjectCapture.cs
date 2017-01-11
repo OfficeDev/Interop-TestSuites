@@ -2093,6 +2093,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="site">Specify the ITestSite instance.</param>
         private void ExpectStreamObjectHeaderEnd(StreamObjectHeaderEnd header, Type type, ITestSite site)
         {
+            if(header==null)
+            {
+                return;
+            }
             switch (header.Type)
             {
                 case StreamObjectTypeHeaderEnd.RootNodeEnd:

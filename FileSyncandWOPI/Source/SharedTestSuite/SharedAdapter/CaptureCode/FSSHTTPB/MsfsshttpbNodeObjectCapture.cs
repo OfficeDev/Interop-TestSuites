@@ -105,22 +105,24 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
             this.ExpectCompoundObject(instance.StreamObjectHeaderStart, site);
+            if (instance.StreamObjectHeaderEnd != null)
+            {
+                // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R63
+                site.CaptureRequirementIfAreEqual<Type>(
+                         typeof(StreamObjectHeaderEnd8bit),
+                         instance.StreamObjectHeaderEnd.GetType(),
+                         "MS-FSSHTTPD",
+                         63,
+                         @"[In Leaf Node Object Data] Leaf Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x1F.");
 
-            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R63
-            site.CaptureRequirementIfAreEqual<Type>(
-                     typeof(StreamObjectHeaderEnd8bit),
-                     instance.StreamObjectHeaderEnd.GetType(),
-                     "MS-FSSHTTPD",
-                     63,
-                     @"[In Leaf Node Object Data] Leaf Node End (1 byte): An 8-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.3, that specifies a stream object of type 0x1F.");
-
-            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8014
-            site.CaptureRequirementIfAreEqual<byte>(
-                     0x7D,
-                     instance.StreamObjectHeaderEnd.SerializeToByteList()[0],
-                     "MS-FSSHTTPD",
-                     8014,
-                     @"[In Leaf Node Object Data] Leaf Node End (1 byte):The value of this field[Leaf Node End] MUST be 0x7D.");
+                // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8014
+                site.CaptureRequirementIfAreEqual<byte>(
+                         0x7D,
+                         instance.StreamObjectHeaderEnd.SerializeToByteList()[0],
+                         "MS-FSSHTTPD",
+                         8014,
+                         @"[In Leaf Node Object Data] Leaf Node End (1 byte):The value of this field[Leaf Node End] MUST be 0x7D.");
+            }
         }
 
         /// <summary>
