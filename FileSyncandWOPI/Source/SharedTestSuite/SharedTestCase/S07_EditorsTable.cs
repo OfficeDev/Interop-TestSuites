@@ -822,7 +822,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3031,
-                             @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
             else

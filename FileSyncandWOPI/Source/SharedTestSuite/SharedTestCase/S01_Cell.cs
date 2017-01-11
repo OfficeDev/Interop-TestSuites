@@ -831,7 +831,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
 
                 // If both the Etag are not equal, then capture requirement R2087, R2088
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2087
@@ -901,7 +901,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R819
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
