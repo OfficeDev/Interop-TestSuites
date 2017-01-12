@@ -1323,12 +1323,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTPB",
                          2128,
                          @"[In Cell Knowledge Range] From (variable): When combined with the GUID, it[From (variable)] forms the serial number of the starting data element in the range.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4007
+                Site.CaptureRequirementIfIsNotNull(
+                         cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                         "MS-FSSHTTPB",
+                         4007,
+                         @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
             else
             {
                 Site.Assert.IsTrue(
                     isCombined,
                     @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting serial number (section 2.2.1.9) of the range.");
+
+                Site.Assert.IsNotNull(
+                    cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                    @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
         }
 
@@ -1498,6 +1509,85 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
         }
 
+
+        /// <summary>
+        /// This test method aims to verify flag Round Knowledge to Whole Cell Changes.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC29_QueryChanges_RoundKnowledgeToWholeCellChanges()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query change
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            cellRequest.AddSubRequest(queryChange, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            Knowledge knowledgeFirst = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().Knowledge;
+            ExGuid storageIndex = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Put Change
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            dataElements.AddRange(queryResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            // Query change again
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
+
+            // Query change with first knowledge
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            queryChange.RoundKnowledgeToWholeCellChanges = 1;
+            queryChange.Knowledge = knowledgeFirst;
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            DataElement dataSecond = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4042
+                Site.CaptureRequirementIfAreEqual<ExGuid>(
+                    ((CellManifestDataElementData)data.Data).CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID,
+                    ((CellManifestDataElementData)dataSecond.Data).CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID,
+                         "MS-FSSHTTPB",
+                         4042,
+                         @"[In Query Changes] F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+            }
+        }
         #endregion
     }
 }
