@@ -88,13 +88,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 return;
             }
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R65
-            site.CaptureRequirementIfAreEqual<string>(
-                     expectedToken,
-                     response.RequestToken,
-                     "MS-FSSHTTP",
-                     65,
-                     @"[In Request] The one-to-one mapping between the Response element and the Request element MUST be maintained by using RequestToken.");
+            if (!string.IsNullOrEmpty(expectedToken))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R65
+                site.CaptureRequirementIfAreEqual<string>(
+                         expectedToken,
+                         response.RequestToken,
+                         "MS-FSSHTTP",
+                         65,
+                         @"[In Request] The one-to-one mapping between the Response element and the Request element MUST be maintained by using RequestToken.");
+            }
 
             // Directly capture requirement MS-FSSHTTPB_R70, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -102,37 +105,40 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      70,
                      @"[In Request] Depending on the other types of errors[GenericErrorCodeTypes, CellRequestErrorCodeTypes, DependencyCheckRelatedErrorCodeTypes, LockAndCoauthRelatedErrorCodeTypes and NewEditorsTableCategoryErrorCodeTypes], the error code for that type MUST be returned by the protocol server.");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R929
-            site.CaptureRequirementIfAreEqual<string>(
+            if (!string.IsNullOrEmpty(expectedToken))
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R929
+                site.CaptureRequirementIfAreEqual<string>(
                      expectedToken,
                      response.RequestToken,
                      "MS-FSSHTTP",
                      929,
                      @"[In Common Message Processing Rules and Events][The protocol server MUST follow the following common processing rules for all types of subrequests] The protocol server sends a Response element for each Request element.");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R95
-            site.CaptureRequirementIfAreEqual<string>(
-                     expectedToken,
-                     response.RequestToken,
-                     "MS-FSSHTTP",
-                     95,
-                     @"[In Response] For each Request element that is part of a cell storage service request, there MUST be a corresponding Response element in a cell storage service response.");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R95
+                site.CaptureRequirementIfAreEqual<string>(
+                         expectedToken,
+                         response.RequestToken,
+                         "MS-FSSHTTP",
+                         95,
+                         @"[In Response] For each Request element that is part of a cell storage service request, there MUST be a corresponding Response element in a cell storage service response.");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R105
-            site.CaptureRequirementIfAreEqual<string>(
-                     expectedToken,
-                     response.RequestToken,
-                     "MS-FSSHTTP",
-                     105,
-                     @"[In Response] RequestToken: A nonnegative integer that specifies the request token that uniquely identifies the Request element whose response is being generated.");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R105
+                site.CaptureRequirementIfAreEqual<string>(
+                         expectedToken,
+                         response.RequestToken,
+                         "MS-FSSHTTP",
+                         105,
+                         @"[In Response] RequestToken: A nonnegative integer that specifies the request token that uniquely identifies the Request element whose response is being generated.");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R108
-            site.CaptureRequirementIfAreEqual<string>(
-                     expectedToken,
-                     response.RequestToken,
-                     "MS-FSSHTTP",
-                     108,
-                     @"[In Response] The one-to-one mapping between the Response element and the Request element MUST be maintained by using the request token.");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R108
+                site.CaptureRequirementIfAreEqual<string>(
+                         expectedToken,
+                         response.RequestToken,
+                         "MS-FSSHTTP",
+                         108,
+                         @"[In Response] The one-to-one mapping between the Response element and the Request element MUST be maintained by using the request token.");
+            }
         }
 
         /// <summary>
