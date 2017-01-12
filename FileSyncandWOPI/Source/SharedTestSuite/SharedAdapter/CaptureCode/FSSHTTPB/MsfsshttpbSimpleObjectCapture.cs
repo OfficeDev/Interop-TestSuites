@@ -489,6 +489,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.Assert.Fail("The instance of type SerialNumber is null due to parsing error or type casting error.");
             }
 
+            // Directly capture requirement MS-FSSHTTPB_R4006, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     4006,
+                     @"[In Serial Number] The Serial Number of a data element can be created by the creator of the data element, but the server is authoritative and can replace a serial number that is created by the client.");
+
             switch (instance.Type)
             {
                 case 0:
