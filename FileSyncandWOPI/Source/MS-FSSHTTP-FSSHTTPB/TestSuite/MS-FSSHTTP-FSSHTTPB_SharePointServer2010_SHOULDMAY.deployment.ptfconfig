@@ -163,5 +163,7 @@
   <Property name="R1102401Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11274Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does not return error "RequestNotSupported" when coauthoring Feature is disabled. Set R11274Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
   <Property name="R11274Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a Leaf Node Object not the Intermediate Node Object at the beginning. Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>
