@@ -1323,12 +1323,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTPB",
                          2128,
                          @"[In Cell Knowledge Range] From (variable): When combined with the GUID, it[From (variable)] forms the serial number of the starting data element in the range.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4007
+                Site.CaptureRequirementIfIsNotNull(
+                         cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                         "MS-FSSHTTPB",
+                         4007,
+                         @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
             else
             {
                 Site.Assert.IsTrue(
                     isCombined,
                     @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting serial number (section 2.2.1.9) of the range.");
+
+                Site.Assert.IsNotNull(
+                    cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                    @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
         }
 
@@ -1497,7 +1508,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     "Server must return same response whenever the A- Reserved field is set to 0 or 1.");
             }
         }
-
         #endregion
     }
 }
